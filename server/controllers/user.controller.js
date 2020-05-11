@@ -124,3 +124,17 @@ module.exports.resendVerifyResetPassword = (req, res) => {
     } else return res.status(404).json({ message: 'User not found.' });
   });
 }
+
+module.exports.resetPassword = (req, res) => {
+  User.findOne({ username: req.params.username, emailVerifyCode: req.body.code, emailVerified: true }, (err, user) => {
+    if (user) {
+      user.emailVerifyCode = '';
+      user.password = req.body.password;
+
+      user.save(err => {
+        return err ? res.status(400).json({ message: 'Update is error.' })
+                   : res.status(200).json({ message: 'Password reset successfully.' });
+      });
+    } else return res.status(404).json({ message: 'Verification Code is wrong.' });
+  });
+}
