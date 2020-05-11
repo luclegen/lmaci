@@ -1,8 +1,9 @@
 # COMMAND
 
 # * Prerequisites *
-sudo npm install -g @angular/cli
-sudo npm install -g nodemon
+sudo npm i -g npm
+sudo npm i -g @angular/cli
+sudo npm i -g nodemon
 
 # I. ANGULAR CLIENT
 ng new client
