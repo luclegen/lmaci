@@ -18,6 +18,7 @@ Footer Component: Initial
 Top Navbar Component: Initial
 Home Component: Initial
 Routes: Home Component
+User Component: Initial
 Commit
 
 II. NODEJS SERVER
