@@ -43,6 +43,8 @@ module.exports.register = (req, res, next) => {
 }
 
 module.exports.verifyEmail = (req, res) => {
+  idChecker.check(req.params.id);
+
   User.findById(req.params.id, (err, user) => {
     let userVerified = {
       email: user.email,
