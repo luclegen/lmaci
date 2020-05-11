@@ -31,5 +31,6 @@ Helpers: Mailer
 User Controller: register
 User Router: POST register
 User Controller: verifyEmail
+User Router: POST verifyEmail
 User Controller: resendVerifyEmail
 Commit
