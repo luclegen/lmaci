@@ -27,6 +27,7 @@ Index: Lmaci title
 Top Navbar Component: Form
 Top Navbar Component: expandA
 Global Styles
+Top Navbar Component: onLogout
 Commit
 
 II. NODEJS SERVER
