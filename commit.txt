@@ -10,6 +10,7 @@ Detail
 
 I. ANGULAR CLIENT
 Initial Client
+Images
 Commit
 
 II. NODEJS SERVER
