@@ -138,3 +138,22 @@ module.exports.resetPassword = (req, res) => {
     } else return res.status(404).json({ message: 'Verification Code is wrong.' });
   });
 }
+
+module.exports.changePassword = (req, res) => {
+  if (!ObjectId.isValid(req.params.id))
+    return res.status(400).json({ message: `No record with given id: ${req.params.id}` });
+  
+  User.findById(req.params.id, (err, user) => {
+    if (user) {
+      if (!user.emailVerified) return res.status(422).json({ message: 'Email isn\'t verified.' });
+      if (user.verifyPassword(req.body.password)) {
+        user.password = req.body.newPassword
+        
+        user.save(err => {
+          return err ? res.status(400).json({ message: 'Update is error.' })
+                   : res.status(200).json({ message: 'Password was successfully changed.' });
+        });
+      } else return res.status(403).json({ message: 'Wrong password.' });
+    } else return res.status(404).json({ message: 'User not found.' });
+  });
+}
