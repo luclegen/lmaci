@@ -44,7 +44,7 @@ module.exports.register = (req, res, next) => {
 
 module.exports.verifyEmail = (req, res) => {
   if (!ObjectId.isValid(req.params.id))
-    return res.status(400).json({ message: `No record with given id: ${req.params.id}` });
+    return res.status(400).json({ status: false, message: `No record with given id: ${req.params.id}` });
 
   User.findById(req.params.id, (err, user) => {
     let userVerified = {
