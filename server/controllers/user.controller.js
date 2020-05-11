@@ -157,10 +157,3 @@ module.exports.changePassword = (req, res) => {
     } else return res.status(404).json({ message: 'User not found.' });
   });
 }
-
-module.exports.profile = (req, res) => {
-  User.findOne({ _id: req._id }, (err, user) => {
-    return user ? res.status(200).json({ status: true, user: _.pick(user, [ 'avatar', 'firstName', 'fullName', 'role', 'email', 'emailVerified', 'mobileNumber', 'username', 'address']) })
-                : res.status(404).json({ status: false, message: 'User not found.' });
-  });
-}
