@@ -1,1 +1,96 @@
-/* You can add global styles to this file, and also import other style files */
+// GLOBAL STYLES
+
+$normal-font-size: 25px
+
+*
+  margin: 0
+  font-family: Sans-serif, Arial
+
+section.center-content
+  display: flex
+  background-color: aqua
+  justify-content: center
+  align-items: center
+
+div.center-box
+  display: flex
+  justify-content: center
+  align-items: center
+  background-color: lime
+  flex-direction: column
+  width: auto
+  height: auto
+  padding: 20px
+  border-radius: 25px
+
+a
+  text-decoration: none
+  color: blue
+
+form
+  display: flex
+  height: auto
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  text-align: center
+
+input
+  height: 50px
+  padding: 0
+  font-size: $normal-font-size
+  text-align: center
+  color: white
+  outline: none
+  margin-top: 10px
+  background-color: green
+
+input.invalid-input
+  border: 2px solid red
+
+input::placeholder
+  color: silver
+  font-size: $normal-font-size
+  text-align: center
+
+input[type=submit]
+  background-color: navy
+
+input[type=submit]:disabled
+  background-color: gray
+  color: silver
+
+
+label.err
+  color: red
+
+label.msg
+  margin-top: 10px
+  padding: 10px 0
+  border-radius: 15px
+  color: white
+  text-align: center
+  width: 100%
+  font-size: 25px
+
+label.err-msg
+  background-color: red
+
+label.suc-msg
+  background-color: blue
+
+label.left
+  float: left
+
+label.right
+  float: right
+
+span.option
+  width: 100%
+  margin-top: 10px
+
+  a#right
+    float: right
+
+svg:hover
+  fill: white
