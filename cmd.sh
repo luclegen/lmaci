@@ -7,7 +7,7 @@ sudo npm i -g nodemon
 
 # I. ANGULAR CLIENT
 ng new client
-cd client; ng s -o
+clear; cd client; ng s -o
 ng g class user --type=model
 
 # Optional
