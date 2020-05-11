@@ -13,6 +13,7 @@ Initial Client
 Images
 Images: Root
 Header Component: Initial
+Body Component: Initial
 Commit
 
 II. NODEJS SERVER
