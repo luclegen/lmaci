@@ -41,4 +41,5 @@ User Controller: authenticat
 User Router: POST authenticatee
 User Controller: findUsername
 User Router: POST findUsername
+User Controller: resendVerifyResetPassword
 Commit
