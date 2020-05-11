@@ -33,5 +33,5 @@ User Router: POST register
 User Controller: verifyEmail
 User Router: POST verifyEmail
 User Controller: resendVerifyEmail
-Helpers: Id Checker
+User Router: GET resendVerifyEmail
 Commit
