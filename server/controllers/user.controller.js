@@ -96,3 +96,12 @@ module.exports.changeEmail = (req, res) => {
     } else res.status(404).json({ message: 'User not found.' });
   });
 }
+
+module.exports.authenticate = (req, res) => {
+  // Call for passport authentication
+  passport.authenticate('local', (err, user, info) => {
+    return err ? res.status(400).json(err) // Error from passport middleware
+               : user ? res.status(200).json({ "token": user.generateJwt() }) // Registered user
+                      : res.status(404).json(info); // Unknow user or wrong password
+  })(req, res);
+}
