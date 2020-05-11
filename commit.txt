@@ -24,4 +24,5 @@ User Router
 User Controller: register
 Helpers: Name Converter
 Helpers: Code Generator
+Helpers: Json Web Token
 Commit
