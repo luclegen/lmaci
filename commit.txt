@@ -20,3 +20,4 @@ JSON Package
 Server App
 Database Configuration
 User Model
+Passport Configuration
