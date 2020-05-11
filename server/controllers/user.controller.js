@@ -53,7 +53,7 @@ module.exports.verifyEmail = (req, res) => {
       emailVerified: false
     }
     
-    if (user.emailVerified) return res.status(422).json({ status: true, message: 'Email is verified.' })
+    if (user.emailVerified) return res.status(422).json({ status: true, message: 'Email is verified.' });
     else if (req.body.code == user.emailVerifyCode) {
       User.updateMany({ email: userVerified.email }, { $set: userEmailRemoved }, { multi: true }, (err, result) => {
         if (err) return res.status(404).json({ message: 'Duplicated emails weren\'t found.' });
