@@ -71,7 +71,7 @@ module.exports.verifyEmail = (req, res) => {
 module.exports.resendVerifyEmail = (req, res) => {
   User.findById(req.params.id, (err, user) => {
     if (user) {
-      if (user.emailVerified) return res.status(422).json({ message: 'Email is verified.' })
+      if (user.emailVerified) return res.status(422).json({ message: 'Email is verified.' });
       mailer.sendVerifyEmail(user.email, 'Verify Email', user.emailVerifyCode);
       return res.status(200).json({ message: 'Resent Verification Code.' });
     } else return res.status(404).json({ message: 'User not found.' });
