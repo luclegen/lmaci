@@ -21,4 +21,5 @@ Database Configuration
 User Model
 Passport Configuration
 User Router
+User Controller: register
 Commit
