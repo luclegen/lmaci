@@ -29,6 +29,6 @@ Helpers: Code Generator
 Helpers: Json Web Token
 Helpers: Mailer
 User Controller: register
-User Rouer: POST register
+User Router: POST register
 User Controller: verifyEmail
 Commit
