@@ -1,0 +1,94 @@
+$nav-height: 60px
+$width: 60px
+$page-width: 100%
+$logo-edge: 60px
+$main-logo-edge: 50px
+$sub-logo-edge: 40px
+$border-width: 5px
+
+nav
+  display: flex
+  justify-content: center
+  align-items: center 
+  height: $nav-height
+  width: $page-width
+  background-color: lime
+  overflow: hidden
+
+  a
+    text-decoration: none
+
+    img
+      height: $main-logo-edge
+      width: $main-logo-edge
+    
+    img#account-img
+      height: $sub-logo-edge
+      width: $sub-logo-edge
+
+  a.a
+    width: auto
+    height: auto
+    margin: 0 $border-width !important
+
+nav.sub-nav
+  position: absolute
+  top: $nav-height
+  left: 0
+  transition: height 0.5s
+  width: $page-width
+  background-color: green
+  height: 0
+  font-size: 20px
+  
+  a
+
+    svg
+      height: $logo-edge 
+      width: auto
+
+    svg.sub-svg
+      height: $sub-logo-edge
+
+  div
+    display: flex
+    width: 100%
+
+    a
+      margin: 0 auto
+
+ul
+  display: inherit
+  padding: 0
+  text-decoration-style: none
+  width: $page-width
+  list-style-type: none
+
+  li
+    display: inherit
+    flex-direction: column
+    margin: 0 auto
+    height: $nav-height
+    align-items: center
+    justify-content: center
+    
+    a
+      margin: 0 auto
+      color: black
+      text-align: center
+
+      div
+
+        img
+          border-radius: 50%
+
+    a#logo
+      display: inherit
+
+    a:hover
+      color: white
+      fill: white
+
+    svg
+      height: $sub-logo-edge
+      width: $sub-logo-edge
