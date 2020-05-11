@@ -6,6 +6,7 @@ Settings
 License
 Git Ignore
 Command
+Detail
 
 I. ANGULAR CLIENT
 Commit
