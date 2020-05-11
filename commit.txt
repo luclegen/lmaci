@@ -22,4 +22,5 @@ User Model
 Passport Configuration
 User Router
 User Controller: register
+Helpers: Name Converter
 Commit
