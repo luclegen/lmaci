@@ -14,6 +14,10 @@ export class TopNavbarComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onLogout() {
+    
+  }
+
   expandA(id, master, nav, height) {
     let a_id = document.getElementById(id),
         master_style = document.getElementById(master).style,
