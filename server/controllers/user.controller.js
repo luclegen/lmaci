@@ -44,7 +44,7 @@ module.exports.register = (req, res, next) => {
 
 module.exports.verifyEmail = (req, res) => {
   if (!ObjectId.isValid(req.params.id))
-    return res.status(400).json({ status: false, message: `No record with given id: ${req.params.id}` });
+    return res.status(400).json({ message: `No record with given id: ${req.params.id}` });
 
   User.findById(req.params.id, (err, user) => {
     let userVerified = {
@@ -57,14 +57,14 @@ module.exports.verifyEmail = (req, res) => {
       emailVerified: false
     }
     
-    if (user.emailVerified) return res.status(422).json({ status: true, message: 'Email is verified.' });
+    if (user.emailVerified) return res.status(422).json({ message: 'Email is verified.' });
     else if (req.body.code == user.emailVerifyCode) {
       User.updateMany({ email: userVerified.email }, { $set: userEmailRemoved }, { multi: true }, (err, result) => {
-        if (err) return res.status(404).json({ status: false, message: 'Duplicated emails weren\'t found.' });
+        if (err) return res.status(404).json({ message: 'Duplicated emails weren\'t found.' });
         else {
           User.findByIdAndUpdate(req.params.id, { $set: userVerified }, { new: true }, (err, result) => {
-            return err ? res.status(404).json({ status: false, message: 'User Verified wasn\'t found.' })
-                       : res.status(200).json({ status: true, message: 'Email is verified.' });
+            return err ? res.status(404).json({ message: 'User Verified wasn\'t found.' })
+                       : res.status(200).json({ message: 'Email is verified.' });
           });
         }
       });
