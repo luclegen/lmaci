@@ -46,4 +46,5 @@ User Router: GET resendVerifyResetPassword
 User Controller: resetPassword
 User Router: PUT resetPassword
 User Controller: changePassword
+User Router: PUT changePassword
 Commit
