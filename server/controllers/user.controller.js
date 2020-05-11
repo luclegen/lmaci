@@ -40,3 +40,30 @@ module.exports.register = (req, res, next) => {
     }
   });
 }
+
+module.exports.verifyEmail = (req, res) => {
+  User.findById(req.params.id, (err, user) => {
+    let userVerified = {
+      email: user.email,
+      emailVerifyCode: '',
+      emailVerified: true
+    }, userEmailRemoved = {
+      email: '',
+      emailVerifyCode: '',
+      emailVerified: false
+    }
+    
+    if (user.emailVerified) return res.status(422).json({ status: true, message: 'Email is verified.' })
+    else if (req.body.code == user.emailVerifyCode) {
+      User.updateMany({ email: userVerified.email }, { $set: userEmailRemoved }, { multi: true }, (err, result) => {
+        if (err) return res.status(404).json({ message: 'Duplicated emails weren\'t found.' });
+        else {
+          User.findByIdAndUpdate(req.params.id, { $set: userVerified }, { new: true }, (err, result) => {
+            return err ? res.status(404).json({ message: 'User Verified wasn\'t found.' })
+                       : res.status(200).json({ status: true, message: 'Email is verified.' });
+          });
+        }
+      });
+    } else return res.status(403).json({ message: 'Verification Code is wrong.' });
+  });
+}
