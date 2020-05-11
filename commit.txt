@@ -3,3 +3,4 @@ COMMIT
 Commit
 Settings
 License
+Git Ignore
