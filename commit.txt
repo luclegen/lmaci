@@ -47,4 +47,5 @@ User Controller: resetPassword
 User Router: PUT resetPassword
 User Controller: changePassword
 User Router: PUT changePassword
+User Router: profile
 Commit
