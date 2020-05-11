@@ -22,6 +22,7 @@ User Component: Initial
 Module: FormsModul, RouterModule, HttpClientModule
 App Component: Layout
 Home Component: Top Navbar
+Footer Component: Horizontal Line
 Commit
 
 II. NODEJS SERVER
