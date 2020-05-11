@@ -84,3 +84,15 @@ module.exports.resendVerifyEmail = (req, res) => {
     } else return res.status(404).json({ message: 'User not found.' });
   });
 }
+
+module.exports.changeEmail = (req, res) => {
+  if (!ObjectId.isValid(req.params.id))
+    return res.status(400).json({ message: `No record with given id: ${req.params.id}` });
+
+  User.findByIdAndUpdate(req.params.id, { $set: { email: req.body.email, emailVerifyCode: codeGenerator.generateCode(6), emailVerified: false } }, { new: true }, (err, user) => {
+    if (user) {
+      mailer.sendVerifyEmail(user.email, 'Verify Email', user.emailVerifyCode);
+      res.status(200).json({ message: 'Email is changed.' });
+    } else res.status(404).json({ message: 'User not found.' });
+  });
+}
