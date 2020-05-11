@@ -1,6 +1,14 @@
 COMMIT
 
+* Prerequisites *
 Commit
 Settings
 License
 Git Ignore
+Command
+
+I. ANGULAR CLIENT
+Commit
+
+II. NODEJS SERVER
+Commit
