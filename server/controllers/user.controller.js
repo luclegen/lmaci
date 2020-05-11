@@ -4,6 +4,7 @@ const _ = require('lodash');
 const nameConverter = require('../helpers/name-converter');
 const mailer = require('../helpers/mailer');
 const codeGenerator = require('../helpers/code-generator');
+const idChecker = require('../helpers/id-checker');
 
 const User = require('../models/user.model');
 
@@ -69,6 +70,8 @@ module.exports.verifyEmail = (req, res) => {
 }
 
 module.exports.resendVerifyEmail = (req, res) => {
+  idChecker.check(req.params.id);
+
   User.findById(req.params.id, (err, user) => {
     if (user) {
       if (user.emailVerified) return res.status(422).json({ message: 'Email is verified.' });
