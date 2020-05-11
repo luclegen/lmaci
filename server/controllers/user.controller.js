@@ -115,3 +115,12 @@ module.exports.findUsername = (req, res) => {
     } else res.status(404).json({ message: 'User is not found.' });
   });
 }
+
+module.exports.resendVerifyResetPassword = (req, res) => {
+  User.findOne({ username: req.params.username }, (err, user) => {
+    if (user) {
+      mailer.sendVerifyEmail(user.email, 'Verify Reset Password', user.emailVerifyCode);
+      return res.status(200).json({ message: 'Resent Verification Code.' });
+    } else return res.status(404).json({ message: 'User not found.' });
+  });
+}
