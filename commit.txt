@@ -39,4 +39,5 @@ User Controller: changeEmail
 User Router: PUT changeEmail
 User Controller: authenticat
 User Router: POST authenticatee
+User Controller: findUsername
 Commit
