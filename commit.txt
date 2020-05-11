@@ -17,6 +17,7 @@ Body Component: Initial
 Footer Component: Initial
 Top Navbar Component: Initial
 Home Component: Initial
+Routes: Home Component
 Commit
 
 II. NODEJS SERVER
