@@ -15,6 +15,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 app.use(passport.initialize());
+app.use('/user', require('./routes/user.router'));
 
 // Error handle
 app.use((err, req, res, next) => {
