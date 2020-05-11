@@ -26,6 +26,7 @@ Footer Component: Horizontal Line
 Index: Lmaci title
 Top Navbar Component: Form
 Top Navbar Component: expandA
+Global Styles
 Commit
 
 II. NODEJS SERVER
