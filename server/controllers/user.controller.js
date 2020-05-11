@@ -108,10 +108,7 @@ module.exports.authenticate = (req, res) => {
 }
 
 module.exports.findUsername = (req, res) => {
-  if (!ObjectId.isValid(req.params.id))
-    return res.status(400).json({ message: `No record with given id: ${req.params.id}` });
-  
-    User.findOneAndUpdate({ email: req.body.email, emailVerified: true }, { $set: { emailVerifyCode: codeGenerator.generateCode(6) } }, { new: true}, (err, user) => {
+  User.findOneAndUpdate({ email: req.body.email, emailVerified: true }, { $set: { emailVerifyCode: codeGenerator.generateCode(6) } }, { new: true}, (err, user) => {
     if (user) {
       mailer.sendVerifyEmail(user.email, 'Verify Reset Password', user.emailVerifyCode);
       return res.status(200).json({ username: user.username, message: 'Sent a code verification to email of username: ' + user.username });
