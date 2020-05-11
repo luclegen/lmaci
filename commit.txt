@@ -43,4 +43,5 @@ User Controller: findUsername
 User Router: POST findUsername
 User Controller: resendVerifyResetPassword
 User Router: GET resendVerifyResetPassword
+User Controller: resetPassword
 Commit
