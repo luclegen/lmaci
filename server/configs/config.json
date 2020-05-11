@@ -1,0 +1,13 @@
+{
+  "development": {
+    "PORT": 3000,
+    "MONGODB_URI": "mongodb://localhost:27017/lmaci",
+    "JWT_SECRET": "SECRET#123",
+    "JWT_EXP": "10m",
+    "SERVER_NAME": "Lmaci",
+    "SERVER_GMAIL": "tanluc.hacknick@gmail.com",
+    "SERVER_PASS": "Luc123!@#",
+    "DEFAULT_AVATAR": "assets/img/avatars/default.png",
+    "DEFAULT_ROLE": "Member"
+  }
+}
