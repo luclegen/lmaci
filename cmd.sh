@@ -4,7 +4,7 @@
 sudo npm install -g @angular/cli
 sudo npm install -g nodemon
 
-# I. Angular Client
+# I. ANGULAR CLIENT
 ng new client
 cd client; ng s -o
 ng g class user --type=model
@@ -12,7 +12,7 @@ ng g class user --type=model
 # Optional
 kill -9 $(lsof -t -i:4200); clear; ng s
 
-# II. Nodejs Server
+# II. NODEJS SERVER
 
 mkdir server; cd server; npm init
 npm i --save express mongoose body-parser bcryptjs cors jsonwebtoken passport passport-local lodash nodemailer
