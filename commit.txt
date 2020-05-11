@@ -21,6 +21,7 @@ Routes: Home Component
 User Component: Initial
 Module: FormsModul, RouterModule, HttpClientModule
 App Component: Layout
+Home Component: Top Navbar
 Commit
 
 II. NODEJS SERVER
