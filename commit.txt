@@ -37,4 +37,5 @@ User Controller: resendVerifyEmail
 User Router: GET resendVerifyEmail
 User Controller: changeEmail
 User Router: PUT changeEmail
+User Controller: authenticate
 Commit
