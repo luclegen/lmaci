@@ -11,5 +11,6 @@ router.post('/authenticate', userController.authenticate);
 router.post('/find-username', userController.findUsername);
 router.get('/resend-verify-reset-password/:username', userController.resendVerifyResetPassword);
 router.put('/reset-password/:username', userController.resetPassword);
+router.put('/change-password/:id', userController.changePassword);
 
 module.exports = router;
