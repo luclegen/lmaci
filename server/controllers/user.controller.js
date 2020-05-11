@@ -73,7 +73,8 @@ module.exports.verifyEmail = (req, res) => {
 }
 
 module.exports.resendVerifyEmail = (req, res) => {
-  idChecker.check(req.params.id);
+  if (!ObjectId.isValid(req.params.id))
+    return res.status(400).json({ message: `No record with given id: ${req.params.id}` });
 
   User.findById(req.params.id, (err, user) => {
     if (user) {
