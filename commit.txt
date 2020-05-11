@@ -15,6 +15,7 @@ Images: Root
 Header Component: Initial
 Body Component: Initial
 Footer Component: Initial
+Top Navbar Component: Initial
 Commit
 
 II. NODEJS SERVER
