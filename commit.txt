@@ -16,6 +16,7 @@ Header Component: Initial
 Body Component: Initial
 Footer Component: Initial
 Top Navbar Component: Initial
+Home Component: Initial
 Commit
 
 II. NODEJS SERVER
