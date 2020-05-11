@@ -9,6 +9,7 @@ Command
 Detail
 
 I. ANGULAR CLIENT
+Initial Client
 Commit
 
 II. NODEJS SERVER
