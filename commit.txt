@@ -27,4 +27,5 @@ User Controller: register
 Helpers: Name Converter
 Helpers: Code Generator
 Helpers: Json Web Token
+Helpers: Mailer
 Commit
