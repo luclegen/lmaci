@@ -47,6 +47,7 @@ module.exports.verifyEmail = (req, res) => {
     return res.status(400).json({ message: `No record with given id: ${req.params.id}` });
 
   User.findById(req.params.id, (err, user) => {
+    if (!user) return res.status(404).json({ message: 'User specified wasn\'t found.' });
     let userVerified = {
       email: user.email,
       emailVerifyCode: '',
