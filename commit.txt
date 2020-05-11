@@ -12,6 +12,7 @@ I. ANGULAR CLIENT
 Initial Client
 Images
 Images: Root
+Header Component: Initial
 Commit
 
 II. NODEJS SERVER
