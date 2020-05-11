@@ -20,6 +20,7 @@ Home Component: Initial
 Routes: Home Component
 User Component: Initial
 Module: FormsModul, RouterModule, HttpClientModule
+App Component: Layout
 Commit
 
 II. NODEJS SERVER
