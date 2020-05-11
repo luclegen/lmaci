@@ -13,7 +13,6 @@ Commit
 
 II. NODEJS SERVER
 Initial Server
-Commit
 JSON Configuration
 JS Configuration
 JSON Package
@@ -21,3 +20,5 @@ Server App
 Database Configuration
 User Model
 Passport Configuration
+User Router
+Commit
