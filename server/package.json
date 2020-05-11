@@ -1,0 +1,22 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Lmaci project is used to build the e-commerce web application.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luclegen/lmaci.git"
+  },
+  "keywords": [
+    "mean"
+  ],
+  "author": "Luc Huynh Tan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/luclegen/lmaci/issues"
+  },
+  "homepage": "https://github.com/luclegen/lmaci#readme"
+}
