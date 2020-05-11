@@ -1,10 +1,10 @@
 const passport = require('passport');
 const _ = require('lodash');
+const ObjectId = require('mongoose').Types.ObjectId;
 
 const nameConverter = require('../helpers/name-converter');
 const mailer = require('../helpers/mailer');
 const codeGenerator = require('../helpers/code-generator');
-const idChecker = require('../helpers/id-checker');
 
 const User = require('../models/user.model');
 
@@ -43,7 +43,8 @@ module.exports.register = (req, res, next) => {
 }
 
 module.exports.verifyEmail = (req, res) => {
-  idChecker.check(req.params.id);
+  if (!ObjectId.isValid(req.params.id))
+    return res.status(400).json({ message: `No record with given id: ${req.params.id}` });
 
   User.findById(req.params.id, (err, user) => {
     let userVerified = {
