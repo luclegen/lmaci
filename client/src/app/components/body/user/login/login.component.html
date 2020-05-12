@@ -1,1 +1,20 @@
-<p>login works!</p>
+<app-header></app-header>
+<section class="center-content">
+  <div class="center-box">
+    <img src="assets/img/avatars/default.png" alt="User Logo">
+    <form #loginForm="ngForm" (ngSubmit)="loginForm.valid && onSubmit(loginForm)">
+      <input #username="ngModel" [(ngModel)]="user.username" [ngClass]="{ 'invalid-input': loginForm.submitted && !username.valid }" [pattern]="usernameRegex" type="text" name="username" placeholder="Username" required>
+      <label class="err" *ngIf="loginForm.submitted && username.errors?.pattern">Invalid username. Minimum 8 charaters.</label>
+      
+      <input class="field" #password="ngModel" [(ngModel)]="user.password" [ngClass]="{ 'invalid-input': loginForm.submitted && !password.valid }" type="password" name="password" placeholder="Password" minlength="8" required>
+      <label class="err" *ngIf="loginForm.submitted && password.errors?.minlength">Minimum 8 charaters.</label>
+      
+      <input class="field" [disabled]="username.errors?.required || password.errors?.required" type="submit" value="Sign In">
+    </form>
+    <label class="msg err-msg" *ngIf="serverErrorMessages">{{serverErrorMessages}}</label>
+    <span class="option">
+      <a href="user/register">Create a new account</a>
+      <a id="right" href="user/find-username">Forgot your password?</a>
+    </span>
+  </div>
+</section>
