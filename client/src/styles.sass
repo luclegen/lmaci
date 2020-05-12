@@ -27,6 +27,14 @@ a
   text-decoration: none
   color: blue
 
+a#eye-btn
+  background: none
+  border: none
+  outline: none
+
+  svg#eye
+    display: none
+
 form
   display: flex
   height: auto
@@ -64,6 +72,9 @@ input[type=submit]:disabled
 label.err
   color: red
 
+label#password-error
+  display: none
+
 label.msg
   margin-top: 10px
   padding: 10px 0
@@ -94,3 +105,26 @@ span.option
 
 svg:hover
   fill: white
+
+meter
+  margin-top: 5px
+
+// Webkit based browsers
+meter[value="1"]::-webkit-meter-optimum-value
+  background: red
+meter[value="2"]::-webkit-meter-optimum-value 
+  background: yellow
+meter[value="3"]::-webkit-meter-optimum-value 
+  background: orange
+meter[value="4"]::-webkit-meter-optimum-value 
+  background: green
+
+// Gecko based browsers
+meter[value="1"]::-moz-meter-bar 
+  background: red
+meter[value="2"]::-moz-meter-bar 
+  background: yellow
+meter[value="3"]::-moz-meter-bar 
+  background: orange
+meter[value="4"]::-moz-meter-bar 
+  background: green
