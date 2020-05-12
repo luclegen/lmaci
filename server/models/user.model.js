@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken');
 let userSchema = new mongoose.Schema({
   avatar: {
     type: String,
-    required: 'Avatar can\'t be empty'
+    default: process.env.DEFAULT_AVATAR
   },
   firstName: {
     type: String,
@@ -17,6 +17,7 @@ let userSchema = new mongoose.Schema({
   },
   fullName: {
     type: String,
+    default: this.firstName + ' ' + this.lastName
   },
   gender: {
     type: String,
@@ -33,10 +34,7 @@ let userSchema = new mongoose.Schema({
     type: Boolean,
     default: false
   },
-  mobileNumber: {
-    type: String,
-  },
-  mobileNumberVerified: Boolean,
+  mobileNumber: String,
   username: {
     type: String,
     required: 'Username can\'t be empty',
@@ -52,9 +50,7 @@ let userSchema = new mongoose.Schema({
     enum: [ 'root', 'admin', 'user' ],
     default: 'user'
   },
-  address: {
-    type: String,
-  },
+  address: String,
   saltSecret: String
 }, {
   timestamps: {
