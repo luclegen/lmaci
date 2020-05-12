@@ -35,6 +35,7 @@ Register Component: Form
 Register Component: checkStrengthPassword
 Register Component: matchPassword
 Environments: userUrl
+User Service: register
 Commit
 
 II. NODEJS SERVER
