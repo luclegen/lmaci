@@ -29,6 +29,7 @@ Top Navbar Component: expandA
 Global Styles
 Top Navbar Component: onLogout
 Models: user
+Services: Initial
 Commit
 
 II. NODEJS SERVER
