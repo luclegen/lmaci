@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { NgForm } from '@angular/forms';
 
 import { UserService } from 'src/app/services/user.service';
 
@@ -87,4 +88,19 @@ export class RegisterComponent implements OnInit {
     }
   }
 
+  onSubmit(form: NgForm) {
+    if (this.matchPassword()) {
+      this.userService.register(form.value).subscribe(
+        res => {
+          this.showSuccessMessages = true;
+          setTimeout(() => this.showSuccessMessages = false, 4000);
+        },
+        err => {
+          this.serverErrorMessages = err.status === 422 
+                                     ? err.error.join('<br/>') 
+                                     : 'Something went wrong. Please contact admin.';
+        }
+      );
+    }
+  }
 }
