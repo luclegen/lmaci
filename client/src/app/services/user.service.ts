@@ -37,4 +37,51 @@ export class UserService {
   register(user: User) {
     return this.http.post(environment.userUrl + '/register', user, this.noAuthHeader);
   }
+
+  login(authCredentials) {
+    return this.http.post(environment.userUrl + '/authenticate', authCredentials, this.noAuthHeader);
+  }
+
+  //#endregion Http Methods
+
+  //#region Helper Methods
+
+  setToken(token: string) {
+    localStorage.setItem('token', token);
+  }
+
+  getToken() {
+    return localStorage.getItem('token');
+  }
+
+  removeToken() {
+    localStorage.removeItem('token');
+  }
+
+  getPayload() {
+    return this.getToken() ? JSON.parse(atob(this.getToken().split('.')[1])) : null;
+  }
+
+  getId() {
+    return this.getToken() ? JSON.parse(atob(this.getToken().split('.')[1]))._id : null;
+  }
+
+  isLoggedIn() {
+    return this.getPayload().exp > Date.now() / 1000;
+  }
+
+  setUsername(username: string) {
+    localStorage.setItem('username', username);
+  }
+
+  getUsername() {
+    return localStorage.getItem('username');
+  }
+
+  removeUsername() {
+    localStorage.removeItem('username');
+  }
+
+  //#endregion Helper Methods
+
 }
