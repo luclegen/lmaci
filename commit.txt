@@ -32,6 +32,7 @@ Models: user
 Services: Initial
 Register Component: Initial
 Register Component: Form
+Register Component: checkStrengthPassword
 Commit
 
 II. NODEJS SERVER
