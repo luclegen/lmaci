@@ -38,8 +38,9 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if (this.userService.getToken()) this.userService.removeToken();
   }
-
+  
   checkStrengthPassword() {
     let count = 0, strength = {
       0: "Worst",
