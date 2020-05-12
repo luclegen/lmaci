@@ -44,6 +44,7 @@ Register Component: Style
 User Service: usernameRegex
 Login Component: Initial
 Login Component: Form
+Login Component: Style
 Commit
 
 II. NODEJS SERVER
