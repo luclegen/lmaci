@@ -43,6 +43,7 @@ Header Component: View
 Register Component: Style
 User Service: usernameRegex
 Login Component: Initial
+Login Component: Form
 Commit
 
 II. NODEJS SERVER
