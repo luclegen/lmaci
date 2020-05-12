@@ -42,6 +42,10 @@ export class UserService {
     return this.http.post(environment.userUrl + '/authenticate', authCredentials, this.noAuthHeader);
   }
 
+  getProfile() {
+    return this.http.get(environment.userUrl + '/profile');
+  }
+
   //#endregion Http Methods
 
   //#region Helper Methods
