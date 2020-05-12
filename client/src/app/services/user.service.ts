@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 
+import { environment } from 'src/environments/environment';
 import { User } from '../models/user.model';
 
 @Injectable({
@@ -30,4 +31,10 @@ export class UserService {
   mobileNumberRegex = /^(\+\d{1,3}[- ]?)?\d{10}$/;
   
   constructor(private http: HttpClient) { }
+
+  //#region Http Methods
+  
+  register(user: User) {
+    return this.http.post(environment.userUrl + '/register', user, this.noAuthHeader);
+  }
 }
