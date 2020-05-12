@@ -28,4 +28,23 @@ export class LoginComponent implements OnInit {
     if (this.userService.getToken()) this.userService.removeToken();
   }
 
+  onSubmit(form: NgForm) {
+    this.userService.login(form.value).subscribe(
+      res => {
+        this.userService.setToken(res['token']);
+        this.userService.getProfile().subscribe(
+          res => {
+            let userDetails = res['user'];
+            if (userDetails.emailVerified) this.router.navigateByUrl('/');
+            else this.router.navigateByUrl('user/verify-email');
+          },
+          err => {}
+        );
+      },
+      err => {
+        this.serverErrorMessages = err.error.message;
+      }
+    );
+  }
+
 }
