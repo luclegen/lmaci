@@ -49,6 +49,7 @@ User Service: login, Helper Methods
 Login Component: Fields
 Login Component: constructor
 Login Component: ngOnInit
+User Service: getProfile
 Commit
 
 II. NODEJS SERVER
