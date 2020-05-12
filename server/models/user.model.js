@@ -18,6 +18,11 @@ let userSchema = new mongoose.Schema({
   fullName: {
     type: String,
   },
+  gender: {
+    type: String,
+    enum: [ 'male', 'female' ],
+    required: 'Gender can\'t be empty'
+  },
   email: {
     type: String
   },
@@ -40,7 +45,8 @@ let userSchema = new mongoose.Schema({
     minlength: [8, 'Password must be at least 8 characters long']
   },
   role: {
-    type: String
+    type: String,
+    enum: [ 'root', 'admin', 'member' ]
   },
   address: {
     type: String,
