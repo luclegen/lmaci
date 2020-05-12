@@ -51,6 +51,7 @@ Login Component: constructor
 Login Component: ngOnInit
 User Service: getProfile
 Login Component: onSubmit
+Register Component: ngOnInit
 Commit
 
 II. NODEJS SERVER
