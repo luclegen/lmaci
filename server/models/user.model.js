@@ -24,7 +24,9 @@ let userSchema = new mongoose.Schema({
     required: 'Gender can\'t be empty'
   },
   email: {
-    type: String
+    type: String,
+    lowercase: true,
+    required: 'Email can\'t be empty'
   },
   emailVerifyCode: {
     type: String
@@ -46,7 +48,8 @@ let userSchema = new mongoose.Schema({
   },
   role: {
     type: String,
-    enum: [ 'root', 'admin', 'member' ]
+    enum: [ 'root', 'admin', 'user' ],
+    default: 'user'
   },
   address: {
     type: String,
