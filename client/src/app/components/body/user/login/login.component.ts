@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { UserService } from 'src/app/services/user.service';
 import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -22,8 +23,9 @@ export class LoginComponent implements OnInit {
     this.titleService.setTitle(this.title);
     this.usernameRegex = this.userService.usernameRegex;
   }
-  
+
   ngOnInit(): void {
+    if (this.userService.getToken()) this.userService.removeToken();
   }
 
 }
