@@ -39,6 +39,7 @@ User Service: register
 Register Component: onSubmit
 Routes: UserComponent, RegisterComponent
 User Component: View
+Header Component: View
 Commit
 
 II. NODEJS SERVER
