@@ -11,19 +11,22 @@ const User = require('../models/user.model');
 module.exports.register = (req, res, next) => {
   let user = new User();
 
-  user.avatar = process.env.DEFAULT_AVATAR;
+  // user.avatar = process.env.DEFAULT_AVATAR;
   user.firstName = nameConverter.convertName(req.body.firstName);
   user.lastName = nameConverter.convertName(req.body.lastName);
-  user.fullName = nameConverter.convertName(req.body.firstName) + ' ' + nameConverter.convertName(req.body.lastName);
+  // user.fullName = nameConverter.convertName(req.body.firstName) + ' ' + nameConverter.convertName(req.body.lastName);
 
-  if (req.body.role) user.role = req.body.role;
-  else user.role = process.env.DEFAULT_ROLE;
+  // if (req.body.role) user.role = req.body.role;
+  // else user.role = process.env.DEFAULT_ROLE;
+  user.gender = req.body.gender;
 
-  if (req.body.email) {
-    user.email = req.body.email;
-    user.emailVerifyCode = codeGenerator.generateCode(6);
-    user.emailVerified = false;
-  }
+  user.email = req.body.email;
+
+  // if (req.body.email) {
+  //   user.email = req.body.email;
+  //   user.emailVerifyCode = codeGenerator.generateCode(6);
+  //   user.emailVerified = false;
+  // }
 
   if (req.body.mobileNumber) user.mobileNumber = req.body.mobileNumber;
 
