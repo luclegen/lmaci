@@ -33,6 +33,7 @@ Services: Initial
 Register Component: Initial
 Register Component: Form
 Register Component: checkStrengthPassword
+Register Component: matchPassword
 Commit
 
 II. NODEJS SERVER
