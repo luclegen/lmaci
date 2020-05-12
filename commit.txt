@@ -45,6 +45,7 @@ User Service: usernameRegex
 Login Component: Initial
 Login Component: Form
 Login Component: Style
+User Service: login, Helper Methods
 Commit
 
 II. NODEJS SERVER
