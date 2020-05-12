@@ -41,6 +41,7 @@ Routes: UserComponent, RegisterComponent
 User Component: View
 Header Component: View
 Register Component: Style
+User Service: usernameRegex
 Commit
 
 II. NODEJS SERVER
