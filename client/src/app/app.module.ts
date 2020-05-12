@@ -13,6 +13,7 @@ import { TopNavbarComponent } from './components/header/top-navbar/top-navbar.co
 import { HomeComponent } from './components/body/home/home.component';
 import { UserComponent } from './components/body/user/user.component';
 import { RegisterComponent } from './components/body/user/register/register.component';
+import { LoginComponent } from './components/body/user/login/login.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { RegisterComponent } from './components/body/user/register/register.comp
     TopNavbarComponent,
     HomeComponent,
     UserComponent,
-    RegisterComponent
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
