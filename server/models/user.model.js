@@ -25,13 +25,14 @@ let userSchema = new mongoose.Schema({
   },
   email: {
     type: String,
+    trim: true,
     lowercase: true,
     required: 'Email can\'t be empty'
   },
-  emailVerifyCode: {
-    type: String
+  isVerified: {
+    type: Boolean,
+    default: false
   },
-  emailVerified: Boolean,
   mobileNumber: {
     type: String,
   },
