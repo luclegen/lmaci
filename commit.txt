@@ -30,6 +30,7 @@ Global Styles
 Top Navbar Component: onLogout
 Models: user
 Services: Initial
+Register Component: Initial
 Commit
 
 II. NODEJS SERVER
