@@ -7,7 +7,7 @@ const jwt = require('../helpers/jwt');
 
 router.post('/register', userController.register);
 router.post('/verify/:id', userController.verify);
-router.get('/resend-verify-email/:id', userController.resendVerifyEmail);
+router.get('/resend-verify-email/:id', userController.resendVerify);
 router.put('/change-email/:id', userController.changeEmail);
 router.post('/authenticate', userController.authenticate);
 router.post('/find-username', userController.findUsername);
