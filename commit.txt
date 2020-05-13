@@ -92,4 +92,5 @@ User Router: GET profile
 Code Model
 User Controller: verify
 User Router: POST verify
+User Controller: resendVerify
 Commit
