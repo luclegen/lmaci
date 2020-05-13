@@ -90,4 +90,5 @@ User Router: PUT changePassword
 User Controller: profile
 User Router: GET profile
 Code Model
+User Controller: verify
 Commit
