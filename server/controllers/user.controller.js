@@ -76,7 +76,7 @@ module.exports.verify = (req, res) => {
   });
 }
 
-module.exports.resendVerifyEmail = (req, res) => {
+module.exports.resendVerify = (req, res) => {
   if (!ObjectId.isValid(req.params.id))
     return res.status(400).json({ msg: `No record with given id: ${req.params.id}` });
 
