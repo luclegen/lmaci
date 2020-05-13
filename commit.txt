@@ -61,6 +61,7 @@ Routes: ActiveComponent
 Actice Component: Style
 Routes: ActiveComponent
 User Service: resendActive
+Profile Component: Initial
 Commit
 
 II. NODEJS SERVER
