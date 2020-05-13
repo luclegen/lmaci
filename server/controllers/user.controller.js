@@ -61,8 +61,8 @@ module.exports.verify = (req, res) => {
                   if (err) return  res.status(404).json({ msg: 'User Verified isn\'t found.' });
                   else {
                     Code.deleteOne({ _userId: user._id }, (err, result) => {
-                      if (err) return res.status(400).json(err);
-                      else return res.status(200).json({ msg: 'Email is verified.' });
+                      return err ? res.status(400).json(err)
+                                 : res.status(200).json({ msg: 'Email is verified.' });
                     });
                   }
                 });
@@ -208,14 +208,25 @@ module.exports.resendVerifyResetPassword = (req, res) => {
 }
 
 module.exports.resetPassword = (req, res) => {
-  User.findOne({ username: req.params.username, emailVerifyCode: req.body.code, emailVerified: true }, (err, user) => {
+  User.findOne({ username: req.params.username, isVerified: true }, (err, user) => {
     if (user) {
-      user.emailVerifyCode = '';
-      user.password = req.body.password;
+      Code.findOne({ _userId: user._id }, (err, code) => {
+        if (code) {
+          if (Date.now() > Date.parse(code.createdAt) + 60000) return res.status(400).json({ msg: 'Code is expired. Please click to resend email!' });
+          else if (req.body.code === code.code) {
+            user.password = req.body.password;
 
-      user.save(err => {
-        return err ? res.status(400).json({ msg: 'Update is error.' })
-                   : res.status(200).json({ msg: 'Password reset successfully.' });
+            user.save(err => {
+              if (err) return res.status(400).json({ msg: 'Update is error.' });
+              else {
+                Code.deleteOne({ _userId: user._id }, (err, result) => {
+                  return err ? res.status(400).json(err)
+                             : res.status(200).json({ msg: 'Password reset successfully.' });
+                });
+              }
+            });
+          }
+        } else return res.status(404).json({ msg: 'Code isn\'t found.' });
       });
     } else return res.status(404).json({ msg: 'Verification Code is wrong.' });
   });
@@ -227,7 +238,7 @@ module.exports.changePassword = (req, res) => {
   
   User.findById(req.params.id, (err, user) => {
     if (user) {
-      if (!user.emailVerified) return res.status(422).json({ msg: 'Email isn\'t verified.' });
+      if (!user.isVerified) return res.status(422).json({ msg: 'Email isn\'t verified.' });
       if (user.verifyPassword(req.body.password)) {
         user.password = req.body.newPassword
         
@@ -242,7 +253,7 @@ module.exports.changePassword = (req, res) => {
 
 module.exports.profile = (req, res) => {
   User.findOne({ _id: req._id }, (err, user) => {
-    return user ? res.status(200).json({ status: true, user: _.pick(user, [ 'avatar', 'firstName', 'fullName', 'role', 'email', 'emailVerified', 'mobileNumber', 'username', 'address']) })
+    return user ? res.status(200).json({ status: true, user: _.pick(user, [ 'avatar', 'firstName', 'fullName', 'role', 'email', 'isVerified', 'mobileNumber', 'username', 'address']) })
                 : res.status(404).json({ status: false, msg: 'User not found.' });
   });
 }
