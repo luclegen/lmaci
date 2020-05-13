@@ -55,6 +55,7 @@ Register Component: ngOnInit
 Authentication
 Module: Authentication, Services
 User Service: active
+Actice Component: Initial
 Commit
 
 II. NODEJS SERVER
