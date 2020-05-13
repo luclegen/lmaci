@@ -47,7 +47,11 @@ export class UserService {
   }
 
   active(id: string, code: string) {
-    return this.http.post(environment.userUrl + '/verify/' + id, code);
+    return this.http.post(environment.userUrl + '/active/' + id, code);
+  }
+
+  resendActive(id: string) {
+    return this.http.get(environment.userUrl + '/resend-active/' + id);
   }
 
   //#endregion Http Methods
