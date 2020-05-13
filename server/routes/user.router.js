@@ -6,7 +6,7 @@ const userController = require('../controllers/user.controller');
 const jwt = require('../helpers/jwt');
 
 router.post('/register', userController.register);
-router.post('/verify-email/:id', userController.verifyEmail);
+router.post('/verify/:id', userController.verify);
 router.get('/resend-verify-email/:id', userController.resendVerifyEmail);
 router.put('/change-email/:id', userController.changeEmail);
 router.post('/authenticate', userController.authenticate);
