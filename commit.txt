@@ -93,4 +93,5 @@ Code Model
 User Controller: verify
 User Router: POST verify
 User Controller: resendVerify
+User Router: GET resendVerify
 Commit
