@@ -24,9 +24,24 @@ export class ActiveComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.userService.getProfile().subscribe(
+      res => {
+        if (res['user'].activated) this.router.navigateByUrl('');
+      },
+      err => {}
+    );
   }
 
   onSubmit(form: NgForm) {
+    this.userService.active(this.userService.getId(), form.value).subscribe(
+      res => {
+        alert(res['msg']);
+        this.router.navigateByUrl('user/profile');
+      },
+      err => {
+        this.serverErrorMessages = err.error.msg;
+      }
+    );
   }
 
   resendEmail() {
