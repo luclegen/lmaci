@@ -10,10 +10,8 @@ const User = require('../models/user.model');
 const Code = require('../models/code.model');
 
 module.exports.register = (req, res, next) => {
-
   let user = new User();
 
-  // user.avatar = process.env.DEFAULT_AVATAR;
   user.firstName = nameConverter.convertName(req.body.firstName);
   user.lastName = nameConverter.convertName(req.body.lastName);
   user.fullName = nameConverter.convertName(req.body.firstName) + ' ' + nameConverter.convertName(req.body.lastName);
