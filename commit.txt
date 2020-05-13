@@ -53,6 +53,7 @@ User Service: getProfile
 Login Component: onSubmit
 Register Component: ngOnInit
 Authentication
+Module: Authentication, Services
 Commit
 
 II. NODEJS SERVER
