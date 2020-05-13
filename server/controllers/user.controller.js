@@ -41,13 +41,13 @@ module.exports.verify = (req, res) => {
     if (!user) return res.status(404).json({ msg: 'User specified isn\'t found.' });
     let userVerified = {
       email: user.email,
-      isVerified: true
+      active: true
     }, userEmailRemoved = {
       email: '',
-      isVerified: false
+      active: false
     }
     
-    if (user.isVerified) return res.status(422).json({ msg: 'Email is verified.' });
+    if (user.active) return res.status(422).json({ msg: 'Email is verified.' });
     else {
       Code.findOne({ _userId: req.params.id }, (err, code) => {
         if (err) return res.status(400).json(err);
@@ -82,7 +82,7 @@ module.exports.resendVerify = (req, res) => {
 
   User.findById(req.params.id, (err, user) => {
     if (user) {
-      if (user.isVerified) return res.status(422).json({ msg: 'Email is verified.' });
+      if (user.active) return res.status(422).json({ msg: 'Email is verified.' });
       else {
         Code.findOne({ _userId: req.params.id }, (err, code) => {
           if (err) return res.status(400).json(err);
@@ -114,7 +114,7 @@ module.exports.changeEmail = (req, res) => {
   if (!ObjectId.isValid(req.params.id))
     return res.status(400).json({ msg: `No record with given id: ${req.params.id}` });
 
-  User.findByIdAndUpdate(req.params.id, { $set: { email: req.body.email, isVerified: false } }, { new: true }, (err, user) => {
+  User.findByIdAndUpdate(req.params.id, { $set: { email: req.body.email, active: false } }, { new: true }, (err, user) => {
     if (user) {
       Code.deleteOne({ _userId: user._id }, err => {
         if (err) console.log('ERROR: Clear code: ' + JSON.stringify(err, undefined, 2))
@@ -141,7 +141,7 @@ module.exports.authenticate = (req, res) => {
   passport.authenticate('local', (err, user, info) => {
     if (err) return res.status(400).json(err); // Error from passport middleware
     else if (user) {
-      if (!user.isVerified) {
+      if (!user.active) {
         Code.deleteOne({ _userId: user._id }, err => {
           if (err) console.log('ERROR: Clear codes: ' + JSON.stringify(err, undefined, 2))
         });
@@ -162,7 +162,7 @@ module.exports.authenticate = (req, res) => {
 }
 
 module.exports.findUsername = (req, res) => {
-  User.findOne({ email: req.body.email, isVerified: true }, (err, user) => {
+  User.findOne({ email: req.body.email, active: true }, (err, user) => {
     if (user) {
       Code.deleteOne({ _userId: user._id }, err => {
         if (err) console.log('ERROR: Clear codes: ' + JSON.stringify(err, undefined, 2))
@@ -185,7 +185,7 @@ module.exports.findUsername = (req, res) => {
 }
 
 module.exports.resendVerifyResetPassword = (req, res) => {
-  User.findOne({ username: req.params.username, isVerified: true }, (err, user) => {
+  User.findOne({ username: req.params.username, active: true }, (err, user) => {
     if (user) {
       Code.deleteOne({ _userId: user._id }, err => {
         if (err) console.log('ERROR: Clear codes: ' + JSON.stringify(err, undefined, 2))
@@ -208,7 +208,7 @@ module.exports.resendVerifyResetPassword = (req, res) => {
 }
 
 module.exports.resetPassword = (req, res) => {
-  User.findOne({ username: req.params.username, isVerified: true }, (err, user) => {
+  User.findOne({ username: req.params.username, active: true }, (err, user) => {
     if (user) {
       Code.findOne({ _userId: user._id }, (err, code) => {
         if (code) {
@@ -238,7 +238,7 @@ module.exports.changePassword = (req, res) => {
   
   User.findById(req.params.id, (err, user) => {
     if (user) {
-      if (!user.isVerified) return res.status(422).json({ msg: 'Email isn\'t verified.' });
+      if (!user.active) return res.status(422).json({ msg: 'Email isn\'t verified.' });
       if (user.verifyPassword(req.body.password)) {
         user.password = req.body.newPassword
         
@@ -253,7 +253,7 @@ module.exports.changePassword = (req, res) => {
 
 module.exports.profile = (req, res) => {
   User.findOne({ _id: req._id }, (err, user) => {
-    return user ? res.status(200).json({ status: true, user: _.pick(user, [ 'avatar', 'firstName', 'fullName', 'role', 'email', 'isVerified', 'mobileNumber', 'username', 'address']) })
+    return user ? res.status(200).json({ status: true, user: _.pick(user, [ 'avatar', 'firstName', 'fullName', 'role', 'email', 'active', 'mobileNumber', 'username', 'address']) })
                 : res.status(404).json({ status: false, msg: 'User not found.' });
   });
 }
