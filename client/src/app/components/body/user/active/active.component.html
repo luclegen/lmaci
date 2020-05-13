@@ -2,7 +2,7 @@
 <section class="center-content">
   <div class="center-box">
     <h1>Active your account</h1>
-    <p>Please enter the code from your email</p>
+    <p>Please enter the code from your email.</p>
     <form #activeForm="ngForm" (ngSubmit)="activeForm.valid && onSubmit(activeForm)">
       <span class="form" [ngClass]="{ 'invalid-input': activeForm.submitted && !code.valid }">
         <label>L-</label>
