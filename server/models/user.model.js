@@ -34,7 +34,10 @@ let userSchema = new mongoose.Schema({
     type: Boolean,
     default: false
   },
-  mobileNumber: String,
+  mobileNumber: {
+    type: String,
+    required: 'Mobile Number can\'t be empty'
+  },
   username: {
     type: String,
     required: 'Username can\'t be empty',
