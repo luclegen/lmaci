@@ -39,7 +39,7 @@ module.exports.verify = (req, res) => {
 
   User.findById(req.params.id, (err, user) => {
     if (!user) return res.status(404).json({ msg: 'User specified isn\'t found.' });
-    let userVerified = {
+    let userActivated = {
       email: user.email,
       active: true
     }, userEmailRemoved = {
@@ -54,10 +54,10 @@ module.exports.verify = (req, res) => {
         else if (code) {
           if (Date.now() > Date.parse(code.createdAt) + 60000) return res.status(400).json({ msg: 'Code is expired. Please click to resend email!' });
           else if (req.body.code === code.code) {
-            User.updateMany({ email: userVerified.email }, { $set: userEmailRemoved }, { multi: true }, (err, result) => {
+            User.updateMany({ email: userActivated.email }, { $set: userEmailRemoved }, { multi: true }, (err, result) => {
               if (err) return res.status(404).json({ msg: 'Duplicated emails weren\'t found.' });
               else {
-                User.findByIdAndUpdate(user._id, { $set: userVerified }, { new: true }, (err, result) => {
+                User.findByIdAndUpdate(user._id, { $set: userActivated }, { new: true }, (err, result) => {
                   if (err) return  res.status(404).json({ msg: 'User Verified isn\'t found.' });
                   else {
                     Code.deleteOne({ _userId: user._id }, (err, result) => {
