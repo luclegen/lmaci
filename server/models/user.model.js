@@ -30,7 +30,7 @@ let userSchema = new mongoose.Schema({
     lowercase: true,
     required: 'Email can\'t be empty'
   },
-  active: {
+  activated: {
     type: Boolean,
     default: false
   },
