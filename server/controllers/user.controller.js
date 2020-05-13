@@ -87,7 +87,7 @@ module.exports.resendVerify = (req, res) => {
         Code.findOne({ _userId: req.params.id }, (err, code) => {
           if (err) return res.status(400).json(err);
           else {
-            Code.deleteOne({ _userId: user._id }, err => {
+            Code.deleteMany({ _userId: user._id }, err => {
               if (err) console.log('ERROR: Clear code: ' + JSON.stringify(err, undefined, 2))
             });
     
