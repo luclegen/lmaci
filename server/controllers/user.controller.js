@@ -20,6 +20,7 @@ module.exports.register = (req, res, next) => {
   user.mobileNumber = req.body.mobileNumber;
   user.username = req.body.username;
   user.password = req.body.password;
+  if (req.body.role) user.role = req.body.role;
   user.address = req.body.address;
   
   user.save((err, user) => {
