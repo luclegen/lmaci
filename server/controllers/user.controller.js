@@ -76,7 +76,7 @@ module.exports.active = (req, res) => {
   });
 }
 
-module.exports.resendVerify = (req, res) => {
+module.exports.resendActive = (req, res) => {
   if (!ObjectId.isValid(req.params.id))
     return res.status(400).json({ msg: `No record with given id: ${req.params.id}` });
 
