@@ -45,5 +45,13 @@ export class ActiveComponent implements OnInit {
   }
 
   resendEmail() {
+    this.userService.resendActive(this.userService.getId()).subscribe(
+      res => {
+        alert(res['msg']);
+      },
+      err => {
+        this.serverErrorMessages = err.error.msg;
+      }
+    );
   }
 }
