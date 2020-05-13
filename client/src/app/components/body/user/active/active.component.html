@@ -1,1 +1,20 @@
-<p>active works!</p>
+<app-header></app-header>
+<section class="center-content">
+  <div class="center-box">
+    <h1>Active your account</h1>
+    <p>Please enter the code from your email</p>
+    <form #activeForm="ngForm" (ngSubmit)="activeForm.valid && onSubmit(activeForm)">
+      <span class="form" [ngClass]="{ 'invalid-input': activeForm.submitted && !code.valid }">
+        <label>L-</label>
+        <input id="code" #code="ngModel" [(ngModel)]="verificationCode" [pattern]="codeRegex" type="text" name="code" maxlength="6" placeholder="######" required>
+        <input type="submit" [disabled]="code.errors?.required" value="Verify">
+      </span>
+      <label class="err" *ngIf="code.errors?.pattern" id="warning" for="">Lenght is 6-digits.</label>
+    </form>
+    <label class="msg err-msg" *ngIf="serverErrorMessages">{{serverErrorMessages}}</label>
+    <span class="option">
+      <a (click)="resendEmail()">Send Email Again</a>
+      <a id="right" href="user/change-email">Change your email</a>
+    </span>
+  </div>
+</section> 
