@@ -39,25 +39,25 @@ module.exports.verify = (req, res) => {
 
   User.findById(req.params.id, (err, user) => {
     if (!user) return res.status(404).json({ msg: 'User specified isn\'t found.' });
-    let userActivated = {
+    let useractivated = {
       email: user.email,
-      active: true
+      activated: true
     }, userEmailRemoved = {
       email: '',
-      active: false
+      activated: false
     }
     
-    if (user.active) return res.status(422).json({ msg: 'Email is verified.' });
+    if (user.activated) return res.status(422).json({ msg: 'Email is verified.' });
     else {
       Code.findOne({ _userId: req.params.id }, (err, code) => {
         if (err) return res.status(400).json(err);
         else if (code) {
           if (Date.now() > Date.parse(code.createdAt) + 60000) return res.status(400).json({ msg: 'Code is expired. Please click to resend email!' });
           else if (req.body.code === code.code) {
-            User.updateMany({ email: userActivated.email }, { $set: userEmailRemoved }, { multi: true }, (err, result) => {
+            User.updateMany({ email: useractivated.email }, { $set: userEmailRemoved }, { multi: true }, (err, result) => {
               if (err) return res.status(404).json({ msg: 'Duplicated emails weren\'t found.' });
               else {
-                User.findByIdAndUpdate(user._id, { $set: userActivated }, { new: true }, (err, result) => {
+                User.findByIdAndUpdate(user._id, { $set: useractivated }, { new: true }, (err, result) => {
                   if (err) return  res.status(404).json({ msg: 'User Verified isn\'t found.' });
                   else {
                     Code.deleteOne({ _userId: user._id }, (err, result) => {
@@ -82,7 +82,7 @@ module.exports.resendVerify = (req, res) => {
 
   User.findById(req.params.id, (err, user) => {
     if (user) {
-      if (user.active) return res.status(422).json({ msg: 'Email is verified.' });
+      if (user.activated) return res.status(422).json({ msg: 'Email is verified.' });
       else {
         Code.findOne({ _userId: req.params.id }, (err, code) => {
           if (err) return res.status(400).json(err);
@@ -114,7 +114,7 @@ module.exports.changeEmail = (req, res) => {
   if (!ObjectId.isValid(req.params.id))
     return res.status(400).json({ msg: `No record with given id: ${req.params.id}` });
 
-  User.findByIdAndUpdate(req.params.id, { $set: { email: req.body.email, active: false } }, { new: true }, (err, user) => {
+  User.findByIdAndUpdate(req.params.id, { $set: { email: req.body.email, activated: false } }, { new: true }, (err, user) => {
     if (user) {
       Code.deleteOne({ _userId: user._id }, err => {
         if (err) console.log('ERROR: Clear code: ' + JSON.stringify(err, undefined, 2))
@@ -141,7 +141,7 @@ module.exports.authenticate = (req, res) => {
   passport.authenticate('local', (err, user, info) => {
     if (err) return res.status(400).json(err); // Error from passport middleware
     else if (user) {
-      if (!user.active) {
+      if (!user.activated) {
         Code.deleteOne({ _userId: user._id }, err => {
           if (err) console.log('ERROR: Clear codes: ' + JSON.stringify(err, undefined, 2))
         });
@@ -162,7 +162,7 @@ module.exports.authenticate = (req, res) => {
 }
 
 module.exports.findUsername = (req, res) => {
-  User.findOne({ email: req.body.email, active: true }, (err, user) => {
+  User.findOne({ email: req.body.email, activated: true }, (err, user) => {
     if (user) {
       Code.deleteOne({ _userId: user._id }, err => {
         if (err) console.log('ERROR: Clear codes: ' + JSON.stringify(err, undefined, 2))
@@ -185,7 +185,7 @@ module.exports.findUsername = (req, res) => {
 }
 
 module.exports.resendVerifyResetPassword = (req, res) => {
-  User.findOne({ username: req.params.username, active: true }, (err, user) => {
+  User.findOne({ username: req.params.username, activated: true }, (err, user) => {
     if (user) {
       Code.deleteOne({ _userId: user._id }, err => {
         if (err) console.log('ERROR: Clear codes: ' + JSON.stringify(err, undefined, 2))
@@ -208,7 +208,7 @@ module.exports.resendVerifyResetPassword = (req, res) => {
 }
 
 module.exports.resetPassword = (req, res) => {
-  User.findOne({ username: req.params.username, active: true }, (err, user) => {
+  User.findOne({ username: req.params.username, activated: true }, (err, user) => {
     if (user) {
       Code.findOne({ _userId: user._id }, (err, code) => {
         if (code) {
@@ -238,7 +238,7 @@ module.exports.changePassword = (req, res) => {
   
   User.findById(req.params.id, (err, user) => {
     if (user) {
-      if (!user.active) return res.status(422).json({ msg: 'Email isn\'t verified.' });
+      if (!user.activated) return res.status(422).json({ msg: 'Email isn\'t verified.' });
       if (user.verifyPassword(req.body.password)) {
         user.password = req.body.newPassword
         
