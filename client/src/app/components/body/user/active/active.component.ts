@@ -4,6 +4,8 @@ import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 
 import { UserService } from 'src/app/services/user.service';
+import { Observable, timer } from 'rxjs';
+import { take, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-active',
@@ -11,7 +13,9 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./active.component.sass']
 })
 export class ActiveComponent implements OnInit {
-
+  counter$: Observable<number>;
+  count = 60;
+  
   verificationCode: '';
 
   codeRegex;
@@ -21,6 +25,11 @@ export class ActiveComponent implements OnInit {
   constructor(private titleService: Title, private userService: UserService, private router: Router) {
     this.titleService.setTitle('Verify Email | Lmaci');
     this.codeRegex = this.userService.codeRegex;
+    
+    this.counter$ = timer(0,1000).pipe(
+      take(this.count),
+      map(() => --this.count)
+    );
   }
 
   ngOnInit(): void {
@@ -48,6 +57,7 @@ export class ActiveComponent implements OnInit {
     this.userService.resendActive(this.userService.getId()).subscribe(
       res => {
         alert(res['msg']);
+        this.count = 60;
       },
       err => {
         this.serverErrorMessages = err.error.msg;

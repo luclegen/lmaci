@@ -3,6 +3,7 @@
   <div class="center-box">
     <h1>Active your account</h1>
     <p>Please enter the code from your email.</p>
+    <p>Take effect in <strong>{{counter$ | async}}</strong>s.</p>
     <form #activeForm="ngForm" (ngSubmit)="activeForm.valid && onSubmit(activeForm)">
       <span class="form" [ngClass]="{ 'invalid-input': activeForm.submitted && !code.valid }">
         <label>L-</label>
