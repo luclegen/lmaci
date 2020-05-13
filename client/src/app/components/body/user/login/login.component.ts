@@ -35,14 +35,14 @@ export class LoginComponent implements OnInit {
         this.userService.getProfile().subscribe(
           res => {
             let userDetails = res['user'];
-            if (userDetails.emailVerified) this.router.navigateByUrl('/');
-            else this.router.navigateByUrl('user/verify-email');
+            if (userDetails.activated) this.router.navigateByUrl('/');
+            else this.router.navigateByUrl('user/active');
           },
           err => {}
         );
       },
       err => {
-        this.serverErrorMessages = err.error.message;
+        this.serverErrorMessages = err.error.msg;
       }
     );
   }
