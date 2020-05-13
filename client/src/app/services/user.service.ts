@@ -46,7 +46,7 @@ export class UserService {
     return this.http.get(environment.userUrl + '/profile');
   }
 
-  verify(id: string, code: string) {
+  active(id: string, code: string) {
     return this.http.post(environment.userUrl + '/verify/' + id, code);
   }
 
