@@ -1,7 +1,6 @@
 // Configuration
 require('./configs/config');
 require('./configs/db');
-require('./configs/passport');
 
 // Initialization
 const express = require('express');
@@ -15,6 +14,9 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 app.use(passport.initialize());
+require('./middlewares/passport');
+
+// Routes
 app.use('/user', require('./routes/user.router'));
 
 // Error handle
