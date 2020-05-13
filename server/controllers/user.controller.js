@@ -38,7 +38,7 @@ module.exports.verifyEmail = (req, res) => {
     return res.status(400).json({ msg: `No record with given id: ${req.params.id}` });
 
   User.findById(req.params.id, (err, user) => {
-    if (!user) return res.status(404).json({ msg: 'User specified wasn\'t found.' });
+    if (!user) return res.status(404).json({ msg: 'User specified isn\'t found.' });
     let userVerified = {
       email: user.email,
       isVerified: true
@@ -48,17 +48,31 @@ module.exports.verifyEmail = (req, res) => {
     }
     
     if (user.isVerified) return res.status(422).json({ msg: 'Email is verified.' });
-    else if (req.body.code == user.emailVerifyCode) {
-      User.updateMany({ email: userVerified.email }, { $set: userEmailRemoved }, { multi: true }, (err, result) => {
-        if (err) return res.status(404).json({ msg: 'Duplicated emails weren\'t found.' });
-        else {
-          User.findByIdAndUpdate(req.params.id, { $set: userVerified }, { new: true }, (err, result) => {
-            return err ? res.status(404).json({ msg: 'User Verified wasn\'t found.' })
-                       : res.status(200).json({ msg: 'Email is verified.' });
-          });
-        }
+    else {
+      Code.findOne({ _userId: req.params.id }, (err, code) => {
+        if (err) return res.status(400).json(err);
+        else if (code) {
+          if (Date.now() > Date.parse(code.createdAt) + 60000) return res.status(400).json({ msg: 'Code is expired. Please click to resend email!' });
+          else if (req.body.code === code.code) {
+            User.updateMany({ email: userVerified.email }, { $set: userEmailRemoved }, { multi: true }, (err, result) => {
+              if (err) return res.status(404).json({ msg: 'Duplicated emails weren\'t found.' });
+              else {
+                User.findByIdAndUpdate(user._id, { $set: userVerified }, { new: true }, (err, result) => {
+                  if (err) return  res.status(404).json({ msg: 'User Verified isn\'t found.' });
+                  else {
+                    Code.deleteOne({ _userId: user._id }, (err, result) => {
+                      if (err) return res.status(400).json(err);
+                      else return res.status(200).json({ msg: 'Email is verified.' });
+                    });
+                  }
+                });
+              }
+            });
+          }
+          else return res.status(403).json({ msg: 'Verification Code is wrong.' });
+        } else return res.status(404).json({ msg: 'Code isn\'t found.' });
       });
-    } else return res.status(403).json({ msg: 'Verification Code is wrong.' });
+    }
   });
 }
 
