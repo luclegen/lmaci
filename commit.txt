@@ -106,4 +106,5 @@ User Controller: active
 User Controller: resendActive
 User Router: POST active
 User Router: GET resendActive
+Middlewares: Passport
 Commit
