@@ -54,6 +54,7 @@ Login Component: onSubmit
 Register Component: ngOnInit
 Authentication
 Module: Authentication, Services
+User Service: active
 Commit
 
 II. NODEJS SERVER
