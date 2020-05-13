@@ -89,5 +89,5 @@ User Controller: changePassword
 User Router: PUT changePassword
 User Controller: profile
 User Router: GET profile
-Token Model
+Code Model
 Commit
