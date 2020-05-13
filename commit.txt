@@ -62,6 +62,9 @@ Actice Component: Style
 Routes: ActiveComponent
 User Service: resendActive
 Profile Component: Initial
+Counter Directive: Initial
+Counter Directive: constructor, ngOnChanges, ngOnDestroy
+Actice Component: resendEmail
 Commit
 
 II. NODEJS SERVER
