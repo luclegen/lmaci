@@ -15,6 +15,9 @@ import { AuthGuard } from './auth/auth.guard';
 // Services
 import { UserService } from './services/user.service';
 
+// Directive
+import { CounterDirective } from './components/body/user/active/counter.directive';
+
 // Components
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -38,7 +41,8 @@ import { ProfileComponent } from './components/body/user/profile/profile.compone
     RegisterComponent,
     LoginComponent,
     ActiveComponent,
-    ProfileComponent
+    ProfileComponent,
+    CounterDirective
   ],
   imports: [
     BrowserModule,
