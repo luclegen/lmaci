@@ -96,4 +96,6 @@ User Controller: verify
 User Router: POST verify
 User Controller: resendVerify
 User Router: GET resendVerify
+User Controller: active
+User Controller: resendActive
 Commit
