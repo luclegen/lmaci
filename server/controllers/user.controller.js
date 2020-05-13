@@ -33,7 +33,7 @@ module.exports.register = (req, res, next) => {
   });
 }
 
-module.exports.verify = (req, res) => {
+module.exports.active = (req, res) => {
   if (!ObjectId.isValid(req.params.id))
     return res.status(400).json({ msg: `No record with given id: ${req.params.id}` });
 
