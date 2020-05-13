@@ -35,66 +35,80 @@ module.exports.register = (req, res, next) => {
 
 module.exports.verifyEmail = (req, res) => {
   if (!ObjectId.isValid(req.params.id))
-    return res.status(400).json({ message: `No record with given id: ${req.params.id}` });
+    return res.status(400).json({ msg: `No record with given id: ${req.params.id}` });
 
   User.findById(req.params.id, (err, user) => {
-    if (!user) return res.status(404).json({ message: 'User specified wasn\'t found.' });
+    if (!user) return res.status(404).json({ msg: 'User specified wasn\'t found.' });
     let userVerified = {
       email: user.email,
-      emailVerifyCode: '',
-      emailVerified: true
+      isVerified: true
     }, userEmailRemoved = {
       email: '',
-      emailVerifyCode: '',
-      emailVerified: false
+      isVerified: false
     }
     
-    if (user.emailVerified) return res.status(422).json({ message: 'Email is verified.' });
+    if (user.isVerified) return res.status(422).json({ msg: 'Email is verified.' });
     else if (req.body.code == user.emailVerifyCode) {
       User.updateMany({ email: userVerified.email }, { $set: userEmailRemoved }, { multi: true }, (err, result) => {
-        if (err) return res.status(404).json({ message: 'Duplicated emails weren\'t found.' });
+        if (err) return res.status(404).json({ msg: 'Duplicated emails weren\'t found.' });
         else {
           User.findByIdAndUpdate(req.params.id, { $set: userVerified }, { new: true }, (err, result) => {
-            return err ? res.status(404).json({ message: 'User Verified wasn\'t found.' })
-                       : res.status(200).json({ message: 'Email is verified.' });
+            return err ? res.status(404).json({ msg: 'User Verified wasn\'t found.' })
+                       : res.status(200).json({ msg: 'Email is verified.' });
           });
         }
       });
-    } else return res.status(403).json({ message: 'Verification Code is wrong.' });
+    } else return res.status(403).json({ msg: 'Verification Code is wrong.' });
   });
 }
 
 module.exports.resendVerifyEmail = (req, res) => {
   if (!ObjectId.isValid(req.params.id))
-    return res.status(400).json({ message: `No record with given id: ${req.params.id}` });
+    return res.status(400).json({ msg: `No record with given id: ${req.params.id}` });
 
   User.findById(req.params.id, (err, user) => {
     if (user) {
-      if (user.emailVerified) return res.status(422).json({ message: 'Email is verified.' });
+      if (user.emailVerified) return res.status(422).json({ msg: 'Email is verified.' });
       mailer.sendVerifyEmail(user.email, 'Verify Email', user.emailVerifyCode);
-      return res.status(200).json({ message: 'Resent Verification Code.' });
-    } else return res.status(404).json({ message: 'User not found.' });
+      return res.status(200).json({ msg: 'Resent Verification Code.' });
+    } else return res.status(404).json({ msg: 'User not found.' });
   });
 }
 
 module.exports.changeEmail = (req, res) => {
   if (!ObjectId.isValid(req.params.id))
-    return res.status(400).json({ message: `No record with given id: ${req.params.id}` });
+    return res.status(400).json({ msg: `No record with given id: ${req.params.id}` });
 
   User.findByIdAndUpdate(req.params.id, { $set: { email: req.body.email, emailVerifyCode: codeGenerator.generateCode(6), emailVerified: false } }, { new: true }, (err, user) => {
     if (user) {
       mailer.sendVerifyEmail(user.email, 'Verify Email', user.emailVerifyCode);
-      res.status(200).json({ message: 'Email is changed.' });
-    } else res.status(404).json({ message: 'User not found.' });
+      res.status(200).json({ msg: 'Email is changed.' });
+    } else res.status(404).json({ msg: 'User not found.' });
   });
 }
 
 module.exports.authenticate = (req, res) => {
   // Call for passport authentication
   passport.authenticate('local', (err, user, info) => {
-    return err ? res.status(400).json(err) // Error from passport middleware
-               : user ? res.status(200).json({ "token": user.generateJwt() }) // Registered user
-                      : res.status(404).json(info); // Unknow user or wrong password
+    if (err) return res.status(400).json(err); // Error from passport middleware
+    else if (user) {
+      if (!user.isVerified) {
+        Code.deleteMany({ _userId: user._id }, err => {
+          if (err) console.log('ERROR: Clear codes: ' + JSON.stringify(err, undefined, 2))
+        });
+
+        let code = new Code();
+
+        code._userId = user._id;
+        code.code = codeGenerator.generateCode(6);
+
+        code.save((err, code) => {
+          if (err) console.log('ERROR: User code: ' + JSON.stringify(err, undefined, 2));
+          else mailer.sendVerifyEmail(user.email, 'Verify Email', code.code);
+        });
+      }
+      return res.status(200).json({ "token": user.generateJwt() }) // Registered user
+    } else return res.status(404).json(info); // Unknow user or wrong password
   })(req, res);
 }
 
@@ -102,8 +116,8 @@ module.exports.findUsername = (req, res) => {
   User.findOneAndUpdate({ email: req.body.email, emailVerified: true }, { $set: { emailVerifyCode: codeGenerator.generateCode(6) } }, { new: true}, (err, user) => {
     if (user) {
       mailer.sendVerifyEmail(user.email, 'Verify Reset Password', user.emailVerifyCode);
-      return res.status(200).json({ username: user.username, message: 'Sent a code verification to email of username: ' + user.username });
-    } else res.status(404).json({ message: 'User is not found.' });
+      return res.status(200).json({ username: user.username, msg: 'Sent a code verification to email of username: ' + user.username });
+    } else res.status(404).json({ msg: 'User is not found.' });
   });
 }
 
@@ -111,8 +125,8 @@ module.exports.resendVerifyResetPassword = (req, res) => {
   User.findOne({ username: req.params.username }, (err, user) => {
     if (user) {
       mailer.sendVerifyEmail(user.email, 'Verify Reset Password', user.emailVerifyCode);
-      return res.status(200).json({ message: 'Resent Verification Code.' });
-    } else return res.status(404).json({ message: 'User not found.' });
+      return res.status(200).json({ msg: 'Resent Verification Code.' });
+    } else return res.status(404).json({ msg: 'User not found.' });
   });
 }
 
@@ -123,35 +137,35 @@ module.exports.resetPassword = (req, res) => {
       user.password = req.body.password;
 
       user.save(err => {
-        return err ? res.status(400).json({ message: 'Update is error.' })
-                   : res.status(200).json({ message: 'Password reset successfully.' });
+        return err ? res.status(400).json({ msg: 'Update is error.' })
+                   : res.status(200).json({ msg: 'Password reset successfully.' });
       });
-    } else return res.status(404).json({ message: 'Verification Code is wrong.' });
+    } else return res.status(404).json({ msg: 'Verification Code is wrong.' });
   });
 }
 
 module.exports.changePassword = (req, res) => {
   if (!ObjectId.isValid(req.params.id))
-    return res.status(400).json({ message: `No record with given id: ${req.params.id}` });
+    return res.status(400).json({ msg: `No record with given id: ${req.params.id}` });
   
   User.findById(req.params.id, (err, user) => {
     if (user) {
-      if (!user.emailVerified) return res.status(422).json({ message: 'Email isn\'t verified.' });
+      if (!user.emailVerified) return res.status(422).json({ msg: 'Email isn\'t verified.' });
       if (user.verifyPassword(req.body.password)) {
         user.password = req.body.newPassword
         
         user.save(err => {
-          return err ? res.status(400).json({ message: 'Update is error.' })
-                   : res.status(200).json({ message: 'Password was successfully changed.' });
+          return err ? res.status(400).json({ msg: 'Update is error.' })
+                   : res.status(200).json({ msg: 'Password was successfully changed.' });
         });
-      } else return res.status(403).json({ message: 'Wrong password.' });
-    } else return res.status(404).json({ message: 'User not found.' });
+      } else return res.status(403).json({ msg: 'Wrong password.' });
+    } else return res.status(404).json({ msg: 'User not found.' });
   });
 }
 
 module.exports.profile = (req, res) => {
   User.findOne({ _id: req._id }, (err, user) => {
     return user ? res.status(200).json({ status: true, user: _.pick(user, [ 'avatar', 'firstName', 'fullName', 'role', 'email', 'emailVerified', 'mobileNumber', 'username', 'address']) })
-                : res.status(404).json({ status: false, message: 'User not found.' });
+                : res.status(404).json({ status: false, msg: 'User not found.' });
   });
 }
