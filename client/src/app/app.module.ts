@@ -25,6 +25,7 @@ import { UserComponent } from './components/body/user/user.component';
 import { RegisterComponent } from './components/body/user/register/register.component';
 import { LoginComponent } from './components/body/user/login/login.component';
 import { ActiveComponent } from './components/body/user/active/active.component';
+import { ProfileComponent } from './components/body/user/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { ActiveComponent } from './components/body/user/active/active.component'
     UserComponent,
     RegisterComponent,
     LoginComponent,
-    ActiveComponent
+    ActiveComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
