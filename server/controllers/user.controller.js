@@ -162,19 +162,47 @@ module.exports.authenticate = (req, res) => {
 }
 
 module.exports.findUsername = (req, res) => {
-  User.findOneAndUpdate({ email: req.body.email, emailVerified: true }, { $set: { emailVerifyCode: codeGenerator.generateCode(6) } }, { new: true}, (err, user) => {
+  User.findOne({ email: req.body.email, isVerified: true }, (err, user) => {
     if (user) {
-      mailer.sendVerifyEmail(user.email, 'Verify Reset Password', user.emailVerifyCode);
-      return res.status(200).json({ username: user.username, msg: 'Sent a code verification to email of username: ' + user.username });
+      Code.deleteOne({ _userId: user._id }, err => {
+        if (err) console.log('ERROR: Clear codes: ' + JSON.stringify(err, undefined, 2))
+      });
+
+      let code = new Code();
+
+      code._userId = user._id;
+      code.code = codeGenerator.generateCode(6);
+
+      code.save((err, code) => {
+        if (err) console.log('ERROR: User code: ' + JSON.stringify(err, undefined, 2));
+        else {
+          mailer.sendVerifyEmail(user.email, 'Verify Reset Password', code.code);
+          return res.status(200).json({ username: user.username, msg: 'Sent a code verification to email of username: ' + user.username });
+        }
+      });
     } else res.status(404).json({ msg: 'User is not found.' });
   });
 }
 
 module.exports.resendVerifyResetPassword = (req, res) => {
-  User.findOne({ username: req.params.username }, (err, user) => {
+  User.findOne({ username: req.params.username, isVerified: true }, (err, user) => {
     if (user) {
-      mailer.sendVerifyEmail(user.email, 'Verify Reset Password', user.emailVerifyCode);
-      return res.status(200).json({ msg: 'Resent Verification Code.' });
+      Code.deleteOne({ _userId: user._id }, err => {
+        if (err) console.log('ERROR: Clear codes: ' + JSON.stringify(err, undefined, 2))
+      });
+
+      let code = new Code();
+
+      code._userId = user._id;
+      code.code = codeGenerator.generateCode(6);
+
+      code.save((err, code) => {
+        if (err) console.log('ERROR: User code: ' + JSON.stringify(err, undefined, 2));
+        else {
+          mailer.sendVerifyEmail(user.email, 'Verify Reset Password', code.code);
+          return res.status(200).json({ msg: 'Resent Verification Code.' });
+        }
+      });
     } else return res.status(404).json({ msg: 'User not found.' });
   });
 }
