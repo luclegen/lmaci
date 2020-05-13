@@ -60,6 +60,7 @@ Actice Component: Form
 Routes: ActiveComponent
 Actice Component: Style
 Routes: ActiveComponent
+User Service: resendActive
 Commit
 
 II. NODEJS SERVER
