@@ -11,9 +11,9 @@ passport.use(new LocalStrategy({
   User.findOne({ username: username }, (err, user) => {
     if (err) return done(err);
     // Unknown user
-    else if (!user) return done(null, false, { message: 'Username is not registered.' })
+    else if (!user) return done(null, false, { msg: 'Username is not registered.' })
     // Wrong password
-    else if (!user.verifyPassword(password)) return done(null, false, { message: 'Wrong password.' });
+    else if (!user.verifyPassword(password)) return done(null, false, { msg: 'Wrong password.' });
     // Authentication successed
     else return done(null, user);
   });
