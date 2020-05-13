@@ -87,7 +87,7 @@ module.exports.resendVerify = (req, res) => {
         Code.findOne({ _userId: req.params.id }, (err, code) => {
           if (err) return res.status(400).json(err);
           else {
-            Code.deleteMany({ _userId: user._id }, err => {
+            Code.deleteOne({ _userId: user._id }, err => {
               if (err) console.log('ERROR: Clear code: ' + JSON.stringify(err, undefined, 2))
             });
     
@@ -114,10 +114,24 @@ module.exports.changeEmail = (req, res) => {
   if (!ObjectId.isValid(req.params.id))
     return res.status(400).json({ msg: `No record with given id: ${req.params.id}` });
 
-  User.findByIdAndUpdate(req.params.id, { $set: { email: req.body.email, emailVerifyCode: codeGenerator.generateCode(6), emailVerified: false } }, { new: true }, (err, user) => {
+  User.findByIdAndUpdate(req.params.id, { $set: { email: req.body.email, isVerified: false } }, { new: true }, (err, user) => {
     if (user) {
-      mailer.sendVerifyEmail(user.email, 'Verify Email', user.emailVerifyCode);
-      res.status(200).json({ msg: 'Email is changed.' });
+      Code.deleteOne({ _userId: user._id }, err => {
+        if (err) console.log('ERROR: Clear code: ' + JSON.stringify(err, undefined, 2))
+      });
+
+      let code = new Code();
+
+      code._userId = user._id;
+      code.code = codeGenerator.generateCode(6);
+
+      code.save((err, code) => {
+        if (err) return res.status(400).json(err);
+        else {
+          mailer.sendVerifyEmail(user.email, 'Verify Email', code.code);
+          return res.status(200).json({ msg: 'Email is changed.' });
+        }
+      });
     } else res.status(404).json({ msg: 'User not found.' });
   });
 }
@@ -128,7 +142,7 @@ module.exports.authenticate = (req, res) => {
     if (err) return res.status(400).json(err); // Error from passport middleware
     else if (user) {
       if (!user.isVerified) {
-        Code.deleteMany({ _userId: user._id }, err => {
+        Code.deleteOne({ _userId: user._id }, err => {
           if (err) console.log('ERROR: Clear codes: ' + JSON.stringify(err, undefined, 2))
         });
 
