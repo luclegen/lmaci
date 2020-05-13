@@ -16,7 +16,7 @@ import { AuthGuard } from './auth/auth.guard';
 import { UserService } from './services/user.service';
 
 // Directive
-import { CounterDirective } from './components/body/user/active/counter.directive';
+import { CounterDirective } from './components/body/user/counter/counter.directive';
 
 // Components
 import { AppComponent } from './app.component';
