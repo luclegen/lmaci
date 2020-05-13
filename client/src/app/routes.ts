@@ -1,5 +1,7 @@
 import { Routes } from '@angular/router';
 
+import { AuthGuard } from './auth/auth.guard';
+
 import { HomeComponent } from './components/body/home/home.component';
 import { UserComponent } from './components/body/user/user.component';
 import { RegisterComponent } from './components/body/user/register/register.component';
@@ -11,7 +13,7 @@ export const routes: Routes = [
     path: 'user', component: UserComponent,
     children: [ { path: 'register', component: RegisterComponent },
                 { path: 'login', component: LoginComponent },
-                { path: 'active', component: ActiveComponent } ]
+                { path: 'active', component: ActiveComponent, canActivate: [AuthGuard] } ]
   },
   {
     path: '', pathMatch: 'full', component: HomeComponent
