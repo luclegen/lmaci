@@ -73,6 +73,7 @@ Top Navbar Component: View
 Environments: auth
 Auth Service: Initial
 Auth Component: Initial
+Routes: AuthComponent
 Commit
 
 II. NODEJS SERVER
