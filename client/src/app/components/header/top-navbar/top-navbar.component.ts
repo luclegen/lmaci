@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { UserService } from 'src/app/services/user.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-top-navbar',
@@ -12,10 +13,10 @@ export class TopNavbarComponent implements OnInit {
 
   userDetails;
 
-  constructor(private userService: UserService, private router: Router) { }
+  constructor(private authService: AuthService, private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
-    if (this.userService.getToken()){
+    if (this.authService.getToken()){
       this.userService.getProfile().subscribe(
         res => {
           this.userDetails = res['user'];
@@ -26,7 +27,7 @@ export class TopNavbarComponent implements OnInit {
   }
 
   onLogout() {
-    this.userService.removeToken();
+    this.authService.removeToken();
   }
 
   expandA(id, master, nav, height) {
