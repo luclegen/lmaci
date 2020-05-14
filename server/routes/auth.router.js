@@ -12,5 +12,6 @@ router.post('/find-username', authController.findUsername);
 router.get('/resend-verify-reset-password/:username', authController.resendVerifyResetPassword);
 router.put('/reset-password/:username', authController.resetPassword);
 router.put('/change-password/:id', authController.changePassword);
+router.get('/info', jwt.verifyJwtToken, authController.info);
 
 module.exports = router;
