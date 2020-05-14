@@ -75,6 +75,7 @@ Auth Service: Initial
 Auth Component: Initial
 Routes: AuthComponent
 Routes: RegisterComponent, LoginComponent, UserComponent
+Top Navbar Component: View
 Commit
 
 II. NODEJS SERVER
