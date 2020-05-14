@@ -139,25 +139,9 @@ module.exports.changeEmail = (req, res) => {
 module.exports.authenticate = (req, res) => {
   // Call for passport authentication
   passport.authenticate('local', (err, user, info) => {
-    if (err) return res.status(400).json(err); // Error from passport middleware
-    else if (user) {
-      if (!user.activated) {
-        Code.deleteOne({ _userId: user._id }, err => {
-          if (err) console.log('ERROR: Clear codes: ' + JSON.stringify(err, undefined, 2))
-        });
-
-        let code = new Code();
-
-        code._userId = user._id;
-        code.code = codeGenerator.generateCode(6);
-
-        code.save((err, code) => {
-          if (err) console.log('ERROR: User code: ' + JSON.stringify(err, undefined, 2));
-          else mailer.sendVerifyEmail(user.email, 'Verify Email', code.code);
-        });
-      }
-      return res.status(200).json({ "token": user.generateJwt() }) // Registered user
-    } else return res.status(404).json(info); // Unknow user or wrong password
+    return err ? res.status(400).json(err) // Error from passport middleware
+               : user ? res.status(200).json({ "token": user.generateJwt() }) // Registered user
+                      : res.status(404).json(info); // Unknow user or wrong password
   })(req, res);
 }
 
