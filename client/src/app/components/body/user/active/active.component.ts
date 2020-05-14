@@ -36,6 +36,12 @@ export class ActiveComponent implements OnInit {
     this.userService.getProfile().subscribe(
       res => {
         if (res['user'].activated) this.router.navigateByUrl('');
+        else {
+          this.userService.resendActive(this.userService.getId()).subscribe(
+            res => {},
+            err => {}
+          );
+        }
       },
       err => {}
     );
