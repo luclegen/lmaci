@@ -71,6 +71,7 @@ Profile Component: ngOnInit
 Profile Component: Style
 Top Navbar Component: View
 Environments: auth
+Auth Service: Initial
 Commit
 
 II. NODEJS SERVER
