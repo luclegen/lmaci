@@ -34,8 +34,8 @@ export class UserService {
 
   //#region Http Methods
 
-  getProfile() {
-    return this.http.get(environment.userUrl + '/profile');
+  getUser(username: string) {
+    return this.http.get(environment.userUrl + '/' + username);
   }
 
   //#endregion Http Methods
