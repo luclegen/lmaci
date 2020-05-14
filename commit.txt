@@ -80,6 +80,7 @@ Top Navbar Component: HTML
 Auth Service: getInfo
 Top Navbar Component: ngOnInit
 Active Component: ngOnInit
+User Service: getUser
 Commit
 
 II. NODEJS SERVER
