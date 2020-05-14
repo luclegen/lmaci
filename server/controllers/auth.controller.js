@@ -115,24 +115,8 @@ module.exports.changeEmail = (req, res) => {
     return res.status(400).json({ msg: `No record with given id: ${req.params.id}` });
 
   User.findByIdAndUpdate(req.params.id, { $set: { email: req.body.email, activated: false } }, { new: true }, (err, user) => {
-    if (user) {
-      Code.deleteOne({ _userId: user._id }, err => {
-        if (err) console.log('ERROR: Clear code: ' + JSON.stringify(err, undefined, 2))
-      });
-
-      let code = new Code();
-
-      code._userId = user._id;
-      code.code = codeGenerator.generateCode(6);
-
-      code.save((err, code) => {
-        if (err) return res.status(400).json(err);
-        else {
-          mailer.sendVerifyEmail(user.email, 'Verify Email', code.code);
-          return res.status(200).json({ msg: 'Email is changed.' });
-        }
-      });
-    } else res.status(404).json({ msg: 'User not found.' });
+    return user ? res.status(200).json({ msg: 'Email is changed.' })
+                : res.status(404).json({ msg: 'User not found.' });
   });
 }
 
@@ -236,7 +220,7 @@ module.exports.changePassword = (req, res) => {
 }
 
 module.exports.profile = (req, res) => {
-  User.findOne({ _id: req._id }, (err, user) => {
+  User.findById(req._id, (err, user) => {
     return user ? res.status(200).json({ status: true, user: _.pick(user, [ 'avatar', 'firstName', 'fullName', 'gender', 'email', 'activated', 'mobileNumber', 'username', 'role', 'address']) })
                 : res.status(404).json({ status: false, msg: 'User not found.' });
   });
