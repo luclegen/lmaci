@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { NgForm } from '@angular/forms';
 
-import { UserService } from 'src/app/services/user.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -30,15 +30,15 @@ export class RegisterComponent implements OnInit {
   showSuccessMessages: boolean;
   serverErrorMessages: string;
 
-  constructor(private titleService: Title, private userService: UserService) {
+  constructor(private titleService: Title, private authService: AuthService) {
     this.titleService.setTitle('Register | Lmaci');
-    this.emailRegex = this.userService.emailRegex;
-    this.mobileNumberRegex = this.userService.mobileNumberRegex;
-    this.usernameRegex = this.userService.usernameRegex;
+    this.emailRegex = this.authService.emailRegex;
+    this.mobileNumberRegex = this.authService.mobileNumberRegex;
+    this.usernameRegex = this.authService.usernameRegex;
   }
 
   ngOnInit(): void {
-    if (this.userService.getToken()) this.userService.removeToken();
+    if (this.authService.getToken()) this.authService.removeToken();
   }
   
   checkStrengthPassword() {
@@ -91,7 +91,7 @@ export class RegisterComponent implements OnInit {
 
   onSubmit(form: NgForm) {
     if (this.matchPassword()) {
-      this.userService.register(form.value).subscribe(
+      this.authService.register(form.value).subscribe(
         res => {
           this.showSuccessMessages = true;
           setTimeout(() => this.showSuccessMessages = false, 4000);

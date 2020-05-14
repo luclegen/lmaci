@@ -16,7 +16,7 @@ import { AuthGuard } from './auth/auth.guard';
 import { UserService } from './services/user.service';
 
 // Directive
-import { CounterDirective } from './components/body/user/counter/counter.directive';
+import { CounterDirective } from './components/body/auth/counter/counter.directive';
 
 // Components
 import { AppComponent } from './app.component';
@@ -25,10 +25,11 @@ import { FooterComponent } from './components/footer/footer.component';
 import { TopNavbarComponent } from './components/header/top-navbar/top-navbar.component';
 import { HomeComponent } from './components/body/home/home.component';
 import { UserComponent } from './components/body/user/user.component';
-import { RegisterComponent } from './components/body/user/register/register.component';
-import { LoginComponent } from './components/body/user/login/login.component';
-import { ActiveComponent } from './components/body/user/active/active.component';
+import { RegisterComponent } from './components/body/auth/register/register.component';
+import { LoginComponent } from './components/body/auth/login/login.component';
+import { ActiveComponent } from './components/body/auth/active/active.component';
 import { ProfileComponent } from './components/body/user/profile/profile.component';
+import { AuthComponent } from './components/body/auth/auth.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { ProfileComponent } from './components/body/user/profile/profile.compone
     LoginComponent,
     ActiveComponent,
     ProfileComponent,
-    CounterDirective
+    CounterDirective,
+    AuthComponent
   ],
   imports: [
     BrowserModule,

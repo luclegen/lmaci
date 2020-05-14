@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { UserService } from 'src/app/services/user.service';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
+
+import { AuthService } from 'src/app/services/auth.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -19,19 +21,19 @@ export class LoginComponent implements OnInit {
   usernameRegex;
   serverErrorMessages: string;
 
-  constructor(private titleService: Title, private userService: UserService, private router: Router) {
+  constructor(private titleService: Title, private authService: AuthService, private userService: UserService, private router: Router) {
     this.titleService.setTitle(this.title);
-    this.usernameRegex = this.userService.usernameRegex;
+    this.usernameRegex = this.authService.usernameRegex;
   }
 
   ngOnInit(): void {
-    if (this.userService.getToken()) this.userService.removeToken();
+    if (this.authService.getToken()) this.authService.removeToken();
   }
 
   onSubmit(form: NgForm) {
-    this.userService.login(form.value).subscribe(
+    this.authService.login(form.value).subscribe(
       res => {
-        this.userService.setToken(res['token']);
+        this.authService.setToken(res['token']);
         this.userService.getProfile().subscribe(
           res => {
             let userDetails = res['user'];

@@ -3,9 +3,10 @@ import { NgForm } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 
-import { UserService } from 'src/app/services/user.service';
 import { Observable, timer } from 'rxjs';
 import { take, map } from 'rxjs/operators';
+import { AuthService } from 'src/app/services/auth.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-active',
@@ -22,7 +23,7 @@ export class ActiveComponent implements OnInit {
 
   serverErrorMessages: string;
 
-  constructor(private titleService: Title, private userService: UserService, private router: Router) {
+  constructor(private titleService: Title, private authService: AuthService, private userService: UserService, private router: Router) {
     this.titleService.setTitle('Verify Email | Lmaci');
     this.codeRegex = this.userService.codeRegex;
     
@@ -37,7 +38,7 @@ export class ActiveComponent implements OnInit {
       res => {
         if (res['user'].activated) this.router.navigateByUrl('');
         else {
-          this.userService.resendActive(this.userService.getId()).subscribe(
+          this.authService.resendActive(this.authService.getId()).subscribe(
             res => {},
             err => {}
           );
@@ -48,7 +49,7 @@ export class ActiveComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    this.userService.active(this.userService.getId(), form.value).subscribe(
+    this.authService.active(this.authService.getId(), form.value).subscribe(
       res => {
         alert(res['msg']);
         this.router.navigateByUrl('user/profile');
@@ -60,7 +61,7 @@ export class ActiveComponent implements OnInit {
   }
 
   resendEmail() {
-    this.userService.resendActive(this.userService.getId()).subscribe(
+    this.authService.resendActive(this.authService.getId()).subscribe(
       res => {
         alert(res['msg']);
         this.count = 60;
