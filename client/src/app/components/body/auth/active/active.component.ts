@@ -6,7 +6,6 @@ import { Router } from '@angular/router';
 import { Observable, timer } from 'rxjs';
 import { take, map } from 'rxjs/operators';
 import { AuthService } from 'src/app/services/auth.service';
-import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-active',
@@ -23,9 +22,9 @@ export class ActiveComponent implements OnInit {
 
   serverErrorMessages: string;
 
-  constructor(private titleService: Title, private authService: AuthService, private userService: UserService, private router: Router) {
+  constructor(private titleService: Title, private authService: AuthService, private router: Router) {
     this.titleService.setTitle('Verify Email | Lmaci');
-    this.codeRegex = this.userService.codeRegex;
+    this.codeRegex = this.authService.codeRegex;
     
     this.counter$ = timer(0,1000).pipe(
       take(this.count),
@@ -34,7 +33,7 @@ export class ActiveComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.userService.getProfile().subscribe(
+    this.authService.getInfo().subscribe(
       res => {
         if (res['user'].activated) this.router.navigateByUrl('');
         else {
