@@ -77,6 +77,7 @@ Routes: AuthComponent
 Routes: RegisterComponent, LoginComponent, UserComponent
 Top Navbar Component: View
 Top Navbar Component: HTML
+Auth Service: getInfo
 Commit
 
 II. NODEJS SERVER
