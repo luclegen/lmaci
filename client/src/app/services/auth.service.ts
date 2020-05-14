@@ -51,6 +51,10 @@ export class AuthService {
     return this.http.get(environment.authUrl + '/resend-active/' + id);
   }
 
+  getInfo() {
+    return this.http.get(environment.authUrl + '/info');
+  }
+
   //#endregion Http Methods
 
   //#region Helper Methods
