@@ -131,24 +131,8 @@ module.exports.authenticate = (req, res) => {
 
 module.exports.findUsername = (req, res) => {
   User.findOne({ email: req.body.email, activated: true }, (err, user) => {
-    if (user) {
-      Code.deleteOne({ _userId: user._id }, err => {
-        if (err) console.log('ERROR: Clear codes: ' + JSON.stringify(err, undefined, 2))
-      });
-
-      let code = new Code();
-
-      code._userId = user._id;
-      code.code = codeGenerator.generateCode(6);
-
-      code.save((err, code) => {
-        if (err) console.log('ERROR: User code: ' + JSON.stringify(err, undefined, 2));
-        else {
-          mailer.sendVerifyEmail(user.email, 'Verify Reset Password', code.code);
-          return res.status(200).json({ username: user.username, msg: 'Sent a code verification to email of username: ' + user.username });
-        }
-      });
-    } else res.status(404).json({ msg: 'User is not found.' });
+    return user ? res.status(200).json({ username: user.username, msg: 'Sent a code verification to email of username: ' + user.username })
+                : res.status(404).json({ msg: 'User is not found.' });
   });
 }
 
