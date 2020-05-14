@@ -130,4 +130,5 @@ Server App: Auth Router
 Auth Controller: findUsername
 Auth Controller: info
 Auth Router: GET info
+User Router: GET get
 Commit
