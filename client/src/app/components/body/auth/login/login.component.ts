@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
           res => {
             let userDetails = res['user'];
             if (userDetails.activated) this.router.navigateByUrl('/');
-            else this.router.navigateByUrl('user/active');
+            else this.router.navigateByUrl('active');
           },
           err => {}
         );
