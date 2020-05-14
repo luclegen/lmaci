@@ -69,6 +69,7 @@ Actice Component: ngOnInit
 Profile Component: View
 Profile Component: ngOnInit
 Profile Component: Style
+Top Navbar Component: View
 Commit
 
 II. NODEJS SERVER
