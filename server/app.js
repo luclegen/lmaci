@@ -18,6 +18,7 @@ require('./middlewares/passport');
 
 // Routes
 app.use('/auth', require('./routes/auth.router'));
+app.use('/user', require('./routes/user.router'));
 
 // Error handle
 app.use((err, req, res, next) => {
