@@ -74,6 +74,7 @@ Environments: auth
 Auth Service: Initial
 Auth Component: Initial
 Routes: AuthComponent
+Routes: RegisterComponent, LoginComponent, UserComponent
 Commit
 
 II. NODEJS SERVER
