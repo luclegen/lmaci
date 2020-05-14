@@ -120,4 +120,5 @@ Middlewares: Passport
 Auth Controller
 Auth Router
 Server App: Auth Router
+Auth Controller: findUsername
 Commit
