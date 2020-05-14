@@ -118,4 +118,5 @@ User Router: POST active
 User Router: GET resendActive
 Middlewares: Passport
 Auth Controller
+Auth Router
 Commit
