@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const authController = require('../controllers/auth.controller');
+const jwt = require('../helpers/jwt');
 
 router.post('/register', authController.register);
 router.post('/active/:id', authController.active);
