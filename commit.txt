@@ -90,8 +90,8 @@ User Controller: resendVerifyEmail
 User Router: GET resendVerifyEmail
 User Controller: changeEmail
 User Router: PUT changeEmail
-User Controller: authenticat
-User Router: POST authenticatee
+User Controller: authenticate
+User Router: POST authenticate
 User Controller: findUsername
 User Router: POST findUsername
 User Controller: resendVerifyResetPassword
