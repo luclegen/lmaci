@@ -18,6 +18,7 @@ export class ProfileComponent implements OnInit {
       res => {
         this.userDetails = res['user'];
         this.titleService.setTitle(this.userDetails.firstName + this.title);
+        this.userDetails.role = this.userDetails.role.split('')[0].toUpperCase() + this.userDetails.role.split('').slice(1).join('');
       },
       err => {}
     );
