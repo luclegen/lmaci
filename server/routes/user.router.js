@@ -3,7 +3,7 @@ const router = express.Router();
 
 const userController = require('../controllers/user.controller');
 
-const jwt = require('../helpers/jwt');
+const jwt = require('../middlewares/jwt');
 
 router.get('/profile', jwt.verifyJwtToken, userController.profile);
 
