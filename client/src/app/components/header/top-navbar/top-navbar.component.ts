@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 
-import { UserService } from 'src/app/services/user.service';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -13,13 +11,13 @@ export class TopNavbarComponent implements OnInit {
 
   userDetails;
 
-  constructor(private authService: AuthService, private userService: UserService, private router: Router) { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
     if (this.authService.getToken()){
       this.authService.getInfo().subscribe(
         res => {
-          this.userDetails = res;
+          this.userDetails = res['user'];
         },
         err => {}
       );
