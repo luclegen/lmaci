@@ -68,6 +68,7 @@ Actice Component: resendEmail
 Actice Component: ngOnInit
 Profile Component: View
 Profile Component: ngOnInit
+Profile Component: Style
 Commit
 
 II. NODEJS SERVER
