@@ -65,6 +65,7 @@ Profile Component: Initial
 Counter Directive: Initial
 Counter Directive: constructor, ngOnChanges, ngOnDestroy
 Actice Component: resendEmail
+Actice Component: ngOnInit
 Commit
 
 II. NODEJS SERVER
