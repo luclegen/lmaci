@@ -21,7 +21,7 @@ export const routes: Routes = [
   },
   {
     path: 'user', component: UserComponent,
-    children: [ { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] } ]
+    children: [ { path: ':username', component: ProfileComponent, canActivate: [AuthGuard] } ]
   },
   {
     path: '', pathMatch: 'full', component: HomeComponent
