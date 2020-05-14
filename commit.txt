@@ -78,6 +78,7 @@ Routes: RegisterComponent, LoginComponent, UserComponent
 Top Navbar Component: View
 Top Navbar Component: HTML
 Auth Service: getInfo
+Top Navbar Component: ngOnInit
 Commit
 
 II. NODEJS SERVER
