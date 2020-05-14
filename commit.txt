@@ -117,4 +117,5 @@ User Controller: resendActive
 User Router: POST active
 User Router: GET resendActive
 Middlewares: Passport
+Auth Controller
 Commit
