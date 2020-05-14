@@ -72,6 +72,7 @@ Profile Component: Style
 Top Navbar Component: View
 Environments: auth
 Auth Service: Initial
+Auth Component: Initial
 Commit
 
 II. NODEJS SERVER
