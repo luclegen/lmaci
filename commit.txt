@@ -89,6 +89,7 @@ Routes: ChangeEmailComponent
 Active Component: HTML
 Change Email Component: constructor, ngOnInit, onSubmit
 Auth Service: changeEmail
+Change Email Component: onSubmit
 Commit
 
 II. NODEJS SERVER
