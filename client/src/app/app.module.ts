@@ -29,6 +29,7 @@ import { RegisterComponent } from './components/body/auth/register/register.comp
 import { LoginComponent } from './components/body/auth/login/login.component';
 import { ActiveComponent } from './components/body/auth/active/active.component';
 import { ProfileComponent } from './components/body/user/profile/profile.component';
+import { ChangeEmailComponent } from './components/body/auth/change-email/change-email.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { ProfileComponent } from './components/body/user/profile/profile.compone
     LoginComponent,
     ActiveComponent,
     ProfileComponent,
-    CounterDirective
+    CounterDirective,
+    ChangeEmailComponent
   ],
   imports: [
     BrowserModule,
