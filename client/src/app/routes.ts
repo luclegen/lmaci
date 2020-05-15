@@ -8,6 +8,7 @@ import { ProfileComponent } from './components/body/user/profile/profile.compone
 import { RegisterComponent } from './components/body/auth/register/register.component';
 import { LoginComponent } from './components/body/auth/login/login.component';
 import { ActiveComponent } from './components/body/auth/active/active.component';
+import { ChangeEmailComponent } from './components/body/auth/change-email/change-email.component';
 
 export const routes: Routes = [
   {
@@ -18,6 +19,9 @@ export const routes: Routes = [
   },
   {
     path: 'active', component: ActiveComponent, canActivate: [AuthGuard]
+  },
+  {
+    path: 'change-email', component: ChangeEmailComponent, canActivate: [AuthGuard]
   },
   {
     path: 'user', component: UserComponent,
