@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 
+import { AuthService } from 'src/app/services/auth.service';
+import { NgForm } from '@angular/forms';
 @Component({
   selector: 'app-change-email',
   templateUrl: './change-email.component.html',
@@ -7,9 +11,41 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChangeEmailComponent implements OnInit {
 
-  constructor() { }
+  emailChange: string;
+  serverErrorMessages: string;
 
-  ngOnInit(): void {
+  emailRegex;
+
+  constructor(private titleService: Title, private authService: AuthService, private router: Router) {
+    this.titleService.setTitle('Change Email | Lmaci');
+    this.emailRegex = this.authService.emailRegex;
   }
 
+  ngOnInit(): void {
+    this.authService.getInfo().subscribe(
+      res => {
+        if (res['user'].activated) this.router.navigateByUrl('');
+      },
+      err => {}
+    );
+  }
+
+  onSubmit(form: NgForm) {
+    this.authService.getInfo().subscribe(
+      res => {
+        if (!res['user'].activated) {
+          this.authService.changeEmail(res['user'].username, form.value).subscribe(
+            res => {
+              alert(res['message']);
+              this.router.navigateByUrl('user/verify-email');
+            },
+            err => {
+              this.serverErrorMessages = err.error.message;
+            }
+          );
+        }
+      },
+      err => {}
+    );
+  }
 }
