@@ -81,6 +81,7 @@ Auth Service: getInfo
 Top Navbar Component: ngOnInit
 Active Component: ngOnInit
 User Service: getUser
+JSON Angular
 Commit
 
 II. NODEJS SERVER
