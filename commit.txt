@@ -86,6 +86,7 @@ Change Email Component: Initial
 Change Email Component: HTML
 Change Email Component: Style
 Routes: ChangeEmailComponent
+Active Component: HTML
 Commit
 
 II. NODEJS SERVER
