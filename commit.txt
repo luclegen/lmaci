@@ -84,6 +84,7 @@ User Service: getUser
 JSON Angular
 Change Email Component: Initial
 Change Email Component: HTML
+Change Email Component: Style
 Commit
 
 II. NODEJS SERVER
