@@ -34,10 +34,10 @@ export class ChangeEmailComponent implements OnInit {
     this.authService.getInfo().subscribe(
       res => {
         if (!res['user'].activated) {
-          this.authService.changeEmail(res['user'].username, form.value).subscribe(
+          this.authService.changeEmail(this.authService.getId(), form.value).subscribe(
             res => {
-              alert(res['message']);
-              this.router.navigateByUrl('user/verify-email');
+              alert(res['msg']);
+              this.router.navigateByUrl('active');
             },
             err => {
               this.serverErrorMessages = err.error.message;
