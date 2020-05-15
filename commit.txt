@@ -82,6 +82,7 @@ Top Navbar Component: ngOnInit
 Active Component: ngOnInit
 User Service: getUser
 JSON Angular
+Change Email Component: Initial
 Commit
 
 II. NODEJS SERVER
