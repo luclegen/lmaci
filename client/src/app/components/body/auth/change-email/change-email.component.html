@@ -1,1 +1,12 @@
-<p>change-email works!</p>
+<app-header></app-header>
+<section class="center-content">
+  <div class="center-box">
+    <h2>Change your email</h2>
+    <form #chageEmailForm="ngForm" (ngSubmit)="chageEmailForm.valid && onSubmit(chageEmailForm)">
+      <input #email="ngModel" [(ngModel)]="emailChange" [ngClass]="{ 'invalid-input': chageEmailForm.submitted && !email.valid }" type="email" name="email" [pattern]="emailRegex" placeholder="example@email.com" required>
+      <label *ngIf="chageEmailForm.submitted && email.errors?.pattern" class="err">Invalid Email.</label>
+      <input type="submit" value="Change" [disabled]="email.errors?.required">
+    </form>
+    <label class="msg err-msg" *ngIf="serverErrorMessages">{{serverErrorMessages}}</label>
+  </div>
+</section>
