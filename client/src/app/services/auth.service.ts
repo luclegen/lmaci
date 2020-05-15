@@ -55,6 +55,10 @@ export class AuthService {
     return this.http.get(environment.authUrl + '/info');
   }
 
+  changeEmail(id: string, email: string) {
+    return this.http.put(environment.authUrl + '/change-email/' + id, email);
+  }
+
   //#endregion Http Methods
 
   //#region Helper Methods
