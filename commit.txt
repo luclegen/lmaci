@@ -85,6 +85,7 @@ JSON Angular
 Change Email Component: Initial
 Change Email Component: HTML
 Change Email Component: Style
+Routes: ChangeEmailComponent
 Commit
 
 II. NODEJS SERVER
