@@ -15,12 +15,9 @@ export class TopNavbarComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.authService.getToken()){
-      this.authService.getInfo().subscribe(
-        res => {
-          this.userDetails = res['user'];
-        },
-        err => {}
-      );
+      this.authService.getInfo().subscribe(res => {
+        this.userDetails = res['user'];
+      });
     }
   }
 
