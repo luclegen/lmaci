@@ -92,6 +92,7 @@ Auth Service: changeEmail
 Change Email Component: onSubmit
 Change Email Component: View
 Active Component: ngOnInit, onSubmit
+Change Email Component: ngOnInit, onSubmit
 Commit
 
 II. NODEJS SERVER
