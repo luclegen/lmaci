@@ -37,13 +37,9 @@ export class ActiveComponent implements OnInit {
       res => {
         if (res['user'].activated) this.router.navigateByUrl('');
         else {
-          this.authService.resendActive(this.authService.getId()).subscribe(
-            res => {},
-            err => {}
-          );
+          this.authService.resendActive(this.authService.getId()).subscribe();
         }
-      },
-      err => {}
+      }
     );
   }
 
@@ -51,7 +47,11 @@ export class ActiveComponent implements OnInit {
     this.authService.active(this.authService.getId(), form.value).subscribe(
       res => {
         alert(res['msg']);
-        this.router.navigateByUrl('user/profile');
+        this.authService.getInfo().subscribe(
+          res => {
+            this.router.navigateByUrl('user/' + res['user'].username);
+          }
+        );
       },
       err => {
         this.serverErrorMessages = err.error.msg;
