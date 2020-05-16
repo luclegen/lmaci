@@ -34,14 +34,11 @@ export class LoginComponent implements OnInit {
     this.authService.login(form.value).subscribe(
       res => {
         this.authService.setToken(res['token']);
-        this.authService.getInfo().subscribe(
-          res => {
-            let userDetails = res['user'];
-            if (userDetails.activated) this.router.navigateByUrl('/');
-            else this.router.navigateByUrl('active');
-          },
-          err => {}
-        );
+        this.authService.getInfo().subscribe(res => {
+          let userDetails = res['user'];
+          if (userDetails.activated) this.router.navigateByUrl('/');
+          else this.router.navigateByUrl('active');
+        });
       },
       err => {
         this.serverErrorMessages = err.error.msg;
