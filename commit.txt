@@ -91,6 +91,7 @@ Change Email Component: constructor, ngOnInit, onSubmit
 Auth Service: changeEmail
 Change Email Component: onSubmit
 Change Email Component: View
+Active Component: ngOnInit, onSubmit
 Commit
 
 II. NODEJS SERVER
