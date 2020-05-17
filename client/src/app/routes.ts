@@ -10,6 +10,7 @@ import { LoginComponent } from './components/body/auth/login/login.component';
 import { ActiveComponent } from './components/body/auth/active/active.component';
 import { ChangeEmailComponent } from './components/body/auth/change-email/change-email.component';
 import { FindUsernameComponent } from './components/body/auth/find-username/find-username.component';
+import { ResetPasswordComponent } from './components/body/auth/reset-password/reset-password.component';
 
 export const routes: Routes = [
   {
@@ -22,9 +23,6 @@ export const routes: Routes = [
     path: 'login', component: LoginComponent
   },
   {
-    path: 'find-username', component: FindUsernameComponent
-  },
-  {
     path: 'active', component: ActiveComponent, canActivate: [AuthGuard]
   },
   {
@@ -33,5 +31,11 @@ export const routes: Routes = [
   {
     path: 'user', component: UserComponent,
     children: [ { path: ':username', component: ProfileComponent, canActivate: [AuthGuard] } ]
+  },
+  {
+    path: 'find-username', component: FindUsernameComponent
+  },
+  {
+    path: 'reset-password/:username', component: ResetPasswordComponent
   }
 ]
