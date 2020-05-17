@@ -6,8 +6,6 @@ export class User {
   gender: string;
   role: string;
   email: string;
-  emailVerifyCode: string;
-  emailVerified: boolean;
   mobileNumber: string;
   username: string;
   password: string;
