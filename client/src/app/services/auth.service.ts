@@ -9,21 +9,7 @@ import { User } from '../models/user.model';
   providedIn: 'root'
 })
 export class AuthService {
-  selectedUser: User = {
-    avatar: '',
-    firstName: '',
-    lastName: '',
-    fullName: '',
-    role: '',
-    email: '',
-    emailVerifyCode: '',
-    emailVerified: false,
-    mobileNumber: '',
-    username: '',
-    password: '',
-    address: ''
-  };
-  
+
   noAuthHeader = { headers: new HttpHeaders({ 'noAuth': 'True' }) };
   
   usernameRegex = /^(?=[a-zA-Z0-9._]{1,20}$)/;
@@ -57,6 +43,10 @@ export class AuthService {
 
   changeEmail(id: string, email: string) {
     return this.http.put(environment.authUrl + '/change-email/' + id, email);
+  }
+
+  findUsername(email: string) {
+    return this.http.post(environment.authUrl + '/find-username', email);
   }
 
   //#endregion Http Methods
