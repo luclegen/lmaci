@@ -96,6 +96,7 @@ Change Email Component: ngOnInit, onSubmit
 Register Component: View
 Find Username Component: Initial
 Routes: FindUsernameComponent
+Find Username Component: View
 Commit
 
 II. NODEJS SERVER
