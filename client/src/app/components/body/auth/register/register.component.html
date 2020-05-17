@@ -23,8 +23,8 @@
       <input class="sigle" #username="ngModel" [(ngModel)]="user.username" [ngClass]="{ 'invalid-input': registerForm.submitted && !username.valid }" [pattern]="usernameRegex" type="text" name="username" placeholder="Username" required>
       <label class="err" *ngIf="registerForm.submitted && username.errors?.pattern">Invalid username. Minimum a charater, maximum 20 charaters. Not contain special characters.</label>
 
-      <span>
-        <input id="password" #password="ngModel" (change)="checkStrengthPassword()" [(ngModel)]="user.password" [ngClass]="{ 'invalid-input': registerForm.submitted && !password.valid }"  type="password" name="password" placeholder="Password" minlength="8" required>
+      <span id="password-span">
+        <input class="left" id="password" #password="ngModel" (change)="checkStrengthPassword()" [(ngModel)]="user.password" [ngClass]="{ 'invalid-input': registerForm.submitted && !password.valid }"  type="password" name="password" placeholder="Password" minlength="8" required>
 
         <input class="right" id="confirm-password" #confirmPassword="ngModel" (change)="matchPassword()" [(ngModel)]="user.confirmPassword" [ngClass]="{ 'invalid-input': registerForm.submitted && !confirmPassword.valid }" type="password" name="confirmPassword" placeholder="Confirm Password" required>
 
