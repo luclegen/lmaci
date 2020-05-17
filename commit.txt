@@ -101,6 +101,7 @@ Auth Service: findUsername
 Find Username Component: constructor, ngOnInit, onSubmit
 Reset Password Component: Initial
 Routes: ResetPasswordComponent
+Reset Password Component: View
 Commit
 
 II. NODEJS SERVER
