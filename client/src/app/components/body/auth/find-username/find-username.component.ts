@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-find-username',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FindUsernameComponent implements OnInit {
 
+  emailFind: string;
+  serverErrorMessages: string;
+
+  emailRegex;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onSubmit(form: NgForm) {
   }
 
 }

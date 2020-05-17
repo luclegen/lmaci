@@ -1,1 +1,12 @@
-<p>find-username works!</p>
+<app-header></app-header>
+<section class="center-content">
+  <div class="center-box">
+    <h2>Find Your Username</h2>
+    <form #findUsernameForm="ngForm" (ngSubmit)="findUsernameForm.valid && onSubmit(findUsernameForm)">
+      <input #email="ngModel" [(ngModel)]="emailFind" [ngClass]="{ 'invalid-input': findUsernameForm.submitted && !email.valid }" type="email" name="email" [pattern]="emailRegex" placeholder="Email: example@email.com" required>
+      <label *ngIf="findUsernameForm.submitted && email.errors?.pattern" class="err">Invalid Email.</label>
+      <input type="submit" value="Continue" [disabled]="email.errors?.required">
+    </form>
+    <label class="msg err-msg" *ngIf="serverErrorMessages">{{serverErrorMessages}}</label>
+  </div>
+</section>
