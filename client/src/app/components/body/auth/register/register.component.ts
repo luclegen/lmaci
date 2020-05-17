@@ -42,7 +42,8 @@ export class RegisterComponent implements OnInit {
   }
   
   checkStrengthPassword() {
-    let count = 0, strength = {
+    let count = 0
+    const strength = {
       0: "Worst",
       1: "Bad",
       2: "Weak",
