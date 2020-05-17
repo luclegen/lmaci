@@ -8,20 +8,6 @@ import { User } from '../models/user.model';
   providedIn: 'root'
 })
 export class UserService {
-  selectedUser: User = {
-    avatar: '',
-    firstName: '',
-    lastName: '',
-    fullName: '',
-    role: '',
-    email: '',
-    emailVerifyCode: '',
-    emailVerified: false,
-    mobileNumber: '',
-    username: '',
-    password: '',
-    address: ''
-  };
   
   noAuthHeader = { headers: new HttpHeaders({ 'noAuth': 'True' }) };
   
