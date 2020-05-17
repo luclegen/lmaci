@@ -97,6 +97,7 @@ Register Component: View
 Find Username Component: Initial
 Routes: FindUsernameComponent
 Find Username Component: View
+Auth Service: findUsername
 Commit
 
 II. NODEJS SERVER
