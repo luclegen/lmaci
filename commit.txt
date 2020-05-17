@@ -93,6 +93,7 @@ Change Email Component: onSubmit
 Change Email Component: View
 Active Component: ngOnInit, onSubmit
 Change Email Component: ngOnInit, onSubmit
+Register Component: View
 Commit
 
 II. NODEJS SERVER
