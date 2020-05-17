@@ -99,6 +99,7 @@ Routes: FindUsernameComponent
 Find Username Component: View
 Auth Service: findUsername
 Find Username Component: constructor, ngOnInit, onSubmit
+Reset Password Component: Initial
 Commit
 
 II. NODEJS SERVER
