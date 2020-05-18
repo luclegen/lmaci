@@ -51,7 +51,25 @@ export class ResetPasswordComponent implements OnInit {
   }
 
   togglePassword() {
+    const eye = document.getElementById('eye'),
+          notEye = document.getElementById('not-eye'),
+          button = document.getElementById('eye-btn'),
+          password = document.getElementById('password'),
+          confirmPassword = document.getElementById('confirm-password');
 
+    if (button.getAttribute('aria-visible') == 'false') {
+      eye.style.display = 'inline';
+      notEye.style.display = 'none';
+      button.setAttribute('aria-visible', 'true');
+      password.setAttribute('type', 'text');
+      confirmPassword.setAttribute('type', 'text');
+    } else {
+      eye.style.display = 'none';
+      notEye.style.display = 'inline';
+      button.setAttribute('aria-visible', 'false');
+      password.setAttribute('type', 'password');
+      confirmPassword.setAttribute('type', 'password');
+    }
   }
 
   onSubmit(form: NgForm) {
