@@ -45,7 +45,9 @@ export class ResetPasswordComponent implements OnInit {
   }
 
   matchPassword() {
-
+    const password_error = document.getElementById('password-error');
+    password_error.style.display = (this.user.password === this.user.confirmPassword) ? 'none' : 'inline';
+    return this.user.password === this.user.confirmPassword;
   }
 
   togglePassword() {
