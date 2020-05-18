@@ -1,13 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
+import { Observable, timer } from 'rxjs';
+import { take, map } from 'rxjs/operators';
+
 @Component({
   selector: 'app-reset-password',
   templateUrl: './reset-password.component.html',
   styleUrls: ['./reset-password.component.sass']
 })
 export class ResetPasswordComponent implements OnInit {
-
+  counter$: Observable<number>;
+  count = 60;
+  
   user = {
     verificationCode: '',
     password: '',
@@ -18,7 +23,13 @@ export class ResetPasswordComponent implements OnInit {
 
   serverErrorMessages: string;
 
-  constructor() { }
+  constructor() {
+
+    this.counter$ = timer(0,1000).pipe(
+      take(this.count),
+      map(() => --this.count)
+    );
+  }
 
   ngOnInit(): void {
   }
