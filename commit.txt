@@ -104,6 +104,7 @@ Routes: ResetPasswordComponent
 Reset Password Component: View
 Reset Password Component: matchPassword
 Reset Password Component: togglePassword
+Remove Counter Component
 Commit
 
 II. NODEJS SERVER
