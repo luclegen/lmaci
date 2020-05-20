@@ -105,6 +105,7 @@ Reset Password Component: View
 Reset Password Component: matchPassword
 Reset Password Component: togglePassword
 Remove Counter Component
+Auth Service: resendVerifyResetPassword
 Commit
 
 II. NODEJS SERVER
