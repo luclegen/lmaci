@@ -63,7 +63,12 @@ export class ActiveComponent implements OnInit {
     this.authService.resendActive(this.authService.getId()).subscribe(
       res => {
         alert(res['msg']);
+        
         this.count = 60;
+        this.counter$ = timer(0, 1000).pipe(
+          take(this.count),
+          map(() => --this.count)
+        );
       },
       err => {
         this.serverErrorMessages = err.error.msg;
