@@ -40,6 +40,7 @@ export class ResetPasswordComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.authService.resendVerifyResetPassword(this.username).subscribe();
   }
 
   checkStrengthPassword() {
