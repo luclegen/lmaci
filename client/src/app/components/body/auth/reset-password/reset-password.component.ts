@@ -25,7 +25,7 @@ export class ResetPasswordComponent implements OnInit {
 
   constructor() {
 
-    this.counter$ = timer(0,1000).pipe(
+    this.counter$ = timer(0, 1000).pipe(
       take(this.count),
       map(() => --this.count)
     );
