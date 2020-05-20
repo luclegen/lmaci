@@ -93,7 +93,16 @@ export class ResetPasswordComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    
+    if (this.matchPassword()) {
+      this.authService.resetPassword(this.username, form.value).subscribe(
+        res => {
+          alert(res['msg']);
+        },
+        err => {
+          this.serverErrorMessages = err.error.msg;
+        }
+      );
+    }
   }
 
   resendEmail() {
