@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Title } from '@angular/platform-browser';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { Observable, timer } from 'rxjs';
 import { take, map } from 'rxjs/operators';
-import { Title } from '@angular/platform-browser';
 import { AuthService } from 'src/app/services/auth.service';
-import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-reset-password',
@@ -28,7 +28,10 @@ export class ResetPasswordComponent implements OnInit {
 
   serverErrorMessages: string;
 
-  constructor(private titleService: Title, private route: ActivatedRoute, private authService: AuthService) {
+  constructor(private titleService: Title,
+              private route: ActivatedRoute,
+              private authService: AuthService,
+              private router: Router) {
     this.titleService.setTitle('Reset Password | Lmaci');
 
     this.username = this.route.snapshot.paramMap.get('username');
@@ -97,6 +100,7 @@ export class ResetPasswordComponent implements OnInit {
       this.authService.resetPassword(this.username, form.value).subscribe(
         res => {
           alert(res['msg']);
+          this.router.navigateByUrl('login');
         },
         err => {
           this.serverErrorMessages = err.error.msg;
