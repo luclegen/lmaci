@@ -177,10 +177,10 @@ module.exports.resetPassword = (req, res) => {
                 });
               }
             });
-          }
+          } else return res.status(403).json({ msg: 'Verification Code is wrong.' });
         } else return res.status(404).json({ msg: 'Code isn\'t found.' });
       });
-    } else return res.status(404).json({ msg: 'Verification Code is wrong.' });
+    } else return res.status(404).json({ msg: 'User isn\'t found.' });
   });
 }
 
