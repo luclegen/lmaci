@@ -107,6 +107,7 @@ Reset Password Component: togglePassword
 Remove Counter Component
 Auth Service: resendVerifyResetPassword
 Reset Password Component: ngOnInit
+Auth Service: resetPassword
 Commit
 
 II. NODEJS SERVER
