@@ -3,6 +3,9 @@ import { NgForm } from '@angular/forms';
 
 import { Observable, timer } from 'rxjs';
 import { take, map } from 'rxjs/operators';
+import { Title } from '@angular/platform-browser';
+import { AuthService } from 'src/app/services/auth.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-reset-password',
@@ -13,6 +16,8 @@ export class ResetPasswordComponent implements OnInit {
   counter$: Observable<number>;
   count = 120;
   
+  username: string;
+
   user = {
     verificationCode: '',
     password: '',
@@ -23,7 +28,10 @@ export class ResetPasswordComponent implements OnInit {
 
   serverErrorMessages: string;
 
-  constructor() {
+  constructor(private titleService: Title, private route: ActivatedRoute, private authService: AuthService) {
+    this.titleService.setTitle('Reset Password | Lmaci');
+
+    this.username = this.route.snapshot.paramMap.get('username');
 
     this.counter$ = timer(0, 1000).pipe(
       take(this.count),
@@ -88,7 +96,20 @@ export class ResetPasswordComponent implements OnInit {
   }
 
   resendEmail() {
+    this.authService.resendVerifyResetPassword(this.username).subscribe(
+      res => {
+        alert(res['msg']);
 
+        this.count = 120;
+        this.counter$ = timer(0, 1000).pipe(
+          take(this.count),
+          map(() => --this.count)
+        );
+      },
+      err => {
+        this.serverErrorMessages = err.error.msg;
+      }
+    );
   }
 
 }
