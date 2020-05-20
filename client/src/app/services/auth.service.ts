@@ -49,6 +49,10 @@ export class AuthService {
     return this.http.post(environment.authUrl + '/find-username', email);
   }
 
+  resendVerifyResetPassword(username: string) {
+    return this.http.get(environment.authUrl + '/resend-verify-reset-password/' + username);
+  }
+
   //#endregion Http Methods
 
   //#region Helper Methods
@@ -75,18 +79,6 @@ export class AuthService {
 
   isLoggedIn() {
     return this.getPayload().exp > Date.now() / 1000;
-  }
-
-  setUsername(username: string) {
-    localStorage.setItem('username', username);
-  }
-
-  getUsername() {
-    return localStorage.getItem('username');
-  }
-
-  removeUsername() {
-    localStorage.removeItem('username');
   }
 
   //#endregion Helper Methods
