@@ -11,7 +11,7 @@ import { take, map } from 'rxjs/operators';
 })
 export class ResetPasswordComponent implements OnInit {
   counter$: Observable<number>;
-  count = 60;
+  count = 120;
   
   user = {
     verificationCode: '',
