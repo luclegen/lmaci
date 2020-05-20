@@ -53,6 +53,9 @@ export class AuthService {
     return this.http.get(environment.authUrl + '/resend-verify-reset-password/' + username);
   }
 
+  resetPassword(username: string, user: Object) {
+    return this.http.put(environment.authUrl + '/reset-password/' + username, user);
+  }
   //#endregion Http Methods
 
   //#region Helper Methods
