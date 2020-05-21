@@ -178,4 +178,5 @@ User Router: GET get
 Auth Controller: resetPassword
 Admin Controller: getUsers
 Admin Router: GET getUsers
+Server App: Admin Router
 Commit
