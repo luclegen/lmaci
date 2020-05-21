@@ -164,7 +164,7 @@ module.exports.resetPassword = (req, res) => {
     if (user) {
       Code.findOne({ _userId: user._id }, (err, code) => {
         if (code) {
-          if (Date.now() > Date.parse(code.createdAt) + 120000) return res.status(400).json({ msg: 'Code is expired. Please click to resend email!' });
+          if (Date.now() > Date.parse(code.createdAt) + 90000) return res.status(400).json({ msg: 'Code is expired. Please click to resend email!' });
           else if (req.body.code === code.code) {
             user.password = req.body.password;
 
