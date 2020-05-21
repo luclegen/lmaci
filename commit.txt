@@ -121,6 +121,7 @@ Active Component: onSubmit
 Change Password Component: ngOnInit
 Find Username Component: onSubmit
 Admin Images: People
+Admin Component: Initial
 Commit
 
 II. NODEJS SERVER
