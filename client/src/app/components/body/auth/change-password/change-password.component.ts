@@ -58,7 +58,28 @@ export class ChangePasswordComponent implements OnInit {
   }
   
   togglePassword() {
+    const eye = document.getElementById('eye'),
+    notEye = document.getElementById('not-eye'),
+    button = document.getElementById('eye-btn'),
+    password = document.getElementsByClassName('password');
 
+    if (button.getAttribute('aria-visible') == 'false') {
+      eye.style.display = 'inline';
+      notEye.style.display = 'none';
+      button.setAttribute('aria-visible', 'true');
+
+      for (let i = 0; i < password.length; i++) {
+        password[i].setAttribute('type', 'text');
+      }
+    } else {
+      eye.style.display = 'none';
+      notEye.style.display = 'inline';
+      button.setAttribute('aria-visible', 'false');
+
+      for (let i = 0; i < password.length; i++) {
+        password[i].setAttribute('type', 'password');
+      }
+    }
   }
 
   onSubmit(form: NgForm) {
