@@ -61,6 +61,7 @@ export class ActiveComponent implements OnInit {
   }
 
   resendEmail() {
+    this.serverErrorMessages = null;
     this.authService.resendActive(this.authService.getId()).subscribe(
       res => {
         alert(res['msg']);

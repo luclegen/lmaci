@@ -110,7 +110,7 @@ Reset Password Component: ngOnInit
 Auth Service: resetPassword
 Reset Password Component: onSubmit
 Reset Password Component: resendEmail
-Change Password Component: Initial
+Change PasswordresendEmail Component: Initial
 Change Password Component: View
 Routes: ChangePasswordComponent
 Change Password Component: checkStrengthPassword
