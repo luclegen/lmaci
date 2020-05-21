@@ -75,7 +75,6 @@ Auth Service: Initial
 Auth Component: Initial
 Routes: AuthComponent
 Routes: RegisterComponent, LoginComponent, UserComponent
-Top Navbar Component: View
 Top Navbar Component: HTML
 Auth Service: getInfo
 Top Navbar Component: ngOnInit
