@@ -29,6 +29,7 @@ import { ProfileComponent } from './components/body/user/profile/profile.compone
 import { ChangeEmailComponent } from './components/body/auth/change-email/change-email.component';
 import { FindUsernameComponent } from './components/body/auth/find-username/find-username.component';
 import { ResetPasswordComponent } from './components/body/auth/reset-password/reset-password.component';
+import { ChangePasswordComponent } from './components/body/auth/change-password/change-password.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { ResetPasswordComponent } from './components/body/auth/reset-password/re
     ProfileComponent,
     ChangeEmailComponent,
     FindUsernameComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    ChangePasswordComponent
   ],
   imports: [
     BrowserModule,
