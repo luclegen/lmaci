@@ -116,6 +116,7 @@ Routes: ChangePasswordComponent
 Change Password Component: checkStrengthPassword
 Change Password Component: matchPassword
 Change Password Component: togglePassword
+Auth Service: changePassword
 Commit
 
 II. NODEJS SERVER
