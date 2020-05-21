@@ -118,6 +118,7 @@ Change Password Component: matchPassword
 Change Password Component: togglePassword
 Auth Service: changePassword
 Change Password Component: onSubmit
+Active Component: onSubmit
 Commit
 
 II. NODEJS SERVER
