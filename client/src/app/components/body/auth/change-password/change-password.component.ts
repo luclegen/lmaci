@@ -83,6 +83,8 @@ export class ChangePasswordComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
+    this.serverErrorMessages = null;
+    this.successMessages = null;
     if (this.matchPassword()) {
       this.authService.getInfo().subscribe(res => {
         if (res['user'].activated) {
