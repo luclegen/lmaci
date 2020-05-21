@@ -14,7 +14,7 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class ResetPasswordComponent implements OnInit {
   counter$: Observable<number>;
-  count = 120;
+  count = 90;
   
   username: string;
 
@@ -114,7 +114,7 @@ export class ResetPasswordComponent implements OnInit {
       res => {
         alert(res['msg']);
 
-        this.count = 120;
+        this.count = 90;
         this.counter$ = timer(0, 1000).pipe(
           take(this.count),
           map(() => --this.count)
