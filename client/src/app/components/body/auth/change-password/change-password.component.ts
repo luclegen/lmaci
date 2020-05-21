@@ -52,7 +52,9 @@ export class ChangePasswordComponent implements OnInit {
   }
 
   matchPassword() {
-
+    const password_error = document.getElementById('password-error');
+    password_error.style.display = (this.user.newPassword === this.user.confirmPassword) ? 'none' : 'inline';
+    return this.user.newPassword === this.user.confirmPassword;
   }
   
   togglePassword() {
