@@ -119,6 +119,7 @@ Change Password Component: togglePassword
 Auth Service: changePassword
 Change Password Component: onSubmit
 Active Component: onSubmit
+Change Password Component: ngOnInit
 Commit
 
 II. NODEJS SERVER
