@@ -11,6 +11,7 @@ import { ActiveComponent } from './components/body/auth/active/active.component'
 import { ChangeEmailComponent } from './components/body/auth/change-email/change-email.component';
 import { FindUsernameComponent } from './components/body/auth/find-username/find-username.component';
 import { ResetPasswordComponent } from './components/body/auth/reset-password/reset-password.component';
+import { ChangePasswordComponent } from './components/body/auth/change-password/change-password.component';
 
 export const routes: Routes = [
   {
@@ -30,7 +31,8 @@ export const routes: Routes = [
   },
   {
     path: 'user', component: UserComponent,
-    children: [ { path: ':username', component: ProfileComponent, canActivate: [AuthGuard] } ]
+    children: [ { path: ':username', component: ProfileComponent, canActivate: [AuthGuard] },
+                { path: 'change-password', component: ChangePasswordComponent, canActivate: [AuthGuard] } ]
   },
   {
     path: 'find-username', component: FindUsernameComponent
