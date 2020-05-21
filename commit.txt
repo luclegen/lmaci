@@ -123,6 +123,7 @@ Find Username Component: onSubmit
 Admin Images: People
 Admin Component: Initial
 Routes: AdminComponent
+Admin Component: View
 Commit
 
 II. NODEJS SERVER
