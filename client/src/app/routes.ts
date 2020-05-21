@@ -14,30 +14,16 @@ import { ResetPasswordComponent } from './components/body/auth/reset-password/re
 import { ChangePasswordComponent } from './components/body/auth/change-password/change-password.component';
 
 export const routes: Routes = [
-  {
-    path: '', pathMatch: 'full', component: HomeComponent
-  },
-  {
-    path: 'register', component: RegisterComponent
-  },
-  {
-    path: 'login', component: LoginComponent
-  },
-  {
-    path: 'active', component: ActiveComponent, canActivate: [AuthGuard]
-  },
-  {
-    path: 'change-email', component: ChangeEmailComponent, canActivate: [AuthGuard]
-  },
+  { path: '', pathMatch: 'full', component: HomeComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'active', component: ActiveComponent, canActivate: [AuthGuard] },
+  { path: 'change-email', component: ChangeEmailComponent, canActivate: [AuthGuard] },
   {
     path: 'user', component: UserComponent,
-    children: [ { path: ':username', component: ProfileComponent, canActivate: [AuthGuard] },
-                { path: 'change-password', component: ChangePasswordComponent, canActivate: [AuthGuard] } ]
+    children: [ { path: ':username', component: ProfileComponent, canActivate: [AuthGuard] } ]
   },
-  {
-    path: 'find-username', component: FindUsernameComponent
-  },
-  {
-    path: 'reset-password/:username', component: ResetPasswordComponent
-  }
+  { path: 'find-username', component: FindUsernameComponent },
+  { path: 'reset-password/:username', component: ResetPasswordComponent },
+  { path: 'change-password', component: ChangePasswordComponent, canActivate: [AuthGuard] }
 ]
