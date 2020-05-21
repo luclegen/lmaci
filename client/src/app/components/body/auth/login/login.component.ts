@@ -31,6 +31,7 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
+    this.serverErrorMessages = null;
     this.authService.login(form.value).subscribe(
       res => {
         this.authService.setToken(res['token']);
