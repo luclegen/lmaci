@@ -176,4 +176,5 @@ Auth Controller: info
 Auth Router: GET info
 User Router: GET get
 Auth Controller: resetPassword
+Admin Controller: getUsers
 Commit
