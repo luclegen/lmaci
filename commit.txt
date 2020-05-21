@@ -114,6 +114,7 @@ Change Password Component: Initial
 Change Password Component: View
 Routes: ChangePasswordComponent
 Change Password Component: checkStrengthPassword
+Change Password Component: matchPassword
 Commit
 
 II. NODEJS SERVER
