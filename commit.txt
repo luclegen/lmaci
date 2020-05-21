@@ -109,6 +109,7 @@ Auth Service: resendVerifyResetPassword
 Reset Password Component: ngOnInit
 Auth Service: resetPassword
 Reset Password Component: onSubmit
+Reset Password Component: resendEmail
 Commit
 
 II. NODEJS SERVER
