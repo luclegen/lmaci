@@ -47,7 +47,7 @@ module.exports.active = (req, res) => {
       activated: false
     }
     
-    if (user.activated) return res.status(422).json({ msg: 'Email is verified.' });
+    if (user.activated) return res.status(422).json({ msg: 'Your account has been activated.' });
     else {
       Code.findOne({ _userId: req.params.id }, (err, code) => {
         if (err) return res.status(400).json(err);
