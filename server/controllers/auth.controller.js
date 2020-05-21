@@ -62,7 +62,7 @@ module.exports.active = (req, res) => {
                   else {
                     Code.deleteOne({ _userId: user._id }, (err, result) => {
                       return err ? res.status(400).json(err)
-                                 : res.status(200).json({ msg: 'Email is verified.' });
+                                 : res.status(200).json({ msg: 'Your account has been activated.' });
                     });
                   }
                 });
