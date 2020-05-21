@@ -23,7 +23,7 @@ export class ChangePasswordComponent implements OnInit {
   serverErrorMessages: string;
   successMessages: string;
 
-  constructor(private titleServer: Title, private authService: AuthService, private router: Router) {
+  constructor(private titleServer: Title, private authService: AuthService) {
     this.titleServer.setTitle('Change Password | Lmaci');
   }
   
@@ -83,6 +83,19 @@ export class ChangePasswordComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    
+    if (this.matchPassword()) {
+      this.authService.getInfo().subscribe(res => {
+        if (res['user'].activated) {
+          this.authService.changePassword(this.authService.getId(), form.value).subscribe(
+            res => {
+              this.successMessages = res['msg'];
+            },
+            err => {
+              this.serverErrorMessages = err.error.msg;
+            }
+          );
+        }
+      });
+    }
   }
 }
