@@ -44,6 +44,7 @@ export class ActiveComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
+    this.serverErrorMessages = null;
     this.authService.active(this.authService.getId(), form.value).subscribe(
       res => {
         alert(res['msg']);
