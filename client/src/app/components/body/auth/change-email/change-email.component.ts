@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
 import { AuthService } from 'src/app/services/auth.service';
-import { NgForm } from '@angular/forms';
 @Component({
   selector: 'app-change-email',
   templateUrl: './change-email.component.html',
@@ -28,6 +28,7 @@ export class ChangeEmailComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
+    this.serverErrorMessages = null;
     this.authService.getInfo().subscribe(res => {
       if (!res['user'].activated) {
         this.authService.changeEmail(this.authService.getId(), form.value).subscribe(
