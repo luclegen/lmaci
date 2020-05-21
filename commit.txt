@@ -120,6 +120,7 @@ Auth Service: changePassword
 Change Password Component: onSubmit
 Active Component: onSubmit
 Change Password Component: ngOnInit
+Find Username Component: onSubmit
 Commit
 
 II. NODEJS SERVER
