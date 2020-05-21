@@ -25,6 +25,7 @@ export class FindUsernameComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
+    this.serverErrorMessages = null;
     this.authService.findUsername(form.value).subscribe(
       res => {
         alert(res['msg']);
