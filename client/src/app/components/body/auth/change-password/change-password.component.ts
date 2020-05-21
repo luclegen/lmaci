@@ -23,11 +23,16 @@ export class ChangePasswordComponent implements OnInit {
   serverErrorMessages: string;
   successMessages: string;
 
-  constructor(private titleServer: Title, private authService: AuthService) {
+  constructor(private titleServer: Title, private authService: AuthService, private router: Router) {
     this.titleServer.setTitle('Change Password | Lmaci');
   }
   
   ngOnInit(): void {
+    this.authService.getInfo().subscribe(
+      res => {
+        if (!res['user'].activated) this.router.navigateByUrl('active');
+      }
+    );
   }
 
   checkStrengthPassword() {
