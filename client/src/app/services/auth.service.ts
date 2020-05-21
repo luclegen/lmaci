@@ -56,6 +56,10 @@ export class AuthService {
   resetPassword(username: string, user: Object) {
     return this.http.put(environment.authUrl + '/reset-password/' + username, user);
   }
+
+  changePassword(id: string, user: User) {
+    return this.http.put(environment.userUrl + '/change-password/' + id, user);
+  }
   //#endregion Http Methods
 
   //#region Helper Methods
