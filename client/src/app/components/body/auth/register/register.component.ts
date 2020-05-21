@@ -92,6 +92,8 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
+    this.showSuccessMessages = false;
+    this.serverErrorMessages = null;
     if (this.matchPassword()) {
       this.authService.register(form.value).subscribe(
         res => {
