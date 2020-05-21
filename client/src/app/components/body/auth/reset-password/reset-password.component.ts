@@ -111,6 +111,7 @@ export class ResetPasswordComponent implements OnInit {
   }
 
   resendEmail() {
+    this.serverErrorMessages = null;
     this.authService.resendVerifyResetPassword(this.username).subscribe(
       res => {
         alert(res['msg']);
