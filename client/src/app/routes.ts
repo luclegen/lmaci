@@ -13,6 +13,7 @@ import { FindUsernameComponent } from './components/body/auth/find-username/find
 import { ResetPasswordComponent } from './components/body/auth/reset-password/reset-password.component';
 import { ChangePasswordComponent } from './components/body/auth/change-password/change-password.component';
 import { AdminComponent } from './components/body/admin/admin.component';
+import { UsersComponent } from './components/body/admin/users/users.component';
 
 export const routes: Routes = [
   { path: '', pathMatch: 'full', component: HomeComponent },
@@ -27,5 +28,6 @@ export const routes: Routes = [
   { path: 'find-username', component: FindUsernameComponent },
   { path: 'reset-password/:username', component: ResetPasswordComponent },
   { path: 'change-password', component: ChangePasswordComponent, canActivate: [AuthGuard] },
-  { path: 'admin', component: AdminComponent, canActivate: [AuthGuard] }
+  { path: 'admin', component: AdminComponent, canActivate: [AuthGuard],
+    children: [ { path: 'users', component: UsersComponent } ] }
 ]
