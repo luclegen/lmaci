@@ -14,6 +14,7 @@ import { ResetPasswordComponent } from './components/body/auth/reset-password/re
 import { ChangePasswordComponent } from './components/body/auth/change-password/change-password.component';
 import { AdminComponent } from './components/body/admin/admin.component';
 import { UsersComponent } from './components/body/admin/users/users.component';
+import { ProductsComponent } from './components/body/admin/products/products.component';
 
 export const routes: Routes = [
   { path: '', pathMatch: 'full', component: HomeComponent },
@@ -29,5 +30,6 @@ export const routes: Routes = [
   { path: 'reset-password/:username', component: ResetPasswordComponent },
   { path: 'change-password', component: ChangePasswordComponent, canActivate: [AuthGuard] },
   { path: 'admin', component: AdminComponent, canActivate: [AuthGuard],
-    children: [ { path: 'users', component: UsersComponent } ] }
+    children: [ { path: 'users', component: UsersComponent },
+                { path: 'products', component: ProductsComponent } ] }
 ]
