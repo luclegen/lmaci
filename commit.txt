@@ -128,6 +128,7 @@ Users Component: Initial
 Products Component: Initial
 Routes: UsersComponent
 Routes: ProductsComponent
+Users Component: View
 Commit
 
 II. NODEJS SERVER
