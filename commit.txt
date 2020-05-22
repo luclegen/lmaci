@@ -124,6 +124,7 @@ Admin Images: People
 Admin Component: Initial
 Routes: AdminComponent
 Admin Component: View
+Users Component: Initial
 Commit
 
 II. NODEJS SERVER
