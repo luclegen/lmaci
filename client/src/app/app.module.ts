@@ -33,6 +33,7 @@ import { ChangePasswordComponent } from './components/body/auth/change-password/
 import { AdminComponent } from './components/body/admin/admin.component';
 import { UsersComponent } from './components/body/admin/users/users.component';
 import { ProductsComponent } from './components/body/admin/products/products.component';
+import { AdminsComponent } from './components/body/admin/admins/admins.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { ProductsComponent } from './components/body/admin/products/products.com
     ChangePasswordComponent,
     AdminComponent,
     UsersComponent,
-    ProductsComponent
+    ProductsComponent,
+    AdminsComponent
   ],
   imports: [
     BrowserModule,
