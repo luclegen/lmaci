@@ -31,6 +31,7 @@ import { FindUsernameComponent } from './components/body/auth/find-username/find
 import { ResetPasswordComponent } from './components/body/auth/reset-password/reset-password.component';
 import { ChangePasswordComponent } from './components/body/auth/change-password/change-password.component';
 import { AdminComponent } from './components/body/admin/admin.component';
+import { UsersComponent } from './components/body/admin/users/users.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { AdminComponent } from './components/body/admin/admin.component';
     FindUsernameComponent,
     ResetPasswordComponent,
     ChangePasswordComponent,
-    AdminComponent
+    AdminComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule,
