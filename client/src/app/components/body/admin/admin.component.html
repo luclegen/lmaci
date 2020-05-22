@@ -1,14 +1,12 @@
 <app-header></app-header>
 <section>
   <nav>
-    <ul>
-      <li routerLinkActive="active" routerLink="users">
-        <p>Users</p>
-      </li>
-      <li routerLinkActive="active" routerLink="products">
-        <p>Products</p>
-      </li>
-    </ul>
+    <a routerLinkActive="active" routerLink="users">
+      <p>Users</p>
+    </a>
+    <a routerLinkActive="active" routerLink="products">
+      <p>Products</p>
+    </a>
   </nav>
   <section id="list">
     <router-outlet></router-outlet>
