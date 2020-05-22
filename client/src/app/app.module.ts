@@ -32,6 +32,7 @@ import { ResetPasswordComponent } from './components/body/auth/reset-password/re
 import { ChangePasswordComponent } from './components/body/auth/change-password/change-password.component';
 import { AdminComponent } from './components/body/admin/admin.component';
 import { UsersComponent } from './components/body/admin/users/users.component';
+import { ProductsComponent } from './components/body/admin/products/products.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { UsersComponent } from './components/body/admin/users/users.component';
     ResetPasswordComponent,
     ChangePasswordComponent,
     AdminComponent,
-    UsersComponent
+    UsersComponent,
+    ProductsComponent
   ],
   imports: [
     BrowserModule,
