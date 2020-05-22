@@ -127,6 +127,7 @@ Admin Component: View
 Users Component: Initial
 Products Component: Initial
 Routes: UsersComponent
+Routes: ProductsComponent
 Commit
 
 II. NODEJS SERVER
