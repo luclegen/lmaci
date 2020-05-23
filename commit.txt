@@ -134,6 +134,7 @@ Admins Component: View
 Admin Service: Initial
 Environments: adminUrl
 Admin Service: getAdmins
+Admins Component: ngOnInit
 Commit
 
 II. NODEJS SERVER
