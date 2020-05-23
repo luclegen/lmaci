@@ -32,6 +32,10 @@ export class AdminsComponent implements OnInit {
     );
   }
 
+  viewProfile(form: NgForm) {
+    alert(form.value.username);
+  }
+  
   removeAsAdmin(form: NgForm) {
     alert(JSON.stringify(form.value));
   }

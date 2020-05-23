@@ -21,7 +21,13 @@
         <td>{{ root.username }}</td>
         <td *ngIf="root.activated" class="center-td">✔</td>
         <td *ngIf="!root.activated" class="center-td">✘</td>
-        <td></td>
+        <form #rootForm="ngForm">
+          <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="root._id">
+          <input type="hidden" name="username" #_id="ngModel" [(ngModel)]="root.username">
+        </form>
+        <td>
+          <button (click)="viewProfile(rootForm)">ⓘ</button>
+        </td>
       </tr>
       <tr *ngFor="let a of admins">
         <td class="center-td">{{ admins.indexOf(a) + 2 }}</td>
@@ -34,7 +40,8 @@
           <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="a._id">
           <input type="hidden" name="username" #_id="ngModel" [(ngModel)]="a.username">
         </form>
-        <td class="center-td">
+        <td>
+          <button (click)="viewProfile(adminForm)">ⓘ</button>
           <button (click)="removeAsAdmin(adminForm)">☒</button>
         </td>
 
