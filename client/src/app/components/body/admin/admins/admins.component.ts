@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AdminService } from 'src/app/services/admin.service';
 
 @Component({
   selector: 'app-admins',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminsComponent implements OnInit {
 
-  constructor() { }
+  root;
+  admins;
+
+  constructor(private adminService: AdminService) { }
 
   ngOnInit(): void {
+    this.adminService.getAdmins().subscribe(
+      res => {
+        this.root = res['root'];
+        this.admins = res['admins'];
+      },
+      err => {
+        alert(err.error.msg);
+      }
+    );
   }
 
 }
