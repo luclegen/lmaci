@@ -131,6 +131,7 @@ Routes: ProductsComponent
 Users Component: View
 Routes: AdminsComponent
 Admins Component: View
+Admin Service: Initial
 Commit
 
 II. NODEJS SERVER
