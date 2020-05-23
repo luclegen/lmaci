@@ -18,6 +18,10 @@ export class AdminsComponent implements OnInit {
       res => {
         this.root = res['root'][0];
         this.admins = res['admins'];
+        this.root.gender = this.root.gender.split('')[0].toUpperCase() + this.root.gender.split('').slice(1).join('');
+        this.admins.forEach(a => {
+          a.gender = a.gender.split('')[0].toUpperCase() + a.gender.split('').slice(1).join('');
+        });
       },
       err => {
         alert(err.error.msg);
