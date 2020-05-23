@@ -201,4 +201,5 @@ Admin Controller: getAdmins
 Admin Router: GET getAdmins
 Admin Controller: removeAsAdmin
 Admin Router: PUT removeAsAdmin
+Admin Router: GET removeAsAdmin
 Commit
