@@ -38,7 +38,15 @@ export class AdminsComponent implements OnInit {
   }
 
   removeAsAdmin(form: NgForm) {
-    alert(JSON.stringify(form.value));
+    this.adminService.removeAsAdmin(form.value.username).subscribe(
+      res => {
+        alert(res['msg']);
+        this.ngOnInit();
+      },
+      err => {
+        alert(err.error.msg);
+      }
+    );
   }
 
 }
