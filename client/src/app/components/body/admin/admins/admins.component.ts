@@ -11,6 +11,8 @@ export class AdminsComponent implements OnInit {
   root;
   admins;
 
+  idSelected;
+
   constructor(private adminService: AdminService) { }
 
   ngOnInit(): void {
@@ -29,4 +31,7 @@ export class AdminsComponent implements OnInit {
     );
   }
 
+  removeAsAdmin() {
+    alert(this.idSelected);
+  }
 }

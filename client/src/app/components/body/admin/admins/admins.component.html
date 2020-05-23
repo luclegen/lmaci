@@ -30,6 +30,7 @@
         <td class="address-td">{{ root.address }}</td>
       </tr>
       <tr *ngFor="let a of admins">
+        <input #id="ngModel" [(ngModel)]="idSelected" type="hidden" name="id">
         <td class="center-td">{{ admins.indexOf(a) + 2 }}</td>
         <td class="center-td"><img src="{{ a.avatar }}" alt="{{ a.firstName }}'s avatar"></td>
         <td>{{ a.fullName }}</td>
@@ -40,6 +41,7 @@
         <td *ngIf="a.activated" class="center-td">✔</td>
         <td *ngIf="!a.activated" class="center-td">✘</td>
         <td class="address-td">{{ a.address }}</td>
+        <td class="address-td"><button (click)="removeAsAdmin()">☒</button></td>
       </tr>
     </tbody>
   </table>
