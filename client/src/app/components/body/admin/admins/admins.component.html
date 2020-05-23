@@ -16,7 +16,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
+      <tr *ngIf="root">
         <td class="center-td">1</td>
         <td>{{ root.fullName }}</td>
         <td>{{ root.gender }}</td>
@@ -25,10 +25,18 @@
         <td>{{ root.username }}</td>
         <td *ngIf="root.activated" class="center-td">✔</td>
         <td *ngIf="!root.activated" class="center-td">✘</td>
-        <td>{{ root.address }}</td>
+        <td class="address-td">{{ root.address }}</td>
       </tr>
       <tr *ngFor="let a of admins">
-        <td style="text-align: center;">{{ admins.indexOf(a) + 2 }}</td>
+        <td class="center-td">{{ admins.indexOf(a) + 2 }}</td>
+        <td>{{ a.fullName }}</td>
+        <td>{{ a.gender }}</td>
+        <td>{{ a.email }}</td>
+        <td>{{ a.mobileNumber }}</td>
+        <td>{{ a.username }}</td>
+        <td *ngIf="a.activated" class="center-td">✔</td>
+        <td *ngIf="!a.activated" class="center-td">✘</td>
+        <td class="address-td">{{ a.address }}</td>
       </tr>
     </tbody>
   </table>
