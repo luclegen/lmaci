@@ -16,7 +16,7 @@ module.exports.removeAsAdmin = (req, res) => {
     if (admin) {
       admin.role = 'user';
 
-      user.save(err => {
+      admin.save(err => {
         return err ? res.status(400).json({ msg: 'Update is error.' })
                  : res.status(200).json({ msg: 'Remove as admin was successfully.' });
       });
