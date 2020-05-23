@@ -132,6 +132,7 @@ Users Component: View
 Routes: AdminsComponent
 Admins Component: View
 Admin Service: Initial
+Environments: adminUrl
 Commit
 
 II. NODEJS SERVER
