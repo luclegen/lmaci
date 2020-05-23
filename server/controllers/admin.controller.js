@@ -4,7 +4,7 @@ module.exports.getAdmins = (req, res) => {
   User.find({ role: 'root' }, (err, root) => {
     if (root) {
       User.find({ role: 'admin' }, (err, admins) => {
-        return users ? res.status(200).json({ root, admins })
+        return admins ? res.status(200).json({ root, admins })
                      : res.status(404).json({ msg: 'Admins not found.' })
       });
     } else return res.status(404).json({ msg: 'Root not found.' })
