@@ -15,6 +15,21 @@
         <th>Address</th>
       </tr>
     </thead>
-    <tbody></tbody>
+    <tbody>
+      <tr>
+        <td class="center-td">1</td>
+        <td>{{ root.fullName }}</td>
+        <td>{{ root.gender }}</td>
+        <td>{{ root.email }}</td>
+        <td>{{ root.mobileNumber }}</td>
+        <td>{{ root.username }}</td>
+        <td *ngIf="root.activated" class="center-td">✔</td>
+        <td *ngIf="!root.activated" class="center-td">✘</td>
+        <td>{{ root.address }}</td>
+      </tr>
+      <tr *ngFor="let a of admins">
+        <td style="text-align: center;">{{ admins.indexOf(a) + 2 }}</td>
+      </tr>
+    </tbody>
   </table>
 </section>
