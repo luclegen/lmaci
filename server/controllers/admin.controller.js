@@ -11,6 +11,19 @@ module.exports.getAdmins = (req, res) => {
   });
 }
 
+module.exports.removeAsAdmin = (req, res) => {
+  User.findById(req.params.id, (err, admin) => {
+    if (admin) {
+      admin.role = 'user';
+
+      user.save(err => {
+        return err ? res.status(400).json({ msg: 'Update is error.' })
+                 : res.status(200).json({ msg: 'Remove as admin was successfully.' });
+      });
+    } else return res.status(404).json({ msg: 'Admin not found.' });
+  });
+}
+
 module.exports.getUsers = (req, res) => {
   User.find({ role: 'user' }, (err, users) => {
     return users ? res.status(200).json({ users })
