@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { AdminService } from 'src/app/services/admin.service';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
+import { AdminService } from 'src/app/services/admin.service';
 @Component({
   selector: 'app-admins',
   templateUrl: './admins.component.html',
@@ -14,7 +15,7 @@ export class AdminsComponent implements OnInit {
 
   idSelected;
 
-  constructor(private adminService: AdminService) { }
+  constructor(private adminService: AdminService, private router: Router) { }
 
   ngOnInit(): void {
     this.adminService.getAdmins().subscribe(
@@ -33,9 +34,9 @@ export class AdminsComponent implements OnInit {
   }
 
   viewProfile(form: NgForm) {
-    alert(form.value.username);
+    this.router.navigateByUrl('user/' + form.value.username);
   }
-  
+
   removeAsAdmin(form: NgForm) {
     alert(JSON.stringify(form.value));
   }
