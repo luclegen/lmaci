@@ -200,5 +200,4 @@ Admin Controller: getAdmins
 Admin Router: GET getAdmins
 Admin Controller: removeAsAdmin
 Admin Router: PUT removeAsAdmin
-Root Service: Initial
 Commit
