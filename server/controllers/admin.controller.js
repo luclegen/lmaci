@@ -12,7 +12,7 @@ module.exports.getAdmins = (req, res) => {
 }
 
 module.exports.removeAsAdmin = (req, res) => {
-  User.findById(req.params.id, (err, admin) => {
+  User.findOne({ username: req.params.username }, (err, admin) => {
     if (admin) {
       admin.role = 'user';
 
