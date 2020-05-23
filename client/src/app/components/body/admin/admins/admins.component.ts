@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminService } from 'src/app/services/admin.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-admins',
@@ -31,7 +32,8 @@ export class AdminsComponent implements OnInit {
     );
   }
 
-  removeAsAdmin() {
-    alert(this.idSelected);
+  removeAsAdmin(form: NgForm) {
+    alert(JSON.stringify(form.value));
   }
+
 }

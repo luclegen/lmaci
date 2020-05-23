@@ -2,18 +2,15 @@
   <table class="user-table">
     <thead>
       <tr>
-        <th colspan="9">ADMINS</th>
+        <th colspan="10">ADMINS</th>
       </tr>
       <tr>
         <th>No.</th>
         <th>Avatar</th>
         <th>Fullname</th>
-        <th>Gender</th>
-        <th>Email</th>
-        <th>Mobile Number</th>
         <th>Username</th>
         <th>Activated</th>
-        <th>Address</th>
+        <th>Functions</th>
       </tr>
     </thead>
     <tbody>
@@ -21,27 +18,26 @@
         <td class="center-td">1</td>
         <td class="center-td"><img src="{{ root.avatar }}" alt="Root avatar"></td>
         <td>{{ root.fullName }}</td>
-        <td>{{ root.gender }}</td>
-        <td>{{ root.email }}</td>
-        <td>{{ root.mobileNumber }}</td>
         <td>{{ root.username }}</td>
         <td *ngIf="root.activated" class="center-td">✔</td>
         <td *ngIf="!root.activated" class="center-td">✘</td>
-        <td class="address-td">{{ root.address }}</td>
+        <td></td>
       </tr>
       <tr *ngFor="let a of admins">
-        <input #id="ngModel" [(ngModel)]="idSelected" type="hidden" name="id">
         <td class="center-td">{{ admins.indexOf(a) + 2 }}</td>
         <td class="center-td"><img src="{{ a.avatar }}" alt="{{ a.firstName }}'s avatar"></td>
         <td>{{ a.fullName }}</td>
-        <td>{{ a.gender }}</td>
-        <td>{{ a.email }}</td>
-        <td>{{ a.mobileNumber }}</td>
         <td>{{ a.username }}</td>
         <td *ngIf="a.activated" class="center-td">✔</td>
         <td *ngIf="!a.activated" class="center-td">✘</td>
-        <td class="address-td">{{ a.address }}</td>
-        <td class="address-td"><button (click)="removeAsAdmin()">☒</button></td>
+        <form #adminForm="ngForm">
+          <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="a._id">
+          <input type="hidden" name="username" #_id="ngModel" [(ngModel)]="a.username">
+        </form>
+        <td class="center-td">
+          <button (click)="removeAsAdmin(adminForm)">☒</button>
+        </td>
+
       </tr>
     </tbody>
   </table>
