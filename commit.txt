@@ -133,6 +133,7 @@ Routes: AdminsComponent
 Admins Component: View
 Admin Service: Initial
 Environments: adminUrl
+Admin Service: getAdmins
 Commit
 
 II. NODEJS SERVER
