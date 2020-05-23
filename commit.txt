@@ -199,4 +199,5 @@ Auth Controller: active
 Admin Controller: getAdmins
 Admin Router: GET getAdmins
 Admin Controller: removeAsAdmin
+Admin Router: PUT removeAsAdmin
 Commit
