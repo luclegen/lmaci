@@ -136,6 +136,7 @@ Environments: adminUrl
 Admin Service: getAdmins
 Admins Component: ngOnInit
 Admins Component: removeAsAdmin
+Admins Component: viewProfile
 Commit
 
 II. NODEJS SERVER
