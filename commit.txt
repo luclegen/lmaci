@@ -198,4 +198,5 @@ Server App: Admin Router
 Auth Controller: active
 Admin Controller: getAdmins
 Admin Router: GET getAdmins
+Admin Controller: removeAsAdmin
 Commit
