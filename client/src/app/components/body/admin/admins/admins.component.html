@@ -1,11 +1,12 @@
 <section class="center-content">
-  <table>
+  <table class="list-table">
     <thead>
       <tr>
-        <th colspan="8">ADMINS</th>
+        <th colspan="9">ADMINS</th>
       </tr>
       <tr>
         <th>No.</th>
+        <th>Avatar</th>
         <th>Fullname</th>
         <th>Gender</th>
         <th>Email</th>
@@ -18,6 +19,7 @@
     <tbody>
       <tr *ngIf="root">
         <td class="center-td">1</td>
+        <td class="center-td"><img src="{{ root.avatar }}" alt="Root avatar"></td>
         <td>{{ root.fullName }}</td>
         <td>{{ root.gender }}</td>
         <td>{{ root.email }}</td>
@@ -29,6 +31,7 @@
       </tr>
       <tr *ngFor="let a of admins">
         <td class="center-td">{{ admins.indexOf(a) + 2 }}</td>
+        <td class="center-td"><img src="{{ a.avatar }}" alt="{{ a.firstName }}'s avatar"></td>
         <td>{{ a.fullName }}</td>
         <td>{{ a.gender }}</td>
         <td>{{ a.email }}</td>
