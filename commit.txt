@@ -190,4 +190,5 @@ Admin Controller: getUsers
 Admin Router: GET getUsers
 Server App: Admin Router
 Auth Controller: active
+Admin Controller: getAdmins
 Commit
