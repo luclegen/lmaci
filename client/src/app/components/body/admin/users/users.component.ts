@@ -26,11 +26,11 @@ export class UsersComponent implements OnInit {
     );
   }
 
-  viewProfile(form: NgForm) {
-    this.router.navigateByUrl('user/' + form.value.username);
+  viewProfile(username: string) {
+    this.router.navigateByUrl('user/' + username);
   }
 
-  makeAdmin(form: NgForm) {
+  makeAdmin(username: string) {
 
   }
 }

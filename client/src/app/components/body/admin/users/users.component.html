@@ -21,13 +21,9 @@
         <td>{{ u.username }}</td>
         <td *ngIf="u.activated" class="center-td">✔</td>
         <td *ngIf="!u.activated" class="center-td">✘</td>
-        <form #adminForm="ngForm">
-          <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="u._id">
-          <input type="hidden" name="username" #_id="ngModel" [(ngModel)]="u.username">
-        </form>
         <td>
-          <button class="view-profile" title="View profile" (click)="viewProfile(adminForm)">ⓘ</button>
-          <button class="make-admin" title="Remove as admin" (click)="makeAdmin(adminForm)">✪</button>
+          <button class="view-profile" title="View profile" (click)="viewProfile(u.username)">ⓘ</button>
+          <button class="make-admin" title="Remove as admin" (click)="makeAdmin(u.username)">✪</button>
         </td>
       </tr>
     </tbody>
