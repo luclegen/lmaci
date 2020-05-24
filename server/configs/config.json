@@ -8,6 +8,7 @@
     "SERVER_GMAIL": "tanluc.hacknick@gmail.com",
     "SERVER_PASS": "Luc123!@#",
     "DEFAULT_AVATAR": "assets/img/avatars/default.png",
+    "AVATARS": "assets/img/avatars/",
     "DEFAULT_ROLE": "Member"
   }
 }
