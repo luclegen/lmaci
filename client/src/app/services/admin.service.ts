@@ -23,6 +23,10 @@ export class AdminService {
     return this.http.get(environment.adminUrl + '/users');
   }
 
+  makeAdmin(username: string) {
+    return this.http.get(environment.adminUrl + '/make-admin/' + username);
+  }
+
   //#endregion Http Methods
 
 }
