@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-users',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UsersComponent implements OnInit {
 
+  users;
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  viewProfile(form: NgForm) {
+
+  }
+
+  makeAdmin(form: NgForm) {
+
+  }
 }

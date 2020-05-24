@@ -1,20 +1,35 @@
 <section class="center-content">
-  <table>
+  <table class="user-table">
     <thead>
       <tr>
-        <th colspan="8">USERS</th>
+        <th colspan="6">USERS</th>
       </tr>
       <tr>
         <th>No.</th>
+        <th>Avatar</th>
         <th>Fullname</th>
-        <th>Gender</th>
-        <th>Email</th>
-        <th>Mobile Number</th>
         <th>Username</th>
         <th>Activated</th>
-        <th>Address</th>
+        <th>Functions</th>
       </tr>
     </thead>
-    <tbody></tbody>
+    <tbody>
+      <tr *ngFor="let u of users">
+        <td class="center-td">{{ users.indexOf(u) + 2 }}</td>
+        <td class="center-td"><img src="{{ u.avatar }}" alt="{{ u.firstName }}'s avatar"></td>
+        <td>{{ u.fullName }}</td>
+        <td>{{ u.username }}</td>
+        <td *ngIf="u.activated" class="center-td">✔</td>
+        <td *ngIf="!u.activated" class="center-td">✘</td>
+        <form #adminForm="ngForm">
+          <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="u._id">
+          <input type="hidden" name="username" #_id="ngModel" [(ngModel)]="u.username">
+        </form>
+        <td>
+          <button class="view-profile" title="View profile" (click)="viewProfile(adminForm)">ⓘ</button>
+          <button class="make-admin" title="Remove as admin" (click)="makeAdmin(adminForm)">✪</button>
+        </td>
+      </tr>
+    </tbody>
   </table>
 </section>
