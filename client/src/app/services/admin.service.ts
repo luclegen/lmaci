@@ -19,6 +19,10 @@ export class AdminService {
     return this.http.get(environment.adminUrl + '/remove-as-admin/' + username);
   }
 
+  getUsers() {
+    return this.http.get(environment.adminUrl + '/users');
+  }
+
   //#endregion Http Methods
 
 }
