@@ -39,16 +39,21 @@ export class UsersComponent implements OnInit {
   }
 
   makeAdmin(username: string) {
-    if (confirm('Are you sure to make admin: ' + username + '?')) {
-      this.adminService.makeAdmin(username).subscribe(
-        res => {
-          alert(res['msg']);
-          this.ngOnInit();
-        },
-        err => {
-          alert(err.error.msg);
+    this.authService.getInfo().subscribe(res => {
+      if (res['user'].role == 'root' || res['user'].role === 'admin') {
+        if (confirm('Are you sure to make admin: ' + username + '?')) {
+          this.adminService.makeAdmin(username).subscribe(
+            res => {
+              alert(res['msg']);
+              this.ngOnInit();
+            },
+            err => {
+              alert(err.error.msg);
+            }
+          );
         }
-      );
-    }
+      }
+      else this.router.navigateByUrl('');
+    });
   }
 }
