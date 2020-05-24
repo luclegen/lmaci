@@ -26,14 +26,8 @@ module.exports.getUsers = (req, res) => {
 }
 
 module.exports.makeAdmin = (req, res) => {
-  User.findOne({ username: req.params.username }, (err, user) => {
-    if (user) {
-      user.role = 'admin';
-
-      user.save(err => {
-        return err ? res.status(400).json({ msg: 'Update is error.' })
-                 : res.status(200).json({ msg: 'Make admin was successfully.' });
-      });
-    } else return res.status(404).json({ msg: 'User not found.' });
+  User.findOneAndUpdate({ username: req.params.username }, { $set: { role: 'admin' } }, { new: true }, (err, result) => {
+    return err ? res.status(400).json({ msg: 'Update is error.' })
+               : res.status(200).json({ msg: 'Make admin was successfully.' });
   });
 }
