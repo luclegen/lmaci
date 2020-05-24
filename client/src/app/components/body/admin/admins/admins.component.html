@@ -22,7 +22,6 @@
         <td *ngIf="root.activated" class="center-td">✔</td>
         <td *ngIf="!root.activated" class="center-td">✘</td>
         <form #rootForm="ngForm">
-          <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="root._id">
           <input type="hidden" name="username" #_id="ngModel" [(ngModel)]="root.username">
         </form>
         <td>
@@ -37,7 +36,6 @@
         <td *ngIf="a.activated" class="center-td">✔</td>
         <td *ngIf="!a.activated" class="center-td">✘</td>
         <form #adminForm="ngForm">
-          <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="a._id">
           <input type="hidden" name="username" #_id="ngModel" [(ngModel)]="a.username">
         </form>
         <td>
