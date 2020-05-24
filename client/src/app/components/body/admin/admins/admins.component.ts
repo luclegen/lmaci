@@ -31,13 +31,13 @@ export class AdminsComponent implements OnInit {
     );
   }
 
-  viewProfile(form: NgForm) {
-    this.router.navigateByUrl('user/' + form.value.username);
+  viewProfile(username: string) {
+    this.router.navigateByUrl('user/' + username);
   }
 
-  removeAsAdmin(form: NgForm) {
-    if (confirm('Are you sure to remove as admin: ' + form.value.username + '?')) {
-      this.adminService.removeAsAdmin(form.value.username).subscribe(
+  removeAsAdmin(username: string) {
+    if (confirm('Are you sure to remove as admin: ' + username + '?')) {
+      this.adminService.removeAsAdmin(username).subscribe(
         res => {
           alert(res['msg']);
           this.ngOnInit();

@@ -21,11 +21,8 @@
         <td>{{ root.username }}</td>
         <td *ngIf="root.activated" class="center-td">✔</td>
         <td *ngIf="!root.activated" class="center-td">✘</td>
-        <form #rootForm="ngForm">
-          <input type="hidden" name="username" #_id="ngModel" [(ngModel)]="root.username">
-        </form>
         <td>
-          <button class="view-profile" title="View profile" (click)="viewProfile(rootForm)">ⓘ</button>
+          <button class="view-profile" title="View profile" (click)="viewProfile(root.username)">ⓘ</button>
         </td>
       </tr>
       <tr *ngFor="let a of admins">
@@ -35,12 +32,9 @@
         <td>{{ a.username }}</td>
         <td *ngIf="a.activated" class="center-td">✔</td>
         <td *ngIf="!a.activated" class="center-td">✘</td>
-        <form #adminForm="ngForm">
-          <input type="hidden" name="username" #_id="ngModel" [(ngModel)]="a.username">
-        </form>
         <td>
-          <button class="view-profile" title="View profile" (click)="viewProfile(adminForm)">ⓘ</button>
-          <button class="remove-as-admin" title="Remove as admin" (click)="removeAsAdmin(adminForm)">☒</button>
+          <button class="view-profile" title="View profile" (click)="viewProfile(a.username)">ⓘ</button>
+          <button class="remove-as-admin" title="Remove as admin" (click)="removeAsAdmin(a.username)">☒</button>
         </td>
       </tr>
     </tbody>
