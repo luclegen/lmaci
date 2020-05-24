@@ -146,6 +146,7 @@ Admins Component: viewProfile, removeAsAdmin
 Admin Service: makeAdmin
 Users Component: makeAdmin
 CRUD Images: Add
+CRUD Images: Edit
 Commit
 
 II. NODEJS SERVER
