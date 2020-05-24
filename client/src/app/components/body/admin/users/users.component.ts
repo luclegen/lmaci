@@ -32,7 +32,10 @@ export class UsersComponent implements OnInit {
   }
 
   viewProfile(username: string) {
-    this.router.navigateByUrl('user/' + username);
+    this.authService.getInfo().subscribe(res => {
+      if (res['user'].role == 'root' || res['user'].role === 'admin') this.router.navigateByUrl('user/' + username);
+      else this.router.navigateByUrl('');
+    });
   }
 
   makeAdmin(username: string) {
