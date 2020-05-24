@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -8,13 +10,11 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class AdminComponent implements OnInit {
 
-  userDetails;
-
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
     this.authService.getInfo().subscribe(res => {
-      this.userDetails = res['user'];
+      if (res['user'].role == 'user') this.router.navigateByUrl('');
     });
   }
 
