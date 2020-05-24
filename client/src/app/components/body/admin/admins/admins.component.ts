@@ -13,8 +13,6 @@ export class AdminsComponent implements OnInit {
   root;
   admins;
 
-  idSelected;
-
   constructor(private adminService: AdminService, private router: Router) { }
 
   ngOnInit(): void {
