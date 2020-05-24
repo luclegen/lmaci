@@ -144,6 +144,7 @@ Users Component: viewProfile
 Admin Component: ngOnInit
 Admins Component: viewProfile, removeAsAdmin
 Admin Service: makeAdmin
+Users Component: makeAdmin
 Commit
 
 II. NODEJS SERVER
