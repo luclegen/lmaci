@@ -145,6 +145,7 @@ Admin Component: ngOnInit
 Admins Component: viewProfile, removeAsAdmin
 Admin Service: makeAdmin
 Users Component: makeAdmin
+CRUD Images: Add
 Commit
 
 II. NODEJS SERVER
