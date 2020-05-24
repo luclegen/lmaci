@@ -147,6 +147,7 @@ Admin Service: makeAdmin
 Users Component: makeAdmin
 CRUD Images: Add
 CRUD Images: Edit
+CRUD Images: Delete
 Commit
 
 II. NODEJS SERVER
