@@ -45,17 +45,23 @@ export class AdminsComponent implements OnInit {
   }
 
   removeAsAdmin(username: string) {
-    if (confirm('Are you sure to remove as admin: ' + username + '?')) {
-      this.adminService.removeAsAdmin(username).subscribe(
-        res => {
-          alert(res['msg']);
-          this.ngOnInit();
-        },
-        err => {
-          alert(err.error.msg);
+    this.authService.getInfo().subscribe(res => {
+      let adminUsername = res['user'].username;
+      if (res['user'].role == 'root' || res['user'].role === 'admin') {
+        if (confirm('Are you sure to remove as admin: ' + username + '?')) {
+          this.adminService.removeAsAdmin(username).subscribe(
+            res => {
+              alert(res['msg']);
+              this.ngOnInit();
+              if (adminUsername == username) this.router.navigateByUrl('');
+            },
+            err => {
+              alert(err.error.msg);
+            }
+          );
         }
-      );
-    }
+      } else this.router.navigateByUrl('');
+    });
   }
 
 }
