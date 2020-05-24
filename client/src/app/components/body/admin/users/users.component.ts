@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { AdminService } from 'src/app/services/admin.service';
 
@@ -12,7 +13,7 @@ export class UsersComponent implements OnInit {
 
   users;
 
-  constructor(private adminService: AdminService) { }
+  constructor(private adminService: AdminService, private router: Router) { }
 
   ngOnInit(): void {
     this.adminService.getUsers().subscribe(
@@ -26,7 +27,7 @@ export class UsersComponent implements OnInit {
   }
 
   viewProfile(form: NgForm) {
-
+    this.router.navigateByUrl('user/' + form.value.username);
   }
 
   makeAdmin(form: NgForm) {
