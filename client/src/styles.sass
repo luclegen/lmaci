@@ -170,6 +170,9 @@ table
       td.center-td
         text-align: center
 
+    tr:nth-child(even)
+      background-color: olive
+
 table.user-table
   margin: 20px
 
@@ -191,6 +194,22 @@ table.user-table
 
       td.address-td
         width: 20%
+    
+  th
+    position: -webkit-sticky
+    position: sticky
+    z-index: 1
+    background-color: green
+
+  tr:nth-child(1)
+
+    th
+      top: 57px
+
+  tr:nth-child(2)
+
+    th
+      top: 90px
 
 button.view-profile
   width: 30px
