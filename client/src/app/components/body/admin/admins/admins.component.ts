@@ -91,7 +91,7 @@ export class AdminsComponent implements OnInit {
   }
 
   showAll() {
-    
+    this.ngOnInit();
   }
 
 }
