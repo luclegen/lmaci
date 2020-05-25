@@ -17,6 +17,13 @@ export class AdminsComponent implements OnInit {
   constructor(private authService: AuthService, private adminService: AdminService, private router: Router) { }
 
   ngOnInit(): void {
+    let admins_span = document.getElementById('admins-span'),
+        admins_select = document.getElementById('admins-select'),
+        admins_search = document.getElementById('admins-search'),
+        admins_submit = document.getElementById('admins-submit');
+
+    // admins_search.style.width = admins_span.style.width - admins_select.style.width - admins_submit.style.width;
+
     this.authService.getInfo().subscribe(res => {
       if (res['user'].role == 'root' || res['user'].role === 'admin') {
         this.adminService.getAdmins().subscribe(
