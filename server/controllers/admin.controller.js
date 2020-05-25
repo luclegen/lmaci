@@ -1,5 +1,7 @@
 const User = require('../models/user.model');
 
+//#region Admins
+
 module.exports.getAdmins = (req, res) => {
   User.find({ role: 'root' }, (err, root) => {
     if (root) {
@@ -18,6 +20,19 @@ module.exports.removeAsAdmin = (req, res) => {
   });
 }
 
+module.exports.searchAdmins = (req, res) => {
+  let query = req.body.type == 'username' ? { username: RegExp(req.body.keyword, 'i'), role: /^root|admin$/ }
+                                          : { fullName: RegExp(req.body.keyword, 'i'), role: /^root|admin$/ };
+  User.find(query, (err, admins) => {
+    return admins ? res.status(200).json({ admins })
+                  : res.status(404).json({ msg: 'Admins not found.' })
+  });
+}
+
+//#endregion Admins
+
+//#region Users
+
 module.exports.getUsers = (req, res) => {
   User.find({ role: 'user' }, (err, users) => {
     return users ? res.status(200).json({ users })
@@ -31,3 +46,5 @@ module.exports.makeAdmin = (req, res) => {
                : res.status(200).json({ msg: 'Make admin was successfully.' });
   });
 }
+
+//#endregion Users
