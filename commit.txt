@@ -150,6 +150,7 @@ CRUD Images: Edit
 CRUD Images: Delete
 Admin Service: searchAdmin
 Admin Service: searchAdmins
+Admin Service: searchUsers
 Commit
 
 II. NODEJS SERVER
