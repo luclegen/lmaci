@@ -1,12 +1,15 @@
 <section class="center-content">
   <div>
-    <form>
+    <form #searchAdminForm="ngForm" (ngSubmit)="onSubmit(searchAdminForm)">
       <span id="admins-span">
-        <select name="admins-select" id="admins-select">
+        <select #type="ngModel" [(ngModel)]="req.type" name="type" id="admins-select">
           <option value="username" selected>Username</option>
           <option value="name">Name</option>
         </select>
-        <input type="search" name="admins-search" id="admins-search">
+
+        <input *ngIf="req.type == 'username'" #keyword="ngModel" [(ngModel)]="req.keyword" type="search" name="keyword" placeholder="keyword" required>
+        <input *ngIf="req.type !== 'username'" #keyword="ngModel" [(ngModel)]="req.keyword" type="search" name="keyword" placeholder="Keyword" required>
+        
         <input type="submit" value="Search" id="admins-submit">
       </span>
     </form>

@@ -14,6 +14,12 @@ export class AdminsComponent implements OnInit {
   root;
   admins;
 
+  req = {
+    type: 'username',
+    keyword: ''
+  }
+
+
   constructor(private authService: AuthService, private adminService: AdminService, private router: Router) { }
 
   ngOnInit(): void {
@@ -69,6 +75,10 @@ export class AdminsComponent implements OnInit {
         }
       } else this.router.navigateByUrl('');
     });
+  }
+
+  onSubmit(form: NgForm) {
+    
   }
 
 }
