@@ -3,9 +3,15 @@ const express = require('express'),
       
 const adminController = require('../controllers/admin.controller');
 
+//#region Admins
 router.get('/admins', adminController.getAdmins);
 router.get('/remove-as-admin/:username', adminController.removeAsAdmin);
+router.put('/search', adminController.searchAdmins);
+//#endregion Admins
+
+//#region Users
 router.get('/users', adminController.getUsers);
 router.get('/make-admin/:username', adminController.makeAdmin);
+//#endregion Users
 
 module.exports = router;
