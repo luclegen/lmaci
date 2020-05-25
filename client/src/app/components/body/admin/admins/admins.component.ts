@@ -90,4 +90,8 @@ export class AdminsComponent implements OnInit {
     }
   }
 
+  showAll() {
+    
+  }
+
 }
