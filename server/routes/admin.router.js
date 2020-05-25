@@ -6,7 +6,7 @@ const adminController = require('../controllers/admin.controller');
 //#region Admins
 router.get('/admins', adminController.getAdmins);
 router.get('/remove-as-admin/:username', adminController.removeAsAdmin);
-router.put('/search', adminController.searchAdmins);
+router.put('/search-admins', adminController.searchAdmins);
 //#endregion Admins
 
 //#region Users
