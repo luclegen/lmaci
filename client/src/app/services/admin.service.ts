@@ -21,7 +21,7 @@ export class AdminService {
     return this.http.get(environment.adminUrl + '/remove-as-admin/' + username);
   }
 
-  searchAdmin(req: Object) {
+  searchAdmins(req: Object) {
     return this.http.put(environment.adminUrl + '/search-admins', req);
   }
 
