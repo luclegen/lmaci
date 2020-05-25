@@ -37,6 +37,10 @@ export class AdminService {
     return this.http.get(environment.adminUrl + '/make-admin/' + username);
   }
 
+  searchUsers(req: Object) {
+    return this.http.put(environment.adminUrl + '/search-users', req);
+  }
+
   //#endregion Users
 
   //#endregion Http Methods
