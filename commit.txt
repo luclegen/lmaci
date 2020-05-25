@@ -217,4 +217,5 @@ Admin Router: GET makeAdmin
 Auth Controller: register
 Admin Controller: searchAdmins
 Admin Router: PUT searchAdmins
+Admin Controller: searchUsers
 Commit
