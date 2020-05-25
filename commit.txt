@@ -152,6 +152,7 @@ Admin Service: searchAdmin
 Admin Service: searchAdmins
 Admin Service: searchUsers
 Admins Component: onSubmit
+Admins Component: showAll
 Commit
 
 II. NODEJS SERVER
