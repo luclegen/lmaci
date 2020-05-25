@@ -12,6 +12,7 @@ router.put('/search-admins', adminController.searchAdmins);
 //#region Users
 router.get('/users', adminController.getUsers);
 router.get('/make-admin/:username', adminController.makeAdmin);
+router.put('/search-users', adminController.searchUsers);
 //#endregion Users
 
 module.exports = router;
