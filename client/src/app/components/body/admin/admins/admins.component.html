@@ -1,42 +1,54 @@
 <section class="center-content">
-  <table class="list-table">
-    <thead>
-      <tr>
-        <th colspan="6">ADMINS</th>
-      </tr>
-      <tr>
-        <th>No.</th>
-        <th>Avatar</th>
-        <th>Fullname</th>
-        <th>Username</th>
-        <th>Activated</th>
-        <th>Functions</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngIf="root">
-        <td class="center-td">1</td>
-        <td class="center-td"><img src="{{ root.avatar }}" alt="Root avatar"></td>
-        <td>{{ root.fullName }}</td>
-        <td>{{ root.username }}</td>
-        <td *ngIf="root.activated" class="center-td">✔</td>
-        <td *ngIf="!root.activated" class="center-td">✘</td>
-        <td>
-          <button class="view-profile" title="View profile" (click)="viewProfile(root.username)">ⓘ</button>
-        </td>
-      </tr>
-      <tr *ngFor="let a of admins">
-        <td class="center-td">{{ admins.indexOf(a) + 2 }}</td>
-        <td class="center-td"><img src="{{ a.avatar }}" alt="{{ a.firstName }}'s avatar"></td>
-        <td>{{ a.fullName }}</td>
-        <td>{{ a.username }}</td>
-        <td *ngIf="a.activated" class="center-td">✔</td>
-        <td *ngIf="!a.activated" class="center-td">✘</td>
-        <td>
-          <button class="view-profile" title="View profile" (click)="viewProfile(a.username)">ⓘ</button>
-          <button class="remove-as-admin" title="Remove as admin" (click)="removeAsAdmin(a.username)">☒</button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <div>
+    <form>
+      <span>
+        <select name="search-admins" id="search-admins">
+          <option value="username" selected>Username</option>
+          <option value="name">Name</option>
+        </select>
+        <input type="search" name="admin-search" id="admin-search">
+        <input type="submit" value="Search">
+      </span>
+    </form>
+    <table class="list-table">
+      <thead>
+        <tr>
+          <th colspan="6">ADMINS</th>
+        </tr>
+        <tr>
+          <th>No.</th>
+          <th>Avatar</th>
+          <th>Fullname</th>
+          <th>Username</th>
+          <th>Activated</th>
+          <th>Functions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngIf="root">
+          <td class="center-td">1</td>
+          <td class="center-td"><img src="{{ root.avatar }}" alt="Root avatar"></td>
+          <td>{{ root.fullName }}</td>
+          <td>{{ root.username }}</td>
+          <td *ngIf="root.activated" class="center-td">✔</td>
+          <td *ngIf="!root.activated" class="center-td">✘</td>
+          <td>
+            <button class="view-profile" title="View profile" (click)="viewProfile(root.username)">ⓘ</button>
+          </td>
+        </tr>
+        <tr *ngFor="let a of admins">
+          <td class="center-td">{{ admins.indexOf(a) + 2 }}</td>
+          <td class="center-td"><img src="{{ a.avatar }}" alt="{{ a.firstName }}'s avatar"></td>
+          <td>{{ a.fullName }}</td>
+          <td>{{ a.username }}</td>
+          <td *ngIf="a.activated" class="center-td">✔</td>
+          <td *ngIf="!a.activated" class="center-td">✘</td>
+          <td>
+            <button class="view-profile" title="View profile" (click)="viewProfile(a.username)">ⓘ</button>
+            <button class="remove-as-admin" title="Remove as admin" (click)="removeAsAdmin(a.username)">☒</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </section>
