@@ -11,6 +11,8 @@ export class AdminService {
 
   //#region Http Methods
 
+  //#region Admins
+
   getAdmins() {
     return this.http.get(environment.adminUrl + '/admins');
   }
@@ -19,6 +21,14 @@ export class AdminService {
     return this.http.get(environment.adminUrl + '/remove-as-admin/' + username);
   }
 
+  searchAdmin(req: Object) {
+    return this.http.put(environment.adminUrl + '/search-admins', req);
+  }
+
+  //#endregion Admins
+
+  //#region Users
+
   getUsers() {
     return this.http.get(environment.adminUrl + '/users');
   }
@@ -26,6 +36,8 @@ export class AdminService {
   makeAdmin(username: string) {
     return this.http.get(environment.adminUrl + '/make-admin/' + username);
   }
+
+  //#endregion Users
 
   //#endregion Http Methods
 
