@@ -151,6 +151,7 @@ CRUD Images: Delete
 Admin Service: searchAdmin
 Admin Service: searchAdmins
 Admin Service: searchUsers
+Admins Component: onSubmit
 Commit
 
 II. NODEJS SERVER
