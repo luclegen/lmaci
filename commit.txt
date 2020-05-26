@@ -26,7 +26,6 @@ Footer Component: Horizontal Line
 Index: Lmaci title
 Top Navbar Component: Form
 Top Navbar Component: expandA
-Global Styles
 Top Navbar Component: onLogout
 Models: user
 Services: Initial
@@ -155,6 +154,7 @@ Admins Component: onSubmit
 Admins Component: showAll
 Search Images: Search
 Search Images: List
+Global Styles
 Commit
 
 II. NODEJS SERVER
