@@ -63,7 +63,15 @@ export class UsersComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-
+    if (form.value.keyword.length > 0) {
+      this.authService.getInfo().subscribe(res => {
+        if (res['user'].role == 'root' || res['user'].role === 'admin') {
+          this.adminService.searchUsers(form.value).subscribe(res => {
+            this.users = res['users'];
+          });
+        } else this.router.navigateByUrl('');
+      });
+    }
   }
 
   showAll() {
