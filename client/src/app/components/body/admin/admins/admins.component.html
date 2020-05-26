@@ -1,20 +1,22 @@
 <section class="center-content">
   <div>
-    <form #searchAdminForm="ngForm" (ngSubmit)="onSubmit(searchAdminForm)">
-      <span id="admins-span">
-        <select #type="ngModel" [(ngModel)]="req.type" name="type" id="admins-select">
-          <option value="username" selected>Username</option>
-          <option value="name">Name</option>
-        </select>
-
-        <input *ngIf="req.type == 'username'" #keyword="ngModel" [(ngModel)]="req.keyword" type="search" name="keyword" placeholder="keyword" required>
-        <input *ngIf="req.type !== 'username'" #keyword="ngModel" [(ngModel)]="req.keyword" type="search" name="keyword" placeholder="Keyword" required>
-        
-        <input type="submit" value="Search" id="admins-submit">
-        <input type="button" value="Show all" (click)="showAll()">
-      </span>
-    </form>
-    
+    <span class="form-span">
+      <form #searchAdminForm="ngForm" (ngSubmit)="onSubmit(searchAdminForm)">
+        <span id="admins-span">
+          <select #type="ngModel" [(ngModel)]="req.type" name="type" id="admins-select">
+            <option value="username" selected>Username</option>
+            <option value="name">Name</option>
+          </select>
+  
+          <input *ngIf="req.type == 'username'" #keyword="ngModel" [(ngModel)]="req.keyword" type="search" name="keyword" placeholder="keyword" required>
+          <input *ngIf="req.type !== 'username'" #keyword="ngModel" [(ngModel)]="req.keyword" type="search" name="keyword" placeholder="Keyword" required>
+          
+          <input type="submit" value="Search" id="admins-submit">
+          <!-- <input type="button" value="Show all" (click)="showAll()"> -->
+        </span>
+      </form>
+      <button type="menu" (click)="showAll()">Show all</button>
+    </span>
     <table class="list-table">
       <thead>
         <tr>
