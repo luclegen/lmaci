@@ -47,7 +47,8 @@
           </td>
         </tr>
         <tr *ngFor="let a of admins">
-          <td class="center-td">{{ admins.indexOf(a) + 2 }}</td>
+          <td *ngIf="!root" class="center-td">{{ admins.indexOf(a) + 1 }}</td>
+          <td *ngIf="root" class="center-td">{{ admins.indexOf(a) + 2 }}</td>
           <td class="center-td"><img src="{{ a.avatar }}" alt="{{ a.firstName }}'s avatar"></td>
           <td>{{ a.fullName }}</td>
           <td>{{ a.username }}</td>
