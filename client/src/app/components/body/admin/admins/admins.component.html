@@ -2,7 +2,7 @@
   <div>
     <span class="form-span">
       <form #searchAdminForm="ngForm" (ngSubmit)="onSubmit(searchAdminForm)">
-        <span id="admins-span">
+        <span class="form-span">
           <select #type="ngModel" [(ngModel)]="req.type" name="type" id="admins-select">
             <option value="username" selected>Username</option>
             <option value="name">Name</option>
