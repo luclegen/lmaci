@@ -14,6 +14,11 @@ export class UsersComponent implements OnInit {
 
   users;
 
+  req = {
+    type: 'username',
+    keyword: ''
+  }
+
   constructor(private authService: AuthService, private adminService: AdminService, private router: Router) { }
 
   ngOnInit(): void {
@@ -55,5 +60,13 @@ export class UsersComponent implements OnInit {
       }
       else this.router.navigateByUrl('');
     });
+  }
+
+  onSubmit(form: NgForm) {
+
+  }
+
+  showAll() {
+    
   }
 }
