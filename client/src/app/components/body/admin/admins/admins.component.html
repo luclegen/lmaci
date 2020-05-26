@@ -1,7 +1,7 @@
 <section class="center-content">
   <div>
     <span class="search-bar-span">
-      <form #searchAdminForm="ngForm" (ngSubmit)="onSubmit(searchAdminForm)">
+      <form #searchAdminsForm="ngForm" (ngSubmit)="onSubmit(searchAdminsForm)">
         <span class="form-span">
           <select #type="ngModel" [(ngModel)]="req.type" name="type" id="admins-select">
             <option value="username" selected>Username</option>
