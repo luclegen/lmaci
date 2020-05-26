@@ -154,6 +154,7 @@ Admins Component: onSubmit
 Admins Component: showAll
 Search Images: Search
 Search Images: List
+Users Component: onSubmit
 Global Styles
 Commit
 
