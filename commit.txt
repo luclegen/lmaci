@@ -154,6 +154,7 @@ Admin Service: searchUsers
 Admins Component: onSubmit
 Admins Component: showAll
 Search Images: Search
+Search Images: List
 Commit
 
 II. NODEJS SERVER
