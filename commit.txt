@@ -228,4 +228,5 @@ Admin Controller: searchAdmins
 Admin Router: PUT searchAdmins
 Admin Controller: searchUsers
 Admin Router: PUT searchUsers
+Product Model
 Commit
