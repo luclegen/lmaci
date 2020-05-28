@@ -4,7 +4,7 @@ const ObjectId = require('mongoose').Types.ObjectId;
 
 const nameConverter = require('../helpers/name-converter');
 const mailer = require('../helpers/mailer');
-const codeGenerator = require('../helpers/generator');
+const generator = require('../helpers/generator');
 
 const User = require('../models/user.model');
 const Code = require('../models/code.model');
@@ -95,7 +95,7 @@ module.exports.resendActive = (req, res) => {
             let code = new Code();
     
             code._userId = user._id;
-            code.code = codeGenerator.generateCode(6);
+            code.code = generator.generateCode(6);
     
             code.save((err, code) => {
               if (err) return res.status(400).json(err);
@@ -147,7 +147,7 @@ module.exports.resendVerifyResetPassword = (req, res) => {
       let code = new Code();
 
       code._userId = user._id;
-      code.code = codeGenerator.generateCode(6);
+      code.code = generator.generateCode(6);
 
       code.save((err, code) => {
         if (err) console.log('ERROR: User code: ' + JSON.stringify(err, undefined, 2));
