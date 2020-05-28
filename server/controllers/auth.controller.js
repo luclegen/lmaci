@@ -2,7 +2,7 @@ const passport = require('passport');
 const _ = require('lodash');
 const ObjectId = require('mongoose').Types.ObjectId;
 
-const nameConverter = require('../helpers/name-converter');
+const converter = require('../helpers/converter');
 const mailer = require('../helpers/mailer');
 const generator = require('../helpers/generator');
 
@@ -12,9 +12,9 @@ const Code = require('../models/code.model');
 module.exports.register = (req, res, next) => {
   let user = new User();
 
-  user.firstName = nameConverter.convertName(req.body.firstName);
-  user.lastName = nameConverter.convertName(req.body.lastName);
-  user.fullName = nameConverter.convertName(req.body.firstName) + ' ' + nameConverter.convertName(req.body.lastName);
+  user.firstName = converter.convertName(req.body.firstName);
+  user.lastName = converter.convertName(req.body.lastName);
+  user.fullName = converter.convertName(req.body.firstName) + ' ' + converter.convertName(req.body.lastName);
   user.gender = req.body.gender;
   user.email = req.body.email;
   user.mobileNumber = req.body.mobileNumber;
