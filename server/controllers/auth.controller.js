@@ -4,7 +4,7 @@ const ObjectId = require('mongoose').Types.ObjectId;
 
 const nameConverter = require('../helpers/name-converter');
 const mailer = require('../helpers/mailer');
-const codeGenerator = require('../helpers/code-generator');
+const codeGenerator = require('../helpers/generator');
 
 const User = require('../models/user.model');
 const Code = require('../models/code.model');
