@@ -1,18 +1,18 @@
 const express = require('express');
 const router = express.Router();
 
-const authController = require('../controllers/auth.controller');
+const authCtrl = require('../controllers/auth.controller');
 const jwt = require('../helpers/jwt');
 
-router.post('/register', authController.register);
-router.post('/active/:id', authController.active);
-router.get('/resend-active/:id', authController.resendActive);
-router.put('/change-email/:id', authController.changeEmail);
-router.post('/authenticate', authController.authenticate);
-router.post('/find-username', authController.findUsername);
-router.get('/resend-verify-reset-password/:username', authController.resendVerifyResetPassword);
-router.put('/reset-password/:username', authController.resetPassword);
-router.put('/change-password/:id', authController.changePassword);
-router.get('/info', jwt.verifyJwtToken, authController.info);
+router.post('/register', authCtrl.register);
+router.post('/active/:id', authCtrl.active);
+router.get('/resend-active/:id', authCtrl.resendActive);
+router.put('/change-email/:id', authCtrl.changeEmail);
+router.post('/authenticate', authCtrl.authenticate);
+router.post('/find-username', authCtrl.findUsername);
+router.get('/resend-verify-reset-password/:username', authCtrl.resendVerifyResetPassword);
+router.put('/reset-password/:username', authCtrl.resetPassword);
+router.put('/change-password/:id', authCtrl.changePassword);
+router.get('/info', jwt.verifyJwtToken, authCtrl.info);
 
 module.exports = router;
