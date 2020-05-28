@@ -28,31 +28,33 @@ let userSchema = new mongoose.Schema({
     lowercase: true,
     required: 'Email can\'t be empty'
   },
-  activated: {
-    type: Boolean,
-    default: false
-  },
   mobileNumber: {
     type: String,
     required: 'Mobile Number can\'t be empty'
   },
-  username: {
-    type: String,
-    required: 'Username can\'t be empty',
-    unique: true
-  },
-  password: {
-    type: String,
-    required: 'Password can\'t be empty',
-    minlength: [8, 'Password must be at least 8 characters long']
-  },
-  role: {
-    type: String,
-    enum: [ 'root', 'admin', 'user' ],
-    default: 'user'
-  },
   address: String,
-  saltSecret: String
+  account: {
+    username: {
+      type: String,
+      required: 'Username can\'t be empty',
+      unique: true
+    },
+    password: {
+      type: String,
+      required: 'Password can\'t be empty',
+      minlength: [8, 'Password must be at least 8 characters long']
+    },
+    activated: {
+      type: Boolean,
+      default: false
+    },
+    role: {
+      type: String,
+      enum: [ 'root', 'admin', 'user' ],
+      default: 'user'
+    },
+    saltSecret: String
+  }
 }, {
   timestamps: {
     createdAt: 'createdAt',
@@ -69,9 +71,9 @@ userSchema.path('email').validate(val => {
 // Events
 userSchema.pre('save', function (next) {
   bcrypt.genSalt(10, (err, salt) => {
-    bcrypt.hash(this.password, salt, (err, hash) => {
-      this.password = hash;
-      this.saltSecret = salt;
+    bcrypt.hash(this.account.password, salt, (err, hash) => {
+      this.account.password = hash;
+      this.account.saltSecret = salt;
       next();
     });
   });
@@ -79,7 +81,7 @@ userSchema.pre('save', function (next) {
 
 // Methods
 userSchema.methods.verifyPassword = function (password) {
-  return bcrypt.compareSync(password, this.password);
+  return bcrypt.compareSync(password, this.account.password);
 }
 
 userSchema.methods.generateJwt = function () {
