@@ -10,10 +10,17 @@ let productSchema = new mongoose.Schema({
     type: Number,
     required: 'Price can\'t be empty'
   },
-  description: {
+  star: Number,
+  type: {
     type: String,
+    enum: [ 'laptop', 'tablet', 'phone', 'watch', 'accessories' ],
+    required: 'Type can\'t be empty'
+  },
+  description: {
+    type: Array,
     required: 'Price can\'t be empty'
-  }
+  },
+  technicalDetails: Array
 });
 
 module.exports = mongoose.model('Product', productSchema);
