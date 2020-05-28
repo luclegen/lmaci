@@ -20,11 +20,11 @@ module.exports.register = (req, res, next) => {
   user.mobileNumber = req.body.mobileNumber;
   user.address = req.body.address;
 
-  user.account.username = req.body.username;
-  user.account.password = req.body.password;
+  user.username = req.body.username;
+  user.password = req.body.password;
 
-  if (user.account.username == 'root') user.account.avatar = process.env.AVATARS + 'root.png';
-  if (user.account.username == 'root') user.account.role = 'root';
+  if (user.username == 'root') user.avatar = process.env.AVATARS + 'root.png';
+  if (user.username == 'root') user.role = 'root';
   
   user.save((err, user) => {
     if (err) {
@@ -134,7 +134,7 @@ module.exports.authenticate = (req, res) => {
 
 module.exports.findUsername = (req, res) => {
   User.findOne({ email: req.body.email, activated: true }, (err, user) => {
-    return user ? res.status(200).json({ username: user.username, msg: 'Your username is: ' + user.account.username })
+    return user ? res.status(200).json({ username: user.username, msg: 'Your username is: ' + user.username })
                 : res.status(404).json({ msg: 'User is not found.' });
   });
 }
