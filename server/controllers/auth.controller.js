@@ -42,12 +42,16 @@ module.exports.active = (req, res) => {
 
   User.findById(req.params.id, (err, user) => {
     if (!user) return res.status(404).json({ msg: 'User specified isn\'t found.' });
-    let useractivated = {
+    let userActivated = {
       email: user.email,
-      activated: true
+      account: {
+        activated: true
+      }
     }, userEmailRemoved = {
       email: '',
-      activated: false
+      account: {
+        activated: false
+      }
     }
     
     if (user.activated) return res.status(422).json({ msg: 'Your account has been activated.' });
@@ -57,10 +61,10 @@ module.exports.active = (req, res) => {
         else if (code) {
           if (Date.now() > Date.parse(code.createdAt) + 60000) return res.status(400).json({ msg: 'Code is expired. Please click to resend email!' });
           else if (req.body.code === code.code) {
-            User.updateMany({ email: useractivated.email }, { $set: userEmailRemoved }, { multi: true }, (err, result) => {
+            User.updateMany({ email: userActivated.email }, { $set: userEmailRemoved }, { multi: true }, (err, result) => {
               if (err) return res.status(404).json({ msg: 'Duplicated emails weren\'t found.' });
               else {
-                User.findByIdAndUpdate(user._id, { $set: useractivated }, { new: true }, (err, result) => {
+                User.findByIdAndUpdate(user._id, { $set: userActivated }, { new: true }, (err, result) => {
                   if (err) return  res.status(404).json({ msg: 'User Verified isn\'t found.' });
                   else {
                     Code.deleteOne({ _userId: user._id }, (err, result) => {
