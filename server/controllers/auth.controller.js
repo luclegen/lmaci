@@ -134,7 +134,7 @@ module.exports.authenticate = (req, res) => {
 
 module.exports.findUsername = (req, res) => {
   User.findOne({ email: req.body.email, activated: true }, (err, user) => {
-    return user ? res.status(200).json({ username: user.account.username, msg: 'Your username is: ' + user.account.username })
+    return user ? res.status(200).json({ username: user.username, msg: 'Your username is: ' + user.account.username })
                 : res.status(404).json({ msg: 'User is not found.' });
   });
 }
