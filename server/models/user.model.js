@@ -69,9 +69,9 @@ userSchema.path('email').validate(val => {
 // Events
 userSchema.pre('save', function (next) {
   bcrypt.genSalt(10, (err, salt) => {
-    bcrypt.hash(this.account.password, salt, (err, hash) => {
-      this.account.password = hash;
-      this.account.saltSecret = salt;
+    bcrypt.hash(this.password, salt, (err, hash) => {
+      this.password = hash;
+      this.saltSecret = salt;
       next();
     });
   });
@@ -79,7 +79,7 @@ userSchema.pre('save', function (next) {
 
 // Methods
 userSchema.methods.verifyPassword = function (password) {
-  return bcrypt.compareSync(password, this.account.password);
+  return bcrypt.compareSync(password, this.password);
 }
 
 userSchema.methods.generateJwt = function () {
