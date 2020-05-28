@@ -7,17 +7,15 @@ let userSchema = new mongoose.Schema({
     type: String,
     default: process.env.DEFAULT_AVATAR
   },
-  firstName: {
-    type: String,
-    required: 'First name can\'t be empty'
-  },
-  lastName: {
-    type: String,
-    required: 'Last name can\'t be empty'
-  },
-  fullName: {
-    type: String,
-    default: this.firstName + ' ' + this.lastName
+  name: {
+    first: {
+      type: String,
+      required: 'First name can\'t be empty'
+    },
+    last: {
+      type: String,
+      required: 'Last name can\'t be empty'
+    }
   },
   gender: {
     type: String,
