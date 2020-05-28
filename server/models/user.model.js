@@ -3,10 +3,6 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
 let userSchema = new mongoose.Schema({
-  avatar: {
-    type: String,
-    default: process.env.DEFAULT_AVATAR
-  },
   name: {
     first: {
       type: String,
@@ -34,6 +30,10 @@ let userSchema = new mongoose.Schema({
   },
   address: String,
   account: {
+    avatar: {
+      type: String,
+      default: process.env.DEFAULT_AVATAR
+    },
     username: {
       type: String,
       required: 'Username can\'t be empty',
