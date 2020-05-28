@@ -14,14 +14,17 @@ module.exports.register = (req, res, next) => {
 
   user.name.first = converter.convertName(req.body.firstName);
   user.name.last = converter.convertName(req.body.lastName);
+
   user.gender = req.body.gender;
   user.email = req.body.email;
   user.mobileNumber = req.body.mobileNumber;
-  user.username = req.body.username;
-  user.password = req.body.password;
-  if (user.username == 'root') user.role = 'root';
-  if (user.username == 'root') user.avatar = process.env.AVATARS + 'root.png';
   user.address = req.body.address;
+
+  user.account.username = req.body.username;
+  user.account.password = req.body.password;
+
+  if (user.account.username == 'root') user.account.avatar = process.env.AVATARS + 'root.png';
+  if (user.account.username == 'root') user.account.role = 'root';
   
   user.save((err, user) => {
     if (err) {
@@ -131,7 +134,7 @@ module.exports.authenticate = (req, res) => {
 
 module.exports.findUsername = (req, res) => {
   User.findOne({ email: req.body.email, activated: true }, (err, user) => {
-    return user ? res.status(200).json({ username: user.username, msg: 'Your username is: ' + user.username })
+    return user ? res.status(200).json({ username: user.account.username, msg: 'Your username is: ' + user.account.username })
                 : res.status(404).json({ msg: 'User is not found.' });
   });
 }
