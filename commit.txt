@@ -229,4 +229,5 @@ Admin Router: PUT searchAdmins
 Admin Controller: searchUsers
 Admin Router: PUT searchUsers
 Product Model
+Helpers: Generator
 Commit
