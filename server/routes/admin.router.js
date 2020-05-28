@@ -1,18 +1,18 @@
 const express = require('express'),
       router = express.Router();
       
-const adminController = require('../controllers/admin.controller');
+const adminCtrl = require('../controllers/admin.controller');
 
 //#region Admins
-router.get('/admins', adminController.getAdmins);
-router.get('/remove-as-admin/:username', adminController.removeAsAdmin);
-router.put('/search-admins', adminController.searchAdmins);
+router.get('/admins', adminCtrl.getAdmins);
+router.get('/remove-as-admin/:username', adminCtrl.removeAsAdmin);
+router.put('/search-admins', adminCtrl.searchAdmins);
 //#endregion Admins
 
 //#region Users
-router.get('/users', adminController.getUsers);
-router.get('/make-admin/:username', adminController.makeAdmin);
-router.put('/search-users', adminController.searchUsers);
+router.get('/users', adminCtrl.getUsers);
+router.get('/make-admin/:username', adminCtrl.makeAdmin);
+router.put('/search-users', adminCtrl.searchUsers);
 //#endregion Users
 
 module.exports = router;
