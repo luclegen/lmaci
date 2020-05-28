@@ -1,6 +1,6 @@
 const User = require('../models/user.model');
 
-const nameConverter = require('../helpers/name-converter');
+const converter = require('../helpers/converter');
 
 //#region Admins
 
@@ -24,7 +24,7 @@ module.exports.removeAsAdmin = (req, res) => {
 
 module.exports.searchAdmins = (req, res) => {
   let query = req.body.type == 'username' ? { username: RegExp(req.body.keyword, 'i'), role: /^root|admin$/ }
-                                          : { fullName: RegExp(nameConverter.convertName(req.body.keyword), 'i'), role: /^root|admin$/ };
+                                          : { fullName: RegExp(converter.convertName(req.body.keyword), 'i'), role: /^root|admin$/ };
   User.find(query, (err, admins) => {
     return admins ? res.status(200).json({ admins })
                   : res.status(404).json({ msg: 'Admins not found.' })
@@ -51,7 +51,7 @@ module.exports.makeAdmin = (req, res) => {
 
 module.exports.searchUsers = (req, res) => {
   let query = req.body.type == 'username' ? { username: RegExp(req.body.keyword, 'i'), role: 'user' }
-                                          : { fullName: RegExp(nameConverter.convertName(req.body.keyword), 'i'), role: 'user' };
+                                          : { fullName: RegExp(converter.convertName(req.body.keyword), 'i'), role: 'user' };
   User.find(query, (err, users) => {
     return users ? res.status(200).json({ users })
                   : res.status(404).json({ msg: 'Users not found.' })
