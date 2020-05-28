@@ -2,7 +2,6 @@ export class User {
   avatar: string;
   firstName: string;
   lastName: string;
-  fullName: string;
   gender: string;
   role: string;
   email: string;
@@ -10,4 +9,8 @@ export class User {
   username: string;
   password: string;
   address: string;
+
+  getFullName() {
+    return this.firstName + ' ' + this.lastName;
+  }
 }
