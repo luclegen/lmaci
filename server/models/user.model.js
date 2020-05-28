@@ -29,32 +29,30 @@ let userSchema = new mongoose.Schema({
     required: 'Mobile Number can\'t be empty'
   },
   address: String,
-  account: {
-    avatar: {
-      type: String,
-      default: process.env.DEFAULT_AVATAR
-    },
-    username: {
-      type: String,
-      required: 'Username can\'t be empty',
-      unique: true
-    },
-    password: {
-      type: String,
-      required: 'Password can\'t be empty',
-      minlength: [8, 'Password must be at least 8 characters long']
-    },
-    activated: {
-      type: Boolean,
-      default: false
-    },
-    role: {
-      type: String,
-      enum: [ 'root', 'admin', 'user' ],
-      default: 'user'
-    },
-    saltSecret: String
-  }
+  avatar: {
+    type: String,
+    default: process.env.DEFAULT_AVATAR
+  },
+  username: {
+    type: String,
+    required: 'Username can\'t be empty',
+    unique: true
+  },
+  password: {
+    type: String,
+    required: 'Password can\'t be empty',
+    minlength: [8, 'Password must be at least 8 characters long']
+  },
+  activated: {
+    type: Boolean,
+    default: false
+  },
+  role: {
+    type: String,
+    enum: [ 'root', 'admin', 'user' ],
+    default: 'user'
+  },
+  saltSecret: String
 }, {
   timestamps: {
     createdAt: 'createdAt',
