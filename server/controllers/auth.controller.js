@@ -12,9 +12,8 @@ const Code = require('../models/code.model');
 module.exports.register = (req, res, next) => {
   let user = new User();
 
-  user.firstName = converter.convertName(req.body.firstName);
-  user.lastName = converter.convertName(req.body.lastName);
-  user.fullName = converter.convertName(req.body.firstName) + ' ' + converter.convertName(req.body.lastName);
+  user.name.first = converter.convertName(req.body.firstName);
+  user.name.last = converter.convertName(req.body.lastName);
   user.gender = req.body.gender;
   user.email = req.body.email;
   user.mobileNumber = req.body.mobileNumber;
