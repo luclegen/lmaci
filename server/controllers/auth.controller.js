@@ -44,14 +44,10 @@ module.exports.active = (req, res) => {
     if (!user) return res.status(404).json({ msg: 'User specified isn\'t found.' });
     let userActivated = {
       email: user.email,
-      account: {
-        activated: true
-      }
+      activated: true
     }, userEmailRemoved = {
       email: '',
-      account: {
-        activated: false
-      }
+      activated: false
     }
     
     if (user.activated) return res.status(422).json({ msg: 'Your account has been activated.' });
