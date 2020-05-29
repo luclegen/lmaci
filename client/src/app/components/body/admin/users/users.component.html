@@ -23,12 +23,12 @@
     <table class="list-table">
       <thead>
         <tr>
-          <th colspan="6">USERS</th>
+          <th colspan="7">USERS</th>
         </tr>
         <tr>
           <th>No.</th>
           <th>Avatar</th>
-          <th>Fullname</th>
+          <th colspan="2">Fullname</th>
           <th>Username</th>
           <th>Activated</th>
           <th>Functions</th>
@@ -38,7 +38,8 @@
         <tr *ngFor="let u of users">
           <td class="center-td">{{ users.indexOf(u) + 1 }}</td>
           <td class="center-td"><img src="{{ u.avatar }}" alt="{{ u.firstName }}'s avatar"></td>
-          <td>{{ u.fullName }}</td>
+          <td>{{ u.name.first }}</td>
+          <td>{{ u.name.last }}</td>
           <td>{{ u.username }}</td>
           <td *ngIf="u.activated" class="center-td">✔</td>
           <td *ngIf="!u.activated" class="center-td">✘</td>
