@@ -1,7 +1,6 @@
 export class User {
   avatar: string;
-  firstName: string;
-  lastName: string;
+  name: { first: string, last: string };
   gender: string;
   role: string;
   email: string;
@@ -11,6 +10,6 @@ export class User {
   address: string;
 
   getFullName() {
-    return this.firstName + ' ' + this.lastName;
+    return this.name.first + ' ' + this.name.last;
   }
 }
