@@ -28,7 +28,7 @@ export class ProfileComponent implements OnInit {
           this.userService.getUser(username).subscribe(
             res => {
               this.userDetails = res['user'];
-              this.titleService.setTitle(this.userDetails.firstName + this.title);
+              this.titleService.setTitle(this.userDetails.name.first + this.title);
               this.userDetails.role = this.userDetails.role.split('')[0].toUpperCase() + this.userDetails.role.split('').slice(1).join('');
               this.userDetails.gender = this.userDetails.gender.split('')[0].toUpperCase() + this.userDetails.gender.split('').slice(1).join('');
             },
