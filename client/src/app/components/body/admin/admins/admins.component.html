@@ -51,7 +51,8 @@
           <td *ngIf="!root" class="center-td">{{ admins.indexOf(a) + 1 }}</td>
           <td *ngIf="root" class="center-td">{{ admins.indexOf(a) + 2 }}</td>
           <td class="center-td"><img src="{{ a.avatar }}" alt="{{ a.firstName }}'s avatar"></td>
-          <td>{{ a.fullName }}</td>
+          <td>{{ a.name.first }}</td>
+          <td>{{ a.name.last }}</td>
           <td>{{ a.username }}</td>
           <td *ngIf="a.activated" class="center-td">✔</td>
           <td *ngIf="!a.activated" class="center-td">✘</td>
