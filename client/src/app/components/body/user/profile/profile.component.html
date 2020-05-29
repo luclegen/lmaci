@@ -8,13 +8,13 @@
         </th>
       </tr>
       <tr>
-        <th colspan="2">{{ userDetails.firstName.toUpperCase() }}'S PROFILE</th>
+        <th colspan="2">{{ userDetails.name.first.toUpperCase() }}'S PROFILE</th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <td>Full Name</td>
-        <td>{{ userDetails.getFullName() }}</td>
+        <td>{{ userDetails.name.first + ' ' + userDetails.name.last }}</td>
       </tr>
       <tr>
         <td>Gender</td>
