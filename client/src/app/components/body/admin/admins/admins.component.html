@@ -23,12 +23,12 @@
     <table id="ls-table" class="list-table">
       <thead>
         <tr>
-          <th colspan="6">ADMINS</th>
+          <th colspan="7">ADMINS</th>
         </tr>
         <tr>
           <th>No.</th>
           <th>Avatar</th>
-          <th>Fullname</th>
+          <th colspan="2">Fullname</th>
           <th>Username</th>
           <th>Activated</th>
           <th>Functions</th>
@@ -38,7 +38,8 @@
         <tr *ngIf="root">
           <td class="center-td">1</td>
           <td class="center-td"><img src="{{ root.avatar }}" alt="Root avatar"></td>
-          <td>{{ root.fullName }}</td>
+          <td>{{ root.name.first }}</td>
+          <td>{{ root.name.last }}</td>
           <td>{{ root.username }}</td>
           <td *ngIf="root.activated" class="center-td">✔</td>
           <td *ngIf="!root.activated" class="center-td">✘</td>
