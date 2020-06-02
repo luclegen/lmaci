@@ -232,4 +232,5 @@ Admin Router: PUT searchUsers
 Product Model
 Helpers: Generator
 Helpers: Converter
+Admin Controller: addProduct
 Commit
