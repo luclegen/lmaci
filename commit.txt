@@ -234,4 +234,5 @@ Helpers: Generator
 Helpers: Converter
 Admin Controller: addProduct
 Admin Router: POST addProduct
+Admin Controller: post
 Commit
