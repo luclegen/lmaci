@@ -67,6 +67,9 @@ module.exports.addProduct = (req, res) => {
 
   product.name = req.body.name;
   product.price = req.body.price;
-  product.star = req.body.price;
+  product.type = req.body.type;
+  product.description = req.body.description;
+  product.colors = req.body.colors;
+
 }
 //#endregion Products
