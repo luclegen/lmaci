@@ -233,4 +233,5 @@ Product Model
 Helpers: Generator
 Helpers: Converter
 Admin Controller: addProduct
+Admin Router: POST addProduct
 Commit
