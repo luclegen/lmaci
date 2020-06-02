@@ -6,6 +6,16 @@ let productSchema = new mongoose.Schema({
     required: 'Name can\'t be empty',
     trim: true
   },
+  quantity: {
+    imported: {
+      type: Number,
+      required: 'Quantity imported can\'t be empty',
+    },
+    exported: {
+      type: Number,
+      required: 'Quantity exported can\'t be empty',
+    },
+  },
   price: {
     type: Number,
     required: 'Price can\'t be empty'
