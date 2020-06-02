@@ -27,12 +27,9 @@ module.exports.register = (req, res, next) => {
   if (user.username == 'root') user.role = 'root';
   
   user.save((err, user) => {
-    if (err) {
-      if (err.code == 11000) res.status(422).send(['Username is duplicate. Please try again!']);
-      else return next(err);
-    } else {
-      res.send(user);
-    }
+    return err ? err.code == 11000 ? res.status(422).send(['Username is duplicate. Please try again!'])
+                                   : next(err)
+               : res.send(user);
   });
 }
 
