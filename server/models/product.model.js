@@ -11,7 +11,10 @@ let productSchema = new mongoose.Schema({
     required: 'Price can\'t be empty'
   },
   star: {
-    number: Number,
+    number: {
+      type: Number,
+      default: 0
+    },
     countRate: Number
   },
   type: {
