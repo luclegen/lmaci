@@ -31,7 +31,7 @@ let productSchema = new mongoose.Schema({
   },
   colors: Array,
   technicalDetails: Array,
-  article: String
+  post: String
 });
 
 module.exports = mongoose.model('Product', productSchema);
