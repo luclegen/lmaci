@@ -70,6 +70,8 @@ module.exports.addProduct = (req, res, next) => {
   product.type = req.body.type;
   product.description = req.body.description;
   product.colors = req.body.colors;
+  product.technicalDetails = req.body.technicalDetails;
+  product.post = req.body.post;
 
   product.save((err, product) => {
     return err ? next(err)
