@@ -19,12 +19,12 @@ let productSchema = new mongoose.Schema({
     enum: [ 'laptop', 'tablet', 'phone', 'watch', 'accessories' ],
     required: 'Type can\'t be empty'
   },
+  description: {
+    type: String,
+    required: 'Description can\'t be empty'
+  },
   colors: {
     type: Array,
-  },
-  description: {
-    type: Array,
-    required: 'Price can\'t be empty'
   },
   technicalDetails: Array,
   article: String
