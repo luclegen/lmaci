@@ -13,7 +13,7 @@ let productSchema = new mongoose.Schema({
     },
     exported: {
       type: Number,
-      required: 'Quantity exported can\'t be empty',
+      default: 0
     },
   },
   price: {
