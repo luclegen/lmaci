@@ -1,4 +1,5 @@
 const User = require('../models/user.model');
+const Product = require('../models/product.model');
 
 const converter = require('../helpers/converter');
 
@@ -59,3 +60,11 @@ module.exports.searchUsers = (req, res) => {
 }
 
 //#endregion Users
+
+//#region Products
+module.exports.addProduct = (req, res) => {
+  let product = new Product();
+
+  product.
+}
+//#endregion Products
