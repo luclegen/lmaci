@@ -67,6 +67,7 @@ module.exports.addProduct = (req, res, next) => {
   let product = new Product();
 
   product.name = req.body.name;
+  product.quantity.imported = req.body.quantityImported;
   product.price = req.body.price;
   product.type = req.body.type;
   product.description = req.body.description;
