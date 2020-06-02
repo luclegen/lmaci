@@ -62,6 +62,7 @@ module.exports.searchUsers = (req, res) => {
 //#endregion Users
 
 //#region Products
+
 module.exports.addProduct = (req, res, next) => {
   let product = new Product();
 
@@ -78,4 +79,5 @@ module.exports.addProduct = (req, res, next) => {
                : res.send(product);
   });
 }
+
 //#endregion Products
