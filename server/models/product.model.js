@@ -15,7 +15,10 @@ let productSchema = new mongoose.Schema({
       type: Number,
       default: 0
     },
-    countRate: Number
+    countRate: {
+      type: Number,
+      default: 0
+    }
   },
   type: {
     type: String,
