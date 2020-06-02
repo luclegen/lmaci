@@ -65,6 +65,8 @@ module.exports.searchUsers = (req, res) => {
 module.exports.addProduct = (req, res) => {
   let product = new Product();
 
-  product.
+  product.name = req.body.name;
+  product.price = req.body.price;
+  product.star = req.body.price;
 }
 //#endregion Products
