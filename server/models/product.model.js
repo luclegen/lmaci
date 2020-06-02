@@ -29,9 +29,7 @@ let productSchema = new mongoose.Schema({
     type: String,
     required: 'Description can\'t be empty'
   },
-  colors: {
-    type: Array,
-  },
+  colors: Array,
   technicalDetails: Array,
   article: String
 });
