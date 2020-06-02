@@ -6,10 +6,7 @@ let productSchema = new mongoose.Schema({
     required: 'Name can\'t be empty',
     trim: true
   },
-  stopBusiness: {
-    type: Boolean,
-    default: false
-  },
+  status: String,
   quantity: {
     imported: {
       type: Number,
