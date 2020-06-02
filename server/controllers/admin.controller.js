@@ -79,4 +79,11 @@ module.exports.addProduct = (req, res, next) => {
   });
 }
 
+module.exports.post = (req, res) => {
+  Product.findByIdAndUpdate(req.params.id, { $set: { post: req.body.post } }, { new: true }, (err, result) => {
+    return err ? res.status(403).json({ msg: 'Product was found.' })
+               : res.status(200).json({ msg: 'Post is successfully!' });
+  });
+}
+
 //#endregion Products
