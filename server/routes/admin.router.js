@@ -19,7 +19,7 @@ router.put('/search-users', adminCtrl.searchUsers);
 router.post('/create-product', adminCtrl.createProduct);
 router.post('/post/:id', adminCtrl.post);
 router.get('/products', adminCtrl.getProducts);
-router.put('/edit-product/:id', adminCtrl.editProduct);
+router.put('/update-product/:id', adminCtrl.updateProduct);
 router.delete('/delete-product/:id', adminCtrl.deleteProduct);
 //#endregion Products
 
