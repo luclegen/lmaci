@@ -81,9 +81,9 @@ module.exports.addProduct = (req, res, next) => {
 }
 
 module.exports.post = (req, res) => {
-  Product.findByIdAndUpdate(req.params.id, { $set: { post: req.body.post } }, { new: true }, (err, result) => {
-    return err ? res.status(403).json({ msg: 'Product was found.' })
-               : res.status(200).json({ msg: 'Post is successfully!' });
+  Product.findByIdAndUpdate(req.params.id, { $set: { post: req.body.post } }, { new: true }, (err, product) => {
+    return product ? res.status(200).json({ msg: 'Post is successfully!' })
+                   : res.status(404).json({ msg: 'Product was found.' });
   });
 }
 
