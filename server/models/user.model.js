@@ -13,6 +13,7 @@ let userSchema = new mongoose.Schema({
       required: 'Last name can\'t be empty'
     }
   },
+  fullName: String,
   gender: {
     type: String,
     enum: [ 'male', 'female', 'other' ],
