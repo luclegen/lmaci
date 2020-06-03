@@ -83,7 +83,14 @@ module.exports.addProduct = (req, res, next) => {
 module.exports.post = (req, res) => {
   Product.findByIdAndUpdate(req.params.id, { $set: { post: req.body.post } }, { new: true }, (err, product) => {
     return product ? res.status(200).json({ msg: 'Post is successfully!' })
-                   : res.status(404).json({ msg: 'Product was found.' });
+                   : res.status(404).json({ msg: 'Product not found.' });
+  });
+}
+
+module.exports.getProducts = (req, res) => {
+  Product.find((err, products) => {
+    return products ? res.status(200).json({ products: products })
+                    : res.status(404).json({ msg: 'Products not found.' });
   });
 }
 
