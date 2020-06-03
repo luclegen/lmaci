@@ -16,7 +16,7 @@ router.put('/search-users', adminCtrl.searchUsers);
 //#endregion Users
 
 //#region Products
-router.post('/add-product', adminCtrl.createProduct);
+router.post('/add-product', adminCtrl.addProduct);
 router.post('/post/:id', adminCtrl.post);
 router.get('/products', adminCtrl.getProducts);
 router.put('/edit-product/:id', adminCtrl.editProduct);
