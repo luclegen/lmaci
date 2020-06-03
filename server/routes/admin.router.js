@@ -18,6 +18,7 @@ router.put('/search-users', adminCtrl.searchUsers);
 //#region Products
 router.post('/add-product', adminCtrl.addProduct);
 router.post('/post/:id', adminCtrl.post);
+router.get('/products', adminCtrl.getProducts);
 //#endregion Products
 
 module.exports = router;
