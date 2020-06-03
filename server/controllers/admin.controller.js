@@ -65,7 +65,7 @@ module.exports.searchUsers = (req, res) => {
 
 //#region Products
 
-module.exports.createProduct = (req, res, next) => {
+module.exports.addProduct = (req, res, next) => {
   let product = new Product();
 
   product.name = req.body.name;
