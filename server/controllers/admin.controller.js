@@ -118,4 +118,14 @@ module.exports.editProduct = (req, res) => {
   });
 }
 
+module.exports.deleteProduct = (req, res) => {
+  if (!ObjectId.isValid(req.params.id))
+    return res.status(400).send(`No record with given id: ${req.params.id}`);
+  
+    Product.findByIdAndDelete(req.params.id, (err, productDeleted) => {
+    return productDeleted ? res.status(200).json({ msg: 'Product is deleted.' })
+                   : res.status(404).json({ msg: 'Product not found.' });
+  });
+}
+
 //#endregion Products
