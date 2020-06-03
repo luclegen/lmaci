@@ -43,6 +43,11 @@ let productSchema = new mongoose.Schema({
   colors: Array,
   technicalDetails: Array,
   post: String
+}, {
+  timestamps: {
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  }
 });
 
 module.exports = mongoose.model('Product', productSchema);
