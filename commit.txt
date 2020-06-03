@@ -243,4 +243,5 @@ Admin Controller: createProduct
 Admin Router: POST createProduct
 Admin Controller: deleteProduct
 Admin Router: DELETE deleteProduct
+Admin Controller: updateProduct
 Commit
