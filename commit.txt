@@ -158,6 +158,7 @@ Users Component: onSubmit
 Users Component: showAll
 Global Styles
 Index: Loading...
+Products Component: View
 Commit
 
 II. NODEJS SERVER
