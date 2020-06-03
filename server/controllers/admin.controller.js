@@ -1,6 +1,8 @@
 const User = require('../models/user.model');
 const Product = require('../models/product.model');
 
+const ObjectId = require('mongoose').Types.ObjectId;
+
 const converter = require('../helpers/converter');
 
 //#region Admins
@@ -91,6 +93,26 @@ module.exports.getProducts = (req, res) => {
   Product.find((err, products) => {
     return products ? res.status(200).json({ products: products })
                     : res.status(404).json({ msg: 'Products not found.' });
+  });
+}
+
+module.exports.editProduct = (req, res) => {
+  if (!ObjectId.isValid(req.params.id))
+    return res.status(400).send(`No record with given id: ${req.params.id}`);
+
+  let product = new Product();
+
+  product.name = req.body.name;
+  product.quantity.imported = req.body.quantityImported;
+  product.price = req.body.price;
+  product.type = req.body.type;
+  product.description = req.body.description;
+  product.colors = req.body.colors;
+  product.technicalDetails = req.body.technicalDetails;
+  
+  Product.findByIdAndUpdate(req.params.id, { $set: product }, { new: true }, (err, product) => {
+    return product ? res.status(200).json({ msg: 'Product is updated.' })
+                   : res.status(404).json({ msg: 'Product not found.' });
   });
 }
 
