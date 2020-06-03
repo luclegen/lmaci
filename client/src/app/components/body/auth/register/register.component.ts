@@ -99,6 +99,7 @@ export class RegisterComponent implements OnInit {
         res => {
           this.showSuccessMessages = true;
           setTimeout(() => this.showSuccessMessages = false, 4000);
+          form.resetForm();
         },
         err => {
           this.serverErrorMessages = err.status === 422 
