@@ -240,4 +240,5 @@ Admin Controller: getProducts
 Admin Controller: editProduct
 Admin Router: PUT editProduct
 Admin Controller: createProduct
+Admin Router: POST createProduct
 Commit
