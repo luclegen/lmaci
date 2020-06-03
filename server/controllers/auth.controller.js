@@ -14,6 +14,7 @@ module.exports.register = (req, res, next) => {
 
   user.name.first = converter.convertName(req.body.firstName);
   user.name.last = converter.convertName(req.body.lastName);
+  user.fullName = user.name.first + ' ' + user.name.last;
 
   user.gender = req.body.gender;
   user.email = req.body.email;
