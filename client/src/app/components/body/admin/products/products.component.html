@@ -1,7 +1,6 @@
 <section class="center-content">
-  <form #productForm="ngForm">
+  <form #productForm="ngForm" (ngSubmit)="onSubmit(productForm)">
     <h1>Product management</h1>
-    <input #_id="ngModel" [(ngModel)]="product._id" type="hidden" name="_id">
     <input #_id="ngModel" [(ngModel)]="product._id" type="hidden" name="_id">
     <input #name="ngModel" [(ngModel)]="product.name" type="email" name="name" placeholder="Name" required>
     <input #quantityImported="ngModel" [(ngModel)]="product.quantity.imported" type="number" name="quantity-imported" min="1">
@@ -15,10 +14,19 @@
         <option value="accessories">Accessories</option>
       </select>
     </span>
-    <span id="richtexteditor-span">
-      <ejs-richtexteditor #description="ngModel" [(ngModel)]="product.description" [toolbarSettings]='tools' name="description" style="width: 100%;"></ejs-richtexteditor>
-    </span>
-
+    <ul>
+      <li *ngFor="let c of product.colors">
+        {{ c }}
+        <a (click)="removeColor(c)">
+          
+        </a>
+      </li>
+      <form #colorForm="ngForm" (ngSubmit)="onColorSubmit(colorForm)">
+        <input #newColor="ngModel" [(ngModel)]="color" type="email" name="color" placeholder="Name" required>
+        <input type="submit" value="Add">
+      </form>
+    </ul>
+    <input type="submit" value="Save">
   </form>
   <div class="ls-body-div">
     <table class="list-table">

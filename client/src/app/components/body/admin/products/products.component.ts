@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
-import { Product } from 'src/app/models/product.model';
 import { AdminService } from 'src/app/services/admin.service';
 
 @Component({
@@ -14,14 +14,15 @@ export class ProductsComponent implements OnInit {
     _id: '',
     name: '',
     status: '',
-    quantity: { imported: 0 },
-    price: 0,
+    quantity: { imported: 1 },
+    // price: 0,
     type: 'laptop',
-    description: '<h1>Description</h1>',
-    colors: [],
-    technicalDetails: [],
-    post: '',
+    colors: [ 'red', 'yellow', 'orange', 'black' ],
+    // technicalDetails: [],
+    // post: '',
   };
+
+  color;
 
   tools: object = {
     type: 'Expand',
@@ -32,6 +33,21 @@ export class ProductsComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onSubmit(form: NgForm) {
+    alert(JSON.stringify(form.value));
+  }
+
+  onColorSubmit(form: NgForm) {
+    this.product.colors.push(form.value.color);
+    
+    // let i = this.product.colors.indexOf('yellow');
+    // this.product.colors.splice(i, 1);
+  }
+
+  removeColor(c: String) {
+    this.product.colors.splice(this.product.colors.indexOf(c.toString()), 1);
   }
 
 }
