@@ -21,7 +21,18 @@ export class ProductsComponent implements OnInit {
     colors: [],
     technicalDetails: [],
     post: '',
-  }
+  };
+  
+  tools: object = {
+    type: 'MultiRow',
+    items: ['Bold', 'Italic', 'Underline', 'StrikeThrough',
+    'FontName', 'FontSize', 'FontColor', 'BackgroundColor',
+    'LowerCase', 'UpperCase', '|',
+    'Formats', 'Alignments', 'OrderedList', 'UnorderedList',
+    'Outdent', 'Indent', '|',
+    'CreateLink', 'RemoveLink', 'Image', 'CreateTable', '|', 'ClearFormat', 'Print',
+    'SourceCode', 'FullScreen', '|', 'Undo', 'Redo']
+  };
 
   constructor() { }
 

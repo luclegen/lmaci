@@ -5,9 +5,9 @@
     <input #_id="ngModel" [(ngModel)]="product._id" type="hidden" name="_id">
     <input #name="ngModel" [(ngModel)]="product.name" type="email" name="name" placeholder="Name" required>
     <input #quantityImported="ngModel" [(ngModel)]="product.quantity.imported" type="number" name="quantity-imported" min="1">
-    <span>
+    <span id="type-span">
       <label>Type: </label>
-      <select #type="ngModel" [(ngModel)]="product.type" name="type" aria-placeholder="t">
+      <select #type="ngModel" [(ngModel)]="product.type" name="type">
         <option value="laptop" selected>Laptop</option>
         <option value="tablet">Tablet</option>
         <option value="phone">Phone</option>
@@ -15,6 +15,7 @@
         <option value="accessories">Accessories</option>
       </select>
     </span>
+    <ejs-richtexteditor #article="ngModel" [(ngModel)]="product.description" [toolbarSettings]='tools'></ejs-richtexteditor>
   </form>
   <div class="ls-body-div">
     <table class="list-table">
