@@ -161,6 +161,7 @@ Products Component: View
 Models: product
 Type Enum
 Module: RichTextEditorAllModule, DialogModule, ButtonModule, ReactiveFormsModule
+Home Component: View
 Global Styles
 Commit
 
