@@ -1,8 +1,16 @@
 <section class="center-content">
   <form #productForm="ngForm">
     <h1>Product management</h1>
-    <!-- <input #_id="ngModel" [(ngModel)]="binding" type="hidden" name="id"> -->
-    <input type="text" placeholder="Name">
+    <input #_id="ngModel" [(ngModel)]="product._id" type="hidden" name="id">
+    <input #name="ngModel" [(ngModel)]="product.name" type="email" name="name" placeholder="Name" required>
+    <input #quantityImported="ngModel" [(ngModel)]="product.quantity.imported" type="number" name="quantity-imported" min="1">
+    <select #type="ngModel" [(ngModel)]="product.type" name="type" aria-placeholder="t">
+      <option value="laptop" selected>Laptop</option>
+      <option value="tablet">Tablet</option>
+      <option value="phone">Phone</option>
+      <option value="watch">Watch</option>
+      <option value="accessories">Accessories</option>
+    </select>
   </form>
   <div class="ls-body-div">
     <table class="list-table">
