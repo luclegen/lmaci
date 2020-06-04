@@ -15,7 +15,10 @@
         <option value="accessories">Accessories</option>
       </select>
     </span>
-    <ejs-richtexteditor #article="ngModel" [(ngModel)]="product.description" [toolbarSettings]='tools'></ejs-richtexteditor>
+    <span id="richtexteditor-span">
+      <ejs-richtexteditor #description="ngModel" [(ngModel)]="product.description" [toolbarSettings]='tools' name="description" style="width: 100%;"></ejs-richtexteditor>
+    </span>
+
   </form>
   <div class="ls-body-div">
     <table class="list-table">

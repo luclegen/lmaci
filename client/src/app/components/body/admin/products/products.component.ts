@@ -17,21 +17,16 @@ export class ProductsComponent implements OnInit {
     quantity: { imported: 0 },
     price: 0,
     type: 'laptop',
-    description: '',
+    description: '<h1>Description</h1>',
     colors: [],
     technicalDetails: [],
     post: '',
   };
-  
+
   tools: object = {
-    type: 'MultiRow',
-    items: ['Bold', 'Italic', 'Underline', 'StrikeThrough',
-    'FontName', 'FontSize', 'FontColor', 'BackgroundColor',
-    'LowerCase', 'UpperCase', '|',
-    'Formats', 'Alignments', 'OrderedList', 'UnorderedList',
-    'Outdent', 'Indent', '|',
-    'CreateLink', 'RemoveLink', 'Image', 'CreateTable', '|', 'ClearFormat', 'Print',
-    'SourceCode', 'FullScreen', '|', 'Undo', 'Redo']
+    type: 'Expand',
+    items: [
+    'OrderedList', 'UnorderedList', '|', 'FullScreen', '|', 'Undo', 'Redo']
   };
 
   constructor() { }
