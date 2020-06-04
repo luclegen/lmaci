@@ -159,6 +159,7 @@ Users Component: showAll
 Global Styles
 Index: Loading...
 Products Component: View
+Models: product
 Commit
 
 II. NODEJS SERVER
