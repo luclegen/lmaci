@@ -2,15 +2,19 @@
   <form #productForm="ngForm">
     <h1>Product management</h1>
     <input #_id="ngModel" [(ngModel)]="product._id" type="hidden" name="_id">
+    <input #_id="ngModel" [(ngModel)]="product._id" type="hidden" name="_id">
     <input #name="ngModel" [(ngModel)]="product.name" type="email" name="name" placeholder="Name" required>
     <input #quantityImported="ngModel" [(ngModel)]="product.quantity.imported" type="number" name="quantity-imported" min="1">
-    <select #type="ngModel" [(ngModel)]="product.type" name="type" aria-placeholder="t">
-      <option value="laptop" selected>Laptop</option>
-      <option value="tablet">Tablet</option>
-      <option value="phone">Phone</option>
-      <option value="watch">Watch</option>
-      <option value="accessories">Accessories</option>
-    </select>
+    <span>
+      <label>Type: </label>
+      <select #type="ngModel" [(ngModel)]="product.type" name="type" aria-placeholder="t">
+        <option value="laptop" selected>Laptop</option>
+        <option value="tablet">Tablet</option>
+        <option value="phone">Phone</option>
+        <option value="watch">Watch</option>
+        <option value="accessories">Accessories</option>
+      </select>
+    </span>
   </form>
   <div class="ls-body-div">
     <table class="list-table">
@@ -28,7 +32,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let p of products">
+        <!-- <tr *ngFor="let p of products"> -->
           <!-- <td class="center-td">{{ users.indexOf(u) + 1 }}</td>
           <td class="center-td"><img src="{{ u.avatar }}" alt="{{ u.firstName }}'s avatar"></td>
           <td>{{ u.name.first }}</td>
@@ -40,7 +44,7 @@
             <button class="view-profile" title="View profile" (click)="viewProfile(u.username)">ⓘ</button>
             <button class="make-admin" title="Make admin" (click)="makeAdmin(u.username)">✪</button>
           </td> -->
-        </tr>
+        <!-- </tr> -->
       </tbody>
     </table>
   </div>
