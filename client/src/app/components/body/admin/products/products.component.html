@@ -1,7 +1,7 @@
 <section class="center-content">
   <form #productForm="ngForm">
     <h1>Product management</h1>
-    <input #_id="ngModel" [(ngModel)]="product._id" type="hidden" name="id">
+    <input #_id="ngModel" [(ngModel)]="product._id" type="hidden" name="_id">
     <input #name="ngModel" [(ngModel)]="product.name" type="email" name="name" placeholder="Name" required>
     <input #quantityImported="ngModel" [(ngModel)]="product.quantity.imported" type="number" name="quantity-imported" min="1">
     <select #type="ngModel" [(ngModel)]="product.type" name="type" aria-placeholder="t">

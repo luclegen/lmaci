@@ -9,7 +9,19 @@ import { Product } from 'src/app/models/product.model';
 })
 export class ProductsComponent implements OnInit {
 
-  product: Product
+  product = {
+    _id: '',
+    name: '',
+    status: '',
+    quantity: { imported: 0 },
+    price: 0,
+    type: '',
+    description: '',
+    colors: [],
+    technicalDetails: [],
+    post: '',
+  }
+  // product: Product;
   products: Product[];
 
   constructor() { }
