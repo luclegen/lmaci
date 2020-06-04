@@ -5,6 +5,35 @@
     <input type="text" placeholder="Name">
   </form>
   <div class="ls-body-div">
-
+    <table class="list-table">
+      <thead>
+        <tr>
+          <th colspan="7">USERS</th>
+        </tr>
+        <tr>
+          <th>No.</th>
+          <th>Avatar</th>
+          <th colspan="2">Fullname</th>
+          <th>Username</th>
+          <th>Activated</th>
+          <th>Functions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let p of products">
+          <!-- <td class="center-td">{{ users.indexOf(u) + 1 }}</td>
+          <td class="center-td"><img src="{{ u.avatar }}" alt="{{ u.firstName }}'s avatar"></td>
+          <td>{{ u.name.first }}</td>
+          <td>{{ u.name.last }}</td>
+          <td>{{ u.username }}</td>
+          <td *ngIf="u.activated" class="center-td">✔</td>
+          <td *ngIf="!u.activated" class="center-td">✘</td>
+          <td>
+            <button class="view-profile" title="View profile" (click)="viewProfile(u.username)">ⓘ</button>
+            <button class="make-admin" title="Make admin" (click)="makeAdmin(u.username)">✪</button>
+          </td> -->
+        </tr>
+      </tbody>
+    </table>
   </div>
 </section>
