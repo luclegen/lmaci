@@ -1,9 +1,14 @@
-// Build-in
+// Angular
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { RouterModule } from '@angular/router';
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
+
+// Syncfusion
+import { RichTextEditorAllModule } from "@syncfusion/ej2-angular-richtexteditor";
+import { DialogModule } from "@syncfusion/ej2-angular-popups";
+import { ButtonModule } from "@syncfusion/ej2-angular-buttons";
 
 // Routes
 import { routes } from './routes';
@@ -59,6 +64,10 @@ import { AdminsComponent } from './components/body/admin/admins/admins.component
   imports: [
     BrowserModule,
     FormsModule,
+    RichTextEditorAllModule,
+    DialogModule,
+    ButtonModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(routes),
     HttpClientModule
   ],
