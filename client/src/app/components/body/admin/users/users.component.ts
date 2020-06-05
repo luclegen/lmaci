@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 import { AuthService } from 'src/app/services/auth.service';
 import { AdminService } from 'src/app/services/admin.service';
@@ -19,7 +20,9 @@ export class UsersComponent implements OnInit {
     keyword: ''
   }
 
-  constructor(private authService: AuthService, private adminService: AdminService, private router: Router) { }
+  constructor(private titleService: Title, private authService: AuthService, private adminService: AdminService, private router: Router) {
+    this.titleService.setTitle('Users Management | Lmaci');
+  }
 
   ngOnInit(): void {
     this.authService.getInfo().subscribe(res => {
