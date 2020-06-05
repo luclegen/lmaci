@@ -56,7 +56,7 @@ export class ProductsComponent implements OnInit {
   }
 
   onCapacitySubmit(form: NgForm) {
-    this.product.capacitys.push(form.value);
+    if (form.value.size > 0) this.product.capacitys.push(form.value);
   }
 
   removeColor(c: String) {
