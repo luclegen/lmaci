@@ -166,6 +166,7 @@ Products Component: removeCapacity
 Products Component: onCapacitySubmit
 Products Component: removeColor
 Products Component: onColorSubmit
+Products Component: removeTechnicalDetail
 Global Styles
 Commit
 
