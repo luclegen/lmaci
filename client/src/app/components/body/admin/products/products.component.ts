@@ -18,15 +18,16 @@ export class ProductsComponent implements OnInit {
     price: 0,
     quantity: { imported: 1 },
     type: 'laptop',
-    colors: [ { name: 'red', value: 'red' },
-              { name: 'yellow', value: 'yellow' } ],
+    colors: [ { name: 'Red', value: 'red' },
+              { name: 'Yellow', value: 'yellow' } ],
     capacitys: [ { size: 64, price: 0 } ],
     technicalDetails: []
   };
 
   color = {
-    name: 'custom',
-    value: '#000000'
+    option: '',
+    name: '',
+    value: ''
   };
 
   capacity = {
@@ -46,7 +47,12 @@ export class ProductsComponent implements OnInit {
   }
 
   onColorSubmit(form: NgForm) {
-    this.product.colors.push(form.value.color);
+    if (form.value.option != 'custom') {
+      form.value.name = form.value.option[0].toUpperCase() + form.value.option.slice(1);
+      form.value.value = form.value.option;
+    }
+    delete form.value.option;
+    this.product.colors.push(form.value);
   }
 
   onCapacitySubmit(form: NgForm) {
