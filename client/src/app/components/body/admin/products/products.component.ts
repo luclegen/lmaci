@@ -45,7 +45,6 @@ export class ProductsComponent implements OnInit {
   }
 
   onCapacitySubmit(form: NgForm) {
-    alert(JSON.stringify(form.value));
     this.product.capacitys.push(form.value);
   }
 
