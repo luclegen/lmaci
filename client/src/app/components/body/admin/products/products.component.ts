@@ -24,6 +24,10 @@ export class ProductsComponent implements OnInit {
   };
 
   color;
+  capacity = {
+    name: '',
+    price: ''
+  };
 
   constructor(private titleService: Title) {
     this.titleService.setTitle('Products Management | Lmaci');
@@ -38,6 +42,11 @@ export class ProductsComponent implements OnInit {
 
   onColorSubmit(form: NgForm) {
     this.product.colors.push(form.value.color);
+  }
+
+  onCapacitySubmit(form: NgForm) {
+    alert(JSON.stringify(form.value));
+    this.product.capacitys.push(form.value);
   }
 
   removeColor(c: String) {
