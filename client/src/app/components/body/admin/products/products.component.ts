@@ -35,9 +35,9 @@ export class ProductsComponent implements OnInit {
     alert(JSON.stringify(form.value));
   }
 
-  // onColorSubmit(form: NgForm) {
-  //   this.product.colors.push(form.value.color);
-  // }
+  onColorSubmit(form: NgForm) {
+    this.product.colors.push(form.value.color);
+  }
 
   removeColor(c: String) {
     this.product.colors.splice(this.product.colors.indexOf(c.toString()), 1);
