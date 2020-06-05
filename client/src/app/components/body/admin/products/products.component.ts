@@ -15,10 +15,11 @@ export class ProductsComponent implements OnInit {
     _id: '',
     name: '',
     status: '',
-    quantity: { imported: 1 },
     price: 0,
+    quantity: { imported: 1 },
     type: 'laptop',
     colors: [ 'red', 'yellow' ],
+    capacitys: [ { name: '64GB', price: 0 } ],
     technicalDetails: []
   };
 
@@ -41,6 +42,10 @@ export class ProductsComponent implements OnInit {
 
   removeColor(c: String) {
     this.product.colors.splice(this.product.colors.indexOf(c.toString()), 1);
+  }
+
+  removeCapacity(c: Object) {
+    
   }
 
 }

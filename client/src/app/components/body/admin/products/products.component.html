@@ -3,7 +3,14 @@
     <h1>Product management</h1>
     <input #_id="ngModel" [(ngModel)]="product._id" type="hidden" name="_id">
     <input #name="ngModel" [(ngModel)]="product.name" type="email" name="name" placeholder="Name" required>
-    <input #quantityImported="ngModel" [(ngModel)]="product.quantity.imported" type="number" name="quantityImported" min="1">
+    <span>
+      <label>Price: </label>
+      <input #price="ngModel" [(ngModel)]="product.price" type="number" name="price">
+    </span>
+    <span>
+      <label>Quantity Imported: </label>
+      <input #quantityImported="ngModel" [(ngModel)]="product.quantity.imported" type="number" name="quantityImported" min="1">
+    </span>
     <span id="type-span">
       <label>Type: </label>
       <select #type="ngModel" [(ngModel)]="product.type" name="type">
@@ -14,7 +21,8 @@
         <option value="accessories">Accessories</option>
       </select>
     </span>
-    <ul #colors="ngModel" [(ngModel)]="product.colors" name="colors">
+    <input #colors="ngModel" [(ngModel)]="product.colors" type="hidden" name="colors">
+    <ul>
       <li *ngFor="let c of product.colors">
         {{ c }}
         <a (click)="removeColor(c)">
@@ -26,6 +34,43 @@
         <input type="submit" value="Add">
       </form>
     </ul>
+    <input #capacitys="ngModel" [(ngModel)]="product.capacitys" type="hidden" name="capacitys">
+    
+    <form #colorForm="ngForm" (ngSubmit)="onColorSubmit(colorForm)">
+    <table>
+      <thead>
+        <tr>
+          <th colspan="3">Capacitys</th>
+        </tr>
+        <tr>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Function</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let c of product.capacitys">
+          <td>{{ c.name }}</td>
+          <td>{{ c.price }}</td>
+          <td>
+            <a (click)="removeCapacity(c)">
+              <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="trash" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="svg-inline--fa fa-trash fa-w-14 fa-3x"><path d="M432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16zM53.2 467a48 48 0 0 0 47.9 45h245.8a48 48 0 0 0 47.9-45L416 128H32z" class=""></path></svg>
+            </a>
+          </td>
+        </tr>
+            <td>
+              <input #newColor="ngModel" [(ngModel)]="color" type="email" name="color" placeholder="Name" required>
+            </td>
+            <td>
+
+            </td>
+            <td>
+              <input type="submit" value="Add">
+            </td>
+      </tbody>
+    </table>
+    </form>
+
     <input type="submit" value="Save">
   </form>
   <div class="ls-body-div">
