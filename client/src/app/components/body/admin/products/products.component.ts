@@ -18,15 +18,20 @@ export class ProductsComponent implements OnInit {
     price: 0,
     quantity: { imported: 1 },
     type: 'laptop',
-    colors: [ 'red', 'yellow' ],
-    capacitys: [ { name: '64GB', price: 0 } ],
+    colors: [ { name: 'red', value: 'red' },
+              { name: 'yellow', value: 'yellow' } ],
+    capacitys: [ { size: 64, price: 0 } ],
     technicalDetails: []
   };
 
-  color;
+  color = {
+    name: 'custom',
+    value: '#000000'
+  };
+
   capacity = {
-    name: '',
-    price: ''
+    size: 0,
+    price: 0
   };
 
   constructor(private titleService: Title) {
