@@ -45,7 +45,7 @@ export class ProductsComponent implements OnInit {
   }
 
   removeCapacity(c: Object) {
-    
+    this.product.colors.splice(this.product.capacitys.indexOf(Object(c)), 1);
   }
 
 }
