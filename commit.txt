@@ -163,6 +163,7 @@ Type Enum
 Module: RichTextEditorAllModule, DialogModule, ButtonModule, ReactiveFormsModule
 Home Component: View
 Products Component: removeCapacity
+Products Component: onCapacitySubmit
 Global Styles
 Commit
 
