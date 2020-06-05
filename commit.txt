@@ -162,6 +162,7 @@ Models: product
 Type Enum
 Module: RichTextEditorAllModule, DialogModule, ButtonModule, ReactiveFormsModule
 Home Component: View
+Products Component: removeCapacity
 Global Styles
 Commit
 
