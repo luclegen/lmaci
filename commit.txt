@@ -165,6 +165,7 @@ Home Component: View
 Products Component: removeCapacity
 Products Component: onCapacitySubmit
 Products Component: removeColor
+Products Component: onColorSubmit
 Global Styles
 Commit
 
