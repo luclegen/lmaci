@@ -40,8 +40,7 @@ export class ProductsComponent implements OnInit {
     value: ''
   }
 
-  // positiveNumberRegex = /^\d*[1-9]\d*$/;
-  positiveNumberRegex = /[1-9]/;
+  positiveNumberRegex = /^\d*[1-9]\d*$/;
 
   constructor(private titleService: Title) {
     this.titleService.setTitle('Products Management | Lmaci');
