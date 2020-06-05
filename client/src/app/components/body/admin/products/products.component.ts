@@ -67,6 +67,7 @@ export class ProductsComponent implements OnInit {
   }
 
   onTechnicalDetailsSubmit(form: NgForm) {
+    this.product.technicalDetails.push(form.value);
   }
 
   removeColor(c: String) {
