@@ -16,20 +16,13 @@ export class ProductsComponent implements OnInit {
     name: '',
     status: '',
     quantity: { imported: 1 },
-    // price: 0,
+    price: 0,
     type: 'laptop',
     colors: [ 'red', 'yellow' ],
-    // technicalDetails: [],
-    // post: '',
+    technicalDetails: []
   };
 
   color;
-
-  tools: object = {
-    type: 'Expand',
-    items: [
-    'OrderedList', 'UnorderedList', '|', 'FullScreen', '|', 'Undo', 'Redo']
-  };
 
   constructor(private titleService: Title) {
     this.titleService.setTitle('Products Management | Lmaci');
@@ -42,12 +35,9 @@ export class ProductsComponent implements OnInit {
     alert(JSON.stringify(form.value));
   }
 
-  onColorSubmit(form: NgForm) {
-    this.product.colors.push(form.value.color);
-    
-    // let i = this.product.colors.indexOf('yellow');
-    // this.product.colors.splice(i, 1);
-  }
+  // onColorSubmit(form: NgForm) {
+  //   this.product.colors.push(form.value.color);
+  // }
 
   removeColor(c: String) {
     this.product.colors.splice(this.product.colors.indexOf(c.toString()), 1);
