@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Title } from '@angular/platform-browser';
 
 import { AdminService } from 'src/app/services/admin.service';
 
@@ -30,7 +31,9 @@ export class ProductsComponent implements OnInit {
     'OrderedList', 'UnorderedList', '|', 'FullScreen', '|', 'Undo', 'Redo']
   };
 
-  constructor() { }
+  constructor(private titleService: Title) {
+    this.titleService.setTitle('Products Management | Lmaci');
+  }
 
   ngOnInit(): void {
   }
