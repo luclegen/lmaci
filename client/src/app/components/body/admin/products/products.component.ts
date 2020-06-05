@@ -78,6 +78,7 @@ export class ProductsComponent implements OnInit {
   }
 
   removeTechnicalDetail(t: Object) {
+    this.product.technicalDetails.splice(this.product.technicalDetails.indexOf(Object(t)));
   }
 
 }
