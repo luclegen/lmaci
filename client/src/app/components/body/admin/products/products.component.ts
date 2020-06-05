@@ -35,6 +35,14 @@ export class ProductsComponent implements OnInit {
     price: 0
   };
 
+  technicalDetail = {
+    name: '',
+    value: ''
+  }
+
+  // positiveNumberRegex = /^\d*[1-9]\d*$/;
+  positiveNumberRegex = /[1-9]/;
+
   constructor(private titleService: Title) {
     this.titleService.setTitle('Products Management | Lmaci');
   }
@@ -59,12 +67,18 @@ export class ProductsComponent implements OnInit {
     if (form.value.size > 0) this.product.capacitys.push(form.value);
   }
 
+  onTechnicalDetailsSubmit(form: NgForm) {
+  }
+
   removeColor(c: String) {
     this.product.colors.splice(this.product.colors.indexOf(Object(c)), 1);
   }
 
   removeCapacity(c: Object) {
     this.product.capacitys.splice(this.product.capacitys.indexOf(Object(c)), 1);
+  }
+
+  removeTechnicalDetail(t: Object) {
   }
 
 }
