@@ -171,6 +171,7 @@ Products Component: onTechnicalDetailsSubmit
 Products Component: onDescriptionSubmit
 CRUD Images: Save
 Admin Images: Info
+Admin Images: Star
 Global Styles
 Commit
 
