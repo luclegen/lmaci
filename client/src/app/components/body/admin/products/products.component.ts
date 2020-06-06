@@ -31,8 +31,13 @@ export class ProductsComponent implements OnInit {
   };
 
   capacity = {
-    size: 0,
-    price: 0
+    size: null,
+    price: null
+  };
+
+  capacitySelected = {
+    size: null,
+    price: null
   };
 
   technicalDetail = {
@@ -63,11 +68,26 @@ export class ProductsComponent implements OnInit {
   }
 
   onCapacitySubmit(form: NgForm) {
-    if (form.value.size > 0) this.product.capacitys.push(form.value);
+    if (form.value.size > 0) {
+      if ((this.capacitySelected.size > 0)) {
+        this.product.capacitys[this.product.capacitys.indexOf(this.capacitySelected)] = form.value;
+        this.capacitySelected = {
+          size: 0,
+          price: 0
+        };
+        form.resetForm();
+      }
+      else this.product.capacitys.push(form.value);
+    };
   }
 
   onTechnicalDetailsSubmit(form: NgForm) {
     this.product.technicalDetails.push(form.value);
+  }
+
+  onCapacityEdit(c: Object) {
+    this.capacity = Object(c);
+    this.capacitySelected = Object(c);
   }
 
   removeColor(c: String) {
