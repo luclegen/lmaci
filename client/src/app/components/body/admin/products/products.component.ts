@@ -105,9 +105,9 @@ export class ProductsComponent implements OnInit {
 
   onDescriptionSubmit(form: NgForm) {
     if (this.descriptionSelected) {
-      this.product.descriptions[this.product.descriptions.indexOf(this.descriptionSelected)] = form.value;
+      this.product.descriptions[this.product.descriptions.indexOf(this.descriptionSelected)] = form.value.description;
       this.descriptionSelected = null;
-    } else this.product.descriptions.push(form.value);
+    } else this.product.descriptions.push(form.value.description);
     form.resetForm();
   }
 
