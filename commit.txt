@@ -169,6 +169,7 @@ Products Component: onColorSubmit
 Products Component: removeTechnicalDetail
 Products Component: onTechnicalDetailsSubmit
 Products Component: onDescriptionSubmit
+CRUD Images: Save
 Global Styles
 Commit
 
