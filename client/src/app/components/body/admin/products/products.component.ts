@@ -30,6 +30,8 @@ export class ProductsComponent implements OnInit {
     value: ''
   };
 
+  colorSeleted;
+
   capacity = {
     size: 0,
     price: 0
@@ -72,7 +74,6 @@ export class ProductsComponent implements OnInit {
       form.value.name = form.value.option[0].toUpperCase() + form.value.option.slice(1);
       form.value.value = form.value.option;
     }
-    delete form.value.option;
     this.product.colors.push(form.value);
   }
 
