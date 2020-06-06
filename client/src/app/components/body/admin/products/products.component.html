@@ -142,8 +142,9 @@
       </table>
     </form>
 
+    <input #descriptions="ngModel" [(ngModel)]="product.descriptions" type="hidden" name="descriptions">
     <ul>
-      <li *ngFor="let d of product.description">
+      <li *ngFor="let d of product.descriptions">
         {{ d }}
       </li>
       <li>

@@ -21,7 +21,7 @@ export class ProductsComponent implements OnInit {
     colors: [ { name: 'Red', value: 'red' } ],
     capacitys: [ { size: 64, price: 0 } ],
     technicalDetails: [ { name: 'Processor', value: 'Intel® Core™ i5-3360M CPU @ 2.80GHz × 4' } ],
-    description: [ 'Description' ]
+    descriptions: [ 'Description' ]
   };
 
   color = {
@@ -84,8 +84,7 @@ export class ProductsComponent implements OnInit {
           size: 0,
           price: 0
         };
-      }
-      else this.product.capacitys.push(form.value);
+      } else this.product.capacitys.push(form.value);
     };
     this.capacity = {
       size: 0,
@@ -100,8 +99,15 @@ export class ProductsComponent implements OnInit {
         name: '',
         value: ''
       };
-    }
-    else this.product.technicalDetails.push(form.value);
+    } else this.product.technicalDetails.push(form.value);
+    form.resetForm();
+  }
+
+  onDescriptionSubmit(form: NgForm) {
+    if (this.descriptionSelected) {
+      this.product.descriptions[this.product.descriptions.indexOf(this.descriptionSelected)] = form.value;
+      this.descriptionSelected = null;
+    } else this.product.descriptions.push(form.value);
     form.resetForm();
   }
 
