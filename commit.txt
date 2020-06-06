@@ -170,6 +170,7 @@ Products Component: removeTechnicalDetail
 Products Component: onTechnicalDetailsSubmit
 Products Component: onDescriptionSubmit
 CRUD Images: Save
+Admin Images: Info
 Global Styles
 Commit
 
