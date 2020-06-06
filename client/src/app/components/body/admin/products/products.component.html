@@ -143,8 +143,16 @@
     </form>
 
     <ul>
+      <li *ngFor="let d of product.description">
+        {{ d }}
+      </li>
       <li>
-        
+        <form #descriptionForm="ngForm">
+          <input #newDescription="ngModel" [(ngModel)]="description" type="text" name="name" placeholder="Description" required>
+          <button type="submit">
+            
+          </button>
+        </form>
       </li>
     </ul>
 
