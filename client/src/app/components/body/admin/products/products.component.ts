@@ -45,6 +45,11 @@ export class ProductsComponent implements OnInit {
     value: ''
   }
 
+  technicalDetailSelected = {
+    name: '',
+    value: ''
+  }
+
   positiveNumberRegex = /^\d*[1-9]\d*$/;
   NotNegativeNumberRegex = /^\d*[0-9]\d*$/;
 
@@ -86,12 +91,25 @@ export class ProductsComponent implements OnInit {
   }
 
   onTechnicalDetailsSubmit(form: NgForm) {
-    this.product.technicalDetails.push(form.value);
+    if ((this.technicalDetailSelected.name && this.technicalDetailSelected.value)) {
+      this.product.technicalDetails[this.product.technicalDetails.indexOf(this.technicalDetailSelected)] = form.value;
+      this.technicalDetailSelected = {
+        name: '',
+        value: ''
+      };
+    }
+    else this.product.technicalDetails.push(form.value);
+    form.resetForm();
   }
 
   onCapacityEdit(c: Object) {
     this.capacity = Object(c);
     this.capacitySelected = Object(c);
+  }
+
+  onTechnicalDetailEdit(t: Object) {
+    this.technicalDetail = Object(t);
+    this.technicalDetailSelected = Object(t);
   }
 
   removeColor(c: String) {
