@@ -168,7 +168,7 @@ Products Component: removeColor
 Products Component: onColorSubmit
 Products Component: removeTechnicalDetail
 Products Component: onTechnicalDetailsSubmit
-Products Component: onTechnicalDetailsSubmit
+Products Component: onDescriptionSubmit
 Global Styles
 Commit
 
