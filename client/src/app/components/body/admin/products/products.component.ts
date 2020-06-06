@@ -43,12 +43,14 @@ export class ProductsComponent implements OnInit {
   technicalDetail = {
     name: '',
     value: ''
-  }
+  };
 
   technicalDetailSelected = {
     name: '',
     value: ''
-  }
+  };
+
+  description;
 
   positiveNumberRegex = /^\d*[1-9]\d*$/;
   NotNegativeNumberRegex = /^\d*[0-9]\d*$/;
