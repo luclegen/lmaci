@@ -172,6 +172,7 @@ Products Component: onDescriptionSubmit
 CRUD Images: Save
 Admin Images: Info
 Admin Images: Star
+Admin Images: Remove
 Global Styles
 Commit
 
