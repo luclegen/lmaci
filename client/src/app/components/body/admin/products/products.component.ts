@@ -31,13 +31,13 @@ export class ProductsComponent implements OnInit {
   };
 
   capacity = {
-    size: null,
-    price: null
+    size: 0,
+    price: 0
   };
 
   capacitySelected = {
-    size: null,
-    price: null
+    size: 0,
+    price: 0
   };
 
   technicalDetail = {
@@ -46,6 +46,7 @@ export class ProductsComponent implements OnInit {
   }
 
   positiveNumberRegex = /^\d*[1-9]\d*$/;
+  NotNegativeNumberRegex = /^\d*[0-9]\d*$/;
 
   constructor(private titleService: Title) {
     this.titleService.setTitle('Products Management | Lmaci');
@@ -75,9 +76,12 @@ export class ProductsComponent implements OnInit {
           size: 0,
           price: 0
         };
-        form.resetForm();
       }
       else this.product.capacitys.push(form.value);
+    };
+    this.capacity = {
+      size: 0,
+      price: 0
     };
   }
 
