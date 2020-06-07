@@ -113,6 +113,8 @@ export class ProductsComponent implements OnInit {
   }
 
   onCapacityCancel() {
+    this.capacity.size = this.capacitySelected.size;
+    this.capacity.price = this.capacitySelected.price;
     this.capacity = {
       size: 0,
       price: 0
@@ -126,7 +128,8 @@ export class ProductsComponent implements OnInit {
 
   onCapacityEdit(c: Object) {
     this.capacity = Object(c);
-    this.capacitySelected = Object(c);
+    this.capacitySelected.size = Object(c).size;
+    this.capacitySelected.price = Object(c).price;
   }
 
   onTechnicalDetailEdit(t: Object) {
