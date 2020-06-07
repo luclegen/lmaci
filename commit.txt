@@ -180,6 +180,7 @@ CRUD Images: Cancel
 Products Component: onCapacityCancel, onCapacityEdit
 Products Component: onTechnicalDetailCancel
 Products Component: onTechnicalDetailCancel, onTechnicalDetailEdit
+Products Component: onDescriptionCancel
 Global Styles
 Commit
 
