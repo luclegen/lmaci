@@ -18,7 +18,7 @@ export class ProductsComponent implements OnInit {
     price: 0,
     quantity: { imported: 1 },
     type: 'laptop',
-    colors: [ { name: 'Red', value: 'red' } ],
+    colors: [ { option: 'red', name: 'Red', value: 'red' } ],
     capacitys: [ { size: 64, price: 0 } ],
     technicalDetails: [ { name: 'Processor', value: 'Intel® Core™ i5-3360M CPU @ 2.80GHz × 4' } ],
     descriptions: [ 'Description' ]
@@ -80,6 +80,7 @@ export class ProductsComponent implements OnInit {
       form.value.value = form.value.option;
     }
     this.product.colors.push(form.value);
+    form.resetForm();
   }
 
   onCapacitySubmit(form: NgForm) {
