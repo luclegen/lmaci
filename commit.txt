@@ -184,6 +184,7 @@ Products Component: onDescriptionCancel
 Products Component: onColorEdit
 Products Component: onColorCancel
 Products Component: onRemoveColor
+Products Component: onRemoveCapacity
 Global Styles
 Commit
 
