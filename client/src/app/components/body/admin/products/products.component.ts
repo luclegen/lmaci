@@ -102,6 +102,14 @@ export class ProductsComponent implements OnInit {
     form.resetForm();
   }
 
+  onEditionSubmit(form: NgForm) {
+    if (this.editionSelected) {
+      this.product.editions[this.product.editions.indexOf(this.editionSelected)] = form.value.edition;
+      this.editionSelected = null;
+    } else this.product.editions.push(form.value.edition);
+    form.resetForm();
+  }
+
   onColorSubmit(form: NgForm) {
     if (form.value.option != 'custom') {
       form.value.name = form.value.option[0].toUpperCase() + form.value.option.slice(1);
@@ -194,7 +202,7 @@ export class ProductsComponent implements OnInit {
     this.edition = '';
     this.editionSelected = '';
   }
-  
+
   onCapacityCancel() {
     this.capacity.size = this.capacitySelected.size;
     this.capacity.price = this.capacitySelected.price;
