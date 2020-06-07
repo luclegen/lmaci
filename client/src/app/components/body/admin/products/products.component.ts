@@ -137,7 +137,28 @@ export class ProductsComponent implements OnInit {
   }
 
   onColorCancel() {
-    alert(JSON.stringify(this.colorSeleted));
+    this.color.option = this.colorTmp.option;
+    this.color.name = this.colorTmp.name;
+    this.color.value = this.colorTmp.value;
+
+    this.color = {
+      option: '',
+      name: '',
+      value: ''
+    };
+
+    this.colorSeleted = {
+      option: '',
+      name: '',
+      value: ''
+    };
+
+    this.colorTmp = {
+      option: '',
+      name: '',
+      value: ''
+    };
+
   }
 
   onCapacityCancel() {
