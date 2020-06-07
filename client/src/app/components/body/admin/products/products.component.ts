@@ -239,8 +239,8 @@ export class ProductsComponent implements OnInit {
     if (confirm('Are you sure remove: ' + JSON.stringify(t) + '?')) this.product.technicalDetails.splice(this.product.technicalDetails.indexOf(Object(t)), 1);
   }
 
-  onRemoveDescription(d: Object) {
-    this.product.descriptions.splice(this.product.descriptions.indexOf(Object(d)), 1);
+  onRemoveDescription(d: string) {
+    if (confirm('Are you sure remove: ' + d + '?')) this.product.descriptions.splice(this.product.descriptions.indexOf(d), 1);
   }
 
 }
