@@ -94,22 +94,6 @@ export class ProductsComponent implements OnInit {
     alert(JSON.stringify(form.value));
   }
 
-  onStyleSubmit(form: NgForm) {
-    if (this.styleSelected) {
-      this.product.styles[this.product.styles.indexOf(this.styleSelected)] = form.value.style;
-      this.styleSelected = null;
-    } else this.product.styles.push(form.value.style);
-    form.resetForm();
-  }
-
-  onEditionSubmit(form: NgForm) {
-    if (this.editionSelected) {
-      this.product.editions[this.product.editions.indexOf(this.editionSelected)] = form.value.edition;
-      this.editionSelected = null;
-    } else this.product.editions.push(form.value.edition);
-    form.resetForm();
-  }
-
   onColorSubmit(form: NgForm) {
     if (form.value.option != 'custom') {
       form.value.name = form.value.option[0].toUpperCase() + form.value.option.slice(1);
@@ -127,6 +111,21 @@ export class ProductsComponent implements OnInit {
     form.resetForm();
   }
 
+  onStyleSubmit(form: NgForm) {
+    if (this.styleSelected) {
+      this.product.styles[this.product.styles.indexOf(this.styleSelected)] = form.value.style;
+      this.styleSelected = null;
+    } else this.product.styles.push(form.value.style);
+    form.resetForm();
+  }
+
+  onEditionSubmit(form: NgForm) {
+    if (this.editionSelected) {
+      this.product.editions[this.product.editions.indexOf(this.editionSelected)] = form.value.edition;
+      this.editionSelected = null;
+    } else this.product.editions.push(form.value.edition);
+    form.resetForm();
+  }
   onCapacitySubmit(form: NgForm) {
     if (form.value.size > 0) {
       if ((this.capacitySelected.size > 0)) {
