@@ -30,7 +30,11 @@ export class ProductsComponent implements OnInit {
     value: ''
   };
 
-  colorSeleted;
+  colorSeleted = {
+    option: '',
+    name: '',
+    value: ''
+  };
 
   capacity = {
     size: 0,
@@ -156,6 +160,13 @@ export class ProductsComponent implements OnInit {
     this.description = this.descriptionSelected;
     this.description = '';
     this.descriptionSelected = '';
+  }
+
+  onColorEdit(c: Object) {
+    this.color = Object(c);
+    this.colorSeleted.option = Object(c).option;
+    this.colorSeleted.name = Object(c).name;
+    this.colorSeleted.value = Object(c).value;
   }
 
   onCapacityEdit(c: Object) {
