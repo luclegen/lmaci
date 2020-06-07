@@ -88,6 +88,14 @@ export class ProductsComponent implements OnInit {
     alert(JSON.stringify(form.value));
   }
 
+  onStyleSubmit(form: NgForm) {
+    if (this.styleSelected) {
+      this.product.styles[this.product.styles.indexOf(this.styleSelected)] = form.value.style;
+      this.styleSelected = null;
+    } else this.product.styles.push(form.value.style);
+    form.resetForm();
+  }
+
   onColorSubmit(form: NgForm) {
     if (form.value.option != 'custom') {
       form.value.name = form.value.option[0].toUpperCase() + form.value.option.slice(1);
