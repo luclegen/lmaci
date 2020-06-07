@@ -228,7 +228,7 @@ export class ProductsComponent implements OnInit {
   }
 
   onRemoveColor(c: String) {
-    this.product.colors.splice(this.product.colors.indexOf(Object(c)), 1);
+    if (confirm('Are you sure remove: ' + JSON.stringify(c) + '?')) this.product.colors.splice(this.product.colors.indexOf(Object(c)), 1);
   }
 
   onRemoveCapacity(c: Object) {
