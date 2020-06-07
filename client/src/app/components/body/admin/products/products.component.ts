@@ -18,11 +18,15 @@ export class ProductsComponent implements OnInit {
     price: 0,
     quantity: { imported: 1 },
     type: 'laptop',
-    colors: [ { option: 'red', name: 'Red', value: 'red' } ],
-    capacitys: [ { size: 64, price: 0 } ],
-    technicalDetails: [ { name: 'Processor', value: 'Intel® Core™ i5-3360M CPU @ 2.80GHz × 4' } ],
-    descriptions: [ 'Description' ]
+    styles: [],
+    colors: [],
+    capacitys: [],
+    technicalDetails: [],
+    descriptions: []
   };
+
+  style;
+  styleSelected;
 
   color = {
     option: '',
