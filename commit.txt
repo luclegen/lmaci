@@ -181,6 +181,7 @@ Products Component: onCapacityCancel, onCapacityEdit
 Products Component: onTechnicalDetailCancel
 Products Component: onTechnicalDetailCancel, onTechnicalDetailEdit
 Products Component: onDescriptionCancel
+Products Component: onColorEdit
 Global Styles
 Commit
 
