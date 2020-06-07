@@ -232,7 +232,7 @@ export class ProductsComponent implements OnInit {
   }
 
   onRemoveCapacity(c: Object) {
-    this.product.capacitys.splice(this.product.capacitys.indexOf(Object(c)), 1);
+    if (confirm('Are you sure remove: ' + JSON.stringify(c) + '?')) this.product.capacitys.splice(this.product.capacitys.indexOf(Object(c)), 1);
   }
 
   onRemoveTechnicalDetail(t: Object) {
