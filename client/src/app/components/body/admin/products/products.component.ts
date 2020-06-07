@@ -151,6 +151,12 @@ export class ProductsComponent implements OnInit {
     };
   }
 
+  onDescriptionCancel() {
+    this.description = this.descriptionSelected;
+    this.description = '';
+    this.descriptionSelected = '';
+  }
+
   onCapacityEdit(c: Object) {
     this.capacity = Object(c);
     this.capacitySelected.size = Object(c).size;
