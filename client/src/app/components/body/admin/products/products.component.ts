@@ -246,17 +246,22 @@ export class ProductsComponent implements OnInit {
 
   //#region Edit
 
-  onStyleEdit(d: string) {
-    this.style = d;
-    this.styleSelected = d;
-  }
-
   onColorEdit(c: Object) {
     this.color = Object(c);
     this.colorSeleted = Object(c);
     this.colorTmp.option = Object(c).option;
     this.colorTmp.name = Object(c).name;
     this.colorTmp.value = Object(c).value;
+  }
+
+  onStyleEdit(d: string) {
+    this.style = d;
+    this.styleSelected = d;
+  }
+
+  onEditionEdit(d: string) {
+    this.edition = d;
+    this.editionSelected = d;
   }
 
   onCapacityEdit(c: Object) {
