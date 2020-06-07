@@ -25,7 +25,7 @@ export class ProductsComponent implements OnInit {
   };
 
   color = {
-    option: '',
+    option: 'custom',
     name: '',
     value: ''
   };
