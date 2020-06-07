@@ -192,6 +192,7 @@ Products Component: onStyleEdit
 Products Component: onRemoveStyle
 Products Component: onStyleCancel
 Products Component: onEditionCancel
+Products Component: onEditionSubmit
 Global Styles
 Commit
 
