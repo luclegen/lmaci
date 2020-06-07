@@ -134,7 +134,8 @@ export class ProductsComponent implements OnInit {
 
   onTechnicalDetailEdit(t: Object) {
     this.technicalDetail = Object(t);
-    this.technicalDetailSelected = Object(t);
+    this.technicalDetailSelected.name = Object(t).name;
+    this.technicalDetailSelected.value = Object(t).value;
   }
 
   onDescriptionEdit(d: string) {
