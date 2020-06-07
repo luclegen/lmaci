@@ -36,6 +36,12 @@ export class ProductsComponent implements OnInit {
     value: ''
   };
 
+  colorTmp = {
+    option: '',
+    name: '',
+    value: ''
+  };
+
   capacity = {
     size: 0,
     price: 0
@@ -130,6 +136,10 @@ export class ProductsComponent implements OnInit {
     form.resetForm();
   }
 
+  onColorCancel() {
+    alert(JSON.stringify(this.colorSeleted));
+  }
+
   onCapacityCancel() {
     this.capacity.size = this.capacitySelected.size;
     this.capacity.price = this.capacitySelected.price;
@@ -173,9 +183,9 @@ export class ProductsComponent implements OnInit {
   onColorEdit(c: Object) {
     this.color = Object(c);
     this.colorSeleted = Object(c);
-    // this.colorSeleted.option = Object(c).option;
-    // this.colorSeleted.name = Object(c).name;
-    // this.colorSeleted.value = Object(c).value;
+    this.colorTmp.option = Object(c).option;
+    this.colorTmp.name = Object(c).name;
+    this.colorTmp.value = Object(c).value;
   }
 
   onCapacityEdit(c: Object) {
