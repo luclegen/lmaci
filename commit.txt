@@ -179,6 +179,7 @@ Products Component: onRemoveColor, onRemoveCapacity, onRemoveTechnicalDetail, on
 CRUD Images: Cancel
 Products Component: onCapacityCancel, onCapacityEdit
 Products Component: onTechnicalDetailCancel
+Products Component: onTechnicalDetailCancel, onTechnicalDetailEdit
 Global Styles
 Commit
 
