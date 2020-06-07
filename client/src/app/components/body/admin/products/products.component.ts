@@ -79,11 +79,21 @@ export class ProductsComponent implements OnInit {
   }
 
   onColorSubmit(form: NgForm) {
-    if (form.value.option != 'custom') {
-      form.value.name = form.value.option[0].toUpperCase() + form.value.option.slice(1);
-      form.value.value = form.value.option;
+    if (this.colorSeleted.option && this.colorSeleted.name && this.colorSeleted.value) {
+      // alert(this.product.colors.indexOf(this.colorSeleted));
+      this.product.colors[this.product.colors.indexOf(this.colorSeleted)] = form.value;
+      this.colorSeleted = {
+        option: '',
+        name: '',
+        value: ''
+      };
+    } else {
+      if (form.value.option != 'custom') {
+        form.value.name = form.value.option[0].toUpperCase() + form.value.option.slice(1);
+        form.value.value = form.value.option;
+      }
+      this.product.colors.push(form.value);
     }
-    this.product.colors.push(form.value);
     form.resetForm();
   }
 
