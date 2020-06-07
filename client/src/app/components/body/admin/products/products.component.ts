@@ -26,14 +26,17 @@ export class ProductsComponent implements OnInit {
     descriptions: []
   };
 
-  style;
-  styleSelected;
-
   color = {
     option: '',
     name: '',
     value: ''
   };
+
+  style;
+  styleSelected;
+
+  edition;
+  editionSelected;
 
   colorSeleted = {
     option: '',
