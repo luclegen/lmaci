@@ -85,8 +85,6 @@ export class ProductsComponent implements OnInit {
     }
 
     if (this.colorSeleted.option && this.colorSeleted.name && this.colorSeleted.value) {
-      // alert(this.product.colors.indexOf(this.colorSeleted));
-      // alert(JSON.stringify(form.value));
       this.product.colors[this.product.colors.indexOf(this.colorSeleted)] = form.value;
       this.colorSeleted = {
         option: '',
