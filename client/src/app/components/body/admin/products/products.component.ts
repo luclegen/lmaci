@@ -127,19 +127,19 @@ export class ProductsComponent implements OnInit {
     this.descriptionSelected = Object(d);
   }
 
-  removeColor(c: String) {
+  onRemoveColor(c: String) {
     this.product.colors.splice(this.product.colors.indexOf(Object(c)), 1);
   }
 
-  removeCapacity(c: Object) {
+  onRemoveCapacity(c: Object) {
     this.product.capacitys.splice(this.product.capacitys.indexOf(Object(c)), 1);
   }
 
-  removeTechnicalDetail(t: Object) {
+  onRemoveTechnicalDetail(t: Object) {
     this.product.technicalDetails.splice(this.product.technicalDetails.indexOf(Object(t)), 1);
   }
 
-  removeDescription(d: Object) {
+  onRemoveDescription(d: Object) {
     this.product.descriptions.splice(this.product.descriptions.indexOf(Object(d)), 1);
   }
 
