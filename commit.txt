@@ -183,6 +183,7 @@ Products Component: onTechnicalDetailCancel, onTechnicalDetailEdit
 Products Component: onDescriptionCancel
 Products Component: onColorEdit
 Products Component: onColorCancel
+Products Component: onRemoveColor
 Global Styles
 Commit
 
