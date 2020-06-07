@@ -176,6 +176,7 @@ Admin Images: Remove
 Products Component: onDescriptionEdit
 Products Component: removeDescription
 Products Component: onRemoveColor, onRemoveCapacity, onRemoveTechnicalDetail, onRemoveDescription
+CRUD Images: Cancel
 Global Styles
 Commit
 
