@@ -286,12 +286,16 @@ export class ProductsComponent implements OnInit {
 
   //#region Remove
 
+  onRemoveColor(c: String) {
+    if (confirm('Are you sure remove: ' + JSON.stringify(c) + '?')) this.product.colors.splice(this.product.colors.indexOf(Object(c)), 1);
+  }
+
   onRemoveStyle(d: string) {
     if (confirm('Are you sure remove: ' + d + '?')) this.product.styles.splice(this.product.styles.indexOf(d), 1);
   }
 
-  onRemoveColor(c: String) {
-    if (confirm('Are you sure remove: ' + JSON.stringify(c) + '?')) this.product.colors.splice(this.product.colors.indexOf(Object(c)), 1);
+  onRemoveEdition(d: string) {
+    if (confirm('Are you sure remove: ' + d + '?')) this.product.editions.splice(this.product.editions.indexOf(d), 1);
   }
 
   onRemoveCapacity(c: Object) {
