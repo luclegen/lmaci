@@ -100,9 +100,6 @@ export class ProductsComponent implements OnInit {
 
   onTechnicalDetailsSubmit(form: NgForm) {
     if (this.technicalDetailSelected.name && this.technicalDetailSelected.value) {
-      alert(JSON.stringify(this.technicalDetailSelected));
-      alert(JSON.stringify(this.product.technicalDetails));
-      alert(this.product.technicalDetails.indexOf(this.technicalDetailSelected));
       this.product.technicalDetails[this.product.technicalDetails.indexOf(this.technicalDetailSelected)] = form.value;
       this.technicalDetailSelected = {
         name: '',
