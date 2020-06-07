@@ -213,6 +213,11 @@ export class ProductsComponent implements OnInit {
     this.descriptionSelected = '';
   }
 
+  onStyleEdit(d: string) {
+    this.style = d;
+    this.styleSelected = d;
+  }
+
   onColorEdit(c: Object) {
     this.color = Object(c);
     this.colorSeleted = Object(c);
