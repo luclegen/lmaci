@@ -23,7 +23,6 @@ export class ProductsComponent implements OnInit {
     editions: [],
     capacitys: [],
     technicalDetails: [],
-    descriptions: []
   };
 
   color = {
@@ -75,9 +74,6 @@ export class ProductsComponent implements OnInit {
     value: ''
   };
 
-  description;
-  descriptionSelected;
-
   positiveNumberRegex = /^\d*[1-9]\d*$/;
   NotNegativeNumberRegex = /^\d*[0-9]\d*$/;
 
@@ -126,6 +122,7 @@ export class ProductsComponent implements OnInit {
     } else this.product.editions.push(form.value.edition);
     form.resetForm();
   }
+
   onCapacitySubmit(form: NgForm) {
     if (form.value.size > 0) {
       if ((this.capacitySelected.size > 0)) {
@@ -150,14 +147,6 @@ export class ProductsComponent implements OnInit {
         value: ''
       };
     } else this.product.technicalDetails.push(form.value);
-    form.resetForm();
-  }
-
-  onDescriptionSubmit(form: NgForm) {
-    if (this.descriptionSelected) {
-      this.product.descriptions[this.product.descriptions.indexOf(this.descriptionSelected)] = form.value.description;
-      this.descriptionSelected = null;
-    } else this.product.descriptions.push(form.value.description);
     form.resetForm();
   }
 
@@ -236,12 +225,6 @@ export class ProductsComponent implements OnInit {
     };
   }
 
-  onDescriptionCancel() {
-    this.description = this.descriptionSelected;
-    this.description = '';
-    this.descriptionSelected = '';
-  }
-
   //#endregion Cancel
 
   //#region Edit
@@ -277,11 +260,6 @@ export class ProductsComponent implements OnInit {
     this.technicalDetailTmp.value = Object(t).value;
   }
 
-  onDescriptionEdit(d: string) {
-    this.description = d;
-    this.descriptionSelected = d;
-  }
-
   //#endregion Edit
 
   //#region Remove
@@ -304,10 +282,6 @@ export class ProductsComponent implements OnInit {
 
   onRemoveTechnicalDetail(t: Object) {
     if (confirm('Are you sure remove: ' + JSON.stringify(t) + '?')) this.product.technicalDetails.splice(this.product.technicalDetails.indexOf(Object(t)), 1);
-  }
-
-  onRemoveDescription(d: string) {
-    if (confirm('Are you sure remove: ' + d + '?')) this.product.descriptions.splice(this.product.descriptions.indexOf(d), 1);
   }
 
   //#endregion Remove
