@@ -112,6 +112,18 @@ export class ProductsComponent implements OnInit {
     form.resetForm();
   }
 
+  onCapacityCancel() {
+    this.capacity = {
+      size: 0,
+      price: 0
+    };
+
+    this.capacitySelected = {
+      size: 0,
+      price: 0
+    };
+  }
+
   onCapacityEdit(c: Object) {
     this.capacity = Object(c);
     this.capacitySelected = Object(c);
