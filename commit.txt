@@ -173,6 +173,7 @@ CRUD Images: Save
 Admin Images: Info
 Admin Images: Star
 Admin Images: Remove
+Products Component: onDescriptionEdit
 Global Styles
 Commit
 
