@@ -122,6 +122,11 @@ export class ProductsComponent implements OnInit {
     this.technicalDetailSelected = Object(t);
   }
 
+  onDescriptionEdit(d: Object) {
+    this.description = Object(d);
+    this.descriptionSelected = Object(d);
+  }
+
   removeColor(c: String) {
     this.product.colors.splice(this.product.colors.indexOf(Object(c)), 1);
   }
