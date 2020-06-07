@@ -52,6 +52,11 @@ export class ProductsComponent implements OnInit {
     value: ''
   };
 
+  technicalDetailTmp = {
+    name: '',
+    value: ''
+  };
+
   description;
   descriptionSelected;
 
@@ -95,6 +100,9 @@ export class ProductsComponent implements OnInit {
 
   onTechnicalDetailsSubmit(form: NgForm) {
     if (this.technicalDetailSelected.name && this.technicalDetailSelected.value) {
+      alert(JSON.stringify(this.technicalDetailSelected));
+      alert(JSON.stringify(this.product.technicalDetails));
+      alert(this.product.technicalDetails.indexOf(this.technicalDetailSelected));
       this.product.technicalDetails[this.product.technicalDetails.indexOf(this.technicalDetailSelected)] = form.value;
       this.technicalDetailSelected = {
         name: '',
@@ -127,8 +135,8 @@ export class ProductsComponent implements OnInit {
   }
 
   onTechnicalDetailCancel() {
-    this.technicalDetail.name = this.technicalDetailSelected.name;
-    this.technicalDetail.value = this.technicalDetailSelected.value;
+    this.technicalDetail.name = this.technicalDetailTmp.name;
+    this.technicalDetail.value = this.technicalDetailTmp.value;
     
     this.technicalDetail = {
       name: '',
@@ -136,6 +144,11 @@ export class ProductsComponent implements OnInit {
     };
 
     this.technicalDetailSelected = {
+      name: '',
+      value: ''
+    };
+
+    this.technicalDetailTmp = {
       name: '',
       value: ''
     };
@@ -149,8 +162,9 @@ export class ProductsComponent implements OnInit {
 
   onTechnicalDetailEdit(t: Object) {
     this.technicalDetail = Object(t);
-    this.technicalDetailSelected.name = Object(t).name;
-    this.technicalDetailSelected.value = Object(t).value;
+    this.technicalDetailSelected = Object(t);
+    this.technicalDetailTmp.name = Object(t).name;
+    this.technicalDetailTmp.value = Object(t).value;
   }
 
   onDescriptionEdit(d: string) {
