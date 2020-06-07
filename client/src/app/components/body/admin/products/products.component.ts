@@ -154,6 +154,12 @@ export class ProductsComponent implements OnInit {
 
   //#region Cancel
 
+  onStyleCancel() {
+    this.style = this.styleSelected;
+    this.style = '';
+    this.styleSelected = '';
+  }
+
   onColorCancel() {
     this.color.option = this.colorTmp.option;
     this.color.name = this.colorTmp.name;
@@ -261,7 +267,7 @@ export class ProductsComponent implements OnInit {
   onRemoveStyle(d: string) {
     if (confirm('Are you sure remove: ' + d + '?')) this.product.styles.splice(this.product.styles.indexOf(d), 1);
   }
-  
+
   onRemoveColor(c: String) {
     if (confirm('Are you sure remove: ' + JSON.stringify(c) + '?')) this.product.colors.splice(this.product.colors.indexOf(Object(c)), 1);
   }
