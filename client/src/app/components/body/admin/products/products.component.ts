@@ -18,8 +18,9 @@ export class ProductsComponent implements OnInit {
     price: 0,
     quantity: { imported: 1 },
     type: 'laptop',
-    styles: [],
     colors: [],
+    styles: [],
+    editions: [],
     capacitys: [],
     technicalDetails: [],
     descriptions: []
