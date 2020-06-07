@@ -38,7 +38,7 @@ export class ProductsComponent implements OnInit {
   };
 
   capacitySelected = {
-    size: 0,
+    size: 1,
     price: 0
   };
 
