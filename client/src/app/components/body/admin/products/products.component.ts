@@ -158,12 +158,6 @@ export class ProductsComponent implements OnInit {
 
   //#region Cancel
 
-  onStyleCancel() {
-    this.style = this.styleSelected;
-    this.style = '';
-    this.styleSelected = '';
-  }
-
   onColorCancel() {
     this.color.option = this.colorTmp.option;
     this.color.name = this.colorTmp.name;
@@ -189,6 +183,18 @@ export class ProductsComponent implements OnInit {
 
   }
 
+  onStyleCancel() {
+    this.style = this.styleSelected;
+    this.style = '';
+    this.styleSelected = '';
+  }
+
+  onEditionCancel() {
+    this.edition = this.editionSelected;
+    this.edition = '';
+    this.editionSelected = '';
+  }
+  
   onCapacityCancel() {
     this.capacity.size = this.capacitySelected.size;
     this.capacity.price = this.capacitySelected.price;
