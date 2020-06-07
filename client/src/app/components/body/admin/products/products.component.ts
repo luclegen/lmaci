@@ -84,6 +84,8 @@ export class ProductsComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  //#region Submit
+
   onSubmit(form: NgForm) {
     alert(JSON.stringify(form.value));
   }
@@ -147,6 +149,10 @@ export class ProductsComponent implements OnInit {
     } else this.product.descriptions.push(form.value.description);
     form.resetForm();
   }
+
+  //#endregion Submit
+
+  //#region Cancel
 
   onColorCancel() {
     this.color.option = this.colorTmp.option;
@@ -213,6 +219,10 @@ export class ProductsComponent implements OnInit {
     this.descriptionSelected = '';
   }
 
+  //#endregion Cancel
+
+  //#region Edit
+
   onStyleEdit(d: string) {
     this.style = d;
     this.styleSelected = d;
@@ -244,6 +254,10 @@ export class ProductsComponent implements OnInit {
     this.descriptionSelected = d;
   }
 
+  //#endregion Edit
+
+  //#region Remove
+
   onRemoveColor(c: String) {
     if (confirm('Are you sure remove: ' + JSON.stringify(c) + '?')) this.product.colors.splice(this.product.colors.indexOf(Object(c)), 1);
   }
@@ -259,5 +273,7 @@ export class ProductsComponent implements OnInit {
   onRemoveDescription(d: string) {
     if (confirm('Are you sure remove: ' + d + '?')) this.product.descriptions.splice(this.product.descriptions.indexOf(d), 1);
   }
+
+  //#endregion Remove
 
 }
