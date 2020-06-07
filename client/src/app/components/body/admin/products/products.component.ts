@@ -126,6 +126,21 @@ export class ProductsComponent implements OnInit {
     };
   }
 
+  onTechnicalDetailCancel() {
+    this.technicalDetail.name = this.technicalDetailSelected.name;
+    this.technicalDetail.value = this.technicalDetailSelected.value;
+    
+    this.technicalDetail = {
+      name: '',
+      value: ''
+    };
+
+    this.technicalDetailSelected = {
+      name: '',
+      value: ''
+    };
+  }
+
   onCapacityEdit(c: Object) {
     this.capacity = Object(c);
     this.capacitySelected.size = Object(c).size;
