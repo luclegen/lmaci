@@ -175,6 +175,7 @@ Admin Images: Star
 Admin Images: Remove
 Products Component: onDescriptionEdit
 Products Component: removeDescription
+Products Component: onRemoveColor, onRemoveCapacity, onRemoveTechnicalDetail, onRemoveDescription
 Global Styles
 Commit
 
