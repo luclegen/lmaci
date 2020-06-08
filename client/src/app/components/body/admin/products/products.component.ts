@@ -18,6 +18,7 @@ export class ProductsComponent implements OnInit {
     quantity: { imported: 1 },
     type: 'laptop',
     colors: [],
+    sizes: [],
     styles: [],
     editions: [],
     capacitys: [],
@@ -29,6 +30,9 @@ export class ProductsComponent implements OnInit {
     name: '',
     value: ''
   };
+
+  size;
+  sizeSelected;
 
   style;
   styleSelected;
