@@ -196,6 +196,7 @@ Products Component: onEditionSubmit
 Products Component: onRemoveEdition
 Products Component: onSizeSubmit
 Products Component: onSizeCancel
+Products Component: onSizeEdit
 Global Styles
 Commit
 
