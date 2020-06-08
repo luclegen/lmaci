@@ -6,6 +6,10 @@ let productSchema = new mongoose.Schema({
     required: 'Name can\'t be empty',
     trim: true
   },
+  price: {
+    type: Number,
+    required: 'Price can\'t be empty'
+  },
   status: String,
   quantity: {
     imported: {
@@ -16,10 +20,6 @@ let productSchema = new mongoose.Schema({
       type: Number,
       default: 0
     },
-  },
-  price: {
-    type: Number,
-    required: 'Price can\'t be empty'
   },
   star: {
     number: {
@@ -36,12 +36,9 @@ let productSchema = new mongoose.Schema({
     enum: [ 'laptop', 'tablet', 'phone', 'watch', 'accessories' ],
     required: 'Type can\'t be empty'
   },
-  description: {
-    type: String,
-    required: 'Description can\'t be empty'
-  },
   colors: Array,
   technicalDetails: Array,
+  description: String,
   post: String
 }, {
   timestamps: {
