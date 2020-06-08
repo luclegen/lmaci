@@ -12,7 +12,8 @@ ng g class user --type=model
 npm i --save @syncfusion/ej2-angular-richtexteditor @syncfusion/ej2-angular-popups @syncfusion/ej2-angular-buttons
 
 # Optional
-kill -9 $(lsof -t -i:4200); clear; ng s
+# Run client:
+if [ $(lsof -t -i:4200) ]; then kill -9 $(lsof -t -i:4200); fi; clear; ng s
 
 # II. NODEJS SERVER
 
@@ -21,4 +22,5 @@ npm i --save express mongoose body-parser bcryptjs cors jsonwebtoken passport pa
 clear; nodemon
 
 # Optional
-kill -9 $(lsof -t -i:3000); clear; nodemon
+# Run server:
+if [ $(lsof -t -i:3000) ]; then kill -9 $(lsof -t -i:3000); fi; clear; nodemon
