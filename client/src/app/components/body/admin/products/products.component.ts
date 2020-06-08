@@ -254,6 +254,11 @@ export class ProductsComponent implements OnInit {
     this.colorTmp.value = Object(c).value;
   }
 
+  onSizeEdit(s: string) {
+    this.size = s;
+    this.sizeSelected = s;
+  }
+
   onStyleEdit(d: string) {
     this.style = d;
     this.styleSelected = d;
