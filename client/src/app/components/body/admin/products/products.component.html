@@ -58,7 +58,7 @@
           </tr>
           <tr>
             <td colspan="4">
-              <span class="inline-span">
+              <span class="inline-span color-span">
                 <select #colorOption="ngModel" [(ngModel)]="color.option" name="option" required>
                   <option value="" selected>Choose color</option>
                   <option value="custom">Custom</option>"
@@ -80,7 +80,7 @@
                   <option value="purple" style="background-color: purple;">Purple</option>
                 </select>
   
-                <span class="inline-span color-span" *ngIf="color.option == 'custom'">
+                <span class="inline-span input-span" *ngIf="color.option == 'custom'">
                   <input class="color" #colorName="ngModel" [(ngModel)]="color.name" type="text" name="name" placeholder="Name" required>
                   <input #colorValue="ngModel" [(ngModel)]="color.value" type="color" name="value" placeholder="color" required>
   
