@@ -1,6 +1,8 @@
 <section class="center-content">
   <form #productForm="ngForm" (ngSubmit)="onSubmit(productForm)">
-    <h1>Product management</h1>
+    <h1 *ngIf="!product._id">Add a product</h1>
+    <h1 *ngIf="product._id">Edit a product</h1>
+    
     <input #_id="ngModel" [(ngModel)]="product._id" type="hidden" name="_id">
 
     <input #name="ngModel" [(ngModel)]="product.name" class="single-in" type="text" name="name" placeholder="Name" required>
