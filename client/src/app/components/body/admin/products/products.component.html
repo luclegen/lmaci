@@ -6,17 +6,17 @@
     <input #name="ngModel" [(ngModel)]="product.name" class="single-in" type="text" name="name" placeholder="Name" required>
 
     <span>
-      <label>Price: </label>
-      <input #price="ngModel" [(ngModel)]="product.price" type="number" name="price" min="0" [pattern]="NotNegativeNumberRegex" required>
+      <label id="price">Price: </label>
+      <input class="number" #price="ngModel" [(ngModel)]="product.price" type="number" name="price" min="0" [pattern]="NotNegativeNumberRegex" required>
     </span>
 
     <span>
-      <label>Quantity Imported: </label>
-      <input #quantityImported="ngModel" [(ngModel)]="product.quantity.imported" type="number" name="quantityImported" min="1" required>
+      <label id="quantity-imported">Quantity Imported: </label>
+      <input class="number" #quantityImported="ngModel" [(ngModel)]="product.quantity.imported" type="number" name="quantityImported" min="1" required>
     </span>
     
     <span id="type-span">
-      <label>Type: </label>
+      <label id="type">Type: </label>
       <select #type="ngModel" [(ngModel)]="product.type" name="type">
         <option value="" selected>Choose type</option>
         <option value="laptop">Laptop</option>
