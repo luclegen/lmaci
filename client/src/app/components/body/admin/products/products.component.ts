@@ -290,6 +290,10 @@ export class ProductsComponent implements OnInit {
     if (confirm('Are you sure remove: ' + JSON.stringify(c) + '?')) this.product.colors.splice(this.product.colors.indexOf(Object(c)), 1);
   }
 
+  onRemoveSize(s: string) {
+    if (confirm('Are you sure remove: ' + s + '?')) this.product.sizes.splice(this.product.sizes.indexOf(s), 1);
+  }
+
   onRemoveStyle(d: string) {
     if (confirm('Are you sure remove: ' + d + '?')) this.product.styles.splice(this.product.styles.indexOf(d), 1);
   }
