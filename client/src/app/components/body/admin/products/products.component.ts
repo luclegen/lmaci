@@ -190,6 +190,12 @@ export class ProductsComponent implements OnInit {
 
   }
 
+  onSizeCancel() {
+    this.size = this.sizeSelected;
+    this.size = '';
+    this.sizeSelected = '';
+  }
+
   onStyleCancel() {
     this.style = this.styleSelected;
     this.style = '';
