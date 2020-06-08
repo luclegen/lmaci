@@ -110,6 +110,14 @@ export class ProductsComponent implements OnInit {
     form.resetForm();
   }
 
+  onSizeSubmit(form: NgForm) {
+    if (this.sizeSelected) {
+      this.product.sizes[this.product.sizes.indexOf(this.sizeSelected)] = form.value.size;
+      this.sizeSelected = null;
+    } else this.product.sizes.push(form.value.size);
+    form.resetForm();
+  }
+  
   onStyleSubmit(form: NgForm) {
     if (this.styleSelected) {
       this.product.styles[this.product.styles.indexOf(this.styleSelected)] = form.value.style;
