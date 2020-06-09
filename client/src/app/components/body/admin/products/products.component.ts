@@ -273,8 +273,8 @@ export class ProductsComponent implements OnInit {
   }
 
   onPropertyEdit(p: Object) {
-    // this.size = s;
-    // this.sizeSelected = s;
+    this.property = Object(p);
+    this.propertySelected = Object(p);
   }
 
   onPropertyValueEdit(v: string) {
