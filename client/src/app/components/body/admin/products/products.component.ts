@@ -22,11 +22,11 @@ export class ProductsComponent implements OnInit {
     properties: [
       {
         name: 'Service Provider',
-        values: [ 'A', 'B' ]
+        values: [ 'A' ]
       },
       {
         name: 'Product grade',
-        values: [ 'C', 'D' ]
+        values: [ 'B', 'C' ]
       }
     ],
     technicalDetails: [],
