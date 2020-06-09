@@ -287,8 +287,8 @@ export class ProductsComponent implements OnInit {
     // if (confirm('Are you sure remove: ' + s + '?')) this.product.sizes.splice(this.product.sizes.indexOf(s), 1);
   }
 
-  onRemovePropertyValue(s: string) {
-    // if (confirm('Are you sure remove: ' + s + '?')) this.product.sizes.splice(this.product.sizes.indexOf(s), 1);
+  onRemovePropertyValue(v: string) {
+    if (confirm('Are you sure remove: ' + v + '?')) this.property.values.splice(this.property.values.indexOf(v), 1);
   }
 
   onRemoveTechnicalDetail(t: Object) {
