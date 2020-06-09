@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { NgForm, NgModel } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 
 import { AdminService } from 'src/app/services/admin.service';
@@ -62,8 +62,8 @@ export class ProductsComponent implements OnInit {
 
   property = {
     name: 'Test',
-    values: []
-    // values: [ 'E', 'F' ]
+    // values: []
+    values: [ 'E', 'F' ]
   };
 
   propertySelected = {
@@ -139,11 +139,21 @@ export class ProductsComponent implements OnInit {
   }
 
   onPropertySubmit(form: NgForm) {
+    alert(JSON.stringify(form.value));
     // if (this.sizeSelected) {
     //   this.product.sizes[this.product.sizes.indexOf(this.sizeSelected)] = form.value.size;
     //   this.sizeSelected = null;
     // } else this.product.sizes.push(form.value.size);
     // form.resetForm();
+  }
+
+  onPropertyValueSubmit(v: NgModel) {
+    if (this.propertyValueSelected) {
+      // alert(v.value);
+    //   this.product.sizes[this.product.sizes.indexOf(this.sizeSelected)] = form.value.size;
+    //   this.sizeSelected = null;
+    } else this.property.values.push(v.value);
+    this.propertyValue = null;
   }
 
   onTechnicalDetailsSubmit(form: NgForm) {
