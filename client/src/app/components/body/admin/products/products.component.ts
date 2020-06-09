@@ -265,9 +265,7 @@ export class ProductsComponent implements OnInit {
   onColorEdit(c: Object) {
     this.color = Object(c);
     this.colorSeleted = Object(c);
-    this.colorTmp.option = Object(c).option;
-    this.colorTmp.name = Object(c).name;
-    this.colorTmp.value = Object(c).value;
+    this.colorTmp = JSON.parse(JSON.stringify(c));
   }
 
   onCapacityEdit(c: Object) {
