@@ -202,6 +202,7 @@ Products Component: onPropertyValueSubmit
 Products Component: onPropertyValueEdit
 Products Component: onPropertyValueCancel
 Products Component: onPropertySubmit
+Products Component: onPropertyEdit
 Global Styles
 Commit
 
