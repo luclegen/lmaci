@@ -200,6 +200,7 @@ Products Component: onSizeEdit
 Products Component: onRemoveSize
 Products Component: onPropertyValueSubmit
 Products Component: onPropertyValueEdit
+Products Component: onPropertyValueCancel
 Global Styles
 Commit
 
