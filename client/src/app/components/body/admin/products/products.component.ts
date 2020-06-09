@@ -270,8 +270,7 @@ export class ProductsComponent implements OnInit {
 
   onCapacityEdit(c: Object) {
     this.capacity = Object(c);
-    this.capacitySelected.size = Object(c).size;
-    this.capacitySelected.price = Object(c).price;
+    this.capacitySelected = JSON.parse(JSON.stringify(c));
   }
 
   onPropertyEdit(p: Object) {
