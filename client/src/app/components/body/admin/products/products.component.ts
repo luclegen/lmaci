@@ -139,12 +139,25 @@ export class ProductsComponent implements OnInit {
   }
 
   onPropertySubmit(form: NgForm) {
+    delete form.value.propertyValue
+    if (this.propertySelected.name && this.propertySelected.values.length) {
+      this.product.properties[this.product.properties.indexOf(this.propertySelected)] = form.value;
+      this.propertySelected = {
+        name: '',
+        values: []
+      };
+    } else this.product.properties.push(form.value);
     alert(JSON.stringify(form.value));
+      
+    this.property = {
+      name: '',
+      values: []
+    };
+
     // if (this.sizeSelected) {
     //   this.product.sizes[this.product.sizes.indexOf(this.sizeSelected)] = form.value.size;
     //   this.sizeSelected = null;
     // } else this.product.sizes.push(form.value.size);
-    // form.resetForm();
   }
 
   onPropertyValueSubmit() {
