@@ -19,16 +19,7 @@ export class ProductsComponent implements OnInit {
     type: 'laptop',
     colors: [],
     capacitys: [],
-    properties: [
-      {
-        name: 'Service Provider',
-        values: [ 'A' ]
-      },
-      {
-        name: 'Product grade',
-        values: [ 'B', 'C' ]
-      }
-    ],
+    properties: [],
     technicalDetails: [],
   };
 
@@ -316,7 +307,7 @@ export class ProductsComponent implements OnInit {
   }
 
   onRemoveProperty(p: Object) {
-    // if (confirm('Are you sure remove: ' + s + '?')) this.product.sizes.splice(this.product.sizes.indexOf(s), 1);
+    if (confirm('Are you sure remove: ' + JSON.stringify(p) + '?')) this.product.properties.splice(this.product.properties.indexOf(Object(p)), 1);
   }
 
   onRemovePropertyValue(v: string) {
