@@ -62,8 +62,8 @@ export class ProductsComponent implements OnInit {
 
   property = {
     name: 'Test',
-    // values: []
-    values: [ 'E', 'F' ]
+    values: []
+    // values: [ 'E', 'F' ]
   };
 
   propertySelected = {
@@ -147,11 +147,11 @@ export class ProductsComponent implements OnInit {
     // form.resetForm();
   }
 
-  onPropertyValueSubmit(v: NgModel) {
+  onPropertyValueSubmit() {
     if (this.propertyValueSelected) {
-      this.property.values[this.property.values.indexOf(this.propertyValueSelected)] = v.value;
+      this.property.values[this.property.values.indexOf(this.propertyValueSelected)] = this.propertyValue;
       this.propertyValueSelected = '';
-    } else this.property.values.push(v.value);
+    } else this.property.values.push(this.propertyValue);
     this.propertyValue = '';
   }
 
