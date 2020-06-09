@@ -70,6 +70,11 @@ export class ProductsComponent implements OnInit {
     values: []
   };
 
+  propertyTmp = {
+    name: '',
+    values: []
+  };
+
   propertyValue;
   propertyValueSelected;
 
@@ -282,7 +287,8 @@ export class ProductsComponent implements OnInit {
 
   onPropertyEdit(p: Object) {
     this.property = Object(p);
-    this.propertySelected = JSON.parse(JSON.stringify(p));
+    this.propertySelected = Object(p);
+    this.propertyTmp = JSON.parse(JSON.stringify(p));
   }
 
   onPropertyValueEdit(v: string) {
