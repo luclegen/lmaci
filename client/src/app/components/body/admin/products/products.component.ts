@@ -61,17 +61,11 @@ export class ProductsComponent implements OnInit {
   };
 
   property = {
-    name: 'Test',
-    values: []
-    // values: [ 'E', 'F' ]
-  };
-
-  propertySelected = {
     name: '',
     values: []
   };
 
-  propertyTmp = {
+  propertySelected = {
     name: '',
     values: []
   };
@@ -228,11 +222,8 @@ export class ProductsComponent implements OnInit {
   }
 
   onPropertyCancel() {
-    alert(JSON.stringify(this.propertySelected));
-    this.property = this.propertySelected;
-
-    // this.property.name = this.propertyTmp.name;
-    // this.property.values = this.propertyTmp.values;
+    this.property.name = this.propertySelected.name;
+    this.property.values = this.propertySelected.values;
 
     this.property = {
       name: '',
@@ -243,15 +234,6 @@ export class ProductsComponent implements OnInit {
       name: '',
       values: []
     };
-
-    // this.propertyTmp = {
-    //   name: '',
-    //   values: []
-    // };
-
-    // this.size = this.sizeSelected;
-    // this.size = '';
-    // this.sizeSelected = '';
   }
 
   onPropertyValueCancel() {
@@ -300,9 +282,7 @@ export class ProductsComponent implements OnInit {
 
   onPropertyEdit(p: Object) {
     this.property = Object(p);
-    this.propertySelected = Object(p);
-    this.propertyTmp.name = Object(p).name;
-    this.propertyTmp.values = Object(p).values;
+    this.propertySelected = JSON.parse(JSON.stringify(p));
   }
 
   onPropertyValueEdit(v: string) {
