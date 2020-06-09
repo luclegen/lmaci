@@ -153,7 +153,7 @@ export class ProductsComponent implements OnInit {
     //   this.product.sizes[this.product.sizes.indexOf(this.sizeSelected)] = form.value.size;
     //   this.sizeSelected = null;
     } else this.property.values.push(v.value);
-    this.propertyValue = null;
+    this.propertyValue = '';
   }
 
   onTechnicalDetailsSubmit(form: NgForm) {
