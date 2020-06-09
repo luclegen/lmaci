@@ -215,6 +215,12 @@ export class ProductsComponent implements OnInit {
     // this.sizeSelected = '';
   }
 
+  onPropertyValueCancel() {
+    this.propertyValue = this.propertyValueSelected;
+    this.propertyValue = '';
+    this.propertyValueSelected = '';
+  }
+
   onTechnicalDetailCancel() {
     this.technicalDetail.name = this.technicalDetailTmp.name;
     this.technicalDetail.value = this.technicalDetailTmp.value;
