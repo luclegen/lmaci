@@ -221,8 +221,8 @@ export class ProductsComponent implements OnInit {
   }
 
   onPropertyCancel() {
-    this.property.name = this.propertySelected.name;
-    this.property.values = this.propertySelected.values;
+    this.property.name = this.propertyTmp.name;
+    this.property.values = this.propertyTmp.values;
 
     this.property = {
       name: '',
@@ -233,6 +233,12 @@ export class ProductsComponent implements OnInit {
       name: '',
       values: []
     };
+
+    this.propertyTmp = {
+      name: '',
+      values: []
+    };
+
   }
 
   onPropertyValueCancel() {
