@@ -16,7 +16,7 @@ export class ProductsComponent implements OnInit {
     name: '',
     price: 0,
     quantity: { imported: 1 },
-    type: 'laptop',
+    type: '',
     colors: [],
     capacitys: [],
     properties: [],
