@@ -18,10 +18,17 @@ export class ProductsComponent implements OnInit {
     quantity: { imported: 1 },
     type: 'laptop',
     colors: [],
-    sizes: [],
-    styles: [],
-    editions: [],
     capacitys: [],
+    properties: [
+      {
+        name: 'Service Provider',
+        values: [ 'A', 'B' ]
+      },
+      {
+        name: 'Product grade',
+        values: [ 'C', 'D' ]
+      }
+    ],
     technicalDetails: [],
   };
 
@@ -30,15 +37,6 @@ export class ProductsComponent implements OnInit {
     name: '',
     value: ''
   };
-
-  size;
-  sizeSelected;
-
-  style;
-  styleSelected;
-
-  edition;
-  editionSelected;
 
   colorSeleted = {
     option: '',
@@ -61,6 +59,20 @@ export class ProductsComponent implements OnInit {
     size: 0,
     price: 0
   };
+
+  property = {
+    name: 'Test',
+    values: []
+    // values: [ 'E', 'F' ]
+  };
+
+  propertySelected = {
+    name: '',
+    values: []
+  };
+
+  propertyValue;
+  propertyValueSelected;
 
   technicalDetail = {
     name: '',
@@ -110,30 +122,6 @@ export class ProductsComponent implements OnInit {
     form.resetForm();
   }
 
-  onSizeSubmit(form: NgForm) {
-    if (this.sizeSelected) {
-      this.product.sizes[this.product.sizes.indexOf(this.sizeSelected)] = form.value.size;
-      this.sizeSelected = null;
-    } else this.product.sizes.push(form.value.size);
-    form.resetForm();
-  }
-  
-  onStyleSubmit(form: NgForm) {
-    if (this.styleSelected) {
-      this.product.styles[this.product.styles.indexOf(this.styleSelected)] = form.value.style;
-      this.styleSelected = null;
-    } else this.product.styles.push(form.value.style);
-    form.resetForm();
-  }
-
-  onEditionSubmit(form: NgForm) {
-    if (this.editionSelected) {
-      this.product.editions[this.product.editions.indexOf(this.editionSelected)] = form.value.edition;
-      this.editionSelected = null;
-    } else this.product.editions.push(form.value.edition);
-    form.resetForm();
-  }
-
   onCapacitySubmit(form: NgForm) {
     if (form.value.size > 0) {
       if ((this.capacitySelected.size > 0)) {
@@ -148,6 +136,14 @@ export class ProductsComponent implements OnInit {
       size: 0,
       price: 0
     };
+  }
+
+  onPropertySubmit(form: NgForm) {
+    // if (this.sizeSelected) {
+    //   this.product.sizes[this.product.sizes.indexOf(this.sizeSelected)] = form.value.size;
+    //   this.sizeSelected = null;
+    // } else this.product.sizes.push(form.value.size);
+    // form.resetForm();
   }
 
   onTechnicalDetailsSubmit(form: NgForm) {
@@ -190,24 +186,6 @@ export class ProductsComponent implements OnInit {
 
   }
 
-  onSizeCancel() {
-    this.size = this.sizeSelected;
-    this.size = '';
-    this.sizeSelected = '';
-  }
-
-  onStyleCancel() {
-    this.style = this.styleSelected;
-    this.style = '';
-    this.styleSelected = '';
-  }
-
-  onEditionCancel() {
-    this.edition = this.editionSelected;
-    this.edition = '';
-    this.editionSelected = '';
-  }
-
   onCapacityCancel() {
     this.capacity.size = this.capacitySelected.size;
     this.capacity.price = this.capacitySelected.price;
@@ -220,6 +198,12 @@ export class ProductsComponent implements OnInit {
       size: 0,
       price: 0
     };
+  }
+
+  onPropertyCancel() {
+    // this.size = this.sizeSelected;
+    // this.size = '';
+    // this.sizeSelected = '';
   }
 
   onTechnicalDetailCancel() {
@@ -254,25 +238,20 @@ export class ProductsComponent implements OnInit {
     this.colorTmp.value = Object(c).value;
   }
 
-  onSizeEdit(s: string) {
-    this.size = s;
-    this.sizeSelected = s;
-  }
-
-  onStyleEdit(d: string) {
-    this.style = d;
-    this.styleSelected = d;
-  }
-
-  onEditionEdit(d: string) {
-    this.edition = d;
-    this.editionSelected = d;
-  }
-
   onCapacityEdit(c: Object) {
     this.capacity = Object(c);
     this.capacitySelected.size = Object(c).size;
     this.capacitySelected.price = Object(c).price;
+  }
+
+  onPropertyEdit(p: Object) {
+    // this.size = s;
+    // this.sizeSelected = s;
+  }
+
+  onPropertyValueEdit(s: string) {
+    // this.size = s;
+    // this.sizeSelected = s;
   }
 
   onTechnicalDetailEdit(t: Object) {
@@ -290,20 +269,16 @@ export class ProductsComponent implements OnInit {
     if (confirm('Are you sure remove: ' + JSON.stringify(c) + '?')) this.product.colors.splice(this.product.colors.indexOf(Object(c)), 1);
   }
 
-  onRemoveSize(s: string) {
-    if (confirm('Are you sure remove: ' + s + '?')) this.product.sizes.splice(this.product.sizes.indexOf(s), 1);
-  }
-
-  onRemoveStyle(d: string) {
-    if (confirm('Are you sure remove: ' + d + '?')) this.product.styles.splice(this.product.styles.indexOf(d), 1);
-  }
-
-  onRemoveEdition(d: string) {
-    if (confirm('Are you sure remove: ' + d + '?')) this.product.editions.splice(this.product.editions.indexOf(d), 1);
-  }
-
   onRemoveCapacity(c: Object) {
     if (confirm('Are you sure remove: ' + JSON.stringify(c) + '?')) this.product.capacitys.splice(this.product.capacitys.indexOf(Object(c)), 1);
+  }
+
+  onRemoveProperty(p: Object) {
+    // if (confirm('Are you sure remove: ' + s + '?')) this.product.sizes.splice(this.product.sizes.indexOf(s), 1);
+  }
+
+  onRemovePropertyValue(s: string) {
+    // if (confirm('Are you sure remove: ' + s + '?')) this.product.sizes.splice(this.product.sizes.indexOf(s), 1);
   }
 
   onRemoveTechnicalDetail(t: Object) {
