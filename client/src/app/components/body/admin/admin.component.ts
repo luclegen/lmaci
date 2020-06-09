@@ -13,9 +13,9 @@ export class AdminComponent implements OnInit {
   constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
-    this.authService.getInfo().subscribe(res => {
-      if (res['user'].role == 'user') this.router.navigateByUrl('');
-    });
+    // this.authService.getInfo().subscribe(res => {
+    //   if (res['user'].role == 'user') this.router.navigateByUrl('');
+    // });
   }
 
 }
