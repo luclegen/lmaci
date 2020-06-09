@@ -287,8 +287,7 @@ export class ProductsComponent implements OnInit {
   onTechnicalDetailEdit(t: Object) {
     this.technicalDetail = Object(t);
     this.technicalDetailSelected = Object(t);
-    this.technicalDetailTmp.name = Object(t).name;
-    this.technicalDetailTmp.value = Object(t).value;
+    this.technicalDetailTmp = JSON.parse(JSON.stringify(t));
   }
 
   //#endregion Edit
