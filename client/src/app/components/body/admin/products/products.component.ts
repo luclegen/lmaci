@@ -149,9 +149,8 @@ export class ProductsComponent implements OnInit {
 
   onPropertyValueSubmit(v: NgModel) {
     if (this.propertyValueSelected) {
-      // alert(v.value);
-    //   this.product.sizes[this.product.sizes.indexOf(this.sizeSelected)] = form.value.size;
-    //   this.sizeSelected = null;
+      this.property.values[this.property.values.indexOf(this.propertyValueSelected)] = v.value;
+      this.propertyValueSelected = '';
     } else this.property.values.push(v.value);
     this.propertyValue = '';
   }
