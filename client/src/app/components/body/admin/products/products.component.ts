@@ -71,6 +71,11 @@ export class ProductsComponent implements OnInit {
     values: []
   };
 
+  propertyTmp = {
+    name: '',
+    values: []
+  };
+
   propertyValue;
   propertyValueSelected;
 
@@ -223,6 +228,25 @@ export class ProductsComponent implements OnInit {
   }
 
   onPropertyCancel() {
+    this.property = this.propertySelected;
+
+    this.property = {
+      name: '',
+      values: []
+      // values: [ 'E', 'F' ]
+    };
+
+    this.propertySelected = {
+      name: '',
+      values: []
+    };
+
+
+    this.propertyTmp = {
+      name: '',
+      values: []
+    };
+
     // this.size = this.sizeSelected;
     // this.size = '';
     // this.sizeSelected = '';
@@ -275,6 +299,8 @@ export class ProductsComponent implements OnInit {
   onPropertyEdit(p: Object) {
     this.property = Object(p);
     this.propertySelected = Object(p);
+    this.propertyTmp.name = Object(p).name;
+    this.propertyTmp.values = Object(p).values;
   }
 
   onPropertyValueEdit(v: string) {
