@@ -19,7 +19,8 @@ export class ProductsComponent implements OnInit {
     type: '',
     colors: [],
     capacitys: [],
-    properties: [ { name: 'One', values: [ 'A' ], prices: [ 0 ] }, { name: 'Two', values: [ 'B', 'C' ], prices: [ 99, 199 ] } ],
+    properties: [ { name: 'One', options: [ { value: [ 'A' ], price: [ 0 ] } ] },
+                  { name: 'Two', options: [ { value: [ 'B' ], price: [ 99 ] }, { value: [ 'C' ], price: [ 199 ] } ] } ],
     technicalDetails: [],
   };
 
@@ -52,28 +53,34 @@ export class ProductsComponent implements OnInit {
   };
 
   property = {
-    name: '',
-    values: [],
-    prices: []
+    name: 'Test',
+    options: []
   };
 
   propertySelected = {
     name: '',
-    values: [],
-    prices: []
+    options: []
   };
 
   propertyTmp = {
     name: '',
-    values: [],
-    prices: []
+    options: []
   };
 
-  propertyValue;
-  propertyValueSelected;
+  option = {
+    value: 'T',
+    price: 99
+  }
 
-  propertyPrice = 0;
-  propertyPriceSelected = 0;
+  optionSelected = {
+    value: '',
+    price: 0
+  }
+
+  optionTmp = {
+    value: '',
+    price: 0
+  }
 
   technicalDetail = {
     name: '',
@@ -140,38 +147,38 @@ export class ProductsComponent implements OnInit {
   }
 
   onPropertySubmit(form: NgForm) {
-    delete form.value.propertyValue
-    if (this.propertySelected.name && this.propertySelected.values.length) {
-      this.product.properties[this.product.properties.indexOf(this.propertySelected)] = form.value;
-      this.propertySelected = {
-        name: '',
-        values: [],
-        prices: []
-      };
-    } else this.product.properties.push(form.value);
+    // delete form.value.propertyValue
+    // if (this.propertySelected.name && this.propertySelected.values.length) {
+    //   this.product.properties[this.product.properties.indexOf(this.propertySelected)] = form.value;
+    //   this.propertySelected = {
+    //     name: '',
+    //     values: [],
+    //     prices: []
+    //   };
+    // } else this.product.properties.push(form.value);
     
-    this.property = {
-      name: '',
-      values: [],
-      prices: []
-    };
+    // this.property = {
+    //   name: '',
+    //   values: [],
+    //   prices: []
+    // };
   }
 
   onPropertyValuePriceSubmit() {
-    if (this.propertyValueSelected) {
-      this.property.values[this.property.values.indexOf(this.propertyValueSelected)] = this.propertyValue;
-      this.propertyValueSelected = '';
-    } else this.property.values.push(this.propertyValue);
+    // if (this.propertyValueSelected) {
+    //   this.property.values[this.property.values.indexOf(this.propertyValueSelected)] = this.propertyValue;
+    //   this.propertyValueSelected = '';
+    // } else this.property.values.push(this.propertyValue);
 
-    if (this.propertyPrice == null) this.propertyPrice = 0;
+    // if (this.propertyPrice == null) this.propertyPrice = 0;
 
-    if (this.propertyPriceSelected) {
-      this.property.prices[this.property.prices.indexOf(this.propertyPriceSelected)] = this.propertyPrice;
-      this.propertyPriceSelected = 0;
-    } else this.property.prices.push(this.propertyPrice);
+    // if (this.propertyPriceSelected) {
+    //   this.property.prices[this.property.prices.indexOf(this.propertyPriceSelected)] = this.propertyPrice;
+    //   this.propertyPriceSelected = 0;
+    // } else this.property.prices.push(this.propertyPrice);
     
-    this.propertyValue = '';
-    this.propertyPrice = 0;
+    // this.propertyValue = '';
+    // this.propertyPrice = 0;
   }
 
   onTechnicalDetailsSubmit(form: NgForm) {
@@ -229,34 +236,34 @@ export class ProductsComponent implements OnInit {
   }
 
   onPropertyCancel() {
-    this.property.name = this.propertyTmp.name;
-    this.property.values = this.propertyTmp.values;
-    this.property.prices = this.propertyTmp.prices;
+    // this.property.name = this.propertyTmp.name;
+    // this.property.values = this.propertyTmp.values;
+    // this.property.prices = this.propertyTmp.prices;
 
-    this.property = {
-      name: '',
-      values: [],
-      prices: []
-    };
+    // this.property = {
+    //   name: '',
+    //   values: [],
+    //   prices: []
+    // };
 
-    this.propertySelected = {
-      name: '',
-      values: [],
-      prices: []
-    };
+    // this.propertySelected = {
+    //   name: '',
+    //   values: [],
+    //   prices: []
+    // };
 
-    this.propertyTmp = {
-      name: '',
-      values: [],
-      prices: []
-    };
+    // this.propertyTmp = {
+    //   name: '',
+    //   values: [],
+    //   prices: []
+    // };
 
   }
 
   onPropertyValueCancel() {
-    this.propertyValue = this.propertyValueSelected;
-    this.propertyValue = '';
-    this.propertyValueSelected = '';
+    // this.propertyValue = this.propertyValueSelected;
+    // this.propertyValue = '';
+    // this.propertyValueSelected = '';
   }
 
   onTechnicalDetailCancel() {
@@ -300,12 +307,12 @@ export class ProductsComponent implements OnInit {
     this.propertyTmp = JSON.parse(JSON.stringify(p));
   }
 
-  onPropertyValuePriceEdit(v: string, p: number) {
-    this.propertyValue = v;
-    this.propertyValueSelected = v;
+  onPropertyValuePriceEdit(o: Object) {
+    // this.propertyValue = v;
+    // this.propertyValueSelected = v;
 
-    this.propertyPrice = p;
-    this.propertyPriceSelected = p;
+    // this.propertyPrice = p;
+    // this.propertyPriceSelected = p;
   }
 
   onTechnicalDetailEdit(t: Object) {
@@ -331,7 +338,7 @@ export class ProductsComponent implements OnInit {
   }
 
   onRemovePropertyValue(v: string) {
-    if (confirm('Are you sure remove: ' + v + '?')) this.property.values.splice(this.property.values.indexOf(v), 1);
+    // if (confirm('Are you sure remove: ' + v + '?')) this.property.values.splice(this.property.values.indexOf(v), 1);
   }
 
   onRemoveTechnicalDetail(t: Object) {
