@@ -164,21 +164,15 @@ export class ProductsComponent implements OnInit {
     // };
   }
 
-  onPropertyValuePriceSubmit() {
-    // if (this.propertyValueSelected) {
-    //   this.property.values[this.property.values.indexOf(this.propertyValueSelected)] = this.propertyValue;
-    //   this.propertyValueSelected = '';
-    // } else this.property.values.push(this.propertyValue);
+  onOptionSubmit() {
+    if (this.optionSelected.value && this.optionSelected.price >= 0 ) {
+      
+    } else this.property.options.push(this.option);
 
-    // if (this.propertyPrice == null) this.propertyPrice = 0;
-
-    // if (this.propertyPriceSelected) {
-    //   this.property.prices[this.property.prices.indexOf(this.propertyPriceSelected)] = this.propertyPrice;
-    //   this.propertyPriceSelected = 0;
-    // } else this.property.prices.push(this.propertyPrice);
-    
-    // this.propertyValue = '';
-    // this.propertyPrice = 0;
+    this.option = {
+      value: '',
+      price: 0
+    }
   }
 
   onTechnicalDetailsSubmit(form: NgForm) {
