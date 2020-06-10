@@ -53,17 +53,20 @@ export class ProductsComponent implements OnInit {
 
   property = {
     name: '',
-    values: []
+    values: [],
+    prices: []
   };
 
   propertySelected = {
     name: '',
-    values: []
+    values: [],
+    prices: []
   };
 
   propertyTmp = {
     name: '',
-    values: []
+    values: [],
+    prices: []
   };
 
   propertyValue;
@@ -139,13 +142,15 @@ export class ProductsComponent implements OnInit {
       this.product.properties[this.product.properties.indexOf(this.propertySelected)] = form.value;
       this.propertySelected = {
         name: '',
-        values: []
+        values: [],
+        prices: []
       };
     } else this.product.properties.push(form.value);
     
     this.property = {
       name: '',
-      values: []
+      values: [],
+      prices: []
     };
   }
 
