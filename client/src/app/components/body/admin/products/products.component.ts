@@ -219,20 +219,24 @@ export class ProductsComponent implements OnInit {
   onPropertyCancel() {
     this.property.name = this.propertyTmp.name;
     this.property.values = this.propertyTmp.values;
+    this.property.prices = this.propertyTmp.prices;
 
     this.property = {
       name: '',
-      values: []
+      values: [],
+      prices: []
     };
 
     this.propertySelected = {
       name: '',
-      values: []
+      values: [],
+      prices: []
     };
 
     this.propertyTmp = {
       name: '',
-      values: []
+      values: [],
+      prices: []
     };
 
   }
