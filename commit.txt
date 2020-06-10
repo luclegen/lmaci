@@ -211,6 +211,7 @@ Products Component: onPropertyValuePriceSubmit
 Products Component: onPropertyValuePriceEdit
 Products Component: onOptionSubmit
 Products Component: onRemoveOption
+Products Component: onOptionEdit
 Global Styles
 Commit
 
