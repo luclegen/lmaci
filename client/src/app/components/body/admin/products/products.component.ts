@@ -53,8 +53,8 @@ export class ProductsComponent implements OnInit {
   };
 
   property = {
-    name: 'Test',
-    options: [ { value: 'E', price: 0 } ]
+    name: '',
+    options: []
   };
 
   propertySelected = {
@@ -68,8 +68,8 @@ export class ProductsComponent implements OnInit {
   };
 
   option = {
-    value: 'T',
-    price: 99
+    value: '',
+    price: 0
   }
 
   optionSelected = {
