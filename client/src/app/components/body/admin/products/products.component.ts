@@ -300,9 +300,12 @@ export class ProductsComponent implements OnInit {
     this.propertyTmp = JSON.parse(JSON.stringify(p));
   }
 
-  onPropertyValueEdit(v: string) {
+  onPropertyValuePriceEdit(v: string, p: number) {
     this.propertyValue = v;
     this.propertyValueSelected = v;
+
+    this.propertyPrice = p;
+    this.propertyPriceSelected = p;
   }
 
   onTechnicalDetailEdit(t: Object) {
