@@ -207,6 +207,7 @@ Products Component: onPropertyCancel
 Products Component: onRemoveProperty
 Products Component: onCapacityEdit
 Products Component: onTechnicalDetailEdit
+Products Component: onPropertyValuePriceSubmit
 Global Styles
 Commit
 
