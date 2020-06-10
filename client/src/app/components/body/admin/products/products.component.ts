@@ -54,7 +54,7 @@ export class ProductsComponent implements OnInit {
 
   property = {
     name: 'Test',
-    options: []
+    options: [ { value: 'E', price: 0 } ]
   };
 
   propertySelected = {
@@ -331,8 +331,8 @@ export class ProductsComponent implements OnInit {
     if (confirm('Are you sure remove: ' + JSON.stringify(p) + '?')) this.product.properties.splice(this.product.properties.indexOf(Object(p)), 1);
   }
 
-  onRemovePropertyValue(v: string) {
-    // if (confirm('Are you sure remove: ' + v + '?')) this.property.values.splice(this.property.values.indexOf(v), 1);
+  onRemoveOption(o: Object) {
+    if (confirm('Are you sure remove: ' + JSON.stringify(o) + '?')) this.property.options.splice(this.property.options.indexOf(Object(o)), 1);
   }
 
   onRemoveTechnicalDetail(t: Object) {
