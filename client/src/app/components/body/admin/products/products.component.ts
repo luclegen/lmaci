@@ -19,8 +19,7 @@ export class ProductsComponent implements OnInit {
     type: '',
     colors: [],
     capacitys: [],
-    properties: [ { name: 'One', options: [ { value: [ 'A' ], price: [ 0 ] } ] },
-                  { name: 'Two', options: [ { value: [ 'B' ], price: [ 99 ] }, { value: [ 'C' ], price: [ 199 ] } ] } ],
+    properties: [],
     technicalDetails: [],
   };
 
