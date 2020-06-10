@@ -236,28 +236,23 @@ export class ProductsComponent implements OnInit {
   }
 
   onPropertyCancel() {
-    // this.property.name = this.propertyTmp.name;
-    // this.property.values = this.propertyTmp.values;
-    // this.property.prices = this.propertyTmp.prices;
+    this.property.name = this.propertyTmp.name;
+    this.property.options = this.propertyTmp.options;
 
-    // this.property = {
-    //   name: '',
-    //   values: [],
-    //   prices: []
-    // };
-
-    // this.propertySelected = {
-    //   name: '',
-    //   values: [],
-    //   prices: []
-    // };
-
-    // this.propertyTmp = {
-    //   name: '',
-    //   values: [],
-    //   prices: []
-    // };
-
+    this.property = {
+      name: '',
+      options: []
+    };
+  
+    this.propertySelected = {
+      name: '',
+      options: []
+    };
+  
+    this.propertyTmp = {
+      name: '',
+      options: []
+    };
   }
 
   onOptionCancel() {
