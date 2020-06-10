@@ -19,7 +19,7 @@ export class ProductsComponent implements OnInit {
     type: '',
     colors: [],
     capacitys: [],
-    properties: [],
+    properties: [ { name: 'One', values: [ 'A' ], prices: [ 0 ] }, { name: 'Two', values: [ 'B', 'C' ], prices: [ 99, 199 ] } ],
     technicalDetails: [],
   };
 
@@ -71,6 +71,9 @@ export class ProductsComponent implements OnInit {
 
   propertyValue;
   propertyValueSelected;
+
+  propertyPrice = 0;
+  propertyPriceSelected = 0;
 
   technicalDetail = {
     name: '',
@@ -154,12 +157,21 @@ export class ProductsComponent implements OnInit {
     };
   }
 
-  onPropertyValueSubmit() {
+  onPropertyValuePriceSubmit() {
     if (this.propertyValueSelected) {
       this.property.values[this.property.values.indexOf(this.propertyValueSelected)] = this.propertyValue;
       this.propertyValueSelected = '';
     } else this.property.values.push(this.propertyValue);
+
+    if (this.propertyPrice == null) this.propertyPrice = 0;
+
+    if (this.propertyPriceSelected) {
+      this.property.prices[this.property.prices.indexOf(this.propertyPriceSelected)] = this.propertyPrice;
+      this.propertyPriceSelected = 0;
+    } else this.property.prices.push(this.propertyPrice);
+    
     this.propertyValue = '';
+    this.propertyPrice = 0;
   }
 
   onTechnicalDetailsSubmit(form: NgForm) {
