@@ -259,10 +259,24 @@ export class ProductsComponent implements OnInit {
 
   }
 
-  onPropertyValueCancel() {
-    // this.propertyValue = this.propertyValueSelected;
-    // this.propertyValue = '';
-    // this.propertyValueSelected = '';
+  onOptionCancel() {
+    this.option.value = this.optionTmp.value;
+    this.option.price = this.optionTmp.price;
+ 
+    this.option = {
+      value: '',
+      price: 0
+    }
+  
+    this.optionSelected = {
+      value: '',
+      price: 0
+    }
+  
+    this.optionTmp = {
+      value: '',
+      price: 0
+    }
   }
 
   onTechnicalDetailCancel() {
