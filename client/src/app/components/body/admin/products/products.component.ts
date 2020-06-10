@@ -166,7 +166,12 @@ export class ProductsComponent implements OnInit {
 
   onOptionSubmit() {
     if (this.optionSelected.value && this.optionSelected.price >= 0 ) {
-      
+      this.property.options[this.property.options.indexOf(this.optionSelected)] = this.option;
+
+      this.optionSelected = {
+        value: '',
+        price: 0
+      }
     } else this.property.options.push(this.option);
 
     this.option = {
