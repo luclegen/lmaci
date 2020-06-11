@@ -260,7 +260,7 @@ export class ProductsComponent implements OnInit {
     }
   }
 
-  onOptionCancel() {
+  onCancelOption() {
     this.option.value = this.optionTmp.value;
     this.option.price = this.optionTmp.price;
  
