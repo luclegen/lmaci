@@ -23,6 +23,8 @@ export class ProductsComponent implements OnInit {
     technicalDetails: [],
   };
 
+  //#region Color
+
   color = {
     option: '',
     name: '',
@@ -41,15 +43,9 @@ export class ProductsComponent implements OnInit {
     value: ''
   };
 
-  capacity = {
-    size: 0,
-    price: 0
-  };
+  //#endregion Color
 
-  capacitySelected = {
-    size: 0,
-    price: 0
-  };
+  //#region Property
 
   property = {
     name: '',
@@ -66,6 +62,10 @@ export class ProductsComponent implements OnInit {
     options: []
   };
 
+  //#endregion Property
+
+  //#region Option
+
   option = {
     value: '',
     price: 0
@@ -81,6 +81,10 @@ export class ProductsComponent implements OnInit {
     price: 0
   }
 
+  //#endregion Option
+
+  //#region Technical detail
+
   technicalDetail = {
     name: '',
     value: ''
@@ -95,6 +99,8 @@ export class ProductsComponent implements OnInit {
     name: '',
     value: ''
   };
+
+  //#endregion Technical detail
 
   positiveNumberRegex = /^\d*[1-9]\d*$/;
   NotNegativeNumberRegex = /^\d*[0-9]\d*$/;
@@ -127,22 +133,6 @@ export class ProductsComponent implements OnInit {
       };
     } else this.product.colors.push(form.value);
     form.resetForm();
-  }
-
-  onCapacitySubmit(form: NgForm) {
-    if (form.value.size > 0) {
-      if ((this.capacitySelected.size > 0)) {
-        this.product.capacitys[this.product.capacitys.indexOf(this.capacitySelected)] = form.value;
-        this.capacitySelected = {
-          size: 0,
-          price: 0
-        };
-      } else this.product.capacitys.push(form.value);
-    };
-    this.capacity = {
-      size: 0,
-      price: 0
-    };
   }
 
   onPropertySubmit(form: NgForm) {
@@ -235,20 +225,6 @@ export class ProductsComponent implements OnInit {
 
   }
 
-  onCapacityCancel() {
-    this.capacity.size = this.capacitySelected.size;
-    this.capacity.price = this.capacitySelected.price;
-    this.capacity = {
-      size: 0,
-      price: 0
-    };
-
-    this.capacitySelected = {
-      size: 0,
-      price: 0
-    };
-  }
-
   onPropertyCancel() {
     this.property.name = this.propertyTmp.name;
     this.property.options = this.propertyTmp.options;
@@ -334,11 +310,6 @@ export class ProductsComponent implements OnInit {
     this.colorTmp = JSON.parse(JSON.stringify(c));
   }
 
-  onCapacityEdit(c: Object) {
-    this.capacity = Object(c);
-    this.capacitySelected = JSON.parse(JSON.stringify(c));
-  }
-
   onPropertyEdit(p: Object) {
     this.property = this.propertySelected = Object(p);
     this.propertyTmp = JSON.parse(JSON.stringify(p));
@@ -361,10 +332,6 @@ export class ProductsComponent implements OnInit {
 
   onRemoveColor(c: String) {
     if (confirm('Are you sure remove: ' + JSON.stringify(c) + '?')) this.product.colors.splice(this.product.colors.indexOf(Object(c)), 1);
-  }
-
-  onRemoveCapacity(c: Object) {
-    if (confirm('Are you sure remove: ' + JSON.stringify(c) + '?')) this.product.capacitys.splice(this.product.capacitys.indexOf(Object(c)), 1);
   }
 
   onRemoveProperty(p: Object) {
