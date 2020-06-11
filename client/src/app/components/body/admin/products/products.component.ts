@@ -135,7 +135,7 @@ export class ProductsComponent implements OnInit {
     form.resetForm();
   }
 
-  onPropertySubmit(form: NgForm) {
+  onSubmitProperty(form: NgForm) {
     delete form.value.optionValue;
     delete form.value.optionPrice;
 

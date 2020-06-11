@@ -117,7 +117,7 @@
     </form>
 
     <input #properties="ngModel" [(ngModel)]="product.properties" type="hidden" name="properties">
-    <form #propertyForm="ngForm" (ngSubmit)="onPropertySubmit(propertyForm)">
+    <form #propertyForm="ngForm" (ngSubmit)="onSubmitProperty(propertyForm)">
       <table class="ls-table property-table">
         <thead>
           <tr>
