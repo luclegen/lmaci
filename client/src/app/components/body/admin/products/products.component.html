@@ -83,7 +83,7 @@
                   <option value="purple" style="background-color: purple;">Purple</option>
                 </select>
   
-                <span class="inline-span input-span" *ngIf="color.option == 'custom'">
+                <span *ngIf="color.option == 'custom'" class="inline-color-span input-span">
                   <input class="color" #colorName="ngModel" [(ngModel)]="color.name" type="text" name="name" placeholder="Name" required>
                   <input #colorValue="ngModel" [(ngModel)]="color.value" type="color" name="value" placeholder="color" required>
   
