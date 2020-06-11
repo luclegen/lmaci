@@ -216,6 +216,7 @@ Products Component: onOptionCancel
 Products Component: onSubmitColor
 Products Component: onSubmitProperty
 Products Component: onSubmitOption
+Products Component: onSubmitTechnicalDetails
 Global Styles
 Commit
 
