@@ -30,7 +30,7 @@
     </span>
 
     <input #colors="ngModel" [(ngModel)]="product.colors" type="hidden" name="colors">
-    <form #colorForm="ngForm" (ngSubmit)="onColorSubmit(colorForm)">
+    <form #colorForm="ngForm" (ngSubmit)="onSubmitColor(colorForm)">
       <table class="ls-table property-table">
         <thead>
           <tr>

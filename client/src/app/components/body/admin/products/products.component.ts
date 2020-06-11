@@ -118,7 +118,7 @@ export class ProductsComponent implements OnInit {
     alert(JSON.stringify(form.value));
   }
 
-  onColorSubmit(form: NgForm) {
+  onSubmitColor(form: NgForm) {
     if (form.value.option != 'custom') {
       form.value.name = form.value.option[0].toUpperCase() + form.value.option.slice(1);
       form.value.value = form.value.option;
