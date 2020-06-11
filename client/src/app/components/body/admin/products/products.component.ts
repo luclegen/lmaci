@@ -12,7 +12,7 @@ import { AdminService } from 'src/app/services/admin.service';
 export class ProductsComponent implements OnInit {
 
   product = {
-    _id: '',
+    _id: '1',
     name: '',
     price: 0,
     quantity: { imported: 1 },
