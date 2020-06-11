@@ -31,7 +31,7 @@
 
     <input #colors="ngModel" [(ngModel)]="product.colors" type="hidden" name="colors">
     <form #colorForm="ngForm" (ngSubmit)="onColorSubmit(colorForm)">
-      <table class="ls-table">
+      <table class="ls-table property-table">
         <thead>
           <tr>
             <th colspan="4">Colors</th>
@@ -118,7 +118,7 @@
 
     <input #properties="ngModel" [(ngModel)]="product.properties" type="hidden" name="properties">
     <form #propertyForm="ngForm" (ngSubmit)="onPropertySubmit(propertyForm)">
-      <table class="ls-table">
+      <table class="ls-table property-table">
         <thead>
           <tr>
             <th colspan="5">Other properties</th>
@@ -236,7 +236,7 @@
 
     <input #technicalDetails="ngModel" [(ngModel)]="product.technicalDetails" type="hidden" name="technicalDetails">
     <form #technicalDetailsForm="ngForm" (ngSubmit)="onTechnicalDetailsSubmit(technicalDetailsForm)">
-      <table class="ls-table">
+      <table class="ls-table property-table">
         <thead>
           <tr>
             <th colspan="3">Technical Details</th>
