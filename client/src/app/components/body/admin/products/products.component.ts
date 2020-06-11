@@ -163,16 +163,6 @@ export class ProductsComponent implements OnInit {
       value: '',
       price: 0
     }
-  
-    this.optionSelected = {
-      value: '',
-      price: 0
-    }
-  
-    this.optionTmp = {
-      value: '',
-      price: 0
-    }
   }
 
   onSubmitOption() {
