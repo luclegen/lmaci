@@ -31,7 +31,7 @@
 
     <input #colors="ngModel" [(ngModel)]="product.colors" type="hidden" name="colors">
     <form #colorForm="ngForm" (ngSubmit)="onSubmitColor(colorForm)">
-      <table class="ls-table property-table">
+      <table class="ls-table property-table color-table">
         <thead>
           <tr>
             <th colspan="4">Colors</th>
@@ -310,11 +310,13 @@
         </tr>
       </thead>
       <tbody>
-        <td>0</td>
-        <td>Test</td>
-        <td>5</td>
-        <td>1</td>
-        <td>?</td>
+        <tr>
+          <td>0</td>
+          <td>Test</td>
+          <td>5</td>
+          <td>1</td>
+          <td>?</td>
+        </tr>
         <!-- <tr *ngFor="let p of products"> -->
           <!-- <td class="center-td">{{ users.indexOf(u) + 1 }}</td>
           <td class="center-td"><img src="{{ u.avatar }}" alt="{{ u.firstName }}'s avatar"></td>
