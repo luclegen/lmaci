@@ -320,7 +320,7 @@ export class ProductsComponent implements OnInit {
     this.optionTmp = JSON.parse(JSON.stringify(o));
   }
 
-  onTechnicalDetailEdit(t: Object) {
+  onEditTechnicalDetail(t: Object) {
     this.technicalDetail = Object(t);
     this.technicalDetailSelected = Object(t);
     this.technicalDetailTmp = JSON.parse(JSON.stringify(t));
