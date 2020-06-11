@@ -225,7 +225,7 @@ export class ProductsComponent implements OnInit {
 
   }
 
-  onPropertyCancel() {
+  onCancelProperty() {
     this.property.name = this.propertyTmp.name;
     this.property.options = this.propertyTmp.options;
 
