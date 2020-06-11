@@ -185,7 +185,7 @@ export class ProductsComponent implements OnInit {
     }
   }
 
-  onTechnicalDetailsSubmit(form: NgForm) {
+  onSubmitTechnicalDetails(form: NgForm) {
     if (this.technicalDetailSelected.name && this.technicalDetailSelected.value) {
       this.product.technicalDetails[this.product.technicalDetails.indexOf(this.technicalDetailSelected)] = form.value;
       this.technicalDetailSelected = {

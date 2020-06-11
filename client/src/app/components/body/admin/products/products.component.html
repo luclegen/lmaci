@@ -235,7 +235,7 @@
     </form>
 
     <input #technicalDetails="ngModel" [(ngModel)]="product.technicalDetails" type="hidden" name="technicalDetails">
-    <form #technicalDetailsForm="ngForm" (ngSubmit)="onTechnicalDetailsSubmit(technicalDetailsForm)">
+    <form #technicalDetailsForm="ngForm" (ngSubmit)="onSubmitTechnicalDetails(technicalDetailsForm)">
       <table class="ls-table property-table">
         <thead>
           <tr>
