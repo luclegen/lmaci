@@ -213,6 +213,7 @@ Products Component: onOptionSubmit
 Products Component: onRemoveOption
 Products Component: onOptionEdit
 Products Component: onOptionCancel
+Products Component: onSubmitColor
 Global Styles
 Commit
 
