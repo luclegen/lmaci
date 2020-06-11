@@ -200,7 +200,7 @@ export class ProductsComponent implements OnInit {
 
   //#region Cancel
 
-  onColorCancel() {
+  onCancelColor() {
     this.color.option = this.colorTmp.option;
     this.color.name = this.colorTmp.name;
     this.color.value = this.colorTmp.value;
