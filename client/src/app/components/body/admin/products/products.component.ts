@@ -310,7 +310,7 @@ export class ProductsComponent implements OnInit {
     this.colorTmp = JSON.parse(JSON.stringify(c));
   }
 
-  onPropertyEdit(p: Object) {
+  onEditProperty(p: Object) {
     this.property = this.propertySelected = Object(p);
     this.propertyTmp = JSON.parse(JSON.stringify(p));
   }
