@@ -280,7 +280,7 @@ export class ProductsComponent implements OnInit {
     }
   }
 
-  onTechnicalDetailCancel() {
+  onCancelTechnicalDetail() {
     this.technicalDetail.name = this.technicalDetailTmp.name;
     this.technicalDetail.value = this.technicalDetailTmp.value;
     
