@@ -132,7 +132,13 @@ export class ProductsComponent implements OnInit {
         value: ''
       };
     } else this.product.colors.push(form.value);
-    form.resetForm();
+      
+    this.color = {
+      option: '',
+      name: '',
+      value: ''
+    };
+
   }
 
   onSubmitProperty(form: NgForm) {
