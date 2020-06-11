@@ -221,6 +221,7 @@ Products Component: onCancelColor
 Products Component: onCancelProperty
 Products Component: onCancelTechnicalDetail
 Products Component: onEditColor
+Products Component: onEditProperty
 Global Styles
 Commit
 
