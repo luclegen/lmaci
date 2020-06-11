@@ -315,7 +315,7 @@ export class ProductsComponent implements OnInit {
     this.propertyTmp = JSON.parse(JSON.stringify(p));
   }
 
-  onOptionEdit(o: Object) {
+  onEditOption(o: Object) {
     this.option = this.optionSelected = Object(o);
     this.optionTmp = JSON.parse(JSON.stringify(o));
   }
