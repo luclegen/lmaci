@@ -220,6 +220,7 @@ Products Component: onSubmitTechnicalDetails
 Products Component: onCancelColor
 Products Component: onCancelProperty
 Products Component: onCancelTechnicalDetail
+Products Component: onEditColor
 Global Styles
 Commit
 
