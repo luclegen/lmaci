@@ -37,6 +37,7 @@ let productSchema = new mongoose.Schema({
     required: 'Type can\'t be empty'
   },
   colors: Array,
+  properties: Array,
   technicalDetails: Array,
   description: String,
   post: String
