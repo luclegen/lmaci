@@ -354,4 +354,18 @@ export class ProductsComponent implements OnInit {
 
   //#endregion Remove
 
+  //#region Check
+
+  isNotSubmitProperty() {
+    let is = false;
+
+    this.property.options.forEach(o => {
+      if (o.value == null || o.value == '') is = true;
+      if (o.price == null || o.price < 0) is = true;
+    });
+
+    return is;
+  }
+
+  //#endregion Check
 }
