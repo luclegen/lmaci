@@ -102,13 +102,13 @@ module.exports.updateProduct = (req, res) => {
 
   let product = {
     name: req.body.name,
+    price: req.body.price,
     quantity: {
       imported: req.body.quantityImported,
     },
-    price: req.body.price,
     type: req.body.type,
-    description: req.body.description,
     colors: req.body.colors,
+    properties: req.body.properties,
     technicalDetails: req.body.technicalDetails
   };
   
