@@ -223,6 +223,7 @@ Products Component: onCancelTechnicalDetail
 Products Component: onEditColor
 Products Component: onEditProperty
 Products Component: onEditTechnicalDetail
+Products Component: isNotSubmitProperty
 Global Styles
 Commit
 
