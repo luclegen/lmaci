@@ -23,6 +23,8 @@ export class ProductsComponent implements OnInit {
     technicalDetails: [],
   };
 
+  products;
+
   //#region Color
 
   color = {
