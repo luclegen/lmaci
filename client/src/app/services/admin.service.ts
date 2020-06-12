@@ -43,6 +43,14 @@ export class AdminService {
 
   //#endregion Users
 
+  //#region Products
+
+  getProducts() {
+    return this.http.get(environment.adminUrl + '/products');
+  }
+
+  //#endregion Products
+
   //#endregion Http Methods
 
 }
