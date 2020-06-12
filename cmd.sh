@@ -9,7 +9,7 @@ sudo npm i -g nodemon
 ng new client
 clear; cd client; ng s -o
 ng g class user --type=model
-npm i --save @syncfusion/ej2-angular-richtexteditor @syncfusion/ej2-angular-popups @syncfusion/ej2-angular-buttons
+npm i -s @syncfusion/ej2-angular-richtexteditor @syncfusion/ej2-angular-popups @syncfusion/ej2-angular-buttons
 
 # Optional
 # Run client:
@@ -18,7 +18,7 @@ if [ $(lsof -t -i:4200) ]; then kill -9 $(lsof -t -i:4200); fi; clear; ng s
 # II. NODEJS SERVER
 
 mkdir server; cd server; npm init
-npm i --save express mongoose body-parser bcryptjs cors jsonwebtoken passport passport-local lodash nodemailer
+npm i -s express mongoose body-parser bcryptjs cors jsonwebtoken passport passport-local lodash nodemailer
 clear; nodemon
 
 # Optional
