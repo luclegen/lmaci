@@ -137,6 +137,7 @@
           <tr>
             <td [attr.rowspan]="p.options.length">{{ p.name }}</td>
             <td *ngIf="p.options[0]">{{ p.options[0].value }}</td>
+            <td *ngIf="p.options[0] && (p.options[0].price == null || p.options[0].price < 0)"></td>
             <td *ngIf="p.options[0] && p.options[0].price == 0">{{ p.options[0].price }}</td>
             <td *ngIf="p.options[0] && p.options[0].price > 0">+{{ p.options[0].price }}</td>
             <td *ngIf="!p.options[0]"></td>
@@ -164,6 +165,7 @@
               <input #options="ngModel" [(ngModel)]="property.options" type="hidden" name="options">
             </td>
             <td *ngIf="property.options[0]">{{ property.options[0].value }}</td>
+            <td *ngIf="property.options[0] && (property.options[0].price == null || property.options[0].price < 0)"></td>
             <td *ngIf="property.options[0] && property.options[0].price == 0">{{ property.options[0].price }}</td>
             <td *ngIf="property.options[0] && property.options[0].price > 0">+{{ property.options[0].price }}</td>
             <td *ngIf="property.options[0]">
@@ -201,6 +203,7 @@
           </tr>
           <tr *ngFor="let o of property.options.slice(1)">
             <td>{{ o.value }}</td>
+            <td *ngIf="o.price == null || o.price < 0"></td>
             <td *ngIf="o.price == 0">{{ o.price }}</td>
             <td *ngIf="o.price > 0">+{{ o.price }}</td>
             <td>
