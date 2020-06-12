@@ -30,8 +30,7 @@ export const routes: Routes = [
   { path: 'find-username', component: FindUsernameComponent },
   { path: 'reset-password/:username', component: ResetPasswordComponent },
   { path: 'change-password', component: ChangePasswordComponent, canActivate: [AuthGuard] },
-  // { path: 'admin', component: AdminComponent, canActivate: [AuthGuard],
-  { path: 'admin', component: AdminComponent,
+  { path: 'admin', component: AdminComponent, canActivate: [AuthGuard],
     children: [ { path: 'admins', component: AdminsComponent },
                 { path: 'users', component: UsersComponent },
                 { path: 'products', component: ProductsComponent } ] }
