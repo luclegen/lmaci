@@ -69,11 +69,11 @@ module.exports.createProduct = (req, res, next) => {
   let product = new Product();
 
   product.name = req.body.name;
-  product.quantity.imported = req.body.quantityImported;
   product.price = req.body.price;
+  product.quantity.imported = req.body.quantityImported;
   product.type = req.body.type;
-  product.description = req.body.description;
   product.colors = req.body.colors;
+  product.properties = req.body.properties;
   product.technicalDetails = req.body.technicalDetails;
 
   product.save((err, product) => {
