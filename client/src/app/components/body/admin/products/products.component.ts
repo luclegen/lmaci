@@ -169,6 +169,11 @@ export class ProductsComponent implements OnInit {
     if (this.optionSelected.value && this.optionSelected.price >= 0 ) {
       this.property.options[this.property.options.indexOf(this.optionSelected)] = this.option;
 
+      this.optionSelected = {
+        value: '',
+        price: 0
+      }
+
       this.optionTmp = {
         value: '',
         price: 0
