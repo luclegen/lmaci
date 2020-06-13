@@ -225,6 +225,7 @@ Products Component: onEditProperty
 Products Component: onEditTechnicalDetail
 Products Component: isNotSubmitProperty
 Admin Service: getProducts
+Module: ImageCropperModule
 Global Styles
 Commit
 
