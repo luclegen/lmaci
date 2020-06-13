@@ -9,6 +9,8 @@
     "SERVER_PASS": "Luc123!@#",
     "DEFAULT_AVATAR": "assets/img/avatars/default.png",
     "AVATARS": "assets/img/avatars/",
+    "PRODUCT_IMG": "assets/uploads/img/products/",
+    "PRODUCT_IMG_UPLOAD": "../../client/src/assets/uploads/img/products/",
     "DEFAULT_ROLE": "Member"
   }
 }
