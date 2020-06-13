@@ -20,6 +20,9 @@ import { AuthGuard } from './auth/auth.guard';
 // Services
 import { UserService } from './services/user.service';
 
+// Tools
+import { ImageCropperModule } from 'ngx-image-cropper';
+
 // Components
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -69,7 +72,8 @@ import { AdminsComponent } from './components/body/admin/admins/admins.component
     ButtonModule,
     ReactiveFormsModule,
     RouterModule.forRoot(routes),
-    HttpClientModule
+    HttpClientModule,
+    ImageCropperModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
