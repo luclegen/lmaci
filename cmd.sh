@@ -10,6 +10,7 @@ ng new client
 clear; cd client; ng s -o
 ng g class user --type=model
 npm i -s @syncfusion/ej2-angular-richtexteditor @syncfusion/ej2-angular-popups @syncfusion/ej2-angular-buttons
+npm i -s ngx-image-cropper
 
 # Optional
 # Run client:
