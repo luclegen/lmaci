@@ -78,13 +78,8 @@ module.exports.createProduct = (req, res, next) => {
   product.technicalDetails = req.body.technicalDetails;
 
   product.save((err, product) => {
-    // return err ? next(err)
-    //            : res.send(product);
-    if (err) next(err);
-    else {
-      loader.uploadImg(req.body.img, );
-      return res.send(product);
-    }
+    return err ? next(err)
+               : res.send(product);
   });
 }
 
