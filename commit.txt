@@ -314,4 +314,5 @@ Admin Controller: deleteProduct
 Admin Router: DELETE deleteProduct
 Admin Controller: updateProduct
 Admin Router: PUT updateProduct
+Helpers: Loader
 Commit
