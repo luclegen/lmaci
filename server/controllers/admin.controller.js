@@ -84,8 +84,8 @@ module.exports.createProduct = (req, res, next) => {
 }
 
 module.exports.uploadProductImg = (req, res) => {
-  Product.findByIdAndUpdate(req.params.id, { $set: { img: 'assets/uploads/img/products/' + req.params.id + '/' + req.params.id } }, { new: true }, (err, product) => {
-    if (product) loader.uploadImg(req.body.file, './uploads', 'test');
+  Product.findByIdAndUpdate(req.params.id, { $set: { img: process.env.PRODUCT_IMG + req.params.id + '/' + req.params.id } }, { new: true }, (err, product) => {
+    if (product) loader.uploadImg(req.body.file, process.env.PRODUCT_IMG_UPLOAD, req.params.id);
     else return res.status(404).json({ msg: 'Product not found.' });
   });
 }
