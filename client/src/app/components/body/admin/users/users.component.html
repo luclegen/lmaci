@@ -46,7 +46,7 @@
       <tbody>
         <tr *ngFor="let u of users">
           <td class="center-td">{{ users.indexOf(u) + 1 }}</td>
-          <td class="center-td"><img [src]="u.avatar" [alt]="u.name.first + '\'s avatar'"></td>
+          <td class="center-td"><img class="avatar" [src]="u.avatar" [alt]="u.name.first + '\'s avatar'"></td>
           <td>{{ u.name.first }}</td>
           <td>{{ u.name.last }}</td>
           <td>{{ u.username }}</td>
