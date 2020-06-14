@@ -46,7 +46,7 @@
       <tbody>
         <tr *ngIf="root">
           <td class="center-td">1</td>
-          <td class="center-td"><img [src]="root.avatar" [alt]="root.name.first + '\'s avatar'"></td>
+          <td class="center-td"><img class="avatar" [src]="root.avatar" [alt]="root.name.first + '\'s avatar'"></td>
           <td>{{ root.name.first }}</td>
           <td>{{ root.name.last }}</td>
           <td>{{ root.username }}</td>
@@ -61,7 +61,7 @@
         <tr *ngFor="let a of admins">
           <td *ngIf="!root" class="center-td">{{ admins.indexOf(a) + 1 }}</td>
           <td *ngIf="root" class="center-td">{{ admins.indexOf(a) + 2 }}</td>
-          <td class="center-td"><img [src]="a.avatar" [alt]="a.name.first + '\'s avatar'"></td>
+          <td class="center-td"><img class="avatar" [src]="a.avatar" [alt]="a.name.first + '\'s avatar'"></td>
           <td>{{ a.name.first }}</td>
           <td>{{ a.name.last }}</td>
           <td>{{ a.username }}</td>
