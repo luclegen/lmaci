@@ -158,7 +158,7 @@ export class ProductsComponent implements OnInit {
     alert(JSON.stringify(form.value));
     this.adminService.createProduct(form.value).subscribe(
       res => {
-        alert('T');
+        alert('Create this product is successfully!');
       },
       err => {
         alert(err.error.msg);
