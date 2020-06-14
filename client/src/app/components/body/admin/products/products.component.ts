@@ -128,11 +128,13 @@ export class ProductsComponent implements OnInit {
 
   //#endregion Technical detail
 
-  positiveNumberRegex = /^\d*[1-9]\d*$/;
-  NotNegativeNumberRegex = /^\d*[0-9]\d*$/;
+  positiveNumberRegex;
+  NotNegativeNumberRegex;
 
-  constructor(private titleService: Title) {
+  constructor(private titleService: Title, private adminService: AdminService) {
     this.titleService.setTitle('Products Management | Lmaci');
+    this.positiveNumberRegex = this.adminService.positiveNumberRegex;
+    this.NotNegativeNumberRegex = this.adminService.NotNegativeNumberRegex;
   }
 
   ngOnInit(): void {
