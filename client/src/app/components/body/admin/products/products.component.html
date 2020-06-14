@@ -321,10 +321,11 @@
     <table class="ls-table">
       <thead>
         <tr>
-          <th colspan="5">PRODUCTS</th>
+          <th colspan="6">PRODUCTS</th>
         </tr>
         <tr>
           <th rowspan="2">No.</th>
+          <th rowspan="2">Image</th>
           <th rowspan="2">Name</th>
           <th colspan="2">Quatity</th>
           <th rowspan="2">Functions</th>
@@ -337,6 +338,7 @@
       <tbody>
         <tr *ngFor="let p of products">
           <td class="center-td">{{ products.indexOf(p) + 1 }}</td>
+          <td><img [src]="p.img" [alt]="'Image of ' + p._id"></td>
           <td>{{ p.name }}</td>
           <td>{{ p.quantity.imported }}</td>
           <td>{{ p.quantity.exported }}</td>
