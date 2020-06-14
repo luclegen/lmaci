@@ -155,15 +155,28 @@ export class ProductsComponent implements OnInit {
   //#region Submit
 
   onSubmit(form: NgForm) {
-    alert(JSON.stringify(form.value));
-    this.adminService.createProduct(form.value).subscribe(
-      res => {
-        alert('Create this product is successfully!');
-      },
-      err => {
-        alert(err.error.msg);
-      }
-    );
+    if (form.value._id) {
+      alert('T');
+    } else {
+      this.adminService.createProduct(form.value).subscribe(
+        res => {
+          const formData = new FormData();
+          formData.append('file', this.croppedImage);
+  
+          this.adminService.uploadProductImg(res['_id'], formData).subscribe(
+            res => {
+              alert('Create this product is successfully!');
+            },
+            err => {
+              alert(err.error.msg);
+            }
+          );
+        },
+        err => {
+          alert(err.error.msg);
+        }
+      );
+    }
   }
 
   onSubmitColor(form: NgForm) {
