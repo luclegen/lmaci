@@ -8,6 +8,9 @@ import { Product } from '../models/product.model';
 })
 export class AdminService {
 
+  positiveNumberRegex = /^\d*[1-9]\d*$/;
+  NotNegativeNumberRegex = /^\d*[0-9]\d*$/;
+  
   constructor(private http: HttpClient) { }
 
   //#region Http Methods
