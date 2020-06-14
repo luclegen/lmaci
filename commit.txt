@@ -230,6 +230,7 @@ Admin Service: createProduct
 Admin Service: positiveNumberRegex, NotNegativeNumberRegex
 Products Component: constructor
 Products Component: onSubmit
+Admin Service: uploadProductImg
 Global Styles
 Commit
 
