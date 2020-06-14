@@ -229,6 +229,7 @@ Module: ImageCropperModule
 Admin Service: createProduct
 Admin Service: positiveNumberRegex, NotNegativeNumberRegex
 Products Component: constructor
+Products Component: onSubmit
 Global Styles
 Commit
 
