@@ -166,6 +166,22 @@ export class ProductsComponent implements OnInit {
           this.adminService.uploadProductImg(res['_id'], formData).subscribe(
             res => {
               alert('Create this product is successfully!');
+              this.product = {
+                _id: '',
+                img: '',
+                name: '',
+                price: 0,
+                quantity: { imported: 1 },
+                type: '',
+                colors: [],
+                capacitys: [],
+                properties: [],
+                technicalDetails: [],
+              };
+                          
+              this.imageChangedEvent = '';
+              this.croppedImage = '';
+
             },
             err => {
               alert(err.error.msg);
