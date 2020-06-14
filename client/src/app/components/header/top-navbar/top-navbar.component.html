@@ -1,6 +1,6 @@
 <nav>
   <ul>
-    <li><a id="logo" routerLink="//"><img src="assets/img/logo/lmaci-logo.png" alt="Lmaci Logo"></a></li>
+    <li><a id="logo" routerLink="/"><img src="assets/img/logo/lmaci-logo.png" alt="Lmaci Logo"></a></li>
     <li class="li" id="apple">
       <a class="a" id="apple-a" (click)="expandA('apple-a', 'apple', 'apple-nav', '70px')" aria-expanded="false">
         <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -1042,7 +1042,7 @@
           <p>ACCOUNT</p>
         </div>
         <div *ngIf="userDetails">
-          <img class="avatar" id="account-img" [src]="userDetails.avatar" alt="">
+          <img class="avatar" id="account-img" [src]="userDetails.avatar" [alt]="userDetails.name.first + '\'s Avatar'">
           <p>{{userDetails.name.first}}</p>
         </div>
       </a>
@@ -1098,7 +1098,7 @@
             </svg>
             <p>Verify Email</p>
           </a>
-          <a href="/user/{{userDetails.username}}">
+          <a [href]="'/user/' + userDetails.username">
             <svg class="sub-svg" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
               viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
               <g>
