@@ -156,6 +156,7 @@ export class ProductsComponent implements OnInit {
 
   onSubmit(form: NgForm) {
     alert(JSON.stringify(form.value));
+    this.adminService.createProduct(form.value);
   }
 
   onSubmitColor(form: NgForm) {

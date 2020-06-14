@@ -172,7 +172,8 @@
           </tr>
           <tr *ngFor="let o of p.options.slice(1)">
             <td>{{ o.value }}</td>
-            <td>{{ o.price }}</td>
+            <td *ngIf="o.price == 0">{{ o.price }}</td>
+            <td *ngIf="o.price > 0">+{{ o.price }}</td>
             <td></td>
           </tr>
         </tbody>
