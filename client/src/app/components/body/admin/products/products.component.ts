@@ -26,21 +26,7 @@ export class ProductsComponent implements OnInit {
     technicalDetails: [],
   };
 
-  products = [
-    {
-      _id: "test",
-      name: "1.4GHz Quad-Core Processor with Turbo Boost up to 3.9GHz 256GB Storage Touch Bar and Touch ID",
-      price: 1299,
-      quantity: {
-        exported: 0,
-        imported: 9
-      },
-      type: "laptop",
-      colors: [ {option:"custom",name:"Silver",value:"#ececec"}, { option:"custom",name:"Space Gray",value:"#a3a5a8"} ],
-      properties: [ {name:"Processor", "options":[{value:"1.4GHz quad‑core 8th‑generation Intel Core i5 processor, Turbo Boost up to 3.9GHz",price:0},{value:"1.7GHz quad‑core 8th‑generation Intel Core i7 processor, Turbo Boost up to 4.5GHz",price:300}]},{name:"Memory","options":[{value:"8GB 2133MHz LPDDR3 memory",price:0},{value:"16GB 2133MHz LPDDR3 memory",price:200}]},{name:"Storage","options":[{value:"256GB SSD storage",price:0},{value:"512GB SSD storage",price:200},{value:"1TB SSD storage",price:400},{value:" 2TB SSD storage",price:800}]} ],
-      technicalDetails: [ {name:"Display",value:"13.3‑inch (diagonal) LED-backlit display with IPS technology; 2560‑by‑1600 native resolution at 227 pixels per inch with support for millions of colors"},{name:"Processor",value:"1.4GHz quad‑core 8th‑generation Intel Core i5, Turbo Boost up to 3.9GHz, with 128MB of eDRAM"},{name:"Storage",value:"256GB SSD"},{name:"Memory",value:"8GB of 2133MHz LPDDR3 onboard memory"},{name:"Graphics",value:"Intel Iris Plus Graphics 645"},{name:"Charging and Expansion",value:"Two Thunderbolt 3 (USB‑C) ports with"},{name:"Keyboard and Trackpad",value:"Backlit Magic Keyboard"},{name:"Wireless",value:" Wi‑Fi, Bluetooth"},{name:"Camera",value:"720p FaceTime HD camera"} ]
-    }
-  ];
+  products;
 
   //#region Img
 
@@ -138,6 +124,14 @@ export class ProductsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.adminService.getProducts().subscribe(
+      res => {
+        this.products = res['products']
+      },
+      err => {
+        alert(err.error.msg)
+      }
+    );
   }
 
   //#region Img Cropper
