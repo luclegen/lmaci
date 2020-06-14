@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm, NgModel } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 
+import { ImageCroppedEvent } from 'ngx-image-cropper';
+
 import { AdminService } from 'src/app/services/admin.service';
 
 @Component({
@@ -13,6 +15,7 @@ export class ProductsComponent implements OnInit {
 
   product = {
     _id: '',
+    img: '',
     name: '',
     price: 0,
     quantity: { imported: 1 },
@@ -38,6 +41,13 @@ export class ProductsComponent implements OnInit {
       technicalDetails: [ {name:"Display",value:"13.3‑inch (diagonal) LED-backlit display with IPS technology; 2560‑by‑1600 native resolution at 227 pixels per inch with support for millions of colors"},{name:"Processor",value:"1.4GHz quad‑core 8th‑generation Intel Core i5, Turbo Boost up to 3.9GHz, with 128MB of eDRAM"},{name:"Storage",value:"256GB SSD"},{name:"Memory",value:"8GB of 2133MHz LPDDR3 onboard memory"},{name:"Graphics",value:"Intel Iris Plus Graphics 645"},{name:"Charging and Expansion",value:"Two Thunderbolt 3 (USB‑C) ports with"},{name:"Keyboard and Trackpad",value:"Backlit Magic Keyboard"},{name:"Wireless",value:" Wi‑Fi, Bluetooth"},{name:"Camera",value:"720p FaceTime HD camera"} ]
     }
   ];
+
+  //#region Img
+
+  imageChangedEvent: any = '';
+  croppedImage: any = '';
+
+  //#endregion Img
 
   //#region Color
 
@@ -127,6 +137,18 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  //#region Img Cropper
+
+  fileChangeEvent(event: any): void {
+    this.imageChangedEvent = event;
+  }
+
+  imageCropped(event: ImageCroppedEvent) {
+    this.croppedImage = event.base64;
+  }
+
+  //#endregion Img Cropper
 
   //#region Submit
 
