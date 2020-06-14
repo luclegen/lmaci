@@ -54,8 +54,7 @@ export class AdminService {
   }
 
   createProduct(product: Product) {
-    alert(JSON.stringify(product));
-    // return this.http.post(environment.adminUrl + '/create-product', product);
+    return this.http.post(environment.adminUrl + '/create-product', product);
   }
   //#endregion Products
 
