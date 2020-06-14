@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 
 import { environment } from 'src/environments/environment';
+import { Product } from '../models/product.model';
 @Injectable({
   providedIn: 'root'
 })
@@ -49,6 +50,10 @@ export class AdminService {
     return this.http.get(environment.adminUrl + '/products');
   }
 
+  createProduct(product: Product) {
+    alert(JSON.stringify(product));
+    // return this.http.post(environment.adminUrl + '/create-product', product);
+  }
   //#endregion Products
 
   //#endregion Http Methods
