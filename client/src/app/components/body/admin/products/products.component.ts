@@ -176,6 +176,7 @@ export class ProductsComponent implements OnInit {
               this.imageChangedEvent = '';
               this.croppedImage = '';
 
+              this.ngOnInit();
             },
             err => {
               alert(err.error.msg);
