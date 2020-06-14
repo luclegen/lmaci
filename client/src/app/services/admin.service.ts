@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpHeaders, HttpClient } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 import { environment } from 'src/environments/environment';
 import { Product } from '../models/product.model';
@@ -55,6 +55,10 @@ export class AdminService {
 
   createProduct(product: Product) {
     return this.http.post(environment.adminUrl + '/create-product', product);
+  }
+
+  uploadProductImg(id: string, file: FormData) {
+    return this.http.post(environment.adminUrl + '/upload-product-img/' + id, file);
   }
   //#endregion Products
 
