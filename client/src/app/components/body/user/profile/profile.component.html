@@ -4,7 +4,7 @@
     <thead>
       <tr>
         <th colspan="2">
-          <img src="{{userDetails.avatar}}" alt="">
+          <img [src]="userDetails.avatar" [alt]="userDetails.name.first.toUpperCase() + '\'S AVATAR'">
         </th>
       </tr>
       <tr>
