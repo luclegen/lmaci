@@ -386,7 +386,7 @@ export class ProductsComponent implements OnInit {
   }
 
   onEditProduct(p: Object) {
-
+    this.product = Object(p);
   }
 
   //#endregion Edit
