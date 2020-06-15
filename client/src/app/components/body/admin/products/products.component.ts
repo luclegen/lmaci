@@ -377,6 +377,25 @@ export class ProductsComponent implements OnInit {
     };
   }
 
+  onCancelProduct() {
+    this.product = {
+      _id: '',
+      img: '',
+      imgPath: '',
+      name: '',
+      price: 0,
+      quantity: { imported: 1 },
+      type: '',
+      colors: [],
+      capacitys: [],
+      properties: [],
+      technicalDetails: [],
+    };
+
+    this.imageChangedEvent = '';
+    this.croppedImage = '';
+  }
+
   //#endregion Cancel
 
   //#region Edit
@@ -406,7 +425,7 @@ export class ProductsComponent implements OnInit {
   onEditProduct(p: Object) {
     this.imageChangedEvent = '';
     this.croppedImage = '';
-    
+
     this.product = Object(p);
   }
 
