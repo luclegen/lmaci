@@ -164,7 +164,7 @@ export class ProductsComponent implements OnInit {
           this.onCancelProduct();
         },
         err => {
-          alert(err.error.msg);
+          alert(JSON.stringify(err.error));
         }
       );
     }
