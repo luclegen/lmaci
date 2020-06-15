@@ -156,6 +156,7 @@ export class ProductsComponent implements OnInit {
       this.adminService.createProduct(form.value).subscribe(
         res => {
           alert('Create this product is successfully!');
+          this.ngOnInit();
         },
         err => {
           alert(err.error.msg);
