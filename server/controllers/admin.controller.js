@@ -69,6 +69,7 @@ module.exports.searchUsers = (req, res) => {
 module.exports.createProduct = (req, res, next) => {
   let product = new Product();
 
+  product.img = new Buffer(converter.base64ToImg(req.body.img), 'base64');
   product.name = req.body.name;
   product.price = req.body.price;
   product.quantity.imported = req.body.quantityImported;
@@ -76,12 +77,12 @@ module.exports.createProduct = (req, res, next) => {
   product.colors = req.body.colors;
   product.properties = req.body.properties;
   product.technicalDetails = req.body.technicalDetails;
-  console.log(req.body.img);
+  console.log(converter.base64ToImg(req.body.img));
 
-  // product.save((err, product) => {
-  //   return err ? next(err)
-  //              : res.send(product);
-  // });
+  product.save((err, product) => {
+    return err ? next(err)
+               : res.send(product);
+  });
 }
 
 module.exports.uploadProductImg = (req, res) => {
