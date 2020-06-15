@@ -157,7 +157,6 @@ Search Images: List
 Users Component: onSubmit
 Users Component: showAll
 Index: Loading...
-Products Component: View
 Models: product
 Type Enum
 Module: RichTextEditorAllModule, DialogModule, ButtonModule, ReactiveFormsModule
@@ -236,6 +235,7 @@ Products Component: onRemoveProduct
 Admin Service: removeProduct
 Products Component: onEditProduct
 Products Component: onCancelProduct
+Products Component: View
 Global Styles
 Commit
 
