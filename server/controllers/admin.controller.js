@@ -70,14 +70,13 @@ module.exports.createProduct = (req, res, next) => {
   let product = new Product();
 
   product.img = new Buffer(converter.base64ToImg(req.body.img), 'base64');
-  product.name = req.body.name;
+  product.name = req.body.name.trim();
   product.price = req.body.price;
   product.quantity.imported = req.body.quantityImported;
   product.type = req.body.type;
   product.colors = req.body.colors;
   product.properties = req.body.properties;
   product.technicalDetails = req.body.technicalDetails;
-  console.log(converter.base64ToImg(req.body.img));
 
   product.save((err, product) => {
     return err ? next(err)
