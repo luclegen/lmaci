@@ -3,6 +3,23 @@ const express = require('express'),
 
 const adminCtrl = require('../controllers/admin.controller');
 
+
+//#region Transfer
+const multer = require('multer');
+
+const storage = multer.diskStorage({
+  destination: (req, file, callBack) => {
+      callBack(null, 'uploads')
+  },
+  filename: (req, file, callBack) => {
+      callBack(null, `FunOfHeuristic_${file.originalname}`)
+  }
+})
+
+const transfer = multer({ storage: storage })
+ 
+//#endregion Transfer
+
 //#region Admins
 router.get('/admins', adminCtrl.getAdmins);
 router.get('/remove-as-admin/:username', adminCtrl.removeAsAdmin);
@@ -17,6 +34,7 @@ router.put('/search-users', adminCtrl.searchUsers);
 
 //#region Products
 router.post('/create-product', adminCtrl.createProduct);
+router.put('/upload-product-img/:id', transfer.single('img'), adminCtrl.uploadProductImg);
 router.post('/post/:id', adminCtrl.post);
 router.get('/products', adminCtrl.getProducts);
 router.put('/update-product/:id', adminCtrl.updateProduct);
