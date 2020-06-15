@@ -4,6 +4,8 @@ import { Title } from '@angular/platform-browser';
 
 import { ImageCroppedEvent } from 'ngx-image-cropper';
 
+import { Product } from 'src/app/models/product.model';
+
 import { AdminService } from 'src/app/services/admin.service';
 
 @Component({
@@ -250,6 +252,10 @@ export class ProductsComponent implements OnInit {
   }
 
   //#endregion Submit
+
+  viewDetails(product: Product) {
+
+  }
 
   //#region Cancel
 
