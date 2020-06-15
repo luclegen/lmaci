@@ -76,11 +76,12 @@ module.exports.createProduct = (req, res, next) => {
   product.colors = req.body.colors;
   product.properties = req.body.properties;
   product.technicalDetails = req.body.technicalDetails;
+  console.log(req.body.img);
 
-  product.save((err, product) => {
-    return err ? next(err)
-               : res.send(product);
-  });
+  // product.save((err, product) => {
+  //   return err ? next(err)
+  //              : res.send(product);
+  // });
 }
 
 module.exports.uploadProductImg = (req, res) => {
