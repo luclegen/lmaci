@@ -82,6 +82,13 @@ module.exports.createProduct = (req, res, next) => {
   });
 }
 
+module.exports.uploadProductImg = (req, res) => {
+  Product.findByIdAndUpdate(req.params.id, { $set: { img: new Buffer.from(converter.base64ToImg(req.body.img), 'base64') } }, { new: true }, (err, product) => {
+    return product ? res.status(200).json()
+                   : res.status(404).json({ msg: 'Product not found.' });
+  });
+}
+
 module.exports.post = (req, res) => {
   Product.findByIdAndUpdate(req.params.id, { $set: { post: req.body.post } }, { new: true }, (err, product) => {
     return product ? res.status(200).json({ msg: 'Post is successfully!' })
