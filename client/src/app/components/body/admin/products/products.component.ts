@@ -149,6 +149,7 @@ export class ProductsComponent implements OnInit {
   //#region Submit
 
   onSubmit(form: NgForm) {
+    form.value.img = this.croppedImage;
     if (form.value._id) {
       alert('T');
     } else {
@@ -157,31 +158,31 @@ export class ProductsComponent implements OnInit {
           const formData = new FormData();
           formData.append('file', this.croppedImage);
   
-          this.adminService.uploadProductImg(res['_id'], formData).subscribe(
-            res => {
-              alert('Create this product is successfully!');
-              this.product = {
-                _id: '',
-                img: '',
-                name: '',
-                price: 0,
-                quantity: { imported: 1 },
-                type: '',
-                colors: [],
-                capacitys: [],
-                properties: [],
-                technicalDetails: [],
-              };
+          // this.adminService.uploadProductImg(res['_id'], formData).subscribe(
+          //   res => {
+          //     alert('Create this product is successfully!');
+          //     this.product = {
+          //       _id: '',
+          //       img: '',
+          //       name: '',
+          //       price: 0,
+          //       quantity: { imported: 1 },
+          //       type: '',
+          //       colors: [],
+          //       capacitys: [],
+          //       properties: [],
+          //       technicalDetails: [],
+          //     };
                           
-              this.imageChangedEvent = '';
-              this.croppedImage = '';
+          //     this.imageChangedEvent = '';
+          //     this.croppedImage = '';
 
-              this.ngOnInit();
-            },
-            err => {
-              alert(err.error.msg);
-            }
-          );
+          //     this.ngOnInit();
+          //   },
+          //   err => {
+          //     alert(err.error.msg);
+          //   }
+          // );
         },
         err => {
           alert(err.error.msg);
