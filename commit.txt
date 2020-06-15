@@ -234,6 +234,7 @@ Admin Service: uploadProductImg
 Products Imgs
 Products Component: onRemoveProduct
 Admin Service: removeProduct
+Products Component: onEditProduct
 Global Styles
 Commit
 
