@@ -232,6 +232,7 @@ Products Component: constructor
 Products Component: onSubmit
 Admin Service: uploadProductImg
 Products Imgs
+Products Component: onRemoveProduct
 Global Styles
 Commit
 
