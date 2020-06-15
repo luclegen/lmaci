@@ -50,7 +50,9 @@ let productSchema = new mongoose.Schema({
 });
 
 productSchema.virtual('imgPath').get(function () {
-  if (this.img) return `data:image/png;base64,${this.img.toString('base64')}`;
-});
+  console.log('T');
+  
+  if (this.img) return `data:image/png;charset=utf-8;base64,${this.img.toString('base64')}`;
+})
 
 module.exports = mongoose.model('Product', productSchema);
