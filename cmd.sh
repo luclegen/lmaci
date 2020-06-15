@@ -14,7 +14,7 @@ npm i -s ngx-image-cropper
 
 # Optional
 # Run client:
-if [ $(lsof -t -i:4200) ]; then kill -9 $(lsof -t -i:4200); fi; clear; ng s
+kill -9 $(lsof -t -i:4200); clear; ng s
 
 # II. NODEJS SERVER
 
@@ -24,4 +24,4 @@ clear; nodemon
 
 # Optional
 # Run server:
-if [ $(lsof -t -i:3000) ]; then kill -9 $(lsof -t -i:3000); fi; clear; nodemon
+kill -9 $(lsof -t -i:3000); clear; nodemon
