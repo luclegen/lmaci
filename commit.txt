@@ -235,6 +235,7 @@ Products Imgs
 Products Component: onRemoveProduct
 Admin Service: removeProduct
 Products Component: onEditProduct
+Products Component: onCancelProduct
 Global Styles
 Commit
 
