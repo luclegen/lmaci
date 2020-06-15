@@ -2,23 +2,7 @@ const express = require('express'),
       router = express.Router();
 
 const adminCtrl = require('../controllers/admin.controller');
-
-
-//#region Transfer
-const multer = require('multer');
-
-const storage = multer.diskStorage({
-  destination: (req, file, callBack) => {
-      callBack(null, 'uploads')
-  },
-  filename: (req, file, callBack) => {
-      callBack(null, `FunOfHeuristic_${file.originalname}`)
-  }
-})
-
-const transfer = multer({ storage: storage })
- 
-//#endregion Transfer
+const transfer = require('../helpers/transfer');
 
 //#region Admins
 router.get('/admins', adminCtrl.getAdmins);
