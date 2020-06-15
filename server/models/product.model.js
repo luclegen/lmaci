@@ -43,16 +43,20 @@ let productSchema = new mongoose.Schema({
   description: String,
   post: String
 }, {
+  toObject: {
+    virtuals: true
+  },
+  toJSON: {
+    virtuals: true 
+  },
   timestamps: {
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   }
 });
 
-productSchema.virtual('imgPath').get(function () {
-  console.log('T');
-  
-  if (this.img) return `data:image/png;charset=utf-8;base64,${this.img.toString('base64')}`;
+productSchema.virtual('imgPath').get(function() {
+  if (this.img) return `data:image/png;base64,${this.img.toString('base64')}`;
 })
 
 module.exports = mongoose.model('Product', productSchema);
