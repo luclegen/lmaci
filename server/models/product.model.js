@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 let productSchema = new mongoose.Schema({
-  img: String,
+  img: Buffer,
   name: {
     type: String,
     required: 'Name can\'t be empty',
