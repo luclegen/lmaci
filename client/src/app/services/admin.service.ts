@@ -57,9 +57,6 @@ export class AdminService {
     return this.http.post(environment.adminUrl + '/create-product', product);
   }
 
-  uploadProductImg(id: string, file: FormData) {
-    return this.http.post(environment.adminUrl + '/upload-product-img/' + id, file);
-  }
   //#endregion Products
 
   //#endregion Http Methods
