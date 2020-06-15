@@ -152,16 +152,26 @@ export class ProductsComponent implements OnInit {
   //#region Submit
 
   onSubmit(form: NgForm) {
-    form.value.img = this.croppedImage;
     if (form.value._id) {
       alert('T');
     } else {
       this.adminService.createProduct(form.value).subscribe(
         res => {
-          alert('Create this product is successfully!');
+          const formData = new FormData();
+                    
+          formData.append('img', this.croppedImage);
 
-          this.ngOnInit();
-          this.onCancelProduct();
+          this.adminService.uploadProductImg(res['_id'], formData).subscribe(
+            res => {
+              alert('Create this product is successfully!');
+
+              this.ngOnInit();
+              this.onCancelProduct();
+            },  
+            err => {
+              alert(err.error.msg);
+            }
+          );
         },
         err => {
           alert(JSON.stringify(err.error));
