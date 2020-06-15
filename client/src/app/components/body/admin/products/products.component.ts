@@ -411,7 +411,7 @@ export class ProductsComponent implements OnInit {
 
   onRemoveProduct(p: Product) {
     if (confirm('Are you sure remove: ' + JSON.stringify(p) + '?')) {
-      this.adminService
+      this.adminService.removeProduct(p._id);
     }
   }
 
