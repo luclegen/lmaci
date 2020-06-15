@@ -338,7 +338,8 @@
       <tbody>
         <tr *ngFor="let p of products">
           <td class="center-td">{{ products.indexOf(p) + 1 }}</td>
-          <td><img class="product-img" [src]="p.img" [alt]="'Image of ' + p._id"></td>
+          <td>{{ p.imgPath }}</td>
+          <td><img class="product-img" [src]="p.imgPath" [alt]="'Image of ' + p._id"></td>
           <td>{{ p.name }}</td>
           <td>{{ p.quantity.imported }}</td>
           <td>{{ p.quantity.exported }}</td>
