@@ -23,6 +23,10 @@
       <img [src]="croppedImage" />
     </div>
 
+    <div *ngIf="!imageChangedEvent && product.imgPath" class="image-cropper-container">
+      <img [src]="product.imgPath" />
+    </div>
+
     <input #name="ngModel" [(ngModel)]="product.name" class="single-in" type="text" name="name" placeholder="Name" required>
 
     <span>

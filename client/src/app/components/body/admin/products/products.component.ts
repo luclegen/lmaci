@@ -18,6 +18,7 @@ export class ProductsComponent implements OnInit {
   product = {
     _id: '',
     img: '',
+    imgPath: '',
     name: '',
     price: 0,
     quantity: { imported: 1 },
