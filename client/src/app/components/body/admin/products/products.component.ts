@@ -155,34 +155,7 @@ export class ProductsComponent implements OnInit {
     } else {
       this.adminService.createProduct(form.value).subscribe(
         res => {
-          const formData = new FormData();
-          formData.append('file', this.croppedImage);
-  
-          // this.adminService.uploadProductImg(res['_id'], formData).subscribe(
-          //   res => {
-          //     alert('Create this product is successfully!');
-          //     this.product = {
-          //       _id: '',
-          //       img: '',
-          //       name: '',
-          //       price: 0,
-          //       quantity: { imported: 1 },
-          //       type: '',
-          //       colors: [],
-          //       capacitys: [],
-          //       properties: [],
-          //       technicalDetails: [],
-          //     };
-                          
-          //     this.imageChangedEvent = '';
-          //     this.croppedImage = '';
-
-          //     this.ngOnInit();
-          //   },
-          //   err => {
-          //     alert(err.error.msg);
-          //   }
-          // );
+          alert('Create this product is successfully!');
         },
         err => {
           alert(err.error.msg);
