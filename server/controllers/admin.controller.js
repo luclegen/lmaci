@@ -92,6 +92,9 @@ module.exports.post = (req, res) => {
 
 module.exports.getProducts = (req, res) => {
   Product.find((err, products) => {
+    products.forEach(p => {
+      p.toObject({ virtuals: true });
+    });
     return products ? res.status(200).json({ products: products })
                     : res.status(404).json({ msg: 'Products not found.' });
   });
