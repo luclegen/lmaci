@@ -57,6 +57,10 @@ export class AdminService {
     return this.http.post(environment.adminUrl + '/create-product', product);
   }
 
+  removeProduct(id: string) {
+    return this.http.delete(environment.adminUrl + '/delete-product/' + id);
+  }
+
   //#endregion Products
 
   //#endregion Http Methods
