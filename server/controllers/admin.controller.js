@@ -68,7 +68,7 @@ module.exports.searchUsers = (req, res) => {
 module.exports.createProduct = (req, res, next) => {
   let product = new Product();
 
-  product.img = new Buffer(converter.base64ToImg(req.body.img), 'base64');
+  product.img = new Buffer.from(converter.base64ToImg(req.body.img), 'base64');
   product.name = req.body.name.trim();
   product.price = req.body.price;
   product.quantity.imported = req.body.quantityImported;
