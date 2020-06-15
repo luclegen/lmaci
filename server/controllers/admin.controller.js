@@ -85,15 +85,6 @@ module.exports.createProduct = (req, res, next) => {
   });
 }
 
-module.exports.uploadProductImg = (req, res) => {
-  Product.findByIdAndUpdate(req.params.id, { $set: { img: process.env.PRODUCT_IMG + req.params.id + '/' + req.params.id  + '.png' } }, { new: true }, (err, product) => {
-    if (product) {
-      loader.uploadImg(req.body.file, process.env.PRODUCT_IMG_UPLOAD + req.params.id, req.params.id);
-      return res.status(200).json();
-    } else return res.status(404).json({ msg: 'Product not found.' });
-  });
-}
-
 module.exports.post = (req, res) => {
   Product.findByIdAndUpdate(req.params.id, { $set: { post: req.body.post } }, { new: true }, (err, product) => {
     return product ? res.status(200).json({ msg: 'Post is successfully!' })
