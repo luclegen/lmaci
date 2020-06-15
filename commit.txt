@@ -233,6 +233,7 @@ Products Component: onSubmit
 Admin Service: uploadProductImg
 Products Imgs
 Products Component: onRemoveProduct
+Admin Service: removeProduct
 Global Styles
 Commit
 
