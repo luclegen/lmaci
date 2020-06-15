@@ -404,6 +404,9 @@ export class ProductsComponent implements OnInit {
   }
 
   onEditProduct(p: Object) {
+    this.imageChangedEvent = '';
+    this.croppedImage = '';
+    
     this.product = Object(p);
   }
 
