@@ -160,6 +160,23 @@ export class ProductsComponent implements OnInit {
         res => {
           alert('Create this product is successfully!');
           this.ngOnInit();
+
+          this.product = {
+            _id: '',
+            img: '',
+            imgPath: '',
+            name: '',
+            price: 0,
+            quantity: { imported: 1 },
+            type: '',
+            colors: [],
+            capacitys: [],
+            properties: [],
+            technicalDetails: [],
+          };
+
+          this.imageChangedEvent = '';
+          this.croppedImage = '';
         },
         err => {
           alert(err.error.msg);
