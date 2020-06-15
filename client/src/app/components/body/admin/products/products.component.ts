@@ -409,8 +409,10 @@ export class ProductsComponent implements OnInit {
     if (confirm('Are you sure remove: ' + JSON.stringify(t) + '?')) this.product.technicalDetails.splice(this.product.technicalDetails.indexOf(Object(t)), 1);
   }
 
-  onRemoveProduct(p: Object) {
-
+  onRemoveProduct(p: Product) {
+    if (confirm('Are you sure remove: ' + JSON.stringify(p) + '?')) {
+      this.adminService
+    }
   }
 
   //#endregion Remove
