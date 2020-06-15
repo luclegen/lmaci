@@ -1,19 +1,7 @@
 const express = require('express'),
       router = express.Router();
-      multer = require('multer');
 
 const adminCtrl = require('../controllers/admin.controller');
-
-const storage = multer.diskStorage({
-  destination: (req, file, callBack) => {
-      callBack(null, 'uploads')
-  },
-  filename: (req, file, callBack) => {
-      callBack(null, `FunOfHeuristic_${file.originalname}`)
-  }
-})
-
-const upload = multer({ storage: storage })
 
 //#region Admins
 router.get('/admins', adminCtrl.getAdmins);
@@ -29,7 +17,6 @@ router.put('/search-users', adminCtrl.searchUsers);
 
 //#region Products
 router.post('/create-product', adminCtrl.createProduct);
-router.post('/upload-product-img/:id', upload.single('file'), adminCtrl.uploadProductImg);
 router.post('/post/:id', adminCtrl.post);
 router.get('/products', adminCtrl.getProducts);
 router.put('/update-product/:id', adminCtrl.updateProduct);
