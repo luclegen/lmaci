@@ -4,7 +4,6 @@ const Product = require('../models/product.model');
 const ObjectId = require('mongoose').Types.ObjectId;
 
 const converter = require('../helpers/converter');
-const loader = require('../helpers/loader');
 
 //#region Admins
 
