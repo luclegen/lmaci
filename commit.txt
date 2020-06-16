@@ -236,6 +236,7 @@ Admin Service: removeProduct
 Products Component: onEditProduct
 Products Component: onCancelProduct
 Products Component: onDeleteColor, onDeleteProperty, onDeleteOption, onDeleteTechnicalDetail, onDeleteProduct
+Admin Service: updateProduct
 Products Component: View
 Global Styles
 Commit
