@@ -160,32 +160,39 @@ export class ProductsComponent implements OnInit {
   //#region Submit
 
   onSubmit(form: NgForm) {
-    if (form.value._id) {
-      alert('T');
-    } else {
-      this.adminService.createProduct(form.value).subscribe(
-        res => {
-          const formData = new FormData();
-                    
-          formData.append('img', this.croppedImage);
-
-          this.adminService.uploadProductImg(res['_id'], formData).subscribe(
+    this.authService.getInfo().subscribe(res => {
+      if (res['user'].role == 'root' || res['user'].role === 'admin') {
+        if (form.value._id) {
+          alert(JSON.stringify(form.value));
+          console.log(JSON.stringify(form.value));
+          
+          // this.adminService.updateProduct(form.value._id, form.value).subscribe();
+        } else {
+          this.adminService.createProduct(form.value).subscribe(
             res => {
-              alert('Create this product is successfully!');
-
-              this.ngOnInit();
-              this.onCancelProduct();
-            },  
+              const formData = new FormData();
+                        
+              formData.append('img', this.croppedImage);
+    
+              this.adminService.uploadProductImg(res['_id'], formData).subscribe(
+                res => {
+                  alert('Create this product is successfully!');
+    
+                  this.ngOnInit();
+                  this.onCancelProduct();
+                },  
+                err => {
+                  alert(err.error.msg);
+                }
+              );
+            },
             err => {
-              alert(err.error.msg);
+              alert(JSON.stringify(err.error));
             }
           );
-        },
-        err => {
-          alert(JSON.stringify(err.error));
         }
-      );
-    }
+      } else this.router.navigateByUrl('');
+    });
   }
 
   onSubmitColor(form: NgForm) {
