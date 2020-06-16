@@ -239,6 +239,7 @@ Products Component: onDeleteColor, onDeleteProperty, onDeleteOption, onDeleteTec
 Admin Service: updateProduct
 Products Component: View
 Product Component: Initial
+Routes: ProductComponent
 Global Styles
 Commit
 
