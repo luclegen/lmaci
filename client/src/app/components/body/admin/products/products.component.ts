@@ -426,27 +426,27 @@ export class ProductsComponent implements OnInit {
 
   //#endregion Edit
 
-  //#region Remove
+  //#region Delete
 
-  onRemoveColor(c: String) {
-    if (confirm('Are you sure remove: ' + JSON.stringify(c) + '?')) this.product.colors.splice(this.product.colors.indexOf(Object(c)), 1);
+  onDeleteColor(c: String) {
+    if (confirm('Are you sure delete: ' + JSON.stringify(c) + '?')) this.product.colors.splice(this.product.colors.indexOf(Object(c)), 1);
   }
 
-  onRemoveProperty(p: Object) {
-    if (confirm('Are you sure remove: ' + JSON.stringify(p) + '?')) this.product.properties.splice(this.product.properties.indexOf(Object(p)), 1);
+  onDeleteProperty(p: Object) {
+    if (confirm('Are you sure delete: ' + JSON.stringify(p) + '?')) this.product.properties.splice(this.product.properties.indexOf(Object(p)), 1);
   }
 
-  onRemoveOption(o: Object) {
-    if (confirm('Are you sure remove: ' + JSON.stringify(o) + '?')) this.property.options.splice(this.property.options.indexOf(Object(o)), 1);
+  onDeleteOption(o: Object) {
+    if (confirm('Are you sure delete: ' + JSON.stringify(o) + '?')) this.property.options.splice(this.property.options.indexOf(Object(o)), 1);
   }
 
-  onRemoveTechnicalDetail(t: Object) {
-    if (confirm('Are you sure remove: ' + JSON.stringify(t) + '?')) this.product.technicalDetails.splice(this.product.technicalDetails.indexOf(Object(t)), 1);
+  onDeleteTechnicalDetail(t: Object) {
+    if (confirm('Are you sure delete: ' + JSON.stringify(t) + '?')) this.product.technicalDetails.splice(this.product.technicalDetails.indexOf(Object(t)), 1);
   }
 
-  onRemoveProduct(p: Product) {
-    if (confirm('Are you sure remove: ' + JSON.stringify(p) + '?')) {
-      this.adminService.removeProduct(p._id).subscribe(
+  onDeleteProduct(p: Product) {
+    if (confirm('Are you sure delete: ' + JSON.stringify(p) + '?')) {
+      this.adminService.deleteProduct(p._id).subscribe(
         res => {
           alert(res['msg']);
         },
@@ -458,7 +458,7 @@ export class ProductsComponent implements OnInit {
     }
   }
 
-  //#endregion Remove
+  //#endregion Delete
 
   //#region Check
 
