@@ -7,6 +7,9 @@ import { ImageCroppedEvent } from 'ngx-image-cropper';
 import { Product } from 'src/app/models/product.model';
 
 import { AdminService } from 'src/app/services/admin.service';
+import { AuthService } from 'src/app/services/auth.service';
+
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-products',
@@ -120,21 +123,26 @@ export class ProductsComponent implements OnInit {
   positiveNumberRegex;
   NotNegativeNumberRegex;
 
-  constructor(private titleService: Title, private adminService: AdminService) {
+  constructor(private titleService: Title, private adminService: AdminService, private authService: AuthService, private router: Router) {
     this.titleService.setTitle('Products Management | Lmaci');
     this.positiveNumberRegex = this.adminService.positiveNumberRegex;
     this.NotNegativeNumberRegex = this.adminService.NotNegativeNumberRegex;
   }
 
   ngOnInit(): void {
-    this.adminService.getProducts().subscribe(
-      res => {
-        this.products = res['products']
-      },
-      err => {
-        alert(err.error.msg)
+    this.authService.getInfo().subscribe(res => {
+      if (res['user'].role == 'root' || res['user'].role === 'admin') {
+        this.adminService.getProducts().subscribe(
+          res => {
+            this.products = res['products']
+          },
+          err => {
+            alert(err.error.msg)
+          }
+        );
       }
-    );
+      else this.router.navigateByUrl('');
+    });
   }
 
   //#region Img Cropper
