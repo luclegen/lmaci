@@ -240,6 +240,7 @@ Admin Service: updateProduct
 Products Component: View
 Product Component: Initial
 Routes: ProductComponent
+Images: Product
 Global Styles
 Commit
 
