@@ -238,6 +238,7 @@ Products Component: onCancelProduct
 Products Component: onDeleteColor, onDeleteProperty, onDeleteOption, onDeleteTechnicalDetail, onDeleteProduct
 Admin Service: updateProduct
 Products Component: View
+Product Component: Initial
 Global Styles
 Commit
 
