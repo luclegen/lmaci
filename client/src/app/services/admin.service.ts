@@ -56,6 +56,7 @@ export class AdminService {
   uploadProductImg(id: string, img: FormData) {
     return this.http.put(environment.adminUrl + '/upload-product-img/' + id, img);
   }
+  
   getProducts() {
     return this.http.get(environment.adminUrl + '/products');
   }
