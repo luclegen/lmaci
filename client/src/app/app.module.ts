@@ -22,6 +22,7 @@ import { UserService } from './services/user.service';
 
 // Tools
 import { ImageCropperModule } from 'ngx-image-cropper';
+import { NgxImageZoomModule } from 'ngx-image-zoom';
 
 // Components
 import { AppComponent } from './app.component';
@@ -75,7 +76,8 @@ import { ProductComponent } from './components/body/product/product.component';
     ReactiveFormsModule,
     RouterModule.forRoot(routes),
     HttpClientModule,
-    ImageCropperModule
+    ImageCropperModule,
+    NgxImageZoomModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
