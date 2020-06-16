@@ -16,6 +16,7 @@ import { AdminComponent } from './components/body/admin/admin.component';
 import { UsersComponent } from './components/body/admin/users/users.component';
 import { ProductsComponent } from './components/body/admin/products/products.component';
 import { AdminsComponent } from './components/body/admin/admins/admins.component';
+import { ProductComponent } from './components/body/product/product.component';
 
 export const routes: Routes = [
   { path: '', pathMatch: 'full', component: HomeComponent },
@@ -33,5 +34,8 @@ export const routes: Routes = [
   { path: 'admin', component: AdminComponent, canActivate: [AuthGuard],
     children: [ { path: 'admins', component: AdminsComponent },
                 { path: 'users', component: UsersComponent },
-                { path: 'products', component: ProductsComponent } ] }
+                { path: 'products', component: ProductsComponent } ] },
+  {
+    path: 'product/:id', component: ProductComponent
+  }
 ]
