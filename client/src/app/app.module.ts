@@ -42,6 +42,7 @@ import { AdminComponent } from './components/body/admin/admin.component';
 import { UsersComponent } from './components/body/admin/users/users.component';
 import { ProductsComponent } from './components/body/admin/products/products.component';
 import { AdminsComponent } from './components/body/admin/admins/admins.component';
+import { ProductComponent } from './components/body/product/product.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,8 @@ import { AdminsComponent } from './components/body/admin/admins/admins.component
     AdminComponent,
     UsersComponent,
     ProductsComponent,
-    AdminsComponent
+    AdminsComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,
