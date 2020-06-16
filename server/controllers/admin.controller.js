@@ -120,7 +120,7 @@ module.exports.updateProduct = (req, res) => {
   };
   
   Product.findByIdAndUpdate(req.params.id, { $set: product }, { new: true }, (err, productEdited) => {
-    return productEdited ? res.status(200).json({ msg: 'Product is updated.' })
+    return productEdited ? res.status(200).json({ _id: productEdited.id, msg: 'Product is updated.' })
                          : res.status(404).json({ msg: 'Product not found.' });
   });
 }
