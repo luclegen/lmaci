@@ -10,6 +10,7 @@ import { AdminService } from 'src/app/services/admin.service';
 import { AuthService } from 'src/app/services/auth.service';
 
 import { Router } from '@angular/router';
+import { elementEventFullName } from '@angular/compiler/src/view_compiler/view_compiler';
 
 @Component({
   selector: 'app-products',
@@ -163,18 +164,46 @@ export class ProductsComponent implements OnInit {
     this.authService.getInfo().subscribe(res => {
       if (res['user'].role == 'root' || res['user'].role === 'admin') {
         if (form.value._id) {
-          // alert(JSON.stringify(form.value));
-          // console.log(JSON.stringify(form.value));
-          
-          this.adminService.updateProduct(form.value._id, form.value).subscribe(
-            res => {
-              alert('Create this product is successfully!');
+          form.value.img = '';
 
-            },
-            err => {
-              alert(err.error.msg);
-            }
-          );
+          if (this.croppedImage) {
+            this.adminService.updateProduct(form.value._id, form.value).subscribe(
+              res => {
+                const formData = new FormData();
+
+                formData.append('img', this.croppedImage);
+
+                alert(JSON.stringify(res));
+    
+                this.adminService.uploadProductImg(res['_id'], formData).subscribe(
+                  res => {
+                    alert('Update this product is successfully!');
+      
+                    this.ngOnInit();
+                    this.onCancelProduct();
+                  },  
+                  err => {
+                    alert(err.error.msg);
+                  }
+                );
+              },
+              err => {
+                alert(err.error.msg);
+              }
+            );
+          } else {
+            this.adminService.updateProduct(form.value._id, form.value).subscribe(
+              res => {
+                alert('Update this product is successfully!');
+  
+                this.ngOnInit();
+                this.onCancelProduct();
+              },
+              err => {
+                alert(err.error.msg);
+              }
+            );
+          }
         } else {
           this.adminService.createProduct(form.value).subscribe(
             res => {
