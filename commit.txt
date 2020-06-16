@@ -241,6 +241,7 @@ Products Component: View
 Product Component: Initial
 Routes: ProductComponent
 Images: Product
+Module: NgxImageZoomModule
 Global Styles
 Commit
 
