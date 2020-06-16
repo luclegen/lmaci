@@ -163,10 +163,18 @@ export class ProductsComponent implements OnInit {
     this.authService.getInfo().subscribe(res => {
       if (res['user'].role == 'root' || res['user'].role === 'admin') {
         if (form.value._id) {
-          alert(JSON.stringify(form.value));
-          console.log(JSON.stringify(form.value));
+          // alert(JSON.stringify(form.value));
+          // console.log(JSON.stringify(form.value));
           
-          // this.adminService.updateProduct(form.value._id, form.value).subscribe();
+          this.adminService.updateProduct(form.value._id, form.value).subscribe(
+            res => {
+              alert('Create this product is successfully!');
+
+            },
+            err => {
+              alert(err.error.msg);
+            }
+          );
         } else {
           this.adminService.createProduct(form.value).subscribe(
             res => {
