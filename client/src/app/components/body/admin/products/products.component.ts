@@ -173,8 +173,6 @@ export class ProductsComponent implements OnInit {
 
                 formData.append('img', this.croppedImage);
 
-                alert(JSON.stringify(res));
-    
                 this.adminService.uploadProductImg(res['_id'], formData).subscribe(
                   res => {
                     alert('Update this product is successfully!');
