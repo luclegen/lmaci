@@ -53,12 +53,11 @@ export class AdminService {
     return this.http.post(environment.adminUrl + '/create-product', product);
   }
 
-  getProducts() {
-    return this.http.get(environment.adminUrl + '/products');
-  }
-
   uploadProductImg(id: string, img: FormData) {
     return this.http.put(environment.adminUrl + '/upload-product-img/' + id, img);
+  }
+  getProducts() {
+    return this.http.get(environment.adminUrl + '/products');
   }
 
   deleteProduct(id: string) {
