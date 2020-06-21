@@ -64,12 +64,17 @@ div.ls-body-div
 a
   text-decoration: none
   color: blue
+  outline: none
 
-a.active
-  background-color: aqua !important
+  &:hover
+    text-decoration: underline
 
-  p
+  &.active
+    background-color: aqua !important
     color: black !important
+
+    &:hover
+      text-decoration: none
 
 form
   display: flex
