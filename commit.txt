@@ -243,6 +243,7 @@ Routes: ProductComponent
 Images: Product
 Module: NgxImageZoomModule
 Admin Icons
+CRUD Icons
 Product Component: View
 Global Styles
 Commit
