@@ -244,6 +244,7 @@ Images: Product
 Module: NgxImageZoomModule
 Admin Icons
 CRUD Icons
+Search Icons
 Product Component: View
 Global Styles
 Commit
