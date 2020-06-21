@@ -95,24 +95,22 @@ input
   background-color: green
   border: 2px solid gray
 
-input.invalid-input
-  border: 2px solid red
+  &::placeholder
+    color: silver
 
-input::placeholder
-  color: silver
-  font-size: $normal-font-size
-  text-align: center
+  &.invalid
+    border: 2px solid red
 
-input[type=file]
-  position: absolute
-  z-index: -1
+  &[type=file]
+    position: absolute
+    z-index: -1
 
-input[type=submit]
-  background-color: navy
+  &[type=submit]
+    background-color: navy
 
-input[type=submit]:disabled
-  background-color: gray
-  color: silver
+    &:disabled
+      background-color: gray
+      color: silver
 
 label.err
   color: red
