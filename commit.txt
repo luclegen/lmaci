@@ -247,6 +247,7 @@ CRUD Icons
 Search Icons
 Top Navbar Icons
 User Icons
+Icons
 Product Component: View
 Global Styles
 Commit
