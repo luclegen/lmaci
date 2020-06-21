@@ -248,8 +248,8 @@ Search Icons
 Top Navbar Icons
 User Icons
 Icons
-Product Component: View
 Login Component: View
+Product Component: View
 Global Styles
 Commit
 
