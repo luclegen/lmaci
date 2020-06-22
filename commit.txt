@@ -250,6 +250,7 @@ User Icons
 Icons
 Login Component: View
 Actice Component: View
+Change Email Component: View
 Product Component: View
 Global Styles
 Commit
