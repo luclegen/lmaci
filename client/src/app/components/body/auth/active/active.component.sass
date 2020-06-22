@@ -21,22 +21,22 @@ div.form-container
       input
         margin: 0
 
-      input[type=text]
-        width: 90px
-        text-align: left
-        border: none
-        
-      input::placeholder
-        text-align: left
+        &[type=text]
+          width: 90px
+          text-align: left
+          border: none
 
-      input[type=submit]
-        border-top-right-radius: 23px
-        border-bottom-right-radius: 23px
-        border-top: none
-        border-right: none
-        border-bottom: none
-        padding-right: 20px
-        padding-left: 5px
+        &::placeholder
+          text-align: left
+
+        &[type=submit]
+          border-top-right-radius: 23px
+          border-bottom-right-radius: 23px
+          border-top: none
+          border-right: none
+          border-bottom: none
+          padding-right: 20px
+          padding-left: 5px
 
     span.form.invalid-input
       border: 2px solid red
