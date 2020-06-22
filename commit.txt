@@ -253,6 +253,7 @@ Actice Component: View
 Change Email Component: View
 Routes: UserComponent
 User Component: constructor
+User Component: ngOnInit
 Product Component: View
 Global Styles
 Commit
