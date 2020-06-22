@@ -1,6 +1,6 @@
 <app-header></app-header>
 <section class="top-center">
-  <div class="center lime vertical radius container">
+  <div class="center form-container">
     <img src="assets/img/avatars/default.png" alt="User Logo">
     <form #loginForm="ngForm" (ngSubmit)="loginForm.valid && onSubmit(loginForm)">
       <input #username="ngModel" [(ngModel)]="user.username" [ngClass]="{ 'invalid-input': loginForm.submitted && !username.valid }" [pattern]="usernameRegex" type="text" name="username" placeholder="Username" required>
