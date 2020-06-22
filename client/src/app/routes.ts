@@ -24,10 +24,7 @@ export const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'active', component: ActiveComponent, canActivate: [AuthGuard] },
   { path: 'change-email', component: ChangeEmailComponent, canActivate: [AuthGuard] },
-  {
-    path: 'user', component: UserComponent,
-    children: [ { path: ':username', component: ProfileComponent, canActivate: [AuthGuard] } ]
-  },
+  { path: 'user/:username', component: UserComponent },
   { path: 'find-username', component: FindUsernameComponent },
   { path: 'reset-password/:username', component: ResetPasswordComponent },
   { path: 'change-password', component: ChangePasswordComponent, canActivate: [AuthGuard] },
@@ -35,7 +32,5 @@ export const routes: Routes = [
     children: [ { path: 'admins', component: AdminsComponent },
                 { path: 'users', component: UsersComponent },
                 { path: 'products', component: ProductsComponent } ] },
-  {
-    path: 'product/:id', component: ProductComponent
-  }
+  { path: 'product/:id', component: ProductComponent }
 ]
