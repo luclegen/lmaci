@@ -251,6 +251,7 @@ Icons
 Login Component: View
 Actice Component: View
 Change Email Component: View
+Routes: UserComponent
 Product Component: View
 Global Styles
 Commit
