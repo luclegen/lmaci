@@ -105,80 +105,86 @@ input
       background-color: gray
       color: silver
 
-label.err
-  color: red
+label
+  
+  &.err
+    color: red
 
-label#password-error
-  display: none
+  &#password-error
+    display: none
 
-label.msg
-  margin-top: 10px
-  padding: 10px 0
-  border-radius: 15px
-  color: white
-  text-align: center
-  width: 100%
-  font-size: 25px
+  &.msg
+    margin-top: 10px
+    padding: 10px 0
+    border-radius: 15px
+    color: white
+    text-align: center
+    width: 100%
+    font-size: 25px
 
-label.err-msg
-  background-color: red
+  &.err-msg
+    background-color: red
 
-label.suc-msg
-  background-color: blue
+  &.suc-msg
+    background-color: blue
 
-label.left
-  float: left
+  &.left
+    float: left
 
-label.right
-  float: right
-
-span.option
-  width: 100%
-  margin-top: 10px
-
-  a#right
+  &.right
     float: right
 
-span.inline-span
-  display: flex
-  justify-content: center
-  align-items: center
-
-span.inline-color-span
-  display: flex
-  align-items: center
-
-span.input-span
-  margin-top: 10px
+span
   
-  input
-    margin: 0
+  &.option
+    width: 100%
+    margin-top: 10px
 
-svg:hover
-  fill: white
+    a#right
+      float: right
+
+  &.inline-span
+    display: flex
+    justify-content: center
+    align-items: center
+
+  &.inline-color-span
+    display: flex
+    align-items: center
+
+  &.input-span
+    margin-top: 10px
+    
+    input
+      margin: 0
+
+svg
+  
+  &:hover
+    fill: white
 
 meter
   margin-top: 5px
 
-// Webkit based browsers
-meter[value="1"]::-webkit-meter-optimum-value
-  background: red
-meter[value="2"]::-webkit-meter-optimum-value 
-  background: yellow
-meter[value="3"]::-webkit-meter-optimum-value 
-  background: orange
-meter[value="4"]::-webkit-meter-optimum-value 
-  background: green
+  // Webkit based browsers
+  &[value="1"]::-webkit-meter-optimum-value
+    background: red
+  &[value="2"]::-webkit-meter-optimum-value 
+    background: yellow
+  &[value="3"]::-webkit-meter-optimum-value 
+    background: orange
+  &[value="4"]::-webkit-meter-optimum-value 
+    background: green
 
-// Gecko based browsers
-meter[value="1"]::-moz-meter-bar 
-  background: red
-meter[value="2"]::-moz-meter-bar 
-  background: yellow
-meter[value="3"]::-moz-meter-bar 
-  background: orange
-meter[value="4"]::-moz-meter-bar 
-  background: green
+  // Gecko based browsers
+  &[value="1"]::-moz-meter-bar 
+    background: red
+  &[value="2"]::-moz-meter-bar 
+    background: yellow
+  &[value="3"]::-moz-meter-bar 
+    background: orange
+  &[value="4"]::-moz-meter-bar 
+    background: green
 
 select
   background-color: green
@@ -218,152 +224,149 @@ table
   th, td
     padding: 5px
 
-table.ls-table
+  &.ls-table
 
-  thead
-    font-size: 24px
+    thead
+      font-size: 24px
 
-  tbody
-    font-size: 20px
+    tbody
+      font-size: 20px
+
+      tr
+
+        td
+          
+          img
+            margin-top: 8px
+            margin-bottom: 5px
+
+            &.product-img
+              width: 128px
+              height: 128px
+              border-radius: 5px
+
+            &.avatar
+              width: 64px
+              height: 64px
+              border-radius: 50%
+
+          &.address-td
+            width: 20%
+        
+    th
+      position: -webkit-sticky
+      position: sticky
+      z-index: 1
+      background-color: green
 
     tr
+      
+      &:nth-child(1)
 
-      td
-        
-        img
-          margin-top: 8px
-          margin-bottom: 5px
+        th
+          top: 57px
 
-        img.product-img
-          width: 128px
-          height: 128px
-          border-radius: 5px
+      &:nth-child(2)
 
-        img.avatar
-          width: 64px
-          height: 64px
-          border-radius: 50%
+        th
+          top: 100px
 
-      td.address-td
-        width: 20%
-    
-  th
-    position: -webkit-sticky
-    position: sticky
-    z-index: 1
-    background-color: green
+      &:nth-child(3)
 
-  tr:nth-child(1)
+        th
+          top: 140px
 
-    th
-      top: 57px
+  &.only-table
+    margin: 20px 0
 
-  tr:nth-child(2)
+  &.property-table
+    margin-top: 10px
 
-    th
-      top: 100px
+button
 
-  tr:nth-child(3)
+  &.btn
+    width: 50px
+    height: 50px
+    padding: 2px
+    outline: none
+    border: none
 
-    th
-      top: 140px
+    svg
+      width: 46px
+      height: 46px
 
-table.only-table
-  margin: 20px 0
+    &:disabled
+      background: grey
 
-table.property-table
-  margin-top: 10px
+      svg
+        fill: black
 
-.btn
-  width: 50px
-  height: 50px
-  padding: 2px
-  outline: none
-  border: none
+  &.search-btn
+    background-color: blue
+    border-top-right-radius: 25px
+    border-bottom-right-radius: 25px
+    padding-right: 10px
+    width: 60px
 
-  svg
-    width: 46px
-    height: 46px
+  &.ls-btn
+    background-color: red
+    margin-left: 10px
 
-.btn:disabled
-  background: grey
-
-  svg
-    fill: black
-
-.search-btn
-  background-color: blue
-  border-top-right-radius: 25px
-  border-bottom-right-radius: 25px
-  padding-right: 10px
-  width: 60px
-
-.ls-btn
-  background-color: red
-  margin-left: 10px
-
-.func-btn
-  width: 30px
-  height: 30px
-  padding: 0
-  border: none
-  outline: none
-
-  svg
+  &.func-btn
     width: 30px
     height: 30px
+    padding: 0
+    border: none
+    outline: none
 
-.func-btn:disabled
-  background: grey
+    svg
+      width: 30px
+      height: 30px
 
-  svg
-    fill: black
+    &:disabled
+      background: grey
 
-.two-func-btn
-  margin-left: 20px
+      svg
+        fill: black
 
-.three-func-btn
-  margin-left: 10px
+  &.two-func-btn
+    margin-left: 20px
 
-.under-func-btn
-  margin-top: 5px
+  &.three-func-btn
+    margin-left: 10px
 
-.only-btn
-  margin: 0 10px
+  &.under-func-btn
+    margin-top: 5px
 
-.submit-btn
-  margin: 10px 0 20px 0
+  &.only-btn
+    margin: 0 10px
 
-.cancel-btn
-  margin-left: 40px
+  &.submit-btn
+    margin: 10px 0 20px 0
 
-.circle-btn
-  border-radius: 50%
+  &.cancel-btn
+    margin-left: 40px
 
-.square-btn
-  border-radius: 15%
-  
-a.square-btn
-  padding: 5px 3px 0 3px
+  &.circle-btn
+    border-radius: 50%
 
-  svg
-    width: 25px
-    height: 25px
-    
-.red-btn
-  background: red
+  &.square-btn
+    border-radius: 15%
 
-.blue-btn
-  background: blue
+  &.red-btn
+    background: red
 
-.yellow-btn
-  background: yellow
+  &.blue-btn
+    background: blue
 
-#eye-btn
-  background: none
-  border: none
-  outline: none
-  padding: 0 0 0 5px
+  &.yellow-btn
+    background: yellow
 
-  svg#eye
-    display: none
+  &#eye-btn
+    background: none
+    border: none
+    outline: none
+    padding: 0 0 0 5px
+
+    svg#eye
+      display: none
