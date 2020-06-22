@@ -10,48 +10,52 @@ div.form-container
       a
         margin-left: 5px
 
-    span#name
+      &#name
 
-      input.left
-        width: 49%
+      input
 
-      input.right
-        width: 48%
+        &.left
+          width: 49%
 
-    span#password-span
+        &.right
+          width: 48%
 
-      input.left
-        width: 46%
+      &#password-span
 
-      input.right
-        width: 46%
+        input
 
-    span#gender-span
-      width: 99%
-      margin-top: 10px
-      border: 2px solid grey
-      border-radius: 25px
-      background-color: green
+          &.left
+            width: 46%
 
-      label
-        font-size: 25px
-        margin-left: 30px
-        color: white
+          &.right
+            width: 46%
 
-      select
-        border: none
+      &#gender-span
+        width: 99%
+        margin-top: 10px
+        border: 2px solid grey
+        border-radius: 25px
+        background-color: green
+
+        label
+          font-size: 25px
+          margin-left: 30px
+          color: white
+
+        select
+          border: none
 
     input
       border-radius: 25px
 
-    input.sigle
-      width: 99%
+      &.sigle
+        width: 99%
 
-    input.right
-      margin-left: 5px
+      &.right
+        margin-left: 5px
 
-    input[type=submit]
-      width: 99%
+      &[type=submit]
+        width: 99%
 
     meter
       width: 99%
