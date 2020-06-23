@@ -12,4 +12,15 @@ export class ProductComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  prev() {
+
+  }
+ 
+  next() {
+
+  }
+
+  moved() {
+    
+  }
 }
