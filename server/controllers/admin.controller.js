@@ -27,7 +27,7 @@ module.exports.removeAsAdmin = (req, res) => {
 
 module.exports.searchAdmins = (req, res) => {
   let query = req.body.type == 'username' ? { username: RegExp(req.body.keyword, 'i'), role: /^root|admin$/ }
-                                          : { fullName: RegExp(converter.convertName(req.body.keyword), 'i'), role: /^root|admin$/ };
+                                          : { fullName: RegExp(converter.toName(req.body.keyword), 'i'), role: /^root|admin$/ };
   User.find(query, (err, admins) => {
     return admins ? res.status(200).json({ admins })
                   : res.status(404).json({ msg: 'Admins not found.' })
