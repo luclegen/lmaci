@@ -43,6 +43,18 @@ export class ProductComponent implements OnInit {
   }
 
   moved() {
-    
+    const carouselSlide = document.querySelector('.carousel-slide') as HTMLElement;
+    const carouselImages = document.querySelectorAll('.carousel-slide img') as NodeListOf<Element>;
+
+    if (carouselImages[this.counter].id == 'lastClone') {
+      carouselSlide.style.transition = 'none';
+      this.counter = carouselImages.length - 2;
+      carouselSlide.style.transform = 'translateX(' + (-this.size * this.counter) + 'px)';
+    }
+    if (carouselImages[this.counter].id == 'firstClone') {
+      carouselSlide.style.transition = 'none';
+      this.counter = carouselImages.length - this.counter;
+      carouselSlide.style.transform = 'translateX(' + (-this.size * this.counter) + 'px)';
+    }
   }
 }
