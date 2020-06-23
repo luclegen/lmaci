@@ -257,6 +257,7 @@ User Component: ngOnInit
 Carouse Images
 Product Component: ngOnInit
 Product Component: prev
+Product Component: next
 Product Component: View
 Global Styles
 Commit
