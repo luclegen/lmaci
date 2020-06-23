@@ -54,7 +54,7 @@ module.exports.makeAdmin = (req, res) => {
 
 module.exports.searchUsers = (req, res) => {
   let query = req.body.type == 'username' ? { username: RegExp(req.body.keyword, 'i'), role: 'user' }
-                                          : { fullName: RegExp(converter.convertName(req.body.keyword), 'i'), role: 'user' };
+                                          : { fullName: RegExp(converter.toName(req.body.keyword), 'i'), role: 'user' };
   User.find(query, (err, users) => {
     return users ? res.status(200).json({ users })
                   : res.status(404).json({ msg: 'Users not found.' })
