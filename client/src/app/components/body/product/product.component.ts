@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./product.component.sass']
 })
 export class ProductComponent implements OnInit {
-  counter = 1;
+  counter = 0;
   size = 0;
   
   constructor() { }
@@ -26,7 +26,6 @@ export class ProductComponent implements OnInit {
 
     if (this.counter <= 0) return;
 
-    carouselSlide.style.transition = 'transform 0.4s ease-in-out';
     this.counter--;
     carouselSlide.style.transform = 'translateX(' + (-this.size * this.counter) + 'px)';
   }
@@ -37,24 +36,11 @@ export class ProductComponent implements OnInit {
     
     if (this.counter >= carouselImages.length - 1) return;
     
-    carouselSlide.style.transition = 'transform 0.4s ease-in-out';
     this.counter++;
     carouselSlide.style.transform = 'translateX(' + (-this.size * this.counter) + 'px)';
   }
 
   moved() {
-    const carouselSlide = document.querySelector('.carousel-slide') as HTMLElement;
-    const carouselImages = document.querySelectorAll('.carousel-slide img') as NodeListOf<Element>;
-
-    if (carouselImages[this.counter].id == 'lastClone') {
-      carouselSlide.style.transition = 'none';
-      this.counter = carouselImages.length - 2;
-      carouselSlide.style.transform = 'translateX(' + (-this.size * this.counter) + 'px)';
-    }
-    if (carouselImages[this.counter].id == 'firstClone') {
-      carouselSlide.style.transition = 'none';
-      this.counter = carouselImages.length - this.counter;
-      carouselSlide.style.transform = 'translateX(' + (-this.size * this.counter) + 'px)';
-    }
+    
   }
 }
