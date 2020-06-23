@@ -254,6 +254,7 @@ Change Email Component: View
 Routes: UserComponent
 User Component: constructor
 User Component: ngOnInit
+Carouse Images
 Product Component: View
 Global Styles
 Commit
