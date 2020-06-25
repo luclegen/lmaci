@@ -71,8 +71,8 @@ export class ProductComponent implements OnInit {
     const left = document.querySelector('.left') as HTMLElement;
     const carouselContainer = document.querySelector('.carousel-container') as HTMLElement;
     const carouselImages = document.querySelectorAll('.carousel-slide img') as NodeListOf<HTMLElement>;
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
 
     left.style.position = 'absolute';
     left.style.zIndex = '103';
