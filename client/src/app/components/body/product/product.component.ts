@@ -57,7 +57,7 @@ export class ProductComponent implements OnInit {
   }
 
   moved() {
-    this.showArrow();
+    if (this.counter > 0) this.showArrow();
 
     const carouselImages = document.querySelectorAll('.carousel-slide img') as NodeListOf<Element>;
     const prevBtn = document.getElementById('prev-btn');
