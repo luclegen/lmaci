@@ -49,7 +49,12 @@ export class ProductComponent implements OnInit {
   }
 
   hideArrow() {
-    
+    const carouselImages = document.querySelectorAll('.carousel-slide img') as NodeListOf<Element>;
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+
+    prevBtn.style.display = 'none';
+    nextBtn.style.display = 'none';
   }
 
   moved() {
