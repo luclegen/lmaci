@@ -259,6 +259,7 @@ Product Component: ngOnInit
 Product Component: prev
 Product Component: next
 Product Component: moved
+Product Component: showArrow
 Product Component: View
 Global Styles
 Commit
