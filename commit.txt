@@ -260,6 +260,7 @@ Product Component: prev
 Product Component: next
 Product Component: moved
 Product Component: showArrow
+Product Component: hideArrow
 Product Component: View
 Global Styles
 Commit
