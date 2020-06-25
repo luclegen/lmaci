@@ -12,17 +12,11 @@ export class ProductComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    const leftContainer = document.querySelector('.left-container') as HTMLElement;
-    const carouselContainer = document.querySelector('.carousel-container') as HTMLElement;
     const carouselSlide = document.querySelector('.carousel-slide') as HTMLElement;
-    const prevBtn = document.getElementById('prev-btn');
-    const nextBtn = document.getElementById('next-btn');
 
     this.size = carouselSlide.offsetWidth;
 
     carouselSlide.style.transform = 'translateX(' + (-this.size * this.counter) + 'px)';
-    alert(leftContainer.offsetHeight);
-    // alert(((this.size * 0.75) - ));
   }
 
   prev() {
