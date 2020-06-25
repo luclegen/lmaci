@@ -49,8 +49,8 @@ export class ProductComponent implements OnInit {
   }
 
   hideArrow() {
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
 
     prevBtn.style.display = 'none';
     nextBtn.style.display = 'none';
