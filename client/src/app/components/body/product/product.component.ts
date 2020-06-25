@@ -57,6 +57,13 @@ export class ProductComponent implements OnInit {
   }
 
   moved() {
-    
+    this.showArrow();
+
+    const carouselImages = document.querySelectorAll('.carousel-slide img') as NodeListOf<Element>;
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+
+    if (this.counter == 0) prevBtn.style.display = 'none';
+    if (this.counter == carouselImages.length - 1) nextBtn.style.display = 'none';
   }
 }
