@@ -56,17 +56,11 @@ export class ProductComponent implements OnInit {
   }
 
   moved() {
-    const leftContainer = document.querySelector('.left-container') as HTMLElement;
-
-    if (this.counter == 0) {
-      alert(leftContainer.offsetHeight);
-    };
-
-    if (this.counter > 0) this.showArrow();
-
     const carouselImages = document.querySelectorAll('.carousel-slide img') as NodeListOf<Element>;
     const prevBtn = document.getElementById('prev-btn');
     const nextBtn = document.getElementById('next-btn');
+
+    if (this.counter > 0) this.showArrow();
 
     if (this.counter == 0) prevBtn.style.display = 'none';
     if (this.counter == carouselImages.length - 1) nextBtn.style.display = 'none';
