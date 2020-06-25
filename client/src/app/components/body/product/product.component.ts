@@ -18,7 +18,6 @@ export class ProductComponent implements OnInit {
     this.size = carouselSlide.offsetWidth;
 
     carouselSlide.style.transform = 'translateX(' + (-this.size * this.counter) + 'px)';
-
   }
 
   prev() {
@@ -29,7 +28,7 @@ export class ProductComponent implements OnInit {
     this.counter--;
     carouselSlide.style.transform = 'translateX(' + (-this.size * this.counter) + 'px)';
   }
- 
+
   next() {
     const carouselSlide = document.querySelector('.carousel-slide') as HTMLElement;
     const carouselImages = document.querySelectorAll('.carousel-slide img') as NodeListOf<Element>;
@@ -38,6 +37,14 @@ export class ProductComponent implements OnInit {
     
     this.counter++;
     carouselSlide.style.transform = 'translateX(' + (-this.size * this.counter) + 'px)';
+  }
+
+  showArrow() {
+    alert('show');
+  }
+
+  hideArrow() {
+    alert('hide');
   }
 
   moved() {
