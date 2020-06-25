@@ -12,6 +12,7 @@ export class ProductComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    const left = document.querySelector('.left') as HTMLElement;
     const carouselContainer = document.querySelector('.carousel-container') as HTMLElement;
     const carouselSlide = document.querySelector('.carousel-slide') as HTMLElement;
     const prevBtn = document.getElementById('prev-btn');
