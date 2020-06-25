@@ -66,4 +66,8 @@ export class ProductComponent implements OnInit {
     if (this.counter == 0) prevBtn.style.display = 'none';
     if (this.counter == carouselImages.length - 1) nextBtn.style.display = 'none';
   }
+
+  showGallery() {
+    alert();
+  }
 }
