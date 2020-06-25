@@ -12,7 +12,7 @@ export class ProductComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    const left = document.querySelector('.left') as HTMLElement;
+    const leftContainer = document.querySelector('.left-container') as HTMLElement;
     const carouselContainer = document.querySelector('.carousel-container') as HTMLElement;
     const carouselSlide = document.querySelector('.carousel-slide') as HTMLElement;
     const prevBtn = document.getElementById('prev-btn');
@@ -21,7 +21,7 @@ export class ProductComponent implements OnInit {
     this.size = carouselSlide.offsetWidth;
 
     carouselSlide.style.transform = 'translateX(' + (-this.size * this.counter) + 'px)';
-
+    alert(leftContainer.offsetHeight);
     // alert(((this.size * 0.75) - ));
   }
 
@@ -62,6 +62,12 @@ export class ProductComponent implements OnInit {
   }
 
   moved() {
+    const leftContainer = document.querySelector('.left-container') as HTMLElement;
+
+    if (this.counter == 0) {
+      alert(leftContainer.offsetHeight);
+    };
+
     if (this.counter > 0) this.showArrow();
 
     const carouselImages = document.querySelectorAll('.carousel-slide img') as NodeListOf<Element>;
