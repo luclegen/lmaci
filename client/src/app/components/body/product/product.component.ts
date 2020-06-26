@@ -85,9 +85,12 @@ export class ProductComponent implements OnInit {
     const carouselContainer = document.querySelector('.carousel-container') as HTMLElement;
     const carouselSlide = document.querySelector('.carousel-slide') as HTMLElement;
     const carouselImages = document.querySelectorAll('.carousel-slide img') as NodeListOf<HTMLElement>;
+    const galleryCarouselContainer = document.querySelector('.gallery-carousel-container') as HTMLElement;
+    const galleryCarouselImages = document.querySelectorAll('.gallery-carousel-container img') as NodeListOf<HTMLElement>;
     const prevBtn = document.getElementById('prev-btn');
     const nextBtn = document.getElementById('next-btn');
     const vpWidth = document.documentElement.clientWidth;
+    const vpHeight = document.documentElement.clientHeight;
     const carouselButtonWidth = vpWidth * 0.05;
     const carouselButtonHeight = vpWidth * 0.05 * 1.04;
 
@@ -100,17 +103,22 @@ export class ProductComponent implements OnInit {
     leftContainer.style.width = '100vw';
     leftContainer.style.height = '100vh';
 
-    // for (let i = 0; i < carouselImages.length; i++) {
-    //   carouselImages[i].style.height = '100%';
-      
-    // }
+    for (let i = 0; i < carouselImages.length; i++) {
+      carouselImages[i].style.height = vpHeight * 3/4 * 1.1 + 'px';
+      carouselImages[i].style.width = carouselImages[i].clientHeight * 4/3 + 'px';
+    }
+
+    // alert(carouselImages[0].clientHeight);
+    // alert(carouselContainer.clientHeight);
+
+    carouselContainer.style.height = carouselImages[0].clientHeight + 'px';
+    carouselContainer.style.border = '5px solid white';
 
     prevBtn.style.fill = 'white';
-    prevBtn.style.top = '45%';
+    prevBtn.style.top = nextBtn.style.top = '45%';
     prevBtn.style.left = ((vpWidth - carouselImages[0].offsetWidth) * 0.5 + carouselImages[0].offsetWidth * 0.03) + 'px';
 
     nextBtn.style.fill = 'white';
-    nextBtn.style.top = '45%';
     nextBtn.style.left = ((vpWidth - carouselImages[0].offsetWidth) * 0.5 + carouselImages[0].offsetWidth * (1 - 0.03) - carouselButtonWidth) + 'px';
 
     carouselSlide.style.transition = 'none';
@@ -120,5 +128,7 @@ export class ProductComponent implements OnInit {
 
     carouselContainer.style.width = this.size + 'px';
     carouselSlide.style.transform = 'translateX(' + (-this.size * this.counter) + 'px)';
+
+    galleryCarouselContainer.style.display = 'flex';
   }
 }
