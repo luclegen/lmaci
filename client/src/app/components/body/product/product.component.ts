@@ -141,7 +141,7 @@ export class ProductComponent implements OnInit {
     galleryCarouselContainer.style.bottom = '0';
 
     for (let i = 0; i < galleryCarouselImages.length; i++) {
-      galleryCarouselImages[i].style.height = (vpHeight - carouselContainer.clientHeight - 2) + 'px';
+      galleryCarouselImages[i].style.height = (vpHeight - carouselContainer.clientHeight - 3) + 'px';
       if (i < galleryCarouselImages.length - 1) galleryCarouselImages[i].style.marginRight = '1px';
     }
 
