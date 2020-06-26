@@ -262,6 +262,7 @@ Product Component: moved
 Product Component: showArrow
 Product Component: hideArrow
 Product Component: showGallery
+Product Component: onResize
 Product Component: View
 Global Styles
 Commit
