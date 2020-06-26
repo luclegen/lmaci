@@ -87,6 +87,9 @@ export class ProductComponent implements OnInit {
     const carouselImages = document.querySelectorAll('.carousel-slide img') as NodeListOf<HTMLElement>;
     const prevBtn = document.getElementById('prev-btn');
     const nextBtn = document.getElementById('next-btn');
+    const vpWidth = document.documentElement.clientWidth;
+    const carouselButtonWidth = vpWidth * 0.05;
+    const carouselButtonHeight = vpWidth * 0.05 * 1.04;
 
     leftContainer.style.position = 'absolute';
     leftContainer.style.zIndex = '103';
@@ -99,11 +102,11 @@ export class ProductComponent implements OnInit {
 
     prevBtn.style.fill = 'white';
     prevBtn.style.top = '45%';
-    prevBtn.style.left = '15%';
+    prevBtn.style.left = ((vpWidth - carouselImages[0].offsetWidth) * 0.5 + carouselImages[0].offsetWidth * 0.03) + 'px';
 
     nextBtn.style.fill = 'white';
     nextBtn.style.top = '45%';
-    nextBtn.style.left = '80%';
+    nextBtn.style.left = ((vpWidth - carouselImages[0].offsetWidth) * 0.5 + carouselImages[0].offsetWidth * (1 - 0.03) - carouselButtonWidth) + 'px';
 
     carouselSlide.style.transition = 'none';
     carouselSlide.style.transform = 'translateX(' + (-this.size * 0) + 'px)';
@@ -112,8 +115,5 @@ export class ProductComponent implements OnInit {
 
     carouselContainer.style.width = this.size + 'px';
     carouselSlide.style.transform = 'translateX(' + (-this.size * this.counter) + 'px)';
-    // carouselSlide.style.transition = 'transform 0.4s ease-in-out';
-
-    // carouselContainer.style.margin = '0';
   }
 }
