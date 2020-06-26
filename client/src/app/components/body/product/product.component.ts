@@ -14,6 +14,8 @@ export class ProductComponent implements OnInit {
   ngOnInit(): void {
     const carouselSlide = document.querySelector('.carousel-slide') as HTMLElement;
     const carouselButton = document.querySelector('.carousel-container button') as HTMLElement;
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
     const vpWidth = document.documentElement.clientWidth;
     const carouselContainerWidth = vpWidth * (0.4 - 0.005) * (1 - 0.2);
     const carouselContainerHeight = vpWidth * (0.4 - 0.005) * (1 - 0.2) * 0.75;
