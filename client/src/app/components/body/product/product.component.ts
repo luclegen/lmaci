@@ -16,7 +16,7 @@ export class ProductComponent implements OnInit {
     const prevBtn = document.getElementById('prev-btn');
     const nextBtn = document.getElementById('next-btn');
     const vpWidth = document.documentElement.clientWidth;
-    const carouselContainerWidth = vpWidth * 0.4 * (1 - 0.2);
+    const carouselContainerWidth = vpWidth * 0.395;
     const carouselContainerHeight = carouselContainerWidth * 0.75;
     const carouselButtonWidth = vpWidth * 0.05;
     const carouselButtonHeight = vpWidth * 0.05 * 1.04;
