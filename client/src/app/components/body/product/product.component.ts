@@ -100,6 +100,11 @@ export class ProductComponent implements OnInit {
     leftContainer.style.width = '100vw';
     leftContainer.style.height = '100vh';
 
+    // for (let i = 0; i < carouselImages.length; i++) {
+    //   carouselImages[i].style.height = '100%';
+      
+    // }
+
     prevBtn.style.fill = 'white';
     prevBtn.style.top = '45%';
     prevBtn.style.left = ((vpWidth - carouselImages[0].offsetWidth) * 0.5 + carouselImages[0].offsetWidth * 0.03) + 'px';
