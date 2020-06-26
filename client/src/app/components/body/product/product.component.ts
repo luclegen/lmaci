@@ -16,15 +16,15 @@ export class ProductComponent implements OnInit {
     const prevBtn = document.getElementById('prev-btn');
     const nextBtn = document.getElementById('next-btn');
     const vpWidth = document.documentElement.clientWidth;
-    const carouselContainerWidth = vpWidth * (0.4 - 0.005) * (1 - 0.2);
+    const carouselContainerWidth = vpWidth * 0.4 * (1 - 0.2);
     const carouselContainerHeight = carouselContainerWidth * 0.75;
     const carouselButtonWidth = vpWidth * 0.05;
     const carouselButtonHeight = vpWidth * 0.05 * 1.04;
 
-    prevBtn.style.top = ((carouselContainerHeight + vpWidth * 0.005 - carouselButtonHeight) * 0.5 + 60) + 'px';
+    prevBtn.style.top = ((carouselContainerHeight - carouselButtonHeight) * 0.5 + 60) + 'px';
     prevBtn.style.left = (vpWidth * (0.1 + 0.4 * 0.1) + carouselContainerWidth * 0.03) + 'px';
 
-    nextBtn.style.top = ((carouselContainerHeight + vpWidth * 0.005 - carouselButtonHeight) * 0.5 + 60) + 'px';
+    nextBtn.style.top = ((carouselContainerHeight - carouselButtonHeight) * 0.5 + 60) + 'px';
     nextBtn.style.left = (vpWidth * (0.1 + 0.4 * 0.9) - carouselButtonWidth - carouselContainerWidth * 0.03) + 'px';
 
     this.size = carouselSlide.offsetWidth;
