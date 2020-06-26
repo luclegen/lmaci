@@ -17,9 +17,9 @@ export class ProductComponent implements OnInit {
     const vpWidth = document.documentElement.clientWidth;
     const carouselContainerWidth = vpWidth * (0.4 - 0.005) * (1 - 0.2);
     const carouselContainerHeight = vpWidth * (0.4 - 0.005) * (1 - 0.2) * 0.75;
-    const carouselButtonHeight = carouselContainerWidth * 0.05;
+    const carouselButtonHeight = vpWidth * 0.05;
 
-    alert(carouselContainerWidth);
+    alert(carouselButtonHeight);
 
     this.size = carouselSlide.offsetWidth;
 
