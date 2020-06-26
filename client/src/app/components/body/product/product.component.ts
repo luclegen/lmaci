@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-product',
@@ -9,7 +9,19 @@ export class ProductComponent implements OnInit {
   counter = 0;
   size = 0;
   title = 'Test';
-  
+
+  @HostListener('window:resize')
+  onResize() {
+    const leftContainer = document.querySelector('.left-container') as HTMLElement;
+    const carouselSlide = document.querySelector('.carousel-slide') as HTMLElement;
+    carouselSlide.style.transition = 'none';
+    this.ngOnInit();
+    if (leftContainer.style.getPropertyValue('position') == 'absolute') {
+      this.showGallery();
+      this.showGallery();
+    }
+  }
+
   constructor() { }
 
   ngOnInit(): void {
