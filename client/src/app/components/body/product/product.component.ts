@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class ProductComponent implements OnInit {
   counter = 0;
   size = 0;
+  title = 'Test';
   
   constructor() { }
 
