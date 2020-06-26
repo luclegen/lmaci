@@ -98,6 +98,7 @@ export class ProductComponent implements OnInit {
     const carouselSlide = document.querySelector('.carousel-slide') as HTMLElement;
     const carouselImages = document.querySelectorAll('.carousel-slide img') as NodeListOf<HTMLElement>;
     const galleryCarouselContainer = document.querySelector('.gallery-carousel-container') as HTMLElement;
+    const galleryFrame = document.querySelector('.gallery-frame') as HTMLElement;
     const galleryCarouselImages = document.querySelectorAll('.gallery-carousel-container img') as NodeListOf<HTMLElement>;
     const prevBtn = document.getElementById('prev-btn');
     const nextBtn = document.getElementById('next-btn');
@@ -141,9 +142,12 @@ export class ProductComponent implements OnInit {
 
     for (let i = 0; i < galleryCarouselImages.length; i++) {
       galleryCarouselImages[i].style.height = (vpHeight - carouselContainer.clientHeight - 2) + 'px';
-      galleryCarouselImages[i].style.borderLeft = '2px solid black';
+      if (i < galleryCarouselImages.length - 1) galleryCarouselImages[i].style.marginRight = '1px';
     }
 
-    galleryCarouselContainer.style.width = galleryCarouselImages.length * galleryCarouselImages[0].clientWidth + 'px';
+    galleryCarouselContainer.style.width = (galleryCarouselImages.length + 1) * galleryCarouselImages[0].clientWidth + 'px';
+
+    galleryFrame.style.width = galleryCarouselImages[0].clientWidth + 'px';
+    galleryFrame.style.height = galleryCarouselImages[0].clientHeight + 'px';
   }
 }
