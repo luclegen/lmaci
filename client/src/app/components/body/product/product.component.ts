@@ -104,22 +104,16 @@ export class ProductComponent implements OnInit {
     leftContainer.style.height = '100vh';
 
     for (let i = 0; i < carouselImages.length; i++) {
-      carouselImages[i].style.height = vpHeight * 3/4 * 1.1 + 'px';
+      carouselImages[i].style.height = vpHeight * 3/4 * 1.2 + 'px';
       carouselImages[i].style.width = carouselImages[i].clientHeight * 4/3 + 'px';
     }
 
-    // alert(carouselImages[0].clientHeight);
-    // alert(carouselContainer.clientHeight);
-
     carouselContainer.style.height = carouselImages[0].clientHeight + 'px';
-    carouselContainer.style.border = '5px solid white';
+    carouselContainer.style.width = carouselImages[0].clientWidth + 'px';
 
-    prevBtn.style.fill = 'white';
-    prevBtn.style.top = nextBtn.style.top = '45%';
-    prevBtn.style.left = ((vpWidth - carouselImages[0].offsetWidth) * 0.5 + carouselImages[0].offsetWidth * 0.03) + 'px';
-
-    nextBtn.style.fill = 'white';
-    nextBtn.style.left = ((vpWidth - carouselImages[0].offsetWidth) * 0.5 + carouselImages[0].offsetWidth * (1 - 0.03) - carouselButtonWidth) + 'px';
+    prevBtn.style.top = nextBtn.style.top = (carouselContainer.clientHeight - carouselButtonHeight) * 0.5 + 'px';
+    prevBtn.style.left = ((vpWidth - carouselContainer.clientWidth) * 0.5 + carouselContainer.clientWidth * 0.03) + 'px';
+    nextBtn.style.left = ((vpWidth - carouselContainer.clientWidth) * 0.5 + carouselContainer.clientWidth * (1 - 0.03) - carouselButtonWidth) + 'px';
 
     carouselSlide.style.transition = 'none';
     carouselSlide.style.transform = 'translateX(' + (-this.size * 0) + 'px)';
@@ -129,6 +123,15 @@ export class ProductComponent implements OnInit {
     carouselContainer.style.width = this.size + 'px';
     carouselSlide.style.transform = 'translateX(' + (-this.size * this.counter) + 'px)';
 
+    galleryCarouselContainer.style.position = 'absolute';
     galleryCarouselContainer.style.display = 'flex';
+    galleryCarouselContainer.style.bottom = '0';
+
+    for (let i = 0; i < galleryCarouselImages.length; i++) {
+      galleryCarouselImages[i].style.height = (vpHeight - carouselContainer.clientHeight - 2) + 'px';
+      galleryCarouselImages[i].style.borderLeft = '2px solid black';
+    }
+
+    galleryCarouselContainer.style.width = galleryCarouselImages.length * galleryCarouselImages[0].clientWidth + 'px';
   }
 }
