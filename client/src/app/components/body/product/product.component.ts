@@ -47,6 +47,7 @@ export class ProductComponent implements OnInit {
     
     if (this.counter >= carouselImages.length - 1) return;
     
+    carouselSlide.style.transition = 'transform 0.4s ease-in-out';
     this.counter++;
     carouselSlide.style.transform = 'translateX(' + (-this.size * this.counter) + 'px)';
   }
