@@ -148,16 +148,19 @@ export class ProductComponent implements OnInit {
     galleryCarouselNav.style.bottom = '0';
 
     for (let i = 0; i < galleryCarouselImages.length; i++) {
-      galleryCarouselImages[i].style.height = (vpHeight - carouselContainer.clientHeight - 6) + 'px';
+      galleryCarouselImages[i].style.height = (vpHeight - carouselContainer.clientHeight - 10) + 'px';
       if (i > 0 && i < galleryCarouselImages.length - 1) galleryCarouselImages[i].style.marginRight = '1px';
     }
 
-    if (galleryCarouselImages.length * galleryCarouselImages[0].clientWidth >= vpWidth) galleryCarouselNav.style.width = (vpWidth - galleryCarouselImages[0].clientWidth) + 'px';
-    else galleryCarouselNav.style.width = galleryCarouselImages.length * galleryCarouselImages[0].clientWidth + 'px';
+    if (galleryCarouselImages.length * galleryCarouselImages[0].clientWidth >= vpWidth) {
+      galleryCarouselNav.style.width = (vpWidth + galleryCarouselImages[0].clientWidth) + 'px';
+      galleryCarouselNav.style.overflow = 'auto';
+    } else galleryCarouselNav.style.width = galleryCarouselImages.length * galleryCarouselImages[0].clientWidth + 'px';
 
     this.sizeFrame = galleryCarouselImages[this.counter].clientWidth;
     
     if (galleryCarouselImages.length * galleryCarouselImages[0].clientWidth < vpWidth) galleryCarouselNav.style.transform = 'translateX(' + (-this.sizeFrame * 0.5 - (galleryCarouselImages.length - 1)) + 'px)';
+    else galleryCarouselNav.style.transform = 'translateX(' + (-this.sizeFrame * 0.5) + 'px)';
 
     galleryFrame.style.transition = 'none';
     galleryFrame.style.transform = 'translateX(' + ((this.sizeFrame + 1) * (this.counter + 1) + 1) + 'px)';
