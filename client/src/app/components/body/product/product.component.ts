@@ -199,7 +199,7 @@ export class ProductComponent implements OnInit {
     const leftContainer = document.querySelector('.left-container') as HTMLElement;
     const carouselImages = document.querySelectorAll('.carousel-slide img') as NodeListOf<HTMLElement>;
     const galleryCarouselNav = document.querySelector('.gallery-carousel-nav') as HTMLElement;
-    const vpHeight = document.documentElement.clientHeight;
+    const carouselSlide = document.querySelector('.carousel-slide') as HTMLElement;
     const vpWidth = document.documentElement.clientWidth;
     const closeBtn = document.getElementById('close-btn');
 
@@ -210,9 +210,11 @@ export class ProductComponent implements OnInit {
     leftContainer.style.height = leftContainer.clientWidth * 0.75 + 'px';
     leftContainer.style.marginLeft = '10%';
 
-    galleryCarouselNav.style.display = 'none';
-
     closeBtn.style.display = 'none';
+
+    carouselSlide.style.transition = 'none';
+
+    galleryCarouselNav.style.display = 'none';
 
     this.ngOnInit();
 
