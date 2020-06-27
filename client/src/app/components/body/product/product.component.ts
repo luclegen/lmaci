@@ -194,4 +194,8 @@ export class ProductComponent implements OnInit {
     carouselSlide.style.transform = 'translateX(' + (-this.size * this.counter) + 'px)';
     galleryFrame.style.transform = 'translateX(' + ((this.sizeFrame + 1) * (this.counter + 1) + 1) + 'px)';
   }
+
+  closeGallery() {
+    
+  }
 }
