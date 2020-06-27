@@ -107,6 +107,7 @@ export class ProductComponent implements OnInit {
     const galleryCarouselNav = document.querySelector('.gallery-carousel-nav') as HTMLElement;
     const galleryFrame = document.querySelector('.gallery-frame') as HTMLElement;
     const galleryCarouselImages = document.querySelectorAll('.gallery-carousel-nav img') as NodeListOf<HTMLElement>;
+    const closeBtn = document.getElementById('close-btn');
     const prevBtn = document.getElementById('prev-btn');
     const nextBtn = document.getElementById('next-btn');
     const vpWidth = document.documentElement.clientWidth;
@@ -131,6 +132,12 @@ export class ProductComponent implements OnInit {
     carouselContainer.style.height = carouselImages[0].clientHeight + 'px';
     carouselContainer.style.width = carouselImages[0].clientWidth + 'px';
 
+    closeBtn.style.display = 'inline';
+    closeBtn.style.padding = '5px 5px 2px 5px';
+    closeBtn.style.background = 'red';
+    closeBtn.style.borderRadius = '50%';
+    closeBtn.style.top = '10px';
+    closeBtn.style.right = '10px';
     prevBtn.style.top = nextBtn.style.top = (carouselContainer.clientHeight - carouselButtonHeight) * 0.5 + 'px';
     prevBtn.style.left = ((vpWidth - carouselContainer.clientWidth) * 0.5 + carouselContainer.clientWidth * 0.03) + 'px';
     nextBtn.style.left = ((vpWidth - carouselContainer.clientWidth) * 0.5 + carouselContainer.clientWidth * (1 - 0.03) - carouselButtonWidth) + 'px';
