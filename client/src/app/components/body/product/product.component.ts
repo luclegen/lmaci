@@ -46,12 +46,15 @@ export class ProductComponent implements OnInit {
 
   prev() {
     const carouselSlide = document.querySelector('.carousel-slide') as HTMLElement;
+    const galleryFrame = document.querySelector('.gallery-frame') as HTMLElement;
 
     if (this.counter <= 0) return;
 
     carouselSlide.style.transition = 'transform 0.4s ease-in-out';
+    galleryFrame.style.transition = 'transform 0.4s ease-in-out';
     this.counter--;
     carouselSlide.style.transform = 'translateX(' + (-this.size * this.counter) + 'px)';
+    galleryFrame.style.transform = 'translateX(' + ((this.sizeFrame + 1) * (this.counter + 1) + 1) + 'px)';
   }
 
   next() {
