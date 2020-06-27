@@ -198,6 +198,7 @@ export class ProductComponent implements OnInit {
   closeGallery() {
     const leftContainer = document.querySelector('.left-container') as HTMLElement;
     const carouselImages = document.querySelectorAll('.carousel-slide img') as NodeListOf<HTMLElement>;
+    const galleryCarouselNav = document.querySelector('.gallery-carousel-nav') as HTMLElement;
     const vpHeight = document.documentElement.clientHeight;
     const vpWidth = document.documentElement.clientWidth;
     const closeBtn = document.getElementById('close-btn');
@@ -208,6 +209,8 @@ export class ProductComponent implements OnInit {
     leftContainer.style.margin = '0 0.5% 0 10%';
     leftContainer.style.height = leftContainer.clientWidth * 0.75 + 'px';
     leftContainer.style.marginLeft = '10%';
+
+    galleryCarouselNav.style.display = 'none';
 
     closeBtn.style.display = 'none';
 
