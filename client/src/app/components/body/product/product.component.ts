@@ -158,6 +158,7 @@ export class ProductComponent implements OnInit {
     
     galleryCarouselContainer.style.transform = 'translateX(' + (-this.sizeFrame * 0.5 - (galleryCarouselImages.length - 1)) + 'px)';
 
+    galleryFrame.style.transition = 'none';
     galleryFrame.style.transform = 'translateX(' + ((this.sizeFrame + 1) * (this.counter + 1) + 1) + 'px)';
   }
 }
