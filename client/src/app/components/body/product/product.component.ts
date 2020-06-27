@@ -161,4 +161,8 @@ export class ProductComponent implements OnInit {
     galleryFrame.style.transition = 'none';
     galleryFrame.style.transform = 'translateX(' + ((this.sizeFrame + 1) * (this.counter + 1) + 1) + 'px)';
   }
+
+  selectImg(event: any) {
+
+  }
 }
