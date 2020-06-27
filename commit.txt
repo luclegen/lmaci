@@ -264,7 +264,7 @@ Product Component: hideArrow
 Product Component: showGallery
 Product Component: onResize
 Product Component: selectImg
-Product Component: showGallery
+Product Component: closeGallery
 Product Component: View
 Global Styles
 Commit
