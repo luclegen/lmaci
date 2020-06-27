@@ -104,7 +104,7 @@ export class ProductComponent implements OnInit {
     const carouselContainer = document.querySelector('.carousel-container') as HTMLElement;
     const carouselSlide = document.querySelector('.carousel-slide') as HTMLElement;
     const carouselImages = document.querySelectorAll('.carousel-slide img') as NodeListOf<HTMLElement>;
-    const galleryCarouselContainer = document.querySelector('.gallery-carousel-nav') as HTMLElement;
+    const galleryCarouselNav = document.querySelector('.gallery-carousel-nav') as HTMLElement;
     const galleryFrame = document.querySelector('.gallery-frame') as HTMLElement;
     const galleryCarouselImages = document.querySelectorAll('.gallery-carousel-nav img') as NodeListOf<HTMLElement>;
     const prevBtn = document.getElementById('prev-btn');
@@ -143,20 +143,20 @@ export class ProductComponent implements OnInit {
     carouselContainer.style.width = this.size + 'px';
     carouselSlide.style.transform = 'translateX(' + (-this.size * this.counter) + 'px)';
 
-    galleryCarouselContainer.style.position = 'absolute';
-    galleryCarouselContainer.style.display = 'flex';
-    galleryCarouselContainer.style.bottom = '0';
+    galleryCarouselNav.style.position = 'absolute';
+    galleryCarouselNav.style.display = 'flex';
+    galleryCarouselNav.style.bottom = '0';
 
     for (let i = 0; i < galleryCarouselImages.length; i++) {
       galleryCarouselImages[i].style.height = (vpHeight - carouselContainer.clientHeight - 6) + 'px';
       if (i > 0 && i < galleryCarouselImages.length - 1) galleryCarouselImages[i].style.marginRight = '1px';
     }
 
-    galleryCarouselContainer.style.width = (galleryCarouselImages.length) * galleryCarouselImages[0].clientWidth + 'px';
+    galleryCarouselNav.style.width = (galleryCarouselImages.length) * galleryCarouselImages[0].clientWidth + 'px';
 
     this.sizeFrame = galleryCarouselImages[this.counter].clientWidth;
     
-    galleryCarouselContainer.style.transform = 'translateX(' + (-this.sizeFrame * 0.5 - (galleryCarouselImages.length - 1)) + 'px)';
+    galleryCarouselNav.style.transform = 'translateX(' + (-this.sizeFrame * 0.5 - (galleryCarouselImages.length - 1)) + 'px)';
 
     galleryFrame.style.transition = 'none';
     galleryFrame.style.transform = 'translateX(' + ((this.sizeFrame + 1) * (this.counter + 1) + 1) + 'px)';
