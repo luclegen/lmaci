@@ -163,6 +163,12 @@ export class ProductComponent implements OnInit {
   }
 
   selectImg(event: any) {
+    const targetImg = event.target.closest('img');
+    // alert(targetImg);
+
+    if (!targetImg) return;
+
+    // const targetIndex = dots.findIndex(dot => dot == targetDot);
 
   }
 }
