@@ -8,6 +8,7 @@ import { Component, OnInit, HostListener } from '@angular/core';
 export class ProductComponent implements OnInit {
   counter = 0;
   size = 0;
+  sizeFrame = 0;
   title = 'Test';
 
   @HostListener('window:resize')
@@ -141,13 +142,18 @@ export class ProductComponent implements OnInit {
     galleryCarouselContainer.style.bottom = '0';
 
     for (let i = 0; i < galleryCarouselImages.length; i++) {
-      galleryCarouselImages[i].style.height = (vpHeight - carouselContainer.clientHeight - 3) + 'px';
-      if (i < galleryCarouselImages.length - 1) galleryCarouselImages[i].style.marginRight = '1px';
+      galleryCarouselImages[i].style.height = (vpHeight - carouselContainer.clientHeight - 6) + 'px';
+      if (i > 0 && i < galleryCarouselImages.length - 1) galleryCarouselImages[i].style.marginRight = '1px';
     }
 
-    galleryCarouselContainer.style.width = (galleryCarouselImages.length + 1) * galleryCarouselImages[0].clientWidth + 'px';
+    galleryCarouselContainer.style.width = (galleryCarouselImages.length) * galleryCarouselImages[0].clientWidth + 'px';
 
-    galleryFrame.style.width = galleryCarouselImages[0].clientWidth + 'px';
-    galleryFrame.style.height = galleryCarouselImages[0].clientHeight + 'px';
+    this.sizeFrame = galleryCarouselImages[this.counter].clientWidth;
+    
+    let translateX = (this.sizeFrame + 1) * (this.counter + 1) + 1;
+    
+    galleryCarouselContainer.style.transform = 'translateX(' + (-this.sizeFrame * 0.5 - (galleryCarouselImages.length - 1)) + 'px)';
+
+    galleryFrame.style.transform = 'translateX(' + ((this.sizeFrame + 1) * (this.counter + 1) + 1) + 'px)';
   }
 }
