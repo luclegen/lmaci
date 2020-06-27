@@ -104,9 +104,9 @@ export class ProductComponent implements OnInit {
     const carouselContainer = document.querySelector('.carousel-container') as HTMLElement;
     const carouselSlide = document.querySelector('.carousel-slide') as HTMLElement;
     const carouselImages = document.querySelectorAll('.carousel-slide img') as NodeListOf<HTMLElement>;
-    const galleryCarouselContainer = document.querySelector('.gallery-carousel-container') as HTMLElement;
+    const galleryCarouselContainer = document.querySelector('.gallery-carousel-nav') as HTMLElement;
     const galleryFrame = document.querySelector('.gallery-frame') as HTMLElement;
-    const galleryCarouselImages = document.querySelectorAll('.gallery-carousel-container img') as NodeListOf<HTMLElement>;
+    const galleryCarouselImages = document.querySelectorAll('.gallery-carousel-nav img') as NodeListOf<HTMLElement>;
     const prevBtn = document.getElementById('prev-btn');
     const nextBtn = document.getElementById('next-btn');
     const vpWidth = document.documentElement.clientWidth;
