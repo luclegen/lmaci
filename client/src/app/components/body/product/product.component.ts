@@ -150,8 +150,6 @@ export class ProductComponent implements OnInit {
 
     this.sizeFrame = galleryCarouselImages[this.counter].clientWidth;
     
-    let translateX = (this.sizeFrame + 1) * (this.counter + 1) + 1;
-    
     galleryCarouselContainer.style.transform = 'translateX(' + (-this.sizeFrame * 0.5 - (galleryCarouselImages.length - 1)) + 'px)';
 
     galleryFrame.style.transform = 'translateX(' + ((this.sizeFrame + 1) * (this.counter + 1) + 1) + 'px)';
