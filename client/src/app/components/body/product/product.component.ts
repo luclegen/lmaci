@@ -196,6 +196,26 @@ export class ProductComponent implements OnInit {
   }
 
   closeGallery() {
-    
+    const leftContainer = document.querySelector('.left-container') as HTMLElement;
+    const carouselImages = document.querySelectorAll('.carousel-slide img') as NodeListOf<HTMLElement>;
+    const vpHeight = document.documentElement.clientHeight;
+    const vpWidth = document.documentElement.clientWidth;
+    const closeBtn = document.getElementById('close-btn');
+
+    leftContainer.style.position = 'static';
+    leftContainer.style.height = 'auto';
+    leftContainer.style.width = vpWidth * 0.395 + 'px';
+    leftContainer.style.margin = '0 0.5% 0 10%';
+    leftContainer.style.height = leftContainer.clientWidth * 0.75 + 'px';
+    leftContainer.style.marginLeft = '10%';
+
+    closeBtn.style.display = 'none';
+
+    this.ngOnInit();
+
+    for (let i = 0; i < carouselImages.length; i++) {
+      carouselImages[i].style.width = '100%';
+      carouselImages[i].style.height = '100%';
+    }
   }
 }
