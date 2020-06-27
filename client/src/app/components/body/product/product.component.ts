@@ -20,7 +20,7 @@ export class ProductComponent implements OnInit {
     if (leftContainer.style.getPropertyValue('position') == 'absolute') {
       this.showGallery();
       this.showGallery();
-    }
+    } else this.closeGallery();
   }
 
   constructor() { }
