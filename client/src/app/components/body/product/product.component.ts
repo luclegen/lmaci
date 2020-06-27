@@ -163,12 +163,24 @@ export class ProductComponent implements OnInit {
   }
 
   selectImg(event: any) {
+    const carouselSlide = document.querySelector('.carousel-slide') as HTMLElement;
+    const galleryCarouselNav = document.querySelector('.gallery-carousel-nav') as HTMLElement;
+    const galleryFrame = document.querySelector('.gallery-frame') as HTMLElement;
+    const imgs = Array.from(galleryCarouselNav.children);
     const targetImg = event.target.closest('img');
-    // alert(targetImg);
 
     if (!targetImg) return;
 
-    // const targetIndex = dots.findIndex(dot => dot == targetDot);
+    const targetIndex = imgs.findIndex(img => img == targetImg);
 
+    if (targetIndex < 0) return;
+
+    carouselSlide.style.transition = 'transform 0.4s ease-in-out';
+    galleryFrame.style.transition = 'transform 0.4s ease-in-out';
+
+    this.counter = targetIndex - 1;
+
+    carouselSlide.style.transform = 'translateX(' + (-this.size * this.counter) + 'px)';
+    galleryFrame.style.transform = 'translateX(' + ((this.sizeFrame + 1) * (this.counter + 1) + 1) + 'px)';
   }
 }
