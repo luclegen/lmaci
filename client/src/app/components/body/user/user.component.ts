@@ -21,6 +21,13 @@ export class UserComponent implements OnInit {
               private router: Router) { }
 
     ngOnInit(): void {
+      const vpWith = document.documentElement.clientWidth;
+      const thead = document.querySelector('thead');
+      const tbody = document.querySelector('tbody');
+      
+      thead.style.fontSize = vpWith * 0.03125 + 'px';
+      tbody.style.fontSize = vpWith * 0.025 + 'px';
+      
       const username = this.route.snapshot.paramMap.get('username');
       this.authService.getInfo().subscribe(
         res => {
