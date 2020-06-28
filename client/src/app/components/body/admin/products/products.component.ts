@@ -131,6 +131,11 @@ export class ProductsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    const vpWidth = document.documentElement.clientWidth;
+    const colorTable = document.querySelector('.color-table') as HTMLElement;
+
+    colorTable.style.width = vpWidth * (0.45 * 0.94) + 'px';
+
     this.authService.getInfo().subscribe(res => {
       if (res['user'].role == 'root' || res['user'].role === 'admin') {
         this.adminService.getProducts().subscribe(
