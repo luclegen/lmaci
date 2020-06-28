@@ -122,6 +122,7 @@ Find Username Component: onSubmit
 Admin Images: People
 Admin Component: Initial
 Routes: AdminComponent
+Admin Component: onResize
 Admin Component: View
 Users Component: Initial
 Products Component: Initial
