@@ -15,12 +15,13 @@ export class ProductComponent implements OnInit {
   onResize() {
     const leftContainer = document.querySelector('.left-container') as HTMLElement;
     const carouselSlide = document.querySelector('.carousel-slide') as HTMLElement;
+    const closeBtn = document.getElementById('close-btn');
+
     carouselSlide.style.transition = 'none';
+
     this.ngOnInit();
-    if (leftContainer.style.getPropertyValue('position') == 'absolute') {
-      this.showGallery();
-      this.showGallery();
-    } else this.closeGallery();
+    if (leftContainer.style.getPropertyValue('position') == 'absolute') this.showGallery();
+    else if (closeBtn.style.getPropertyValue('display') == 'none') this.closeGallery();
   }
 
   constructor() { }
@@ -204,7 +205,6 @@ export class ProductComponent implements OnInit {
     const closeBtn = document.getElementById('close-btn');
 
     leftContainer.style.position = 'static';
-    leftContainer.style.height = 'auto';
     leftContainer.style.width = vpWidth * 0.395 + 'px';
     leftContainer.style.margin = '0 0.5% 0 10%';
     leftContainer.style.height = leftContainer.clientWidth * 0.75 + 'px';
