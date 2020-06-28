@@ -22,8 +22,8 @@ export class UserComponent implements OnInit {
 
     ngOnInit(): void {
       const vpWith = document.documentElement.clientWidth;
-      const thead = document.querySelector('thead');
-      const tbody = document.querySelector('tbody');
+      const thead = document.querySelector('thead') as HTMLTableSectionElement;
+      const tbody = document.querySelector('tbody') as HTMLTableSectionElement;
       
       thead.style.fontSize = vpWith * 0.03125 + 'px';
       tbody.style.fontSize = vpWith * 0.025 + 'px';
