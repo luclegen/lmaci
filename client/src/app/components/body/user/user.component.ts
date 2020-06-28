@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -13,6 +13,11 @@ import { AuthService } from 'src/app/services/auth.service';
 export class UserComponent implements OnInit {
   userDetails;
   title = '\'s Profile';
+
+  @HostListener('window:resize')
+  onResize() {
+    this.ngOnInit();
+  }
   
   constructor(private titleService: Title,
               private route: ActivatedRoute, 
