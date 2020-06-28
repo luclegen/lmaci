@@ -10,11 +10,11 @@ export class AppComponent {
 
   ngOnInit(): void {
     const vpWith = document.documentElement.clientWidth;
-    const thead = document.querySelector('thead');
-    const tbody = document.querySelector('tbody');
+    const thead = document.getElementsByTagName('thead') as HTMLCollectionOf<HTMLTableSectionElement>;
+    const tbody = document.getElementsByTagName('tbody') as HTMLCollectionOf<HTMLTableSectionElement>;
     
-    thead.style.fontSize = vpWith * 0.015 + 'px';
-    tbody.style.fontSize = vpWith * 0.0125 + 'px';
+    for (let i = 0; i < thead.length; i++) thead[i].style.fontSize = vpWith * 0.015 + 'px';
+    for (let i = 0; i < tbody.length; i++) tbody[i].style.fontSize = vpWith * 0.0125 + 'px';
   }
 
 }
