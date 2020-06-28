@@ -21,6 +21,7 @@ Routes: Home Component
 User Component: Initial
 Module: FormsModul, RouterModule, HttpClientModule
 App Component: Layout
+App Component: ngOnInit
 Home Component: Top Navbar
 Footer Component: Horizontal Line
 Index: Lmaci title
