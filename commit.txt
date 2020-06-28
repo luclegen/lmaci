@@ -39,6 +39,7 @@ User Service: register
 Register Component: onSubmit
 Routes: UserComponent, RegisterComponent
 User Component: View
+User Component: onResize
 Header Component: View
 Register Component: Style
 User Service: usernameRegex
