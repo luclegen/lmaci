@@ -21,14 +21,14 @@ export class UserComponent implements OnInit {
               private router: Router) { }
 
     ngOnInit(): void {
-      const vpWith = document.documentElement.clientWidth;
-      const thead = document.querySelector('thead') as HTMLTableSectionElement;
-      const tbody = document.querySelector('tbody') as HTMLTableSectionElement;
-      
-      thead.style.fontSize = vpWith * 0.03125 + 'px';
-      tbody.style.fontSize = vpWith * 0.025 + 'px';
-      
       const username = this.route.snapshot.paramMap.get('username');
+      const vpWith = document.documentElement.clientWidth;
+      const thead = document.getElementsByTagName('thead') as HTMLCollectionOf<HTMLTableSectionElement>;
+      const tbody = document.getElementsByTagName('tbody') as HTMLCollectionOf<HTMLTableSectionElement>;
+    
+      for (let i = 0; i < thead.length; i++) thead[i].style.fontSize = vpWith * 0.03125 + 'px';
+      for (let i = 0; i < tbody.length; i++) tbody[i].style.fontSize = vpWith * 0.025 + 'px';
+      
       this.authService.getInfo().subscribe(
         res => {
           if(res['user'].role === 'root' || res['user'].role === 'admin' || res['user'].username === username) {
