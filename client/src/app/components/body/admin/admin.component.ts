@@ -13,6 +13,11 @@ export class AdminComponent implements OnInit {
   constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
+    const vpWith = document.documentElement.clientWidth;
+    const section = document.querySelector('section');
+
+    section.style.fontSize = vpWith * 0.01625 + 'px';
+    
     this.authService.getInfo().subscribe(res => {
       if (res['user'].role == 'user') this.router.navigateByUrl('');
     });
