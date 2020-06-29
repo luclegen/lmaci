@@ -4,3 +4,5 @@ const router = express.Router();
 const productCtrl = require('../controllers/product.controller');
 
 router.get('/:id', productCtrl.get);
+
+module.exports = router;
