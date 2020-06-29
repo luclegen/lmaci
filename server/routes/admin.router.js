@@ -21,7 +21,6 @@ router.post('/create-product', adminCtrl.createProduct);
 router.put('/upload-product-img/:id', transfer.single('img'), adminCtrl.uploadProductImg);
 router.post('/post/:id', adminCtrl.post);
 router.get('/products', adminCtrl.getProducts);
-router.get('/product/:id', adminCtrl.getProduct);
 router.put('/update-product/:id', adminCtrl.updateProduct);
 router.delete('/delete-product/:id', adminCtrl.deleteProduct);
 router.put('/search-products', adminCtrl.searchProducts);
