@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { NgForm, NgModel } from '@angular/forms';
+import { Component, OnInit, HostListener } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 
 import { ImageCroppedEvent } from 'ngx-image-cropper';
@@ -10,7 +10,6 @@ import { AdminService } from 'src/app/services/admin.service';
 import { AuthService } from 'src/app/services/auth.service';
 
 import { Router } from '@angular/router';
-import { elementEventFullName } from '@angular/compiler/src/view_compiler/view_compiler';
 
 @Component({
   selector: 'app-products',
@@ -123,6 +122,11 @@ export class ProductsComponent implements OnInit {
 
   positiveNumberRegex;
   NotNegativeNumberRegex;
+
+  @HostListener('window:resize')
+  onResize() {
+    this.ngOnInit();
+  }
 
   constructor(private titleService: Title, private adminService: AdminService, private authService: AuthService, private router: Router) {
     this.titleService.setTitle('Products Management | Lmaci');
