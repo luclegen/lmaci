@@ -371,4 +371,5 @@ Transfer Heper
 Admin Controller: searchProducts
 Admin Router: PUT searchProducts
 Admin Controller: getProduct
+Admin Router: GET getProduct
 Commit
