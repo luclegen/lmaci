@@ -25,14 +25,14 @@ nav
       height: $main-logo-edge
       width: $main-logo-edge
     
-    img#account-img
-      height: $sub-logo-edge
-      width: $sub-logo-edge
+      &#account-img
+        height: $sub-logo-edge
+        width: $sub-logo-edge
 
-  a.a
-    width: auto
-    height: auto
-    margin: 0 $border-width !important
+    &.a
+      width: auto
+      height: auto
+      margin: 0 $border-width !important
 
 nav.sub-nav
   position: fixed
@@ -50,8 +50,8 @@ nav.sub-nav
       height: $logo-edge 
       width: auto
 
-    svg.sub-svg
-      height: $sub-logo-edge
+      &.sub-svg
+        height: $sub-logo-edge
 
   div
     display: flex
@@ -85,12 +85,13 @@ ul
         img
           border-radius: 50%
 
-    a#logo
-      display: inherit
+    a
+      &#logo
+        display: inherit
 
-    a:hover
-      color: white
-      fill: white
+      &:hover
+        color: white
+        fill: white
 
     svg
       height: $sub-logo-edge
