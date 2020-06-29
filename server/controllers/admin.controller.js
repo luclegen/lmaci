@@ -103,6 +103,13 @@ module.exports.getProducts = (req, res) => {
   });
 }
 
+module.exports.getProduct = (req, res) => {
+  Product.findById(req.params.id, (err, product) => {
+    return product ? res.status(200).json({ product: product })
+                    : res.status(404).json({ msg: 'Product not found.' });
+  });
+}
+
 module.exports.updateProduct = (req, res) => {
   if (!ObjectId.isValid(req.params.id))
     return res.status(400).send(`No record with given id: ${req.params.id}`);
