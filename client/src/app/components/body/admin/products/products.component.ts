@@ -18,6 +18,8 @@ import { Router } from '@angular/router';
 })
 export class ProductsComponent implements OnInit {
 
+  //#region Product
+
   product = {
     _id: '',
     img: '',
@@ -33,6 +35,8 @@ export class ProductsComponent implements OnInit {
   };
 
   products;
+
+  //#endregion Product
 
   keyword;
 
@@ -543,7 +547,18 @@ export class ProductsComponent implements OnInit {
   //#region Products
 
   onSearch(form: NgForm) {
-
+    this.authService.getInfo().subscribe(res => {
+      if (res['user'].role == 'root' || res['user'].role === 'admin') {
+        this.adminService.searchProducts(form.value).subscribe(
+          res => {
+            this.products = res['products'];
+          },
+          err => {
+            alert(err.error.msg);
+          }
+        );
+      } else this.router.navigateByUrl('');
+    });
   }
 
   showAll() {
