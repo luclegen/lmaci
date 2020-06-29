@@ -136,12 +136,11 @@ module.exports.deleteProduct = (req, res) => {
 }
 
 module.exports.searchProducts = (req, res) => {
-  let query = req.body.type == 'username' ? { name: RegExp(req.body.keyword, 'i') }
-                                          : { fullName: RegExp(converter.toName(req.body.keyword), 'i'), role: 'user' };
+  let query = { name: RegExp(converter.toKeyword(req.body.keyword), 'i') };
   
-                                          User.find(query, (err, users) => {
-    return users ? res.status(200).json({ users })
-                  : res.status(404).json({ msg: 'Users not found.' })
+  Product.find(query, (err, products) => {
+    return products ? res.status(200).json({ products })
+                  : res.status(404).json({ msg: 'Products not found.' })
   });
 }
 
