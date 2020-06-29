@@ -135,14 +135,13 @@ export class ProductsComponent implements OnInit {
     const tableWidth = vpWidth * (0.45 * 0.94);
     const colorTable = document.querySelector('.color-table') as HTMLElement;
     const tripleIn = document.getElementsByClassName('triple') as HTMLCollectionOf<HTMLElement>;
-    const onlyBtn = document.getElementsByClassName('only-btn') as HTMLCollectionOf<HTMLElement>;
-    const add = document.getElementsByClassName('add') as HTMLCollectionOf<HTMLElement>;
+    const doubleIn = document.getElementsByClassName('double') as HTMLCollectionOf<HTMLElement>;
+    const functions = document.getElementsByClassName('functions') as HTMLCollectionOf<HTMLElement>;
     colorTable.style.width = tableWidth + 'px';
-    tripleIn[0].style.width = (160) + 'px';
-    
-    for (let i = 0; i < onlyBtn.length; i++) {
-      onlyBtn[i].style.background = 'red';
-    }
+
+    tripleIn[0].style.width = (tableWidth - (functions[0].clientWidth + 3) - 256) + 'px';
+
+    for (let i = 0; i < doubleIn.length; i++) doubleIn[i].style.width = ((tableWidth - (functions[1].clientWidth + 3)) * 0.5 - 20) + 'px';
 
     this.authService.getInfo().subscribe(res => {
       if (res['user'].role == 'root' || res['user'].role === 'admin') {
