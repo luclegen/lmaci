@@ -364,4 +364,5 @@ Admin Controller: uploadProductImg
 Admin Router: POST uploadProductImg
 Admin Router: PUT uploadProductImg
 Transfer Heper
+Admin Controller: searchProducts
 Commit
