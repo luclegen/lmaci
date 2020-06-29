@@ -34,6 +34,8 @@ export class ProductsComponent implements OnInit {
 
   products;
 
+  keyword;
+
   //#region Img
 
   imageChangedEvent: any = '';
@@ -332,10 +334,6 @@ export class ProductsComponent implements OnInit {
 
   //#endregion Submit
 
-  viewDetails(product: Product) {
-
-  }
-
   //#region Cancel
 
   onCancelColor() {
@@ -542,4 +540,19 @@ export class ProductsComponent implements OnInit {
 
   //#endregion Check
 
+  //#region Products
+
+  onSearch(form: NgForm) {
+
+  }
+
+  showAll() {
+
+  }
+
+  viewDetails(product: Product) {
+
+  }
+
+  //#endregion Products
 }
