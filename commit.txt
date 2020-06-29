@@ -274,6 +274,7 @@ Product Component: showGallery
 Product Component: onResize
 Product Component: selectImg
 Product Component: closeGallery
+Product Service: getProduct
 Product Component: View
 Global Styles
 Commit
