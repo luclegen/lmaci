@@ -20,6 +20,7 @@ require('./middlewares/passport');
 app.use('/auth', require('./routes/auth.router'));
 app.use('/user', require('./routes/user.router'));
 app.use('/admin', require('./routes/admin.router'));
+app.use('/product', require('./routes/product.router'));
 
 // Error handle
 app.use((err, req, res, next) => {
