@@ -1,4 +1,7 @@
 import { Component, OnInit, HostListener } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+
+import { ProductService } from 'src/app/services/product.service';
 
 @Component({
   selector: 'app-product',
@@ -9,6 +12,9 @@ export class ProductComponent implements OnInit {
   counter = 0;
   size = 0;
   sizeFrame = 0;
+
+  product;
+
   title = 'Test';
 
   @HostListener('window:resize')
@@ -24,7 +30,8 @@ export class ProductComponent implements OnInit {
     else if (closeBtn.style.getPropertyValue('display') == 'none') this.closeGallery();
   }
 
-  constructor() { }
+  constructor(private route: ActivatedRoute,
+              private productService: ProductService) { }
 
   ngOnInit(): void {
     const carouselSlide = document.querySelector('.carousel-slide') as HTMLElement;
@@ -43,6 +50,17 @@ export class ProductComponent implements OnInit {
     this.size = carouselSlide.offsetWidth;
 
     carouselSlide.style.transform = 'translateX(' + (-this.size * this.counter) + 'px)';
+
+    const id = this.route.snapshot.paramMap.get('id');
+    
+    this.productService.getProduct(id).subscribe(
+      res => {
+        res['product'] = this.product;
+      },
+      err => {
+        alert(err.error.msg);
+      }
+    );
   }
 
   prev() {
