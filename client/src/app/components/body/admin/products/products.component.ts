@@ -562,7 +562,7 @@ export class ProductsComponent implements OnInit {
   }
 
   showAll() {
-
+    this.ngOnInit();
   }
 
   viewDetails(product: Product) {
