@@ -15,8 +15,6 @@ export class ProductComponent implements OnInit {
 
   product;
 
-  title = 'Test';
-
   @HostListener('window:resize')
   onResize() {
     const leftContainer = document.querySelector('.left-container') as HTMLElement;
@@ -52,10 +50,10 @@ export class ProductComponent implements OnInit {
     carouselSlide.style.transform = 'translateX(' + (-this.size * this.counter) + 'px)';
 
     const id = this.route.snapshot.paramMap.get('id');
-    
+
     this.productService.getProduct(id).subscribe(
       res => {
-        res['product'] = this.product;
+        this.product = res['product'];
       },
       err => {
         alert(err.error.msg);
