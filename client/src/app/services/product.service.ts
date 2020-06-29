@@ -11,7 +11,7 @@ export class ProductService {
   constructor(private http: HttpClient) { }
 
   getProduct(id: string) {
-    return this.http.get(environment.userUrl + '/' + id);
+    return this.http.get(environment.productUrl + '/' + id);
   }
 
 }
