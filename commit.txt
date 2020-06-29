@@ -244,6 +244,7 @@ Products Component: onDeleteColor, onDeleteProperty, onDeleteOption, onDeleteTec
 Admin Service: updateProduct
 Admin Service: searchProducts
 Products Component: onSearch
+Products Component: showAll
 Products Component: View
 Product Component: Initial
 Routes: ProductComponent
