@@ -242,6 +242,7 @@ Products Component: onEditProduct
 Products Component: onCancelProduct
 Products Component: onDeleteColor, onDeleteProperty, onDeleteOption, onDeleteTechnicalDetail, onDeleteProduct
 Admin Service: updateProduct
+Admin Service: searchProducts
 Products Component: View
 Product Component: Initial
 Routes: ProductComponent
