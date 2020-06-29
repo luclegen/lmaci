@@ -129,6 +129,7 @@ Admin Component: View
 Users Component: Initial
 Products Component: Initial
 Products Component: ngOnInit
+Products Component: onResize
 Routes: UsersComponent
 Routes: ProductsComponent
 Users Component: View
