@@ -23,6 +23,7 @@ router.post('/post/:id', adminCtrl.post);
 router.get('/products', adminCtrl.getProducts);
 router.put('/update-product/:id', adminCtrl.updateProduct);
 router.delete('/delete-product/:id', adminCtrl.deleteProduct);
+router.put('/search-products', adminCtrl.searchProducts);
 //#endregion Products
 
 module.exports = router;
