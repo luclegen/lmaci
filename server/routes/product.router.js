@@ -1,4 +1,6 @@
-const express = require('express'),
+const express = require('express');
 const router = express.Router();
 
-router.get('/:id', adminCtrl.getProduct);
+const productCtrl = require('../controllers/product.controller');
+
+router.get('/:id', productCtrl.getProduct);
