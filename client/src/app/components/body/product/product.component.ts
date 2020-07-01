@@ -1,5 +1,5 @@
 import { Component, OnInit, HostListener } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { ProductService } from 'src/app/services/product.service';
 
@@ -29,7 +29,8 @@ export class ProductComponent implements OnInit {
   }
 
   constructor(private route: ActivatedRoute,
-              private productService: ProductService) { }
+              private productService: ProductService,
+              private router: Router) { }
 
   ngOnInit(): void {
     const carouselSlide = document.querySelector('.carousel-slide') as HTMLElement;
@@ -57,6 +58,7 @@ export class ProductComponent implements OnInit {
       },
       err => {
         alert(err.error.msg);
+        this.router.navigateByUrl('');
       }
     );
   }
