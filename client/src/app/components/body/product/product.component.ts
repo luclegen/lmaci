@@ -19,7 +19,22 @@ export class ProductComponent implements OnInit {
   noneStarCount = [];
   starHalf = false
 
-  product: Product;
+  product = {
+    _id: '',
+    name: '',
+    status: '',
+    price: 0,
+    quantity: { imported: 0, exported: 0 },
+    star: { number: 0, countRate: 0 },
+    type: '',
+    colors: [],
+    styles: [],
+    editions: [],
+    capacitys: [],
+    technicalDetails: [],
+    description: '',
+    post: '',
+  };
 
   @HostListener('window:resize')
   onResize() {
