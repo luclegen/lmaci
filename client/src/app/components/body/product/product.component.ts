@@ -52,6 +52,10 @@ export class ProductComponent implements OnInit {
     );
   }
 
+  showStar() {
+    
+  }
+
   showSlider() {
     const carouselSlide = document.querySelector('.carousel-slide') as HTMLElement;
     const prevBtn = document.getElementById('prev-btn');
