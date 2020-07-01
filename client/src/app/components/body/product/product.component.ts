@@ -99,7 +99,7 @@ export class ProductComponent implements OnInit {
     const carouselButtonWidth = vpWidth * 0.05;
     const carouselButtonHeight = carouselButtonWidth * 1.04;
 
-    prevBtn.style.top = nextBtn.style.top = ((carouselContainerHeight - carouselButtonHeight) * 0.5 + 130) + 'px';
+    prevBtn.style.top = nextBtn.style.top = ((carouselContainerHeight - carouselButtonHeight) * 0.5 + 140) + 'px';
     prevBtn.style.left = (vpWidth * 0.1 + carouselContainerWidth * 0.03) + 'px';
     nextBtn.style.left = (vpWidth * 0.1 + carouselContainerWidth - carouselButtonWidth - carouselContainerWidth * 0.03) + 'px';
 
