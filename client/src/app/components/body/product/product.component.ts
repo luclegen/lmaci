@@ -1,6 +1,8 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
+import { Product } from "../../../models/product.model";
+
 import { ProductService } from 'src/app/services/product.service';
 
 @Component({
@@ -17,7 +19,7 @@ export class ProductComponent implements OnInit {
   noneStarCount = [];
   starHalf = false
 
-  product;
+  product: Product;
 
   @HostListener('window:resize')
   onResize() {
@@ -54,7 +56,17 @@ export class ProductComponent implements OnInit {
   }
 
   showStar() {
+    let number = this.product.star.number,
+        numberRounded = Math.round(number),
+        bias = Math.round((number - numberRounded) * 10) / 10;
 
+    if (bias < 0) bias++;
+
+    if (bias == 0.5) {
+      for (let i = 0; i < numberRounded - 1; i++) this.starCount.push('*');
+      this.starHalf = true;
+    } else for (let i = 0; i < numberRounded; i++) this.starCount.push('*');
+    for (let i = 0; i < 5 - numberRounded; i++) this.noneStarCount.push('-');
   }
 
   showSlider() {
