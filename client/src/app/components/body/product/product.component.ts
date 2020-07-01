@@ -242,7 +242,7 @@ export class ProductComponent implements OnInit {
 
     galleryCarouselNav.style.display = 'none';
 
-    this.ngOnInit();
+    this.showSlider();
 
     for (let i = 0; i < carouselImages.length; i++) {
       carouselImages[i].style.width = '100%';
