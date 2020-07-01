@@ -276,6 +276,7 @@ Product Component: selectImg
 Product Component: closeGallery
 Product Service: getProduct
 Environments: productUrl
+Product Component: showSlider
 Product Component: View
 Global Styles
 Commit
