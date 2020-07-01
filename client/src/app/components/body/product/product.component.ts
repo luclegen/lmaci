@@ -1,7 +1,7 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { Product } from "../../../models/product.model";
+import { ImageCroppedEvent } from 'ngx-image-cropper';
 
 import { ProductService } from 'src/app/services/product.service';
 
@@ -35,6 +35,10 @@ export class ProductComponent implements OnInit {
     description: '',
     post: '',
   };
+
+  img: any = '';
+  imageChangedEvent: any = '';
+  croppedImage: any = '';
 
   @HostListener('window:resize')
   onResize() {
@@ -82,6 +86,8 @@ export class ProductComponent implements OnInit {
     } else for (let i = 0; i < numberRounded; i++) this.starCount.push('*');
     for (let i = 0; i < 5 - numberRounded; i++) this.noneStarCount.push('-');
   }
+
+  //#region Slider
 
   showSlider() {
     const carouselSlide = document.querySelector('.carousel-slide') as HTMLElement;
@@ -280,4 +286,17 @@ export class ProductComponent implements OnInit {
       carouselImages[i].style.height = '100%';
     }
   }
+
+  //#endregion Slider
+
+  //#region Img Cropper
+
+  fileChangeEvent(event: any): void {
+  }
+
+  imageCropped(event: ImageCroppedEvent) {
+  }
+
+  //#endregion Img Cropper
+
 }

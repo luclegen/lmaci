@@ -70,3 +70,22 @@
 
   </div>
 </section>
+<section>
+  <span class="inline-span">
+    <label for="img">Choose an image file</label>
+    <input #newImg="ngModel" [(ngModel)]="img" id="img" type="file" name="img" (change)="fileChangeEvent($event)" accept="image/*" required>
+  </span>
+
+  <div *ngIf="imageChangedEvent" class="image-cropper-container">
+    <image-cropper
+      [imageChangedEvent]="imageChangedEvent" 
+      [maintainAspectRatio]="true" 
+      [aspectRatio]="1 / 1"
+      [resizeToWidth]="512"
+      [cropperMinWidth]="128"
+      format="png" 
+      (imageCropped)="imageCropped($event)" 
+      [onlyScaleDown]="true"></image-cropper>
+    <img [src]="croppedImage" />
+  </div>
+</section>
