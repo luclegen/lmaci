@@ -275,6 +275,7 @@ Product Component: selectImg
 Product Component: closeGallery
 Product Service: getProduct
 Environments: productUrl
+Product Component: showStar
 Product Component: showSlider
 Product Component: onResize
 Product Component: ngOnInit
