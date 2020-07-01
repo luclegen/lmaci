@@ -27,7 +27,7 @@ export class ProductComponent implements OnInit {
 
     carouselSlide.style.transition = 'none';
 
-    this.ngOnInit();
+    this.showSlider();
     if (leftContainer.style.getPropertyValue('position') == 'absolute') this.showGallery();
     else if (closeBtn.style.getPropertyValue('display') == 'none') this.closeGallery();
   }
