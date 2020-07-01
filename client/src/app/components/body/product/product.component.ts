@@ -39,6 +39,7 @@ export class ProductComponent implements OnInit {
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
 
+    this.showStar();
     this.showSlider();
 
     this.productService.getProduct(id).subscribe(
@@ -53,7 +54,7 @@ export class ProductComponent implements OnInit {
   }
 
   showStar() {
-    
+
   }
 
   showSlider() {
