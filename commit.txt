@@ -264,7 +264,6 @@ Routes: UserComponent
 User Component: constructor
 User Component: ngOnInit
 Carouse Images
-Product Component: ngOnInit
 Product Component: prev
 Product Component: next
 Product Component: moved
@@ -277,6 +276,7 @@ Product Component: closeGallery
 Product Service: getProduct
 Environments: productUrl
 Product Component: showSlider
+Product Component: ngOnInit
 Product Component: View
 Global Styles
 Commit
