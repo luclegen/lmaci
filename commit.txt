@@ -278,6 +278,7 @@ Environments: productUrl
 Product Component: showStar
 Product Component: showSlider
 Product Component: onResize
+Product Component: fileChangeEvent
 Product Component: ngOnInit
 Product Component: View
 Global Styles
