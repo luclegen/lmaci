@@ -37,6 +37,20 @@ export class ProductComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit(): void {
+    const id = this.route.snapshot.paramMap.get('id');
+
+    this.productService.getProduct(id).subscribe(
+      res => {
+        this.product = res['product'];
+      },
+      err => {
+        alert(err.error.msg);
+        this.router.navigateByUrl('');
+      }
+    );
+  }
+
+  showSlider() {
     const carouselSlide = document.querySelector('.carousel-slide') as HTMLElement;
     const prevBtn = document.getElementById('prev-btn');
     const nextBtn = document.getElementById('next-btn');
@@ -53,18 +67,6 @@ export class ProductComponent implements OnInit {
     this.size = carouselSlide.offsetWidth;
 
     carouselSlide.style.transform = 'translateX(' + (-this.size * this.counter) + 'px)';
-
-    const id = this.route.snapshot.paramMap.get('id');
-
-    this.productService.getProduct(id).subscribe(
-      res => {
-        this.product = res['product'];
-      },
-      err => {
-        alert(err.error.msg);
-        this.router.navigateByUrl('');
-      }
-    );
   }
 
   prev() {
