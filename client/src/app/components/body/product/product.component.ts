@@ -39,6 +39,8 @@ export class ProductComponent implements OnInit {
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
 
+    this.showSlider();
+
     this.productService.getProduct(id).subscribe(
       res => {
         this.product = res['product'];
