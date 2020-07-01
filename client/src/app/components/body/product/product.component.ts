@@ -13,6 +13,10 @@ export class ProductComponent implements OnInit {
   size = 0;
   sizeFrame = 0;
 
+  starCount = [];
+  noneStarCount = [];
+  starHalf = false
+
   product;
 
   @HostListener('window:resize')
