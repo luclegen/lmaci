@@ -182,6 +182,7 @@ export class ProductComponent implements OnInit {
     leftContainer.style.position = 'absolute';
     leftContainer.style.zIndex = '103';
     leftContainer.style.top = '0';
+    leftContainer.style.margin = '0 10%';
     leftContainer.style.padding = '0';
     leftContainer.style.background = 'black';
     leftContainer.style.left = '-10%';
