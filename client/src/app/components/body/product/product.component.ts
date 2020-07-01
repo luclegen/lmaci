@@ -292,6 +292,7 @@ export class ProductComponent implements OnInit {
   //#region Img Cropper
 
   fileChangeEvent(event: any): void {
+    this.imageChangedEvent = event;
   }
 
   imageCropped(event: ImageCroppedEvent) {
