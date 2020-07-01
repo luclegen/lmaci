@@ -296,6 +296,7 @@ export class ProductComponent implements OnInit {
   }
 
   imageCropped(event: ImageCroppedEvent) {
+    this.croppedImage = event.base64;
   }
 
   //#endregion Img Cropper
