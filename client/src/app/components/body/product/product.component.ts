@@ -270,7 +270,7 @@ export class ProductComponent implements OnInit {
 
     leftContainer.style.position = 'static';
     leftContainer.style.width = vpWidth * 0.395 + 'px';
-    leftContainer.style.margin = '0 0.5% 0 10%';
+    leftContainer.style.margin = '10px 0.5% 0 10%';
     leftContainer.style.height = leftContainer.clientWidth * 0.75 + 'px';
     leftContainer.style.marginLeft = '10%';
 
