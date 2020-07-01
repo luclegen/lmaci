@@ -59,22 +59,21 @@ export class ProductComponent implements OnInit {
     this.productService.getProduct(id).subscribe(
       res => {
         this.product = res['product'];
+        this.showStar();
+        this.showSlider();
       },
       err => {
         alert(err.error.msg);
         this.router.navigateByUrl('');
       }
     );
-
-    this.showStar();
-    this.showSlider();
   }
 
   showStar() {
     let number = this.product.star.number,
         numberRounded = Math.round(number),
         bias = Math.round((number - numberRounded) * 10) / 10;
-
+    
     if (bias < 0) bias++;
 
     if (bias == 0.5) {
