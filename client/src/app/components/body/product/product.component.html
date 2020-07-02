@@ -67,7 +67,10 @@
     </div>
   </div>
   <div class="right-container">
-
+    <label *ngFor="let c of product.colors" class="radio-container">{{ c.name }}
+      <input type="radio" checked="checked" name="radio">
+      <span class="checkmark" [ngStyle]="{ 'background': c.value }">{{c.value}}</span>
+    </label>
   </div>
 </section>
 <section>
