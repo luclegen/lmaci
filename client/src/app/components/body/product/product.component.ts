@@ -269,6 +269,7 @@ export class ProductComponent implements OnInit {
     const closeBtn = document.getElementById('close-btn');
 
     leftContainer.style.position = 'static';
+    leftContainer.style.zIndex = '0';
     leftContainer.style.width = vpWidth * 0.395 + 'px';
     leftContainer.style.margin = '10px 0.5% 0 10%';
     leftContainer.style.height = leftContainer.clientWidth * 0.75 + 'px';
