@@ -41,7 +41,8 @@ let productSchema = new mongoose.Schema({
   properties: Array,
   technicalDetails: Array,
   description: String,
-  post: String
+  post: String,
+  slides: [[Buffer]]
 }, {
   toObject: {
     virtuals: true
@@ -57,6 +58,20 @@ let productSchema = new mongoose.Schema({
 
 productSchema.virtual('imgPath').get(function() {
   if (this.img) return `data:image/png;base64,${this.img.toString('base64')}`;
+})
+
+productSchema.virtual('slidesPaths').get(function() {
+  if (this.slides.length) {
+    let slidesPaths = [];
+    for (let i = 0; i < this.slides.length; i++) {
+      if (this.slides[i].length) {
+        var slidePaths = [];
+        for (let j = 0; j < this.slides[i].length; j++) slidePaths.push(`data:image/png;base64,${this.slides[i][j].toString('base64')}`);
+        slidesPaths.push(slidePaths);
+      }
+    }
+    return slidesPaths;
+  }
 })
 
 module.exports = mongoose.model('Product', productSchema);
