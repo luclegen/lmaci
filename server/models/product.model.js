@@ -42,7 +42,7 @@ let productSchema = new mongoose.Schema({
   technicalDetails: Array,
   description: String,
   post: String,
-  slides: [[Buffer]]
+  sliders: [[Buffer]]
 }, {
   toObject: {
     virtuals: true
@@ -60,17 +60,17 @@ productSchema.virtual('imgPath').get(function() {
   if (this.img) return `data:image/png;base64,${this.img.toString('base64')}`;
 })
 
-productSchema.virtual('slidesPaths').get(function() {
-  if (this.slides.length) {
-    let slidesPaths = [];
-    for (let i = 0; i < this.slides.length; i++) {
-      if (this.slides[i].length) {
-        var slidePaths = [];
-        for (let j = 0; j < this.slides[i].length; j++) slidePaths.push(`data:image/png;base64,${this.slides[i][j].toString('base64')}`);
-        slidesPaths.push(slidePaths);
+productSchema.virtual('slidersPaths').get(function() {
+  if (this.sliders.length) {
+    let slidersPaths = [];
+    for (let i = 0; i < this.sliders.length; i++) {
+      if (this.sliders[i].length) {
+        var sliderPaths = [];
+        for (let j = 0; j < this.sliders[i].length; j++) sliderPaths.push(`data:image/png;base64,${this.sliders[i][j].toString('base64')}`);
+        slidersPaths.push(sliderPaths);
       }
     }
-    return slidesPaths;
+    return slidersPaths;
   }
 })
 
