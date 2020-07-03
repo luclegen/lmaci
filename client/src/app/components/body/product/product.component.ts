@@ -317,7 +317,7 @@ export class ProductComponent implements OnInit {
   }
 
   reset() {
-    
+    this.order.color.preview = this.order.color.name;
   }
 
   //#endregion Order
