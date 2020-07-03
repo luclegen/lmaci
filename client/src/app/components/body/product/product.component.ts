@@ -215,6 +215,7 @@ export class ProductComponent implements OnInit {
 
     carouselContainer.style.width = this.size + 'px';
     carouselSlide.style.transform = 'translateX(' + (-this.size * this.counter) + 'px)';
+    carouselSlide.style.cursor = 'auto';
 
     galleryCarouselNav.style.position = 'absolute';
     galleryCarouselNav.style.display = 'flex';
