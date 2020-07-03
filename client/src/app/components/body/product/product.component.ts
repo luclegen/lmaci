@@ -36,6 +36,9 @@ export class ProductComponent implements OnInit {
     post: '',
   };
 
+  color;
+  colorChecked;
+
   img: any = '';
   imageChangedEvent: any = '';
   croppedImage: any = '';
@@ -63,8 +66,11 @@ export class ProductComponent implements OnInit {
     this.productService.getProduct(id).subscribe(
       res => {
         this.product = res['product'];
+
         this.showStar();
         this.showSlider();
+
+        this.color = this.colorChecked = this.product.colors[0].name;
       },
       err => {
         alert(err.error.msg);
