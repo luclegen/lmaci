@@ -312,6 +312,10 @@ export class ProductComponent implements OnInit {
     this.order.color.checked = color.name;
   }
 
+  preview(color) {
+    
+  }
+
   //#endregion Order
 
   //#region Img Cropper
