@@ -36,8 +36,10 @@ export class ProductComponent implements OnInit {
     post: '',
   };
 
-  color;
-  colorChecked;
+  order = {
+    color: '',
+    colorChecked: '',
+  }
 
   img: any = '';
   imageChangedEvent: any = '';
@@ -299,6 +301,14 @@ export class ProductComponent implements OnInit {
   }
 
   //#endregion Slider
+
+  //#region Order
+
+  onCheck() {
+    
+  }
+
+  //#endregion Order
 
   //#region Img Cropper
 

@@ -69,11 +69,11 @@
   <div class="right-container">
     <form class="left">
       <label class="attr">
-        <strong>Color: {{ color }}</strong>
+        <strong>Color:</strong> {{ order.color }}
       </label>
       <div class="left">
         <div *ngFor="let c of product.colors" class="center vertical color-radio-container">
-          <input *ngIf="product.colors.indexOf(c) == 0" type="radio" checked="checked" name="radio">
+          <input *ngIf="product.colors.indexOf(c) == 0" (change)="onCheck()" type="radio" checked="checked" name="radio">
           <input *ngIf="product.colors.indexOf(c) != 0" type="radio" name="radio">
           <span class="checkmark" [ngStyle]="{ 'background': c.value }"></span>
         </div>
