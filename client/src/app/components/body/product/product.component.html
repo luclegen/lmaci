@@ -83,6 +83,7 @@
 <section>
   <div class="center-container">
     <h1>Slider Image Editor</h1>
+    <img *ngFor="let i of imgs" [src]="i" [alt]="'Image' + i">
   </div>
 </section>
 <section>
