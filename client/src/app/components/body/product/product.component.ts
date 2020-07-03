@@ -316,6 +316,10 @@ export class ProductComponent implements OnInit {
     this.order.color.preview = color.name;
   }
 
+  reset() {
+    
+  }
+
   //#endregion Order
 
   //#region Img Cropper
