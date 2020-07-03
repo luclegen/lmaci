@@ -45,7 +45,7 @@ export class ProductComponent implements OnInit {
   }
 
   img: any = '';
-  imgs = [];
+  imgs = [ 'assets/img/carousel/A.png', 'assets/img/carousel/B.png', 'assets/img/carousel/C.png' ];
   imageChangedEvent: any = '';
   croppedImage: any = '';
 
@@ -335,8 +335,16 @@ export class ProductComponent implements OnInit {
 
   add() {
     this.imgs.push(this.croppedImage);
-    this.imageChangedEvent = '';
-    this.croppedImage = '';
+    // this.imageChangedEvent = '';
+    // this.croppedImage = '';
+  }
+
+  delete(i) {
+
+  }
+
+  edit(img) {
+
   }
 
   //#endregion Image Cropper
