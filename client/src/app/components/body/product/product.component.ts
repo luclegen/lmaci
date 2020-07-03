@@ -313,7 +313,7 @@ export class ProductComponent implements OnInit {
   }
 
   preview(color) {
-    
+    this.order.color.preview = color.name;
   }
 
   //#endregion Order
