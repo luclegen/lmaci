@@ -106,6 +106,7 @@ export class ProductComponent implements OnInit {
     this.size = carouselSlide.offsetWidth;
 
     carouselSlide.style.transform = 'translateX(' + (-this.size * this.counter) + 'px)';
+    carouselSlide.style.cursor = 'zoom-in';
   }
 
   prev() {
