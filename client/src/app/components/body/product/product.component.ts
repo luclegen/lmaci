@@ -45,7 +45,7 @@ export class ProductComponent implements OnInit {
   }
 
   img: any = '';
-  imgs: any = '';
+  imgs;
   imageChangedEvent: any = '';
   croppedImage: any = '';
 
@@ -334,7 +334,7 @@ export class ProductComponent implements OnInit {
   }
 
   add() {
-    
+
   }
 
   //#endregion Image Cropper
