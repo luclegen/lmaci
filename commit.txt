@@ -280,6 +280,7 @@ Product Component: showSlider
 Product Component: onResize
 Product Component: fileChangeEvent
 Product Component: imageCropped
+Product Component: onCheck
 Product Component: ngOnInit
 Product Component: View
 Global Styles
