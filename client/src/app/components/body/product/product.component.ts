@@ -38,9 +38,9 @@ export class ProductComponent implements OnInit {
 
   order = {
     color: {
+      preview: '',
       name: '',
       value: '',
-      checked: ''
     },
   }
 
@@ -75,7 +75,7 @@ export class ProductComponent implements OnInit {
         this.showStar();
         this.showSlider();
 
-        this.order.color.name = this.order.color.name = this.product.colors[0].name;
+        this.order.color.name = this.order.color.preview = this.product.colors[0].name;
       },
       err => {
         alert(err.error.msg);
