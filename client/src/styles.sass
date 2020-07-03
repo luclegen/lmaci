@@ -115,6 +115,38 @@ div
     img
       width: 100%
 
+  &.vertical
+    flex-direction: column
+
+  &.color-radio-container
+    width: 50px
+    height: 50px
+    position: relative
+    margin-right: 10px
+    cursor: pointer
+    user-select: none
+    border-radius: 50%
+
+    input
+      position: absolute
+      opacity: 0
+      cursor: pointer
+      width: 50px
+      z-index: 1
+
+      &:checked ~ .checkmark
+        border: 2px solid black
+
+    &:hover
+      
+      input
+
+        & ~ .checkmark
+          border: 2px solid gray
+
+        &:checked ~ .checkmark
+          border: 2px solid black
+
 a
   text-decoration: none
   color: blue
@@ -250,6 +282,15 @@ span
 
       &:hover
         fill: silver
+
+  &.checkmark
+    position: absolute
+    top: 0
+    left: 0
+    width: 50px
+    height: 50px
+    border-radius: 50%
+    border: 2px solid white
 
 svg
   
