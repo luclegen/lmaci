@@ -322,7 +322,7 @@ export class ProductComponent implements OnInit {
 
   //#endregion Order
 
-  //#region Img Cropper
+  //#region Image Cropper
 
   fileChangeEvent(event: any): void {
     this.imageChangedEvent = event;
@@ -332,6 +332,6 @@ export class ProductComponent implements OnInit {
     this.croppedImage = event.base64;
   }
 
-  //#endregion Img Cropper
+  //#endregion Image Cropper
 
 }
