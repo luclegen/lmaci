@@ -308,8 +308,8 @@ export class ProductComponent implements OnInit {
   //#region Order
 
   onCheck(color) {
+    this.order.color.preview = color.name;
     this.order.color.value = color.value;
-    this.order.color.checked = color.name;
   }
 
   preview(color) {
