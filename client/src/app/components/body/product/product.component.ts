@@ -45,6 +45,7 @@ export class ProductComponent implements OnInit {
   }
 
   img: any = '';
+  imgs: any = '';
   imageChangedEvent: any = '';
   croppedImage: any = '';
 
