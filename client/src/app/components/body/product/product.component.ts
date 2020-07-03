@@ -277,6 +277,7 @@ export class ProductComponent implements OnInit {
 
   closeGallery() {
     const leftContainer = document.querySelector('.left-container') as HTMLElement;
+    const carouselContainer = document.querySelector('.carousel-container') as HTMLElement;
     const carouselImages = document.querySelectorAll('.carousel-slide img') as NodeListOf<HTMLElement>;
     const galleryCarouselNav = document.querySelector('.gallery-carousel-nav') as HTMLElement;
     const carouselSlide = document.querySelector('.carousel-slide') as HTMLElement;
@@ -302,6 +303,9 @@ export class ProductComponent implements OnInit {
       carouselImages[i].style.width = '100%';
       carouselImages[i].style.height = '100%';
     }
+
+    carouselContainer.style.width = carouselImages[0].clientWidth + 'px';
+    carouselContainer.style.height = carouselImages[0].clientHeight + 'px';
   }
 
   //#endregion Slider
