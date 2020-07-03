@@ -67,10 +67,14 @@
     </div>
   </div>
   <div class="right-container">
-    <label *ngFor="let c of product.colors" class="radio-container">{{ c.name }}
-      <input type="radio" checked="checked" name="radio">
-      <span class="checkmark" [ngStyle]="{ 'background': c.value }">{{c.value}}</span>
-    </label>
+    <div class="center">
+      <div *ngFor="let c of product.colors" class="center vertical color-radio-container">
+        <input *ngIf="product.colors.indexOf(c) == 0" type="radio" checked="checked" name="radio">
+        <input *ngIf="product.colors.indexOf(c) != 0" type="radio" name="radio">
+        <span class="checkmark" [ngStyle]="{ 'background': c.value }"></span>
+      </div>
+    </div>
+    
   </div>
 </section>
 <section>
