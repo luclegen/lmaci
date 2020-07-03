@@ -37,8 +37,11 @@ export class ProductComponent implements OnInit {
   };
 
   order = {
-    color: '',
-    colorChecked: '',
+    color: {
+      name: '',
+      value: '',
+      checked: ''
+    },
   }
 
   img: any = '';
@@ -72,7 +75,7 @@ export class ProductComponent implements OnInit {
         this.showStar();
         this.showSlider();
 
-        this.order.color = this.order.colorChecked = this.product.colors[0].name;
+        this.order.color.name = this.order.color.name = this.product.colors[0].name;
       },
       err => {
         alert(err.error.msg);
@@ -304,8 +307,8 @@ export class ProductComponent implements OnInit {
 
   //#region Order
 
-  onCheck() {
-
+  onCheck(color) {
+    
   }
 
   //#endregion Order
