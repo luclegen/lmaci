@@ -283,6 +283,7 @@ Product Component: imageCropped
 Product Component: onCheck
 Product Component: preview
 Product Component: reset
+Product Component: add
 Product Component: ngOnInit
 Product Component: View
 Global Styles
