@@ -72,7 +72,7 @@ export class ProductComponent implements OnInit {
         this.showStar();
         this.showSlider();
 
-        this.color = this.colorChecked = this.product.colors[0].name;
+        this.order.color = this.order.colorChecked = this.product.colors[0].name;
       },
       err => {
         alert(err.error.msg);
@@ -305,7 +305,7 @@ export class ProductComponent implements OnInit {
   //#region Order
 
   onCheck() {
-    
+
   }
 
   //#endregion Order
