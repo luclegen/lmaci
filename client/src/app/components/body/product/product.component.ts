@@ -80,7 +80,7 @@ export class ProductComponent implements OnInit {
     carouselSlide.style.transition = 'none';
 
     this.showSlider();
-    if (leftContainer.style.getPropertyValue('position') == 'absolute') this.showGallery();
+    if (leftContainer.style.getPropertyValue('position') == 'fixed') this.showGallery();
     else if (closeBtn.style.getPropertyValue('display') == 'none') this.closeGallery();
   }
 
