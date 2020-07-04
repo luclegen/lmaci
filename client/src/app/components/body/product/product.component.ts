@@ -370,8 +370,8 @@ export class ProductComponent implements OnInit {
 
   add() {
     this.imgs.push(this.croppedImage);
-    // this.imageChangedEvent = '';
-    // this.croppedImage = '';
+    this.imageChangedEvent = '';
+    this.croppedImage = '';
   }
 
   delete(i) {
