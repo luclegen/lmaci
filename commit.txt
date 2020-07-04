@@ -7,6 +7,7 @@ License
 Git Ignore
 Command
 Detail
+JSON Package
 
 I. ANGULAR CLIENT
 Initial Client
@@ -293,7 +294,6 @@ II. NODEJS SERVER
 Initial Server
 JSON Configuration
 JS Configuration
-JSON Package
 Server App
 Database Configuration
 User Model
