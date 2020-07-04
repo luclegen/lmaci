@@ -387,6 +387,17 @@ export class ProductComponent implements OnInit {
     phElement.parentElement.removeChild(phElement);
   }
 
+  dragMoved(e: CdkDragMove) {
+    let point = this.getPointerPositionOnPage(e.event);
+
+    this.listGroup._items.forEach(dropList => {
+      if (__isInsideDropListClientRect(dropList, point.x, point.y)) {
+        this.activeContainer = dropList;
+        return;
+      }
+    });
+  }
+
   //#endregion Drag and drop
 
 }
