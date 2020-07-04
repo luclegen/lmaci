@@ -295,6 +295,7 @@ Product Component: dropListEnterPredicate
 Product Component: getPointerPositionOnPage
 Product Component: __indexOf
 Product Component: __isTouchEvent
+Product Component: __isInsideDropListClientRect
 Product Component: ngOnInit
 Product Component: View
 Global Styles
