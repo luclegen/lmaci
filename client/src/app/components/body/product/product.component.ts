@@ -7,7 +7,7 @@ import {
   moveItemInArray
 } from "@angular/cdk/drag-drop";
 
-import {ViewportRuler} from "@angular/cdk/overlay";
+import { ViewportRuler } from "@angular/cdk/overlay";
 
 import { ImageCroppedEvent } from 'ngx-image-cropper';
 
@@ -84,7 +84,8 @@ export class ProductComponent implements OnInit {
     else if (closeBtn.style.getPropertyValue('display') == 'none') this.closeGallery();
   }
 
-  constructor(private route: ActivatedRoute,
+  constructor(private viewportRuler: ViewportRuler,
+              private route: ActivatedRoute,
               private productService: ProductService,
               private router: Router) {
     this.target = null;
@@ -390,7 +391,7 @@ export class ProductComponent implements OnInit {
   dragMoved(e: CdkDragMove) {
     let point = this.getPointerPositionOnPage(e.event);
 
-    this.listGroup._imgs.forEach(dropList => {
+    this.listGroup._items.forEach(dropList => {
       if (__isInsideDropListClientRect(dropList, point.x, point.y)) {
         this.activeContainer = dropList;
         return;
