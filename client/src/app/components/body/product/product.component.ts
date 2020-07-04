@@ -381,7 +381,7 @@ export class ProductComponent implements OnInit {
   }
 
   delete(i) {
-
+    if (confirm('Are you sure delete: ' + JSON.stringify(this.imgs[i]) + '?')) this.imgs.splice(i, 1);
   }
 
   edit(img) {
