@@ -292,6 +292,7 @@ Product Component: ngAfterViewInit
 Product Component: dragMoved
 Product Component: dropListDropped
 Product Component: dropListEnterPredicate
+Product Component: getPointerPositionOnPage
 Product Component: ngOnInit
 Product Component: View
 Global Styles
