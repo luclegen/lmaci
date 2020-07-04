@@ -23,6 +23,7 @@ import { UserService } from './services/user.service';
 // Tools
 import { ImageCropperModule } from 'ngx-image-cropper';
 import { NgxImageZoomModule } from 'ngx-image-zoom';
+import { DragDropModule } from "@angular/cdk/drag-drop";
 
 // Components
 import { AppComponent } from './app.component';
@@ -75,7 +76,8 @@ import { ProductComponent } from './components/body/product/product.component';
     RouterModule.forRoot(routes),
     HttpClientModule,
     ImageCropperModule,
-    NgxImageZoomModule
+    NgxImageZoomModule,
+    DragDropModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
