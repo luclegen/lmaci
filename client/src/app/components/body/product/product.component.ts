@@ -53,7 +53,12 @@ export class ProductComponent implements OnInit {
   }
 
   img: any = '';
-  imgs = [ 'assets/img/carousel/A.png', 'assets/img/carousel/B.png', 'assets/img/carousel/C.png' ];
+  imgs = [ 'assets/img/carousel/A.png',
+           'assets/img/carousel/B.png',
+           'assets/img/carousel/C.png',
+           'assets/img/carousel/A.png',
+           'assets/img/carousel/B.png',
+           'assets/img/carousel/C.png' ];
   imageChangedEvent: any = '';
   croppedImage: any = '';
 
@@ -437,8 +442,8 @@ export class ProductComponent implements OnInit {
       this.sourceIndex = dragIndex;
       this.source = drag.dropContainer;
 
-      phElement.style.width = sourceElement.clientWidth + 'px';
-      phElement.style.height = sourceElement.clientHeight + 'px';
+      phElement.style.width = '100%';
+      phElement.style.height = '100%';
       
       sourceElement.parentElement.removeChild(sourceElement);
     }
