@@ -418,6 +418,41 @@ export class ProductComponent implements OnInit {
       moveItemInArray(this.imgs, this.sourceIndex, this.targetIndex);
   }
 
+  dropListEnterPredicate = (drag: CdkDrag, drop: CdkDropList) => {
+    if (drop == this.placeholder)
+      return true;
+
+    if (drop != this.activeContainer)
+      return false;
+
+    let phElement = this.placeholder.element.nativeElement;
+    let sourceElement = drag.dropContainer.element.nativeElement;
+    let dropElement = drop.element.nativeElement;
+
+    let dragIndex = __indexOf(dropElement.parentElement.children, (this.source ? phElement : sourceElement));
+    let dropIndex = __indexOf(dropElement.parentElement.children, dropElement);
+
+    if (!this.source) {
+      this.sourceIndex = dragIndex;
+      this.source = drag.dropContainer;
+
+      phElement.style.width = sourceElement.clientWidth + 'px';
+      phElement.style.height = sourceElement.clientHeight + 'px';
+      
+      sourceElement.parentElement.removeChild(sourceElement);
+    }
+
+    this.targetIndex = dropIndex;
+    this.target = drop;
+
+    phElement.style.display = '';
+    dropElement.parentElement.insertBefore(phElement, (dropIndex > dragIndex 
+      ? dropElement.nextSibling : dropElement));
+
+    this.placeholder.enter(drag, drag.element.nativeElement.offsetLeft, drag.element.nativeElement.offsetTop);
+    return false;
+  }
+  
   //#endregion Drag and drop
 
 }
