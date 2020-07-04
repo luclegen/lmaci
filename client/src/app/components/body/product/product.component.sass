@@ -23,9 +23,6 @@ div
     grid-gap: 10px
     grid-template-columns: auto auto auto
 
-  &.grid-item-btn
-    margin-left: 2px
-
   &.grid-box
     display: flex
     cursor: move
@@ -35,6 +32,15 @@ div
     img
       width: 90%
       border: 2px solid black
+
+    button
+      display: none
+      margin: 5px 0 0 -35px
+
+    &:hover
+
+      button
+        display: inline
 
   &.gallery-carousel-nav
     display: none
