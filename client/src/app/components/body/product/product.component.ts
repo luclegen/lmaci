@@ -353,4 +353,12 @@ export class ProductComponent implements OnInit {
 
   //#endregion Image Cropper
 
+  //#region Drag and drop
+
+  // drop(event: CdkDragDrop<>) {
+
+  // }
+
+  //#endregion Drag and drop
+
 }
