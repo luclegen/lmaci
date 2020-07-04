@@ -1,6 +1,13 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit, HostListener, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
+import {
+  CdkDrag,
+  CdkDragStart,
+  CdkDropList, CdkDropListGroup, CdkDragMove, CdkDragEnter,
+  moveItemInArray
+} from "@angular/cdk/drag-drop";
+
+import {ViewportRuler} from "@angular/cdk/overlay";
 
 import { ImageCroppedEvent } from 'ngx-image-cropper';
 
@@ -50,6 +57,20 @@ export class ProductComponent implements OnInit {
   imageChangedEvent: any = '';
   croppedImage: any = '';
 
+  //#region Drap And Drop
+
+  @ViewChild(CdkDropListGroup) listGroup: CdkDropListGroup<CdkDropList>;
+  @ViewChild(CdkDropList) placeholder: CdkDropList;
+
+  public target: CdkDropList;
+  public targetIndex: number;
+  public source: CdkDropList;
+  public sourceIndex: number;
+  public dragIndex: number;
+  public activeContainer;
+
+  //#endregion Drap And Drop
+
   @HostListener('window:resize')
   onResize() {
     const leftContainer = document.querySelector('.left-container') as HTMLElement;
@@ -65,7 +86,10 @@ export class ProductComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private productService: ProductService,
-              private router: Router) { }
+              private router: Router) {
+    this.target = null;
+    this.source = null;
+  }
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
@@ -356,9 +380,7 @@ export class ProductComponent implements OnInit {
 
   //#region Drag and drop
 
-  drop(event: CdkDragDrop<string[]>) {
-    moveItemInArray(this.imgs, event.previousIndex, event.currentIndex);
-  }
+  
 
   //#endregion Drag and drop
 
