@@ -472,3 +472,8 @@ export class ProductComponent implements OnInit {
 function __indexOf(collection, node) {
   return Array.prototype.indexOf.call(collection, node);
 };
+
+/** Determines whether an event is a touch event. */
+function __isTouchEvent(event: MouseEvent | TouchEvent): event is TouchEvent {
+  return event.type.startsWith('touch');
+}
