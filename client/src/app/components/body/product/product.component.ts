@@ -53,12 +53,7 @@ export class ProductComponent implements OnInit {
   }
 
   img: any = '';
-  imgs = [ 'assets/img/carousel/A.png',
-           'assets/img/carousel/B.png',
-           'assets/img/carousel/C.png',
-           'assets/img/carousel/A.png',
-           'assets/img/carousel/B.png',
-           'assets/img/carousel/C.png' ];
+  imgs = [];
   imageChangedEvent: any = '';
   croppedImage: any = '';
 
