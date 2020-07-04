@@ -221,7 +221,7 @@ export class ProductComponent implements OnInit {
 
     body.style.overflowY = 'hidden';
 
-    leftContainer.style.position = 'absolute';
+    leftContainer.style.position = 'fixed';
     leftContainer.style.zIndex = '103';
     leftContainer.style.top = '0';
     leftContainer.style.margin = '0 10%';
