@@ -208,6 +208,7 @@ export class ProductComponent implements OnInit {
   }
 
   showGallery() {
+    const body = document.querySelector('body');
     const leftContainer = document.querySelector('.left-container') as HTMLElement;
     const carouselContainer = document.querySelector('.carousel-container') as HTMLElement;
     const carouselSlide = document.querySelector('.carousel-slide') as HTMLElement;
@@ -222,6 +223,8 @@ export class ProductComponent implements OnInit {
     const vpHeight = document.documentElement.clientHeight;
     const carouselButtonWidth = vpWidth * 0.05;
     const carouselButtonHeight = vpWidth * 0.05 * 1.04;
+
+    body.style.overflowY = 'hidden';
 
     leftContainer.style.position = 'absolute';
     leftContainer.style.zIndex = '103';
