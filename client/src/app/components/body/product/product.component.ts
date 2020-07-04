@@ -464,7 +464,11 @@ export class ProductComponent implements OnInit {
         y: point.pageY - scrollPosition.top
     };
   }
-  
+
   //#endregion Drag and drop
 
 }
+
+function __indexOf(collection, node) {
+  return Array.prototype.indexOf.call(collection, node);
+};
