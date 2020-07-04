@@ -85,7 +85,7 @@
     <h1>Slider Image Editor</h1>
     <div class="grid-container" cdkDropListGroup>
       <div cdkDropList [cdkDropListEnterPredicate]="dropListEnterPredicate" (cdkDropListDropped)="dropListDropped()"></div>
-      <div cdkDropList *ngFor="let i of imgs" class="grid-item top-center"  [cdkDropListEnterPredicate]="dropListEnterPredicate" (cdkDropListDropped)="dropListDropped()">
+      <div cdkDropList *ngFor="let i of imgs" [cdkDropListEnterPredicate]="dropListEnterPredicate" (cdkDropListDropped)="dropListDropped()">
         <div cdkDrag class="grid-box" (cdkDragMoved)="dragMoved($event);">
           <img [src]="i" [alt]="'Image ' + imgs.indexOf(i)">
           <div class="grid-item-btn">
