@@ -289,6 +289,7 @@ Module: DragDropModule
 Product Component: drop
 Product Component: constructor
 Product Component: ngAfterViewInit
+Product Component: dragMoved
 Product Component: ngOnInit
 Product Component: View
 Global Styles
