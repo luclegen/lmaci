@@ -1,5 +1,6 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { CdkDragDrop } from '@angular/cdk/drag-drop';
 
 import { ImageCroppedEvent } from 'ngx-image-cropper';
 
@@ -355,9 +356,9 @@ export class ProductComponent implements OnInit {
 
   //#region Drag and drop
 
-  // drop(event: CdkDragDrop<>) {
-
-  // }
+  drop(event: CdkDragDrop<string[]>) {
+    
+  }
 
   //#endregion Drag and drop
 

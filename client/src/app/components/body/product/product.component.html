@@ -83,8 +83,8 @@
 <section>
   <div class="center-container">
     <h1>Slider Image Editor</h1>
-    <div class="grid-container">
-      <div *ngFor="let i of imgs" class="grid-item top-center">
+    <div cdkDropList class="grid-container" (cdkDropListDropped)="drop($event)">
+      <div *ngFor="let i of imgs" class="grid-item top-center" cdkDrag>
         <img [src]="i" [alt]="'Image ' + imgs.indexOf(i)">
         <div class="grid-item-btn">
           <button class="close-img-btn func-btn circle-btn red-btn" title="Delete" type="button" (click)="delete(imgs.indexOf(i))">
