@@ -336,8 +336,7 @@ export class ProductComponent implements OnInit {
       carouselImages[i].style.height = '100%';
     }
 
-    carouselContainer.style.width = carouselImages[0].clientWidth + 'px';
-    carouselContainer.style.height = carouselImages[0].clientHeight + 'px';
+    carouselContainer.style.height = carouselSlide.clientHeight + 'px';
   }
 
   //#endregion Slider
