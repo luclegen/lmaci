@@ -285,6 +285,7 @@ Product Component: onCheck
 Product Component: preview
 Product Component: reset
 Product Component: add
+Module: DragDropModule
 Product Component: ngOnInit
 Product Component: View
 Global Styles
