@@ -390,7 +390,7 @@ export class ProductComponent implements OnInit {
   dragMoved(e: CdkDragMove) {
     let point = this.getPointerPositionOnPage(e.event);
 
-    this.listGroup._items.forEach(dropList => {
+    this.listGroup._imgs.forEach(dropList => {
       if (__isInsideDropListClientRect(dropList, point.x, point.y)) {
         this.activeContainer = dropList;
         return;
