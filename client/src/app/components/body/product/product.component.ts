@@ -310,6 +310,7 @@ export class ProductComponent implements OnInit {
   }
 
   closeGallery() {
+    const body = document.querySelector('body');
     const leftContainer = document.querySelector('.left-container') as HTMLElement;
     const carouselContainer = document.querySelector('.carousel-container') as HTMLElement;
     const carouselImages = document.querySelectorAll('.carousel-slide img') as NodeListOf<HTMLElement>;
@@ -317,6 +318,8 @@ export class ProductComponent implements OnInit {
     const carouselSlide = document.querySelector('.carousel-slide') as HTMLElement;
     const vpWidth = document.documentElement.clientWidth;
     const closeBtn = document.getElementById('close-btn');
+
+    body.style.overflowY = 'visible';
 
     leftContainer.style.position = 'static';
     leftContainer.style.zIndex = '0';
