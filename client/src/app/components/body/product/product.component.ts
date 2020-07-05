@@ -25,7 +25,7 @@ export class ProductComponent implements OnInit {
 
   starCount = [];
   noneStarCount = [];
-  starHalf = false
+  starHalf = false;
 
   product = {
     _id: '',
@@ -41,7 +41,7 @@ export class ProductComponent implements OnInit {
     capacitys: [],
     technicalDetails: [],
     description: '',
-    post: '',
+    post: ''
   };
 
   order = {
@@ -49,7 +49,7 @@ export class ProductComponent implements OnInit {
       preview: '',
       name: '',
       value: '',
-    },
+    }
   }
 
   img: any = '';
