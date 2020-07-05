@@ -105,6 +105,7 @@ export class ProductComponent implements OnInit {
         this.showSlider();
 
         this.order.color.name = this.order.color.preview = this.product.colors[0].name;
+        this.order.color.value = this.product.colors[0].value;
       },
       err => {
         alert(err.error.msg);
