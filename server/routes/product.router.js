@@ -4,6 +4,6 @@ const router = express.Router();
 const productCtrl = require('../controllers/product.controller');
 
 router.get('/:id', productCtrl.get);
-router.put('/:id', productCtrl.uploadImgs);
+router.put('upload-imgs/:id', productCtrl.uploadImgs);
 
 module.exports = router;
