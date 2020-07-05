@@ -358,6 +358,14 @@ export class ProductComponent implements OnInit {
 
   //#endregion Order
 
+  //#region Slider Editor
+
+  saveSlider() {
+    
+  }
+
+  //#endregion Slider Editor
+
   //#region Image Cropper
 
   fileChangeEvent(event: any): void {
