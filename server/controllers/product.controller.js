@@ -9,5 +9,8 @@ module.exports.get = (req, res) => {
 
 module.exports.uploadImgs = (req, res) => {
   console.log(req.params.id);
-  console.log(req.imgs);
+  
+  console.log(req.body.imgs);
+  
+  return res.status(200).json();
 }
