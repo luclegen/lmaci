@@ -398,4 +398,5 @@ Server App: Product Router
 Product Controller: get
 Product Router: GET get
 Product Controller: uploadImgs
+Product Router: PUT uploadImgs
 Commit
