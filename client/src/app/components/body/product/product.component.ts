@@ -363,9 +363,26 @@ export class ProductComponent implements OnInit {
   //#region Slider Editor
 
   saveSlider() {
+    const id = this.route.snapshot.paramMap.get('id');
+
     this.authService.getInfo().subscribe(res => {
       if (res['user'].role == 'root' || res['user'].role === 'admin') {
-        
+        const formData = new FormData();
+        for(let img of this.imgs) formData.append('files', img);
+
+        let slider = {
+          color: this.order.color.value,
+          imgs: formData
+        }
+
+        this.productService.uploadImgs(id, slider).subscribe(
+          res => {
+
+          },
+          err => {
+            
+          }
+        );
       } else this.router.navigateByUrl('');
     });
   }
