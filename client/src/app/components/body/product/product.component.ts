@@ -12,6 +12,7 @@ import { ViewportRuler } from "@angular/cdk/overlay";
 import { ImageCroppedEvent } from 'ngx-image-cropper';
 
 import { ProductService } from 'src/app/services/product.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-product',
@@ -86,6 +87,7 @@ export class ProductComponent implements OnInit {
 
   constructor(private viewportRuler: ViewportRuler,
               private route: ActivatedRoute,
+              private authService: AuthService,
               private productService: ProductService,
               private router: Router) {
     this.target = null;
@@ -361,7 +363,7 @@ export class ProductComponent implements OnInit {
   //#region Slider Editor
 
   saveSlider() {
-    
+
   }
 
   //#endregion Slider Editor
