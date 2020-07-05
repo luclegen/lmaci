@@ -397,4 +397,5 @@ Admin Router: PUT searchProducts
 Server App: Product Router
 Product Controller: get
 Product Router: GET get
+Product Controller: uploadImgs
 Commit
