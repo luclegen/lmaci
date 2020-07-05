@@ -15,7 +15,7 @@ export class ProductService {
   }
 
   uploadImgs(id: string, slider: Object) {
-    return this.http.put(environment.productUrl + '/' + id, slider);
+    return this.http.put(environment.productUrl + 'upload-imgs/' + id, slider);
   }
 
 }
