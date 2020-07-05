@@ -8,5 +8,6 @@ module.exports.get = (req, res) => {
 }
 
 module.exports.uploadImgs = (req, res) => {
+  console.log(req.params.id);
   console.log(req.imgs);
 }
