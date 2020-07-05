@@ -297,6 +297,7 @@ Product Component: __indexOf
 Product Component: __isTouchEvent
 Product Component: __isInsideDropListClientRect
 Product Component: delete
+Product Component: saveSlider
 Product Component: ngOnInit
 Product Component: View
 Global Styles
