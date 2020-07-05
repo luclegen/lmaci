@@ -6,3 +6,7 @@ module.exports.get = (req, res) => {
                     : res.status(404).json({ msg: 'Product not found.' });
   });
 }
+
+module.exports.uploadImgs = (req, res) => {
+  console.log(req.imgs);
+}
