@@ -363,7 +363,11 @@ export class ProductComponent implements OnInit {
   //#region Slider Editor
 
   saveSlider() {
-
+    this.authService.getInfo().subscribe(res => {
+      if (res['user'].role == 'root' || res['user'].role === 'admin') {
+        
+      } else this.router.navigateByUrl('');
+    });
   }
 
   //#endregion Slider Editor
