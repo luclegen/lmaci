@@ -369,19 +369,16 @@ export class ProductComponent implements OnInit {
     this.authService.getInfo().subscribe(res => {
       if (res['user'].role == 'root' || res['user'].role === 'admin') {
         const formData = new FormData();
-        for(let img of this.imgs) formData.append('files', img);
 
-        let slider = {
-          color: this.order.color.value,
-          imgs: formData
-        }
+        formData.append('imgs', this.order.color.value);
+        for(let img of this.imgs) formData.append('imgs', img);
 
-        this.productService.uploadImgs(id, slider).subscribe(
+        this.productService.uploadImgs(id, formData).subscribe(
           res => {
 
           },
           err => {
-            
+
           }
         );
       } else this.router.navigateByUrl('');
