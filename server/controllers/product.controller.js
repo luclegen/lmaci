@@ -20,27 +20,26 @@ module.exports.uploadImgs = (req, res) => {
 
   Product.findById(req.params.id, (err, product) => {
     if (product) {
-      let sliders = product.sliders, slider = [ req.body.imgs[0] ];
+      const sliders = [], slider = [ req.body.imgs[0] ];
 
-      for (let i = 0; i < product.sliders.length; i++) {
-        console.log(product.sliders[i][0] == slider[0]);
-        if (product.sliders[i][0] == slider[0]) {
-
-        }
-        // for (let j = 0; j < product.sliders[i].length; j++) {
-        //   
-        // }
+      for (let i = 0; i < product.slidersPaths.length; i++) {
+        const slider = [];
+        slider.push(product.slidersPaths[i][0]);
+        for (let j = 1; j < product.slidersPaths[i].length; j++) slider.push(new Buffer.from(product.slidersPaths[i][j], 'base64'));
+        sliders.push(slider);
       }
 
-      // if () {
+      for (const i of req.body.imgs.slice(1)) slider.push(new Buffer.from(converter.base64ToJpeg(i), 'base64'));
 
-      // } else for (const i of req.body.imgs.slice(1)) slider.push(new Buffer.from(converter.base64ToJpeg(i), 'base64'));
-      // sliders.push(slider);
+      for (let i = 0; i < product.sliders.length; i++) {
+        if (slider[0] == product.sliders[i][0]) sliders[i] = slider;
+        else sliders.push(slider);
+      }
+       
+      Product.findByIdAndUpdate(req.params.id, { $set: { sliders: sliders } }, { new: true }, (err, product) => {
+        return product ? res.status(200).json({ msg: 'Upload this images is successfully.' })
+                      : res.status(404).json({ msg: 'Upload this images failed!' });
+      });
     } else res.status(404).json({ msg: 'Product not found.' });
   });
-  
-  // Product.findByIdAndUpdate(req.params.id, { $set: { sliders: sliders } }, { new: true }, (err, product) => {
-  //   return product ? res.status(200).json()
-  //                  : res.status(404).json({ msg: 'Upload this images failed.' });
-  // });
 }
