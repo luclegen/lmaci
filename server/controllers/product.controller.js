@@ -20,7 +20,7 @@ module.exports.uploadImgs = (req, res) => {
 
   Product.findById(req.params.id, (err, product) => {
     if (product) {
-      const sliders = [], slider = [ req.body.imgs[0] ]
+      const sliders = [], slider = Array.isArray(req.body.imgs) ? [ req.body.imgs[0] ] : [ req.body.imgs ];
       let replace = false;
 
       for (let i = 0; i < product.slidersPaths.length; i++) {
@@ -30,7 +30,7 @@ module.exports.uploadImgs = (req, res) => {
         sliders.push(slider);
       }
 
-      for (const i of req.body.imgs.slice(1)) slider.push(new Buffer.from(converter.base64ToJpeg(i), 'base64'));
+      if (Array.isArray(req.body.imgs)) for (const i of req.body.imgs.slice(1)) slider.push(new Buffer.from(converter.base64ToJpeg(i), 'base64'));
 
       for (let i = 0; i < product.sliders.length; i++) {
         if (slider[0] == product.sliders[i][0]) {
@@ -38,9 +38,9 @@ module.exports.uploadImgs = (req, res) => {
           replace = true;
         }
       }
-      
+
       if (!replace) sliders.push(slider);
-       
+      
       Product.findByIdAndUpdate(req.params.id, { $set: { sliders: sliders } }, { new: true }, (err, product) => {
         return product ? res.status(200).json({ msg: 'Upload this images is successfully.' })
                       : res.status(404).json({ msg: 'Upload this images failed!' });
