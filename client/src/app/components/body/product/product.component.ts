@@ -378,6 +378,19 @@ export class ProductComponent implements OnInit {
 
   //#region Slider Editor
 
+  isSaveImgs() {
+    for (let i = 0; i < this.product.slidersPaths.length; i++) {
+      if (this.product.slidersPaths[i][0] == this.order.color.value) {
+        if (this.imgs.length == this.product.slidersPaths[i].slice(1).length) {
+          for (let j = 0; j < this.product.slidersPaths[i].slice(1).length; j++) {
+            if (this.imgs[j] != this.product.slidersPaths[i].slice(1)[j]) return true;
+          }
+        } else return true;
+      }
+    }
+    return false;
+  }
+
   saveSlider() {
     this.authService.getInfo().subscribe(res => {
       if (res['user'].role == 'root' || res['user'].role === 'admin') {
