@@ -20,7 +20,8 @@ module.exports.uploadImgs = (req, res) => {
 
   Product.findById(req.params.id, (err, product) => {
     if (product) {
-      const sliders = [], slider = [ req.body.imgs[0] ], replace = false;
+      const sliders = [], slider = [ req.body.imgs[0] ]
+      let replace = false;
 
       for (let i = 0; i < product.slidersPaths.length; i++) {
         const slider = [];
