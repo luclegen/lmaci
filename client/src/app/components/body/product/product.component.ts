@@ -369,8 +369,6 @@ export class ProductComponent implements OnInit {
   //#region Slider Editor
 
   saveSlider() {
-    const id = this.route.snapshot.paramMap.get('id');
-
     this.authService.getInfo().subscribe(res => {
       if (res['user'].role == 'root' || res['user'].role === 'admin') {
         const formData = new FormData();
@@ -378,7 +376,7 @@ export class ProductComponent implements OnInit {
         formData.append('imgs', this.order.color.value);
         for(let img of this.imgs) formData.append('imgs', img);
 
-        this.productService.uploadImgs(id, formData).subscribe(
+        this.productService.uploadImgs(this.id, formData).subscribe(
           res => {
             alert(res['msg']);
           },
