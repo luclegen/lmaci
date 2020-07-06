@@ -382,13 +382,14 @@ export class ProductComponent implements OnInit {
     for (let i = 0; i < this.product.slidersPaths.length; i++) {
       if (this.product.slidersPaths[i][0] == this.order.color.value) {
         if (this.imgs.length == this.product.slidersPaths[i].slice(1).length) {
-          for (let j = 0; j < this.product.slidersPaths[i].slice(1).length; j++) {
-            if (this.imgs[j] != this.product.slidersPaths[i].slice(1)[j]) return true;
-          }
+          let count = 0;
+          for (let j = 0; j < this.product.slidersPaths[i].slice(1).length; j++) if (this.imgs[j] == this.product.slidersPaths[i].slice(1)[j]) count++;
+          if (count == this.imgs.length) return false;
         } else return true;
       }
     }
-    return false;
+    if (!this.imgs.length) return false;
+    return true;
   }
 
   saveSlider() {
