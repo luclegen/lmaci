@@ -28,6 +28,8 @@ export class ProductComponent implements OnInit {
   noneStarCount = [];
   starHalf = false;
 
+  id = '';
+
   product = {
     _id: '',
     name: '',
@@ -96,9 +98,9 @@ export class ProductComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get('id');
+    this.id = this.route.snapshot.paramMap.get('id');
 
-    this.productService.getProduct(id).subscribe(
+    this.productService.getProduct(this.id).subscribe(
       res => {
         this.product = res['product'];
 
