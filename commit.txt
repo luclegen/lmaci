@@ -300,8 +300,6 @@ Product Component: delete
 Product Component: saveSlider
 Product Service: uploadImgs
 Product Component: isSaveImgs
-Product Component: onCheckColor
-Product Component: changedColor
 Product Component: ngOnInit
 Product Component: View
 Global Styles
