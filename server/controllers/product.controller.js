@@ -29,6 +29,6 @@ module.exports.uploadImgs = (req, res) => {
   
   Product.findByIdAndUpdate(req.params.id, { $set: { sliders: sliders } }, { new: true }, (err, product) => {
     return product ? res.status(200).json()
-                   : res.status(404).json({ msg: 'Upload this product image failed.' });
+                   : res.status(404).json({ msg: 'Upload this images failed.' });
   });
 }
