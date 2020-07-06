@@ -298,8 +298,9 @@ Product Component: __isTouchEvent
 Product Component: __isInsideDropListClientRect
 Product Component: delete
 Product Component: saveSlider
-Product Component: ngOnInit
 Product Service: uploadImgs
+Product Component: isSaveImgs
+Product Component: ngOnInit
 Product Component: View
 Global Styles
 Commit
