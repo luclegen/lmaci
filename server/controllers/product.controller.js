@@ -25,7 +25,7 @@ module.exports.uploadImgs = (req, res) => {
       for (let i = 0; i < product.slidersPaths.length; i++) {
         const slider = [];
         slider.push(product.slidersPaths[i][0]);
-        for (let j = 1; j < product.slidersPaths[i].length; j++) slider.push(new Buffer.from(product.slidersPaths[i][j], 'base64'));
+        for (let j = 1; j < product.slidersPaths[i].length; j++) slider.push(new Buffer.from(converter.base64ToJpeg(product.slidersPaths[i][j]), 'base64'));
         sliders.push(slider);
       }
 
