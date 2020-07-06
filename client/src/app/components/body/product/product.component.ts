@@ -351,19 +351,12 @@ export class ProductComponent implements OnInit {
 
   //#region Order
 
-  onCheck(color) {
-    const carouselSlide = document.querySelector('.carousel-slide') as HTMLElement;
+  onCheckColor() {
+    
+  }
 
-    this.order.color.preview = color.name;
-    this.order.color.value = color.value;
-
-    this.imgs = [];
-
-    for (const slider of this.product.slidersPaths) if (slider[0] == this.order.color.value) this.imgs = slider.slice(1);
-
-    this.counter = 0;
-    carouselSlide.style.transition = 'none';
-    carouselSlide.style.transform = 'translateX(' + (-this.size * this.counter) + 'px)';
+  changedColor(color) {
+    
   }
 
   preview(color) {
@@ -395,6 +388,7 @@ export class ProductComponent implements OnInit {
   saveSlider() {
     this.authService.getInfo().subscribe(res => {
       if (res['user'].role == 'root' || res['user'].role === 'admin') {
+        alert(this.isSaveImgs());
         if (this.isSaveImgs()) {
           const formData = new FormData();
 
