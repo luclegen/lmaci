@@ -352,7 +352,10 @@ export class ProductComponent implements OnInit {
   //#region Order
 
   onCheckColor() {
-    
+    if (this.isSaveImgs()) if (confirm('Do you want to save changes?')) {
+      alert(this.isSaveImgs());
+      this.saveSlider();
+    }
   }
 
   changedColor(color) {
