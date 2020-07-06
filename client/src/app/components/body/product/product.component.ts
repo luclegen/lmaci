@@ -101,11 +101,11 @@ export class ProductComponent implements OnInit {
       res => {
         this.product = res['product'];
 
-        this.showStar();
-        this.showSlider();
-
         this.order.color.name = this.order.color.preview = this.product.colors[0].name;
         this.order.color.value = this.product.colors[0].value;
+        
+        this.showStar();
+        this.showSlider();
       },
       err => {
         alert(err.error.msg);
