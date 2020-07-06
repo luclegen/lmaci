@@ -354,6 +354,8 @@ export class ProductComponent implements OnInit {
   onCheck(color) {
     this.order.color.preview = color.name;
     this.order.color.value = color.value;
+
+    for (const slider of this.product.slidersPaths) if (slider[0] == this.order.color.value) this.imgs = slider.slice(1);
   }
 
   preview(color) {
