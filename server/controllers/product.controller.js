@@ -5,6 +5,9 @@ const Product = require('../models/product.model');
 const converter = require('../helpers/converter');
 
 module.exports.get = (req, res) => {
+  if (!ObjectId.isValid(req.params.id))
+    return res.status(400).json({ msg: `No record with given id: ${req.params.id}` });
+
   Product.findById(req.params.id, (err, product) => {
     return product ? res.status(200).json({ product: product })
                     : res.status(404).json({ msg: 'Product not found.' });
