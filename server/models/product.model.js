@@ -42,7 +42,7 @@ let productSchema = new mongoose.Schema({
   technicalDetails: Array,
   description: String,
   post: String,
-  sliders: [ { color: String, slider: [ Buffer ] } ]
+  sliders: Array
 }, {
   toObject: {
     virtuals: true
@@ -61,17 +61,14 @@ productSchema.virtual('imgPath').get(function() {
 })
 
 productSchema.virtual('slidersPaths').get(function() {
-  if (this.sliders.length) {
-    let slidersPaths = [];
-    for (let i = 0; i < this.sliders.length; i++) {
-      if (this.sliders[i].length) {
-        var sliderPaths = [];
-        for (let j = 0; j < this.sliders[i].length; j++) sliderPaths.push(`data:image/png;base64,${this.sliders[i].slider[j].toString('base64')}`);
-        slidersPaths.push({ color: sliders[i].color, sliderPaths: sliderPaths });
-      }
-    }
-    return slidersPaths;
+  let slidersPaths = [];
+  for (let i = 0; i < this.sliders.length; i++) {
+    var sliderPaths = [];
+    sliderPaths.push(this.sliders[i][0]);
+    for (let j = 1; j < this.sliders[i].length; j++) sliderPaths.push(`data:image/jpeg;base64,${this.sliders[i][j].toString('base64')}`);
+    slidersPaths.push(sliderPaths);
   }
+  return slidersPaths;
 })
 
 module.exports = mongoose.model('Product', productSchema);
