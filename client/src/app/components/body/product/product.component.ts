@@ -395,32 +395,32 @@ export class ProductComponent implements OnInit {
     console.log(this.isSaveImgs());
       
     // if (this.isSaveImgs()) {
-    //   this.authService.getInfo().subscribe(res => {
-    //     if (res['user'].role == 'root' || res['user'].role === 'admin') {
-    //       const formData = new FormData();
+      // this.authService.getInfo().subscribe(res => {
+      //   if (res['user'].role == 'root' || res['user'].role === 'admin') {
+      //     const formData = new FormData();
 
-    //       formData.append('imgs', this.order.color.value);
-    //       for(let img of this.imgs) formData.append('imgs', img);
+      //     formData.append('imgs', this.order.color.value);
+      //     for(let img of this.imgs) formData.append('imgs', img);
 
-    //       this.productService.uploadImgs(this.id, formData).subscribe(
-    //         res => {
-    //           alert(res['msg']);
-    //           this.productService.getProduct(this.id).subscribe(
-    //             res => {
-    //               this.product = res['product'];
-    //             },
-    //             err => {
-    //               alert(err.error.msg);
-    //               this.router.navigateByUrl('');
-    //             }
-    //           );
-    //         },
-    //         err => {
-    //           alert(err.error.msg);
-    //         }
-    //       );
-    //     } else this.router.navigateByUrl('');
-    //   });
+      //     this.productService.uploadImgs(this.id, formData).subscribe(
+      //       res => {
+      //         alert(res['msg']);
+      //         this.productService.getProduct(this.id).subscribe(
+      //           res => {
+      //             this.product = res['product'];
+      //           },
+      //           err => {
+      //             alert(err.error.msg);
+      //             this.router.navigateByUrl('');
+      //           }
+      //         );
+      //       },
+      //       err => {
+      //         alert(err.error.msg);
+      //       }
+      //     );
+      //   } else this.router.navigateByUrl('');
+      // });
     // }
   }
 
