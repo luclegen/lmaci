@@ -351,15 +351,13 @@ export class ProductComponent implements OnInit {
 
   //#region Order
 
-  onCheckColor() {
+  onCheck(color) {
+    const carouselSlide = document.querySelector('.carousel-slide') as HTMLElement;
+
     if (this.isSaveImgs()) if (confirm('Do you want to save changes?')) {
       alert(this.isSaveImgs());
       this.saveSlider();
     }
-  }
-
-  changedColor(color) {
-    const carouselSlide = document.querySelector('.carousel-slide') as HTMLElement;
 
     this.order.color.preview = color.name;
     this.order.color.value = color.value;
