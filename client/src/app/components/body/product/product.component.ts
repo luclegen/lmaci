@@ -395,7 +395,6 @@ export class ProductComponent implements OnInit {
   saveSlider() {
     this.authService.getInfo().subscribe(res => {
       if (res['user'].role == 'root' || res['user'].role === 'admin') {
-        alert(this.isSaveImgs());
         if (this.isSaveImgs()) {
           const formData = new FormData();
 
