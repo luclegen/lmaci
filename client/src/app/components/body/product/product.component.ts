@@ -42,7 +42,8 @@ export class ProductComponent implements OnInit {
     capacitys: [],
     technicalDetails: [],
     description: '',
-    post: ''
+    post: '',
+    slidersPaths: []
   };
 
   order = {
@@ -103,7 +104,9 @@ export class ProductComponent implements OnInit {
 
         this.order.color.name = this.order.color.preview = this.product.colors[0].name;
         this.order.color.value = this.product.colors[0].value;
-        
+
+        for (const slider of this.product.slidersPaths) if (slider[0] == this.order.color.value) this.imgs = slider.slice(1);
+
         this.showStar();
         this.showSlider();
       },
