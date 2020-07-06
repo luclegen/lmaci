@@ -383,6 +383,15 @@ export class ProductComponent implements OnInit {
         this.productService.uploadImgs(this.id, formData).subscribe(
           res => {
             alert(res['msg']);
+            this.productService.getProduct(this.id).subscribe(
+              res => {
+                this.product = res['product'];
+              },
+              err => {
+                alert(err.error.msg);
+                this.router.navigateByUrl('');
+              }
+            );
           },
           err => {
             alert(err.error.msg);
