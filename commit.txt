@@ -301,6 +301,7 @@ Product Component: saveSlider
 Product Service: uploadImgs
 Product Component: isSaveImgs
 Product Component: cancelSaveSlider
+Product Component: cancel
 Product Component: ngOnInit
 Product Component: View
 Global Styles
