@@ -31,17 +31,17 @@
 
     <span>
       <label id="price">Price: </label>
-      <input class="number" #price="ngModel" [(ngModel)]="product.price" type="number" name="price" min="0" [pattern]="NotNegativeNumberRegex" required>
+      <input id="price-in" class="number" #price="ngModel" [(ngModel)]="product.price" type="number" name="price" min="0" [pattern]="NotNegativeNumberRegex" required>
     </span>
 
     <span>
       <label id="quantity-imported">Quantity Imported: </label>
-      <input class="number" #quantityImported="ngModel" [(ngModel)]="product.quantity.imported" type="number" name="quantityImported" min="0" [pattern]="positiveNumberRegex" required>
+      <input id="quantity-imported-in" class="number" #quantityImported="ngModel" [(ngModel)]="product.quantity.imported" type="number" name="quantityImported" min="0" [pattern]="positiveNumberRegex" required>
     </span>
     
     <span id="type-span">
-      <label id="type">Type: </label>
-      <select #type="ngModel" [(ngModel)]="product.type" name="type" required>
+      <label id="type-label" id="type">Type: </label>
+      <select id="type-select" #type="ngModel" [(ngModel)]="product.type" name="type" required>
         <option value="" selected>Choose type</option>
         <option value="laptop">Laptop</option>
         <option value="tablet">Tablet</option>
