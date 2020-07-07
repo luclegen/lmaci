@@ -19,7 +19,8 @@
         [cropperMinWidth]="128"
         format="png" 
         (imageCropped)="imageCropped($event)" 
-        [onlyScaleDown]="true"></image-cropper>
+        [onlyScaleDown]="true">
+      </image-cropper>
       <img [src]="croppedImage" />
     </div>
 
