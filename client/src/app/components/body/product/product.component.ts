@@ -118,7 +118,6 @@ export class ProductComponent implements OnInit {
           this.authService.getInfo().subscribe(
             res => {
               this.userDetails = res['user'];
-              alert(JSON.stringify(this.userDetails));
             }, err => {
               if (!err.error.auth) this.authService.removeToken();
             }
