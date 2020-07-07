@@ -28,6 +28,8 @@ export class ProductComponent implements OnInit {
   noneStarCount = [];
   starHalf = false;
 
+  userDetails;
+
   id = '';
 
   product = {
@@ -111,6 +113,17 @@ export class ProductComponent implements OnInit {
 
         this.showStar();
         this.showSlider();
+
+        if (this.authService.getToken()){
+          this.authService.getInfo().subscribe(
+            res => {
+              this.userDetails = res['user'];
+              alert(JSON.stringify(this.userDetails));
+            }, err => {
+              if (!err.error.auth) this.authService.removeToken();
+            }
+          );
+        }
       },
       err => {
         alert(err.error.msg);
