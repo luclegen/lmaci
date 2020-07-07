@@ -472,13 +472,6 @@ export class ProductComponent implements OnInit {
 
   //#region Drag and drop
 
-  ngAfterViewInit() {
-    let phElement = this.placeholder.element.nativeElement;
-
-    phElement.style.display = 'none';
-    phElement.parentElement.removeChild(phElement);
-  }
-
   dragMoved(e: CdkDragMove) {
     let point = this.getPointerPositionOnPage(e.event);
 
