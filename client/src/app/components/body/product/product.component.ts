@@ -453,7 +453,8 @@ export class ProductComponent implements OnInit {
   }
 
   cancel() {
-
+    this.imageChangedEvent = '';
+    this.croppedImage = '';
   }
 
   //#endregion Image Cropper
