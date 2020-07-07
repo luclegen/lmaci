@@ -147,11 +147,19 @@ export class ProductsComponent implements OnInit {
     const tripleIn = document.getElementsByClassName('triple') as HTMLCollectionOf<HTMLElement>;
     const doubleIn = document.getElementsByClassName('double') as HTMLCollectionOf<HTMLElement>;
     const functions = document.getElementsByClassName('functions') as HTMLCollectionOf<HTMLElement>;
+    const input = document.getElementsByTagName('input') as HTMLCollectionOf<HTMLInputElement>;
+    const label = document.getElementsByTagName('label') as HTMLCollectionOf<HTMLLabelElement>;
+    const select = document.getElementsByTagName('select') as HTMLCollectionOf<HTMLSelectElement>;
+
     colorTable.style.width = tableWidth + 'px';
 
     tripleIn[0].style.width = (tableWidth - (functions[0].clientWidth + 3) - 256) + 'px';
 
     for (let i = 0; i < doubleIn.length; i++) doubleIn[i].style.width = ((tableWidth - (functions[1].clientWidth + 3)) * 0.5 - 20) + 'px';
+    
+    for (let i = 0; i < input.length; i++) input[i].style.fontSize = vpWidth * 0.015 + 'px';
+    for (let i = 0; i < label.length; i++) label[i].style.fontSize = vpWidth * 0.015 + 'px';
+    for (let i = 0; i < select.length; i++) select[i].style.fontSize = vpWidth * 0.015 + 'px';
 
     this.authService.getInfo().subscribe(res => {
       if (res['user'].role == 'root' || res['user'].role === 'admin') {
