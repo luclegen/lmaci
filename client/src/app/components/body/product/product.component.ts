@@ -549,6 +549,8 @@ export class ProductComponent implements OnInit {
 
 }
 
+//#region Helpers
+
 function __indexOf(collection, node) {
   return Array.prototype.indexOf.call(collection, node);
 };
@@ -562,3 +564,5 @@ function __isInsideDropListClientRect(dropList: CdkDropList, x: number, y: numbe
   const {top, bottom, left, right} = dropList.element.nativeElement.getBoundingClientRect();
   return y >= top && y <= bottom && x >= left && x <= right; 
 }
+
+//#endregion Helpers
