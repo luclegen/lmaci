@@ -26,7 +26,7 @@ export class ProductsComponent implements OnInit {
     imgPath: '',
     name: '',
     price: 0,
-    quantity: { imported: 1 },
+    quantity: { imported: 0 },
     type: '',
     colors: [],
     capacitys: [],

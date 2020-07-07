@@ -5,7 +5,7 @@
 
     <input #_id="ngModel" [(ngModel)]="product._id" type="hidden" name="_id">
     
-    <span class="inline-span">
+    <span class="inline-span input-span">
       <label for="img">Choose an image file</label>
       <input #img="ngModel" [(ngModel)]="product.img" id="img" type="file" name="img" (change)="fileChangeEvent($event)" accept="image/*" required>
     </span>
@@ -36,7 +36,7 @@
 
     <span>
       <label id="quantity-imported">Quantity Imported: </label>
-      <input class="number" #quantityImported="ngModel" [(ngModel)]="product.quantity.imported" type="number" name="quantityImported" min="1" [pattern]="positiveNumberRegex" required>
+      <input class="number" #quantityImported="ngModel" [(ngModel)]="product.quantity.imported" type="number" name="quantityImported" min="0" [pattern]="positiveNumberRegex" required>
     </span>
     
     <span id="type-span">
