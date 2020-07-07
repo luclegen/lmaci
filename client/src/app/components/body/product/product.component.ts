@@ -423,6 +423,10 @@ export class ProductComponent implements OnInit {
     });
   }
 
+  cancelSaveSlider() {
+
+  }
+
   //#endregion Slider Editor
 
   //#region Image Cropper
