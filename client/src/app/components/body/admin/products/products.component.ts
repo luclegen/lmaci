@@ -150,16 +150,26 @@ export class ProductsComponent implements OnInit {
     const input = document.getElementsByTagName('input') as HTMLCollectionOf<HTMLInputElement>;
     const label = document.getElementsByTagName('label') as HTMLCollectionOf<HTMLLabelElement>;
     const select = document.getElementsByTagName('select') as HTMLCollectionOf<HTMLSelectElement>;
+    const price = document.getElementById('price') as HTMLElement;
+    const priceIn = document.getElementById('price-in') as HTMLElement;
+    const quantityImported = document.getElementById('quantity-imported') as HTMLElement;
+    const quantityImportedIn = document.getElementById('quantity-imported-in') as HTMLElement;
+    const type = document.getElementById('type') as HTMLElement;
+    const typeSelect = document.getElementById('type-select') as HTMLElement;
 
     colorTable.style.width = tableWidth + 'px';
 
     tripleIn[0].style.width = (tableWidth - (functions[0].clientWidth + 3) - 256) + 'px';
 
     for (let i = 0; i < doubleIn.length; i++) doubleIn[i].style.width = ((tableWidth - (functions[1].clientWidth + 3)) * 0.5 - 20) + 'px';
-    
+
     for (let i = 0; i < input.length; i++) input[i].style.fontSize = vpWidth * 0.015 + 'px';
     for (let i = 0; i < label.length; i++) label[i].style.fontSize = vpWidth * 0.015 + 'px';
     for (let i = 0; i < select.length; i++) select[i].style.fontSize = vpWidth * 0.015 + 'px';
+
+    price.style.marginLeft = (priceIn.offsetWidth - price.offsetWidth) + 'px';
+    quantityImported.style.marginLeft = (quantityImportedIn.offsetWidth - quantityImported.offsetWidth) + 'px';
+    type.style.marginLeft = (typeSelect.offsetWidth - type.offsetWidth) + 'px';
 
     this.authService.getInfo().subscribe(res => {
       if (res['user'].role == 'root' || res['user'].role === 'admin') {
