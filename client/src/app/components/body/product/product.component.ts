@@ -452,7 +452,7 @@ export class ProductComponent implements OnInit {
     if (confirm('Are you sure delete: Image ' + (i + 1) + '?')) this.imgs.splice(i, 1);
   }
 
-  edit(img) {
+  cancel() {
 
   }
 
