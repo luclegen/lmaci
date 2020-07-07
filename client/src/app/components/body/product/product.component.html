@@ -82,7 +82,7 @@
     </form>
   </div>
 </section>
-<section>
+<section *ngIf="userDetails && (userDetails.role == 'root' || userDetails.role == 'admin')">
   <div class="center-container">
     <details open="open">
       <summary>
@@ -109,7 +109,7 @@
     </details>
   </div>
 </section>
-<section>
+<section *ngIf="userDetails && (userDetails.role == 'root' || userDetails.role == 'admin')">
   <div class="left-container image-cropper-container">
     <span class="input-span inline-span">
       <label for="img">Choose an image file</label>
