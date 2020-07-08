@@ -374,8 +374,8 @@ export class ProductComponent implements OnInit {
   onCheck(color) {
     const carouselSlide = document.querySelector('.carousel-slide') as HTMLElement;
 
-    this.order.color.preview = color.name;
-    this.order.color.value = color.value;
+    this.order.preview.name = this.order.color.name = color.name;
+    this.order.preview.value = this.order.color.value = color.value;
 
     this.imgs = [];
 
