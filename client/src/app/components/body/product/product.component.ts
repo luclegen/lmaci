@@ -387,7 +387,8 @@ export class ProductComponent implements OnInit {
   }
 
   preview(color) {
-    this.order.color.preview = color.name;
+    this.order.preview.name = color.name;
+    this.order.preview.value = color.value;
   }
 
   reset() {
