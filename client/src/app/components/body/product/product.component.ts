@@ -401,7 +401,8 @@ export class ProductComponent implements OnInit {
   }
 
   reset() {
-    this.order.color.preview = this.order.color.name;
+    this.order.preview.name = this.order.color.name;
+    this.order.preview.value = this.order.color.value;
   }
 
   //#endregion Order
