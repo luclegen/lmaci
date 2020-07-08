@@ -401,8 +401,18 @@ export class ProductComponent implements OnInit {
   }
 
   reset() {
+    const carouselSlide = document.querySelector('.carousel-slide') as HTMLElement;
+    
     this.order.preview.name = this.order.color.name;
     this.order.preview.value = this.order.color.value;
+
+    this.imgs = [];
+
+    for (const slider of this.product.slidersPaths) if (slider[0] == this.order.preview.value) this.imgs = slider.slice(1);
+
+    this.counter = 0;
+    carouselSlide.style.transition = 'none';
+    carouselSlide.style.transform = 'translateX(' + (-this.size * this.counter) + 'px)';
   }
 
   //#endregion Order
