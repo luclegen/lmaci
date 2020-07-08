@@ -73,7 +73,7 @@
       <label class="attr"><strong>Price:</strong></label>
       <label class="attr price"> {{ priceFormated }}</label><br>
       <label class="attr">
-        <strong>Color:</strong> {{ order.color.preview }}
+        <strong>Color:</strong> {{ order.preview.name }}
       </label>
       <div class="left">
         <div *ngFor="let c of product.colors" class="center vertical color-radio-container">
