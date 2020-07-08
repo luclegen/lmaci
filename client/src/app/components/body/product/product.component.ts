@@ -379,7 +379,7 @@ export class ProductComponent implements OnInit {
 
     this.imgs = [];
 
-    for (const slider of this.product.slidersPaths) if (slider[0] == this.order.color.value) this.imgs = slider.slice(1);
+    for (const slider of this.product.slidersPaths) if (slider[0] == this.order.preview.value) this.imgs = slider.slice(1);
 
     this.counter = 0;
     carouselSlide.style.transition = 'none';
