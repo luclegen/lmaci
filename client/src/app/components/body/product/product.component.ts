@@ -51,12 +51,15 @@ export class ProductComponent implements OnInit {
   };
 
   order = {
+    price: 0,
     color: {
       preview: '',
       name: '',
       value: '',
     }
   }
+
+  priceFormated;
 
   img: any = '';
   imgs = [];
@@ -108,6 +111,8 @@ export class ProductComponent implements OnInit {
 
         this.order.color.name = this.order.color.preview = this.product.colors[0].name;
         this.order.color.value = this.product.colors[0].value;
+
+        this.priceFormated = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2 }).format(this.product.price);
 
         for (const slider of this.product.slidersPaths) if (slider[0] == this.order.color.value) this.imgs = slider.slice(1);
 
