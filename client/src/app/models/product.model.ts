@@ -7,9 +7,7 @@ export class Product {
   star: { number: number, countRate: number };
   type: string;
   colors: [];
-  styles: [];
-  editions: [];
-  capacitys: [];
+  properties: [];
   technicalDetails: [];
   description: string;
   post: string;
