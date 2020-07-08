@@ -52,8 +52,11 @@ export class ProductComponent implements OnInit {
 
   order = {
     price: 0,
+    preview: {
+      name: '',
+      value: '',
+    },
     color: {
-      preview: '',
       name: '',
       value: '',
     }
@@ -109,8 +112,8 @@ export class ProductComponent implements OnInit {
       res => {
         this.product = res['product'];
 
-        this.order.color.name = this.order.color.preview = this.product.colors[0].name;
-        this.order.color.value = this.product.colors[0].value;
+        this.order.preview.name = this.order.color.name = this.product.colors[0].name;
+        this.order.preview.value = this.order.color.value = this.product.colors[0].value;
 
         this.priceFormated = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2 }).format(this.product.price);
 
