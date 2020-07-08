@@ -390,17 +390,10 @@ export class ProductComponent implements OnInit {
   }
 
   preview(color) {
-    const carouselSlide = document.querySelector('.carousel-slide') as HTMLElement;
-
     this.order.preview.name = color.name;
     this.order.preview.value = color.value;
 
-    this.imgs = [];
-
-    for (const slider of this.product.slidersPaths) if (slider[0] == this.order.preview.value) this.imgs = slider.slice(1);
-
-    carouselSlide.style.transition = 'none';
-    carouselSlide.style.transform = 'translateX(' + (-this.size * this.counter) + 'px)';
+    this.reloadSlider();
   }
 
   reset() {
