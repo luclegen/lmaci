@@ -398,8 +398,7 @@ export class ProductComponent implements OnInit {
   }
 
   onCheck(color) {
-    this.order.preview.name = this.order.color.name = color.name;
-    this.order.preview.value = this.order.color.value = color.value;
+    this.order.preview = this.order.color = JSON.parse(JSON.stringify(color));
 
     this.reloadSlider();
   }
