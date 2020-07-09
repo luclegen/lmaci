@@ -410,8 +410,7 @@ export class ProductComponent implements OnInit {
   }
 
   reset() {
-    this.order.preview.name = this.order.color.name;
-    this.order.preview.value = this.order.color.value;
+    this.order.preview = this.order.color;
     
     this.reloadSlider();
   }
