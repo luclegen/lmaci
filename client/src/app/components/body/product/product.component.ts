@@ -130,7 +130,7 @@ export class ProductComponent implements OnInit {
           this.order.properties.push(property);
         });
 
-        this.priceFormated = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2 }).format(this.order.price);
+        this.priceFormated = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2 }).format(this.product.price);
 
         for (const slider of this.product.slidersPaths) if (slider[0] == this.order.color.value) this.imgs = slider.slice(1);
 
