@@ -58,6 +58,7 @@ export class ProductComponent implements OnInit {
       name: '',
       value: '',
     },
+    previewProperties: [],
     properties: []
   }
 
@@ -400,6 +401,10 @@ export class ProductComponent implements OnInit {
     this.order.preview.value = this.order.color.value;
     
     this.reloadSlider();
+  }
+
+  onCheckOption() {
+
   }
 
   //#endregion Order
