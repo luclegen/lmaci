@@ -416,7 +416,15 @@ export class ProductComponent implements OnInit {
     this.reloadSlider();
   }
 
-  onCheckOption() {
+  onCheckOption(i) {
+
+  }
+
+  previewOption(i) {
+    
+  }
+
+  resetOption() {
 
   }
 

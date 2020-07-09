@@ -87,8 +87,8 @@
         </label>
         <div class="left">
           <div *ngFor="let o of p.options" class="center vertical property-radio-container">
-            <input #color="ngModel" [(ngModel)]="order.color.name" [value]="o.value" (ngModelChange)="onCheck(product.colors[product.colors.indexOf(o)])" (mouseenter)="preview(product.colors[product.colors.indexOf(o)])" (mouseleave)="reset()" type="radio" name="color">
-            <span class="checkmark">{{ o.value }}</span> 
+            <input #color="ngModel" [(ngModel)]="order.color.name" [value]="o.value" (ngModelChange)="onCheckOption(product.properties.indexOf(p))" (mouseenter)="previewOption(product.properties.indexOf(p))" (mouseleave)="resetOption()" type="radio" name="color">
+            <span class="option-checkmark">{{ o.value }}</span>
           </div>
         </div>
       </div>
