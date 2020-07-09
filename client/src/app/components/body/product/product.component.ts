@@ -112,6 +112,8 @@ export class ProductComponent implements OnInit {
       res => {
         this.product = res['product'];
 
+        this.order.price = this.product.price;
+
         this.order.preview.name = this.order.color.name = this.product.colors[0].name;
         this.order.preview.value = this.order.color.value = this.product.colors[0].value;
 
@@ -128,7 +130,7 @@ export class ProductComponent implements OnInit {
           this.order.properties.push(property);
         });
 
-        this.priceFormated = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2 }).format(this.product.price);
+        this.priceFormated = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2 }).format(this.order.price);
 
         for (const slider of this.product.slidersPaths) if (slider[0] == this.order.color.value) this.imgs = slider.slice(1);
 
