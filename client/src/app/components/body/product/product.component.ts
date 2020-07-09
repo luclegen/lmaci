@@ -115,6 +115,8 @@ export class ProductComponent implements OnInit {
         this.order.preview.name = this.order.color.name = this.product.colors[0].name;
         this.order.preview.value = this.order.color.value = this.product.colors[0].value;
 
+        this.order.previewProperties = this.order.properties = this.product.properties;
+
         this.priceFormated = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2 }).format(this.product.price);
 
         for (const slider of this.product.slidersPaths) if (slider[0] == this.order.color.value) this.imgs = slider.slice(1);
