@@ -305,6 +305,7 @@ Product Component: cancel
 Product Component: reloadSlider
 Product Service: toHTMLName
 Product Component: onCheckOption
+Product Component: updatePrice
 Product Component: ngOnInit
 Product Component: View
 Global Styles
