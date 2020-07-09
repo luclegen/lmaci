@@ -126,8 +126,8 @@ export class ProductComponent implements OnInit {
             }
           };
 
-          this.order.previewProperties.push(property);
-          this.order.properties.push(property);
+          this.order.previewProperties.push(JSON.parse(JSON.stringify(property)));
+          this.order.properties.push(JSON.parse(JSON.stringify(property)));
         });
 
         this.priceFormated = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2 }).format(this.product.price);
