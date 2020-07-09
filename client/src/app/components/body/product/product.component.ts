@@ -424,10 +424,8 @@ export class ProductComponent implements OnInit {
   }
 
   onCheckOption(i, option) {
-    this.order.previewProperties[i].option.value = option.value;
-    this.order.previewProperties[i].option.price = option.price;
-    this.order.properties[i].option.value = option.value;
-    this.order.properties[i].option.price = option.price;
+    this.order.previewProperties[i].option.value = this.order.properties[i].option.value = option.value;
+    this.order.previewProperties[i].option.price = this.order.properties[i].option.price = option.price;
 
     this.updatePrice();
   }
