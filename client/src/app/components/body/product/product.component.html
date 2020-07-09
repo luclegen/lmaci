@@ -83,12 +83,12 @@
       </div>
       <div class="property-container" *ngFor="let p of product.properties">
         <label class="attr">
-          <strong>{{ p.name }}:</strong> {{ order.previewProperties[product.properties.indexOf(p)].options[0].value }}
+          <strong>{{ p.name }}:</strong> {{ order.previewProperties[product.properties.indexOf(p)].option.value }}
         </label>
         <div class="left">
-          <div *ngFor="let c of product.colors" class="center vertical color-radio-container">
-            <input #color="ngModel" [(ngModel)]="order.color.name" [value]="product.colors[product.colors.indexOf(c)].name" (ngModelChange)="onCheck(product.colors[product.colors.indexOf(c)])" (mouseenter)="preview(product.colors[product.colors.indexOf(c)])" (mouseleave)="reset()" type="radio" name="color">
-            <span class="checkmark" [ngStyle]="{ 'background': c.value }"></span> 
+          <div *ngFor="let o of p.options" class="center vertical property-radio-container">
+            <input #color="ngModel" [(ngModel)]="order.color.name" [value]="o.value" (ngModelChange)="onCheck(product.colors[product.colors.indexOf(o)])" (mouseenter)="preview(product.colors[product.colors.indexOf(o)])" (mouseleave)="reset()" type="radio" name="color">
+            <span class="checkmark">{{ o.value }}</span> 
           </div>
         </div>
       </div>
