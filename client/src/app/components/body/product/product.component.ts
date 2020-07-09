@@ -99,7 +99,7 @@ export class ProductComponent implements OnInit {
   constructor(private viewportRuler: ViewportRuler,
               private route: ActivatedRoute,
               private authService: AuthService,
-              private productService: ProductService,
+              public productService: ProductService,
               private router: Router) {
     this.target = null;
     this.source = null;
