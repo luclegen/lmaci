@@ -41,9 +41,7 @@ export class ProductComponent implements OnInit {
     star: { number: 0, countRate: 0 },
     type: '',
     colors: [],
-    styles: [],
-    editions: [],
-    capacitys: [],
+    properties: [],
     technicalDetails: [],
     description: '',
     post: '',
@@ -59,7 +57,8 @@ export class ProductComponent implements OnInit {
     color: {
       name: '',
       value: '',
-    }
+    },
+    properties: []
   }
 
   priceFormated;
