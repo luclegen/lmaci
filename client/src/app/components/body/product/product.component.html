@@ -83,7 +83,7 @@
       </div>
       <div class="property-container" *ngFor="let p of product.properties">
         <label class="attr">
-          <strong>{{ p.name }}:</strong> {{ p.name }}
+          <strong>{{ p.name }}:</strong> {{ order.previewProperties[product.properties.indexOf(p)].options[0].value }}
         </label>
         <div class="left">
           <div *ngFor="let c of product.colors" class="center vertical color-radio-container">

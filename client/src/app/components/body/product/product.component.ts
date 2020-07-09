@@ -115,7 +115,20 @@ export class ProductComponent implements OnInit {
         this.order.preview.name = this.order.color.name = this.product.colors[0].name;
         this.order.preview.value = this.order.color.value = this.product.colors[0].value;
 
-        this.order.previewProperties = this.order.properties = this.product.properties;
+        this.product.properties.forEach(p => {
+          let property = {
+            name: p.name,
+            option: {
+              value: p.options[0].value,
+              price: p.options[0].price
+            }
+          };
+
+          this.order.previewProperties.push(property);
+          this.order.properties.push(property);
+        });
+
+        alert(JSON.stringify(this.order.previewProperties));
 
         this.priceFormated = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2 }).format(this.product.price);
 
