@@ -433,7 +433,8 @@ export class ProductComponent implements OnInit {
   }
 
   previewOption(i, option) {
-    
+    this.order.previewProperties[i].option.value = option.value;
+    this.order.previewProperties[i].option.price = option.price;
   }
 
   resetOption() {
