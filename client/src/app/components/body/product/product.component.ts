@@ -437,8 +437,9 @@ export class ProductComponent implements OnInit {
     this.order.previewProperties[i].option.price = option.price;
   }
 
-  resetOption() {
-
+  resetOption(i) {
+    this.order.previewProperties[i].option.value = this.order.properties[i].option.value;
+    this.order.previewProperties[i].option.price = this.order.properties[i].option.price;
   }
 
   //#endregion Order
