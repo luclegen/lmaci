@@ -10,6 +10,10 @@ export class ProductService {
 
   constructor(private http: HttpClient) { }
 
+  toHTMLName(name: string) {
+    return name.trim().split(/\s+/).map(w => w.toLowerCase()).join('-');
+  }
+
   getProduct(id: string) {
     return this.http.get(environment.productUrl + '/' + id);
   }
