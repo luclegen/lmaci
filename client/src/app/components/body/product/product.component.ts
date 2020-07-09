@@ -418,6 +418,11 @@ export class ProductComponent implements OnInit {
     this.reloadSlider();
   }
 
+  updatePrice() {
+    this.order.price = this.order.properties.map(p => p.option.price).reduce((a, b) => a + b, this.product.price);
+    this.priceFormated = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2 }).format(this.order.price);
+  }
+
   onCheckOption(i, option) {
     this.order.previewProperties[i].value = option.value;
     this.order.previewProperties[i].price = option.price;
