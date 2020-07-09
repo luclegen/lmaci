@@ -158,11 +158,40 @@ div
 
   &.property-radio-container
     display: block
-    height: 50px
     position: relative
-    // margin-right: 10px
     cursor: pointer
     user-select: none
+    font-size: 130%
+    margin: 7px 5px 0 0
+
+    input
+      position: absolute
+      width: 100%
+      height: 160%
+      opacity: 0
+      cursor: pointer
+      margin-top: -7px
+      z-index: 1
+
+      &:checked ~ .option-checkmark
+        border: 2px solid black
+        background: navy !important
+        color: white
+
+    &:hover
+      
+      input
+
+        & ~ .option-checkmark
+          border: 2px solid gray
+          background: blue
+          color: white
+
+        &:checked ~ .option-checkmark
+          border: 2px solid black
+          background: navy
+          color: white
+
 
 a
   text-decoration: none
@@ -317,6 +346,12 @@ span
     height: 50px
     border-radius: 50%
     border: 2px solid white
+
+  &.option-checkmark
+    background: #eee
+    border: 2px solid white
+    padding: 5px
+    border-radius: 5px
 
 svg
   
