@@ -114,8 +114,7 @@ export class ProductComponent implements OnInit {
 
         this.order.price = this.product.price;
 
-        this.order.preview.name = this.order.color.name = this.product.colors[0].name;
-        this.order.preview.value = this.order.color.value = this.product.colors[0].value;
+        this.order.preview = this.order.color = this.product.colors[0];
 
         this.product.properties.forEach(p => {
           let property = {
