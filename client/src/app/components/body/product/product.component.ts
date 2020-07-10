@@ -191,7 +191,7 @@ export class ProductComponent implements OnInit {
 
         for (const slider of this.product.slidersPaths) if (slider[0] == this.order.color.value) this.imgs = slider.slice(1);
 
-        this.post.content = this.product.post.content ? '<p style=\"text-align: center;\"><strong><span style=\"font-size: 36pt; color: red;\">' + this.product.name + '</span></strong></p><p style=\"text-align: center;\"><span style=\"font-size: 18pt;\">Content</span></p><p style=\"text-align: center;\"><span style=\"font-size: 18pt;\"></span></p>' : this.product.post.content;
+        this.post.content = this.product.post ? this.product.post.content : '<p style=\"text-align: center;\"><strong><span style=\"font-size: 36pt; color: red;\">' + this.product.name + '</span></strong></p><p style=\"text-align: center;\"><span style=\"font-size: 18pt;\">Content</span></p><p style=\"text-align: center;\"><span style=\"font-size: 18pt;\"></span></p>';
 
         this.showStar();
         this.showSlider();
@@ -673,7 +673,7 @@ export class ProductComponent implements OnInit {
   //#region Post Editor
 
   isSavePost() {
-    return this.post.content != this.product.post.content;
+    return this.product.post ? this.post.content != this.product.post.content : true;
   }
 
   savePost() {
