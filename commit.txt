@@ -312,6 +312,7 @@ Product Component: previewColor
 Product Component: onCheckColor
 Product Component: resetColor
 Product Component: isSavePost
+Product Component: initPost
 Product Component: ngOnInit
 Product Component: View
 Global Styles
