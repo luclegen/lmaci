@@ -80,6 +80,11 @@ export class ProductComponent implements OnInit {
     properties: []
   }
 
+  post = {
+    content: '',
+    dateModified: Date.now()
+  }
+
   //#endregion Models
 
   //#region Formater
@@ -111,6 +116,24 @@ export class ProductComponent implements OnInit {
 
   //#endregion Drap And Drop
 
+  //#region Text Editor
+
+  public imageSettings = {
+    saveUrl : 'https://aspnetmvc.syncfusion.com/services/api/uploadbox/Save'
+  };
+
+  public tools: object = {
+    type: 'MultiRow',
+    items: ['Bold', 'Italic', 'Underline', 'StrikeThrough',
+    'FontName', 'FontSize', 'FontColor', 'BackgroundColor',
+    'LowerCase', 'UpperCase', '|',
+    'Formats', 'Alignments', 'OrderedList', 'UnorderedList',
+    'Outdent', 'Indent', '|',
+    'CreateLink', 'RemoveLink', 'Image', 'CreateTable', '|', 'ClearFormat', 'Print',
+    'SourceCode', 'FullScreen', '|', 'Undo', 'Redo']
+  };
+
+  //#endregion Text Editor
   @HostListener('window:resize')
   onResize() {
     const leftContainer = document.querySelector('.left-container') as HTMLElement;
