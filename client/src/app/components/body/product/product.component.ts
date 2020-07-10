@@ -404,7 +404,7 @@ export class ProductComponent implements OnInit {
     carouselSlide.style.transform = 'translateX(' + (-this.size * this.counter) + 'px)';
   }
 
-  onCheck(color) {
+  onCheckColor(color) {
     this.preview.color = this.order.color = JSON.parse(JSON.stringify(color));
 
     this.reloadSlider();
