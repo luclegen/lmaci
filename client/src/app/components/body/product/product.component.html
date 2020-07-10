@@ -168,3 +168,22 @@
 <section>
   <div class="center-container" [innerHTML]="product.post.content"></div>
 </section>
+<section>
+  <div class="center-container">
+    <table class="ls-table property-table">
+      <thead>
+        <tr>
+          <th colspan="2">
+            <h1>Technical Details</h1>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let t of product.technicalDetails">
+          <td>{{ t.name }} </td>
+          <td>{{ t.value }} </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
