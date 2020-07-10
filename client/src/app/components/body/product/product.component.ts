@@ -122,7 +122,7 @@ export class ProductComponent implements OnInit {
 
         this.order.price = this.product.price;
 
-        this.order.preview = this.order.color = JSON.parse(JSON.stringify(this.product.colors[0]));
+        this.preview.color = this.order.color = JSON.parse(JSON.stringify(this.product.colors[0]));
 
         this.product.properties.forEach(p => {
           let property = {
@@ -133,7 +133,7 @@ export class ProductComponent implements OnInit {
             }
           };
 
-          this.order.previewProperties.push(JSON.parse(JSON.stringify(property)));
+          this.preview.properties.push(JSON.parse(JSON.stringify(property)));
           this.order.properties.push(JSON.parse(JSON.stringify(property)));
         });
 
