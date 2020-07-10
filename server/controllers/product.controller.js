@@ -59,8 +59,7 @@ module.exports.post = (req, res) => {
     };
 
   Product.findByIdAndUpdate(req.params.id, { $set: { post: post } }, { new: true }, (err, product) => {
-    return product ? product.hasOwnProperty('post') ? res.status(200).json({ msg: 'Update this post is successfully.' })
-                                                    : res.status(200).json({ msg: 'Post this product is successfully.' })
+    return product ? res.status(200).json({ msg: 'Post this product is successfully.' })
                    : res.status(404).json({ msg: 'Product not found.' });
   });
 }
