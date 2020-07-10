@@ -93,6 +93,7 @@
         </div>
       </div>
     </form>
+    <p>Jump to: <a [href]="'product/' + id + '/#technical-details'">Technical Details</a></p>
   </div>
 </section>
 <section *ngIf="userDetails && (userDetails.role == 'root' || userDetails.role == 'admin')">
@@ -173,9 +174,7 @@
     <table class="ls-table property-table">
       <thead>
         <tr>
-          <th colspan="2">
-            <h1>Technical Details</h1>
-          </th>
+          <th id="technical-details" colspan="2">Technical Details</th>
         </tr>
       </thead>
       <tbody>
