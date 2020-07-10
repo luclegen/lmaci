@@ -20,17 +20,32 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./product.component.sass']
 })
 export class ProductComponent implements OnInit {
+
+  //#region Slider
+
   counter = 0;
   size = 0;
   sizeFrame = 0;
+
+  //#endregion Slider
+
+  //#region Star
 
   starCount = [];
   noneStarCount = [];
   starHalf = false;
 
+  //#endregion Star
+
+  //#region Authentication
+  
   userDetails;
 
   id = '';
+
+  //#endregion Authentication
+
+  //#region Models
 
   product = {
     _id: '',
@@ -65,12 +80,22 @@ export class ProductComponent implements OnInit {
     properties: []
   }
 
+  //#endregion Models
+
+  //#region Formater
+
   priceFormated;
+
+  //#endregion Formater
+
+  //#region Image Cropper
 
   img: any = '';
   imgs = [];
   imageChangedEvent: any = '';
   croppedImage: any = '';
+
+  //#endregion Image Cropper
 
   //#region Drap And Drop
 
@@ -156,6 +181,8 @@ export class ProductComponent implements OnInit {
     );
   }
 
+  //#region Star
+
   showStar() {
     let number = this.product.star.number,
         numberRounded = Math.round(number),
@@ -169,6 +196,8 @@ export class ProductComponent implements OnInit {
     } else for (let i = 0; i < numberRounded; i++) this.starCount.push('*');
     for (let i = 0; i < 5 - numberRounded; i++) this.noneStarCount.push('-');
   }
+
+  //#endregion Star
 
   //#region Slider
 
