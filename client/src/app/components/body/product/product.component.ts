@@ -685,7 +685,10 @@ export class ProductComponent implements OnInit {
   }
 
   cancelSavePost() {
-    this.initPost();
+    this.authService.getInfo().subscribe(res => {
+      if (res['user'].role == 'root' || res['user'].role === 'admin') this.initPost();
+      else this.router.navigateByUrl('');
+    });
   }
 
   //#endregion Post Editor
