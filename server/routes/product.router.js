@@ -6,5 +6,6 @@ const transfer = require('../helpers/transfer');
 
 router.get('/:id', productCtrl.get);
 router.put('/upload-imgs/:id', transfer.array('imgs'), productCtrl.uploadImgs);
+router.put('/post/:id', productCtrl.post);
 
 module.exports = router;
