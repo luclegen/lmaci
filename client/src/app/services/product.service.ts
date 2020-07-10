@@ -23,4 +23,8 @@ export class ProductService {
     return this.http.put(environment.productUrl + '/upload-imgs/' + id, imgs);
   }
 
+  post(id: string, post: Object) {
+    return this.http.put(environment.productUrl + '/post/' + id, post);
+  }
+
 }
