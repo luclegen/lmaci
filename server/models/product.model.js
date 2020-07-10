@@ -41,7 +41,10 @@ let productSchema = new mongoose.Schema({
   properties: Array,
   technicalDetails: Array,
   description: String,
-  post: String,
+  post: {
+    content: String,
+    dateModified: Date
+  },
   sliders: Array
 }, {
   toObject: {
