@@ -48,6 +48,14 @@ export class ProductComponent implements OnInit {
     slidersPaths: []
   };
 
+  preview = {
+    color: {
+      name: '',
+      value: '',
+    },
+    properties: []
+  }
+
   order = {
     price: 0,
     preview: {
@@ -402,7 +410,7 @@ export class ProductComponent implements OnInit {
     this.reloadSlider();
   }
 
-  preview(color) {
+  previewColor(color) {
     this.order.preview = JSON.parse(JSON.stringify(color));
 
     this.reloadSlider();
