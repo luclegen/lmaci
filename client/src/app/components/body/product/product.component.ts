@@ -49,6 +49,7 @@ export class ProductComponent implements OnInit {
 
   product = {
     _id: '',
+    imgPath: '',
     name: '',
     status: '',
     price: 0,
@@ -117,7 +118,7 @@ export class ProductComponent implements OnInit {
 
   //#endregion Drap And Drop
 
-  //#region Text Editor
+  //#region Post Editor
 
   public imageSettings = {
     saveUrl : 'https://aspnetmvc.syncfusion.com/services/api/uploadbox/Save'
@@ -134,7 +135,7 @@ export class ProductComponent implements OnInit {
     'SourceCode', 'FullScreen', '|', 'Undo', 'Redo']
   };
 
-  //#endregion Text Editor
+  //#endregion Post Editor
   @HostListener('window:resize')
   onResize() {
     const leftContainer = document.querySelector('.left-container') as HTMLElement;
@@ -185,6 +186,8 @@ export class ProductComponent implements OnInit {
         this.priceFormated = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2 }).format(this.product.price);
 
         for (const slider of this.product.slidersPaths) if (slider[0] == this.order.color.value) this.imgs = slider.slice(1);
+
+        this.post.content = '<p style=\"text-align: center;\"><strong><span style=\"font-size: 36pt;\">' + this.product.name + '</span></strong></p><p style=\"text-align: center;\"><span style=\"font-size: 18pt;\">Content</span></p><p style=\"text-align: center;\"><span style=\"font-size: 18pt;\"></span></p>';
 
         this.showStar();
         this.showSlider();
