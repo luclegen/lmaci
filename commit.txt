@@ -314,6 +314,7 @@ Product Component: resetColor
 Product Component: isSavePost
 Product Component: initPost
 Product Component: cancelSavePost
+Product Service: post
 Product Component: ngOnInit
 Product Component: View
 Global Styles
