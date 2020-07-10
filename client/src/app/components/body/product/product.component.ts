@@ -685,7 +685,7 @@ export class ProductComponent implements OnInit {
   }
 
   cancelSavePost() {
-
+    this.initPost();
   }
 
   //#endregion Post Editor
