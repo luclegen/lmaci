@@ -438,7 +438,7 @@ export class ProductComponent implements OnInit {
   }
 
   resetOption() {
-    this.order.previewProperties = JSON.parse(JSON.stringify(this.order.properties));
+    this.preview.properties = JSON.parse(JSON.stringify(this.order.properties));
   }
 
   //#endregion Order
