@@ -77,7 +77,7 @@
       </label>
       <div class="left">
         <div *ngFor="let c of product.colors" class="center vertical color-radio-container">
-          <input #color="ngModel" [(ngModel)]="order.color.name" [value]="c.name" (ngModelChange)="onCheck(c)" (mouseenter)="preview(c)" (mouseleave)="reset()" type="radio" name="color">
+          <input #color="ngModel" [(ngModel)]="order.color.name" [value]="c.name" (ngModelChange)="onCheck(c)" (mouseenter)="previewColor(c)" (mouseleave)="reset()" type="radio" name="color">
           <span class="checkmark" [ngStyle]="{ 'background': c.value }"></span> 
         </div>
       </div>
