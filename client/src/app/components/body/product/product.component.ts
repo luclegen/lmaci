@@ -411,7 +411,7 @@ export class ProductComponent implements OnInit {
   }
 
   previewColor(color) {
-    this.order.preview = JSON.parse(JSON.stringify(color));
+    this.preview.color = JSON.parse(JSON.stringify(color));
 
     this.reloadSlider();
   }
