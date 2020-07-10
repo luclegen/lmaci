@@ -72,6 +72,7 @@ export class ProductComponent implements OnInit {
   }
 
   order = {
+    name: '',
     price: 0,
     color: {
       name: '',
@@ -163,6 +164,7 @@ export class ProductComponent implements OnInit {
       res => {
         this.product = res['product'];
 
+        this.order.name = this.product.name;
         this.order.price = this.product.price;
 
         this.preview.color = this.order.color = JSON.parse(JSON.stringify(this.product.colors[0]));
