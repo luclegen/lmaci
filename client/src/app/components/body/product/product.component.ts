@@ -136,6 +136,7 @@ export class ProductComponent implements OnInit {
   };
 
   //#endregion Post Editor
+
   @HostListener('window:resize')
   onResize() {
     const leftContainer = document.querySelector('.left-container') as HTMLElement;
@@ -665,6 +666,22 @@ export class ProductComponent implements OnInit {
   }
 
   //#endregion Drag and drop
+
+  //#region Post Editor
+
+  isSavePost() {
+
+  }
+
+  savePost() {
+
+  }
+
+  cancelSavePost() {
+
+  }
+
+  //#endregion Post Editor
 
 }
 
