@@ -428,7 +428,7 @@ export class ProductComponent implements OnInit {
   }
 
   onCheckOption(i, option) {
-    this.order.previewProperties[i].option = this.order.properties[i].option = JSON.parse(JSON.stringify(option));
+    this.preview.properties[i].option = this.order.properties[i].option = JSON.parse(JSON.stringify(option));
 
     this.updatePrice();
   }
