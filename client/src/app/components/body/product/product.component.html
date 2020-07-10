@@ -170,7 +170,7 @@
   </div>
 </section>
 <section>
-  <div class="center-container" [innerHTML]="product.post.content"></div>
+  <div *ngIf="product.post" class="center-container" [innerHTML]="product.post.content"></div>
 </section>
 <section *ngIf="product.technicalDetails.length">
   <div class="center-container">
