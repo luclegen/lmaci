@@ -309,6 +309,7 @@ Product Component: updatePrice
 Product Component: previewOption
 Product Component: resetOption
 Product Component: previewColor
+Product Component: onCheckColor
 Product Component: ngOnInit
 Product Component: View
 Global Styles
