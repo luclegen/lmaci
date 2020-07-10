@@ -492,7 +492,7 @@ export class ProductComponent implements OnInit {
 
   cancelSaveSlider() {
     this.authService.getInfo().subscribe(res => {
-      if (res['user'].role == 'root' || res['user'].role === 'admin') this.onCheck(this.order.color);
+      if (res['user'].role == 'root' || res['user'].role === 'admin') this.onCheckColor(this.order.color);
       else this.router.navigateByUrl('');
     });
   }
