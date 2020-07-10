@@ -434,7 +434,7 @@ export class ProductComponent implements OnInit {
   }
 
   previewOption(i, option) {
-    this.order.previewProperties[i].option.value = JSON.parse(JSON.stringify(option)).value;
+    this.preview.properties[i].option.value = JSON.parse(JSON.stringify(option)).value;
   }
 
   resetOption() {
