@@ -73,7 +73,7 @@
       <label class="attr"><strong>Price:</strong></label>
       <label class="attr price"> {{ priceFormated }}</label><br>
       <label class="attr">
-        <strong>Color:</strong> {{ order.preview.name }}
+        <strong>Color:</strong> {{ preview.color.name }}
       </label>
       <div class="left">
         <div *ngFor="let c of product.colors" class="center vertical color-radio-container">
@@ -83,7 +83,7 @@
       </div>
       <div class="property-container" *ngFor="let p of product.properties">
         <label class="attr">
-          <strong>{{ p.name }}:</strong> {{ order.previewProperties[product.properties.indexOf(p)].option.value }}
+          <strong>{{ p.name }}:</strong> {{ preview.properties[product.properties.indexOf(p)].option.value }}
         </label>
         <div class="left">
           <div *ngFor="let o of p.options" class="property-radio-container">
