@@ -94,7 +94,7 @@
       </div>
     </form>
     <p class="jump-to">
-      <strong>Jump to: </strong>
+      <strong *ngIf="product.technicalDetails.length">Jump to: </strong>
       <a *ngIf="product.technicalDetails.length" [href]="'product/' + id + '#technical-details'">Technical Details</a>
     </p>
   </div>
