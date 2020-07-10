@@ -60,7 +60,10 @@ export class ProductComponent implements OnInit {
     properties: [],
     technicalDetails: [],
     description: '',
-    post: '',
+    post: {
+      content: '',
+      dateModified: ''
+    },
     slidersPaths: []
   };
 
@@ -670,7 +673,7 @@ export class ProductComponent implements OnInit {
   //#region Post Editor
 
   isSavePost() {
-
+    return this.post.content != this.product.post.content;
   }
 
   savePost() {
