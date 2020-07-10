@@ -93,7 +93,10 @@
         </div>
       </div>
     </form>
-    <p>Jump to: <a [href]="'product/' + id + '/#technical-details'">Technical Details</a></p>
+    <p class="jump-to">
+      <strong>Jump to: </strong>
+      <a *ngIf="product.technicalDetails.length" [href]="'product/' + id + '#technical-details'">Technical Details</a>
+    </p>
   </div>
 </section>
 <section *ngIf="userDetails && (userDetails.role == 'root' || userDetails.role == 'admin')">
@@ -169,7 +172,7 @@
 <section>
   <div class="center-container" [innerHTML]="product.post.content"></div>
 </section>
-<section>
+<section *ngIf="product.technicalDetails.length">
   <div class="center-container">
     <table class="ls-table property-table">
       <thead>
