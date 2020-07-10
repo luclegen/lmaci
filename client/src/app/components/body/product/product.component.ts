@@ -58,15 +58,10 @@ export class ProductComponent implements OnInit {
 
   order = {
     price: 0,
-    preview: {
-      name: '',
-      value: '',
-    },
     color: {
       name: '',
       value: '',
     },
-    previewProperties: [],
     properties: []
   }
 
@@ -447,7 +442,7 @@ export class ProductComponent implements OnInit {
 
   isSaveImgs() {
     for (let i = 0; i < this.product.slidersPaths.length; i++) {
-      if (this.product.slidersPaths[i][0] == this.order.preview.value) {
+      if (this.product.slidersPaths[i][0] == this.preview.color.value) {
         if (this.imgs.length == this.product.slidersPaths[i].slice(1).length) {
           let count = 0;
           for (let j = 0; j < this.product.slidersPaths[i].slice(1).length; j++) if (this.imgs[j] == this.product.slidersPaths[i].slice(1)[j]) count++;
