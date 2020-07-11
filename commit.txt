@@ -319,6 +319,7 @@ Product Component: savePost
 Product Component: reloadStar
 Product Component: tickStar
 Product Component: previewStar
+Product Component: resetStar
 Product Component: ngOnInit
 Product Component: View
 Global Styles
