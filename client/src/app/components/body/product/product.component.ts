@@ -736,7 +736,7 @@ export class ProductComponent implements OnInit {
   }
 
   previewStar(s) {
-    
+    this.reloadStar(s);
   }
 
   resetStar(s) {
