@@ -72,7 +72,8 @@ export class ProductComponent implements OnInit {
       name: '',
       value: '',
     },
-    properties: []
+    properties: [],
+    star: 0
   }
 
   order = {
@@ -88,6 +89,11 @@ export class ProductComponent implements OnInit {
   post = {
     content: '',
     dateModified: Date.now()
+  }
+
+  review = {
+    star: 0,
+    content: ''
   }
 
   //#endregion Models
@@ -716,6 +722,13 @@ export class ProductComponent implements OnInit {
 
   //#endregion Post Editor
 
+  //#region Review
+
+  tickStar(s) {
+    
+  }
+
+  //#endregion Review
 }
 
 //#region Helpers
