@@ -192,7 +192,6 @@ div
           background: navy
           color: white
 
-
 a
   text-decoration: none
   color: blue
@@ -352,6 +351,20 @@ span
     border: 2px solid white
     padding: 5px
     border-radius: 5px
+
+  &.rating
+
+    & input
+      display: none
+
+  &.star
+    fill: gray
+
+    svg
+      width: 30px
+
+      &:hover
+        fill: orange
 
 svg
   
