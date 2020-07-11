@@ -730,7 +730,9 @@ export class ProductComponent implements OnInit {
   }
 
   tickStar(s) {
+    this.review.star = s;
     
+    this.reloadStar(s);
   }
 
   previewStar(s) {
