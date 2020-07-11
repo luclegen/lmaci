@@ -722,7 +722,7 @@ export class ProductComponent implements OnInit {
 
   //#endregion Post Editor
 
-  //#region Review
+  //#region Tick Star
 
   reloadStar(s) {
     const star = document.getElementsByClassName('star') as HTMLCollectionOf<HTMLElement>;
@@ -739,11 +739,11 @@ export class ProductComponent implements OnInit {
     this.reloadStar(s);
   }
 
-  resetStar(s) {
-
+  resetStar() {
+    this.reloadStar(this.review.star);
   }
 
-  //#endregion Review
+  //#endregion Tick Star
 }
 
 //#region Helpers
