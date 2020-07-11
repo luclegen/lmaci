@@ -724,6 +724,11 @@ export class ProductComponent implements OnInit {
 
   //#region Review
 
+  reloadStar(s) {
+    const star = document.getElementsByClassName('star') as HTMLCollectionOf<HTMLElement>;
+    for (let i = 0; i <= star.length; i++) star[i].style.fill = i < s ? 'orange' : 'gray';
+  }
+
   tickStar(s) {
     
   }
@@ -733,7 +738,7 @@ export class ProductComponent implements OnInit {
   }
 
   resetStar(s) {
-    
+
   }
 
   //#endregion Review
