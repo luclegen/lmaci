@@ -423,4 +423,5 @@ Product Controller: uploadImgs
 Product Router: PUT uploadImgs
 Product Controller: post
 Product Router: PUT post
+Image Controller: get
 Commit
