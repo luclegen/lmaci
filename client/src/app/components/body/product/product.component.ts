@@ -728,6 +728,14 @@ export class ProductComponent implements OnInit {
     
   }
 
+  previewStar(s) {
+    
+  }
+
+  resetStar(s) {
+    
+  }
+
   //#endregion Review
 }
 
