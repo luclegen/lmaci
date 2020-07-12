@@ -177,7 +177,7 @@ export class ProductComponent implements OnInit {
       res => {
         this.product = res['product'];
 
-        this.titleService.setTitle(this.product.name);
+        this.titleService.setTitle(this.product.name + ' | Lmaci');
 
         this.order.name = this.product.name;
         this.order.price = this.product.price;
