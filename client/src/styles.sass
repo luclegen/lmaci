@@ -246,6 +246,7 @@ input
 
   &[type=submit]
     background-color: navy
+    cursor: pointer
 
     &:disabled
       background-color: gray
@@ -301,6 +302,17 @@ label
 
   &.price
     color: red
+
+  &.img-in
+    position: absolute
+    opacity: 0
+    font-size: 45px
+    cursor: pointer
+
+    &:hover
+      
+      button
+        fill: white
 
 span
   
@@ -520,6 +532,7 @@ button
     width: 50px
     height: 50px
     padding: 2px
+    cursor: pointer
     outline: none
     border: none
 
@@ -548,6 +561,7 @@ button
     width: 30px
     height: 30px
     padding: 0
+    cursor: pointer
     border: none
     outline: none
 
@@ -618,3 +632,6 @@ textarea
 
 h1
   font-size: 200%
+
+select
+  cursor: pointer
