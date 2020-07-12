@@ -751,6 +751,9 @@ export class ProductComponent implements OnInit {
   }
 
   resetStar() {
+    const ratingMsg = document.getElementById('rating-msg') as HTMLElement;
+    ratingMsg.style.display = 'none';
+
     this.reloadStar(this.review.star);
   }
 
