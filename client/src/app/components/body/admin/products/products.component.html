@@ -1,5 +1,5 @@
 <section>
-  <form #productForm="ngForm" (ngSubmit)="onSubmit(productForm)">
+  <form class="center" #productForm="ngForm" (ngSubmit)="onSubmit(productForm)">
     <h1 *ngIf="!product._id">Create a product</h1>
     <h1 *ngIf="product._id">Edit a product</h1>
 
@@ -53,7 +53,7 @@
     </span>
 
     <input #colors="ngModel" [(ngModel)]="product.colors" type="hidden" name="colors">
-    <form #colorForm="ngForm" (ngSubmit)="onSubmitColor(colorForm)">
+    <form class="center" #colorForm="ngForm" (ngSubmit)="onSubmitColor(colorForm)">
       <table class="ls-table property-table color-table">
         <thead>
           <tr>
@@ -140,7 +140,7 @@
     </form>
 
     <input #properties="ngModel" [(ngModel)]="product.properties" type="hidden" name="properties">
-    <form #propertyForm="ngForm" (ngSubmit)="onSubmitProperty(propertyForm)">
+    <form class="center" #propertyForm="ngForm" (ngSubmit)="onSubmitProperty(propertyForm)">
       <table class="ls-table property-table">
         <thead>
           <tr>
@@ -265,7 +265,7 @@
     </form>
 
     <input #technicalDetails="ngModel" [(ngModel)]="product.technicalDetails" type="hidden" name="technicalDetails">
-    <form #technicalDetailsForm="ngForm" (ngSubmit)="onSubmitTechnicalDetails(technicalDetailsForm)">
+    <form class="center" #technicalDetailsForm="ngForm" (ngSubmit)="onSubmitTechnicalDetails(technicalDetailsForm)">
       <table class="ls-table property-table">
         <thead>
           <tr>
@@ -330,7 +330,7 @@
   </form>
   <div class="ls-container">
     <span class="search-bar-span">
-      <form #searchProductsForm="ngForm" (ngSubmit)="onSearch(searchProductsForm)">
+      <form class="center" #searchProductsForm="ngForm" (ngSubmit)="onSearch(searchProductsForm)">
         <span class="inline-span">
           <input #newKeyword="ngModel" [(ngModel)]="keyword" type="search" name="keyword" placeholder="Name" required>
 
