@@ -584,7 +584,7 @@ export class ProductsComponent implements OnInit {
   }
 
   viewDetails(product: Product) {
-    this.router.navigateByUrl('product/' + product._id);
+    this.router.navigateByUrl(product.type + '/' + product._id);
   }
 
   //#endregion Products
