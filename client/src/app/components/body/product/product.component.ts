@@ -759,7 +759,9 @@ export class ProductComponent implements OnInit {
   }
 
   hoverReviewCamera() {
-    
+    const reviewCamera = document.getElementById('review-camera') as HTMLElement;
+
+    reviewCamera.style.fill = 'white';
   }
 
   //#endregion Review
