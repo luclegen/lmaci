@@ -1,4 +1,5 @@
 import { Component, OnInit, HostListener, ViewChild } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import {
   CdkDrag,
@@ -161,6 +162,7 @@ export class ProductComponent implements OnInit {
 
   constructor(private viewportRuler: ViewportRuler,
               private route: ActivatedRoute,
+              private titleService: Title,
               private authService: AuthService,
               public productService: ProductService,
               private router: Router) {
@@ -174,6 +176,8 @@ export class ProductComponent implements OnInit {
     this.productService.getProduct(this.id).subscribe(
       res => {
         this.product = res['product'];
+
+        this.titleService.setTitle(this.product.name);
 
         this.order.name = this.product.name;
         this.order.price = this.product.price;
