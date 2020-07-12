@@ -758,7 +758,7 @@ export class ProductComponent implements OnInit {
     this.reloadStar(this.review.star);
   }
 
-  hoverReviewCamera() {
+  enterReviewCamera() {
     const reviewCamera = document.getElementById('review-camera') as HTMLElement;
 
     reviewCamera.style.fill = 'white';
