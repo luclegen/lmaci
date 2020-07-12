@@ -3,14 +3,15 @@ import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import {
   CdkDrag,
-  CdkDragStart,
-  CdkDropList, CdkDropListGroup, CdkDragMove, CdkDragEnter,
+  CdkDropList, CdkDropListGroup, CdkDragMove,
   moveItemInArray
 } from "@angular/cdk/drag-drop";
 
 import { ViewportRuler } from "@angular/cdk/overlay";
 
 import { ImageCroppedEvent } from 'ngx-image-cropper';
+
+import { faCamera } from '@fortawesome/free-solid-svg-icons';
 
 import { ProductService } from 'src/app/services/product.service';
 import { AuthService } from 'src/app/services/auth.service';
@@ -150,6 +151,12 @@ export class ProductComponent implements OnInit {
 
   //#endregion Post Editor
 
+  //#region Font Awesome
+
+  faCamera = faCamera;
+
+  //#endregion Font Awesome
+  
   @HostListener('window:resize')
   onResize() {
     const leftContainer = document.querySelector('.left-container') as HTMLElement;
