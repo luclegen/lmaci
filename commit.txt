@@ -323,6 +323,7 @@ Product Component: resetStar
 Review Icons
 Module: FontAwesomeModule
 Product Component: enterReviewCamera
+Product Component: leaveReviewCamera
 Product Component: ngOnInit
 Product Component: View
 Global Styles
