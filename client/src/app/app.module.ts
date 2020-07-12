@@ -80,7 +80,8 @@ import { ProductComponent } from './components/body/product/product.component';
     HttpClientModule,
     ImageCropperModule,
     NgxImageZoomModule,
-    DragDropModule
+    DragDropModule,
+    FontAwesomeModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
