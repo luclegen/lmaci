@@ -95,8 +95,8 @@
     </form>
     <p class="jump-to">
       <strong *ngIf="product.technicalDetails.length">Jump to: </strong>
-      <a *ngIf="product.technicalDetails.length" [href]="'product/' + id + '#technical-details'">Technical Details | </a>
-      <a [href]="'product/' + id + '#reviews'">Reviews</a>
+      <a *ngIf="product.technicalDetails.length" [href]="type + '/' + id + '#technical-details'">Technical Details | </a>
+      <a [href]="type + '/' + id + '#reviews'">Reviews</a>
     </p>
   </div>
 </section>
