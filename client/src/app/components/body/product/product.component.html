@@ -200,7 +200,7 @@
         </span>
         <label id="rating-msg"></label>
       </span>
-      <textarea name="content" id="" cols="30" rows="5"></textarea>
+      <textarea #content="ngModel" [(ngModel)]="review.content" name="content" id="" cols="30" rows="5"></textarea>
       <span class="func-bar">
         <span>
           <label class="img-in" for="review-img" (mouseenter)="enterReviewCamera()" (mouseleave)="leaveReviewCamera()">
