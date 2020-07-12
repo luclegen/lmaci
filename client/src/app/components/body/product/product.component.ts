@@ -95,7 +95,9 @@ export class ProductComponent implements OnInit {
 
   review = {
     star: 0,
-    content: ''
+    content: '',
+    img: [],
+    imgs: []
   }
 
   //#endregion Models
