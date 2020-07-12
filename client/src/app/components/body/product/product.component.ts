@@ -765,7 +765,9 @@ export class ProductComponent implements OnInit {
   }
 
   leaveReviewCamera() {
-    
+    const reviewCamera = document.getElementById('review-camera') as HTMLElement;
+
+    reviewCamera.style.fill = 'black';
   }
 
   //#endregion Review
