@@ -321,6 +321,7 @@ Product Component: tickStar
 Product Component: previewStar
 Product Component: resetStar
 Review Icons
+Module: FontAwesomeModule
 Product Component: ngOnInit
 Product Component: View
 Global Styles
