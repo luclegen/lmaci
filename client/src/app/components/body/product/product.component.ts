@@ -764,6 +764,10 @@ export class ProductComponent implements OnInit {
     reviewCamera.style.fill = 'white';
   }
 
+  leaveReviewCamera() {
+    
+  }
+
   //#endregion Review
 }
 
