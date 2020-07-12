@@ -31,5 +31,5 @@ export const routes: Routes = [
     children: [ { path: 'admins', component: AdminsComponent },
                 { path: 'users', component: UsersComponent },
                 { path: 'products', component: ProductsComponent } ] },
-  { path: 'product/:id', component: ProductComponent }
+  { path: ':type/:id', component: ProductComponent }
 ]
