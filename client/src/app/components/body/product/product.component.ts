@@ -11,8 +11,6 @@ import { ViewportRuler } from "@angular/cdk/overlay";
 
 import { ImageCroppedEvent } from 'ngx-image-cropper';
 
-import { faCamera } from '@fortawesome/free-solid-svg-icons';
-
 import { ProductService } from 'src/app/services/product.service';
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -150,12 +148,6 @@ export class ProductComponent implements OnInit {
   };
 
   //#endregion Post Editor
-
-  //#region Font Awesome
-
-  faCamera = faCamera;
-
-  //#endregion Font Awesome
   
   @HostListener('window:resize')
   onResize() {
@@ -737,7 +729,7 @@ export class ProductComponent implements OnInit {
 
   //#endregion Post Editor
 
-  //#region Tick Star
+  //#region Review
 
   reloadStar(s) {
     const star = document.getElementsByClassName('star') as HTMLCollectionOf<HTMLElement>;
@@ -766,7 +758,11 @@ export class ProductComponent implements OnInit {
     this.reloadStar(this.review.star);
   }
 
-  //#endregion Tick Star
+  hoverReviewCamera() {
+    
+  }
+
+  //#endregion Review
 }
 
 //#region Helpers
