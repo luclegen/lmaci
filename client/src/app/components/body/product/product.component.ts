@@ -742,6 +742,11 @@ export class ProductComponent implements OnInit {
   }
 
   previewStar(s) {
+    const rating = [ 'Poor', 'Fair', 'Good', 'Very Good', 'Excellent' ];
+    const ratingMsg = document.getElementById('rating-msg') as HTMLElement;
+    ratingMsg.innerHTML = rating[s - 1];
+    ratingMsg.style.display = 'inline';
+
     this.reloadStar(s);
   }
 
