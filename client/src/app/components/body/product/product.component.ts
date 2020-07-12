@@ -43,6 +43,7 @@ export class ProductComponent implements OnInit {
   userDetails;
 
   id = '';
+  type = '';
 
   //#endregion Authentication
 
@@ -172,6 +173,7 @@ export class ProductComponent implements OnInit {
 
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id');
+    this.type = this.route.snapshot.paramMap.get('type');
 
     this.productService.getProduct(this.id).subscribe(
       res => {
