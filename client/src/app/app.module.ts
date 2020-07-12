@@ -10,6 +10,9 @@ import { RichTextEditorAllModule } from "@syncfusion/ej2-angular-richtexteditor"
 import { DialogModule } from "@syncfusion/ej2-angular-popups";
 import { ButtonModule } from "@syncfusion/ej2-angular-buttons";
 
+// Font Awesome
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 // Routes
 import { routes } from './routes';
 
