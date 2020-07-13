@@ -777,6 +777,20 @@ export class ProductComponent implements OnInit {
     reviewCamera.style.fill = 'black';
   }
 
+  selectReviewFileInput(files) {
+    if (files.length) {
+      this.review.files = files;
+
+      for (let i = 0; i < this.review.files.length; i++) {
+        let reader = new FileReader();
+
+        reader.onload = (event:any) => this.review.imgs.push(event.target.result);
+
+        reader.readAsDataURL(this.review.files[i]);
+      }
+    }
+  }
+
   //#endregion Review
 }
 
