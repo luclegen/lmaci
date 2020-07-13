@@ -50,7 +50,7 @@ export class ActiveComponent implements OnInit {
         alert(res['msg']);
         this.authService.getInfo().subscribe(
           res => {
-            this.router.navigateByUrl('user/' + res['user'].username);
+            this.router.navigateByUrl('/' + res['user'].username);
           }
         );
       },
