@@ -324,6 +324,7 @@ Review Icons
 Module: FontAwesomeModule
 Product Component: enterReviewCamera
 Product Component: leaveReviewCamera
+Product Component: selectReviewFileInput
 Product Component: ngOnInit
 Product Component: View
 Global Styles
