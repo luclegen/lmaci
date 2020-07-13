@@ -192,7 +192,7 @@
 <section>
   <div class="center-container">
     <h1 id="reviews">Reviews</h1>
-    <form #reviewForm="ngForm" class="left">
+    <form #reviewForm="ngForm" class="left" (ngSubmit)="sendReview()">
       <span class="rating">
         <span *ngFor="let s of [ 1, 2, 3, 4, 5 ]" class="star" (click)="tickStar(s)" (mouseenter)="previewStar(s)" (mouseleave)="resetStar()">
           <input #star="ngModel" [(ngModel)]="review.star" type="radio" class="star-in" name="rating" [value]="s" />
