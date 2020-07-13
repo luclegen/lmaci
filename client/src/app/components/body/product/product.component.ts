@@ -740,7 +740,7 @@ export class ProductComponent implements OnInit {
 
   reloadStar(s) {
     const star = document.getElementsByClassName('star') as HTMLCollectionOf<HTMLElement>;
-    for (let i = 0; i <= star.length; i++) star[i].style.fill = i < s ? 'orange' : 'gray';
+    for (let i = 0; i < star.length; i++) star[i].style.fill = i < s ? 'orange' : 'gray';
   }
 
   tickStar(s) {
