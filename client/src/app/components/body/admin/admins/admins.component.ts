@@ -47,7 +47,7 @@ export class AdminsComponent implements OnInit {
 
   viewProfile(username: string) {
     this.authService.getInfo().subscribe(res => {
-      if (res['user'].role == 'root' || res['user'].role === 'admin') this.router.navigateByUrl('user/' + username);
+      if (res['user'].role == 'root' || res['user'].role === 'admin') this.router.navigateByUrl('/' + username);
       else this.router.navigateByUrl('');
     });
   }
