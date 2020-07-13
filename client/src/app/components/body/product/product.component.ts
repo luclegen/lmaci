@@ -96,7 +96,8 @@ export class ProductComponent implements OnInit {
     star: 0,
     content: '',
     img: [],
-    imgs: []
+    imgs: [],
+    files: null
   }
 
   //#endregion Models
@@ -149,6 +150,12 @@ export class ProductComponent implements OnInit {
 
   //#endregion Post Editor
   
+  //#region Review
+  
+  
+  
+  //#endregion Review
+
   @HostListener('window:resize')
   onResize() {
     const leftContainer = document.querySelector('.left-container') as HTMLElement;
