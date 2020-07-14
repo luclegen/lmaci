@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 
 import { environment } from 'src/environments/environment';
 
+import { Review } from '../models/review.model';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -25,6 +27,16 @@ export class ProductService {
 
   post(id: string, post: Object) {
     return this.http.put(environment.productUrl + '/post/' + id, post);
+  }
+
+  sendReview(id: string, review: Review, files: []) {
+    const formData = new FormData();
+
+    formData.append('star', review.star.toString());
+    formData.append('content', review.content);
+    for (const f of files) formData.append('files', f, files.indexOf(f).toString());
+
+    return this.http.put(environment.productUrl + '/review/' + id, formData);
   }
 
 }
