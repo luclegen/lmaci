@@ -98,7 +98,7 @@ export class ProductComponent implements OnInit {
     content: '',
     img: [],
     imgs: [],
-    files: null
+    files: []
   }
 
   //#endregion Models
@@ -151,12 +151,6 @@ export class ProductComponent implements OnInit {
 
   //#endregion Post Editor
   
-  //#region Review
-  
-  
-  
-  //#endregion Review
-
   @HostListener('window:resize')
   onResize() {
     const leftContainer = document.querySelector('.left-container') as HTMLElement;
@@ -782,18 +776,18 @@ export class ProductComponent implements OnInit {
     if (files.length) {
       this.review.files = files;
 
-      for (let i = 0; i < this.review.files.length; i++) {
+      for (const f of this.review.files) {
         let reader = new FileReader();
 
         reader.onload = (event:any) => this.review.imgs.push(event.target.result);
 
-        reader.readAsDataURL(this.review.files[i]);
+        reader.readAsDataURL(f);
       }
     }
   }
 
   sendReview() {
-    console.log(JSON.stringify(this.review));
+    console.log(JSON.stringify(this.review.files));
   }
 
   deleteReviewImg(i: string) {
