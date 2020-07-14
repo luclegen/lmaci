@@ -325,6 +325,7 @@ Module: FontAwesomeModule
 Product Component: enterReviewCamera
 Product Component: leaveReviewCamera
 Product Component: selectReviewFileInput
+Product Component: deleteReviewImg
 Product Component: ngOnInit
 Product Component: View
 Global Styles
