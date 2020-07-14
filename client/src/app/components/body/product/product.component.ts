@@ -796,6 +796,10 @@ export class ProductComponent implements OnInit {
     console.log(JSON.stringify(this.review));
   }
 
+  deleteReviewImg() {
+    
+  }
+
   //#endregion Review
 }
 
