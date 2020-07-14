@@ -796,8 +796,8 @@ export class ProductComponent implements OnInit {
     console.log(JSON.stringify(this.review));
   }
 
-  deleteReviewImg() {
-    
+  deleteReviewImg(i: string) {
+    if (confirm('Are you sure delete: Image ' + (this.review.imgs.indexOf(i) + 1) + '?')) this.review.imgs.splice(this.review.imgs.indexOf(i), 1);
   }
 
   //#endregion Review
