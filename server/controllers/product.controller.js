@@ -63,3 +63,7 @@ module.exports.post = (req, res) => {
                    : res.status(404).json({ msg: 'Product not found.' });
   });
 }
+
+module.exports.review = (req, res) => {
+  console.log(req.files);
+}
