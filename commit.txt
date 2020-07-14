@@ -436,4 +436,5 @@ Image Router: GET get
 Uploads Img
 Server App: Image Router
 Product Controller: review
+Product Router: PUT review
 Commit
