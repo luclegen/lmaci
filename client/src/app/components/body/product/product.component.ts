@@ -188,7 +188,7 @@ export class ProductComponent implements OnInit {
         this.order.name = this.product.name;
         this.order.price = this.product.price;
 
-        this.preview.color = this.order.color = JSON.parse(JSON.stringify(this.product.colors[0]));
+        if (this.product.colors[0]) this.preview.color = this.order.color = JSON.parse(JSON.stringify(this.product.colors[0]));
 
         this.product.properties.forEach(p => {
           let property = {
