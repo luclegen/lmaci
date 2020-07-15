@@ -65,5 +65,7 @@ module.exports.post = (req, res) => {
 }
 
 module.exports.review = (req, res) => {
-  console.log(req.files);
+  console.log(req.body.star);
+  console.log(req.body.content);
+  // console.log(req.files);
 }
