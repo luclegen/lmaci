@@ -331,6 +331,7 @@ Models: review
 Product Component: sendReview
 Helper Service: Initial
 Helper Service: Regex
+Helper Service: toHTMLName
 Product Component: ngOnInit
 Product Component: View
 Global Styles
