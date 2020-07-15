@@ -81,8 +81,6 @@ module.exports.review = (req, res) => {
 
   reviews.push(review);
 
-  console.log(reviews);
-
   Product.findByIdAndUpdate(req.params.id, { $set: { reviews: reviews } }, { new: true }, (err, product) => {
     return product ? res.status(200).json({ msg: 'Your review is submitted successfully.' })
                    : res.status(404).json({ msg: 'Product not found.' });
