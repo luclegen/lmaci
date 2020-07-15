@@ -207,6 +207,8 @@ export class ProductComponent implements OnInit {
 
         for (const slider of this.product.slidersPaths) if (slider[0] == this.order.color.value) this.imgs = slider.slice(1);
 
+        this.review.index = this.product.reviews ? this.product.reviews.length : 0;
+
         this.initPost();
 
         this.showStar();
@@ -228,7 +230,7 @@ export class ProductComponent implements OnInit {
       }
     );
   }
-
+  
   //#region Star
 
   showStar() {
