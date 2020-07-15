@@ -12,11 +12,6 @@ export class ProductService {
 
   constructor(private http: HttpClient) { }
 
-  toHTMLName(name: string) {
-    let nameOut = name.trim().split(/\s+/).map(w => w[0].toUpperCase() + w.slice(1).toLowerCase()).join('');
-    return nameOut[0].toLowerCase() + nameOut.slice(1);
-  }
-
   getProduct(id: string) {
     return this.http.get(environment.productUrl + '/' + id);
   }
