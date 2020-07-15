@@ -232,17 +232,17 @@ export class ProductComponent implements OnInit {
   //#region Star
 
   showStar() {
-    let number = this.product.star.number,
-        numberRounded = Math.round(number),
-        bias = Math.round((number - numberRounded) * 10) / 10;
+    // let number = this.product.star.number,
+    //     numberRounded = Math.round(number),
+    //     bias = Math.round((number - numberRounded) * 10) / 10;
     
-    if (bias < 0) bias++;
+    // if (bias < 0) bias++;
 
-    if (bias == 0.5) {
-      for (let i = 0; i < numberRounded - 1; i++) this.starCount.push('*');
-      this.starHalf = true;
-    } else for (let i = 0; i < numberRounded; i++) this.starCount.push('*');
-    for (let i = 0; i < 5 - numberRounded; i++) this.noneStarCount.push('-');
+    // if (bias == 0.5) {
+    //   for (let i = 0; i < numberRounded - 1; i++) this.starCount.push('*');
+    //   this.starHalf = true;
+    // } else for (let i = 0; i < numberRounded; i++) this.starCount.push('*');
+    // for (let i = 0; i < 5 - numberRounded; i++) this.noneStarCount.push('-');
   }
 
   //#endregion Star
