@@ -3,7 +3,9 @@ import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 
+import { HelperService } from 'src/app/services/helper.service';
 import { AuthService } from 'src/app/services/auth.service';
+
 @Component({
   selector: 'app-change-email',
   templateUrl: './change-email.component.html',
@@ -16,9 +18,12 @@ export class ChangeEmailComponent implements OnInit {
 
   emailRegex;
 
-  constructor(private titleService: Title, private authService: AuthService, private router: Router) {
+  constructor(private titleService: Title,
+              private helperService: HelperService,
+              private authService: AuthService,
+              private router: Router) {
     this.titleService.setTitle('Change Email | Lmaci');
-    this.emailRegex = this.authService.emailRegex;
+    this.emailRegex = this.helperService.emailRegex;
   }
 
   ngOnInit(): void {
