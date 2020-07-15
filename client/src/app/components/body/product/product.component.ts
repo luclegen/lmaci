@@ -230,7 +230,7 @@ export class ProductComponent implements OnInit {
       }
     );
   }
-  
+
   //#region Star
 
   showStar() {
@@ -792,10 +792,10 @@ export class ProductComponent implements OnInit {
   sendReview() {
     this.productService.sendReview(this.id, this.review, this.review.files).subscribe(
       res => {
-        // alert(res);
+        alert(res['msg']);
       },
       err => {
-        // alert();
+        alert(err.error.msg);
       }
     );
   }
