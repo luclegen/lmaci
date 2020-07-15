@@ -11,6 +11,7 @@
     "AVATARS": "assets/img/avatars/",
     "PRODUCT_IMG": "assets/uploads/img/products/",
     "PRODUCT_IMG_UPLOAD": "../client/src/assets/uploads/img/products/",
-    "DEFAULT_ROLE": "Member"
+    "DEFAULT_ROLE": "Member",
+    "SERVER_URL": "http://localhost:3000"
   }
 }
