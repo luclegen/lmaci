@@ -56,7 +56,7 @@ export class ProductComponent implements OnInit {
     status: '',
     price: 0,
     quantity: { imported: 0, exported: 0 },
-    star: { number: 0, countRate: 0 },
+    reviews: [],
     type: '',
     colors: [],
     properties: [],
@@ -94,6 +94,7 @@ export class ProductComponent implements OnInit {
   }
 
   review = {
+    index: 0,
     star: 0,
     content: '',
     img: [],
@@ -787,7 +788,14 @@ export class ProductComponent implements OnInit {
   }
 
   sendReview() {
-    console.log(JSON.stringify(this.review.files));
+    this.productService.sendReview(this.id, this.review, this.review.files).subscribe(
+      res => {
+        // alert(res);
+      },
+      err => {
+        // alert();
+      }
+    );
   }
 
   deleteReviewImg(i: string) {
@@ -795,6 +803,7 @@ export class ProductComponent implements OnInit {
   }
 
   //#endregion Review
+
 }
 
 //#region Helpers
