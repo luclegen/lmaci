@@ -328,6 +328,7 @@ Product Component: selectReviewFileInput
 Product Component: deleteReviewImg
 Product Service: sendReview
 Models: review
+Product Component: sendReview
 Product Component: ngOnInit
 Product Component: View
 Global Styles
