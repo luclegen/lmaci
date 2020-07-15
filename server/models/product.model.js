@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const { review } = require('../controllers/product.controller');
 
 let productSchema = new mongoose.Schema({
   img: Buffer,
@@ -22,16 +23,6 @@ let productSchema = new mongoose.Schema({
       default: 0
     },
   },
-  star: {
-    number: {
-      type: Number,
-      default: 0
-    },
-    countRate: {
-      type: Number,
-      default: 0
-    }
-  },
   type: {
     type: String,
     enum: [ 'laptop', 'tablet', 'phone', 'watch', 'accessories' ],
@@ -40,12 +31,12 @@ let productSchema = new mongoose.Schema({
   colors: Array,
   properties: Array,
   technicalDetails: Array,
-  description: String,
   post: {
     content: String,
     dateModified: Date
   },
-  sliders: Array
+  sliders: Array,
+  reviews: Array
 }, {
   toObject: {
     virtuals: true
