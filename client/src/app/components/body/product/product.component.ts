@@ -14,6 +14,7 @@ import { ImageCroppedEvent } from 'ngx-image-cropper';
 import { ProductService } from 'src/app/services/product.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { NgForm } from '@angular/forms';
+import { HelperService } from 'src/app/services/helper.service';
 
 @Component({
   selector: 'app-product',
@@ -168,8 +169,9 @@ export class ProductComponent implements OnInit {
   constructor(private viewportRuler: ViewportRuler,
               private route: ActivatedRoute,
               private titleService: Title,
+              public helperService: HelperService,
               private authService: AuthService,
-              public productService: ProductService,
+              private productService: ProductService,
               private router: Router) {
     this.target = null;
     this.source = null;
