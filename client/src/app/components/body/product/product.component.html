@@ -71,7 +71,7 @@
   <div class="right-container">
     <form class="left">
       <label class="attr"><strong>Price:</strong><label class="price"> {{ priceFormated }}</label></label>
-      <label class="attr">
+      <label *ngIf="preview.color.name" class="attr">
         <strong>Color:</strong> {{ preview.color.name }}
       </label>
       <div class="left">
