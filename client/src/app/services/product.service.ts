@@ -29,12 +29,14 @@ export class ProductService {
     return this.http.put(environment.productUrl + '/post/' + id, post);
   }
 
-  sendReview(id: string, review: Review, files: []) {
+  sendReview(id: string, review: Review, files) {
     const formData = new FormData();
 
+    formData.append('index', review.index.toString());
     formData.append('star', review.star.toString());
     formData.append('content', review.content);
-    for (const f of files) formData.append('files', f, files.indexOf(f).toString());
+
+    for (let i = 0; i < files.length; i++) formData.append('files', files[i], i.toString() + '.' + files[i].type.slice(6));
 
     return this.http.put(environment.productUrl + '/review/' + id, formData);
   }
