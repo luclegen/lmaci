@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { NgForm } from '@angular/forms';
 
+import { HelperService } from 'src/app/services/helper.service';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -31,11 +32,13 @@ export class RegisterComponent implements OnInit {
   showSuccessMessages: boolean;
   serverErrorMessages: string;
 
-  constructor(private titleService: Title, private authService: AuthService) {
+  constructor(private titleService: Title,
+              private helperService: HelperService,
+              private authService: AuthService) {
     this.titleService.setTitle('Register | Lmaci');
-    this.emailRegex = this.authService.emailRegex;
-    this.mobileNumberRegex = this.authService.mobileNumberRegex;
-    this.usernameRegex = this.authService.usernameRegex;
+    this.emailRegex = this.helperService.emailRegex;
+    this.mobileNumberRegex = this.helperService.mobileNumberRegex;
+    this.usernameRegex = this.helperService.usernameRegex;
   }
 
   ngOnInit(): void {
