@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
-import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
+
+import { HelperService } from 'src/app/services/helper.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-find-username',
@@ -16,9 +18,12 @@ export class FindUsernameComponent implements OnInit {
 
   emailRegex;
 
-  constructor(private titleService: Title, private authService: AuthService, private router: Router) {
+  constructor(private titleService: Title,
+              private helperService: HelperService,
+              private authService: AuthService,
+              private router: Router) {
     this.titleService.setTitle('Find Username | Lmaci');
-    this.emailRegex = this.authService.emailRegex;
+    this.emailRegex = this.helperService.emailRegex;
   }
   ngOnInit(): void {
     if (this.authService.getToken()) this.router.navigateByUrl('');
