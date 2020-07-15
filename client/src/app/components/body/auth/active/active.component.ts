@@ -25,9 +25,9 @@ export class ActiveComponent implements OnInit {
   serverErrorMessages: string;
 
   constructor(private titleService: Title,
-    private helperService: HelperService,
-    private authService: AuthService,
-    private router: Router) {
+              private helperService: HelperService,
+              private authService: AuthService,
+              private router: Router) {
     this.titleService.setTitle('Verify Email | Lmaci');
     
     this.codeRegex = this.helperService.codeRegex;
