@@ -14,4 +14,10 @@ export class HelperService {
   mobileNumberRegex = /^(\+\d{1,3}[- ]?)?\d{10}$/;
   
   constructor() { }
+
+  toHTMLName(name: string) {
+    let nameOut = name.trim().split(/\s+/).map(w => w[0].toUpperCase() + w.slice(1).toLowerCase()).join('');
+    return nameOut[0].toLowerCase() + nameOut.slice(1);
+  }
+
 }
