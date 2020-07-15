@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const { review } = require('../controllers/product.controller');
 
 let productSchema = new mongoose.Schema({
   img: Buffer,
