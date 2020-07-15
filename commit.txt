@@ -120,6 +120,7 @@ Change Password Component: togglePassword
 Auth Service: changePassword
 Change Password Component: onSubmit
 Active Component: onSubmit
+Active Component: constructor
 Change Password Component: ngOnInit
 Find Username Component: onSubmit
 Admin Images: People
