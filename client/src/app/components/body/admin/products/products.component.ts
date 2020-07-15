@@ -6,6 +6,7 @@ import { ImageCroppedEvent } from 'ngx-image-cropper';
 
 import { Product } from 'src/app/models/product.model';
 
+import { HelperService } from 'src/app/services/helper.service';
 import { AdminService } from 'src/app/services/admin.service';
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -134,10 +135,14 @@ export class ProductsComponent implements OnInit {
     this.ngOnInit();
   }
 
-  constructor(private titleService: Title, private adminService: AdminService, private authService: AuthService, private router: Router) {
+  constructor(private titleService: Title,
+              private helperService: HelperService,
+              private adminService: AdminService,
+              private authService: AuthService,
+              private router: Router) {
     this.titleService.setTitle('Products Management | Lmaci');
-    this.positiveNumberRegex = this.adminService.positiveNumberRegex;
-    this.NotNegativeNumberRegex = this.adminService.NotNegativeNumberRegex;
+    this.positiveNumberRegex = this.helperService.positiveNumberRegex;
+    this.NotNegativeNumberRegex = this.helperService.NotNegativeNumberRegex;
   }
 
   ngOnInit(): void {
