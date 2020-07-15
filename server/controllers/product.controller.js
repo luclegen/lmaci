@@ -65,7 +65,23 @@ module.exports.post = (req, res) => {
 }
 
 module.exports.review = (req, res) => {
-  console.log(req.body.star);
-  console.log(req.body.content);
-  // console.log(req.files);
+  if (!ObjectId.isValid(req.params.id))
+    return res.status(400).json({ msg: `No record with given id: ${req.params.id}` });
+
+  let review = {
+    index: req.body.index,
+    star: req.body.star,
+    content: req.body.content,
+    imgs: [ 'http://localhost:3000/image/?image=product/5ee7557335d42a3e1b5631da/review/0/0.png' ]
+  }
+
+  let urlImg = 'http://localhost:3000/image/?image=product' + req.params.id + '/review/' + req.body.index;
+  console.log(urlImg);
+  console.log(req.files);
+  for (const f of req.files) review.push(urlImg + f.filename);
+  
+  Product.findByIdAndUpdate(req.params.id, { $set: { post: post } }, { new: true }, (err, product) => {
+    return product ? res.status(200).json({ msg: 'Post this product is successfully.' })
+                   : res.status(404).json({ msg: 'Product not found.' });
+  });
 }
