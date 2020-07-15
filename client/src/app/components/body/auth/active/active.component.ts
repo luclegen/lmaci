@@ -5,7 +5,9 @@ import { Router } from '@angular/router';
 
 import { Observable, timer } from 'rxjs';
 import { take, map } from 'rxjs/operators';
+
 import { AuthService } from 'src/app/services/auth.service';
+import { HelperService } from 'src/app/services/helper.service';
 
 @Component({
   selector: 'app-active',
@@ -22,9 +24,13 @@ export class ActiveComponent implements OnInit {
 
   serverErrorMessages: string;
 
-  constructor(private titleService: Title, private authService: AuthService, private router: Router) {
+  constructor(private titleService: Title,
+    private helperService: HelperService,
+    private authService: AuthService,
+    private router: Router) {
     this.titleService.setTitle('Verify Email | Lmaci');
-    this.codeRegex = this.authService.codeRegex;
+    
+    this.codeRegex = this.helperService.codeRegex;
     
     this.counter$ = timer(0,1000).pipe(
       take(this.count),
