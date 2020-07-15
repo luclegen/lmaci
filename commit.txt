@@ -43,6 +43,7 @@ User Component: View
 User Component: onResize
 Header Component: View
 Register Component: Style
+Register Component: constructor
 User Service: usernameRegex
 Login Component: Initial
 Login Component: Form
