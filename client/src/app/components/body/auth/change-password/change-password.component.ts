@@ -18,8 +18,6 @@ export class ChangePasswordComponent implements OnInit {
     confirmPassword: ''
   }
 
-  codeRegex;
-
   serverErrorMessages: string;
   successMessages: string;
 
