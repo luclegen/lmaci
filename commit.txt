@@ -330,6 +330,7 @@ Product Service: sendReview
 Models: review
 Product Component: sendReview
 Helper Service: Initial
+Helper Service: Regex
 Product Component: ngOnInit
 Product Component: View
 Global Styles
