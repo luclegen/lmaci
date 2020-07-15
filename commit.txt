@@ -329,6 +329,7 @@ Product Component: deleteReviewImg
 Product Service: sendReview
 Models: review
 Product Component: sendReview
+Helper Service: Initial
 Product Component: ngOnInit
 Product Component: View
 Global Styles
