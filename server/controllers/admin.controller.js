@@ -94,11 +94,11 @@ module.exports.uploadProductImg = (req, res) => {
         path: urlImg + req.file.filename
       };
 
-  if (img.index > 0) rimraf.sync('uploads/img/product/' + req.params.id + '/' + (img.index - 1) + '.png');
-
   Product.findByIdAndUpdate(req.params.id, { $set: { img: img } }, { new: true }, (err, product) => {
-    return product ? res.status(200).json()
-                   : res.status(404).json({ msg: 'Upload this product image failed.' });
+    if (product) {
+      if (img.index > 0) rimraf.sync('uploads/img/product/' + req.params.id + '/' + (img.index - 1) + '.png');
+      return res.status(200).json();
+    } else return res.status(404).json({ msg: 'Upload this product image failed.' });
   });
 }
 
