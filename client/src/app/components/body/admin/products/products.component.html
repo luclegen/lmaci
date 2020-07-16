@@ -7,7 +7,7 @@
     
     <span class="inline-span input-span">
       <label for="img">Choose an image file</label>
-      <input #img="ngModel" [(ngModel)]="product.img" id="img" type="file" name="img" (change)="fileChangeEvent($event)" accept="image/*" required>
+      <input #img="ngModel" [(ngModel)]="product.img.path" id="img" type="file" name="img" (change)="fileChangeEvent($event)" accept="image/*" required>
     </span>
 
     <div *ngIf="imageChangedEvent" class="image-cropper-container">
@@ -24,8 +24,8 @@
       <img [src]="croppedImage" />
     </div>
 
-    <div *ngIf="!imageChangedEvent && product.img" class="image-cropper-container">
-      <img [src]="product.img" />
+    <div *ngIf="!imageChangedEvent && product.img.path" class="image-cropper-container">
+      <img [src]="product.img.path" />
     </div>
 
     <input #name="ngModel" [(ngModel)]="product.name" class="single-in" type="text" name="name" placeholder="Name" required>
@@ -363,7 +363,7 @@
       <tbody>
         <tr *ngFor="let p of products">
           <td class="center-td">{{ products.indexOf(p) + 1 }}</td>
-          <td><img class="product-img" [src]="p.img" [alt]="'Image ' + (products.indexOf(p) + 1)"></td>
+          <td><img class="product-img" [src]="p.img.path" [alt]="'Image ' + (products.indexOf(p) + 1)"></td>
           <td>{{ p.name }}</td>
           <td>{{ p.quantity.imported }}</td>
           <td>{{ p.quantity.exported }}</td>
