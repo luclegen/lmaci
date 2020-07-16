@@ -24,7 +24,6 @@ export class ProductsComponent implements OnInit {
   product = {
     _id: '',
     img: '',
-    imgPath: '',
     name: '',
     price: 0,
     quantity: { imported: 0 },
@@ -471,7 +470,6 @@ export class ProductsComponent implements OnInit {
     this.product = {
       _id: '',
       img: '',
-      imgPath: '',
       name: '',
       price: 0,
       quantity: { imported: 1 },
