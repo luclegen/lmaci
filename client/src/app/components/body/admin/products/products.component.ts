@@ -515,7 +515,7 @@ export class ProductsComponent implements OnInit {
     this.imageChangedEvent = '';
     this.croppedImage = '';
 
-    this.product = Object(p);
+    this.product = JSON.parse(JSON.stringify(p));
   }
 
   //#endregion Edit
