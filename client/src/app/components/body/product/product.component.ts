@@ -13,7 +13,6 @@ import { ImageCroppedEvent } from 'ngx-image-cropper';
 
 import { ProductService } from 'src/app/services/product.service';
 import { AuthService } from 'src/app/services/auth.service';
-import { NgForm } from '@angular/forms';
 import { HelperService } from 'src/app/services/helper.service';
 
 @Component({
