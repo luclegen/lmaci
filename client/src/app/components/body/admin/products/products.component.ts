@@ -218,7 +218,7 @@ export class ProductsComponent implements OnInit {
 
                 const file = new File([ this.helperService.base64ToBlob(this.croppedImage, 'png') ], 'img.png', { type: 'image/png' });
                 
-                formData.append('img', file, 'img.png');
+                formData.append('file', file, 'img.png');
 
                 this.adminService.uploadProductImg(res['_id'], formData).subscribe(
                   res => {
@@ -256,7 +256,7 @@ export class ProductsComponent implements OnInit {
 
               const file = new File([ this.helperService.base64ToBlob(this.croppedImage, 'png') ], 'img.png', { type: 'image/png' });
               
-              formData.append('img', file, 'img.png');
+              formData.append('file', file, 'img.png');
 
               this.adminService.uploadProductImg(res['_id'], formData).subscribe(
                 res => {
