@@ -473,7 +473,7 @@ export class ProductsComponent implements OnInit {
   onCancelProduct() {
     this.product = {
       _id: '',
-      img: '',
+      img: { index: -1, path: ''},
       name: '',
       price: 0,
       quantity: { imported: 1 },
