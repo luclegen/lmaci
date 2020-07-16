@@ -426,7 +426,6 @@ Admin Controller: updateProduct
 Admin Router: PUT updateProduct
 Helpers: Loader
 Admin Controller: uploadProductImg
-Admin Router: POST uploadProductImg
 Admin Router: PUT uploadProductImg
 Transfer Heper
 Admin Controller: searchProducts
