@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 let productSchema = new mongoose.Schema({
-  img: Buffer,
+  img: String,
   name: {
     type: String,
     required: 'Name can\'t be empty',
@@ -48,10 +48,6 @@ let productSchema = new mongoose.Schema({
     updatedAt: 'updatedAt'
   }
 });
-
-productSchema.virtual('imgPath').get(function() {
-  if (this.img) return `data:image/png;base64,${this.img.toString('base64')}`;
-})
 
 productSchema.virtual('slidersPaths').get(function() {
   let slidersPaths = [];
