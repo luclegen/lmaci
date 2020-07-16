@@ -51,7 +51,7 @@ export class ProductComponent implements OnInit {
 
   product = {
     _id: '',
-    imgPath: '',
+    img: { index: -1, path: ''},
     name: '',
     status: '',
     price: 0,
@@ -692,7 +692,7 @@ export class ProductComponent implements OnInit {
   //#region Post Editor
 
   initPost() {
-    this.post.content = this.product.post ? this.product.post.content : '<p style=\"text-align: center;\"><strong><span style=\"font-size: 36pt; color: red;\">' + this.product.name + '</span></strong></p><p style=\"text-align: center;\"><span style=\"font-size: 18pt;\">Content</span></p><p style=\"text-align: center;\"><span style=\"font-size: 18pt;\"></span></p>';
+    this.post.content = this.product.post ? this.product.post.content : '<p style=\"text-align: center;\"><strong><span style=\"font-size: 36pt; color: red;\">' + this.product.name + '</span></strong></p><p style=\"text-align: center;\"><span style=\"font-size: 18pt;\">Content</span></p><p style=\"text-align: center;\"><span style=\"font-size: 18pt;\"><img src=\"' + this.product.img.path + '\" class=\"e-rte-image e-imginline e-resize\" alt=\"' + this.product.name + '\" width=\"auto\" height=\"auto\" style=\"min-width: 0px; min-height: 0px;\"> </span></p><p style=\"text-align: center;\"><span style=\"font-size: 18pt;\"></span></p>';
   }
 
   isSavePost() {
@@ -702,26 +702,27 @@ export class ProductComponent implements OnInit {
   savePost() {
     this.authService.getInfo().subscribe(res => {
       if (res['user'].role == 'root' || res['user'].role === 'admin') {
-        this.post.dateModified = Date.now();
-        this.productService.post(this.id, this.post).subscribe(
-          res => {
-            alert(res['msg']);
-            this.productService.getProduct(this.id).subscribe(
-              res => {
-                this.product = res['product'];
+        alert(JSON.stringify(this.post));
+        // this.post.dateModified = Date.now();
+        // this.productService.post(this.id, this.post).subscribe(
+        //   res => {
+        //     alert(res['msg']);
+        //     this.productService.getProduct(this.id).subscribe(
+        //       res => {
+        //         this.product = res['product'];
         
-                this.initPost();
-              },
-              err => {
-                alert(err.error.msg);
-                this.router.navigateByUrl('');
-              }
-            );
-          },
-          err => {
-            alert(err.error.msg);
-          }
-        );
+        //         this.initPost();
+        //       },
+        //       err => {
+        //         alert(err.error.msg);
+        //         this.router.navigateByUrl('');
+        //       }
+        //     );
+        //   },
+        //   err => {
+        //     alert(err.error.msg);
+        //   }
+        // );
       } else this.router.navigateByUrl('');
     });
   }
