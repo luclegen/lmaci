@@ -66,7 +66,7 @@ export class ProductComponent implements OnInit {
       content: '',
       dateModified: ''
     },
-    slidersPaths: []
+    sliders: []
   };
 
   preview = {
@@ -113,7 +113,7 @@ export class ProductComponent implements OnInit {
   //#region Image Cropper
 
   img: any = '';
-  imgs = [];
+  paths = [];
   imageChangedEvent: any = '';
   croppedImage: any = '';
 
@@ -206,7 +206,11 @@ export class ProductComponent implements OnInit {
 
         this.priceFormated = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2 }).format(this.product.price);
 
-        for (const slider of this.product.slidersPaths) if (slider[0] == this.order.color.value) this.imgs = slider.slice(1);
+        for (const slider of this.product.sliders) if (slider.color == this.order.color.value) {
+          let paths = [];
+          for (const i of slider.imgs) paths.push(i.path);
+          this.paths = paths;
+        }
 
         this.review.index = this.product.reviews ? this.product.reviews.length : 0;
 
@@ -540,8 +544,8 @@ export class ProductComponent implements OnInit {
         if (this.isSaveImgs()) {
           const formData = new FormData();
 
-          formData.append('imgs', this.order.color.value);
-          for(let img of this.imgs) formData.append('imgs', img);
+          formData.append('color', this.order.color.value);
+          for(let img of this.imgs) formData.append('files', img);
   
           this.productService.uploadImgs(this.id, formData).subscribe(
             res => {
