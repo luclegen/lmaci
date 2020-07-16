@@ -112,7 +112,7 @@ export class ProductComponent implements OnInit {
 
   //#region Image Cropper
 
-  img: any = '';
+  path: any = '';
   paths = [];
   imageChangedEvent: any = '';
   croppedImage: any = '';
@@ -475,9 +475,13 @@ export class ProductComponent implements OnInit {
   reloadSlider() {
     const carouselSlide = document.querySelector('.carousel-slide') as HTMLElement;
 
-    this.imgs = [];
+    this.paths = [];
 
-    for (const slider of this.product.slidersPaths) if (slider[0] == this.preview.color.value) this.imgs = slider.slice(1);
+    for (const slider of this.product.sliders) if (slider.color == this.order.color.value) {
+      let paths = [];
+      for (const i of slider.imgs) paths.push(i.path);
+      this.paths = paths;
+    }
 
     carouselSlide.style.transition = 'none';
     carouselSlide.style.transform = 'translateX(' + (-this.size * this.counter) + 'px)';
