@@ -83,7 +83,12 @@ module.exports.createProduct = (req, res, next) => {
 }
 
 module.exports.uploadProductImg = (req, res) => {
-  Product.findByIdAndUpdate(req.params.id, { $set: { img: new Buffer.from(converter.base64ToPng(req.body.img), 'base64') } }, { new: true }, (err, product) => {
+  if (!ObjectId.isValid(req.params.id))
+    return res.status(400).json({ msg: `No record with given id: ${req.params.id}` });
+
+  let urlImg = process.env.SERVER_URL + '/image/?image=product/' + req.params.id + '/';
+
+  Product.findByIdAndUpdate(req.params.id, { $set: { img: urlImg + req.file.filename } }, { new: true }, (err, product) => {
     return product ? res.status(200).json()
                    : res.status(404).json({ msg: 'Upload this product image failed.' });
   });
