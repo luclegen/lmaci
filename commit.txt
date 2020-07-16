@@ -334,6 +334,7 @@ Product Component: sendReview
 Helper Service: Initial
 Helper Service: Regex
 Helper Service: toHTMLName
+Helper Service: base64ToBlob
 Product Component: ngOnInit
 Product Component: View
 Global Styles
