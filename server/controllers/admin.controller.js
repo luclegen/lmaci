@@ -1,3 +1,5 @@
+const rimraf = require("rimraf");
+
 const User = require('../models/user.model');
 const Product = require('../models/product.model');
 
@@ -86,9 +88,15 @@ module.exports.uploadProductImg = (req, res) => {
   if (!ObjectId.isValid(req.params.id))
     return res.status(400).json({ msg: `No record with given id: ${req.params.id}` });
 
-  let urlImg = process.env.SERVER_URL + '/image/?image=product/' + req.params.id + '/';
+  let urlImg = process.env.SERVER_URL + '/image/?image=product/' + req.params.id + '/',
+      img = {
+        index: parseInt(req.body.index),
+        path: urlImg + req.file.filename
+      };
 
-  Product.findByIdAndUpdate(req.params.id, { $set: { img: urlImg + req.file.filename } }, { new: true }, (err, product) => {
+  if (img.index > 0) rimraf.sync('uploads/img/product/' + req.params.id + '/' + (img.index - 1) + '.png');
+
+  Product.findByIdAndUpdate(req.params.id, { $set: { img: img } }, { new: true }, (err, product) => {
     return product ? res.status(200).json()
                    : res.status(404).json({ msg: 'Upload this product image failed.' });
   });
