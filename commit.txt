@@ -439,7 +439,7 @@ Product Controller: post
 Product Router: PUT post
 Image Controller: get
 Image Router: GET get
-Uploads Img
+Uploads Images
 Server App: Image Router
 Product Controller: review
 Product Router: PUT review
