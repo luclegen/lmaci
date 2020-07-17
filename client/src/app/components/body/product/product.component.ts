@@ -239,10 +239,6 @@ export class ProductComponent implements OnInit {
     );
   }
 
-  ngAfterViewInit() {
-    setTimeout(() => this.setChanged(), 500);
-  }
-
   //#region Star
 
   showStar() {
@@ -640,6 +636,10 @@ export class ProductComponent implements OnInit {
   //#endregion Image Cropper
 
   //#region Drag and drop
+
+  ngAfterViewInit() {
+    setTimeout(() => this.setChanged(), 500);
+  }
 
   setChanged() {
     let phElement = this.placeholder.element.nativeElement;
