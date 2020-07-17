@@ -14,10 +14,17 @@ module.exports.upload = (path, dir = '') => {
     destination: (req, file, callBack) => {
       if (!fs.existsSync(path + '/' + req.params.id)) fs.mkdirSync(path + '/' + req.params.id);
 
+      if (dir) if (!fs.existsSync(path + '/' + req.params.id + '/' + dir)) fs.mkdirSync(path + '/' + req.params.id + '/' + dir);
+
       switch (dir) {
+        case 'slider':
+          if (!fs.existsSync(path + '/' + req.params.id + '/' + dir + '/' + req.body.color.replace(/#/, ''))) fs.mkdirSync(path + '/' + req.params.id + '/' + dir + '/' + req.body.color.replace(/#/, ''));
+
+          callBack(null, path + '/' + req.params.id + '/' + dir + '/' + req.body.color.replace(/#/, ''));
+          break;
+
         case 'review':
         case 'comment':
-          if (!fs.existsSync(path + '/' + req.params.id + '/' + dir)) fs.mkdirSync(path + '/' + req.params.id + '/' + dir);
           if (!fs.existsSync(path + '/' + req.params.id + '/' + dir + '/' + req.body.index)) fs.mkdirSync(path + '/' + req.params.id + '/' + dir + '/' + req.body.index);
 
           callBack(null, path + '/' + req.params.id + '/' + dir + '/' + req.body.index);
