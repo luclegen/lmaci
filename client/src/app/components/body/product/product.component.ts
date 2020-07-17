@@ -602,7 +602,7 @@ export class ProductComponent implements OnInit {
   delete(i) {
     const carouselSlide = document.querySelector('.carousel-slide') as HTMLElement;
     if (confirm('Are you sure delete: Image ' + (i + 1) + '?')) {
-      this.imgs.splice(i, 1);
+      this.paths.splice(i, 1);
       
       this.counter = 0;
       carouselSlide.style.transition = 'none';
