@@ -647,7 +647,7 @@ export class ProductComponent implements OnInit {
     this.source = null;
 
     if (this.sourceIndex != this.targetIndex)
-      moveItemInArray(this.imgs, this.sourceIndex, this.targetIndex);
+      moveItemInArray(this.paths, this.sourceIndex, this.targetIndex);
   }
 
   dropListEnterPredicate = (drag: CdkDrag, drop: CdkDropList) => {
