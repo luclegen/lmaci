@@ -41,4 +41,8 @@ export class HelperService {
     return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2 }).format(number);
   }
   
+  isBase64(string) {
+    return /[A-Za-z0-9+/=]/.test(string);
+  }
+  
 }
