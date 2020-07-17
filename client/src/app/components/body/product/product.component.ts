@@ -544,7 +544,7 @@ export class ProductComponent implements OnInit {
         if (this.isSaveImgs()) {
           const formData = new FormData();
 
-          let index = this.product.sliders.length && this.product.sliders.filter(s => s.color == this.order.color.value)[0].imgs.length ? this.helperService.max(this.product.sliders.filter(s => s.color == this.order.color.value)[0].imgs.map(i => i.index)) + 1 : 0;
+          let index = this.product.sliders.length && this.product.sliders.filter(s => s.color == this.order.color.value).length && this.product.sliders.filter(s => s.color == this.order.color.value)[0].imgs.length ? this.helperService.max(this.product.sliders.filter(s => s.color == this.order.color.value)[0].imgs.map(i => i.index)) + 1 : 0;
           const indexs = [], paths = [];
 
           formData.append('color', this.order.color.value);
@@ -569,7 +569,10 @@ export class ProductComponent implements OnInit {
               this.productService.getProduct(this.id).subscribe(
                 res => {
                   this.product = res['product'];
-                  this.ngOnInit();
+
+                  this.product.sliders.forEach(slider => {
+                    if (slider.color == this.order.color.value) this.paths = slider.imgs.map(img => img.path);
+                  });
                 },
                 err => {
                   alert(err.error.msg);
