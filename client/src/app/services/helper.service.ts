@@ -37,4 +37,7 @@ export class HelperService {
     return array.reduce((a, b) => Math.max(a, b), array[0]);
   }
 
+  USDcurrency(number) {
+    return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2 }).format(number);
+  }
 }
