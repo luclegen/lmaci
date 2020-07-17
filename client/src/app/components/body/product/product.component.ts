@@ -204,7 +204,7 @@ export class ProductComponent implements OnInit {
           this.order.properties.push(JSON.parse(JSON.stringify(property)));
         });
 
-        this.priceFormated = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2 }).format(this.product.price);
+        this.priceFormated = this.helperService.USDcurrency(this.product.price);
 
         for (const slider of this.product.sliders) if (slider.color == this.order.color.value) {
           let paths = [];
