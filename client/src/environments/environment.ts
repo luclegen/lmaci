@@ -7,7 +7,8 @@ export const environment = {
   authUrl: 'http://localhost:3000/auth',
   userUrl: 'http://localhost:3000/user',
   adminUrl: 'http://localhost:3000/admin',
-  productUrl: 'http://localhost:3000/product'
+  productUrl: 'http://localhost:3000/product',
+  imageUrl: 'http://localhost:3000/image'
 };
 
 /*
