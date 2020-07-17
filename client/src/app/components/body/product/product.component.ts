@@ -11,6 +11,8 @@ import { ViewportRuler } from "@angular/cdk/overlay";
 
 import { ImageCroppedEvent } from 'ngx-image-cropper';
 
+import { environment } from 'src/environments/environment';
+
 import { ProductService } from 'src/app/services/product.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { HelperService } from 'src/app/services/helper.service';
@@ -548,28 +550,39 @@ export class ProductComponent implements OnInit {
         if (this.isSaveImgs()) {
           const formData = new FormData();
 
+          let index = this.product.sliders.length ? this.helperService.max(this.product.sliders.filter(s => s.color == this.order.color.value)[0].imgs.map(i => i.index)): 0;
+          
           formData.append('color', this.order.color.value);
-          for(let p of this.paths) console.log(p);
 
-          // for(let p of this.paths) formData.append('files', img);
-  
-          // this.productService.uploadImgs(this.id, formData).subscribe(
-          //   res => {
-          //     alert(res['msg']);
-          //     this.productService.getProduct(this.id).subscribe(
-          //       res => {
-          //         this.product = res['product'];
-          //       },
-          //       err => {
-          //         alert(err.error.msg);
-          //         this.router.navigateByUrl('');
-          //       }
-          //     );
-          //   },
-          //   err => {
-          //     alert(err.error.msg);
-          //   }
-          // );
+          for (let p of this.paths) {
+            if (this.helperService.isBase64(p)) {
+              let file = new File([ this.helperService.base64ToBlob(p, 'jpeg') ], 'img.jpeg', { type: 'image/jpeg' });
+              
+              formData.append('indexs', index.toString());
+              formData.append('files', file, index + '.jpeg');
+
+              p = environment.imageUrl + '/?image=product/' + this.id + '/slider/' + index++ + '.jpeg';
+            }
+            formData.append('paths', p);
+          }
+          
+          this.productService.uploadImgs(this.id, formData).subscribe(
+            res => {
+              alert(res['msg']);
+              this.productService.getProduct(this.id).subscribe(
+                res => {
+                  this.product = res['product'];
+                },
+                err => {
+                  alert(err.error.msg);
+                  this.router.navigateByUrl('');
+                }
+              );
+            },
+            err => {
+              alert(err.error.msg);
+            }
+          );
         }
       } else this.router.navigateByUrl('');
     });
