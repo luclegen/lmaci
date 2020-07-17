@@ -550,7 +550,7 @@ export class ProductComponent implements OnInit {
 
           formData.append('color', this.order.color.value);
           for(let p of this.paths) console.log(p);
-          
+
           // for(let p of this.paths) formData.append('files', img);
   
           // this.productService.uploadImgs(this.id, formData).subscribe(
@@ -595,7 +595,7 @@ export class ProductComponent implements OnInit {
   }
 
   add() {
-    this.imgs.push(this.croppedImage);
+    this.paths.push(this.croppedImage);
     this.cancel();
   }
 
