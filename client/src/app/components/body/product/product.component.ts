@@ -550,28 +550,32 @@ export class ProductComponent implements OnInit {
         if (this.isSaveImgs()) {
           const formData = new FormData();
 
-          let index = this.product.sliders.length ? this.helperService.max(this.product.sliders.filter(s => s.color == this.order.color.value)[0].imgs.map(i => i.index)): 0;
-          
+          let index = this.product.sliders.length && this.product.sliders.filter(s => s.color == this.order.color.value)[0].imgs.length ? this.helperService.max(this.product.sliders.filter(s => s.color == this.order.color.value)[0].imgs.map(i => i.index)) + 1 : 0;
+          const indexs = [], paths = [];
+
           formData.append('color', this.order.color.value);
 
           for (let p of this.paths) {
-            if (this.helperService.isBase64(p)) {
-              let file = new File([ this.helperService.base64ToBlob(p, 'jpeg') ], 'img.jpeg', { type: 'image/jpeg' });
-              
-              formData.append('indexs', index.toString());
+            if (this.helperService.isBase64(p, 'jpeg')) {
+              const file = new File([ this.helperService.base64ToBlob(p, 'jpeg') ], 'img.jpeg', { type: 'image/jpeg' });
               formData.append('files', file, index + '.jpeg');
-
-              p = environment.imageUrl + '/?image=product/' + this.id + '/slider/' + index++ + '.jpeg';
+              
+              indexs.push(index);
+              p = environment.imageUrl + '/?image=product/' + this.id + '/slider/' + this.order.color.value.replace(/#/, '') + '/' + index++ + '.jpeg';
             }
-            formData.append('paths', p);
+            paths.push(p);
           }
           
+          formData.append('indexs', JSON.stringify(indexs));
+          formData.append('paths', JSON.stringify(paths));
+
           this.productService.uploadImgs(this.id, formData).subscribe(
             res => {
               alert(res['msg']);
               this.productService.getProduct(this.id).subscribe(
                 res => {
                   this.product = res['product'];
+                  this.ngOnInit();
                 },
                 err => {
                   alert(err.error.msg);
