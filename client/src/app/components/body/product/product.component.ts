@@ -507,7 +507,7 @@ export class ProductComponent implements OnInit {
 
   updatePrice() {
     this.order.price = this.helperService.sum(this.order.properties.map(p => p.option.price), this.product.price);
-    this.priceFormated = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2 }).format(this.order.price);
+    this.priceFormated = this.helperService.USDcurrency(this.order.price);
   }
 
   onCheckOption(i, option) {
