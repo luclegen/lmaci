@@ -335,7 +335,7 @@ Helper Service: Initial
 Helper Service: Regex
 Helper Service: toHTMLName
 Helper Service: base64ToBlob
-Helper Service: maxInArray
+Helper Service: max
 Product Component: ngOnInit
 Product Component: View
 Global Styles
