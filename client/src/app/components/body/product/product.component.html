@@ -25,10 +25,10 @@
         <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times-circle" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-times-circle fa-w-16 fa-3x"><path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm121.6 313.1c4.7 4.7 4.7 12.3 0 17L338 377.6c-4.7 4.7-12.3 4.7-17 0L256 312l-65.1 65.6c-4.7 4.7-12.3 4.7-17 0L134.4 338c-4.7-4.7-4.7-12.3 0-17l65.6-65-65.6-65.1c-4.7-4.7-4.7-12.3 0-17l39.6-39.6c4.7-4.7 12.3-4.7 17 0l65 65.7 65.1-65.6c4.7-4.7 12.3-4.7 17 0l39.6 39.6c4.7 4.7 4.7 12.3 0 17L312 256l65.6 65.1z" class=""></path></svg>
       </button>
       <div class="carousel-slide" (click)="showGallery()" (mouseenter)="showArrow()" (mouseleave)="hideArrow()" (transitionend)="moved()">
-        <img *ngFor="let i of imgs" [src]="i" [alt]="'Image ' + (imgs.indexOf(i) + 1)">
-        <img *ngIf="!imgs.length" src="assets/img/carousel/A.png" alt="A">
-        <img *ngIf="!imgs.length" src="assets/img/carousel/B.png" alt="B">
-        <img *ngIf="!imgs.length" src="assets/img/carousel/C.png" alt="C">
+        <img *ngFor="let i of paths" [src]="i" [alt]="'Image ' + (paths.indexOf(i) + 1)">
+        <img *ngIf="!paths.length" src="assets/img/carousel/A.png" alt="A">
+        <img *ngIf="!paths.length" src="assets/img/carousel/B.png" alt="B">
+        <img *ngIf="!paths.length" src="assets/img/carousel/C.png" alt="C">
       </div>
     
       <button id="prev-btn" (mouseenter)="showArrow()" (mouseleave)="hideArrow()" (click)="prev()">
@@ -62,10 +62,10 @@
       <span class="gallery-frame">
         <img src="assets/img/carousel/Transparent.png" alt="Frame">
       </span>
-      <img *ngFor="let i of imgs" [src]="i" [alt]="'Image ' + (imgs.indexOf(i) + 1)">
-        <img *ngIf="!imgs.length" src="assets/img/carousel/A.png" alt="A">
-        <img *ngIf="!imgs.length" src="assets/img/carousel/B.png" alt="B">
-        <img *ngIf="!imgs.length" src="assets/img/carousel/C.png" alt="C">
+      <img *ngFor="let i of paths" [src]="i" [alt]="'Image ' + (paths.indexOf(i) + 1)">
+        <img *ngIf="!paths.length" src="assets/img/carousel/A.png" alt="A">
+        <img *ngIf="!paths.length" src="assets/img/carousel/B.png" alt="B">
+        <img *ngIf="!paths.length" src="assets/img/carousel/C.png" alt="C">
     </div>
   </div>
   <div class="right-container">
@@ -113,10 +113,10 @@
       </summary>
       <div class="grid-container" cdkDropListGroup>
         <div cdkDropList [cdkDropListEnterPredicate]="dropListEnterPredicate" (cdkDropListDropped)="dropListDropped()"></div>
-        <div cdkDropList *ngFor="let i of imgs" [cdkDropListEnterPredicate]="dropListEnterPredicate" (cdkDropListDropped)="dropListDropped()">
+        <div cdkDropList *ngFor="let i of paths" [cdkDropListEnterPredicate]="dropListEnterPredicate" (cdkDropListDropped)="dropListDropped()">
           <div cdkDrag class="grid-box" (cdkDragMoved)="dragMoved($event);">
-            <img [src]="i" [alt]="'Image ' + imgs.indexOf(i)">
-            <button class="func-btn circle-btn red-btn" title="Delete" type="button" (click)="delete(imgs.indexOf(i))">
+            <img [src]="i" [alt]="'Image ' + paths.indexOf(i)">
+            <button class="func-btn circle-btn red-btn" title="Delete" type="button" (click)="delete(paths.indexOf(i))">
               <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times-circle" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-times-circle fa-w-16 fa-3x"><path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm121.6 313.1c4.7 4.7 4.7 12.3 0 17L338 377.6c-4.7 4.7-12.3 4.7-17 0L256 312l-65.1 65.6c-4.7 4.7-12.3 4.7-17 0L134.4 338c-4.7-4.7-4.7-12.3 0-17l65.6-65-65.6-65.1c-4.7-4.7-4.7-12.3 0-17l39.6-39.6c4.7-4.7 12.3-4.7 17 0l65 65.7 65.1-65.6c4.7-4.7 12.3-4.7 17 0l39.6 39.6c4.7 4.7 4.7 12.3 0 17L312 256l65.6 65.1z" class=""></path></svg>
             </button>
           </div>
@@ -129,7 +129,7 @@
   <div class="left-container image-cropper-container">
     <span class="input-span inline-span">
       <label for="img">Choose an image file</label>
-      <input #newImg="ngModel" [(ngModel)]="img" id="img" type="file" name="img" (change)="fileChangeEvent($event)" accept="image/*" required>
+      <input #newImg="ngModel" [(ngModel)]="path" id="img" type="file" name="img" (change)="fileChangeEvent($event)" accept="image/*" required>
     </span>
     <image-cropper *ngIf="imageChangedEvent"
       [imageChangedEvent]="imageChangedEvent" 
@@ -215,7 +215,7 @@
           <svg class="sqpo3gyd" height="20px" width="20px" viewBox="0 0 24 24"><path d="M16.6915026,12.4744748 L3.50612381,13.2599618 C3.19218622,13.2599618 3.03521743,13.4170592 3.03521743,13.5741566 L1.15159189,20.0151496 C0.8376543,20.8006365 0.99,21.89 1.77946707,22.52 C2.41,22.99 3.50612381,23.1 4.13399899,22.8429026 L21.714504,14.0454487 C22.6563168,13.5741566 23.1272231,12.6315722 22.9702544,11.6889879 C22.8132856,11.0605983 22.3423792,10.4322088 21.714504,10.118014 L4.13399899,1.16346272 C3.34915502,0.9 2.40734225,1.00636533 1.77946707,1.4776575 C0.994623095,2.10604706 0.8376543,3.0486314 1.15159189,3.99121575 L3.03521743,10.4322088 C3.03521743,10.5893061 3.34915502,10.7464035 3.50612381,10.7464035 L16.6915026,11.5318905 C16.6915026,11.5318905 17.1624089,11.5318905 17.1624089,12.0031827 C17.1624089,12.4744748 16.6915026,12.4744748 16.6915026,12.4744748 Z" fill-rule="evenodd" stroke="none"></path></svg>
         </button>
       </span>
-      <span class="imgs-bar">
+      <span class="paths-bar">
         <span *ngFor="let i of review.imgs">
           <img [src]="i" [alt]="'Image ' + (review.imgs.indexOf(i) + 1)">
           <button class="func-btn circle-btn red-btn" type="button" title="Delete" (click)="deleteReviewImg(i)">
