@@ -742,26 +742,26 @@ export class ProductComponent implements OnInit {
     this.authService.getInfo().subscribe(res => {
       if (res['user'].role == 'root' || res['user'].role === 'admin') {
         alert(JSON.stringify(this.post));
-        // this.post.dateModified = Date.now();
-        // this.productService.post(this.id, this.post).subscribe(
-        //   res => {
-        //     alert(res['msg']);
-        //     this.productService.getProduct(this.id).subscribe(
-        //       res => {
-        //         this.product = res['product'];
+        this.post.dateModified = Date.now();
+        this.productService.post(this.id, this.post).subscribe(
+          res => {
+            alert(res['msg']);
+            this.productService.getProduct(this.id).subscribe(
+              res => {
+                this.product = res['product'];
         
-        //         this.initPost();
-        //       },
-        //       err => {
-        //         alert(err.error.msg);
-        //         this.router.navigateByUrl('');
-        //       }
-        //     );
-        //   },
-        //   err => {
-        //     alert(err.error.msg);
-        //   }
-        // );
+                this.initPost();
+              },
+              err => {
+                alert(err.error.msg);
+                this.router.navigateByUrl('');
+              }
+            );
+          },
+          err => {
+            alert(err.error.msg);
+          }
+        );
       } else this.router.navigateByUrl('');
     });
   }
