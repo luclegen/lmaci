@@ -16,7 +16,6 @@ import { environment } from 'src/environments/environment';
 import { ProductService } from 'src/app/services/product.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { HelperService } from 'src/app/services/helper.service';
-import { Subscription } from "rxjs/Subscription";
 
 @Component({
   selector: 'app-product',
@@ -126,8 +125,6 @@ export class ProductComponent implements OnInit {
 
   @ViewChild(CdkDropListGroup) listGroup: CdkDropListGroup<CdkDropList>;
   @ViewChild(CdkDropList) placeholder: CdkDropList;
-
-  private paramMapSubscription: Subscription;
 
   public target: CdkDropList;
   public targetIndex: number;
