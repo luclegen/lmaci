@@ -101,7 +101,7 @@
 </section>
 <section *ngIf="userDetails && (userDetails.role == 'root' || userDetails.role == 'admin')">
   <div class="center-container">
-    <details open="open">
+    <details open>
       <summary>
         <strong>Slider Image Editor</strong>
         <button *ngIf="isSaveImgs()" class="btn square-btn yellow-btn" title="Save" type="button" (click)="saveSlider()">
@@ -154,7 +154,7 @@
 </section>
 <section *ngIf="userDetails && (userDetails.role == 'root' || userDetails.role == 'admin')">
   <div class="center-container">
-    <details open="open">
+    <details open>
       <summary>
         <strong>Post Editor</strong>
         <button *ngIf="isSavePost()" class="btn square-btn yellow-btn" title="Save" type="button" (click)="savePost()">
