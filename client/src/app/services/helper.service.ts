@@ -34,7 +34,7 @@ export class HelperService {
   }
 
   max(array) {
-    return array.reduce((a, b) => Math.max(a, b), array[0]);
+    return array.reduce((a, b) => Math.max(a, b));
   }
 
   USDcurrency(number) {
