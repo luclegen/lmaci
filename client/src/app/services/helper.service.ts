@@ -29,6 +29,10 @@ export class HelperService {
     return blob;
   }
 
+  sum(array, init = 0) {
+    return array.reduce((a, b) => a + b, init);
+  }
+
   max(array) {
     return array.reduce((a, b) => Math.max(a, b), array[0]);
   }
