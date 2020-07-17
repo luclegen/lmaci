@@ -549,25 +549,27 @@ export class ProductComponent implements OnInit {
           const formData = new FormData();
 
           formData.append('color', this.order.color.value);
-          for(let img of this.imgs) formData.append('files', img);
+          for(let p of this.paths) console.log(p);
+          
+          // for(let p of this.paths) formData.append('files', img);
   
-          this.productService.uploadImgs(this.id, formData).subscribe(
-            res => {
-              alert(res['msg']);
-              this.productService.getProduct(this.id).subscribe(
-                res => {
-                  this.product = res['product'];
-                },
-                err => {
-                  alert(err.error.msg);
-                  this.router.navigateByUrl('');
-                }
-              );
-            },
-            err => {
-              alert(err.error.msg);
-            }
-          );
+          // this.productService.uploadImgs(this.id, formData).subscribe(
+          //   res => {
+          //     alert(res['msg']);
+          //     this.productService.getProduct(this.id).subscribe(
+          //       res => {
+          //         this.product = res['product'];
+          //       },
+          //       err => {
+          //         alert(err.error.msg);
+          //         this.router.navigateByUrl('');
+          //       }
+          //     );
+          //   },
+          //   err => {
+          //     alert(err.error.msg);
+          //   }
+          // );
         }
       } else this.router.navigateByUrl('');
     });
