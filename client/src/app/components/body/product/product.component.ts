@@ -243,13 +243,6 @@ export class ProductComponent implements OnInit {
     setTimeout(() => this.setChanged(), 500);
   }
 
-  setChanged() {
-    let phElement = this.placeholder.element.nativeElement;
-
-    phElement.style.display = 'none';
-    phElement.parentElement.removeChild(phElement);
-  }
-
   //#region Star
 
   showStar() {
@@ -647,6 +640,13 @@ export class ProductComponent implements OnInit {
   //#endregion Image Cropper
 
   //#region Drag and drop
+
+  setChanged() {
+    let phElement = this.placeholder.element.nativeElement;
+
+    phElement.style.display = 'none';
+    phElement.parentElement.removeChild(phElement);
+  }
 
   dragMoved(e: CdkDragMove) {
     let point = this.getPointerPositionOnPage(e.event);
