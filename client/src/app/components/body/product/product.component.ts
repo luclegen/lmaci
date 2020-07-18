@@ -208,9 +208,6 @@ export class ProductComponent implements OnInit {
 
         this.priceFormated = this.helperService.USDcurrency(this.product.price);
 
-        this.product.sliders.forEach(slider => {
-          if (slider.color == this.order.color.value) this.paths = slider.imgs.map(img => img.path);
-        });
 
         this.review.index = this.product.reviews ? this.product.reviews.length : 0;
 
@@ -255,6 +252,12 @@ export class ProductComponent implements OnInit {
   //#endregion Star
 
   //#region Slider
+
+  setPaths() {
+    this.product.sliders.forEach(slider => {
+      if (slider.color == this.order.color.value) this.paths = slider.imgs.map(img => img.path);
+    });
+  }
 
   showSlider() {
     const carouselSlide = document.querySelector('.carousel-slide') as HTMLElement;
