@@ -87,23 +87,23 @@
                 <select #colorOption="ngModel" [(ngModel)]="color.option" name="option" required>
                   <option value="" selected>Choose color</option>
                   <option value="custom">Custom</option>"
-                  <option value="white" style="background-color: white; color: black;">White</option>
-                  <option value="silver" style="background-color: silver;">Silver</option>
-                  <option value="gray" style="background-color: gray;">Gray</option>
-                  <option value="black" style="background-color: black;">Black</option>
-                  <option value="red" style="background-color: red;">Red</option>
-                  <option value="maroon" style="background-color: maroon;">Maroon</option>
-                  <option value="yellow" style="background-color: yellow;">Yellow</option>
-                  <option value="gold" style="background-color: gold;">Gold</option>
-                  <option value="olive" style="background-color: olive;">Olive</option>
-                  <option value="lime" style="background-color: lime;">Lime</option>
-                  <option value="green" style="background-color: green;">Green</option>
-                  <option value="aqua" style="background-color: aqua;">Aqua</option>
-                  <option value="teal" style="background-color: teal;">Teal</option>
-                  <option value="blue" style="background-color: blue;">Blue</option>
-                  <option value="navy" style="background-color: navy;">Navy</option>
-                  <option value="fuchsia" style="background-color: fuchsia;">Fuchsia</option>
-                  <option value="purple" style="background-color: purple;">Purple</option>
+                  <option value="#ffffff" style="background-color: white; color: black;">White</option>
+                  <option value="#c0c0c0" style="background-color: silver;">Silver</option>
+                  <option value="#808080" style="background-color: gray;">Gray</option>
+                  <option value="#000000" style="background-color: black;">Black</option>
+                  <option value="#ff0000" style="background-color: red;">Red</option>
+                  <option value="#800000" style="background-color: maroon;">Maroon</option>
+                  <option value="#ffff00" style="background-color: yellow;">Yellow</option>
+                  <option value="#ffd700" style="background-color: gold;">Gold</option>
+                  <option value="#808000" style="background-color: olive;">Olive</option>
+                  <option value="#00ff00" style="background-color: lime;">Lime</option>
+                  <option value="#008000" style="background-color: green;">Green</option>
+                  <option value="#00ffff" style="background-color: aqua;">Aqua</option>
+                  <option value="#008080" style="background-color: teal;">Teal</option>
+                  <option value="#0000ff" style="background-color: blue;">Blue</option>
+                  <option value="#000080" style="background-color: navy;">Navy</option>
+                  <option value="#ff00ff" style="background-color: fuchsia;">Fuchsia</option>
+                  <option value="#800080" style="background-color: purple;">Purple</option>
                 </select>
   
                 <span *ngIf="color.option == 'custom'" class="inline-color-span input-span">
