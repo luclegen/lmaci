@@ -96,6 +96,7 @@ export class ProductComponent implements OnInit {
   }
 
   review = {
+    index: 0,
     star: 0,
     content: '',
     img: [],
@@ -824,6 +825,7 @@ export class ProductComponent implements OnInit {
               alert(res['msg']);
       
               this.review = {
+                index: 0,
                 star: 0,
                 content: '',
                 img: [],
