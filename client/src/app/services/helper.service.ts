@@ -33,8 +33,8 @@ export class HelperService {
     return arr.reduce((a, b) => a + b, init);
   }
 
-  USDcurrency(number) {
-    return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2 }).format(number);
+  USDcurrency(num) {
+    return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2 }).format(num);
   }
   
   isBase64(url, type) {
