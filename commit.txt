@@ -342,6 +342,7 @@ Helper Service: sum
 Environments: imageUrl
 Product Component: setChanged
 Product Component: ngAfterViewInit
+Product Component: setPaths
 Product Component: ngOnInit
 Product Component: View
 Global Styles
