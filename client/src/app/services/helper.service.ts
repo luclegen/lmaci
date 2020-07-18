@@ -29,8 +29,8 @@ export class HelperService {
     return blob;
   }
 
-  sum(array, init = 0) {
-    return array.reduce((a, b) => a + b, init);
+  sum(arr, init = 0) {
+    return arr.reduce((a, b) => a + b, init);
   }
 
   USDcurrency(number) {
