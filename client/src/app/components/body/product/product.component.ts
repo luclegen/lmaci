@@ -630,10 +630,12 @@ export class ProductComponent implements OnInit {
   }
 
   setChanged() {
-    let phElement = this.placeholder.element.nativeElement;
+    if (this.placeholder) {
+      let phElement = this.placeholder.element.nativeElement;
 
-    phElement.style.display = 'none';
-    phElement.parentElement.removeChild(phElement);
+      phElement.style.display = 'none';
+      phElement.parentElement.removeChild(phElement);
+    }
   }
 
   dragMoved(e: CdkDragMove) {
