@@ -730,7 +730,6 @@ export class ProductComponent implements OnInit {
   savePost() {
     this.authService.getInfo().subscribe(res => {
       if (res['user'].role == 'root' || res['user'].role === 'admin') {
-        alert(JSON.stringify(this.post));
         this.post.dateModified = Date.now();
         this.productService.post(this.id, this.post).subscribe(
           res => {
