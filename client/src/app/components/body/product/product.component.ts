@@ -208,6 +208,7 @@ export class ProductComponent implements OnInit {
 
         this.priceFormated = this.helperService.USDcurrency(this.product.price);
 
+        this.setPaths();
 
         this.review.index = this.product.reviews ? this.product.reviews.length : 0;
 
