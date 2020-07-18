@@ -283,8 +283,28 @@ export class ProductsComponent implements OnInit {
   }
 
   onSubmitColor(form: NgForm) {
+    const colors = {
+      '#ffffff': 'White',
+      '#c0c0c0': 'Silver',
+      '#808080': 'Gray',
+      '#000000': 'Black',
+      '#ff0000': 'Red',
+      '#800000': 'Maroon',
+      '#ffff00': 'Yellow',
+      '#ffd700': 'Gold',
+      '#808000': 'Olive',
+      '#00ff00': 'Lime',
+      '#008000': 'Green',
+      '#00ffff': 'Aqua',
+      '#008080': 'Teal',
+      '#0000ff': 'Blue',
+      '#000080': 'Navy',
+      '#ff00ff': 'Fuchsia',
+      '#800080': 'Purple'
+    }
+
     if (form.value.option != 'custom') {
-      form.value.name = form.value.option[0].toUpperCase() + form.value.option.slice(1);
+      form.value.name = colors[ form.value.option ];
       form.value.value = form.value.option;
     }
 
