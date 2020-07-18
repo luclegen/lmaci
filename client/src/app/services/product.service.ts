@@ -27,7 +27,6 @@ export class ProductService {
   sendReview(id: string, review: Review, files) {
     const formData = new FormData();
 
-    formData.append('index', review.index.toString());
     formData.append('star', review.star.toString());
     formData.append('content', review.content);
 
