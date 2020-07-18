@@ -564,9 +564,7 @@ export class ProductComponent implements OnInit {
                 res => {
                   this.product = res['product'];
 
-                  this.product.sliders.forEach(slider => {
-                    if (slider.color == this.order.color.value) this.paths = slider.imgs.map(img => img.path);
-                  });
+                  this.setPaths();
                 },
                 err => {
                   alert(err.error.msg);
