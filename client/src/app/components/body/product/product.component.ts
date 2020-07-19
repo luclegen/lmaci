@@ -464,7 +464,7 @@ export class ProductComponent implements OnInit {
 
     this.paths = [];
 
-    for (const slider of this.product.sliders) if (slider.color == this.preview.color.value) for (const i of slider.imgs) this.paths.push(i.path);
+    this.product.sliders.filter(s => s.color == this.preview.color.value)[0].imgs.forEach(i => this.paths.push(i.path));
 
     carouselSlide.style.transition = 'none';
     carouselSlide.style.transform = 'translateX(' + (-this.size * this.counter) + 'px)';
