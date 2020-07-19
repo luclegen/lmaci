@@ -787,8 +787,10 @@ export class ProductComponent implements OnInit {
   }
 
   resetStar() {
+    const rating = [ 'Poor', 'Fair', 'Good', 'Very Good', 'Excellent' ];
     const ratingMsg = document.getElementById('rating-msg') as HTMLElement;
-    ratingMsg.style.display = 'none';
+    if (this.review.star) ratingMsg.innerHTML = rating[this.review.star - 1];
+    if (!this.review.star) ratingMsg.style.display = 'none';
 
     this.reloadStar(this.review.star);
   }
