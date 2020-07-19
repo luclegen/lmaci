@@ -371,8 +371,7 @@ export class ProductComponent implements OnInit {
     closeBtn.style.display = 'inline';
     closeBtn.style.padding = '5px 5px 2px 5px';
     closeBtn.style.borderRadius = '50%';
-    closeBtn.style.top = '10px';
-    closeBtn.style.right = '10px';
+    closeBtn.style.top = closeBtn.style.right = '10px';
     closeBtn.style.background = 'red';
     closeBtn.style.cursor = 'zoom-out';
     prevBtn.style.top = nextBtn.style.top = (carouselContainer.clientHeight - carouselButtonHeight) * 0.5 + 'px';
