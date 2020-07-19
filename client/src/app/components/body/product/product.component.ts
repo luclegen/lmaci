@@ -257,9 +257,7 @@ export class ProductComponent implements OnInit {
   //#region Slider
 
   setPaths() {
-    this.product.sliders.forEach(slider => {
-      if (slider.color == this.order.color.value) this.paths = slider.imgs.map(img => img.path);
-    });
+    this.paths = this.product.sliders.filter(s => s.color == this.order.color.value)[0].imgs.map(img => img.path);
   }
 
   showSlider() {
