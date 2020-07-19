@@ -222,7 +222,8 @@ export class ProductComponent implements OnInit {
           this.authService.getInfo().subscribe(
             res => {
               this.userDetails = res['user'];
-            }, err => {
+            },
+            err => {
               if (!err.error.auth) this.authService.removeToken();
             }
           );
