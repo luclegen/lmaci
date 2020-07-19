@@ -74,21 +74,24 @@ module.exports.review = (req, res) => {
   if (!ObjectId.isValid(req.params.id))
     return res.status(400).json({ msg: `No record with given id: ${req.params.id}` });
 
-  let reviews = [], review = {
-    index: req.body.index,
-    star: req.body.star,
-    content: req.body.content,
-    imgs: []
-  }
+  Product.findById(req.params.id, (err, product) => {
+    let reviews = product.reviews, review = {
+      index: req.body.index,
+      user: JSON.parse(req.body.user),
+      star: req.body.star,
+      content: req.body.content,
+      imgs: []
+    }
+  
+    let urlImg = process.env.SERVER_URL + '/image/?image=product/' + req.params.id + '/review/' + req.body.index + '/';
 
-  let urlImg = process.env.SERVER_URL + '/image/?image=product/' + req.params.id + '/review/' + req.body.index + '/';
-
-  for (const f of req.files) review.imgs.push(urlImg + f.filename);
-
-  reviews.push(review);
-
-  Product.findByIdAndUpdate(req.params.id, { $set: { reviews: reviews } }, { new: true }, (err, product) => {
-    return product ? res.status(200).json({ msg: 'Your review is submitted successfully.' })
-                   : res.status(404).json({ msg: 'Product not found.' });
+    for (const f of req.files) review.imgs.push(urlImg + f.filename);
+  
+    reviews.push(review);
+  
+    Product.findByIdAndUpdate(req.params.id, { $set: { reviews: reviews } }, { new: true }, (err, product) => {
+      return product ? res.status(200).json({ msg: 'Your review is submitted successfully.' })
+                     : res.status(404).json({ msg: 'Product not found.' });
+    });
   });
 }
