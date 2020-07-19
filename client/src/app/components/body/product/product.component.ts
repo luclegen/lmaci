@@ -451,18 +451,11 @@ export class ProductComponent implements OnInit {
     leftContainer.style.height = leftContainer.clientWidth * 0.75 + 'px';
     leftContainer.style.marginLeft = '10%';
 
-    closeBtn.style.display = 'none';
-
-    carouselSlide.style.transition = 'none';
-
-    galleryCarouselNav.style.display = 'none';
+    closeBtn.style.display = carouselSlide.style.transition = galleryCarouselNav.style.display = 'none';
 
     this.showSlider();
 
-    for (let i = 0; i < carouselImages.length; i++) {
-      carouselImages[i].style.width = '100%';
-      carouselImages[i].style.height = '100%';
-    }
+    for (let i = 0; i < carouselImages.length; i++) carouselImages[i].style.width = carouselImages[i].style.height = '100%';
 
     carouselContainer.style.height = carouselSlide.clientHeight + 'px';
   }
