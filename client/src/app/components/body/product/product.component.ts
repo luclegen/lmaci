@@ -320,8 +320,7 @@ export class ProductComponent implements OnInit {
     const prevBtn = document.getElementById('prev-btn');
     const nextBtn = document.getElementById('next-btn');
 
-    prevBtn.style.display = 'none';
-    nextBtn.style.display = 'none';
+    prevBtn.style.display = nextBtn.style.display = 'none';
   }
 
   moved() {
