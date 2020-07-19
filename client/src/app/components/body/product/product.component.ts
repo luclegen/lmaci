@@ -211,6 +211,8 @@ export class ProductComponent implements OnInit {
 
         this.initPost();
 
+        this.loadPost();
+
         this.showStar();
         this.showSlider();
 
