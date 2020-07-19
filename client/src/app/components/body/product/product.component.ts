@@ -745,6 +745,14 @@ export class ProductComponent implements OnInit {
 
   //#endregion Post Editor
 
+  //#region Post
+
+  loadPost() {
+    
+  }
+
+  //#endregion Post
+
   //#region Review
 
   reloadStar(s) {
