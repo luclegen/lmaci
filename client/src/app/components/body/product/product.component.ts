@@ -213,8 +213,6 @@ export class ProductComponent implements OnInit {
 
         this.setPaths();
 
-        this.review.index = this.product.reviews ? this.product.reviews.length : 0;
-
         this.initPost();
 
         this.showStar();
@@ -827,31 +825,43 @@ export class ProductComponent implements OnInit {
         this.review.user.username = res['user'].username;
 
         if (res['user'].role == 'user') {
-          this.productService.sendReview(this.id, this.review, this.review.files).subscribe(
+          this.productService.getProduct(this.id).subscribe(
             res => {
-              alert(res['msg']);
+              this.product = res['product'];
+              
+              this.review.index = this.product.reviews.length ? Math.max(...this.product.reviews.map(r => r.index)) + 1 : 0;
 
-              this.review = {
-                index: 0,
-                user: {
-                  username: ''
+              this.productService.sendReview(this.id, this.review, this.review.files).subscribe(
+                res => {
+                  alert(res['msg']);
+
+                  this.review = {
+                    index: 0,
+                    user: {
+                      username: ''
+                    },
+                    star: 0,
+                    content: '',
+                    img: [],
+                    imgs: [],
+                    files: []
+                  }
+
+                  this.reloadStar(0);
                 },
-                star: 0,
-                content: '',
-                img: [],
-                imgs: [],
-                files: []
-              }
-
-              this.reloadStar(0);
+                err => {
+                  alert(err.error.msg);
+                }
+              );
             },
             err => {
               alert(err.error.msg);
+              this.router.navigateByUrl('');
             }
           );
         } else alert('Only users can review this product.');
       });
-    } else if (confirm('Do you want sign in?')) window.open('login');
+    } else if (confirm('Do you want to login?')) window.open('login');
   }
 
   deleteReviewImg(i: string) {
