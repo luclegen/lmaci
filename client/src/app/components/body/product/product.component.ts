@@ -527,7 +527,7 @@ export class ProductComponent implements OnInit {
 
           formData.append('color', this.order.color.value);
 
-          for (let p of this.paths) {
+          this.paths.forEach(p => {
             if (this.helperService.isBase64(p, 'jpeg')) {
               const file = new File([ this.helperService.base64ToBlob(p, 'jpeg') ], 'img.jpeg', { type: 'image/jpeg' });
               formData.append('files', file, index + '.jpeg');
@@ -536,7 +536,7 @@ export class ProductComponent implements OnInit {
               p = environment.imageUrl + '/?image=product/' + this.id + '/slider/' + this.order.color.value.replace(/#/, '') + '/' + index++ + '.jpeg';
             }
             paths.push(p);
-          }
+          });
           
           formData.append('indexs', JSON.stringify(indexs));
           formData.append('paths', JSON.stringify(paths));
