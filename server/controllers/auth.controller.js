@@ -206,7 +206,7 @@ module.exports.changePassword = (req, res) => {
 
 module.exports.info = (req, res) => {
   User.findById(req._id, (err, user) => {
-    return user ? res.status(200).json({ status: true, user: _.pick(user, [ 'avatar', 'name.first', 'activated', 'username', 'role']) })
+    return user ? res.status(200).json({ status: true, user: _.pick(user, [ 'avatar', 'name.first', 'fullName', 'activated', 'username', 'role']) })
                 : res.status(404).json({ status: false, msg: 'User not found.' });
   });
 }
