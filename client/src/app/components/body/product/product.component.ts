@@ -97,6 +97,9 @@ export class ProductComponent implements OnInit {
 
   review = {
     index: 0,
+    user: {
+      username: '',
+    },
     star: 0,
     content: '',
     img: [],
@@ -821,27 +824,33 @@ export class ProductComponent implements OnInit {
   sendReview() {
     if (this.authService.getToken()) {
       this.authService.getInfo().subscribe(res => {
+        this.review.user.username = res['user'].username;
+
         if (res['user'].role == 'user') {
           this.productService.sendReview(this.id, this.review, this.review.files).subscribe(
             res => {
               alert(res['msg']);
-      
+
               this.review = {
                 index: 0,
+                user: {
+                  username: ''
+                },
                 star: 0,
                 content: '',
                 img: [],
                 imgs: [],
                 files: []
               }
+
+              this.reloadStar(0);
             },
             err => {
               alert(err.error.msg);
             }
           );
         } else alert('Only users can review this product.');
-        }
-      );
+      });
     } else if (confirm('Do you want sign in?')) window.open('login');
   }
 
