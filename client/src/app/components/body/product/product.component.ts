@@ -1,11 +1,7 @@
 import { Component, OnInit, HostListener, ViewChild } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
-import {
-  CdkDrag,
-  CdkDropList, CdkDropListGroup, CdkDragMove,
-  moveItemInArray
-} from "@angular/cdk/drag-drop";
+import { CdkDrag, CdkDropList, CdkDropListGroup, CdkDragMove, moveItemInArray } from "@angular/cdk/drag-drop";
 
 import { ViewportRuler } from "@angular/cdk/overlay";
 
