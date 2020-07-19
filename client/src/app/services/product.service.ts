@@ -28,6 +28,7 @@ export class ProductService {
     const formData = new FormData();
 
     formData.append('index', review.index.toString());
+    formData.append('user', JSON.stringify(review.user));
     formData.append('star', review.star.toString());
     formData.append('content', review.content);
 
