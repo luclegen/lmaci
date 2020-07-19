@@ -670,8 +670,7 @@ export class ProductComponent implements OnInit {
       this.sourceIndex = dragIndex;
       this.source = drag.dropContainer;
 
-      phElement.style.width = '100%';
-      phElement.style.height = '100%';
+      phElement.style.width = phElement.style.height = '100%';
       
       sourceElement.parentElement.removeChild(sourceElement);
     }
