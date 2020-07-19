@@ -419,8 +419,7 @@ export class ProductComponent implements OnInit {
 
     if (targetIndex < 0) return;
 
-    carouselSlide.style.transition = 'transform 0.4s ease-in-out';
-    galleryFrame.style.transition = 'transform 0.4s ease-in-out';
+    carouselSlide.style.transition = galleryFrame.style.transition = 'transform 0.4s ease-in-out';
 
     this.counter = targetIndex - 1;
 
