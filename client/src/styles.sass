@@ -383,13 +383,26 @@ span
       margin: 0
 
   &.star-bar
+      
+    svg
+      width: 30px
+      height: 30px
+
+  &.full-star
     fill: orange
 
     svg
-      width: 2%
 
       &:hover
-        fill: orange
+      fill: orange
+
+  &.star-half
+    fill: orange
+
+    svg
+
+      &:hover
+      fill: orange
 
   &.none-star
     fill: silver
@@ -398,6 +411,9 @@ span
 
       &:hover
         fill: silver
+
+    &:hover
+      fill: silver
 
   &.checkmark
     position: absolute
