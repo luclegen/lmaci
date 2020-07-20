@@ -76,9 +76,9 @@ module.exports.review = (req, res) => {
 
   Product.findById(req.params.id, (err, product) => {
     let reviews = product.reviews, review = {
-      index: req.body.index,
+      index: parseInt(req.body.index),
       user: JSON.parse(req.body.user),
-      star: req.body.star,
+      star: parseInt(req.body.star),
       content: req.body.content,
       imgs: []
     }
