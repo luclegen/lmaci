@@ -48,7 +48,7 @@ module.exports.active = (req, res) => {
       activated: false
     }
     
-    if (user.activated) return res.status(422).json({ msg: 'Your account has been activated.' });
+    if (user.activated) return res.status(422).json({ msg: 'Your account is activated.' });
     else {
       Code.findOne({ _userId: req.params.id }, (err, code) => {
         if (err) return res.status(400).json(err);
@@ -63,7 +63,7 @@ module.exports.active = (req, res) => {
                   else {
                     Code.deleteOne({ _userId: user._id }, (err, result) => {
                       return err ? res.status(400).json(err)
-                                 : res.status(200).json({ msg: 'Your account has been activated.' });
+                                 : res.status(200).json({ msg: 'Your account is activated.' });
                     });
                   }
                 });
