@@ -33,6 +33,10 @@ export class HelperService {
     return arr.reduce((a, b) => a + b, init);
   }
 
+  average(arr) {
+    return this.sum(arr) / arr.length;
+  }
+
   round(num, digit = 0) {
     return Math.round(num * Math.pow(10, digit)) / Math.pow(10, digit);
   }
