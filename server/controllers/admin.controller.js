@@ -41,9 +41,9 @@ module.exports.searchAdmins = (req, res) => {
 //#region Users
 
 module.exports.getUsers = (req, res) => {
-  User.find({ role: 'user' }, (err, users) => {
+  User.find({ role: 'user' }).sort('name.first').exec((err, users) => {
     return users ? res.status(200).json({ users })
-                 : res.status(404).json({ msg: 'Users not found.' })
+                  : res.status(404).json({ msg: 'Users not found.' });
   });
 }
 
