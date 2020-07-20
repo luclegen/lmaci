@@ -33,6 +33,10 @@ export class HelperService {
     return arr.reduce((a, b) => a + b, init);
   }
 
+  round(num, digit = 0) {
+    return Math.round(num * Math.pow(10, digit)) / Math.pow(10, digit);
+  }
+
   USDcurrency(num) {
     return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2 }).format(num);
   }
