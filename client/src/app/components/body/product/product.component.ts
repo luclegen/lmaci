@@ -104,15 +104,9 @@ export class ProductComponent implements OnInit {
   }
 
   stars = {
-    average: 4.4,
-    total: 79,
-    star: [
-      { index: 5, count: 52 },
-      { index: 4, count: 15 },
-      { index: 3, count: 5 },
-      { index: 2, count: 3 },
-      { index: 1, count: 4 },
-    ]
+    total: 0,
+    star: [],
+    average: 0,
   }
 
   //#endregion Models
@@ -247,6 +241,22 @@ export class ProductComponent implements OnInit {
   }
 
   //#region Star
+
+  initStars() {
+    this.stars.total = this.product.reviews.length;
+
+    this.stars.star = [];
+    for (let i = 5; i > 0; i--) {
+      const star = {
+        index: i,
+        count: 0
+      }
+      star.count = this.product.reviews.filter(r => r.star == i).length;
+      this.stars.star.push(star);
+    }
+    
+    this.stars.average = this.helperService.round(this.helperService.average(this.product.reviews.map(r => parseInt(r.star))), 1);
+  }
 
   showStar() {
     let number = this.stars.average,
