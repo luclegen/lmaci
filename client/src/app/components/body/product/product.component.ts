@@ -103,6 +103,18 @@ export class ProductComponent implements OnInit {
     files: []
   }
 
+  stars = {
+    average: 4.4,
+    total: 79,
+    star: [
+      { index: 5, count: 52 },
+      { index: 4, count: 15 },
+      { index: 3, count: 5 },
+      { index: 2, count: 3 },
+      { index: 1, count: 4 },
+    ]
+  }
+
   //#endregion Models
 
   //#region Formater
