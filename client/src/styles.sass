@@ -45,6 +45,8 @@ div
 
   &.left
     display: flex
+    justify-content: left
+    align-items: left
 
   &.top-center
     display: flex
@@ -122,6 +124,7 @@ div
       width: 100%
 
   &.vertical
+    display: flex
     flex-direction: column
 
   &.color-radio-container
@@ -192,6 +195,28 @@ div
           background: navy
           color: white
 
+  &.horizontal
+    display: flex
+
+  &.num-star-container
+    width: 100%
+
+  &.star-average-box
+    padding: 0 20px
+    font-size: 50px
+    color: orange
+    fill: orange
+
+    strong
+      margin-right: 5px
+
+    svg
+      width: 40px
+      height: 40px
+
+      &:hover
+        fill: orange
+
 a
   text-decoration: none
   color: blue
@@ -208,6 +233,9 @@ a
 
     &:hover
       text-decoration: none
+
+  &.horizontal
+    display: flex
 
 form
   display: flex
@@ -316,7 +344,10 @@ label
         fill: white
 
 span
-  
+
+  &.horizontal
+    display: flex
+
   &.option
     width: 100%
     margin-top: 10px
@@ -351,7 +382,7 @@ span
     input
       margin: 0
 
-  &.star-container
+  &.star-bar
     fill: orange
 
     svg
@@ -422,6 +453,27 @@ span
 
       button
         margin: 5px 0 0 -15px
+
+  &.num-star-bar
+    width: 100%
+    
+    svg
+      width: 15px
+      height: 15px
+      margin-left: 3px
+      
+      &:hover
+        fill: black
+
+    meter
+      width: 100%
+      margin: 0 10px
+
+      &::-webkit-meter-optimum-value
+        background: #f25800
+
+      &::-moz-meter-bar
+        background: #f25800
 
 svg
   
@@ -651,3 +703,12 @@ h1
 
 select
   cursor: pointer
+
+nav
+
+  &.star-nav
+
+    a
+
+      strong
+        margin-right: 3px
