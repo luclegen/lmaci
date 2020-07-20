@@ -339,6 +339,7 @@ Helper Service: max
 Helper Service: USDcurrency
 Helper Service: isBase64
 Helper Service: sum
+Helper Service: round
 Environments: imageUrl
 Product Component: setChanged
 Product Component: ngAfterViewInit
