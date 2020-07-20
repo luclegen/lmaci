@@ -251,7 +251,7 @@ export class ProductComponent implements OnInit {
   showStar() {
     let number = this.stars.average,
         numberRounded = Math.round(number),
-        bias = Math.round((number - numberRounded) * 10) / 10;
+        bias = this.helperService.round(number - numberRounded, 1);
     
     if (bias < 0) bias++;
 
