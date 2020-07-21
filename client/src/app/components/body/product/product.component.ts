@@ -162,7 +162,7 @@ export class ProductComponent implements OnInit {
   
   //#region Reviews
 
-  reviews
+  reviews;
 
   //#endregion Reviews
   
