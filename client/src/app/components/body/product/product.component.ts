@@ -853,6 +853,8 @@ export class ProductComponent implements OnInit {
 
               this.productService.sendReview(this.id, this.review, this.review.files).subscribe(
                 res => {
+                  const ratingMsg = document.getElementById('rating-msg') as HTMLElement;
+
                   alert(res['msg']);
 
                   this.review = {
@@ -868,6 +870,7 @@ export class ProductComponent implements OnInit {
                   }
 
                   this.reloadStar(0);
+                  ratingMsg.style.display = 'none';
                 },
                 err => {
                   alert(err.error.msg);
