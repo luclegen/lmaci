@@ -251,11 +251,11 @@
       <li *ngFor="let r of reviews">
         <span class="inline user">
           <a *ngIf="userDetails && (userDetails.role == 'root' || userDetails.role == 'admin' || userDetails.username == r.user.username)" [href]="r.user.username">
-            <img [src]="r.user.avatar"r.user [alt]="r.user.name.first + '\'s avatar'">
+            <img [src]="r.user.avatar" [alt]="r.user.name.first + '\'s avatar'">
             {{ r.user.fullName }}
           </a>
           <p *ngIf="!userDetails || userDetails.role == 'user' && userDetails.username != r.user.username">
-            <img [src]="r.user.avatar"r.user [alt]="r.user.name.first + '\'s avatar'">
+            <img [src]="r.user.avatar" [alt]="r.user.name.first + '\'s avatar'">
             {{ r.user.fullName }}
           </p>
         </span>
