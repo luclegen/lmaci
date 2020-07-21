@@ -355,6 +355,10 @@ span
     a#right
       float: right
 
+  &.inline
+    display: flex
+    align-items: center
+
   &.inline-span
     display: flex
     justify-content: center
@@ -734,3 +738,20 @@ nav
 
       strong
         margin-right: 3px
+
+ul
+  padding: 0
+
+  &.reviews-ls
+    list-style-type: none
+
+    li
+      margin-bottom: 10px
+
+      img
+        width: 40px
+        height: 40px
+        margin-right: 10px
+
+      span.user
+        margin-bottom: 5px
