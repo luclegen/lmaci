@@ -900,6 +900,23 @@ export class ProductComponent implements OnInit {
 
   //#endregion Review
 
+  //#region Reviews
+
+  initReviews() {
+    this.product.reviews.forEach(r => {
+      this.userService.getUser(r.user.username).subscribe(
+        res => {
+          r.user = res['user'];
+        },
+        err => {
+          console.warn(err.error.msg);
+        }
+      );
+    });
+  }
+
+  //#endregion Reviews
+  
 }
 
 //#region Helpers
