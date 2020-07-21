@@ -267,6 +267,10 @@ export class ProductComponent implements OnInit {
     
     if (bias < 0) bias++;
 
+    this.starCount = [];
+    this.starHalf = false;
+    this.noneStarCount = [];
+
     if (bias == 0.5) {
       for (let i = 0; i < numberRounded - 1; i++) this.starCount.push('*');
       this.starHalf = true;
@@ -871,6 +875,7 @@ export class ProductComponent implements OnInit {
 
                   this.reloadStar(0);
                   ratingMsg.style.display = 'none';
+                  this.ngOnInit();
                 },
                 err => {
                   alert(err.error.msg);
