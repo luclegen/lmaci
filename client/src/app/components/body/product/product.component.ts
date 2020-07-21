@@ -218,11 +218,10 @@ export class ProductComponent implements OnInit {
         this.setPaths();
 
         this.initPost();
+        this.initStars();
+        this.initReviews();
 
         this.loadPost();
-
-        this.initStars();
-
         this.showStar();
         this.showSlider();
 
