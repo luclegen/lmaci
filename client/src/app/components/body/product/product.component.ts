@@ -160,6 +160,12 @@ export class ProductComponent implements OnInit {
 
   //#endregion Post Editor
   
+  //#region Reviews
+
+  reviews
+
+  //#endregion Reviews
+  
   @HostListener('window:resize')
   onResize() {
     const leftContainer = document.querySelector('.left-container') as HTMLElement;
@@ -906,6 +912,12 @@ export class ProductComponent implements OnInit {
       this.userService.getUser(r.user.username).subscribe(
         res => {
           r.user = res['user'];
+          r.stars = {
+            count: [],
+            none: []
+          }
+          for (let i = 0; i < r.star; i++) r.stars.count.push('*');
+          for (let i = 0; i < 5 - r.star; i++) r.stars.none.push('-');
         },
         err => {
           console.warn(err.error.msg);
