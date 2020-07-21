@@ -250,9 +250,14 @@
     <ul class="reviews-ls">
       <li *ngFor="let r of reviews">
         <span class="inline user">
-          <img [src]="r.user.avatar"r.user [alt]="r.user.name.first + '\'s avatar'">
-          <a [href]="r.user.username">{{ r.user.fullName }}</a>
-          <p>{{ r.user.fullName }}</p>
+          <a *ngIf="userDetails && (userDetails.role == 'root' || userDetails.role == 'admin' || userDetails.username == r.user.username)" [href]="r.user.username">
+            <img [src]="r.user.avatar"r.user [alt]="r.user.name.first + '\'s avatar'">
+            {{ r.user.fullName }}
+          </a>
+          <p *ngIf="!userDetails || userDetails.role == 'user' && userDetails.username != r.user.username">
+            <img [src]="r.user.avatar"r.user [alt]="r.user.name.first + '\'s avatar'">
+            {{ r.user.fullName }}
+          </p>
         </span>
         <span *ngIf="stars.average" class="sub-star-bar">
           <span class="full-star">
