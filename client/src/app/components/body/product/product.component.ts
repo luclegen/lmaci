@@ -12,6 +12,7 @@ import { environment } from 'src/environments/environment';
 import { ProductService } from 'src/app/services/product.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { HelperService } from 'src/app/services/helper.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-product',
@@ -178,6 +179,7 @@ export class ProductComponent implements OnInit {
               public helperService: HelperService,
               private authService: AuthService,
               private productService: ProductService,
+              private userService: UserService,
               private router: Router) {
     this.target = null;
     this.source = null;
