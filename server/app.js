@@ -1,6 +1,8 @@
 // Configuration
 require('./configs/config');
-require('./configs/db');
+
+// Database
+require('./db/db');
 
 // Initialization
 const express = require('express');
