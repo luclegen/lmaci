@@ -30,7 +30,7 @@ export class HelperService {
   }
 
   sum(arr, init = 0) {
-    return arr.reduce((a, b) => a + b, init);
+    return arr.reduce((t, e) => t + e, init);
   }
 
   average(arr) {
