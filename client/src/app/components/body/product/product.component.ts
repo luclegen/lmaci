@@ -503,7 +503,7 @@ export class ProductComponent implements OnInit {
 
     this.paths = [];
 
-    this.product.sliders.filter(s => s.color == this.preview.color.value)[0].imgs.forEach(i => this.paths.push(i.path));
+    if (this.product.sliders.length && this.product.sliders.filter(s => s.color == this.preview.color.value).length && this.product.sliders.filter(s => s.color == this.preview.color.value)[0].imgs) this.product.sliders.filter(s => s.color == this.preview.color.value)[0].imgs.forEach(i => this.paths.push(i.path));
 
     carouselSlide.style.transition = 'none';
     carouselSlide.style.transform = 'translateX(' + (-this.size * this.counter) + 'px)';
