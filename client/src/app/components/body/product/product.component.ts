@@ -790,7 +790,7 @@ export class ProductComponent implements OnInit {
   loadPost() {
     const post_container = document.getElementById('post-container') as HTMLElement;
 
-    if ('post' in this.product && 'content' in this.product.post) post_container.innerHTML = this.product.post.content;
+    if (this.product.post && this.product.post.content) post_container.innerHTML = this.product.post.content;
   }
 
   //#endregion Post
