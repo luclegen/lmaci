@@ -927,8 +927,14 @@ export class ProductComponent implements OnInit {
     });
   }
 
+  showReviewGallery(reviewIndex, imgIndex) {
+    const allery_container = document.getElementsByClassName('allery-container') as HTMLCollectionOf<HTMLElement>;
+
+    for (let i = 0; i < allery_container.length; i++) allery_container[i].style.display = i == reviewIndex ? 'inline' : 'none';
+  }
+
   //#endregion Reviews
-  
+
 }
 
 //#region Helpers
