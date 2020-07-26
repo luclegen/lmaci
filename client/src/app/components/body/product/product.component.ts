@@ -551,8 +551,7 @@ export class ProductComponent implements OnInit {
   //#region Slider Editor
 
   isSaveImgs() {
-    if (this.product.sliders.length && this.product.sliders.filter(s => s.color == this.preview.color.value).length && this.product.sliders.filter(s => s.color == this.preview.color.value)[0].imgs) return JSON.stringify(this.product.sliders.filter(s => s.color == this.preview.color.value)[0].imgs.map(i => i.path)) != JSON.stringify(this.paths);
-    else return this.paths.length;
+    return this.product.sliders.length && this.product.sliders.filter(s => s.color == this.preview.color.value).length && this.product.sliders.filter(s => s.color == this.preview.color.value)[0].imgs ? JSON.stringify(this.product.sliders.filter(s => s.color == this.preview.color.value)[0].imgs.map(i => i.path)) != JSON.stringify(this.paths) : this.paths.length;
   }
 
   saveSlider() {
