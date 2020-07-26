@@ -349,6 +349,7 @@ Product Component: setPaths
 Product Component: loadPost
 Product Component: initStars
 Product Component: initReviews
+Product Component: showReviewGallery
 Product Component: ngOnInit
 Product Component: View
 Global Styles
