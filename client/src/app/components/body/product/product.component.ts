@@ -438,8 +438,7 @@ export class ProductComponent implements OnInit {
 
     this.sizeFrame = galleryCarouselImages[this.counter].clientWidth;
     
-    if (galleryCarouselImages.length * galleryCarouselImages[0].clientWidth < vpWidth) galleryCarouselNav.style.transform = 'translateX(' + (-this.sizeFrame * 0.5 - (galleryCarouselImages.length - 1)) + 'px)';
-    else galleryCarouselNav.style.transform = 'translateX(' + (-this.sizeFrame * 0.5) + 'px)';
+    galleryCarouselNav.style.transform = galleryCarouselImages.length * galleryCarouselImages[0].clientWidth < vpWidth ? 'translateX(' + (-this.sizeFrame * 0.5 - (galleryCarouselImages.length - 1)) + 'px)' : 'translateX(' + (-this.sizeFrame * 0.5) + 'px)';
 
     galleryFrame.style.transition = 'none';
     galleryFrame.style.transform = 'translateX(' + ((this.sizeFrame + 1) * (this.counter + 1) + 1) + 'px)';
