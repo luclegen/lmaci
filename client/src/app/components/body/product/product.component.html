@@ -92,11 +92,12 @@
         </div>
       </div>
     </form>
-    <p class="jump-to">
-      <strong *ngIf="product.technicalDetails.length">Jump to: </strong>
-      <a *ngIf="product.technicalDetails.length" [href]="type + '/' + id + '#technical-details'">Technical Details</a> | 
-      <a [href]="type + '/' + id + '#review'">Send Review</a>
-    </p>
+    <div class="jump-to-box left">
+      <strong>Jump to: </strong>
+      <a *ngIf="product.technicalDetails.length" [href]="type + '/' + id + '#technical-details'">Technical Details</a><p class="separator" *ngIf="product.technicalDetails.length">|</p>
+      <a [href]="type + '/' + id + '#review'">Send Review</a><p class="separator">|</p>
+      <a [href]="type + '/' + id + '#comments'">Comments</a>
+    </div>
   </div>
 </section>
 <section *ngIf="userDetails && (userDetails.role == 'root' || userDetails.role == 'admin')">
