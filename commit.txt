@@ -354,6 +354,7 @@ Product Component: closeReviewGallery
 Product Component: reviewPrev
 Product Component: reviewNext
 Product Component: hideReviewArrow
+Product Component: showReviewArrow
 Product Component: ngOnInit
 Product Component: View
 Global Styles
