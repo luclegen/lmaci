@@ -965,6 +965,12 @@ export class ProductComponent implements OnInit {
 
   }
 
+  closeReviewGallery() {
+    const review_allery_container = document.getElementById('review-allery-container') as HTMLElement;
+
+    review_allery_container.style.display = 'none';
+  }
+  
   //#endregion Reviews
 
 }
