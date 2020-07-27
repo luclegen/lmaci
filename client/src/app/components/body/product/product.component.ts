@@ -29,6 +29,14 @@ export class ProductComponent implements OnInit {
 
   //#endregion Slider
 
+  //#region Slider
+
+  reviewCounter = 0;
+  reviewSize = 0;
+  reviewSizeFrame = 0;
+
+  //#endregion Slider
+
   //#region Star
 
   starCount = [];
@@ -108,6 +116,15 @@ export class ProductComponent implements OnInit {
     total: 0,
     star: [],
     average: 0,
+  }
+
+  reviewGallery = {
+    stars: {
+      count: [],
+      none: []
+    },
+    content: '',
+    imgs: []
   }
 
   //#endregion Models
@@ -926,10 +943,26 @@ export class ProductComponent implements OnInit {
     });
   }
 
-  showReviewGallery(reviewIndex, imgIndex) {
-    const allery_container = document.getElementsByClassName('allery-container') as HTMLCollectionOf<HTMLElement>;
+  showReviewGallery(review: Object) {
+    const review_allery_container = document.getElementById('review-allery-container') as HTMLElement;
+    const review_close_btn = document.getElementById('review-close-btn') as HTMLElement;
+    const review_carousel_img = document.getElementsByClassName('review-carousel-img') as HTMLCollectionOf<HTMLElement>;
 
-    for (let i = 0; i < allery_container.length; i++) allery_container[i].style.display = i == reviewIndex ? 'inline' : 'none';
+    this.reviewGallery.stars = Object(review).stars;
+    this.reviewGallery.content = Object(review).content;
+    this.reviewGallery.imgs = Object(review).imgs;
+
+    review_allery_container.style.display = 'flex';
+
+    setTimeout(() => {
+      for (let i = 0; i < review_carousel_img.length; i++) {
+        if (review_carousel_img[i].clientHeight > review_carousel_img[i].clientWidth) review_carousel_img[i].style.height = '100%';
+        else review_carousel_img[i].style.width = '100%';
+      }
+    }, 0);
+
+    review_close_btn.style.display = 'inline';
+
   }
 
   //#endregion Reviews
