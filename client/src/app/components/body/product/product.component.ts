@@ -971,6 +971,10 @@ export class ProductComponent implements OnInit {
     review_allery_container.style.display = 'none';
   }
   
+  reviewPrev() {
+
+  }
+
   //#endregion Reviews
 
 }
