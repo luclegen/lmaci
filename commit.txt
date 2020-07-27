@@ -351,6 +351,7 @@ Product Component: initStars
 Product Component: initReviews
 Product Component: showReviewGallery
 Product Component: closeReviewGallery
+Product Component: reviewPrev
 Product Component: ngOnInit
 Product Component: View
 Global Styles
