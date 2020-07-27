@@ -975,6 +975,10 @@ export class ProductComponent implements OnInit {
 
   }
 
+  reviewNext() {
+
+  }
+
   //#endregion Reviews
 
 }
