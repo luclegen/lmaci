@@ -1015,7 +1015,7 @@ export class ProductComponent implements OnInit {
     const reviewPrevBtn = document.getElementById('review-prev-btn');
     const reviewNextBtn = document.getElementById('review-next-btn');
 
-    if (this.reviewCounter > 0) this.showReviewArrow();
+    this.showReviewArrow();
 
     if (this.reviewCounter == 0) reviewPrevBtn.style.display = 'none';
     if (this.reviewCounter == reviewCarouselImg.length - 1) reviewNextBtn.style.display = 'none';
