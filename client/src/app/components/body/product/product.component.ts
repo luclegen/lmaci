@@ -948,6 +948,7 @@ export class ProductComponent implements OnInit {
     const review_allery_container = document.getElementById('review-allery-container') as HTMLElement;
     const review_close_btn = document.getElementById('review-close-btn') as HTMLElement;
     const review_carousel_img = document.getElementsByClassName('review-carousel-img') as HTMLCollectionOf<HTMLElement>;
+    const reviewGalleryCarouselNav = document.querySelector('.review-gallery-carousel-nav') as HTMLElement;
     const imgsBar = event.target.closest('span.imgs-bar');
     const boxs = Array.from(imgsBar.children);
     const targetBox = event.target.closest('span');
@@ -965,6 +966,11 @@ export class ProductComponent implements OnInit {
     if (targetIndex < 0) return;
 
     this.reviewCounter = targetIndex;
+
+    reviewGalleryCarouselNav.style.position = 'absolute';
+    reviewGalleryCarouselNav.style.display = 'flex';
+    reviewGalleryCarouselNav.style.bottom = '0';
+    reviewGalleryCarouselNav.style.left = '10vw';
 
     setTimeout(() => {
       for (let i = 0; i < review_carousel_img.length; i++) {
