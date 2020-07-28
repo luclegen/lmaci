@@ -1034,19 +1034,15 @@ export class ProductComponent implements OnInit {
   reviewNext() {
     const reviewCarouselSlide = document.getElementsByClassName('review-carousel-slide') as HTMLCollectionOf<HTMLElement>;
     const reviewCarouselImg = document.getElementsByClassName('review-carousel-img') as HTMLCollectionOf<HTMLElement>;
-    // const carouselImages = document.querySelectorAll('.review-carousel-slide img') as NodeListOf<Element>;
-    // const galleryFrame = document.querySelector('.gallery-frame') as HTMLElement;
+    const reviewGalleryFrame = document.querySelector('.review-gallery-frame') as HTMLElement;
 
     if (this.reviewCounter >= reviewCarouselImg.length - 1) return;
     
     for (let i = 0; i < reviewCarouselSlide.length; i++) reviewCarouselSlide[i].style.transition = 'transform 0.4s ease-in-out';
-    // reviewCarouselSlide.style.transition = 'transform 0.4s ease-in-out';
-    // reviewCarouselSlide.style.transition = galleryFrame.style.transition = 'transform 0.4s ease-in-out';
+    reviewGalleryFrame.style.transition = 'transform 0.4s ease-in-out';
     this.reviewCounter++;
     for (let i = 0; i < reviewCarouselSlide.length; i++) reviewCarouselSlide[i].style.transform = 'translateX(' + (-this.reviewSize * this.reviewCounter) + 'px)';
-
-    // reviewCarouselSlide.style.transform = 'translateX(' + (-this.reviewSize * this.reviewCounter) + 'px)';
-    // galleryFrame.style.transform = 'translateX(' + ((this.sizeFrame + 1) * (this.counter + 1) + 1) + 'px)';
+    reviewGalleryFrame.style.transform = 'translateX(' + ((this.reviewSizeFrame + 1) * (this.reviewCounter + 1) + 1) + 'px)';
   }
 
   reviewMoved() {
