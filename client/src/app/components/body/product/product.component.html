@@ -63,9 +63,9 @@
         <img src="assets/img/carousel/Transparent.png" alt="Frame">
       </span>
       <img *ngFor="let i of paths" [src]="i" [alt]="'Image ' + (paths.indexOf(i) + 1)">
-        <img *ngIf="!paths.length" src="assets/img/carousel/A.png" alt="A">
-        <img *ngIf="!paths.length" src="assets/img/carousel/B.png" alt="B">
-        <img *ngIf="!paths.length" src="assets/img/carousel/C.png" alt="C">
+      <img *ngIf="!paths.length" src="assets/img/carousel/A.png" alt="A">
+      <img *ngIf="!paths.length" src="assets/img/carousel/B.png" alt="B">
+      <img *ngIf="!paths.length" src="assets/img/carousel/C.png" alt="C">
     </div>
   </div>
   <div class="right-container">
@@ -269,7 +269,7 @@
           </span>
         </span>
         {{ r.content }}
-        <span *ngIf="r.imgs.length" class="imgs-bar">
+        <span *ngIf="r.imgs.length" class="imgs-bar" (click)="selectReviewBox($event)">
           <span *ngFor="let i of r.imgs">
             <img [src]="i" [alt]="'Image ' + (r.imgs.indexOf(i) + 1)" (click)="showReviewGallery(r)">
           </span>
