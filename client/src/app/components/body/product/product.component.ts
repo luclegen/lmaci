@@ -378,7 +378,7 @@ export class ProductComponent implements OnInit {
     const prevBtn = document.getElementById('prev-btn');
     const nextBtn = document.getElementById('next-btn');
 
-    if (this.counter > 0) this.showArrow();
+    this.showArrow();
 
     if (this.counter == 0) prevBtn.style.display = 'none';
     if (this.counter == carouselImages.length - 1) nextBtn.style.display = 'none';
