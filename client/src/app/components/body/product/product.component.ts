@@ -1030,10 +1030,12 @@ export class ProductComponent implements OnInit {
   }
 
   showReviewArrow() {
-    const review_prev_btn = document.getElementById('review-prev-btn') as HTMLElement;
-    const review_next_btn = document.getElementById('review-next-btn') as HTMLElement;
+    const reviewCarouselImg = document.getElementsByClassName('review-carousel-img') as HTMLCollectionOf<HTMLElement>;
+    const reviewPrevBtn = document.getElementById('review-prev-btn') as HTMLElement;
+    const reviewNextBtn = document.getElementById('review-next-btn') as HTMLElement;
 
-    review_prev_btn.style.display = review_next_btn.style.display = 'inline';
+    if (this.counter > 0) reviewPrevBtn.style.display = 'inline';
+    if (this.counter < reviewCarouselImg.length - 1) reviewNextBtn.style.display = 'inline';
   }
 
   //#endregion Reviews
