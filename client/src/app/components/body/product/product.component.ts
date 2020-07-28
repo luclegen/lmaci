@@ -943,6 +943,18 @@ export class ProductComponent implements OnInit {
     });
   }
 
+  selectReviewBox(event: any) {
+    const imgsBar = event.target.closest('span.imgs-bar');
+    const boxs = Array.from(imgsBar.children);
+    const targetBox = event.target.closest('span');
+
+    if (!targetBox) return;
+    const targetIndex = boxs.findIndex(box => box == targetBox);
+    if (targetIndex < 0) return;
+
+    this.reviewCounter = targetIndex;
+  }
+
   showReviewGallery(review: Object) {
     const reviewCarouselSlide = document.getElementsByClassName('review-carousel-slide') as HTMLCollectionOf<HTMLElement>;
     const review_allery_container = document.getElementById('review-allery-container') as HTMLElement;
