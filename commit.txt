@@ -356,7 +356,6 @@ Product Component: reviewNext
 Product Component: hideReviewArrow
 Product Component: showReviewArrow
 Product Component: reviewMoved
-Product Component: selectReviewBox
 Product Component: ngOnInit
 Product Component: View
 Global Styles
