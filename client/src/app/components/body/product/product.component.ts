@@ -29,13 +29,13 @@ export class ProductComponent implements OnInit {
 
   //#endregion Slider
 
-  //#region Slider
+  //#region Review Slider
 
   reviewCounter = 0;
   reviewSize = 0;
   reviewSizeFrame = 0;
 
-  //#endregion Slider
+  //#endregion Review Slider
 
   //#region Star
 
@@ -180,9 +180,16 @@ export class ProductComponent implements OnInit {
   //#region Reviews
 
   reviews;
+  reviewEvent;
 
   //#endregion Reviews
   
+  //#region Resize
+
+  resize = false;
+
+  //#endregion Resize
+
   @HostListener('window:resize')
   onResize() {
     const leftContainer = document.querySelector('.left-container') as HTMLElement;
@@ -194,6 +201,9 @@ export class ProductComponent implements OnInit {
     this.showSlider();
     if (leftContainer.style.getPropertyValue('position') == 'fixed') this.showGallery();
     else if (closeBtn.style.getPropertyValue('display') == 'none') this.closeGallery();
+
+    this.resize = true;
+    if (this.reviewEvent && this.reviewGallery) this.showReviewGallery(this.reviewEvent, this.reviewGallery);
   }
 
   constructor(private viewportRuler: ViewportRuler,
