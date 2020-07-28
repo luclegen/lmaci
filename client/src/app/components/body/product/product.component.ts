@@ -963,6 +963,7 @@ export class ProductComponent implements OnInit {
     const boxs = Array.from(imgsBar.children);
     const targetBox = event.target.closest('span');
 
+    this.reviewEvent = event;
     this.reviewGallery.stars = Object(review).stars;
     this.reviewGallery.content = Object(review).content;
     this.reviewGallery.imgs = Object(review).imgs;
@@ -975,7 +976,7 @@ export class ProductComponent implements OnInit {
     const targetIndex = boxs.findIndex(box => box == targetBox);
     if (targetIndex < 0) return;
 
-    this.reviewCounter = targetIndex;
+    if (!this.resize) this.reviewCounter = targetIndex;
 
     reviewGalleryCarouselNav.style.position = 'absolute';
     reviewGalleryCarouselNav.style.display = 'flex';
