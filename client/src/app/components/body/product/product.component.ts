@@ -1020,7 +1020,7 @@ export class ProductComponent implements OnInit {
   
   reviewPrev() {
     const reviewCarouselSlide = document.getElementsByClassName('review-carousel-slide') as HTMLCollectionOf<HTMLElement>;
-      const reviewGalleryFrame = document.querySelector('.review-gallery-frame') as HTMLElement;
+    const reviewGalleryFrame = document.querySelector('.review-gallery-frame') as HTMLElement;
 
     if (this.reviewCounter <= 0) return;
 
