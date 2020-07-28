@@ -1000,6 +1000,7 @@ export class ProductComponent implements OnInit {
     const review_allery_container = document.getElementById('review-allery-container') as HTMLElement;
 
     review_allery_container.style.display = 'none';
+    this.resize = false;
   }
   
   reviewPrev() {
