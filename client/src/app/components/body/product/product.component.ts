@@ -1034,8 +1034,8 @@ export class ProductComponent implements OnInit {
     const reviewPrevBtn = document.getElementById('review-prev-btn') as HTMLElement;
     const reviewNextBtn = document.getElementById('review-next-btn') as HTMLElement;
 
-    if (this.counter > 0) reviewPrevBtn.style.display = 'inline';
-    if (this.counter < reviewCarouselImg.length - 1) reviewNextBtn.style.display = 'inline';
+    if (this.reviewCounter > 0) reviewPrevBtn.style.display = 'inline';
+    if (this.reviewCounter < reviewCarouselImg.length - 1) reviewNextBtn.style.display = 'inline';
   }
 
   //#endregion Reviews
