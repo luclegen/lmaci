@@ -1010,6 +1010,18 @@ export class ProductComponent implements OnInit {
     // galleryFrame.style.transform = 'translateX(' + ((this.sizeFrame + 1) * (this.counter + 1) + 1) + 'px)';
   }
 
+  reviewMoved() {
+    const reviewCarouselImg = document.getElementsByClassName('review-carousel-img') as HTMLCollectionOf<HTMLElement>;
+    const reviewPrevBtn = document.getElementById('review-prev-btn');
+    const reviewNextBtn = document.getElementById('review-next-btn');
+
+    if (this.reviewCounter > 0) this.showReviewArrow();
+
+    alert();
+    if (this.reviewCounter == 0) reviewPrevBtn.style.display = 'none';
+    if (this.reviewCounter == reviewCarouselImg.length - 1) reviewNextBtn.style.display = 'none';
+  }
+
   hideReviewArrow() {
     const review_prev_btn = document.getElementById('review-prev-btn') as HTMLElement;
     const review_next_btn = document.getElementById('review-next-btn') as HTMLElement;
