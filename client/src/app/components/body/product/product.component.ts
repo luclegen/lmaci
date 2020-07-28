@@ -977,7 +977,19 @@ export class ProductComponent implements OnInit {
   }
   
   reviewPrev() {
+    const reviewCarouselSlide = document.getElementsByClassName('review-carousel-slide') as HTMLCollectionOf<HTMLElement>;
+    // const carouselSlide = document.querySelector('.carousel-slide') as HTMLElement;
+    // const galleryFrame = document.querySelector('.gallery-frame') as HTMLElement;
 
+    if (this.reviewCounter <= 0) return;
+
+    for (let i = 0; i < reviewCarouselSlide.length; i++) reviewCarouselSlide[i].style.transition = 'transform 0.4s ease-in-out';
+
+    // carouselSlide.style.transition = galleryFrame.style.transition = 'transform 0.4s ease-in-out';
+    this.reviewCounter--;
+    for (let i = 0; i < reviewCarouselSlide.length; i++) reviewCarouselSlide[i].style.transform = 'translateX(' + (-this.reviewSize * this.reviewCounter) + 'px)';
+    // carouselSlide.style.transform = 'translateX(' + (-this.size * this.counter) + 'px)';
+    // galleryFrame.style.transform = 'translateX(' + ((this.sizeFrame + 1) * (this.counter + 1) + 1) + 'px)';
   }
 
   reviewNext() {
