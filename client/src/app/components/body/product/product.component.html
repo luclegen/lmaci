@@ -269,9 +269,9 @@
           </span>
         </span>
         {{ r.content }}
-        <span *ngIf="r.imgs.length" class="imgs-bar" (click)="selectReviewBox($event)">
+        <span *ngIf="r.imgs.length" class="imgs-bar">
           <span *ngFor="let i of r.imgs">
-            <img [src]="i" [alt]="'Image ' + (r.imgs.indexOf(i) + 1)" (click)="showReviewGallery(r)">
+            <img [src]="i" [alt]="'Image ' + (r.imgs.indexOf(i) + 1)" (click)="showReviewGallery($event, r)">
           </span>
         </span>
       </li>
