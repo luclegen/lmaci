@@ -1042,6 +1042,8 @@ export class ProductComponent implements OnInit {
     const reviewPrevBtn = document.getElementById('review-prev-btn');
     const reviewNextBtn = document.getElementById('review-next-btn');
 
+    this.resize = false;
+
     this.showReviewArrow();
 
     if (this.reviewCounter == 0) reviewPrevBtn.style.display = 'none';
