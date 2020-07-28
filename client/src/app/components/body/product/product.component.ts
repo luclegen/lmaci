@@ -1023,10 +1023,10 @@ export class ProductComponent implements OnInit {
   }
 
   hideReviewArrow() {
-    const review_prev_btn = document.getElementById('review-prev-btn') as HTMLElement;
-    const review_next_btn = document.getElementById('review-next-btn') as HTMLElement;
+    const reviewPrevBtn = document.getElementById('review-prev-btn') as HTMLElement;
+    const reviewNextBtn = document.getElementById('review-next-btn') as HTMLElement;
 
-    review_prev_btn.style.display = review_next_btn.style.display = 'none';
+    reviewPrevBtn.style.display = reviewNextBtn.style.display = 'none';
   }
 
   showReviewArrow() {
