@@ -1046,6 +1046,28 @@ export class ProductComponent implements OnInit {
     reviewGalleryFrame.style.transform = 'translateX(' + ((this.reviewSizeFrame + 1) * (this.reviewCounter + 1) + 1) + 'px)';
   }
 
+  selectReviewImg(event: any) {
+    const reviewCarouselSlide = document.getElementsByClassName('review-carousel-slide') as HTMLCollectionOf<HTMLElement>;
+    const reviewGalleryCarouselNav = document.querySelector('.review-gallery-carousel-nav') as HTMLElement;
+    const reviewGalleryFrame = document.querySelector('.review-gallery-frame') as HTMLElement;
+    const imgs = Array.from(reviewGalleryCarouselNav.children);
+    const targetImg = event.target.closest('img');
+
+    if (!targetImg) return;
+
+    const targetIndex = imgs.findIndex(img => img == targetImg);
+
+    if (targetIndex < 0) return;
+
+    for (let i = 0; i < reviewCarouselSlide.length; i++) reviewCarouselSlide[i].style.transition = 'transform 0.4s ease-in-out';
+    reviewGalleryFrame.style.transition = 'transform 0.4s ease-in-out';
+
+    this.reviewCounter = targetIndex - 1;
+
+    for (let i = 0; i < reviewCarouselSlide.length; i++) reviewCarouselSlide[i].style.transform = 'translateX(' + (-this.reviewSize * this.reviewCounter) + 'px)';
+    reviewGalleryFrame.style.transform = 'translateX(' + ((this.reviewSizeFrame + 1) * (this.reviewCounter + 1) + 1) + 'px)';
+  }
+
   reviewMoved() {
     const reviewCarouselImg = document.getElementsByClassName('review-carousel-img') as HTMLCollectionOf<HTMLElement>;
     const reviewPrevBtn = document.getElementById('review-prev-btn');
