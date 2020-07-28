@@ -1003,7 +1003,10 @@ export class ProductComponent implements OnInit {
 
       this.reviewSizeFrame = reviewGalleryCarouselNavImgs[0].clientWidth;
 
-      reviewGalleryCarouselNav.style.left = (reviewCarouselSlide[0].offsetWidth / 2 - this.reviewSizeFrame) + 'px';
+      if (this.reviewSizeFrame * reviewGalleryCarouselNavImgs.length > reviewCarouselSlide[0].offsetWidth) {
+        reviewGalleryCarouselNav.style.left = (reviewCarouselSlide[0].offsetWidth / 6 - (this.reviewSizeFrame + 1)) + 'px';
+        reviewGalleryCarouselNav.style.width = (reviewGalleryCarouselNav.clientWidth + this.reviewSizeFrame + 1) + 'px';
+      } else reviewGalleryCarouselNav.style.left = (reviewCarouselSlide[0].offsetWidth / 6 + (reviewCarouselSlide[0].offsetWidth - this.reviewSizeFrame * (reviewGalleryCarouselNavImgs.length + 1)) / 2 - reviewGalleryCarouselNavImgs.length) + 'px';
   
       reviewGalleryFrame.style.transition = 'none';
       reviewGalleryFrame.style.transform = 'translateX(' + ((this.reviewSizeFrame + 1) * (this.reviewCounter + 1) + 1) + 'px)';
