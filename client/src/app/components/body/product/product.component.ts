@@ -996,14 +996,17 @@ export class ProductComponent implements OnInit {
       for (let i = 0; i < reviewCarouselSlide.length; i++) reviewCarouselSlide[i].style.transition = 'none';
       for (let i = 0; i < reviewCarouselSlide.length; i++) reviewCarouselSlide[i].style.transform = 'translateX(' + (-this.reviewSize * this.reviewCounter) + 'px)';
       
-      for (let i = 0; i < reviewGalleryCarouselNavImgs.length; i++) reviewGalleryCarouselNavImgs[i].style.width = reviewGalleryCarouselNav.clientHeight * (reviewCarouselSlide[0].clientWidth / reviewCarouselSlide[0].clientHeight) + 'px';
+      for (let i = 0; i < reviewGalleryCarouselNavImgs.length; i++) {
+        reviewGalleryCarouselNavImgs[i].style.width = reviewGalleryCarouselNav.clientHeight * (reviewCarouselSlide[0].clientWidth / reviewCarouselSlide[0].clientHeight) + 'px';
+        if (i > 0 && i < reviewGalleryCarouselNavImgs.length - 1) reviewGalleryCarouselNavImgs[i].style.marginRight = '1px';
+      }
 
       this.reviewSizeFrame = reviewGalleryCarouselNavImgs[0].clientWidth;
 
+      reviewGalleryCarouselNav.style.left = (reviewCarouselSlide[0].offsetWidth / 2 - this.reviewSizeFrame) + 'px';
+  
       reviewGalleryFrame.style.transition = 'none';
       reviewGalleryFrame.style.transform = 'translateX(' + ((this.reviewSizeFrame + 1) * (this.reviewCounter + 1) + 1) + 'px)';
-
-      reviewGalleryCarouselNav.style.left = (reviewCarouselSlide[0].offsetWidth / 2 - this.reviewSizeFrame) + 'px';
     });
 
   }
