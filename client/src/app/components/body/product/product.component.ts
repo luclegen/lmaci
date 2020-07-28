@@ -981,9 +981,11 @@ export class ProductComponent implements OnInit {
     reviewGalleryCarouselNav.style.position = 'absolute';
     reviewGalleryCarouselNav.style.display = 'flex';
     reviewGalleryCarouselNav.style.bottom = '0';
-    reviewGalleryCarouselNav.style.left = '10vw';
 
     setTimeout(() => {
+      const reviewGalleryCarouselNavImgs = document.querySelectorAll('.review-gallery-carousel-nav img') as NodeListOf<HTMLElement>;
+      const reviewGalleryFrame = document.querySelector('.review-gallery-frame') as HTMLElement;
+
       for (let i = 0; i < review_carousel_img.length; i++) {
         if (review_carousel_img[i].clientHeight > review_carousel_img[i].clientWidth) review_carousel_img[i].style.height = '100%';
         else review_carousel_img[i].style.width = '100%';
@@ -993,6 +995,15 @@ export class ProductComponent implements OnInit {
 
       for (let i = 0; i < reviewCarouselSlide.length; i++) reviewCarouselSlide[i].style.transition = 'none';
       for (let i = 0; i < reviewCarouselSlide.length; i++) reviewCarouselSlide[i].style.transform = 'translateX(' + (-this.reviewSize * this.reviewCounter) + 'px)';
+      
+      for (let i = 0; i < reviewGalleryCarouselNavImgs.length; i++) reviewGalleryCarouselNavImgs[i].style.width = reviewGalleryCarouselNav.clientHeight * (reviewCarouselSlide[0].clientWidth / reviewCarouselSlide[0].clientHeight) + 'px';
+
+      this.reviewSizeFrame = reviewGalleryCarouselNavImgs[0].clientWidth;
+
+      reviewGalleryFrame.style.transition = 'none';
+      reviewGalleryFrame.style.transform = 'translateX(' + ((this.reviewSizeFrame + 1) * (this.reviewCounter + 1) + 1) + 'px)';
+
+      reviewGalleryCarouselNav.style.left = (reviewCarouselSlide[0].offsetWidth / 2 - this.reviewSizeFrame) + 'px';
     });
 
   }
