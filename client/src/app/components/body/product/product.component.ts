@@ -965,7 +965,7 @@ export class ProductComponent implements OnInit {
     if (targetIndex < 0) return;
 
     this.reviewCounter = targetIndex;
-    
+
     setTimeout(() => {
       for (let i = 0; i < review_carousel_img.length; i++) {
         if (review_carousel_img[i].clientHeight > review_carousel_img[i].clientWidth) review_carousel_img[i].style.height = '100%';
@@ -974,6 +974,7 @@ export class ProductComponent implements OnInit {
       }
       this.reviewSize = reviewCarouselSlide[0].offsetWidth;
 
+      for (let i = 0; i < reviewCarouselSlide.length; i++) reviewCarouselSlide[i].style.transition = 'none';
       for (let i = 0; i < reviewCarouselSlide.length; i++) reviewCarouselSlide[i].style.transform = 'translateX(' + (-this.reviewSize * this.reviewCounter) + 'px)';
     });
 
