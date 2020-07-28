@@ -1017,7 +1017,6 @@ export class ProductComponent implements OnInit {
 
     if (this.reviewCounter > 0) this.showReviewArrow();
 
-    alert();
     if (this.reviewCounter == 0) reviewPrevBtn.style.display = 'none';
     if (this.reviewCounter == reviewCarouselImg.length - 1) reviewNextBtn.style.display = 'none';
   }
