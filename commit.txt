@@ -356,6 +356,7 @@ Product Component: hideReviewArrow
 Product Component: showReviewArrow
 Product Component: reviewMoved
 Product Component: selectReviewImg
+Product Component: scrollFrame
 Product Component: ngOnInit
 Product Component: View
 Global Styles
