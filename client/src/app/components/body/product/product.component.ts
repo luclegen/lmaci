@@ -951,7 +951,10 @@ export class ProductComponent implements OnInit {
   }
 
   deleteReviewImg(i: string) {
-    if (confirm('Are you sure delete: Image ' + (this.review.imgs.indexOf(i) + 1) + '?')) this.review.imgs.splice(this.review.imgs.indexOf(i), 1);
+    if (confirm('Are you sure delete: Image ' + (this.review.imgs.indexOf(i) + 1) + '?')) {
+      this.review.files.splice(this.review.imgs.indexOf(i), 1);
+      this.review.imgs.splice(this.review.imgs.indexOf(i), 1);
+    };
   }
 
   //#endregion Review
