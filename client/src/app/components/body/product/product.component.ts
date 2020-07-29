@@ -1112,7 +1112,9 @@ export class ProductComponent implements OnInit {
     this.reviewCounter = targetIndex - 1;
 
     for (let i = 0; i < reviewCarouselSlide.length; i++) reviewCarouselSlide[i].style.transform = 'translateX(' + (-this.reviewSize * this.reviewCounter) + 'px)';
-    reviewGalleryFrame.style.transform = 'translateX(' + ((this.reviewSizeFrame + 1) * (this.reviewCounter + 1) + 1) + 'px)';
+    reviewGalleryFrame.style.transform = 'translateX(' + ((this.reviewSizeFrame + 1) * this.reviewCounter + 1) + 'px)';
+
+    this.reviewScrollFrame();
   }
 
   reviewMoved() {
