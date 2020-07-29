@@ -1124,6 +1124,18 @@ export class ProductComponent implements OnInit {
     if (this.reviewCounter == reviewCarouselImg.length - 1) reviewNextBtn.style.display = 'none';
   }
 
+  reviewScrollFrame() {
+    const reviewCarouselSlide = document.getElementsByClassName('review-carousel-slide') as HTMLCollectionOf<HTMLElement>;
+    const reviewCarouselImages = document.getElementsByClassName('review-carousel-img') as HTMLCollectionOf<HTMLElement>;
+    const reviewGalleryCarouselNav = document.querySelector('.review-gallery-carousel-nav') as HTMLElement;
+
+    const framCount = reviewCarouselImages.length;
+    const visibleFramCount = Math.round(reviewCarouselSlide[0].offsetWidth / (this.reviewSizeFrame + 1));
+
+    reviewGalleryCarouselNav.scrollBy(-(this.reviewSizeFrame + 1) * (framCount - visibleFramCount), 0);
+    reviewGalleryCarouselNav.scrollBy((this.reviewSizeFrame + 1) * (this.reviewCounter - Math.round(visibleFramCount / 2) + 1), 0);
+  }
+
   hideReviewArrow() {
     const reviewPrevBtn = document.getElementById('review-prev-btn') as HTMLElement;
     const reviewNextBtn = document.getElementById('review-next-btn') as HTMLElement;
