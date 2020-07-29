@@ -351,7 +351,7 @@ export class ProductComponent implements OnInit {
     carouselSlide.style.transition = galleryFrame.style.transition = 'transform 0.4s ease-in-out';
     this.counter--;
     carouselSlide.style.transform = 'translateX(' + (-this.size * this.counter) + 'px)';
-    galleryFrame.style.transform = 'translateX(' + ((this.sizeFrame + 1) * (this.counter + 1) + 1) + 'px)';
+    galleryFrame.style.transform = 'translateX(' + ((this.sizeFrame + 1) * this.counter + 1) + 'px)';
   }
 
   next() {
