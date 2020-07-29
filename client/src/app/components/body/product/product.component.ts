@@ -512,10 +512,10 @@ export class ProductComponent implements OnInit {
     const vpWidth = document.documentElement.clientWidth;
 
     const framCount = carouselImages.length;
-    const visibleFrams = Math.round(vpWidth / (this.sizeFrame + 1));
+    const visibleFramCount = Math.round(vpWidth / (this.sizeFrame + 1));
 
-    galleryCarouselNav.scrollBy(-(this.sizeFrame + 1) * (framCount - visibleFrams), 0);
-    galleryCarouselNav.scrollBy((this.sizeFrame + 1) * (this.counter - Math.round(visibleFrams / 2)), 0);
+    galleryCarouselNav.scrollBy(-(this.sizeFrame + 1) * (framCount - visibleFramCount), 0);
+    galleryCarouselNav.scrollBy((this.sizeFrame + 1) * (this.counter - Math.round(visibleFramCount / 2) + 1), 0);
   }
 
   closeGallery() {
