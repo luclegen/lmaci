@@ -478,7 +478,9 @@ export class ProductComponent implements OnInit {
 
     galleryFrame.style.transition = 'none';
     galleryFrame.style.zIndex = '1';
-    if (this.counter == 0) galleryFrame.style.transform = 'translateX(1px)';
+    galleryFrame.style.transform = 'translateX(' + (this.counter == 0 ? 1 : (this.sizeFrame + 1) * this.counter + 1) + 'px)';
+
+    this.scrollFrame();
   }
 
   selectImg(event: any) {
