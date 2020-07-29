@@ -498,6 +498,18 @@ export class ProductComponent implements OnInit {
     galleryFrame.style.transform = 'translateX(' + ((this.sizeFrame + 1) * this.counter + 1) + 'px)';
   }
 
+  scrollFrame() {
+    const carouselImages = document.querySelectorAll('.carousel-slide img') as NodeListOf<Element>;
+    const galleryCarouselNav = document.querySelector('.gallery-carousel-nav') as HTMLElement;
+    const vpWidth = document.documentElement.clientWidth;
+
+    const framCount = carouselImages.length;
+    const visibleFrams = Math.round(vpWidth / (this.sizeFrame + 1));
+
+    galleryCarouselNav.scrollBy(-(this.sizeFrame + 1) * (framCount - visibleFrams), 0);
+    galleryCarouselNav.scrollBy((this.sizeFrame + 1) * (this.counter - Math.round(visibleFrams / 2)), 0);
+  }
+
   closeGallery() {
     const body = document.querySelector('body');
     const leftContainer = document.querySelector('.left-container') as HTMLElement;
