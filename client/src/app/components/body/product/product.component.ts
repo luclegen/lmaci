@@ -1032,11 +1032,25 @@ export class ProductComponent implements OnInit {
 
       this.reviewSizeFrame = reviewGalleryCarouselNavImgs[0].clientWidth;
 
-      if (this.reviewSizeFrame * reviewGalleryCarouselNavImgs.length > reviewCarouselSlide[0].offsetWidth) reviewGalleryCarouselNav.style.left = reviewCarouselSlide[0].offsetWidth / 6 + 'px';
-      else reviewGalleryCarouselNav.style.left = (reviewCarouselSlide[0].offsetWidth / 6 + (reviewCarouselSlide[0].offsetWidth - this.reviewSizeFrame * (reviewGalleryCarouselNavImgs.length + 1)) / 2 - reviewGalleryCarouselNavImgs.length) + 'px';
-  
+      if (this.reviewSizeFrame * reviewGalleryCarouselNavImgs.length >= reviewCarouselSlide[0].offsetWidth) {
+        reviewGalleryCarouselNav.style.width = reviewCarouselSlide[0].offsetWidth + 'px';
+        reviewGalleryCarouselNav.style.left = reviewCarouselSlide[0].offsetWidth / 6 + 'px';
+      } else {
+        reviewGalleryCarouselNav.style.width = 'auto';
+        reviewGalleryCarouselNav.style.left = (reviewCarouselSlide[0].offsetWidth / 6 + (reviewCarouselSlide[0].offsetWidth - (this.reviewSizeFrame + 1) * (reviewGalleryCarouselNavImgs.length - 1)) / 2 - reviewGalleryCarouselNavImgs.length) + 'px';
+      }
+
+      for (let i = 0; i < reviewGalleryCarouselNavImgs.length; i++) {
+        reviewGalleryCarouselNavImgs[i].style.bottom = '0';
+        reviewGalleryCarouselNavImgs[i].style.transition = 'none';
+        if (i > 0) reviewGalleryCarouselNavImgs[i].style.transform = 'translate(' + (-(this.reviewSizeFrame + 1)) + 'px, 2px)';
+      }
+
       reviewGalleryFrame.style.transition = 'none';
-      reviewGalleryFrame.style.transform = 'translateX(' + ((this.reviewSizeFrame + 1) * (this.reviewCounter + 1) + 1) + 'px)';
+      reviewGalleryFrame.style.zIndex = '1';
+      reviewGalleryFrame.style.transform = 'translateX(' + (this.reviewCounter == 0 ? 1 : (this.reviewSizeFrame + 1) * this.reviewCounter + 1) + 'px)';
+
+      this.reviewScrollFrame();
     });
 
   }
