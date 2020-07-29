@@ -889,7 +889,7 @@ export class ProductComponent implements OnInit {
 
   selectReviewFileInput(files) {
     if (files.length) {
-      this.review.files = files;
+      this.review.files.push(...files);
 
       for (const f of this.review.files) {
         let reader = new FileReader();
