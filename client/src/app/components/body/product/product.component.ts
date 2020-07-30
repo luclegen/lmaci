@@ -1064,6 +1064,7 @@ export class ProductComponent implements OnInit {
 
     review_allery_container.style.display = 'none';
     this.resize = false;
+    this.isShowReviewGallery = false;
   }
   
   reviewPrev() {
