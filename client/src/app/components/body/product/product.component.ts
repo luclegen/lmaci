@@ -994,6 +994,8 @@ export class ProductComponent implements OnInit {
     const boxs = Array.from(imgsBar.children);
     const targetBox = event.target.closest('span');
 
+    this.isShowReviewGallery = true;
+
     this.reviewEvent = event;
     this.reviewGallery.stars = Object(review).stars;
     this.reviewGallery.content = Object(review).content;
