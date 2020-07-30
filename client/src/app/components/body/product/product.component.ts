@@ -1017,7 +1017,7 @@ export class ProductComponent implements OnInit {
     reviewGalleryCarouselNav.style.bottom = '0';
 
     setTimeout(() => {
-      const reviewGalleryCarouselNavImgs = document.querySelectorAll('.review-gallery-carousel-nav img') as NodeListOf<HTMLElement>;
+      const reviewGalleryCarouselImgs = document.querySelectorAll('.review-gallery-carousel-nav img') as NodeListOf<HTMLElement>;
       const reviewGalleryFrame = document.querySelector('.review-gallery-frame') as HTMLElement;
 
       for (let i = 0; i < review_carousel_img.length; i++) {
@@ -1032,23 +1032,23 @@ export class ProductComponent implements OnInit {
       
       this.reviewSizeFrame = Math.round(reviewGalleryCarouselNav.clientHeight * (reviewCarouselSlide[0].clientWidth / reviewCarouselSlide[0].clientHeight));
 
-      for (let i = 0; i < reviewGalleryCarouselNavImgs.length; i++) {
-        reviewGalleryCarouselNavImgs[i].style.width = this.reviewSizeFrame + 'px';
-        if (i > 0 && i < reviewGalleryCarouselNavImgs.length - 1) reviewGalleryCarouselNavImgs[i].style.marginRight = '1px';
+      for (let i = 0; i < reviewGalleryCarouselImgs.length; i++) {
+        reviewGalleryCarouselImgs[i].style.width = this.reviewSizeFrame + 'px';
+        if (i > 0 && i < reviewGalleryCarouselImgs.length - 1) reviewGalleryCarouselImgs[i].style.marginRight = '1px';
       }
 
-      if (this.reviewSizeFrame * reviewGalleryCarouselNavImgs.length >= reviewCarouselSlide[0].offsetWidth) {
+      if (this.reviewSizeFrame * reviewGalleryCarouselImgs.length >= reviewCarouselSlide[0].offsetWidth) {
         reviewGalleryCarouselNav.style.width = reviewCarouselSlide[0].offsetWidth + 'px';
         reviewGalleryCarouselNav.style.left = reviewCarouselSlide[0].offsetWidth / 6 + 'px';
       } else {
         reviewGalleryCarouselNav.style.width = 'auto';
-        reviewGalleryCarouselNav.style.left = (reviewCarouselSlide[0].offsetWidth / 6 + (reviewCarouselSlide[0].offsetWidth - (this.reviewSizeFrame + 1) * (reviewGalleryCarouselNavImgs.length - 1)) / 2 - reviewGalleryCarouselNavImgs.length) + 'px';
+        reviewGalleryCarouselNav.style.left = (reviewCarouselSlide[0].offsetWidth / 6 + (reviewCarouselSlide[0].offsetWidth - (this.reviewSizeFrame + 1) * (reviewGalleryCarouselImgs.length - 1)) / 2 - reviewGalleryCarouselImgs.length) + 'px';
       }
 
-      for (let i = 0; i < reviewGalleryCarouselNavImgs.length; i++) {
-        reviewGalleryCarouselNavImgs[i].style.bottom = '0';
-        reviewGalleryCarouselNavImgs[i].style.transition = 'none';
-        if (i > 0) reviewGalleryCarouselNavImgs[i].style.transform = 'translate(' + (-(this.reviewSizeFrame + 1)) + 'px, 2px)';
+      for (let i = 0; i < reviewGalleryCarouselImgs.length; i++) {
+        reviewGalleryCarouselImgs[i].style.bottom = '0';
+        reviewGalleryCarouselImgs[i].style.transition = 'none';
+        if (i > 0) reviewGalleryCarouselImgs[i].style.transform = 'translate(' + (-(this.reviewSizeFrame + 1)) + 'px, 2px)';
       }
 
       reviewGalleryFrame.style.transition = 'none';
