@@ -987,9 +987,9 @@ export class ProductComponent implements OnInit {
 
   showReviewGallery(event: any, review: Object) {
     const reviewCarouselSlide = document.getElementsByClassName('review-carousel-slide') as HTMLCollectionOf<HTMLElement>;
-    const review_allery_container = document.getElementById('review-allery-container') as HTMLElement;
-    const review_close_btn = document.getElementById('review-close-btn') as HTMLElement;
-    const review_carousel_img = document.getElementsByClassName('review-carousel-img') as HTMLCollectionOf<HTMLElement>;
+    const reviewgallerycontainer = document.getElementById('review-allery-container') as HTMLElement;
+    const reviewclosebtn = document.getElementById('review-close-btn') as HTMLElement;
+    const reviewcarouselimg = document.getElementsByClassName('review-carousel-img') as HTMLCollectionOf<HTMLElement>;
     const reviewGalleryCarouselNav = document.querySelector('.review-gallery-carousel-nav') as HTMLElement;
     const imgsBar = event.target.closest('span.imgs-bar');
     const boxs = Array.from(imgsBar.children);
@@ -1002,9 +1002,9 @@ export class ProductComponent implements OnInit {
     this.reviewGallery.content = Object(review).content;
     this.reviewGallery.imgs = Object(review).imgs;
 
-    review_allery_container.style.display = 'flex';
+    reviewgallerycontainer.style.display = 'flex';
 
-    review_close_btn.style.display = 'inline';
+    reviewclosebtn.style.display = 'inline';
 
     if (!targetBox) return;
     const targetIndex = boxs.findIndex(box => box == targetBox);
@@ -1020,10 +1020,10 @@ export class ProductComponent implements OnInit {
       const reviewGalleryCarouselImgs = document.querySelectorAll('.review-gallery-carousel-nav img') as NodeListOf<HTMLElement>;
       const reviewGalleryFrame = document.querySelector('.review-gallery-frame') as HTMLElement;
 
-      for (let i = 0; i < review_carousel_img.length; i++) {
-        if (review_carousel_img[i].clientHeight > review_carousel_img[i].clientWidth) review_carousel_img[i].style.height = '100%';
-        else review_carousel_img[i].style.width = '100%';
-        review_carousel_img[i].style.cursor = 'auto';
+      for (let i = 0; i < reviewcarouselimg.length; i++) {
+        if (reviewcarouselimg[i].clientHeight > reviewcarouselimg[i].clientWidth) reviewcarouselimg[i].style.height = '100%';
+        else reviewcarouselimg[i].style.width = '100%';
+        reviewcarouselimg[i].style.cursor = 'auto';
       }
       this.reviewSize = reviewCarouselSlide[0].offsetWidth;
 
