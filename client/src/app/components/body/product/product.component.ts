@@ -428,9 +428,11 @@ export class ProductComponent implements OnInit {
     leftContainer.style.width = '100vw';
     leftContainer.style.height = '100vh';
 
+    this.size = Math.round(vpHeight * 1.2);
+
     for (let i = 0; i < carouselImages.length; i++) {
-      carouselImages[i].style.height = vpHeight * 3/4 * 1.2 + 'px';
-      carouselImages[i].style.width = carouselImages[i].clientHeight * 4/3 + 'px';
+      carouselImages[i].style.height = this.size * 3/4 + 'px';
+      carouselImages[i].style.width = this.size + 'px';
     }
 
     carouselContainer.style.height = carouselImages[0].clientHeight + 'px';
@@ -449,8 +451,6 @@ export class ProductComponent implements OnInit {
     carouselSlide.style.transition = 'none';
     carouselSlide.style.transform = 'translateX(' + (-this.size * 0) + 'px)';
 
-    this.size = carouselImages[0].offsetWidth;
-
     carouselContainer.style.width = this.size + 'px';
     carouselSlide.style.transform = 'translateX(' + (-this.size * this.counter) + 'px)';
     carouselSlide.style.cursor = 'auto';
@@ -459,19 +459,18 @@ export class ProductComponent implements OnInit {
     galleryCarouselNav.style.display = 'flex';
     galleryCarouselNav.style.bottom = '0';
 
+    this.sizeFrame = Math.round((vpHeight - carouselContainer.clientHeight - 10) * 4/3);
+
     for (let i = 0; i < galleryCarouselImages.length; i++) {
-      galleryCarouselImages[i].style.height = (vpHeight - carouselContainer.clientHeight - 10) + 'px';
+      galleryCarouselImages[i].style.width = this.sizeFrame + 'px';
       if (i > 0 && i < galleryCarouselImages.length - 1) galleryCarouselImages[i].style.marginRight = '1px';
     }
 
     if (galleryCarouselImages.length * galleryCarouselImages[0].clientWidth >= vpWidth) {
       galleryCarouselNav.style.width = vpWidth + 'px';
-      galleryCarouselNav.style.overflow = 'auto';
       galleryCarouselNav.style.left = '0';
     } else galleryCarouselNav.style.width = (galleryCarouselImages.length - 1) * (galleryCarouselImages[0].clientWidth + 1) + 'px';
 
-    this.sizeFrame = galleryCarouselImages[this.counter].clientWidth;
-    
     for (let i = 0; i < galleryCarouselImages.length; i++) {
       galleryCarouselImages[i].style.bottom = '0';
       galleryCarouselImages[i].style.transition = 'none';
