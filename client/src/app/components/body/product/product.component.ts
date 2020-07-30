@@ -181,6 +181,7 @@ export class ProductComponent implements OnInit {
 
   reviews;
   reviewEvent;
+  isShowReviewGallery = false;
 
   //#endregion Reviews
   
@@ -198,12 +199,13 @@ export class ProductComponent implements OnInit {
 
     carouselSlide.style.transition = 'none';
 
+    this.resize = true;
+
     this.showSlider();
     if (leftContainer.style.getPropertyValue('position') == 'fixed') this.showGallery();
     else if (closeBtn.style.getPropertyValue('display') == 'none') this.closeGallery();
 
-    this.resize = true;
-    if (this.reviewEvent && this.reviewGallery) this.showReviewGallery(this.reviewEvent, this.reviewGallery);
+    if (this.isShowReviewGallery) this.showReviewGallery(this.reviewEvent, this.reviewGallery);
   }
 
   constructor(private viewportRuler: ViewportRuler,
