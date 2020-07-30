@@ -466,9 +466,11 @@ export class ProductComponent implements OnInit {
       if (i > 0 && i < galleryCarouselImages.length - 1) galleryCarouselImages[i].style.marginRight = '1px';
     }
 
-    if (galleryCarouselImages.length * galleryCarouselImages[0].clientWidth >= vpWidth) {
+    if (galleryCarouselImages.length * galleryCarouselImages[0].clientWidth > vpWidth) {
       galleryCarouselNav.style.width = vpWidth + 'px';
       galleryCarouselNav.style.left = '0';
+      galleryCarouselNav.style.overflowX = 'auto';
+      galleryCarouselNav.style.overflowY = 'hidden';
     } else galleryCarouselNav.style.width = (galleryCarouselImages.length - 1) * (galleryCarouselImages[0].clientWidth + 1) + 'px';
 
     for (let i = 0; i < galleryCarouselImages.length; i++) {
