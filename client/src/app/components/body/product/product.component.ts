@@ -1025,12 +1025,12 @@ export class ProductComponent implements OnInit {
       for (let i = 0; i < reviewCarouselSlide.length; i++) reviewCarouselSlide[i].style.transition = 'none';
       for (let i = 0; i < reviewCarouselSlide.length; i++) reviewCarouselSlide[i].style.transform = 'translateX(' + (-this.reviewSize * this.reviewCounter) + 'px)';
       
+      this.reviewSizeFrame = Math.round(reviewGalleryCarouselNav.clientHeight * (reviewCarouselSlide[0].clientWidth / reviewCarouselSlide[0].clientHeight));
+
       for (let i = 0; i < reviewGalleryCarouselNavImgs.length; i++) {
-        reviewGalleryCarouselNavImgs[i].style.width = reviewGalleryCarouselNav.clientHeight * (reviewCarouselSlide[0].clientWidth / reviewCarouselSlide[0].clientHeight) + 'px';
+        reviewGalleryCarouselNavImgs[i].style.width = this.reviewSizeFrame + 'px';
         if (i > 0 && i < reviewGalleryCarouselNavImgs.length - 1) reviewGalleryCarouselNavImgs[i].style.marginRight = '1px';
       }
-
-      this.reviewSizeFrame = reviewGalleryCarouselNavImgs[0].clientWidth;
 
       if (this.reviewSizeFrame * reviewGalleryCarouselNavImgs.length >= reviewCarouselSlide[0].offsetWidth) {
         reviewGalleryCarouselNav.style.width = reviewCarouselSlide[0].offsetWidth + 'px';
