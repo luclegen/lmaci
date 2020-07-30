@@ -1061,13 +1061,13 @@ export class ProductComponent implements OnInit {
   }
 
   closeReviewGallery() {
-    const review_allery_container = document.getElementById('review-allery-container') as HTMLElement;
+    const reviewgallerycontainer = document.getElementById('review-allery-container') as HTMLElement;
 
-    review_allery_container.style.display = 'none';
+    reviewgallerycontainer.style.display = 'none';
     this.resize = false;
     this.isShowReviewGallery = false;
   }
-  
+
   reviewPrev() {
     const reviewCarouselSlide = document.getElementsByClassName('review-carousel-slide') as HTMLCollectionOf<HTMLElement>;
     const reviewGalleryFrame = document.querySelector('.review-gallery-frame') as HTMLElement;
