@@ -299,18 +299,17 @@ export class ProductComponent implements OnInit {
   }
 
   showStar() {
-    let number = this.stars.average,
-        numberRounded = Math.round(number),
-        bias = this.helperService.round(number - numberRounded, 1);
-    
-    if (bias < 0) bias++;
+    const number = this.stars.average;
+    const numberFloored = Math.floor(number);
+    const numberRounded = Math.round(number);
+    const bias = this.helperService.round(number - numberFloored, 1)
 
     this.starCount = [];
     this.starHalf = false;
     this.noneStarCount = [];
 
     if (bias == 0.5) {
-      for (let i = 0; i < numberRounded - 1; i++) this.starCount.push('*');
+      for (let i = 0; i < numberFloored; i++) this.starCount.push('*');
       this.starHalf = true;
     } else for (let i = 0; i < numberRounded; i++) this.starCount.push('*');
     for (let i = 0; i < 5 - numberRounded; i++) this.noneStarCount.push('-');
