@@ -43,27 +43,10 @@ let productSchema = new mongoose.Schema({
   sliders: Array,
   reviews: Array
 }, {
-  toObject: {
-    virtuals: true
-  },
-  toJSON: {
-    virtuals: true 
-  },
   timestamps: {
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   }
 });
-
-productSchema.virtual('slidersPaths').get(function() {
-  let slidersPaths = [];
-  for (let i = 0; i < this.sliders.length; i++) {
-    var sliderPaths = [];
-    sliderPaths.push(this.sliders[i][0]);
-    for (let j = 1; j < this.sliders[i].length; j++) sliderPaths.push(`data:image/jpeg;base64,${this.sliders[i][j].toString('base64')}`);
-    slidersPaths.push(sliderPaths);
-  }
-  return slidersPaths;
-})
 
 module.exports = mongoose.model('Product', productSchema);
