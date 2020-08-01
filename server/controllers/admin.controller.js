@@ -9,15 +9,13 @@ const converter = require('../helpers/converter');
 
 //#region Admins
 
-module.exports.getAdmins = (req, res) => {
-  User.find({ role: 'root' }, (err, root) => {
-    if (root) {
-      User.find({ role: 'admin' }).sort('name.first').exec((err, admins) => {
-        return admins ? res.status(200).json({ root, admins })
-                      : res.status(404).json({ msg: 'Admins not found.' });
-      });
-    } else return res.status(404).json({ msg: 'Root not found.' })
-  });
+module.exports.getAdmins = async (req, res) => {
+  const root = await User.find({ role: 'root' });
+  const admins = await User.find({ role: 'admin' }).sort('name.first').exec();
+
+  return root ? admins ? res.status(200).json({ root, admins })
+                       : res.status(404).json({ msg: 'Admins not found.' })
+              : res.status(404).json({ msg: 'Root not found.' });
 }
 
 module.exports.removeAsAdmin = (req, res) => {
