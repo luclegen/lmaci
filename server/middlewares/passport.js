@@ -7,14 +7,10 @@ passport.use(new LocalStrategy({
   usernameField: 'username',
   passwordField: 'password',
   passReqToCallback: false
-}, (username, password, done) => {
-  User.findOne({ username: username }, (err, user) => {
-    if (err) return done(err);
-    // Unknown user
-    else if (!user) return done(null, false, { msg: 'Username is not registered.' })
-    // Wrong password
-    else if (!user.verifyPassword(password)) return done(null, false, { msg: 'Wrong password.' });
-    // Authentication successed
-    else return done(null, user);
-  });
+}, async (username, password, done) => {
+  const user = await User.findOne({ username: username });
+
+  return user ? user.verifyPassword(password) ? done(null, user)
+                                              : done(null, false, { msg: 'Wrong password.' })
+              : done(null, false, { msg: 'Username is not registered.' });
 }));
