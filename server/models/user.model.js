@@ -68,14 +68,13 @@ userSchema.path('email').validate(val => {
 }, 'Invalid email.');
 
 // Events
-userSchema.pre('save', function (next) {
-  bcrypt.genSalt(10, (err, salt) => {
-    bcrypt.hash(this.password, salt, (err, hash) => {
-      this.password = hash;
-      this.saltSecret = salt;
-      next();
-    });
-  });
+userSchema.pre('save', async function (next) {
+  const salt = await bcrypt.genSalt(10);
+  const hash = await bcrypt.hash(this.password, salt);
+
+  this.password = hash;
+  this.saltSecret = salt;
+  next();
 });
 
 // Methods
