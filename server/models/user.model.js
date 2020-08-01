@@ -42,7 +42,7 @@ let userSchema = new mongoose.Schema({
   password: {
     type: String,
     required: 'Password can\'t be empty',
-    minlength: [8, 'Password must be at least 8 characters long']
+    minlength: [ 8, 'Password must be at least 8 characters long' ]
   },
   activated: {
     type: Boolean,
