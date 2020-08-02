@@ -40,7 +40,6 @@ export class TopNavbarComponent implements OnInit {
         li = document.getElementsByClassName('li') as HTMLCollectionOf<HTMLElement>,
         sub_nav = document.getElementsByClassName('sub-nav') as HTMLCollectionOf<HTMLElement>;
     
-    // Close all a tag
     if (a_id.getAttribute('aria-expanded') == 'false') {
       for (let i = 0; i < a.length; i++) {
         if (a[i].getAttribute('aria-expanded') == 'true') {
