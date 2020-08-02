@@ -205,25 +205,66 @@ export class ProductsComponent implements OnInit {
   //#region Submit
 
   onSubmit(form: NgForm) {
-    this.authService.getInfo().subscribe(res => {
-      if (res['user'].role == 'root' || res['user'].role === 'admin') {
-        if (form.value._id) {
-          form.value.img = '';
+    this.authService.getInfo().subscribe(
+      res => {
+        if (res['user'].role == 'root' || res['user'].role === 'admin') {
+          if (form.value._id) {
+            form.value.img = '';
 
-          if (this.croppedImage) {
-            this.adminService.updateProduct(form.value._id, form.value).subscribe(
+            if (this.croppedImage) {
+              this.adminService.updateProduct(form.value._id, form.value).subscribe(
+                res => {
+                  const formData = new FormData();
+
+                  this.product.img.index++;
+                  const file = new File([ this.helperService.base64ToBlob(this.croppedImage, 'png') ], 'img.png', { type: 'image/png' });
+                  
+                  formData.append('index', this.product.img.index.toString());
+                  formData.append('file', file, this.product.img.index.toString() + '.png');
+
+                  this.adminService.uploadProductImg(res['_id'], formData).subscribe(
+                    res => {
+                      alert('Update this product is successfully!');
+        
+                      this.ngOnInit();
+                      this.onCancelProduct();
+                    },  
+                    err => {
+                      alert(err.error.msg);
+                    }
+                  );
+                },
+                err => {
+                  alert(err.error.msg);
+                }
+              );
+            } else {
+              this.adminService.updateProduct(form.value._id, form.value).subscribe(
+                res => {
+                  alert('Update this product is successfully!');
+    
+                  this.ngOnInit();
+                  this.onCancelProduct();
+                },
+                err => {
+                  alert(err.error.msg);
+                }
+              );
+            }
+          } else {
+            this.adminService.createProduct(form.value).subscribe(
               res => {
                 const formData = new FormData();
 
                 this.product.img.index++;
                 const file = new File([ this.helperService.base64ToBlob(this.croppedImage, 'png') ], 'img.png', { type: 'image/png' });
-                
+
                 formData.append('index', this.product.img.index.toString());
                 formData.append('file', file, this.product.img.index.toString() + '.png');
 
                 this.adminService.uploadProductImg(res['_id'], formData).subscribe(
                   res => {
-                    alert('Update this product is successfully!');
+                    alert('Create this product is successfully!');
       
                     this.ngOnInit();
                     this.onCancelProduct();
@@ -234,52 +275,19 @@ export class ProductsComponent implements OnInit {
                 );
               },
               err => {
-                alert(err.error.msg);
-              }
-            );
-          } else {
-            this.adminService.updateProduct(form.value._id, form.value).subscribe(
-              res => {
-                alert('Update this product is successfully!');
-  
-                this.ngOnInit();
-                this.onCancelProduct();
-              },
-              err => {
-                alert(err.error.msg);
+                alert(JSON.stringify(err.error));
               }
             );
           }
-        } else {
-          this.adminService.createProduct(form.value).subscribe(
-            res => {
-              const formData = new FormData();
-
-              this.product.img.index++;
-              const file = new File([ this.helperService.base64ToBlob(this.croppedImage, 'png') ], 'img.png', { type: 'image/png' });
-
-              formData.append('index', this.product.img.index.toString());
-              formData.append('file', file, this.product.img.index.toString() + '.png');
-
-              this.adminService.uploadProductImg(res['_id'], formData).subscribe(
-                res => {
-                  alert('Create this product is successfully!');
-    
-                  this.ngOnInit();
-                  this.onCancelProduct();
-                },  
-                err => {
-                  alert(err.error.msg);
-                }
-              );
-            },
-            err => {
-              alert(JSON.stringify(err.error));
-            }
-          );
-        }
-      } else this.router.navigateByUrl('');
-    });
+        } else this.router.navigateByUrl('');
+      },
+      err => {
+        if (err.status == 440) {
+          if (confirm('Your session has expired and must log in again.\nDo you want to login again?')) window.open('/login');
+          else this.authService.removeToken();
+        } else this.authService.removeToken();
+      }
+    );
   }
 
   onSubmitColor(form: NgForm) {
