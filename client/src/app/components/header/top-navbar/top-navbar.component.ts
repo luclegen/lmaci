@@ -19,7 +19,10 @@ export class TopNavbarComponent implements OnInit {
         res => {
           this.userDetails = res['user'];
         }, err => {
-          if (!err.error.auth) this.authService.removeToken();
+          if (err.status === 440) {
+            if (confirm('Your session has expired and must log in again.\nDo you want to login again?')) window.open('/login');
+            else this.authService.removeToken();
+          } else this.authService.removeToken();
         }
       );
     }
