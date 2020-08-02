@@ -25,33 +25,39 @@ export class UserComponent implements OnInit {
               private userService: UserService, 
               private router: Router) { }
 
-    ngOnInit(): void {
-      const username = this.route.snapshot.paramMap.get('username');
-      const vpWidth = document.documentElement.clientWidth;
-      const thead = document.getElementsByTagName('thead') as HTMLCollectionOf<HTMLTableSectionElement>;
-      const tbody = document.getElementsByTagName('tbody') as HTMLCollectionOf<HTMLTableSectionElement>;
+  ngOnInit(): void {
+    const username = this.route.snapshot.paramMap.get('username');
+    const vpWidth = document.documentElement.clientWidth;
+    const thead = document.getElementsByTagName('thead') as HTMLCollectionOf<HTMLTableSectionElement>;
+    const tbody = document.getElementsByTagName('tbody') as HTMLCollectionOf<HTMLTableSectionElement>;
+  
+    for (let i = 0; i < thead.length; i++) thead[i].style.fontSize = vpWidth * 0.03125 + 'px';
+    for (let i = 0; i < tbody.length; i++) tbody[i].style.fontSize = vpWidth * 0.025 + 'px';
     
-      for (let i = 0; i < thead.length; i++) thead[i].style.fontSize = vpWidth * 0.03125 + 'px';
-      for (let i = 0; i < tbody.length; i++) tbody[i].style.fontSize = vpWidth * 0.025 + 'px';
-      
-      this.authService.getInfo().subscribe(
-        res => {
-          if(res['user'].role === 'root' || res['user'].role === 'admin' || res['user'].username === username) {
-            this.userService.getUser(username).subscribe(
-              res => {
-                this.userDetails = res['user'];
-                this.titleService.setTitle(this.userDetails.name.first + this.title);
-                this.userDetails.role = this.userDetails.role.split('')[0].toUpperCase() + this.userDetails.role.split('').slice(1).join('');
-                this.userDetails.gender = this.userDetails.gender.split('')[0].toUpperCase() + this.userDetails.gender.split('').slice(1).join('');
-              },
-              err => {
-                alert(err.error.msg);
-                this.router.navigateByUrl('');
-              }
-            );
-          } else this.router.navigateByUrl('');
-        }
-      );
-    }
+    this.authService.getInfo().subscribe(
+      res => {
+        if(res['user'].role === 'root' || res['user'].role === 'admin' || res['user'].username === username) {
+          this.userService.getUser(username).subscribe(
+            res => {
+              this.userDetails = res['user'];
+              this.titleService.setTitle(this.userDetails.name.first + this.title);
+              this.userDetails.role = this.userDetails.role.split('')[0].toUpperCase() + this.userDetails.role.split('').slice(1).join('');
+              this.userDetails.gender = this.userDetails.gender.split('')[0].toUpperCase() + this.userDetails.gender.split('').slice(1).join('');
+            },
+            err => {
+              alert(err.error.msg);
+              this.router.navigateByUrl('');
+            }
+          );
+        } else this.router.navigateByUrl('');
+      },
+      err => {
+        if (err.status == 440) {
+          if (confirm('Your session has expired and must log in again.\nDo you want to login again?')) window.open('/login');
+          else this.authService.removeToken();
+        } else this.authService.removeToken();
+      }
+    );
+  }
   
 }
