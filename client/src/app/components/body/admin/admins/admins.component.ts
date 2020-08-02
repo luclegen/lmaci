@@ -54,10 +54,18 @@ export class AdminsComponent implements OnInit {
   }
 
   viewProfile(username: string) {
-    this.authService.getInfo().subscribe(res => {
-      if (res['user'].role == 'root' || res['user'].role === 'admin') this.router.navigateByUrl('/' + username);
-      else this.router.navigateByUrl('');
-    });
+    this.authService.getInfo().subscribe(
+      res => {
+        if (res['user'].role == 'root' || res['user'].role === 'admin') this.router.navigateByUrl('/' + username);
+        else this.router.navigateByUrl('');
+      },
+      err => {
+        if (err.status == 440) {
+          if (confirm('Your session has expired and must log in again.\nDo you want to login again?')) window.open('/login');
+          else this.authService.removeToken();
+        } else this.authService.removeToken();
+      }
+    );
   }
 
   removeAsAdmin(username: string) {
