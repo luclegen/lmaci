@@ -69,23 +69,31 @@ export class AdminsComponent implements OnInit {
   }
 
   removeAsAdmin(username: string) {
-    this.authService.getInfo().subscribe(res => {
-      let adminUsername = res['user'].username;
-      if (res['user'].role == 'root' || res['user'].role === 'admin') {
-        if (confirm('Are you sure to remove as admin: ' + username + '?')) {
-          this.adminService.removeAsAdmin(username).subscribe(
-            res => {
-              alert(res['msg']);
-              this.ngOnInit();
-              if (adminUsername == username) this.router.navigateByUrl('');
-            },
-            err => {
-              alert(err.error.msg);
-            }
-          );
-        }
-      } else this.router.navigateByUrl('');
-    });
+    this.authService.getInfo().subscribe(
+      res => {
+        let adminUsername = res['user'].username;
+        if (res['user'].role == 'root' || res['user'].role === 'admin') {
+          if (confirm('Are you sure to remove as admin: ' + username + '?')) {
+            this.adminService.removeAsAdmin(username).subscribe(
+              res => {
+                alert(res['msg']);
+                this.ngOnInit();
+                if (adminUsername == username) this.router.navigateByUrl('');
+              },
+              err => {
+                alert(err.error.msg);
+              }
+            );
+          }
+        } else this.router.navigateByUrl('');
+      },
+      err => {
+        if (err.status == 440) {
+          if (confirm('Your session has expired and must log in again.\nDo you want to login again?')) window.open('/login');
+          else this.authService.removeToken();
+        } else this.authService.removeToken();
+      }
+    );
   }
 
   onSubmit(form: NgForm) {
