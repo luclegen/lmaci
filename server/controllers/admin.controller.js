@@ -38,11 +38,11 @@ module.exports.searchAdmins = async (req, res) => {
 
 //#region Users
 
-module.exports.getUsers = (req, res) => {
-  User.find({ role: 'user' }).sort('name.first').exec((err, users) => {
-    return users ? res.status(200).json({ users })
-                  : res.status(404).json({ msg: 'Users not found.' });
-  });
+module.exports.getUsers = async (req, res) => {
+  const users = await User.find({ role: 'user' }).sort('name.first').exec();
+
+  return users ? res.status(200).json({ users })
+               : res.status(404).json({ msg: 'Users not found.' });
 }
 
 module.exports.makeAdmin = (req, res) => {
