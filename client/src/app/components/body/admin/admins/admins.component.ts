@@ -98,14 +98,22 @@ export class AdminsComponent implements OnInit {
 
   onSubmit(form: NgForm) {
     if (form.value.keyword.length > 0) {
-      this.authService.getInfo().subscribe(res => {
-        if (res['user'].role == 'root' || res['user'].role === 'admin') {
-          this.adminService.searchAdmins(form.value).subscribe(res => {
-            this.root = null;
-            this.admins = res['admins'];
-          });
-        } else this.router.navigateByUrl('');
-      });
+      this.authService.getInfo().subscribe(
+        res => {
+          if (res['user'].role == 'root' || res['user'].role === 'admin') {
+            this.adminService.searchAdmins(form.value).subscribe(res => {
+              this.root = null;
+              this.admins = res['admins'];
+            });
+          } else this.router.navigateByUrl('');
+        },
+        err => {
+          if (err.status == 440) {
+            if (confirm('Your session has expired and must log in again.\nDo you want to login again?')) window.open('/login');
+            else this.authService.removeToken();
+          } else this.authService.removeToken();
+        }
+      );
     }
   }
 
