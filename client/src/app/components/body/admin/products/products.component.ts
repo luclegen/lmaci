@@ -175,19 +175,26 @@ export class ProductsComponent implements OnInit {
     quantityImported.style.marginLeft = (quantityImportedIn.offsetWidth - quantityImported.offsetWidth) + 'px';
     type.style.marginLeft = (typeSelect.offsetWidth - type.offsetWidth) + 'px';
 
-    this.authService.getInfo().subscribe(res => {
-      if (res['user'].role == 'root' || res['user'].role === 'admin') {
-        this.adminService.getProducts().subscribe(
-          res => {
-            this.products = res['products'];
-          },
-          err => {
-            alert(err.error.msg)
-          }
-        );
+    this.authService.getInfo().subscribe(
+      res => {
+        if (res['user'].role == 'root' || res['user'].role === 'admin') {
+          this.adminService.getProducts().subscribe(
+            res => {
+              this.products = res['products'];
+            },
+            err => {
+              alert(err.error.msg)
+            }
+          );
+        } else this.router.navigateByUrl('');
+      },
+      err => {
+        if (err.status == 440) {
+          if (confirm('Your session has expired and must log in again.\nDo you want to login again?')) window.open('/login');
+          else this.authService.removeToken();
+        } else this.authService.removeToken();
       }
-      else this.router.navigateByUrl('');
-    });
+    );
   }
 
   //#region Img Cropper
