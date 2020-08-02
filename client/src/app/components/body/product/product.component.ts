@@ -822,30 +822,38 @@ export class ProductComponent implements OnInit {
   }
 
   savePost() {
-    this.authService.getInfo().subscribe(res => {
-      if (res['user'].role == 'root' || res['user'].role === 'admin') {
-        this.post.dateModified = Date.now();
-        this.productService.post(this.id, this.post).subscribe(
-          res => {
-            alert(res['msg']);
-            this.productService.getProduct(this.id).subscribe(
-              res => {
-                this.product = res['product'];
-        
-                this.initPost();
-                this.loadPost();
-              },
-              err => {
-                alert(err.error.msg);
-              }
-            );
-          },
-          err => {
-            alert(err.error.msg);
-          }
-        );
-      } else this.router.navigateByUrl('');
-    });
+    this.authService.getInfo().subscribe(
+      res => {
+        if (res['user'].role == 'root' || res['user'].role === 'admin') {
+          this.post.dateModified = Date.now();
+          this.productService.post(this.id, this.post).subscribe(
+            res => {
+              alert(res['msg']);
+              this.productService.getProduct(this.id).subscribe(
+                res => {
+                  this.product = res['product'];
+          
+                  this.initPost();
+                  this.loadPost();
+                },
+                err => {
+                  alert(err.error.msg);
+                }
+              );
+            },
+            err => {
+              alert(err.error.msg);
+            }
+          );
+        } else this.router.navigateByUrl('');
+      },
+      err => {
+        if (err.status == 440) {
+          if (confirm('Your session has expired and must log in again.\nDo you want to login again?')) window.open('/login');
+          else this.authService.removeToken();
+        } else this.authService.removeToken();
+      }
+    );
   }
 
   cancelSavePost() {
