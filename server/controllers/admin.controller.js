@@ -65,8 +65,8 @@ module.exports.searchUsers = async (req, res) => {
 
 //#region Products
 
-module.exports.createProduct = (req, res, next) => {
-  let product = new Product();
+module.exports.createProduct = async (req, res, next) => {
+  const product = new Product();
 
   product.name = req.body.name.trim();
   product.price = req.body.price;
@@ -76,10 +76,11 @@ module.exports.createProduct = (req, res, next) => {
   product.properties = req.body.properties;
   product.technicalDetails = req.body.technicalDetails;
 
-  product.save((err, product) => {
-    return err ? next(err)
-               : res.send(product);
-  });
+  try {
+    return res.send(await product.save());
+  } catch (err) {
+    return next(err);
+  }
 }
 
 module.exports.uploadProductImg = (req, res) => {
