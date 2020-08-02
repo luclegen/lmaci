@@ -942,50 +942,58 @@ export class ProductComponent implements OnInit {
 
   sendReview() {
     if (this.authService.getToken()) {
-      this.authService.getInfo().subscribe(res => {
-        this.review.user.username = res['user'].username;
+      this.authService.getInfo().subscribe(
+        res => {
+          this.review.user.username = res['user'].username;
 
-        if (res['user'].role == 'user') {
-          this.productService.getProduct(this.id).subscribe(
-            res => {
-              this.product = res['product'];
-              
-              this.review.index = this.product.reviews.length ? Math.max(...this.product.reviews.map(r => r.index)) + 1 : 0;
+          if (res['user'].role == 'user') {
+            this.productService.getProduct(this.id).subscribe(
+              res => {
+                this.product = res['product'];
+                
+                this.review.index = this.product.reviews.length ? Math.max(...this.product.reviews.map(r => r.index)) + 1 : 0;
 
-              this.productService.sendReview(this.id, this.review, this.review.files).subscribe(
-                res => {
-                  const ratingMsg = document.getElementById('rating-msg') as HTMLElement;
+                this.productService.sendReview(this.id, this.review, this.review.files).subscribe(
+                  res => {
+                    const ratingMsg = document.getElementById('rating-msg') as HTMLElement;
 
-                  alert(res['msg']);
+                    alert(res['msg']);
 
-                  this.review = {
-                    index: 0,
-                    user: {
-                      username: ''
-                    },
-                    star: 0,
-                    content: '',
-                    img: [],
-                    imgs: [],
-                    files: []
+                    this.review = {
+                      index: 0,
+                      user: {
+                        username: ''
+                      },
+                      star: 0,
+                      content: '',
+                      img: [],
+                      imgs: [],
+                      files: []
+                    }
+
+                    this.reloadStar(0);
+                    ratingMsg.style.display = 'none';
+                    this.ngOnInit();
+                  },
+                  err => {
+                    alert(err.error.msg);
                   }
-
-                  this.reloadStar(0);
-                  ratingMsg.style.display = 'none';
-                  this.ngOnInit();
-                },
-                err => {
-                  alert(err.error.msg);
-                }
-              );
-            },
-            err => {
-              alert(err.error.msg);
-              this.router.navigateByUrl('');
-            }
-          );
-        } else alert('Only users can review this product.');
-      });
+                );
+              },
+              err => {
+                alert(err.error.msg);
+                this.router.navigateByUrl('');
+              }
+            );
+          } else alert('Only users can review this product.');
+        },
+        err => {
+          if (err.status == 440) {
+            if (confirm('Your session has expired and must log in again.\nDo you want to login again?')) window.open('/login');
+            else this.authService.removeToken();
+          } else this.authService.removeToken();
+        }
+      );
     } else if (confirm('Do you want to login?')) window.open('login');
   }
 
