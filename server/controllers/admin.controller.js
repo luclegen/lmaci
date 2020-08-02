@@ -18,11 +18,11 @@ module.exports.getAdmins = async (req, res) => {
               : res.status(404).json({ msg: 'Root not found.' });
 }
 
-module.exports.removeAsAdmin = (req, res) => {
-  User.findOneAndUpdate({ username: req.params.username }, { $set: { role: 'user' } }, { new: true }, (err, result) => {
-    return err ? res.status(400).json({ msg: 'Update is error.' })
-               : res.status(200).json({ msg: 'Remove as admin was successfully.' });
-  });
+module.exports.removeAsAdmin = async (req, res) => {
+  const user = await User.findOneAndUpdate({ username: req.params.username }, { $set: { role: 'user' } }, { new: true });
+
+  return user ? res.status(200).json({ msg: 'Remove as admin is successfully.' })
+              : res.status(400).json({ msg: 'Remove as admin is fail.' });
 }
 
 module.exports.searchAdmins = (req, res) => {
