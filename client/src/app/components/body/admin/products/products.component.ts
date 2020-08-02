@@ -596,18 +596,26 @@ export class ProductsComponent implements OnInit {
   //#region Products
 
   onSearch(form: NgForm) {
-    this.authService.getInfo().subscribe(res => {
-      if (res['user'].role == 'root' || res['user'].role === 'admin') {
-        this.adminService.searchProducts(form.value).subscribe(
-          res => {
-            this.products = res['products'];
-          },
-          err => {
-            alert(err.error.msg);
-          }
-        );
-      } else this.router.navigateByUrl('');
-    });
+    this.authService.getInfo().subscribe(
+      res => {
+        if (res['user'].role == 'root' || res['user'].role === 'admin') {
+          this.adminService.searchProducts(form.value).subscribe(
+            res => {
+              this.products = res['products'];
+            },
+            err => {
+              alert(err.error.msg);
+            }
+          );
+        } else this.router.navigateByUrl('');
+      },
+      err => {
+        if (err.status == 440) {
+          if (confirm('Your session has expired and must log in again.\nDo you want to login again?')) window.open('/login');
+          else this.authService.removeToken();
+        } else this.authService.removeToken();
+      }
+    );
   }
 
   showAll() {
