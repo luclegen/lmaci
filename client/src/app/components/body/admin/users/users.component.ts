@@ -63,22 +63,29 @@ export class UsersComponent implements OnInit {
   }
 
   makeAdmin(username: string) {
-    this.authService.getInfo().subscribe(res => {
-      if (res['user'].role == 'root' || res['user'].role === 'admin') {
-        if (confirm('Are you sure to make admin: ' + username + '?')) {
-          this.adminService.makeAdmin(username).subscribe(
-            res => {
-              alert(res['msg']);
-              this.ngOnInit();
-            },
-            err => {
-              alert(err.error.msg);
-            }
-          );
-        }
+    this.authService.getInfo().subscribe(
+      res => {
+        if (res['user'].role == 'root' || res['user'].role === 'admin') {
+          if (confirm('Are you sure to make admin: ' + username + '?')) {
+            this.adminService.makeAdmin(username).subscribe(
+              res => {
+                alert(res['msg']);
+                this.ngOnInit();
+              },
+              err => {
+                alert(err.error.msg);
+              }
+            );
+          }
+        } else this.router.navigateByUrl('');
+      },
+      err => {
+        if (err.status == 440) {
+          if (confirm('Your session has expired and must log in again.\nDo you want to login again?')) window.open('/login');
+          else this.authService.removeToken();
+        } else this.authService.removeToken();
       }
-      else this.router.navigateByUrl('');
-    });
+    );
   }
 
   onSubmit(form: NgForm) {
