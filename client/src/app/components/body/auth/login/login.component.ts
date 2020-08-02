@@ -39,11 +39,18 @@ export class LoginComponent implements OnInit {
     this.authService.login(form.value).subscribe(
       res => {
         this.authService.setToken(res['token']);
-        this.authService.getInfo().subscribe(res => {
-          let userDetails = res['user'];
-          if (userDetails.activated) this.router.navigateByUrl('/');
-          else this.router.navigateByUrl('active');
-        });
+        this.authService.getInfo().subscribe(
+          res => {
+            if (res['user'].activated) this.router.navigateByUrl('/');
+            else this.router.navigateByUrl('active');
+          },
+          err => {
+            if (err.status == 440) {
+              if (confirm('Your session has expired and must log in again.\nDo you want to login again?')) window.open('/login');
+              else this.authService.removeToken();
+            } else this.authService.removeToken();
+          }
+        );
       },
       err => {
         this.serverErrorMessages = err.error.msg;
