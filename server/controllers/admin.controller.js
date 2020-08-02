@@ -22,7 +22,7 @@ module.exports.removeAsAdmin = async (req, res) => {
   const user = await User.findOneAndUpdate({ username: req.params.username }, { $set: { role: 'user' } }, { new: true });
 
   return user ? res.status(200).json({ msg: 'Remove as admin is successfully.' })
-              : res.status(400).json({ msg: 'Remove as admin is fail.' });
+              : res.status(417).json({ msg: 'Remove as admin is fail.' });
 }
 
 module.exports.searchAdmins = async (req, res) => {
