@@ -42,5 +42,3 @@ module.exports.upload = (path, dir = '') => {
   
   return multer({ storage: storage });
 }
-
-module.exports.transfer = () => multer();
