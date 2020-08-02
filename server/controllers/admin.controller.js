@@ -52,13 +52,13 @@ module.exports.makeAdmin = async (req, res) => {
                : res.status(417).json({ msg: 'Make admin is fail.' });
 }
 
-module.exports.searchUsers = (req, res) => {
+module.exports.searchUsers = async (req, res) => {
   let query = req.body.type == 'username' ? { username: RegExp(req.body.keyword, 'i'), role: 'user' }
                                           : { fullName: RegExp(converter.toName(req.body.keyword), 'i'), role: 'user' };
-  User.find(query, (err, users) => {
-    return users ? res.status(200).json({ users })
-                  : res.status(404).json({ msg: 'Users not found.' })
-  });
+  const users = await User.find(query);
+
+  return users ? res.status(200).json({ users })
+                  : res.status(404).json({ msg: 'Users not found.' });
 }
 
 //#endregion Users
