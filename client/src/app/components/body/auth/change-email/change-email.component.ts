@@ -42,18 +42,26 @@ export class ChangeEmailComponent implements OnInit {
 
   onSubmit(form: NgForm) {
     this.serverErrorMessages = null;
-    this.authService.getInfo().subscribe(res => {
-      if (!res['user'].activated) {
-        this.authService.changeEmail(this.authService.getId(), form.value).subscribe(
-          res => {
-            alert(res['msg']);
-            this.router.navigateByUrl('active');
-          },
-          err => {
-            this.serverErrorMessages = err.error.message;
-          }
-        );
+    this.authService.getInfo().subscribe(
+      res => {
+        if (!res['user'].activated) {
+          this.authService.changeEmail(this.authService.getId(), form.value).subscribe(
+            res => {
+              alert(res['msg']);
+              this.router.navigateByUrl('active');
+            },
+            err => {
+              this.serverErrorMessages = err.error.message;
+            }
+          );
+        }
+      },
+      err => {
+        if (err.status == 440) {
+          if (confirm('Your session has expired and must log in again.\nDo you want to login again?')) window.open('/login');
+          else this.authService.removeToken();
+        } else this.authService.removeToken();
       }
-    });
+    );
   }
 }
