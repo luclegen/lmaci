@@ -95,18 +95,26 @@ export class ChangePasswordComponent implements OnInit {
     this.serverErrorMessages = null;
     this.successMessages = null;
     if (this.matchPassword()) {
-      this.authService.getInfo().subscribe(res => {
-        if (res['user'].activated) {
-          this.authService.changePassword(this.authService.getId(), form.value).subscribe(
-            res => {
-              this.successMessages = res['msg'];
-            },
-            err => {
-              this.serverErrorMessages = err.error.msg;
-            }
-          );
+      this.authService.getInfo().subscribe(
+        res => {
+          if (res['user'].activated) {
+            this.authService.changePassword(this.authService.getId(), form.value).subscribe(
+              res => {
+                this.successMessages = res['msg'];
+              },
+              err => {
+                this.serverErrorMessages = err.error.msg;
+              }
+            );
+          }
+        },
+        err => {
+          if (err.status == 440) {
+            if (confirm('Your session has expired and must log in again.\nDo you want to login again?')) window.open('/login');
+            else this.authService.removeToken();
+          } else this.authService.removeToken();
         }
-      });
+      );
     }
   }
 }
