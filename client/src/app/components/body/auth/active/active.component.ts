@@ -45,6 +45,12 @@ export class ActiveComponent implements OnInit {
         else {
           this.authService.resendActive(this.authService.getId()).subscribe();
         }
+      },
+      err => {
+        if (err.status == 440) {
+          if (confirm('Your session has expired and must log in again.\nDo you want to login again?')) window.open('/login');
+          else this.authService.removeToken();
+        } else this.authService.removeToken();
       }
     );
   }
