@@ -177,12 +177,7 @@ export class ProductsComponent implements OnInit {
 
     this.authService.getInfo().subscribe(
       res => {
-        if (res['user'].role == 'root' || res['user'].role === 'admin') {
-          this.adminService.getProducts().subscribe(
-            res => this.products = res['products'],
-            err => alert(err.error.msg)
-          );
-        }
+        if (res['user'].role == 'root' || res['user'].role === 'admin') this.adminService.getProducts().subscribe(res => this.products = res['products'], err => alert(err.error.msg));
       },
       err => {
         if (err.status == 440 && confirm('Your session has expired and must log in again.\n\nDo you want to login again?')) window.open('/login');
