@@ -136,7 +136,7 @@ module.exports.updateProduct = (req, res) => {
     if (productEdited) {
       const newSliders = [];
 
-      if (productEdited.colors.length && productEdited.sliders.length) {
+      if (productEdited.sliders.length) {
         const common = [], colors =  productEdited.colors.map(c => c.value), colorsSliders = productEdited.sliders.map(s => s.color);
         
         colors.forEach(c => {
