@@ -78,38 +78,36 @@ module.exports.active = async (req, res) => {
   } else return res.status(404).json({ msg: 'User specified isn\'t found.' });
 }
 
-module.exports.resendActive = (req, res) => {
+module.exports.resendActive = async (req, res) => {
   if (!ObjectId.isValid(req.params.id))
     return res.status(400).json({ msg: `No record with given id: ${req.params.id}` });
 
-  User.findById(req.params.id, (err, user) => {
-    if (user) {
-      if (user.activated) return res.status(422).json({ msg: 'Email is verified.' });
-      else {
-        Code.findOne({ _userId: req.params.id }, (err, code) => {
-          if (err) return res.status(400).json(err);
-          else {
-            Code.deleteOne({ _userId: user._id }, err => {
-              if (err) console.log('ERROR: Clear code: ' + JSON.stringify(err, undefined, 2))
-            });
-    
-            let code = new Code();
-    
-            code._userId = user._id;
-            code.code = generator.generateCode(6);
-    
-            code.save((err, code) => {
-              if (err) return res.status(400).json(err);
-              else {
-                mailer.sendVerifyEmail(user.email, 'Verify Email', code.code);
-                return res.status(200).json({ msg: 'Resent Verification Code.' });
-              }
-            });
-          }
+  const user = await User.findById(req.params.id);
+
+  if (user) {
+    if (user.activated) return res.status(422).json({ msg: 'Email is verified.' });
+    else {
+      const code = Code.findOne({ _userId: req.params.id });
+
+      if (code) {
+        Code.deleteOne({ _userId: user._id }, err => {
+          if (err) console.log('ERROR: Clear codes: ' + JSON.stringify(err, undefined, 2))
         });
-      }
-    } else return res.status(404).json({ msg: 'User not found.' });
-  });
+
+        const newCode = new Code();
+
+        newCode._userId = user._id;
+        newCode.code = generator.generateCode(6);
+
+        try {
+          mailer.sendVerifyEmail(user.email, 'Verify Email', (await newCode.save()).code);
+          return res.status(200).json({ msg: 'Resent Verification Code.' });
+        } catch (err) {
+          return res.status(400).json(err);
+        }
+      } else return res.status(400).json({ msg: 'Code is not found.' });
+    }
+  } else return res.status(404).json({ msg: 'User not found.' });
 }
 
 module.exports.changeEmail = (req, res) => {
