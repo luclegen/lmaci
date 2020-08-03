@@ -605,12 +605,8 @@ export class ProductsComponent implements OnInit {
       res => {
         if (res['user'].role == 'root' || res['user'].role === 'admin') {
           this.adminService.searchProducts(form.value).subscribe(
-            res => {
-              this.products = res['products'];
-            },
-            err => {
-              alert(err.error.msg);
-            }
+            res => this.products = res['products'],
+            err => alert(err.error.msg)
           );
         }
       },
