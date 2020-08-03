@@ -386,8 +386,8 @@ User Controller: verifyEmail
 User Router: POST verifyEmail
 User Controller: resendVerifyEmail
 User Router: GET resendVerifyEmail
-User Controller: changeEmail
-User Router: PUT changeEmail
+Auth Controller: changeEmail
+Auth Router: PUT changeEmail
 User Controller: authenticate
 User Router: POST authenticate
 User Controller: findUsername
