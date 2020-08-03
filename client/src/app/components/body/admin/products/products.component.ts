@@ -554,14 +554,7 @@ export class ProductsComponent implements OnInit {
 
   onDeleteProduct(p: Product) {
     if (confirm('Are you sure delete: ' + JSON.stringify(p) + '?')) {
-      this.adminService.deleteProduct(p._id).subscribe(
-        res => {
-          alert(res['msg']);
-        },
-        err => {
-          alert(err.error.msg);
-        }
-      );
+      this.adminService.deleteProduct(p._id).subscribe(res => alert(res['msg']), err => alert(err.error.msg));
       this.ngOnInit();
     }
   }
