@@ -963,7 +963,6 @@ export class ProductComponent implements OnInit {
               },
               err => {
                 alert(err.error.msg);
-                this.router.navigateByUrl('');
               }
             );
           } else alert('Only users can review this product.');
