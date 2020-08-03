@@ -149,16 +149,16 @@ module.exports.updateProduct = async (req, res) => {
   } else return res.status(404).json({ msg: 'Product not found.' });
 }
 
-module.exports.deleteProduct = (req, res) => {
+module.exports.deleteProduct = async (req, res) => {
   if (!ObjectId.isValid(req.params.id))
     return res.status(400).send(`No record with given id: ${req.params.id}`);
   
-  Product.findByIdAndDelete(req.params.id, (err, productDeleted) => {
-    if (productDeleted) {
-      rimraf.sync('uploads/img/product/' + req.params.id);
-      return res.status(200).json({ msg: 'Product is deleted.' });
-    } else return res.status(404).json({ msg: 'Product not found.' });
-  });
+  const productDeleted = await Product.findByIdAndDelete(req.params.id);
+  
+  if (productDeleted) {
+    rimraf.sync('uploads/img/product/' + req.params.id);
+    return res.status(200).json({ msg: 'Product is deleted.' });
+  } else return res.status(404).json({ msg: 'Product not found.' });
 }
 
 module.exports.searchProducts = (req, res) => {
