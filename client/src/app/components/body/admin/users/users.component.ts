@@ -83,9 +83,7 @@ export class UsersComponent implements OnInit {
       this.authService.getInfo().subscribe(
         res => {
           if (res['user'].role == 'root' || res['user'].role === 'admin') {
-            this.adminService.searchUsers(form.value).subscribe(res => {
-              this.users = res['users'];
-            });
+            this.adminService.searchUsers(form.value).subscribe(res => this.users = res['users']);
           }
         },
         err => {
