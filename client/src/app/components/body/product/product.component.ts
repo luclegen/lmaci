@@ -271,10 +271,7 @@ export class ProductComponent implements OnInit {
           );
         }
       },
-      err => {
-        alert(err.error.msg);
-        this.router.navigateByUrl('');
-      }
+      err => alert(err.error.msg)
     );
   }
 
