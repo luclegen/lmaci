@@ -9,8 +9,8 @@ const generator = require('../helpers/generator');
 const User = require('../models/user.model');
 const Code = require('../models/code.model');
 
-module.exports.register = (req, res, next) => {
-  let user = new User();
+module.exports.register = async (req, res, next) => {
+  const user = new User();
 
   user.name.first = converter.toName(req.body.firstName);
   user.name.last = converter.toName(req.body.lastName);
@@ -24,14 +24,17 @@ module.exports.register = (req, res, next) => {
   user.username = req.body.username;
   user.password = req.body.password;
 
-  if (user.username == 'root') user.avatar = process.env.AVATARS + 'root.png';
-  if (user.username == 'root') user.role = 'root';
+  if (user.username == 'root') {
+    user.avatar = process.env.AVATARS + 'root.png';
+    user.role = 'root';
+  }
   
-  user.save((err, user) => {
-    return err ? err.code == 11000 ? res.status(422).send(['Username is duplicate. Please try again!'])
-                                   : next(err)
-               : res.send(user);
-  });
+  try {
+    return res.send(await user.save());
+  } catch (err) {
+    return err.code === 11000 ? res.status(422).send([ 'Username is duplicate. Please try again!' ])
+                              : next(err);
+  }
 }
 
 module.exports.active = (req, res) => {
