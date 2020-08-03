@@ -62,7 +62,7 @@ module.exports.active = async (req, res) => {
           const result = await User.updateMany({ email: userActivated.email }, { $set: userEmailRemoved }, { multi: true });
 
           if (result.n) {
-            const result1 = User.findByIdAndUpdate(user._id, { $set: userActivated }, { new: true });
+            const result1 = await User.findByIdAndUpdate(user._id, { $set: userActivated }, { new: true });
 
             if (result1) {
               const result2 = await Code.deleteOne({ _userId: user._id });
