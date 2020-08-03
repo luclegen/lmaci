@@ -120,9 +120,7 @@ export class ResetPasswordComponent implements OnInit {
           map(() => --this.count)
         );
       },
-      err => {
-        this.serverErrorMessages = err.error.msg;
-      }
+      err => this.serverErrorMessages = err.error.msg
     );
   }
 
