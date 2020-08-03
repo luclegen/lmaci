@@ -14,19 +14,7 @@ export class TopNavbarComponent implements OnInit {
   constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
-    if (this.authService.getToken()){
-      this.authService.getInfo().subscribe(
-        res => {
-          this.userDetails = res['user'];
-        },
-        err => {
-          if (err.status == 440) {
-            if (confirm('Your session has expired and must log in again.\nDo you want to login again?')) window.open('/login');
-            else this.authService.removeToken();
-          } else this.authService.removeToken();
-        }
-      );
-    }
+    if (this.authService.getToken()) this.authService.getInfo().subscribe(res => this.userDetails = res['user']);
   }
 
   onLogout() {
