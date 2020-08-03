@@ -114,7 +114,7 @@ module.exports.changeEmail = async (req, res) => {
   if (!ObjectId.isValid(req.params.id))
     return res.status(400).json({ msg: `No record with given id: ${req.params.id}` });
 
-  const user = User.findByIdAndUpdate(req.params.id, { $set: { email: req.body.email, activated: false } }, { new: true });
+  const user = await User.findByIdAndUpdate(req.params.id, { $set: { email: req.body.email, activated: false } }, { new: true });
 
   return user ? res.status(200).json({ msg: 'Change email is successfully.' })
               : res.status(404).json({ msg: 'User not found.' });
