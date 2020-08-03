@@ -224,14 +224,10 @@ export class ProductsComponent implements OnInit {
                       this.ngOnInit();
                       this.onCancelProduct();
                     },  
-                    err => {
-                      alert(err.error.msg);
-                    }
+                    err => alert(err.error.msg)
                   );
                 },
-                err => {
-                  alert(err.error.msg);
-                }
+                err => alert(err.error.msg)
               );
             } else {
               this.adminService.updateProduct(form.value._id, form.value).subscribe(
@@ -241,9 +237,7 @@ export class ProductsComponent implements OnInit {
                   this.ngOnInit();
                   this.onCancelProduct();
                 },
-                err => {
-                  alert(err.error.msg);
-                }
+                err => alert(err.error.msg)
               );
             }
           } else {
@@ -264,14 +258,10 @@ export class ProductsComponent implements OnInit {
                     this.ngOnInit();
                     this.onCancelProduct();
                   },  
-                  err => {
-                    alert(err.error.msg);
-                  }
+                  err => alert(err.error.msg)
                 );
               },
-              err => {
-                alert(JSON.stringify(err.error));
-              }
+              err => alert(JSON.stringify(err.error))
             );
           }
         }
