@@ -110,14 +110,14 @@ module.exports.resendActive = async (req, res) => {
   } else return res.status(404).json({ msg: 'User not found.' });
 }
 
-module.exports.changeEmail = (req, res) => {
+module.exports.changeEmail = async (req, res) => {
   if (!ObjectId.isValid(req.params.id))
     return res.status(400).json({ msg: `No record with given id: ${req.params.id}` });
 
-  User.findByIdAndUpdate(req.params.id, { $set: { email: req.body.email, activated: false } }, { new: true }, (err, user) => {
-    return user ? res.status(200).json({ msg: 'Email is changed.' })
-                : res.status(404).json({ msg: 'User not found.' });
-  });
+  const user = User.findByIdAndUpdate(req.params.id, { $set: { email: req.body.email, activated: false } }, { new: true });
+
+  return user ? res.status(200).json({ msg: 'Change email is successfully.' })
+              : res.status(404).json({ msg: 'User not found.' });
 }
 
 module.exports.authenticate = (req, res) => {
