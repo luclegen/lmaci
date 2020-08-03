@@ -45,16 +45,11 @@ export class LoginComponent implements OnInit {
             else this.router.navigateByUrl('active');
           },
           err => {
-            if (err.status == 440) {
-              if (confirm('Your session has expired and must log in again.\nDo you want to login again?')) window.open('/login');
-              else this.authService.removeToken();
-            } else this.authService.removeToken();
+            if (err.status == 440 && confirm('Your session has expired and must log in again.\n\nDo you want to login again?')) window.open('/login');
           }
         );
       },
-      err => {
-        this.serverErrorMessages = err.error.msg;
-      }
+      err => this.serverErrorMessages = err.error.msg
     );
   }
 
