@@ -61,9 +61,7 @@ export class UsersComponent implements OnInit {
                 alert(res['msg']);
                 this.ngOnInit();
               },
-              err => {
-                alert(err.error.msg);
-              }
+              err => alert(err.error.msg)
             );
           }
         }
