@@ -248,6 +248,7 @@ Admin Service: removeProduct
 Products Component: onEditProduct
 Products Component: onCancelProduct
 Products Component: onDeleteColor, onDeleteProperty, onDeleteOption, onDeleteTechnicalDetail, onDeleteProduct
+Products Component: onDeleteProduct
 Admin Service: updateProduct
 Admin Service: searchProducts
 Products Component: onSearch
