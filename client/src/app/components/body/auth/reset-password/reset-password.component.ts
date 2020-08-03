@@ -103,9 +103,7 @@ export class ResetPasswordComponent implements OnInit {
           alert(res['msg']);
           this.router.navigateByUrl('login');
         },
-        err => {
-          this.serverErrorMessages = err.error.msg;
-        }
+        err => this.serverErrorMessages = err.error.msg
       );
     }
   }
