@@ -29,12 +29,8 @@ export class UsersComponent implements OnInit {
       res => {
         if (res['user'].role == 'root' || res['user'].role === 'admin') {
           this.adminService.getUsers().subscribe(
-            res => {
-              this.users = res['users'];
-            },
-            err => {
-              alert(err.error.msg);
-            }
+            res => this.users = res['users'],
+            err => alert(err.error.msg)
           );
         }
       },
