@@ -74,17 +74,13 @@ export class ChangePasswordComponent implements OnInit {
       notEye.style.display = 'none';
       button.setAttribute('aria-visible', 'true');
 
-      for (let i = 0; i < password.length; i++) {
-        password[i].setAttribute('type', 'text');
-      }
+      for (let i = 0; i < password.length; i++) password[i].setAttribute('type', 'text');
     } else {
       eye.style.display = 'none';
       notEye.style.display = 'inline';
       button.setAttribute('aria-visible', 'false');
 
-      for (let i = 0; i < password.length; i++) {
-        password[i].setAttribute('type', 'password');
-      }
+      for (let i = 0; i < password.length; i++) password[i].setAttribute('type', 'password');
     }
   }
 
