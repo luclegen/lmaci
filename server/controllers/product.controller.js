@@ -56,19 +56,18 @@ module.exports.uploadImgs = async (req, res) => {
   } else res.status(404).json({ msg: 'Product not found.' });
 }
 
-module.exports.post = (req, res) => {
+module.exports.post = async (req, res) => {
   if (!ObjectId.isValid(req.params.id))
     return res.status(400).json({ msg: `No record with given id: ${req.params.id}` });
 
-    let post = {
-      content: req.body.content,
-      dateModified: req.body.dateModified
-    };
+  const post = {
+    content: req.body.content,
+    dateModified: req.body.dateModified
+  };
+  const product = await Product.findByIdAndUpdate(req.params.id, { $set: { post: post } }, { new: true });
 
-  Product.findByIdAndUpdate(req.params.id, { $set: { post: post } }, { new: true }, (err, product) => {
-    return product ? res.status(200).json({ msg: 'Post this product is successfully.' })
-                   : res.status(404).json({ msg: 'Product not found.' });
-  });
+  return product ? res.status(200).json({ msg: 'Post this product is successfully.' })
+                 : res.status(404).json({ msg: 'Product not found.' });
 }
 
 module.exports.review = (req, res) => {
