@@ -87,7 +87,7 @@ module.exports.resendActive = async (req, res) => {
   if (user) {
     if (user.activated) return res.status(422).json({ msg: 'Email is verified.' });
     else {
-      const code = Code.findOne({ _userId: req.params.id });
+      const code = await Code.findOne({ _userId: req.params.id });
 
       if (code) {
         Code.deleteOne({ _userId: user._id }, err => {
