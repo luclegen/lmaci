@@ -956,14 +956,10 @@ export class ProductComponent implements OnInit {
                     ratingMsg.style.display = 'none';
                     this.ngOnInit();
                   },
-                  err => {
-                    alert(err.error.msg);
-                  }
+                  err => alert(err.error.msg)
                 );
               },
-              err => {
-                alert(err.error.msg);
-              }
+              err => alert(err.error.msg)
             );
           } else alert('Only users can review this product.');
         },
