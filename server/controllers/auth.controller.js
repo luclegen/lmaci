@@ -181,23 +181,23 @@ module.exports.resetPassword = async (req, res) => {
   } else return res.status(404).json({ msg: 'User isn\'t found.' });
 }
 
-module.exports.changePassword = (req, res) => {
+module.exports.changePassword = async (req, res) => {
   if (!ObjectId.isValid(req.params.id))
     return res.status(400).json({ msg: `No record with given id: ${req.params.id}` });
   
-  User.findById(req.params.id, (err, user) => {
-    if (user) {
-      if (!user.activated) return res.status(422).json({ msg: 'Email isn\'t verified.' });
-      if (user.verifyPassword(req.body.password)) {
-        user.password = req.body.newPassword
-        
-        user.save(err => {
-          return err ? res.status(400).json({ msg: 'Update is error.' })
-                   : res.status(200).json({ msg: 'Password was successfully changed.' });
-        });
-      } else return res.status(403).json({ msg: 'Wrong password.' });
-    } else return res.status(404).json({ msg: 'User not found.' });
-  });
+  const user = await User.findById(req.params.id);
+
+  if (user) {
+    if (!user.activated) return res.status(422).json({ msg: 'Email isn\'t verified.' });
+    if (user.verifyPassword(req.body.password)) {
+      user.password = req.body.newPassword;
+      
+      user.save(err => {
+        return err ? res.status(400).json({ msg: 'Change Password is failded.' })
+                   : res.status(200).json({ msg: 'Change Password is successfully.' });
+      });
+    } else return res.status(403).json({ msg: 'Wrong password.' });
+  } else return res.status(404).json({ msg: 'User not found.' });
 }
 
 module.exports.info = (req, res) => {
