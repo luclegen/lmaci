@@ -101,16 +101,16 @@ module.exports.uploadProductImg = async (req, res) => {
 
 module.exports.getProducts = async (req, res) => {
   const products = await Product.find();
-  
+
   return products ? res.status(200).json({ products: products })
                               : res.status(404).json({ msg: 'Products not found.' });
 }
 
-module.exports.updateProduct = (req, res) => {
+module.exports.updateProduct = async (req, res) => {
   if (!ObjectId.isValid(req.params.id))
     return res.status(400).send(`No record with given id: ${req.params.id}`);
 
-  let product = {
+  const product = {
     name: req.body.name,
     price: req.body.price,
     quantity: {
@@ -121,32 +121,32 @@ module.exports.updateProduct = (req, res) => {
     properties: req.body.properties,
     technicalDetails: req.body.technicalDetails
   };
+
+  const productEdited = await Product.findByIdAndUpdate(req.params.id, { $set: product }, { new: true });
   
-  Product.findByIdAndUpdate(req.params.id, { $set: product }, { new: true }, (err, productEdited) => {
-    if (productEdited) {
-      const newSliders = [];
+  if (productEdited) {
+    const newSliders = [];
 
-      if (productEdited.sliders.length) {
-        const common = [], colors =  productEdited.colors.map(c => c.value), colorsSliders = productEdited.sliders.map(s => s.color);
-        
-        colors.forEach(c => {
-          if (colorsSliders.filter(cs => cs == c).length) common.push(colorsSliders.filter(cs => cs == c)[0]);
-        });
-        
-        common.forEach(c => {
-          newSliders.push(productEdited.sliders.filter(s => s.color == c)[0]);
-          colorsSliders.splice(colorsSliders.indexOf(c), 1);
-        });
-        
-        colorsSliders.forEach(r => rimraf.sync('uploads/img/product/' + req.params.id + '/slider/' + r.replace(/#/, '')));
-      } else rimraf.sync('uploads/img/product/' + req.params.id + '/slider/');
-
-      Product.findByIdAndUpdate(req.params.id, { $set: { sliders: newSliders } }, { new: true }, (err, productEdited1) => {
-        return productEdited1 ? res.status(200).json({ _id: productEdited1.id, msg: 'Product is updated.' })
-                              : res.status(404).json({ msg: 'Product not found.' });
+    if (productEdited.sliders.length) {
+      const common = [], colors =  productEdited.colors.map(c => c.value), colorsSliders = productEdited.sliders.map(s => s.color);
+      
+      colors.forEach(c => {
+        if (colorsSliders.filter(cs => cs == c).length) common.push(colorsSliders.filter(cs => cs == c)[0]);
       });
-    } else return res.status(404).json({ msg: 'Product not found.' });
-  });
+      
+      common.forEach(c => {
+        newSliders.push(productEdited.sliders.filter(s => s.color == c)[0]);
+        colorsSliders.splice(colorsSliders.indexOf(c), 1);
+      });
+      
+      colorsSliders.forEach(r => rimraf.sync('uploads/img/product/' + req.params.id + '/slider/' + r.replace(/#/, '')));
+    } else rimraf.sync('uploads/img/product/' + req.params.id + '/slider/');
+
+    const productEdited1 = await Product.findByIdAndUpdate(req.params.id, { $set: { sliders: newSliders } }, { new: true });
+
+    return productEdited1 ? res.status(200).json({ _id: productEdited1.id, msg: 'Product is updated.' })
+                            : res.status(404).json({ msg: 'Product not found.' });
+  } else return res.status(404).json({ msg: 'Product not found.' });
 }
 
 module.exports.deleteProduct = (req, res) => {
