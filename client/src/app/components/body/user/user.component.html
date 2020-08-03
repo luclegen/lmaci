@@ -4,41 +4,41 @@
     <thead>
       <tr>
         <th colspan="2">
-          <img [src]="userDetails.avatar" [alt]="userDetails.name.first.toUpperCase() + '\'S AVATAR'">
+          <img [src]="userDetails?.avatar" [alt]="userDetails?.name.first.toUpperCase() + '\'S AVATAR'">
         </th>
       </tr>
       <tr>
-        <th colspan="2">{{ userDetails.name.first.toUpperCase() }}'S PROFILE</th>
+        <th colspan="2">{{ userDetails?.name.first.toUpperCase() }}'S PROFILE</th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <td>Full Name</td>
-        <td>{{ userDetails.fullName }}</td>
+        <td>{{ userDetails?.fullName }}</td>
       </tr>
       <tr>
         <td>Gender</td>
-        <td>{{ userDetails.gender }}</td>
+        <td>{{ userDetails?.gender }}</td>
       </tr>
       <tr>
         <td>Role</td>
-        <td>{{ userDetails.role }}</td>
+        <td>{{ userDetails?.role }}</td>
       </tr>
       <tr>
         <td>Email</td>
-        <td>{{ userDetails.email }}</td>
+        <td>{{ userDetails?.email }}</td>
       </tr>
       <tr>
         <td>Mobile Number</td>
-        <td>{{ userDetails.mobileNumber }}</td>
+        <td>{{ userDetails?.mobileNumber }}</td>
       </tr>
       <tr>
         <td>Username</td>
-        <td>{{ userDetails.username }}</td>
+        <td>{{ userDetails?.username }}</td>
       </tr>
       <tr>
         <td>Address</td>
-        <td>{{ userDetails.address }}</td>
+        <td>{{ userDetails?.address }}</td>
       </tr>
     </tbody>
   </table>
