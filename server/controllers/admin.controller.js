@@ -99,11 +99,11 @@ module.exports.uploadProductImg = async (req, res) => {
   } else return res.status(404).json({ msg: 'Upload this product image failed.' });
 }
 
-module.exports.getProducts = (req, res) => {
-  Product.find((err, products) => {
-    return products ? res.status(200).json({ products: products })
-                    : res.status(404).json({ msg: 'Products not found.' });
-  });
+module.exports.getProducts = async (req, res) => {
+  const products = await Product.find();
+  
+  return products ? res.status(200).json({ products: products })
+                              : res.status(404).json({ msg: 'Products not found.' });
 }
 
 module.exports.updateProduct = (req, res) => {
