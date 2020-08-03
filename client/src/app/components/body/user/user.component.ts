@@ -44,18 +44,12 @@ export class UserComponent implements OnInit {
               this.userDetails.role = this.userDetails.role.split('')[0].toUpperCase() + this.userDetails.role.split('').slice(1).join('');
               this.userDetails.gender = this.userDetails.gender.split('')[0].toUpperCase() + this.userDetails.gender.split('').slice(1).join('');
             },
-            err => {
-              alert(err.error.msg);
-              this.router.navigateByUrl('');
-            }
+            err => alert(err.error.msg)
           );
-        } else this.router.navigateByUrl('');
+        }
       },
       err => {
-        if (err.status == 440) {
-          if (confirm('Your session has expired and must log in again.\nDo you want to login again?')) window.open('/login');
-          else this.authService.removeToken();
-        } else this.authService.removeToken();
+        if (err.status == 440 && confirm('Your session has expired and must log in again.\n\nDo you want to login again?')) window.open('/login');
       }
     );
   }
