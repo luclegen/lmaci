@@ -390,8 +390,8 @@ Auth Controller: changeEmail
 Auth Router: PUT changeEmail
 User Controller: authenticate
 User Router: POST authenticate
-User Controller: findUsername
-User Router: POST findUsername
+Auth Controller: findUsername
+Auth Router: POST findUsername
 User Controller: resendVerifyResetPassword
 User Router: GET resendVerifyResetPassword
 User Controller: resetPassword
@@ -412,7 +412,6 @@ Auth Controller
 Auth Router
 Server App: Auth Router
 Auth Controller: resendActive
-Auth Controller: findUsername
 Auth Controller: info
 Auth Router: GET info
 User Router: GET get
