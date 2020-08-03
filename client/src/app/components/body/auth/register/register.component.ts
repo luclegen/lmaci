@@ -105,7 +105,7 @@ export class RegisterComponent implements OnInit {
           form.resetForm();
         },
         err => {
-          this.serverErrorMessages = err.status === 422 ? err.error.join('<br/>') 
+          this.serverErrorMessages = err.status == 422 ? err.error.join('<br/>') 
                                                         : 'Something went wrong. Please contact admin.';
         }
       );
