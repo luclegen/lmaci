@@ -99,14 +99,14 @@ module.exports.uploadProductImg = async (req, res) => {
   } else return res.status(404).json({ msg: 'Upload this product image failed.' });
 }
 
-module.exports.post = (req, res) => {
+module.exports.post = async (req, res) => {
   if (!ObjectId.isValid(req.params.id))
     return res.status(400).json({ msg: `No record with given id: ${req.params.id}` });
+  
+  const product = await Product.findByIdAndUpdate(req.params.id, { $set: { post: req.body.post } }, { new: true });
 
-  Product.findByIdAndUpdate(req.params.id, { $set: { post: req.body.post } }, { new: true }, (err, product) => {
-    return product ? res.status(200).json({ msg: 'Post is successfully!' })
-                   : res.status(404).json({ msg: 'Product not found.' });
-  });
+  return product ? res.status(200).json({ msg: 'Post is successfully!' })
+                 : res.status(404).json({ msg: 'Product not found.' });
 }
 
 module.exports.getProducts = (req, res) => {
