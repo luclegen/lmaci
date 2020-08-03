@@ -396,8 +396,8 @@ Auth Controller: resendVerifyResetPassword
 Auth Router: GET resendVerifyResetPassword
 Auth Controller: resetPassword
 Auth Router: PUT resetPassword
-User Controller: changePassword
-User Router: PUT changePassword
+Auth Controller: changePassword
+Auth Router: PUT changePassword
 User Controller: profile
 User Router: GET profile
 Code Model
