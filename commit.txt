@@ -394,8 +394,8 @@ Auth Controller: findUsername
 Auth Router: POST findUsername
 Auth Controller: resendVerifyResetPassword
 Auth Router: GET resendVerifyResetPassword
-User Controller: resetPassword
-User Router: PUT resetPassword
+Auth Controller: resetPassword
+Auth Router: PUT resetPassword
 User Controller: changePassword
 User Router: PUT changePassword
 User Controller: profile
