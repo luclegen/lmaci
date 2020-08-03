@@ -161,13 +161,12 @@ module.exports.deleteProduct = async (req, res) => {
   } else return res.status(404).json({ msg: 'Product not found.' });
 }
 
-module.exports.searchProducts = (req, res) => {
-  let query = { name: RegExp(converter.toKeyword(req.body.keyword), 'i') };
+module.exports.searchProducts = async (req, res) => {
+  const query = { name: RegExp(converter.toKeyword(req.body.keyword), 'i') };
+  const products = await Product.find(query);
   
-  Product.find(query, (err, products) => {
-    return products ? res.status(200).json({ products })
-                  : res.status(404).json({ msg: 'Products not found.' })
-  });
+  return products ? res.status(200).json({ products })
+                  : res.status(404).json({ msg: 'Products not found.' });
 }
 
 //#endregion Products
