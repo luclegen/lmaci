@@ -465,6 +465,7 @@ Server App: Image Router
 Product Controller: review
 Product Router: PUT review
 Middlewares: Json Web Token
+User Controller: get
 
 Uploads Files
 Uploads Images
