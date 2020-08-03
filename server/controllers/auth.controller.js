@@ -139,8 +139,6 @@ module.exports.findUsername = async (req, res) => {
 module.exports.resendVerifyResetPassword = async (req, res) => {
   const user = await User.findOne({ username: req.params.username, activated: true });
 
-  console.log('T');
-
   if (user) {
     Code.deleteOne({ _userId: user._id }, err => {
       if (err) console.log('ERROR: Clear codes: ' + JSON.stringify(err, undefined, 2))
