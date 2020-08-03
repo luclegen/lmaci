@@ -159,7 +159,6 @@ module.exports.resendVerifyResetPassword = async (req, res) => {
 }
 
 module.exports.resetPassword = async (req, res) => {
-  console.log('T');
   const user = await User.findOne({ username: req.params.username, activated: true });
   if (user) {
     const code = await Code.findOne({ _userId: user._id });
