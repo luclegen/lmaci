@@ -160,29 +160,28 @@ module.exports.resendVerifyResetPassword = async (req, res) => {
   } else return res.status(404).json({ msg: 'User not found.' });
 }
 
-module.exports.resetPassword = (req, res) => {
-  User.findOne({ username: req.params.username, activated: true }, (err, user) => {
-    if (user) {
-      Code.findOne({ _userId: user._id }, (err, code) => {
-        if (code) {
-          if (Date.now() > Date.parse(code.createdAt) + 90000) return res.status(400).json({ msg: 'Code is expired. Please click to resend email!' });
-          else if (req.body.code === code.code) {
-            user.password = req.body.password;
+module.exports.resetPassword = async (req, res) => {
+  console.log('T');
+  const user = await User.findOne({ username: req.params.username, activated: true });
+  if (user) {
+    const code = await Code.findOne({ _userId: user._id });
+    if (code) {
+      if (Date.now() > Date.parse(code.createdAt) + 90000) return res.status(400).json({ msg: 'Code is expired. Please click to resend email!' });
+      else if (req.body.code === code.code) {
+        user.password = req.body.password;
 
-            user.save(err => {
-              if (err) return res.status(400).json({ msg: 'Update is error.' });
-              else {
-                Code.deleteOne({ _userId: user._id }, (err, result) => {
-                  return err ? res.status(400).json(err)
-                             : res.status(200).json({ msg: 'Password reset successfully.' });
-                });
-              }
+        user.save(err => {
+          if (err) return res.status(400).json({ msg: 'Update is error.' });
+          else {
+            Code.deleteOne({ _userId: user._id }, err => {
+              return err ? res.status(400).json(err)
+                         : res.status(200).json({ msg: 'Reset Password is successfully.' });
             });
-          } else return res.status(403).json({ msg: 'Verification Code is wrong.' });
-        } else return res.status(404).json({ msg: 'Code isn\'t found.' });
-      });
-    } else return res.status(404).json({ msg: 'User isn\'t found.' });
-  });
+          }
+        });
+      } else return res.status(403).json({ msg: 'Verification Code is wrong.' });
+    } else return res.status(404).json({ msg: 'Code isn\'t found.' });
+  } else return res.status(404).json({ msg: 'User isn\'t found.' });
 }
 
 module.exports.changePassword = (req, res) => {
