@@ -83,22 +83,20 @@ module.exports.createProduct = async (req, res, next) => {
   }
 }
 
-module.exports.uploadProductImg = (req, res) => {
+module.exports.uploadProductImg = async (req, res) => {
   if (!ObjectId.isValid(req.params.id))
     return res.status(400).json({ msg: `No record with given id: ${req.params.id}` });
 
-  let urlImg = process.env.SERVER_URL + '/image/?image=product/' + req.params.id + '/',
-      img = {
-        index: parseInt(req.body.index),
-        path: urlImg + req.file.filename
-      };
+  const img = {
+    index: parseInt(req.body.index),
+    path: process.env.SERVER_URL + '/image/?image=product/' + req.params.id + '/' + req.file.filename
+  };
+  const product = await Product.findByIdAndUpdate(req.params.id, { $set: { img: img } }, { new: true });
 
-  Product.findByIdAndUpdate(req.params.id, { $set: { img: img } }, { new: true }, (err, product) => {
-    if (product) {
-      if (img.index > 0) rimraf.sync('uploads/img/product/' + req.params.id + '/' + (img.index - 1) + '.png');
-      return res.status(200).json();
-    } else return res.status(404).json({ msg: 'Upload this product image failed.' });
-  });
+  if (product) {
+    if (img.index > 0) rimraf.sync('uploads/img/product/' + req.params.id + '/' + (img.index - 1) + '.png');
+    return res.status(200).json();
+  } else return res.status(404).json({ msg: 'Upload this product image failed.' });
 }
 
 module.exports.post = (req, res) => {
