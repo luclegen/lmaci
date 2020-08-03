@@ -36,9 +36,7 @@ export class FindUsernameComponent implements OnInit {
         alert(res['msg']);
         this.router.navigateByUrl('reset-password/' + res['username']);
       },
-      err => {
-        this.serverErrorMessages = err.error.msg;
-      }
+      err => this.serverErrorMessages = err.error.msg
     );
   }
 
