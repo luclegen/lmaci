@@ -72,9 +72,7 @@ export class AdminsComponent implements OnInit {
                 this.ngOnInit();
                 if (adminUsername == username) this.router.navigateByUrl('');
               },
-              err => {
-                alert(err.error.msg);
-              }
+              err => alert(err.error.msg)
             );
           }
         }
