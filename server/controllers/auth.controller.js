@@ -200,9 +200,9 @@ module.exports.changePassword = async (req, res) => {
   } else return res.status(404).json({ msg: 'User not found.' });
 }
 
-module.exports.info = (req, res) => {
-  User.findById(req._id, (err, user) => {
-    return user ? res.status(200).json({ status: true, user: _.pick(user, [ 'avatar', 'name.first', 'activated', 'username', 'role']) })
-                : res.status(404).json({ status: false, msg: 'User not found.' });
-  });
+module.exports.info = async (req, res) => {
+  const user = await User.findById(req._id);
+
+  return user ? res.status(200).json({ status: true, user: _.pick(user, [ 'avatar', 'name.first', 'activated', 'username', 'role']) })
+              : res.status(404).json({ status: false, msg: 'User not found.' });
 }
