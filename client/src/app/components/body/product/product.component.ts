@@ -264,14 +264,9 @@ export class ProductComponent implements OnInit {
 
         if (this.authService.getToken()){
           this.authService.getInfo().subscribe(
-            res => {
-              this.userDetails = res['user'];
-            },
+            res => this.userDetails = res['user'],
             err => {
-              if (err.status == 440) {
-                if (confirm('Your session has expired and must log in again.\nDo you want to login again?')) window.open('/login');
-                else this.authService.removeToken();
-              } else this.authService.removeToken();
+              if (err.status == 440 && confirm('Your session has expired and must log in again.\n\nDo you want to login again?')) window.open('/login');
             }
           );
         }
