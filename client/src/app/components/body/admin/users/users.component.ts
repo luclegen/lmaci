@@ -86,13 +86,10 @@ export class UsersComponent implements OnInit {
             this.adminService.searchUsers(form.value).subscribe(res => {
               this.users = res['users'];
             });
-          } else this.router.navigateByUrl('');
+          }
         },
         err => {
-          if (err.status == 440) {
-            if (confirm('Your session has expired and must log in again.\nDo you want to login again?')) window.open('/login');
-            else this.authService.removeToken();
-          } else this.authService.removeToken();
+          if (err.status == 440 && confirm('Your session has expired and must log in again.\n\nDo you want to login again?')) window.open('/login');
         }
       );
     }
