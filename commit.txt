@@ -439,7 +439,6 @@ Helpers: Generator
 Helpers: Converter
 Admin Controller: addProduct
 Admin Router: POST addProduct
-Admin Controller: post
 Admin Router: POST post
 Admin Controller: getProducts
 Admin Controller: editProduct
