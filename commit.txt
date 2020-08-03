@@ -406,13 +406,12 @@ User Router: POST verify
 User Controller: resendVerify
 User Router: GET resendVerify
 User Controller: active
-User Controller: resendActive
 User Router: POST active
-User Router: GET resendActive
 Middlewares: Passport
 Auth Controller
 Auth Router
 Server App: Auth Router
+Auth Controller: resendActive
 Auth Controller: findUsername
 Auth Controller: info
 Auth Router: GET info
