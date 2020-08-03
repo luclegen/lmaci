@@ -78,9 +78,7 @@ export class UsersComponent implements OnInit {
     if (form.value.keyword.length > 0) {
       this.authService.getInfo().subscribe(
         res => {
-          if (res['user'].role == 'root' || res['user'].role === 'admin') {
-            this.adminService.searchUsers(form.value).subscribe(res => this.users = res['users']);
-          }
+          if (res['user'].role == 'root' || res['user'].role === 'admin') this.adminService.searchUsers(form.value).subscribe(res => this.users = res['users']);
         },
         err => {
           if (err.status == 440 && confirm('Your session has expired and must log in again.\n\nDo you want to login again?')) window.open('/login');
