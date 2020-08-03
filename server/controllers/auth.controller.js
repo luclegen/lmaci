@@ -121,11 +121,10 @@ module.exports.changeEmail = async (req, res) => {
 }
 
 module.exports.authenticate = (req, res) => {
-  // Call for passport authentication
   passport.authenticate('local', (err, user, info) => {
-    return err ? res.status(400).json(err) // Error from passport middleware
-               : user ? res.status(200).json({ "token": user.generateJwt() }) // Registered user
-                      : res.status(404).json(info); // Unknow user or wrong password
+    return err ? res.status(400).json(err)
+               : user ? res.status(200).json({ "token": user.generateJwt() })
+                      : res.status(404).json(info);
   })(req, res);
 }
 
