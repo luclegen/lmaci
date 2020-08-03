@@ -5,7 +5,6 @@ const transfer = require('../helpers/transfer');
 module.exports.get = (req, res) => {
   const query = url.parse(req.url, true).query;
   const pic = query.image;
-
   const imageDir = './uploads/img/';
 
   if (typeof pic === 'undefined') {
