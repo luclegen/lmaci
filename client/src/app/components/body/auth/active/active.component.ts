@@ -42,15 +42,10 @@ export class ActiveComponent implements OnInit {
     this.authService.getInfo().subscribe(
       res => {
         if (res['user'].activated) this.router.navigateByUrl('');
-        else {
-          this.authService.resendActive(this.authService.getId()).subscribe();
-        }
+        else this.authService.resendActive(this.authService.getId()).subscribe();
       },
       err => {
-        if (err.status == 440) {
-          if (confirm('Your session has expired and must log in again.\nDo you want to login again?')) window.open('/login');
-          else this.authService.removeToken();
-        } else this.authService.removeToken();
+        if (err.status == 440 && confirm('Your session has expired and must log in again.\n\nDo you want to login again?')) window.open('/login');
       }
     );
   }
