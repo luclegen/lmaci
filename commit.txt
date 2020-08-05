@@ -467,6 +467,8 @@ Product Controller: review
 Product Router: PUT review
 Middlewares: Json Web Token
 User Controller: get
+Product Controller: deleteReview
+Product Router: PUT deleteReview
 
 Uploads Files
 Uploads Images
