@@ -8,5 +8,6 @@ router.get('/:id', productCtrl.get);
 router.put('/upload-imgs/:id', transfer.upload('uploads/img/product', 'slider').array('files'), productCtrl.uploadImgs);
 router.put('/post/:id', productCtrl.post);
 router.put('/review/:id', transfer.upload('uploads/img/product', 'review').array('files'), productCtrl.review);
+router.put('/delete-review/:id', productCtrl.deleteReview);
 
 module.exports = router;
