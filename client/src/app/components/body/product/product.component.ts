@@ -1179,7 +1179,6 @@ export class ProductComponent implements OnInit {
   deleteReview(r: Object) {
     if (confirm('Are you sure delete: ' + JSON.stringify(r) + '?')) {
       this.reviews.splice(this.reviews.indexOf(r), 1);
-
       this.productService.deleteReview(this.id, r, this.reviews).subscribe(res => alert(res['msg']), err => alert(err.error.msg));
     }
   }
