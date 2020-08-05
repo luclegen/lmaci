@@ -37,4 +37,8 @@ export class ProductService {
     return this.http.put(environment.productUrl + '/review/' + id, formData);
   }
 
+  deleteReview(id: string, review: Object, reviews: []) {
+    return this.http.put(environment.productUrl + '/delete-review/' + id, { review: review, reviews: reviews });
+  }
+
 }
