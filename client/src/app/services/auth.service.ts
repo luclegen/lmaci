@@ -76,7 +76,7 @@ export class AuthService {
   }
 
   getId() {
-    return this.getToken() ? JSON.parse(atob(this.getToken().split('.')[1]))._id : null;
+    return this.getPayload()._id;
   }
 
   isLoggedIn() {
