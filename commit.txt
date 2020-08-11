@@ -362,6 +362,7 @@ Product Component: selectReviewImg
 Product Component: scrollFrame
 Product Component: reviewScrollFrame
 Product Component: deleteReview
+Product Component: filterStar
 Product Component: ngOnInit
 Product Component: View
 Global Styles
