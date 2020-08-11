@@ -1189,6 +1189,11 @@ export class ProductComponent implements OnInit {
     this.productService.filterStar(this.id, star.index).subscribe(res => this.reviews = res['reviews'], err => alert(err.error.msg));
   }
 
+  showReviews() {
+    this.indexStar = undefined;
+    this.reviews = this.product.reviews;
+  }
+
   //#endregion Reviews
 
 }
