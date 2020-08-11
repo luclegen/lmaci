@@ -180,6 +180,7 @@ export class ProductComponent implements OnInit {
   //#region Reviews
 
   reviews;
+  indexStar;
   reviewEvent;
   isShowReviewGallery = false;
 
@@ -1183,8 +1184,9 @@ export class ProductComponent implements OnInit {
     }
   }
 
-  filterStar(star: Object) {
-    alert(JSON.stringify(star));
+  filterStar(star: any) {
+    this.indexStar = star.index;
+    this.productService.filterStar(this.id, star.index).subscribe(res => this.reviews = res['reviews'], err => alert(err.error.msg));
   }
 
   //#endregion Reviews
