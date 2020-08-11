@@ -122,6 +122,7 @@ Change Password Component: checkStrengthPassword
 Change Password Component: matchPassword
 Change Password Component: togglePassword
 Auth Service: changePassword
+Auth Service: getId
 Change Password Component: onSubmit
 Active Component: onSubmit
 Active Component: constructor
