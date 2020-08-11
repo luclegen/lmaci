@@ -107,3 +107,13 @@ module.exports.deleteReview = async (req, res) => {
   return product ? res.status(200).json({ msg: 'Delete review is successfully.' })
                   : res.status(404).json({ msg: 'Product not found.' });
 }
+
+module.exports.filterStar = async (req, res) => {
+  if (!ObjectId.isValid(req.params.id))
+    return res.status(400).json({ msg: `No record with given id: ${req.params.id}` });
+
+  const product = await Product.findById(req.params.id);
+  
+  return product ? res.status(200).json({ reviews: product.reviews.filter(e => e.star == req.body.index) })
+                 : res.status(404).json({ msg: 'Product not found.' });
+}
