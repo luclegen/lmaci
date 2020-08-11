@@ -1183,6 +1183,10 @@ export class ProductComponent implements OnInit {
     }
   }
 
+  filterStar(star: Object) {
+    alert(JSON.stringify(star));
+  }
+
   //#endregion Reviews
 
 }

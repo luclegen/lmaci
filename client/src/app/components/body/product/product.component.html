@@ -206,7 +206,7 @@
         </span>
       </div>
       <nav class="star-nav">
-        <a *ngFor="let s of stars.star" class="horizontal"><strong>{{ s.count }}</strong>views</a>
+        <a *ngFor="let s of stars.star" class="horizontal" (click)="filterStar(s)"><strong>{{ s.count }}</strong>views</a>
       </nav>
     </div>
     <div>
