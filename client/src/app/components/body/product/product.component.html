@@ -248,6 +248,7 @@
 </section>
 <section>
   <div class="center-container">
+    <h2 *ngIf="indexStar">{{ indexStar }}-star rating</h2>
     <ul class="reviews-ls">
       <li *ngFor="let r of reviews">
         <span class="inline user">
