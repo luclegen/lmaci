@@ -41,4 +41,8 @@ export class ProductService {
     return this.http.put(environment.productUrl + '/delete-review/' + id, { review: review, reviews: reviews });
   }
 
+  filterStar(id: string, index) {
+    return this.http.put(environment.productUrl + '/filter-star/' + id, { index: index });
+  }
+
 }
