@@ -701,10 +701,18 @@ export class ProductComponent implements OnInit {
     this.cancel();
   }
 
-  delete(i) {
+  delete(event: any) {
     const carouselSlide = document.querySelector('.carousel-slide') as HTMLElement;
-    if (confirm('Are you sure delete: Image ' + (i + 1) + '?')) {
-      this.paths.splice(i, 1);
+    const targetBtn = event.target.closest('button');
+    const gridBoxBtn = document.querySelectorAll('.grid-box button') as NodeListOf<HTMLElement>;
+    const imgs = Array.from(gridBoxBtn);
+
+    if (!targetBtn) return;
+
+    const targetIndex = imgs.findIndex(i => i == targetBtn);
+
+    if (confirm('Are you sure delete: Image ' + (targetIndex + 1) + '?')) {
+      this.paths.splice(targetIndex, 1);
       
       this.counter = 0;
       carouselSlide.style.transition = 'none';
