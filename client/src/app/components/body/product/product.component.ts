@@ -1220,7 +1220,9 @@ export class ProductComponent implements OnInit {
   }
 
   enterCommentCamera() {
-    
+    const reviewCamera = document.getElementById('cmt-camera') as HTMLElement;
+
+    reviewCamera.style.fill = 'white';
   }
 
   leaveCommentCamera() {
