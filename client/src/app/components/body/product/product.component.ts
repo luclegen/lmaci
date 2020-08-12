@@ -1251,7 +1251,7 @@ export class ProductComponent implements OnInit {
     if (files.length) {
       this.comment.files.push(...files);
 
-      for (const f of this.comment.files) {
+      for (const f of files) {
         let reader = new FileReader();
 
         reader.onload = (event:any) => this.comment.imgs.push(event.target.result);
@@ -1261,6 +1261,10 @@ export class ProductComponent implements OnInit {
     }
   }
   
+  deleteCommentImg(event: any) {
+
+  }
+
   //#endregion Comment
 
 }
