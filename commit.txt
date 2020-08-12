@@ -365,6 +365,7 @@ Product Component: reviewScrollFrame
 Product Component: deleteReview
 Product Component: filterStar
 Product Component: showReviews
+Product Component: enterCommentCamera
 Product Component: ngOnInit
 Product Component: View
 Global Styles
