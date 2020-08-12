@@ -992,10 +992,18 @@ export class ProductComponent implements OnInit {
     } else if (confirm('Do you want to login?')) window.open('login');
   }
 
-  deleteReviewImg(i: string) {
-    if (confirm('Are you sure delete: Image ' + (this.review.imgs.indexOf(i) + 1) + '?')) {
-      this.review.files.splice(this.review.imgs.indexOf(i), 1);
-      this.review.imgs.splice(this.review.imgs.indexOf(i), 1);
+  deleteReviewImg(event: any) {
+    const targetBtn = event.target.closest('button');
+    const reviewImgsBarBtn = document.querySelectorAll('.review-imgs-bar button') as NodeListOf<HTMLElement>;
+    const btns = Array.from(reviewImgsBarBtn);
+
+    if (!targetBtn) return;
+
+    const targetIndex = btns.findIndex(i => i == targetBtn);
+
+    if (confirm('Are you sure delete: Image ' + (targetIndex + 1) + '?')) {
+      this.review.files.splice(targetIndex, 1);
+      this.review.imgs.splice(targetIndex, 1);
     };
   }
 
