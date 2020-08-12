@@ -1229,7 +1229,7 @@ export class ProductComponent implements OnInit {
 
   //#endregion Reviews
 
-  //#region Comments
+  //#region Comment
 
   sendComment() {
 
@@ -1261,7 +1261,7 @@ export class ProductComponent implements OnInit {
     }
   }
   
-  //#endregion Comments
+  //#endregion Comment
 
 }
 
