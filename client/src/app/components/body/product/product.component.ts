@@ -1186,7 +1186,7 @@ export class ProductComponent implements OnInit {
 
   filterStar(star: any) {
     this.indexStar = star.index;
-    this.productService.filterStar(this.id, star.index).subscribe(res => this.reviews = res['reviews'], err => alert(err.error.msg));
+    this.reviews = this.product.reviews.filter(e => e.star == star.index);
   }
 
   showReviews() {
