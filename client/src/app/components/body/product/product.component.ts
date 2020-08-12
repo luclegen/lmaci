@@ -1226,7 +1226,9 @@ export class ProductComponent implements OnInit {
   }
 
   leaveCommentCamera() {
-    
+    const reviewCamera = document.getElementById('cmt-camera') as HTMLElement;
+
+    reviewCamera.style.fill = 'black';
   }
 
   //#endregion Comments
