@@ -954,7 +954,7 @@ export class ProductComponent implements OnInit {
               res => {
                 this.product = res['product'];
                 
-                this.review.index = this.product.reviews.length ? Math.max(...this.product.reviews.map(r => r.index)) + 1 : 0;
+                this.review.index = this.product.reviews.length ? this.product.reviews[this.product.reviews.length - 1].index + 1 : 0;
 
                 this.productService.sendReview(this.id, this.review, this.review.files).subscribe(
                   res => {
