@@ -206,7 +206,10 @@
         </span>
       </div>
       <nav class="star-nav">
-        <a *ngFor="let s of stars.star" class="horizontal" (click)="filterStar(s)"><strong>{{ s.count }}</strong>views</a>
+        <span *ngFor="let s of stars.star">
+          <a *ngIf="s.count" class="horizontal" (click)="filterStar(s)"><strong>{{ s.count }}</strong>review<p *ngIf="s.count > 1">s</p></a>
+          <p *ngIf="!s.count"><strong>{{ s.count }}</strong></p>
+        </span>
       </nav>
     </div>
     <div>
@@ -248,7 +251,7 @@
 </section>
 <section>
   <div class="center-container">
-    <h2 *ngIf="indexStar">{{ indexStar }}-star rating | <a (click)="showReviews()">See all reviews</a></h2>
+    <h2 *ngIf="indexStar">{{ indexStar }} star | <a (click)="showReviews()">See all reviews</a></h2>
     <ul class="reviews-ls">
       <li *ngFor="let r of reviews">
         <span class="inline user">
