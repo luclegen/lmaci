@@ -1262,7 +1262,18 @@ export class ProductComponent implements OnInit {
   }
   
   deleteCommentImg(event: any) {
+    const targetBtn = event.target.closest('button');
+    const reviewImgsBarBtn = document.querySelectorAll('.cmt-imgs-bar button') as NodeListOf<HTMLElement>;
+    const btns = Array.from(reviewImgsBarBtn);
 
+    if (!targetBtn) return;
+
+    const targetIndex = btns.findIndex(i => i == targetBtn);
+
+    if (confirm('Are you sure delete: Image ' + (targetIndex + 1) + '?')) {
+      this.comment.files.splice(targetIndex, 1);
+      this.comment.imgs.splice(targetIndex, 1);
+    };
   }
 
   //#endregion Comment
