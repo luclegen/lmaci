@@ -366,6 +366,7 @@ Product Component: deleteReview
 Product Component: filterStar
 Product Component: showReviews
 Product Component: enterCommentCamera
+Product Component: leaveCommentCamera
 Product Component: ngOnInit
 Product Component: View
 Global Styles
