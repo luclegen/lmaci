@@ -369,6 +369,7 @@ Product Component: enterCommentCamera
 Product Component: leaveCommentCamera
 Product Component: selectCommentFileInput
 PolyFills
+Product Component: deleteCommentImg
 Product Component: ngOnInit
 Product Component: View
 Global Styles
