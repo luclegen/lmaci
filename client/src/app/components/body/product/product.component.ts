@@ -127,6 +127,17 @@ export class ProductComponent implements OnInit {
     imgs: []
   }
 
+  comment = {
+    index: 0,
+    user: {
+      username: '',
+    },
+    content: '',
+    img: [],
+    imgs: [],
+    files: []
+  }
+
   //#endregion Models
 
   //#region Formater
@@ -183,6 +194,11 @@ export class ProductComponent implements OnInit {
   indexStar;
   reviewEvent;
   isShowReviewGallery = false;
+
+  //#endregion Reviews
+
+  //#region Reviews
+
 
   //#endregion Reviews
   
@@ -1196,6 +1212,22 @@ export class ProductComponent implements OnInit {
   }
 
   //#endregion Reviews
+
+  //#region Comments
+
+  sendComment() {
+
+  }
+
+  enterCommentCamera() {
+    
+  }
+
+  leaveCommentCamera() {
+    
+  }
+
+  //#endregion Comments
 
 }
 
