@@ -705,11 +705,11 @@ export class ProductComponent implements OnInit {
     const carouselSlide = document.querySelector('.carousel-slide') as HTMLElement;
     const targetBtn = event.target.closest('button');
     const gridBoxBtn = document.querySelectorAll('.grid-box button') as NodeListOf<HTMLElement>;
-    const imgs = Array.from(gridBoxBtn);
+    const btns = Array.from(gridBoxBtn);
 
     if (!targetBtn) return;
 
-    const targetIndex = imgs.findIndex(i => i == targetBtn);
+    const targetIndex = btns.findIndex(i => i == targetBtn);
 
     if (confirm('Are you sure delete: Image ' + (targetIndex + 1) + '?')) {
       this.paths.splice(targetIndex, 1);
