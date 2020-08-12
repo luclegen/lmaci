@@ -1232,7 +1232,51 @@ export class ProductComponent implements OnInit {
   //#region Comment
 
   sendComment() {
+    if (this.authService.getToken()) {
+      this.authService.getInfo().subscribe(
+        res => {
+          this.comment.user.username = res['user'].username;
 
+          if (res['user'].role == 'user') {
+            this.productService.getProduct(this.id).subscribe(
+              res => {
+                this.product = res['product'];
+                
+                this.comment.index = this.product.reviews.length ? this.product.reviews[this.product.reviews.length - 1].index + 1 : 0;
+
+                // this.productService.sendComment(this.id, this.comment, this.comment.files).subscribe(
+                //   res => {
+                //     const ratingMsg = document.getElementById('rating-msg') as HTMLElement;
+
+                //     alert(res['msg']);
+
+                //     this.comment = {
+                //       index: 0,
+                //       user: {
+                //         username: ''
+                //       },
+                //       content: '',
+                //       img: [],
+                //       imgs: [],
+                //       files: []
+                //     }
+
+                //     this.reloadStar(0);
+                //     ratingMsg.style.display = 'none';
+                //     this.ngOnInit();
+                //   },
+                //   err => alert(err.error.msg)
+                // );
+              },
+              err => alert(err.error.msg)
+            );
+          } else alert('Only users can review this product.');
+        },
+        err => {
+          if (err.status == 440 && confirm('Your session has expired and must log in again.\n\nDo you want to login again?')) window.open('/login');
+        }
+      );
+    } else if (confirm('Do you want to login?')) window.open('login');
   }
 
   enterCommentCamera() {
