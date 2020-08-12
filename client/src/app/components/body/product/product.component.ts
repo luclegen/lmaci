@@ -933,7 +933,7 @@ export class ProductComponent implements OnInit {
     if (files.length) {
       this.review.files.push(...files);
 
-      for (const f of this.review.files) {
+      for (const f of files) {
         let reader = new FileReader();
 
         reader.onload = (event:any) => this.review.imgs.push(event.target.result);
