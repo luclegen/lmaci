@@ -472,8 +472,6 @@ Middlewares: Json Web Token
 User Controller: get
 Product Controller: deleteReview
 Product Router: PUT deleteReview
-Product Controller: filterStar
-Product Router: PUT filterStar
 
 Uploads Files
 Uploads Images
