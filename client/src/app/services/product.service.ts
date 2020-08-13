@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 
 import { Review } from '../models/review.model';
+import { Comment } from '../models/comment.model';
 
 @Injectable({
   providedIn: 'root'
@@ -39,6 +40,18 @@ export class ProductService {
 
   deleteReview(id: string, review: Object, reviews: []) {
     return this.http.put(environment.productUrl + '/delete-review/' + id, { review: review, reviews: reviews });
+  }
+
+  sendComment(id: string, comment: Comment, files) {
+    const formData = new FormData();
+
+    formData.append('index', comment.index.toString());
+    formData.append('user', JSON.stringify(comment.user));
+    formData.append('content', comment.content);
+
+    for (let i = 0; i < files.length; i++) formData.append('files', files[i], i.toString() + '.' + files[i].type.slice(6));
+
+    return this.http.put(environment.productUrl + '/comment/' + id, formData);
   }
 
 }
