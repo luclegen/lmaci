@@ -64,6 +64,7 @@ export class ProductComponent implements OnInit {
     price: 0,
     quantity: { imported: 0, exported: 0 },
     reviews: [],
+    comments: [],
     type: '',
     colors: [],
     properties: [],
@@ -197,11 +198,12 @@ export class ProductComponent implements OnInit {
 
   //#endregion Reviews
 
-  //#region Reviews
+  //#region Comments
 
+  comments;
 
-  //#endregion Reviews
-  
+  //#endregion Comments
+
   //#region Resize
 
   resize = false;
@@ -1242,35 +1244,31 @@ export class ProductComponent implements OnInit {
               res => {
                 this.product = res['product'];
                 
-                this.comment.index = this.product.reviews.length ? this.product.reviews[this.product.reviews.length - 1].index + 1 : 0;
+                this.comment.index = this.product.comments.length ? this.product.comments[this.product.comments.length - 1].index + 1 : 0;
 
-                // this.productService.sendComment(this.id, this.comment, this.comment.files).subscribe(
-                //   res => {
-                //     const ratingMsg = document.getElementById('rating-msg') as HTMLElement;
+                this.productService.sendComment(this.id, this.comment, this.comment.files).subscribe(
+                  res => {
+                    alert(res['msg']);
 
-                //     alert(res['msg']);
+                    this.comment = {
+                      index: 0,
+                      user: {
+                        username: ''
+                      },
+                      content: '',
+                      img: [],
+                      imgs: [],
+                      files: []
+                    }
 
-                //     this.comment = {
-                //       index: 0,
-                //       user: {
-                //         username: ''
-                //       },
-                //       content: '',
-                //       img: [],
-                //       imgs: [],
-                //       files: []
-                //     }
-
-                //     this.reloadStar(0);
-                //     ratingMsg.style.display = 'none';
-                //     this.ngOnInit();
-                //   },
-                //   err => alert(err.error.msg)
-                // );
+                    this.ngOnInit();
+                  },
+                  err => alert(err.error.msg)
+                );
               },
               err => alert(err.error.msg)
             );
-          } else alert('Only users can review this product.');
+          } else alert('Only users can comment this product.');
         },
         err => {
           if (err.status == 440 && confirm('Your session has expired and must log in again.\n\nDo you want to login again?')) window.open('/login');
