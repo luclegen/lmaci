@@ -9,5 +9,6 @@ router.put('/upload-imgs/:id', transfer.upload('uploads/img/product', 'slider').
 router.put('/post/:id', productCtrl.post);
 router.put('/review/:id', transfer.upload('uploads/img/product', 'review').array('files'), productCtrl.review);
 router.put('/delete-review/:id', productCtrl.deleteReview);
+router.put('/comment/:id', transfer.upload('uploads/img/product', 'comment').array('files'), productCtrl.comment);
 
 module.exports = router;
