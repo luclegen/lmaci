@@ -371,6 +371,7 @@ Product Component: selectCommentFileInput
 PolyFills
 Product Component: deleteCommentImg
 Product Component: sendComment
+Product Component: sendComment
 Product Component: ngOnInit
 Product Component: View
 Global Styles
