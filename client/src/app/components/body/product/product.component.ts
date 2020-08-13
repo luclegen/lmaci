@@ -845,8 +845,7 @@ export class ProductComponent implements OnInit {
                 res => {
                   this.product = res['product'];
           
-                  this.initPost();
-                  this.loadPost();
+                  this.ngOnInit();
                 },
                 err => {
                   alert(err.error.msg);
