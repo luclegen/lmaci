@@ -372,6 +372,7 @@ PolyFills
 Product Component: deleteCommentImg
 Product Component: sendComment
 Product Component: sendComment
+Models: comment
 Product Component: ngOnInit
 Product Component: View
 Global Styles
