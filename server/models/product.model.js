@@ -41,7 +41,8 @@ let productSchema = new mongoose.Schema({
     dateModified: Date
   },
   sliders: Array,
-  reviews: Array
+  reviews: Array,
+  comments: Array
 }, {
   timestamps: {
     createdAt: 'createdAt',
