@@ -87,9 +87,7 @@ module.exports.resendActive = async (req, res) => {
   if (user) {
     if (user.activated) return res.status(422).json({ msg: 'Email is verified.' });
     else {
-      const code = await Code.findOne({ _userId: req.params.id });
-
-      if (code) {
+      try {
         Code.deleteOne({ _userId: user._id }, err => {
           if (err) console.log('ERROR: Clear codes: ' + JSON.stringify(err, undefined, 2))
         });
@@ -105,7 +103,9 @@ module.exports.resendActive = async (req, res) => {
         } catch (err) {
           return res.status(400).json(err);
         }
-      } else return res.status(400).json({ msg: 'Code is not found.' });
+      } catch (err) {
+        return res.status(400).json(err);
+      }
     }
   } else return res.status(404).json({ msg: 'User not found.' });
 }
