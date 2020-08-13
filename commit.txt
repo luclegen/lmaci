@@ -373,6 +373,7 @@ Product Component: deleteCommentImg
 Product Component: sendComment
 Product Component: sendComment
 Models: comment
+Product Service: sendComment
 Product Component: ngOnInit
 Product Component: View
 Global Styles
