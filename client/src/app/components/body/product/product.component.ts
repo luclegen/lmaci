@@ -1154,6 +1154,85 @@ export class ProductComponent implements OnInit {
 
   //#endregion Comments
 
+  //#region Aside Gallery
+
+  showAsideGallery(event: any, msg: Object) {
+    const asideGalleryContainer = document.getElementById('aside-gallery-container') as HTMLElement;
+    const asideCarouselSlide = document.getElementsByClassName('aside-carousel-slide') as HTMLCollectionOf<HTMLElement>;
+    const asideCloseBtn = document.getElementById('aside-close-btn') as HTMLElement;
+    const asideCarouselImg = document.getElementsByClassName('aside-carousel-img') as HTMLCollectionOf<HTMLElement>;
+    const asideGalleryCarouselNav = document.querySelector('.aside-gallery-carousel-nav') as HTMLElement;
+    const imgsBar = event.target.closest('span.imgs-bar');
+    const boxs = Array.from(imgsBar.children);
+    const targetBox = event.target.closest('span');
+
+    this.isShowAsideGallery = true;
+
+    this.asideEvent = event;
+    this.asideGallery.stars = Object(msg).stars;
+    this.asideGallery.content = Object(msg).content;
+    this.asideGallery.imgs = Object(msg).imgs;
+
+    asideGalleryContainer.style.display = 'flex';
+
+    asideCloseBtn.style.display = 'inline';
+
+    if (!targetBox) return;
+    const targetIndex = boxs.findIndex(box => box == targetBox);
+    if (targetIndex < 0) return;
+
+    if (!this.resize) this.asideCounter = targetIndex;
+
+    asideGalleryCarouselNav.style.position = 'absolute';
+    asideGalleryCarouselNav.style.display = 'flex';
+    asideGalleryCarouselNav.style.bottom = '0';
+
+    setTimeout(() => {
+      const asideGalleryCarouselImgs = document.querySelectorAll('.aside-gallery-carousel-nav img') as NodeListOf<HTMLElement>;
+      const asideGalleryFrame = document.querySelector('.aside-gallery-frame') as HTMLElement;
+
+      for (let i = 0; i < asideCarouselImg.length; i++) {
+        if (asideCarouselImg[i].clientHeight > asideCarouselImg[i].clientWidth) asideCarouselImg[i].style.height = '100%';
+        else asideCarouselImg[i].style.width = '100%';
+        asideCarouselImg[i].style.cursor = 'auto';
+      }
+      this.asideSize = asideCarouselSlide[0].offsetWidth;
+
+      for (let i = 0; i < asideCarouselSlide.length; i++) asideCarouselSlide[i].style.transition = 'none';
+      for (let i = 0; i < asideCarouselSlide.length; i++) asideCarouselSlide[i].style.transform = 'translateX(' + (-this.asideSize * this.asideCounter) + 'px)';
+      
+      this.asideSizeFrame = Math.round(asideGalleryCarouselNav.clientHeight * (asideCarouselSlide[0].clientWidth / asideCarouselSlide[0].clientHeight));
+
+      for (let i = 0; i < asideGalleryCarouselImgs.length; i++) {
+        asideGalleryCarouselImgs[i].style.width = this.asideSizeFrame + 'px';
+        if (i > 0 && i < asideGalleryCarouselImgs.length - 1) asideGalleryCarouselImgs[i].style.marginRight = '1px';
+      }
+
+      if (this.asideSizeFrame * asideGalleryCarouselImgs.length >= asideCarouselSlide[0].offsetWidth) {
+        asideGalleryCarouselNav.style.width = asideCarouselSlide[0].offsetWidth + 'px';
+        asideGalleryCarouselNav.style.left = asideCarouselSlide[0].offsetWidth / 6 + 'px';
+      } else {
+        asideGalleryCarouselNav.style.width = 'auto';
+        asideGalleryCarouselNav.style.left = (asideCarouselSlide[0].offsetWidth / 6 + (asideCarouselSlide[0].offsetWidth - (this.asideSizeFrame + 1) * (asideGalleryCarouselImgs.length - 1)) / 2 - asideGalleryCarouselImgs.length) + 'px';
+      }
+
+      for (let i = 0; i < asideGalleryCarouselImgs.length; i++) {
+        asideGalleryCarouselImgs[i].style.bottom = '0';
+        asideGalleryCarouselImgs[i].style.transition = 'none';
+        if (i > 0) asideGalleryCarouselImgs[i].style.transform = 'translate(' + (-(this.asideSizeFrame + 1)) + 'px, 2px)';
+      }
+
+      asideGalleryFrame.style.transition = 'none';
+      asideGalleryFrame.style.zIndex = '1';
+      asideGalleryFrame.style.transform = 'translateX(' + (this.asideCounter == 0 ? 1 : (this.asideSizeFrame + 1) * this.asideCounter + 1) + 'px)';
+
+      this.asideScrollFrame();
+    });
+
+  }
+
+  //#endregion Aside Gallery
+
 }
 
 //#region Helpers
