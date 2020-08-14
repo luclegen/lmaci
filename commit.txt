@@ -382,6 +382,7 @@ Product Component: asideNext
 Product Component: selectAsideImg
 Product Component: asideMoved
 Product Component: asideScrollFrame
+Product Component: hideAsideArrow
 
 Product Component: onResize
 Product Component: ngOnInit
