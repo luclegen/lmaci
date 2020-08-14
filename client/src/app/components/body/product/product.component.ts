@@ -1319,6 +1319,13 @@ export class ProductComponent implements OnInit {
     asideGalleryCarouselNav.scrollBy((this.asideSizeFrame + 1) * (this.asideCounter - Math.round(visibleFramCount / 2) + 1), 0);
   }
 
+  hideAsideArrow() {
+    const reviewPrevBtn = document.getElementById('aside-prev-btn') as HTMLElement;
+    const reviewNextBtn = document.getElementById('aside-next-btn') as HTMLElement;
+
+    reviewPrevBtn.style.display = reviewNextBtn.style.display = 'none';
+  }
+
   //#endregion Aside Gallery
 
 }
