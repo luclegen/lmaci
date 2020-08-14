@@ -1231,6 +1231,14 @@ export class ProductComponent implements OnInit {
 
   }
 
+  closeAsideGallery() {
+    const reviewgallerycontainer = document.getElementById('aside-gallery-container') as HTMLElement;
+
+    reviewgallerycontainer.style.display = 'none';
+    this.resize = false;
+    this.isShowAsideGallery = false;
+  }
+
   //#endregion Aside Gallery
 
 }
