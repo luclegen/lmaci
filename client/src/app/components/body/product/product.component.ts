@@ -1270,6 +1270,30 @@ export class ProductComponent implements OnInit {
     this.asideScrollFrame();
   }
 
+  selectAsideImg(event: any) {
+    const asideCarouselSlide = document.getElementsByClassName('aside-carousel-slide') as HTMLCollectionOf<HTMLElement>;
+    const asideGalleryCarouselNav = document.querySelector('.aside-gallery-carousel-nav') as HTMLElement;
+    const asideGalleryFrame = document.querySelector('.aside-gallery-frame') as HTMLElement;
+    const imgs = Array.from(asideGalleryCarouselNav.children);
+    const targetImg = event.target.closest('img');
+
+    if (!targetImg) return;
+
+    const targetIndex = imgs.findIndex(img => img == targetImg);
+
+    if (targetIndex < 0) return;
+
+    for (let i = 0; i < asideCarouselSlide.length; i++) asideCarouselSlide[i].style.transition = 'transform 0.4s ease-in-out';
+    asideGalleryFrame.style.transition = 'transform 0.4s ease-in-out';
+
+    this.asideCounter = targetIndex - 1;
+
+    for (let i = 0; i < asideCarouselSlide.length; i++) asideCarouselSlide[i].style.transform = 'translateX(' + (-this.asideSize * this.asideCounter) + 'px)';
+    asideGalleryFrame.style.transform = 'translateX(' + ((this.asideSizeFrame + 1) * this.asideCounter + 1) + 'px)';
+
+    this.asideScrollFrame();
+  }
+
   //#endregion Aside Gallery
 
 }
