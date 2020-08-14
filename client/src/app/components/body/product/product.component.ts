@@ -1307,6 +1307,18 @@ export class ProductComponent implements OnInit {
     if (this.asideCounter == asideCarouselImg.length - 1) reviewNextBtn.style.display = 'none';
   }
 
+  asideScrollFrame() {
+    const asideCarouselSlide = document.getElementsByClassName('aside-carousel-slide') as HTMLCollectionOf<HTMLElement>;
+    const reviewCarouselImages = document.getElementsByClassName('aside-carousel-img') as HTMLCollectionOf<HTMLElement>;
+    const asideGalleryCarouselNav = document.querySelector('.aside-gallery-carousel-nav') as HTMLElement;
+
+    const framCount = reviewCarouselImages.length;
+    const visibleFramCount = Math.round(asideCarouselSlide[0].offsetWidth / (this.asideSizeFrame + 1));
+
+    asideGalleryCarouselNav.scrollBy(-(this.asideSizeFrame + 1) * (framCount - visibleFramCount), 0);
+    asideGalleryCarouselNav.scrollBy((this.asideSizeFrame + 1) * (this.asideCounter - Math.round(visibleFramCount / 2) + 1), 0);
+  }
+
   //#endregion Aside Gallery
 
 }
