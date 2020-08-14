@@ -31,9 +31,9 @@ export class ProductComponent implements OnInit {
 
   //#region Review Slider
 
-  reviewCounter = 0;
-  reviewSize = 0;
-  reviewSizeFrame = 0;
+  asideCounter = 0;
+  asideSize = 0;
+  asideSizeFrame = 0;
 
   //#endregion Review Slider
 
@@ -119,7 +119,7 @@ export class ProductComponent implements OnInit {
     average: 0,
   }
 
-  reviewGallery = {
+  asideGallery = {
     stars: {
       count: [],
       none: []
@@ -193,9 +193,7 @@ export class ProductComponent implements OnInit {
 
   reviews;
   indexStar;
-  reviewEvent;
-  isShowReviewGallery = false;
-
+  
   //#endregion Reviews
 
   //#region Comments
@@ -207,6 +205,8 @@ export class ProductComponent implements OnInit {
   //#region Resize
 
   resize = false;
+  asideEvent;
+  isShowAsideGallery = false;
 
   //#endregion Resize
 
@@ -224,7 +224,7 @@ export class ProductComponent implements OnInit {
     if (leftContainer.style.getPropertyValue('position') == 'fixed') this.showGallery();
     else if (closeBtn.style.getPropertyValue('display') == 'none') this.closeGallery();
 
-    if (this.isShowReviewGallery) this.showReviewGallery(this.reviewEvent, this.reviewGallery);
+    if (this.isShowAsideGallery) this.showAsideGallery(this.asideEvent, this.asideGallery);
   }
 
   constructor(private viewportRuler: ViewportRuler,
@@ -1035,185 +1035,6 @@ export class ProductComponent implements OnInit {
         }
       );
     });
-  }
-
-  showReviewGallery(event: any, review: Object) {
-    const reviewCarouselSlide = document.getElementsByClassName('review-carousel-slide') as HTMLCollectionOf<HTMLElement>;
-    const reviewgallerycontainer = document.getElementById('review-allery-container') as HTMLElement;
-    const reviewclosebtn = document.getElementById('review-close-btn') as HTMLElement;
-    const reviewcarouselimg = document.getElementsByClassName('review-carousel-img') as HTMLCollectionOf<HTMLElement>;
-    const reviewGalleryCarouselNav = document.querySelector('.review-gallery-carousel-nav') as HTMLElement;
-    const imgsBar = event.target.closest('span.imgs-bar');
-    const boxs = Array.from(imgsBar.children);
-    const targetBox = event.target.closest('span');
-
-    this.isShowReviewGallery = true;
-
-    this.reviewEvent = event;
-    this.reviewGallery.stars = Object(review).stars;
-    this.reviewGallery.content = Object(review).content;
-    this.reviewGallery.imgs = Object(review).imgs;
-
-    reviewgallerycontainer.style.display = 'flex';
-
-    reviewclosebtn.style.display = 'inline';
-
-    if (!targetBox) return;
-    const targetIndex = boxs.findIndex(box => box == targetBox);
-    if (targetIndex < 0) return;
-
-    if (!this.resize) this.reviewCounter = targetIndex;
-
-    reviewGalleryCarouselNav.style.position = 'absolute';
-    reviewGalleryCarouselNav.style.display = 'flex';
-    reviewGalleryCarouselNav.style.bottom = '0';
-
-    setTimeout(() => {
-      const reviewGalleryCarouselImgs = document.querySelectorAll('.review-gallery-carousel-nav img') as NodeListOf<HTMLElement>;
-      const reviewGalleryFrame = document.querySelector('.review-gallery-frame') as HTMLElement;
-
-      for (let i = 0; i < reviewcarouselimg.length; i++) {
-        if (reviewcarouselimg[i].clientHeight > reviewcarouselimg[i].clientWidth) reviewcarouselimg[i].style.height = '100%';
-        else reviewcarouselimg[i].style.width = '100%';
-        reviewcarouselimg[i].style.cursor = 'auto';
-      }
-      this.reviewSize = reviewCarouselSlide[0].offsetWidth;
-
-      for (let i = 0; i < reviewCarouselSlide.length; i++) reviewCarouselSlide[i].style.transition = 'none';
-      for (let i = 0; i < reviewCarouselSlide.length; i++) reviewCarouselSlide[i].style.transform = 'translateX(' + (-this.reviewSize * this.reviewCounter) + 'px)';
-      
-      this.reviewSizeFrame = Math.round(reviewGalleryCarouselNav.clientHeight * (reviewCarouselSlide[0].clientWidth / reviewCarouselSlide[0].clientHeight));
-
-      for (let i = 0; i < reviewGalleryCarouselImgs.length; i++) {
-        reviewGalleryCarouselImgs[i].style.width = this.reviewSizeFrame + 'px';
-        if (i > 0 && i < reviewGalleryCarouselImgs.length - 1) reviewGalleryCarouselImgs[i].style.marginRight = '1px';
-      }
-
-      if (this.reviewSizeFrame * reviewGalleryCarouselImgs.length >= reviewCarouselSlide[0].offsetWidth) {
-        reviewGalleryCarouselNav.style.width = reviewCarouselSlide[0].offsetWidth + 'px';
-        reviewGalleryCarouselNav.style.left = reviewCarouselSlide[0].offsetWidth / 6 + 'px';
-      } else {
-        reviewGalleryCarouselNav.style.width = 'auto';
-        reviewGalleryCarouselNav.style.left = (reviewCarouselSlide[0].offsetWidth / 6 + (reviewCarouselSlide[0].offsetWidth - (this.reviewSizeFrame + 1) * (reviewGalleryCarouselImgs.length - 1)) / 2 - reviewGalleryCarouselImgs.length) + 'px';
-      }
-
-      for (let i = 0; i < reviewGalleryCarouselImgs.length; i++) {
-        reviewGalleryCarouselImgs[i].style.bottom = '0';
-        reviewGalleryCarouselImgs[i].style.transition = 'none';
-        if (i > 0) reviewGalleryCarouselImgs[i].style.transform = 'translate(' + (-(this.reviewSizeFrame + 1)) + 'px, 2px)';
-      }
-
-      reviewGalleryFrame.style.transition = 'none';
-      reviewGalleryFrame.style.zIndex = '1';
-      reviewGalleryFrame.style.transform = 'translateX(' + (this.reviewCounter == 0 ? 1 : (this.reviewSizeFrame + 1) * this.reviewCounter + 1) + 'px)';
-
-      this.reviewScrollFrame();
-    });
-
-  }
-
-  closeReviewGallery() {
-    const reviewgallerycontainer = document.getElementById('review-allery-container') as HTMLElement;
-
-    reviewgallerycontainer.style.display = 'none';
-    this.resize = false;
-    this.isShowReviewGallery = false;
-  }
-
-  reviewPrev() {
-    const reviewCarouselSlide = document.getElementsByClassName('review-carousel-slide') as HTMLCollectionOf<HTMLElement>;
-    const reviewGalleryFrame = document.querySelector('.review-gallery-frame') as HTMLElement;
-
-    if (this.reviewCounter <= 0) return;
-
-    for (let i = 0; i < reviewCarouselSlide.length; i++) reviewCarouselSlide[i].style.transition = 'transform 0.4s ease-in-out';
-    reviewGalleryFrame.style.transition = 'transform 0.4s ease-in-out';
-    this.reviewCounter--;
-    for (let i = 0; i < reviewCarouselSlide.length; i++) reviewCarouselSlide[i].style.transform = 'translateX(' + (-this.reviewSize * this.reviewCounter) + 'px)';
-    reviewGalleryFrame.style.transform = 'translateX(' + ((this.reviewSizeFrame + 1) * this.reviewCounter + 1) + 'px)';
-
-    this.reviewScrollFrame();
-  }
-
-  reviewNext() {
-    const reviewCarouselSlide = document.getElementsByClassName('review-carousel-slide') as HTMLCollectionOf<HTMLElement>;
-    const reviewCarouselImg = document.getElementsByClassName('review-carousel-img') as HTMLCollectionOf<HTMLElement>;
-    const reviewGalleryFrame = document.querySelector('.review-gallery-frame') as HTMLElement;
-
-    if (this.reviewCounter >= reviewCarouselImg.length - 1) return;
-    
-    for (let i = 0; i < reviewCarouselSlide.length; i++) reviewCarouselSlide[i].style.transition = 'transform 0.4s ease-in-out';
-    reviewGalleryFrame.style.transition = 'transform 0.4s ease-in-out';
-    this.reviewCounter++;
-    for (let i = 0; i < reviewCarouselSlide.length; i++) reviewCarouselSlide[i].style.transform = 'translateX(' + (-this.reviewSize * this.reviewCounter) + 'px)';
-    reviewGalleryFrame.style.transform = 'translateX(' + ((this.reviewSizeFrame + 1) * this.reviewCounter + 1) + 'px)';
-
-    this.reviewScrollFrame();
-  }
-
-  selectReviewImg(event: any) {
-    const reviewCarouselSlide = document.getElementsByClassName('review-carousel-slide') as HTMLCollectionOf<HTMLElement>;
-    const reviewGalleryCarouselNav = document.querySelector('.review-gallery-carousel-nav') as HTMLElement;
-    const reviewGalleryFrame = document.querySelector('.review-gallery-frame') as HTMLElement;
-    const imgs = Array.from(reviewGalleryCarouselNav.children);
-    const targetImg = event.target.closest('img');
-
-    if (!targetImg) return;
-
-    const targetIndex = imgs.findIndex(img => img == targetImg);
-
-    if (targetIndex < 0) return;
-
-    for (let i = 0; i < reviewCarouselSlide.length; i++) reviewCarouselSlide[i].style.transition = 'transform 0.4s ease-in-out';
-    reviewGalleryFrame.style.transition = 'transform 0.4s ease-in-out';
-
-    this.reviewCounter = targetIndex - 1;
-
-    for (let i = 0; i < reviewCarouselSlide.length; i++) reviewCarouselSlide[i].style.transform = 'translateX(' + (-this.reviewSize * this.reviewCounter) + 'px)';
-    reviewGalleryFrame.style.transform = 'translateX(' + ((this.reviewSizeFrame + 1) * this.reviewCounter + 1) + 'px)';
-
-    this.reviewScrollFrame();
-  }
-
-  reviewMoved() {
-    const reviewCarouselImg = document.getElementsByClassName('review-carousel-img') as HTMLCollectionOf<HTMLElement>;
-    const reviewPrevBtn = document.getElementById('review-prev-btn');
-    const reviewNextBtn = document.getElementById('review-next-btn');
-
-    this.resize = false;
-
-    this.showReviewArrow();
-
-    if (this.reviewCounter == 0) reviewPrevBtn.style.display = 'none';
-    if (this.reviewCounter == reviewCarouselImg.length - 1) reviewNextBtn.style.display = 'none';
-  }
-
-  reviewScrollFrame() {
-    const reviewCarouselSlide = document.getElementsByClassName('review-carousel-slide') as HTMLCollectionOf<HTMLElement>;
-    const reviewCarouselImages = document.getElementsByClassName('review-carousel-img') as HTMLCollectionOf<HTMLElement>;
-    const reviewGalleryCarouselNav = document.querySelector('.review-gallery-carousel-nav') as HTMLElement;
-
-    const framCount = reviewCarouselImages.length;
-    const visibleFramCount = Math.round(reviewCarouselSlide[0].offsetWidth / (this.reviewSizeFrame + 1));
-
-    reviewGalleryCarouselNav.scrollBy(-(this.reviewSizeFrame + 1) * (framCount - visibleFramCount), 0);
-    reviewGalleryCarouselNav.scrollBy((this.reviewSizeFrame + 1) * (this.reviewCounter - Math.round(visibleFramCount / 2) + 1), 0);
-  }
-
-  hideReviewArrow() {
-    const reviewPrevBtn = document.getElementById('review-prev-btn') as HTMLElement;
-    const reviewNextBtn = document.getElementById('review-next-btn') as HTMLElement;
-
-    reviewPrevBtn.style.display = reviewNextBtn.style.display = 'none';
-  }
-
-  showReviewArrow() {
-    const reviewCarouselImg = document.getElementsByClassName('review-carousel-img') as HTMLCollectionOf<HTMLElement>;
-    const reviewPrevBtn = document.getElementById('review-prev-btn') as HTMLElement;
-    const reviewNextBtn = document.getElementById('review-next-btn') as HTMLElement;
-
-    if (this.reviewCounter > 0) reviewPrevBtn.style.display = 'inline';
-    if (this.reviewCounter < reviewCarouselImg.length - 1) reviewNextBtn.style.display = 'inline';
   }
 
   deleteReview(r: Object) {
