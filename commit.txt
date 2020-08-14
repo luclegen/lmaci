@@ -375,8 +375,9 @@ Product Component: sendComment
 Models: comment
 Product Service: sendComment
 Product Component: initComments
-
 Product Component: showAsideGallery
+Product Component: closeAsideGallery
+
 Product Component: onResize
 Product Component: ngOnInit
 Product Component: View
