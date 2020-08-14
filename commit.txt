@@ -379,6 +379,7 @@ Product Component: showAsideGallery
 Product Component: closeAsideGallery
 Product Component: asidePrev
 Product Component: asideNext
+Product Component: selectAsideImg
 
 Product Component: onResize
 Product Component: ngOnInit
