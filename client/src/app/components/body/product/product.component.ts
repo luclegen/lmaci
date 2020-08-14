@@ -1326,6 +1326,15 @@ export class ProductComponent implements OnInit {
     reviewPrevBtn.style.display = reviewNextBtn.style.display = 'none';
   }
 
+  showAsideArrow() {
+    const asideCarouselImg = document.getElementsByClassName('aside-carousel-img') as HTMLCollectionOf<HTMLElement>;
+    const reviewPrevBtn = document.getElementById('aside-prev-btn') as HTMLElement;
+    const reviewNextBtn = document.getElementById('aside-next-btn') as HTMLElement;
+
+    if (this.asideCounter > 0) reviewPrevBtn.style.display = 'inline';
+    if (this.asideCounter < asideCarouselImg.length - 1) reviewNextBtn.style.display = 'inline';
+  }
+
   //#endregion Aside Gallery
 
 }
