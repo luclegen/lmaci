@@ -1239,6 +1239,21 @@ export class ProductComponent implements OnInit {
     this.isShowAsideGallery = false;
   }
 
+  asidePrev() {
+    const asideCarouselSlide = document.getElementsByClassName('aside-carousel-slide') as HTMLCollectionOf<HTMLElement>;
+    const asideGalleryFrame = document.querySelector('.aside-gallery-frame') as HTMLElement;
+
+    if (this.asideCounter <= 0) return;
+
+    for (let i = 0; i < asideCarouselSlide.length; i++) asideCarouselSlide[i].style.transition = 'transform 0.4s ease-in-out';
+    asideGalleryFrame.style.transition = 'transform 0.4s ease-in-out';
+    this.asideCounter--;
+    for (let i = 0; i < asideCarouselSlide.length; i++) asideCarouselSlide[i].style.transform = 'translateX(' + (-this.asideSize * this.asideCounter) + 'px)';
+    asideGalleryFrame.style.transform = 'translateX(' + ((this.asideSizeFrame + 1) * this.asideCounter + 1) + 'px)';
+
+    this.asideScrollFrame();
+  }
+
   //#endregion Aside Gallery
 
 }
