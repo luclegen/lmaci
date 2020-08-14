@@ -376,6 +376,7 @@ Models: comment
 Product Service: sendComment
 Product Component: ngOnInit
 Product Component: View
+Product Component: initComments
 Global Styles
 Commit
 
