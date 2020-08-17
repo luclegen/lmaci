@@ -29,13 +29,13 @@ export class ProductComponent implements OnInit {
 
   //#endregion Slider
 
-  //#region Review Slider
+  //#region Aside Slider
 
   asideCounter = 0;
   asideSize = 0;
   asideSizeFrame = 0;
 
-  //#endregion Review Slider
+  //#endregion Aside Slider
 
   //#region Star
 
