@@ -96,6 +96,7 @@
       <strong>Jump to: </strong>
       <a *ngIf="product.technicalDetails.length" [href]="type + '/' + id + '#technical-details'">Technical Details</a><p class="separator" *ngIf="product.technicalDetails.length">|</p>
       <a [href]="type + '/' + id + '#review'">Send Review</a><p class="separator">|</p>
+      <a [href]="type + '/' + id + '#comment'">Send Comment</a><p class="separator">|</p>
       <a [href]="type + '/' + id + '#comments'">Comments</a>
     </div>
   </div>
@@ -288,7 +289,7 @@
 <section>
   <div class="center-container">
     <h1 id="comments">Comments</h1>
-    <ul class="reviews-ls">
+    <ul class="cmts-ls">
       <li *ngFor="let c of comments">
         <span class="inline user">
           <a *ngIf="userDetails && (userDetails.role == 'root' || userDetails.role == 'admin' || userDetails.username == c.user.username)" [href]="c.user.username">
@@ -319,7 +320,7 @@
         </span>
       </li>
     </ul>
-    <h2 id="review">Your Comment</h2>
+    <h2 id="comment">Your Comment</h2>
     <form #reviewForm="ngForm" class="left" (ngSubmit)="sendComment()">
       <textarea #content="ngModel" [(ngModel)]="comment.content" name="content" cols="30" rows="5" placeholder="Your comment"></textarea>
       <span class="func-bar">
