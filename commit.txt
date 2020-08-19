@@ -384,6 +384,7 @@ Product Component: asideMoved
 Product Component: asideScrollFrame
 Product Component: hideAsideArrow
 Product Component: showAsideArrow
+Comment Icons
 
 Product Component: onResize
 Product Component: ngOnInit
