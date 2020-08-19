@@ -1179,7 +1179,7 @@ export class ProductComponent implements OnInit {
   }
 
   reply(cmt: Object) {
-    
+    this.indexAnswer = Object(cmt).index;
   }
   
   enterReplyCamera() {
