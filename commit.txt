@@ -387,6 +387,7 @@ Product Component: showAsideArrow
 Comment Icons
 Product Component: deleteComment
 Product Service: deleteComment
+Product Component: reply
 
 Product Component: onResize
 Product Component: ngOnInit
