@@ -53,5 +53,9 @@ export class ProductService {
 
     return this.http.put(environment.productUrl + '/comment/' + id, formData);
   }
+  
+  deleteComment(id: string, comment: Object, comments: []) {
+    return this.http.put(environment.productUrl + '/delete-comment/' + id, { comment: comment, comments: comments });
+  }
 
 }
