@@ -1157,7 +1157,12 @@ export class ProductComponent implements OnInit {
   }
 
   deleteComment(c: Object) {
-    
+    if (confirm('Are you sure delete: ' + JSON.stringify(c) + '?')) {
+      this.comments.splice(this.comments.indexOf(c), 1);
+      this.productService.deleteComment(this.id, c, this.comments).subscribe(res => alert(res['msg']), err => alert(err.error.msg));
+      
+      this.ngOnInit();
+    }
   }
   //#endregion Comment
 
