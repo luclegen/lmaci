@@ -139,6 +139,17 @@ export class ProductComponent implements OnInit {
     files: []
   }
 
+  answer = {
+    index: 0,
+    user: {
+      username: '',
+    },
+    content: '',
+    img: [],
+    imgs: [],
+    files: []
+  }
+
   //#endregion Models
 
   //#region Formater
@@ -199,6 +210,7 @@ export class ProductComponent implements OnInit {
   //#region Comments
 
   comments;
+  indexAnswer = -1;
 
   //#endregion Comments
 
@@ -1144,6 +1156,9 @@ export class ProductComponent implements OnInit {
     };
   }
 
+  deleteComment(c: Object) {
+    
+  }
   //#endregion Comment
 
   //#region Comments
@@ -1151,6 +1166,30 @@ export class ProductComponent implements OnInit {
   initComments() {
     this.product.comments.forEach(c => this.userService.getUser(c.user.username).subscribe(res => c.user = res['user'], err => console.warn(err.error.msg)));
   }
+
+  //#region Reply
+
+  sendReply() {
+
+  }
+
+  reply(cmt: Object) {
+    
+  }
+  
+  enterReplyCamera() {
+
+  }
+
+  leaveReplyCamera() {
+
+  }
+
+  selectReplyFileInput(files: any) {
+
+  }
+
+  //#endregion Reply
 
   //#endregion Comments
 
