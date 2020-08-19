@@ -386,6 +386,7 @@ Product Component: hideAsideArrow
 Product Component: showAsideArrow
 Comment Icons
 Product Component: deleteComment
+Product Service: deleteComment
 
 Product Component: onResize
 Product Component: ngOnInit
@@ -497,6 +498,7 @@ Product Controller: deleteReview
 Product Router: PUT deleteReview
 Product Controller: comment
 Product Router: PUT comment
+Product Controller: deleteComment
 
 Uploads Files
 Uploads Images
