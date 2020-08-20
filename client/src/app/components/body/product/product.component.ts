@@ -1189,7 +1189,9 @@ export class ProductComponent implements OnInit {
   }
 
   leaveReplyCamera() {
+    const replyCamera = document.getElementById('reply-camera') as HTMLElement;
 
+    replyCamera.style.fill = 'black';
   }
 
   selectReplyFileInput(files: any) {
