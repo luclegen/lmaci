@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment';
 
 import { Review } from '../models/review.model';
 import { Comment } from '../models/comment.model';
+import { Answer } from '../models/answer.model';
 
 @Injectable({
   providedIn: 'root'
@@ -58,4 +59,18 @@ export class ProductService {
     return this.http.put(environment.productUrl + '/delete-comment/' + id, { comment: comment, comments: comments });
   }
 
+  sendAnswer(id: string, cmtIndex: number, answer: Answer, files) {
+    const formData = new FormData();
+
+    formData.append('index', answer.index.toString());
+    formData.append('user', JSON.stringify(answer.user));
+    formData.append('content', answer.content);
+
+    formData.append('cmtIndex', cmtIndex.toString());
+
+    for (let i = 0; i < files.length; i++) formData.append('files', files[i], i.toString() + '.' + files[i].type.slice(6));
+
+    return this.http.put(environment.productUrl + '/reply/' + id, formData);
+  }
+  
 }
