@@ -1194,8 +1194,18 @@ export class ProductComponent implements OnInit {
     replyCamera.style.fill = 'black';
   }
 
-  selectReplyFileInput(files: any) {
+  selectReplyFileInput(files) {
+    if (files.length) {
+      this.answer.files.push(...files);
 
+      for (const f of files) {
+        let reader = new FileReader();
+
+        reader.onload = event => this.answer.imgs.push(event.target.result);
+
+        reader.readAsDataURL(f);
+      }
+    }
   }
 
   //#endregion Reply
