@@ -9,31 +9,34 @@ module.exports.getImages = (imgDir, callback) => {
   });
 }
 
-module.exports.upload = (path, dir = '') => {
+module.exports.upload = (root, dir = '', parentdir = '') => {
   const storage = multer.diskStorage({
     destination: (req, file, callBack) => {
-      if (!fs.existsSync(path + '/' + req.params.id)) fs.mkdirSync(path + '/' + req.params.id);
+      const path = [];
 
-      if (dir) if (!fs.existsSync(path + '/' + req.params.id + '/' + dir)) fs.mkdirSync(path + '/' + req.params.id + '/' + dir);
+      path.push(root + '/' + req.params.id);
+      if (dir) path.push(path[0] + '/' + (parentdir ? parentdir : dir));
 
       switch (dir) {
         case 'slider':
-          if (!fs.existsSync(path + '/' + req.params.id + '/' + dir + '/' + req.body.color.replace(/#/, ''))) fs.mkdirSync(path + '/' + req.params.id + '/' + dir + '/' + req.body.color.replace(/#/, ''));
-
-          callBack(null, path + '/' + req.params.id + '/' + dir + '/' + req.body.color.replace(/#/, ''));
+          path.push(path[1] + '/' + req.body.color.replace(/#/, ''));
           break;
 
         case 'review':
         case 'comment':
-          if (!fs.existsSync(path + '/' + req.params.id + '/' + dir + '/' + req.body.index)) fs.mkdirSync(path + '/' + req.params.id + '/' + dir + '/' + req.body.index);
-
-          callBack(null, path + '/' + req.params.id + '/' + dir + '/' + req.body.index);
+          path.push(path[1] + '/' + req.body.index);
           break;
-      
-        default:
-          callBack(null, path + '/' + req.params.id);
+
+        case 'answer':
+          path.push(path[1] + '/' + req.body.cmtIndex);
+          path.push(path[2] + '/' + dir);
+          path.push(path[3] + '/' + req.body.index);
           break;
       }
+
+      path.forEach(p => { if (!fs.existsSync(p)) fs.mkdirSync(p); });
+      
+      callBack(null, path[path.length - 1]);
     },
     filename: (req, file, callBack) => {
       callBack(null, `${file.originalname}`);
