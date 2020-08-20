@@ -390,6 +390,7 @@ Product Service: deleteComment
 Product Component: reply
 Product Component: enterReplyCamera
 Product Component: leaveReplyCamera
+Product Component: selectReplyFileInput
 
 Product Component: onResize
 Product Component: ngOnInit
