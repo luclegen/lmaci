@@ -321,7 +321,7 @@
           </button>
         </span>
         <form *ngIf="indexAnswer == c.index" #replyForm="ngForm" class="left" (ngSubmit)="sendReply()">
-          <textarea #content="ngModel" [(ngModel)]="answer.content" name="content" cols="30" rows="5" placeholder="Your reply"></textarea>
+          <textarea #content="ngModel" [(ngModel)]="answer.content" name="content" cols="30" rows="5" placeholder="Your answer"></textarea>
           <span class="func-bar">
             <span>
               <label class="img-in" for="reply-img" (mouseenter)="enterReplyCamera()" (mouseleave)="leaveReplyCamera()">
