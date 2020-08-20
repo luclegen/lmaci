@@ -955,7 +955,7 @@ export class ProductComponent implements OnInit {
       for (const f of files) {
         let reader = new FileReader();
 
-        reader.onload = (event:any) => this.review.imgs.push(event.target.result);
+        reader.onload = event => this.review.imgs.push(event.target.result);
 
         reader.readAsDataURL(f);
       }
