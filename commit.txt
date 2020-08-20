@@ -392,6 +392,9 @@ Product Component: enterReplyCamera
 Product Component: leaveReplyCamera
 Product Component: selectReplyFileInput
 Product Component: deleteReplyImg
+Product Component: sendAnswer
+Product Service: sendAnswer
+Models: answer
 
 Product Component: onResize
 Product Component: ngOnInit
@@ -504,6 +507,8 @@ Product Router: PUT deleteReview
 Product Controller: comment
 Product Router: PUT comment
 Product Controller: deleteComment
+Product Controller: reply
+Product Router: PUT reply
 
 Uploads Files
 Uploads Images
