@@ -320,7 +320,7 @@
             Reply
           </button>
         </span>
-        <form *ngIf="indexAnswer == c.index" #replyForm="ngForm" class="left" (ngSubmit)="sendReply()">
+        <form *ngIf="indexAnswer == c.index" #replyForm="ngForm" class="left" (ngSubmit)="sendAnswer(comments.indexOf(c))">
           <textarea #content="ngModel" [(ngModel)]="answer.content" name="content" cols="30" rows="5" placeholder="Your answer"></textarea>
           <span class="func-bar">
             <span>
