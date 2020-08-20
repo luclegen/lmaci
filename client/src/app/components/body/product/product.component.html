@@ -226,7 +226,7 @@
         <textarea *ngIf="review.star" #content="ngModel" [(ngModel)]="review.content" name="content" cols="30" rows="5" placeholder="Your review"></textarea>
         <span *ngIf="review.star" class="func-bar">
           <span>
-            <label class="img-in" for="aside-img" (mouseenter)="enterReviewCamera()" (mouseleave)="leaveReviewCamera()">
+            <label class="img-in" title="Attach images" for="aside-img" (mouseenter)="enterReviewCamera()" (mouseleave)="leaveReviewCamera()">
               ⬛
             </label>
             <button class="btn square-btn blue-btn" id="aside-camera" for="aside-img" type="button">
@@ -324,7 +324,7 @@
           <textarea #content="ngModel" [(ngModel)]="answer.content" name="content" cols="30" rows="5" placeholder="Your answer"></textarea>
           <span class="func-bar">
             <span>
-              <label class="img-in" for="reply-img" (mouseenter)="enterReplyCamera()" (mouseleave)="leaveReplyCamera()">
+              <label class="img-in" title="Attach images" for="reply-img" (mouseenter)="enterReplyCamera()" (mouseleave)="leaveReplyCamera()">
                 ⬛
               </label>
               <button class="btn square-btn blue-btn" id="reply-camera" for="reply-img" type="button">
@@ -352,7 +352,7 @@
       <textarea #content="ngModel" [(ngModel)]="comment.content" name="content" cols="30" rows="5" placeholder="Your comment"></textarea>
       <span class="func-bar">
         <span>
-          <label class="img-in" for="cmt-img" (mouseenter)="enterCommentCamera()" (mouseleave)="leaveCommentCamera()">
+          <label class="img-in" title="Attach images" for="cmt-img" (mouseenter)="enterCommentCamera()" (mouseleave)="leaveCommentCamera()">
             ⬛
           </label>
           <button class="btn square-btn blue-btn" id="cmt-camera" for="cmt-img" type="button">
