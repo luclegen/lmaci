@@ -1176,8 +1176,46 @@ export class ProductComponent implements OnInit {
 
   //#region Reply
 
-  sendReply() {
+  sendAnswer(index) {
+    if (this.authService.getToken()) {
+      this.authService.getInfo().subscribe(
+        res => {
+          this.answer.user.username = res['user'].username;
 
+          this.productService.getProduct(this.id).subscribe(
+            res => {
+              this.product = res['product'];
+              
+              this.answer.index = this.product.comments.length && this.product.comments[index].answers && this.product.comments[index].answers.length ? this.product.comments[index].answers[this.product.comments[index].answers.length - 1].index + 1 : 0;
+              
+              this.productService.sendAnswer(this.id, index, this.answer, this.answer.files).subscribe(
+                res => {
+                  alert(res['msg']);
+
+                  this.answer = {
+                    index: 0,
+                    user: {
+                      username: ''
+                    },
+                    content: '',
+                    img: [],
+                    imgs: [],
+                    files: []
+                  }
+
+                  this.ngOnInit();
+                },
+                err => alert(err.error.msg)
+              );
+            },
+            err => alert(err.error.msg)
+          );
+        },
+        err => {
+          if (err.status == 440 && confirm('Your session has expired and must log in again.\n\nDo you want to login again?')) window.open('/login');
+        }
+      );
+    } else if (confirm('Do you want to login?')) window.open('login');
   }
 
   reply(cmt: Object) {
