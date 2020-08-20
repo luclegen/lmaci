@@ -1183,7 +1183,9 @@ export class ProductComponent implements OnInit {
   }
   
   enterReplyCamera() {
+    const replyCamera = document.getElementById('reply-camera') as HTMLElement;
 
+    replyCamera.style.fill = 'white';
   }
 
   leaveReplyCamera() {
