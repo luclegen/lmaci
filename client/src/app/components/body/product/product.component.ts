@@ -1172,6 +1172,8 @@ export class ProductComponent implements OnInit {
     this.product.comments.forEach(c => this.userService.getUser(c.user.username).subscribe(res => c.user = res['user'], err => console.warn(err.error.msg)));
   }
 
+  //#endregion Comments
+
   //#region Reply
 
   sendReply() {
@@ -1225,8 +1227,6 @@ export class ProductComponent implements OnInit {
   }
 
   //#endregion Reply
-
-  //#endregion Comments
 
   //#region Aside Gallery
 
