@@ -391,6 +391,7 @@ Product Component: reply
 Product Component: enterReplyCamera
 Product Component: leaveReplyCamera
 Product Component: selectReplyFileInput
+Product Component: deleteReplyImg
 
 Product Component: onResize
 Product Component: ngOnInit
