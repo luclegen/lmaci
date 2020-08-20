@@ -144,3 +144,29 @@ module.exports.deleteComment = async (req, res) => {
   return product ? res.status(200).json({ msg: 'Delete review is successfully.' })
                   : res.status(404).json({ msg: 'Product not found.' });
 }
+
+module.exports.reply = async (req, res) => {
+  if (!ObjectId.isValid(req.params.id))
+    return res.status(400).json({ msg: `No record with given id: ${req.params.id}` });
+
+  const product = await Product.findById(req.params.id);
+
+  if (product) {
+    const comments = product.comments, answers = comments[req.body.cmtIndex].answers ? comments[req.body.cmtIndex].answers : [], answer = {
+      index: parseInt(req.body.index),
+      user: JSON.parse(req.body.user),
+      content: req.body.content,
+      imgs: []
+    }
+  
+    for (const f of req.files) answer.imgs.push(process.env.SERVER_URL + '/image/?image=product/' + req.params.id + '/comment/' + req.body.cmtIndex + '/answer/' + req.body.index + '/' + f.filename);
+  
+    answers.push(answer);
+    comments[req.body.cmtIndex].answers = answers;
+
+    const product1 = await Product.findByIdAndUpdate(req.params.id, { $set: { comments: comments } }, { new: true });
+  
+    return product1 ? res.status(200).json({ msg: 'Your answer is submitted successfully.' })
+                    : res.status(404).json({ msg: 'Product not found.' });
+  } else res.status(404).json({ msg: 'Product not found.' });
+}
