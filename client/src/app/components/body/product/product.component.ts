@@ -1208,6 +1208,22 @@ export class ProductComponent implements OnInit {
     }
   }
 
+  deleteReplyImg(event: any) {
+    const targetBtn = event.target.closest('button');
+    const replyImgsBarBtn = document.querySelectorAll('.reply-imgs-bar button') as NodeListOf<HTMLElement>;
+    const btns = Array.from(replyImgsBarBtn);
+    console.log(targetBtn);
+
+    if (!targetBtn) return;
+    
+    const targetIndex = btns.findIndex(i => i == targetBtn);
+
+    if (confirm('Are you sure delete: Image ' + (targetIndex + 1) + '?')) {
+      this.answer.files.splice(targetIndex, 1);
+      this.answer.imgs.splice(targetIndex, 1);
+    };
+  }
+
   //#endregion Reply
 
   //#endregion Comments
