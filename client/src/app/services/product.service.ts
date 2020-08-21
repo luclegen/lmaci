@@ -59,14 +59,14 @@ export class ProductService {
     return this.http.put(environment.productUrl + '/delete-comment/' + id, { comment: comment, comments: comments });
   }
 
-  sendAnswer(id: string, cmtIndex: number, answer: Answer, files) {
+  sendAnswer(id: string, cmt: Object, answer: Answer, files) {
     const formData = new FormData();
 
     formData.append('index', answer.index.toString());
     formData.append('user', JSON.stringify(answer.user));
     formData.append('content', answer.content);
 
-    formData.append('cmtIndex', cmtIndex.toString());
+    formData.append('cmt', JSON.stringify(cmt));
 
     for (let i = 0; i < files.length; i++) formData.append('files', files[i], i.toString() + '.' + files[i].type.slice(6));
 
