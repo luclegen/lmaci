@@ -31,7 +31,7 @@ $normal-font-size: 25px
 
 section
   display: flex
-  background: aqua
+  background: white
 
   &.top-center
     justify-content: center
@@ -636,7 +636,7 @@ select
   color: white
 
 table
-  background-color: lime
+  background-color: silver
   border: 5px double black
   border-collapse: collapse
 
@@ -661,7 +661,7 @@ table
         text-align: center
 
     tr:nth-child(even)
-      background-color: olive
+      background-color: white
 
   th, td
     padding: 5px
@@ -844,7 +844,7 @@ nav
 ul
   padding: 0
 
-  &.reviews-ls, &.cmts-ls
+  &.reviews-ls, &.cmts-ls, &.answer-ls
     list-style-type: none
 
     li
@@ -855,16 +855,27 @@ ul
         height: 40px
         margin-right: 10px
 
-      span.user
-        margin-bottom: 5px
+      span
 
-        a
-          display: flex
-          align-items: center
+        &.user
+          margin-bottom: 5px
 
-        p
-          display: flex
-          align-items: center
+          a
+            display: flex
+            align-items: center
+
+          p
+            display: flex
+            align-items: center
+
+        &.reply-imgs-bar
+
+          span
+
+            img
+              width: auto
+              height: 100px
+              margin-top: 20px
 
   &.cmts-ls
 
@@ -886,6 +897,21 @@ ul
         button:hover
           fill: white
           color: white
+
+  &.answer-ls
+    background: #dfdfdf
+    border-radius: 5px
+
+    &::before
+      position: absolute
+      content: ""
+      margin: -7px 0 0 38px
+      border-bottom: 7px solid #dfdfdf
+      border-left: 7px solid transparent
+      border-right: 7px solid transparent
+
+    li
+      padding: 5px
 
 p
   &.separator
