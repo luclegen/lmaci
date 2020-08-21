@@ -1164,19 +1164,23 @@ export class ProductComponent implements OnInit {
       this.ngOnInit();
     }
   }
+
   //#endregion Comment
 
   //#region Comments
 
   initComments() {
-    this.product.comments.forEach(c => this.userService.getUser(c.user.username).subscribe(res => c.user = res['user'], err => console.warn(err.error.msg)));
+    this.product.comments.forEach(c => {
+      this.userService.getUser(c.user.username).subscribe(res => c.user = res['user'], err => console.warn(err.error.msg));
+      if (c.answers) c.answers.forEach(a => this.userService.getUser(a.user.username).subscribe(res => a.user = res['user'], err => console.warn(err.error.msg)));
+    });
   }
 
   //#endregion Comments
 
   //#region Reply
 
-  sendAnswer(index) {
+  sendAnswer(comment: Object) {
     if (this.authService.getToken()) {
       this.authService.getInfo().subscribe(
         res => {
@@ -1186,9 +1190,9 @@ export class ProductComponent implements OnInit {
             res => {
               this.product = res['product'];
               
-              this.answer.index = this.product.comments.length && this.product.comments[index].answers && this.product.comments[index].answers.length ? this.product.comments[index].answers[this.product.comments[index].answers.length - 1].index + 1 : 0;
-              
-              this.productService.sendAnswer(this.id, index, this.answer, this.answer.files).subscribe(
+              this.answer.index = this.comments.length && this.comments[this.comments.indexOf(comment)].answers && this.comments[this.comments.indexOf(comment)].answers.length ? this.comments[this.comments.indexOf(comment)].answers[this.comments[this.comments.indexOf(comment)].answers.length - 1].index + 1 : 0;
+
+              this.productService.sendAnswer(this.id, comment, this.answer, this.answer.files).subscribe(
                 res => {
                   alert(res['msg']);
 
