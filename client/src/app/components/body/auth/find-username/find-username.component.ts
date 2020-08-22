@@ -25,6 +25,7 @@ export class FindUsernameComponent implements OnInit {
     this.titleService.setTitle('Find Username | Lmaci');
     this.emailRegex = this.helperService.emailRegex;
   }
+  
   ngOnInit(): void {
     if (this.authService.getToken()) this.router.navigateByUrl('');
   }
