@@ -36,10 +36,7 @@ export class ResetPasswordComponent implements OnInit {
 
     this.username = this.route.snapshot.paramMap.get('username');
 
-    this.counter$ = timer(0, 1000).pipe(
-      take(this.count),
-      map(() => --this.count)
-    );
+    this.counter$ = timer(0, 1000).pipe(take(this.count), map(() => --this.count));
   }
 
   ngOnInit(): void {
