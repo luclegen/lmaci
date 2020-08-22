@@ -373,7 +373,6 @@ Product Component: selectCommentFileInput
 PolyFills
 Product Component: deleteCommentImg
 Product Component: sendComment
-Product Component: sendComment
 Models: comment
 Product Service: sendComment
 Product Component: initComments
