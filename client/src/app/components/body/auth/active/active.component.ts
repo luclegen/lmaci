@@ -32,10 +32,7 @@ export class ActiveComponent implements OnInit {
     
     this.codeRegex = this.helperService.codeRegex;
     
-    this.counter$ = timer(0,1000).pipe(
-      take(this.count),
-      map(() => --this.count)
-    );
+    this.counter$ = timer(0, 1000).pipe(take(this.count), map(() => --this.count));
   }
 
   ngOnInit(): void {
