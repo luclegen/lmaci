@@ -73,4 +73,8 @@ export class ProductService {
     return this.http.put(environment.productUrl + '/reply/' + id, formData);
   }
   
+  deleteAnswer(id: string, comments: [], comment: Object, answer: Object) {
+    return this.http.put(environment.productUrl + '/delete-answer/' + id, { comments: comments, comment: comment, answer: answer });
+  }
+
 }
