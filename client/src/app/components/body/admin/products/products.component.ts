@@ -495,8 +495,7 @@ export class ProductsComponent implements OnInit {
   //#region Edit
 
   onEditColor(c: Object) {
-    this.color = Object(c);
-    this.colorSeleted = Object(c);
+    this.color = this.colorSeleted = Object(c);
     this.colorTmp = JSON.parse(JSON.stringify(c));
   }
 
