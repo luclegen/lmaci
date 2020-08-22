@@ -510,8 +510,7 @@ export class ProductsComponent implements OnInit {
   }
 
   onEditTechnicalDetail(t: Object) {
-    this.technicalDetail = Object(t);
-    this.technicalDetailSelected = Object(t);
+    this.technicalDetail = this.technicalDetailSelected = Object(t);
     this.technicalDetailTmp = JSON.parse(JSON.stringify(t));
   }
 
