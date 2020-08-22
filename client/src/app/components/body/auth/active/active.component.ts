@@ -44,16 +44,9 @@ export class ActiveComponent implements OnInit {
     this.authService.active(this.authService.getId(), form.value).subscribe(
       res => {
         alert(res['msg']);
-        this.authService.getInfo().subscribe(
-          res => this.router.navigateByUrl('/' + res['user'].username),
-          err => {
-            if (err.status == 440 && confirm('Your session has expired and must log in again.\n\nDo you want to login again?')) window.open('/login');
-          }
-        );
+        this.authService.getInfo().subscribe(res => this.router.navigateByUrl('/' + res['user'].username), err => { if (err.status == 440 && confirm('Your session has expired and must log in again.\n\nDo you want to login again?')) window.open('/login'); });
       },
-      err => {
-        this.serverErrorMessages = err.error.msg;
-      }
+      err => this.serverErrorMessages = err.error.msg
     );
   }
 
