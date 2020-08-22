@@ -105,7 +105,7 @@ module.exports.deleteReview = async (req, res) => {
   const product = await Product.findByIdAndUpdate(req.params.id, { $set: { reviews: req.body.reviews } }, { new: true });
 
   return product ? res.status(200).json({ msg: 'Delete review is successfully.' })
-                  : res.status(404).json({ msg: 'Product not found.' });
+                 : res.status(404).json({ msg: 'Product not found.' });
 }
 
 module.exports.comment = async (req, res) => {
