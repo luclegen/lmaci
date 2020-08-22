@@ -1256,7 +1256,6 @@ export class ProductComponent implements OnInit {
     const targetBtn = event.target.closest('button');
     const replyImgsBarBtn = document.querySelectorAll('.reply-imgs-bar button') as NodeListOf<HTMLElement>;
     const btns = Array.from(replyImgsBarBtn);
-    console.log(targetBtn);
 
     if (!targetBtn) return;
     
