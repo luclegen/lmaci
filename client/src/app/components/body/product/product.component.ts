@@ -1267,6 +1267,15 @@ export class ProductComponent implements OnInit {
     };
   }
 
+  deleteAnswer(a: Object, c: Object) {
+    if (confirm('Are you sure delete: ' + JSON.stringify(a) + '?')) {
+      this.comments[this.comments.indexOf(c)].answers.splice(this.comments[this.comments.indexOf(c)].answers.indexOf(a), 1);
+      this.productService.deleteAnswer(this.id, this.comments, c, a).subscribe(res => alert(res['msg']), err => alert(err.error.msg));
+      
+      this.ngOnInit();
+    }
+  }
+
   //#endregion Reply
 
   //#region Aside Gallery
