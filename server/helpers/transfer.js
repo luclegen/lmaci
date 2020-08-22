@@ -28,7 +28,7 @@ module.exports.upload = (root, dir = '', parentdir = '') => {
           break;
 
         case 'answer':
-          path.push(path[1] + '/' + req.body.cmtIndex);
+          path.push(path[1] + '/' + JSON.parse(req.body.cmt).index);
           path.push(path[2] + '/' + dir);
           path.push(path[3] + '/' + req.body.index);
           break;
