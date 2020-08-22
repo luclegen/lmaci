@@ -12,5 +12,6 @@ router.put('/delete-review/:id', productCtrl.deleteReview);
 router.put('/comment/:id', transfer.upload('uploads/img/product', 'comment').array('files'), productCtrl.comment);
 router.put('/delete-comment/:id', productCtrl.deleteComment);
 router.put('/reply/:id', transfer.upload('uploads/img/product', 'answer', 'comment').array('files'), productCtrl.reply);
+router.put('/delete-answer/:id', productCtrl.deleteAnswer);
 
 module.exports = router;
