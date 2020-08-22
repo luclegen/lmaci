@@ -507,6 +507,7 @@ Product Router: PUT deleteReview
 Product Controller: comment
 Product Router: PUT comment
 Product Controller: deleteComment
+Product Router: PUT deleteComment
 Product Controller: reply
 Product Router: PUT reply
 
