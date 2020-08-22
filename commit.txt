@@ -113,6 +113,7 @@ Reset Password Component: togglePassword
 Remove Counter Component
 Auth Service: resendVerifyResetPassword
 Reset Password Component: ngOnInit
+Reset Password Component: constructor
 Auth Service: resetPassword
 Reset Password Component: onSubmit
 Reset Password Component: resendEmail
