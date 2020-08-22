@@ -1012,9 +1012,7 @@ export class ProductComponent implements OnInit {
           for (let i = 0; i < r.star; i++) r.stars.count.push('*');
           for (let i = 0; i < 5 - r.star; i++) r.stars.none.push('-');
         },
-        err => {
-          console.warn(err.error.msg);
-        }
+        err => console.warn(err.error.msg)
       );
     });
   }
