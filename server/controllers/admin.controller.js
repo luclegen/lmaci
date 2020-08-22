@@ -103,7 +103,7 @@ module.exports.getProducts = async (req, res) => {
   const products = await Product.find();
 
   return products ? res.status(200).json({ products: products })
-                              : res.status(404).json({ msg: 'Products not found.' });
+                  : res.status(404).json({ msg: 'Products not found.' });
 }
 
 module.exports.updateProduct = async (req, res) => {
