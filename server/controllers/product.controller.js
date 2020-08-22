@@ -170,3 +170,15 @@ module.exports.reply = async (req, res) => {
                     : res.status(404).json({ msg: 'Product not found.' });
   } else res.status(404).json({ msg: 'Product not found.' });
 }
+
+module.exports.deleteAnswer = async (req, res) => {
+  if (!ObjectId.isValid(req.params.id))
+    return res.status(400).json({ msg: `No record with given id: ${req.params.id}` });
+
+  rimraf.sync('uploads/img/product/' + req.params.id + '/comment/' + req.body.comment.index + '/answer/' + req.body.answer.index);
+
+  const product = await Product.findByIdAndUpdate(req.params.id, { $set: { comments: req.body.comments } }, { new: true });
+
+  return product ? res.status(200).json({ msg: 'Delete answer is successfully.' })
+                 : res.status(404).json({ msg: 'Product not found.' });
+}
