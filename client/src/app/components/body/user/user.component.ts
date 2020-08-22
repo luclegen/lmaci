@@ -22,8 +22,7 @@ export class UserComponent implements OnInit {
   constructor(private titleService: Title,
               private route: ActivatedRoute, 
               private authService: AuthService, 
-              private userService: UserService, 
-              private router: Router) { }
+              private userService: UserService) { }
 
   ngOnInit(): void {
     const username = this.route.snapshot.paramMap.get('username');
