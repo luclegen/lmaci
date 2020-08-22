@@ -31,7 +31,7 @@ module.exports.searchAdmins = async (req, res) => {
   const admins = await User.find(query);
 
   return admins ? res.status(200).json({ admins })
-                  : res.status(404).json({ msg: 'Admins not found.' });
+                : res.status(404).json({ msg: 'Admins not found.' });
 }
 
 //#endregion Admins
