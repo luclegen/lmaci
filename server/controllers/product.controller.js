@@ -152,17 +152,17 @@ module.exports.reply = async (req, res) => {
   const product = await Product.findById(req.params.id);
 
   if (product) {
-    const comments = product.comments, answers = comments.filter(c => c.index == JSON.parse(req.body.cmt).index)[0].answers ? comments.filter(c => c.index == JSON.parse(req.body.cmt).index)[0].answers : [], answer = {
+    const comments = product.comments, comment = JSON.parse(req.body.cmt), answers = comments.filter(c => c.index == comment.index)[0].answers ? comments.filter(c => c.index == comment.index)[0].answers : [], answer = {
       index: parseInt(req.body.index),
       user: JSON.parse(req.body.user),
       content: req.body.content,
       imgs: []
     }
   
-    for (const f of req.files) answer.imgs.push(process.env.SERVER_URL + '/image/?image=product/' + req.params.id + '/comment/' + req.body.cmtIndex + '/answer/' + req.body.index + '/' + f.filename);
+    for (const f of req.files) answer.imgs.push(process.env.SERVER_URL + '/image/?image=product/' + req.params.id + '/comment/' + comment.index + '/answer/' + req.body.index + '/' + f.filename);
   
     answers.push(answer);
-    comments[comments.findIndex(c => c.index == JSON.parse(req.body.cmt).index)].answers = answers;
+    comments[comments.findIndex(c => c.index == comment.index)].answers = answers;
 
     const product1 = await Product.findByIdAndUpdate(req.params.id, { $set: { comments: comments } }, { new: true });
   
