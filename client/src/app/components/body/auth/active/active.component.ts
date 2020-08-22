@@ -57,14 +57,9 @@ export class ActiveComponent implements OnInit {
         alert(res['msg']);
         
         this.count = 60;
-        this.counter$ = timer(0, 1000).pipe(
-          take(this.count),
-          map(() => --this.count)
-        );
+        this.counter$ = timer(0, 1000).pipe(take(this.count), map(() => --this.count));
       },
-      err => {
-        this.serverErrorMessages = err.error.msg;
-      }
+      err => this.serverErrorMessages = err.error.msg
     );
   }
 }
