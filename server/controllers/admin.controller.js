@@ -58,7 +58,7 @@ module.exports.searchUsers = async (req, res) => {
   const users = await User.find(query);
 
   return users ? res.status(200).json({ users })
-                  : res.status(404).json({ msg: 'Users not found.' });
+               : res.status(404).json({ msg: 'Users not found.' });
 }
 
 //#endregion Users
