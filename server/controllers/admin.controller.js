@@ -130,9 +130,7 @@ module.exports.updateProduct = async (req, res) => {
     if (productEdited.sliders.length) {
       const common = [], colors =  productEdited.colors.map(c => c.value), colorsSliders = productEdited.sliders.map(s => s.color);
       
-      colors.forEach(c => {
-        if (colorsSliders.filter(cs => cs == c).length) common.push(colorsSliders.filter(cs => cs == c)[0]);
-      });
+      colors.forEach(c => { if (colorsSliders.filter(cs => cs == c).length) common.push(colorsSliders.filter(cs => cs == c)[0]); });
       
       common.forEach(c => {
         newSliders.push(productEdited.sliders.filter(s => s.color == c)[0]);
