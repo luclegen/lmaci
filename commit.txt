@@ -99,7 +99,6 @@ Change Email Component: View
 Active Component: ngOnInit, onSubmit
 Change Email Component: ngOnInit, onSubmit
 Change Email Component: ngOnInit
-Change Email Component: onSubmit
 Register Component: View
 Find Username Component: Initial
 Routes: FindUsernameComponent
