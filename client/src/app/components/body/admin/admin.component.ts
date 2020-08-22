@@ -23,14 +23,7 @@ export class AdminComponent implements OnInit {
 
     section.style.fontSize = vpWith * 0.01625 + 'px';
     
-    this.authService.getInfo().subscribe(
-      res => {
-        if (res['user'].role == 'user') this.router.navigateByUrl('');
-      },
-      err => {
-        if (err.status == 440 && confirm('Your session has expired and must log in again.\n\nDo you want to login again?')) window.open('/login');
-      }
-    );
+    this.authService.getInfo().subscribe(res => { if (res['user'].role == 'user') this.router.navigateByUrl(''); }, err => { if (err.status == 440 && confirm('Your session has expired and must log in again.\n\nDo you want to login again?')) window.open('/login'); });
   }
 
 }
