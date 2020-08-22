@@ -69,6 +69,7 @@ Counter Directive: Initial
 Counter Directive: constructor, ngOnChanges, ngOnDestroy
 Actice Component: resendEmail
 Actice Component: ngOnInit
+Actice Component: onSubmit
 Actice Component: constructor
 Profile Component: View
 Profile Component: ngOnInit
