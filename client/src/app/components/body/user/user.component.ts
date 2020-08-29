@@ -22,7 +22,8 @@ export class UserComponent implements OnInit {
   constructor(private titleService: Title,
               private route: ActivatedRoute, 
               private authService: AuthService, 
-              private userService: UserService) { }
+              private userService: UserService,
+              private router: Router) { }
 
   ngOnInit(): void {
     const username = this.route.snapshot.paramMap.get('username');
@@ -47,7 +48,7 @@ export class UserComponent implements OnInit {
           );
         }
       },
-      err => { if (err.status == 440 && confirm('Your session has expired and must log in again.\n\nDo you want to login again?')) window.open('/login'); }
+      err => this.router.navigateByUrl('')
     );
   }
   
