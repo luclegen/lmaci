@@ -406,6 +406,7 @@ Module: ProductListComponent
 Routes: ProductListComponent
 
 Product List Component: View
+Product List Component: ngOnInit
 Global Styles
 Commit
 
