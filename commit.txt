@@ -400,6 +400,7 @@ Product Component: deleteAnswer
 Product Service: deleteAnswer
 Module: ProductListComponent
 Routes: ProductListComponent
+Product List Component: Initial
 
 Product Component: onResize
 Product Component: ngOnInit
