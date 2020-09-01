@@ -398,6 +398,8 @@ Product Service: sendAnswer
 Models: answer
 Product Component: deleteAnswer
 Product Service: deleteAnswer
+Module: ProductListComponent
+Routes: ProductListComponent
 
 Product Component: onResize
 Product Component: ngOnInit
