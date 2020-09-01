@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-product-list',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductListComponent implements OnInit {
 
-  constructor() { }
+  type;
+  name;
+
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    const path = this.route.snapshot.paramMap.get('path').split('-');
+    [ this.type, this.name ] = [ path[0], path.slice(1).join(' ') ];
+    
   }
 
 }
