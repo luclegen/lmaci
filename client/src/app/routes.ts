@@ -16,6 +16,7 @@ import { UsersComponent } from './components/body/admin/users/users.component';
 import { ProductsComponent } from './components/body/admin/products/products.component';
 import { AdminsComponent } from './components/body/admin/admins/admins.component';
 import { ProductComponent } from './components/body/product/product.component';
+import { ProductListComponent } from './components/body/product-list/product-list.component';
 
 export const routes: Routes = [
   { path: '', pathMatch: 'full', component: HomeComponent },
@@ -31,5 +32,6 @@ export const routes: Routes = [
                 { path: 'users', component: UsersComponent },
                 { path: 'products', component: ProductsComponent } ] },
   { path: ':username', component: UserComponent },
+  { path: 'products/:name', component: ProductListComponent },
   { path: ':type/:id', component: ProductComponent }
 ]
