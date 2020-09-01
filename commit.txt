@@ -398,13 +398,14 @@ Product Service: sendAnswer
 Models: answer
 Product Component: deleteAnswer
 Product Service: deleteAnswer
-Module: ProductListComponent
-Routes: ProductListComponent
-Product List Component: Initial
-
 Product Component: onResize
 Product Component: ngOnInit
 Product Component: View
+Product List Component: Initial
+Module: ProductListComponent
+Routes: ProductListComponent
+
+Product List Component: View
 Global Styles
 Commit
 
