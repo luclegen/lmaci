@@ -14,8 +14,8 @@ export class ProductListComponent implements OnInit {
 
   type;
   name;
-  products;
-
+  items = [];
+  
   constructor(private route: ActivatedRoute,
               private titleService: Title,
               private productsService: ProductsService,
@@ -61,12 +61,39 @@ export class ProductListComponent implements OnInit {
   ngOnInit(): void {
     this.productsService.getProducts(this.type, this.name).subscribe(
       res => {
-        this.products = res[ 'products' ];
-        console.log(this.products);
+        const products = res[ 'products' ];
+        console.log(products);
+        
+        products.forEach(p => {
+          const product = {
+            path: p.img.path,
+            name: p.name,
+            price: this.helperService.USDcurrency(p.price),
+            star: {
+              average: p.reviews.length ? this.helperService.round(this.helperService.average(p.reviews.map(r => r.star)), 1) : 0,
+              starCount: [],
+              starHalf: false,
+              noneStarCount: []
+            }
+          };
+
+          const number = product.star.average;
+          const numberFloored = Math.floor(number);
+          const numberRounded = Math.round(number);
+          const bias = this.helperService.round(number - numberFloored, 1)
+
+          if (bias == 0.5) {
+            for (let i = 0; i < numberFloored; i++) product.star.starCount.push('*');
+            product.star.starHalf = true;
+          } else for (let i = 0; i < numberRounded; i++) product.star.starCount.push('*');
+          for (let i = 0; i < 5 - numberRounded; i++) product.star.noneStarCount.push('-');
+
+          this.items.push(product);
+        });
+
+        console.log(this.items);
       },
-      err => {
-        console.warn(err.error.msg);
-      }
+      err => console.warn(err.error.msg)
     );
   }
 
