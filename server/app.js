@@ -23,6 +23,7 @@ app.use('/auth', require('./routes/auth.router'));
 app.use('/user', require('./routes/user.router'));
 app.use('/admin', require('./routes/admin.router'));
 app.use('/product', require('./routes/product.router'));
+app.use('/products', require('./routes/products.router'));
 app.use('/image', require('./routes/image.router'));
 
 // Error handle
