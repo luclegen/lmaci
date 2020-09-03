@@ -404,8 +404,13 @@ Product Component: View
 Product List Component: Initial
 Module: ProductListComponent
 Routes: ProductListComponent
+Helper Service: toName
+Products Service: initial
+Helper Service: getProducts
+Environments: productsUrl
 
 Product List Component: View
+Product List Component: constructor
 Product List Component: ngOnInit
 Global Styles
 Commit
@@ -520,6 +525,9 @@ Product Controller: reply
 Product Router: PUT reply
 Product Controller: deleteAnswer
 Product Router: PUT deleteAnswer
+Server App: Products Router
+Products Controller: getProducts
+Products Router: PUT getProducts
 
 Uploads Files
 Uploads Images
