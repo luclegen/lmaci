@@ -59,7 +59,15 @@ export class ProductListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    
+    this.productsService.getProducts(this.type, this.name).subscribe(
+      res => {
+        this.products = res[ 'products' ];
+        console.log(this.products);
+      },
+      err => {
+        console.warn(err.error.msg);
+      }
+    );
   }
 
 }
