@@ -15,6 +15,8 @@ export class HelperService {
   
   constructor() { }
 
+  //#region Converter
+
   toHTMLName(name: string) {
     let nameOut = name.trim().split(/\s+/).map(w => w[0].toUpperCase() + w.slice(1).toLowerCase()).join('');
     return nameOut[0].toLowerCase() + nameOut.slice(1);
@@ -28,6 +30,14 @@ export class HelperService {
     const blob = new Blob([ int8Array ], { type: 'image/' + type });
     return blob;
   }
+  
+  toName(name: string) {
+    return name.trim().split(/\s+/).map(w => w[0].toUpperCase() + w.slice(1).toLowerCase()).join(' ');
+  }
+
+  //#endregion Converter
+
+  //#region Math
 
   sum(arr, init = 0) {
     return arr.reduce((t, e) => t + e, init);
@@ -41,12 +51,22 @@ export class HelperService {
     return Math.round(num * Math.pow(10, digit)) / Math.pow(10, digit);
   }
 
+  //#endregion Math
+
+  //#region Formatter
+
   USDcurrency(num) {
     return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2 }).format(num);
   }
   
+  //#endregion Formatter
+
+  //#region Checker
+
   isBase64(url, type) {
     return (new RegExp('data:image/' + type + ';base64')).test(url);
   }
+
+  //#endregion Checker
 
 }
