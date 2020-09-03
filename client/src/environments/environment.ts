@@ -8,6 +8,7 @@ export const environment = {
   userUrl: 'http://localhost:3000/user',
   adminUrl: 'http://localhost:3000/admin',
   productUrl: 'http://localhost:3000/product',
+  productsUrl: 'http://localhost:3000/products',
   imageUrl: 'http://localhost:3000/image'
 };
 
