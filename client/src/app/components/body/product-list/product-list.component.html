@@ -1,2 +1,9 @@
 <app-header></app-header>
-<p>product-list works!</p>
+
+<section>
+  <div class="center-container">
+    <ul>
+      <li *ngFor="let p of products">{{ p.name }}</li>
+    </ul>
+  </div>
+</section>
