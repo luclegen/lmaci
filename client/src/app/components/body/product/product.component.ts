@@ -154,7 +154,7 @@ export class ProductComponent implements OnInit {
 
   //#region Formater
 
-  priceFormated;
+  priceFormatted;
 
   //#endregion Formater
 
@@ -279,7 +279,7 @@ export class ProductComponent implements OnInit {
           this.order.properties.push(JSON.parse(JSON.stringify(property)));
         });
 
-        this.priceFormated = this.helperService.USDcurrency(this.product.price);
+        this.priceFormatted = this.helperService.USDcurrency(this.product.price);
 
         this.reviews = this.product.reviews;
 
