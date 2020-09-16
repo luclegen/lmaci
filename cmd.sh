@@ -2,7 +2,7 @@
 
 # * Prerequisites *
 sudo npm i -g npm
-sudo npm i -g @angular/cli
+sudo npm i -g @angular/cli@9
 sudo npm i -g nodemon
 
 # I. ANGULAR CLIENT
