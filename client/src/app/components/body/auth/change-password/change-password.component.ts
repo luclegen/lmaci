@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
@@ -28,7 +28,12 @@ export class ChangePasswordComponent implements OnInit {
               private router: Router) {
     this.titleServer.setTitle('Change Password | Lmaci');
   }
-  
+
+  @HostListener('window:resize')
+  onResize() {
+    this.helperService.setPositionOnlyForm();
+  }
+
   ngOnInit(): void {
     this.authService.getInfo().subscribe(res => { if (!res['user'].activated) this.router.navigateByUrl('active'); }, err => { if (err.status == 440 && confirm('Your session has expired and must log in again.\n\nDo you want to login again?')) window.open('/login'); });
     this.helperService.setPositionOnlyForm();
