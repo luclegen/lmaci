@@ -28,6 +28,7 @@ export class FindUsernameComponent implements OnInit {
   
   ngOnInit(): void {
     if (this.authService.getToken()) this.router.navigateByUrl('');
+    this.helperService.setPositionOnlyForm();
   }
 
   onSubmit(form: NgForm) {
