@@ -52,6 +52,7 @@ User Service: login, Helper Methods
 Login Component: Fields
 Login Component: constructor
 Login Component: ngOnInit
+Login Component: onResize
 User Service: getProfile
 Login Component: onSubmit
 Helper Service: setPositionOnlyForm
