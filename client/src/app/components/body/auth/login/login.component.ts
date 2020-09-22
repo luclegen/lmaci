@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
@@ -32,6 +32,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.authService.getToken()) this.authService.removeToken();
+    this.helperService.setPositionOnlyForm();
   }
 
   onSubmit(form: NgForm) {
