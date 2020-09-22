@@ -22,7 +22,7 @@ export class HelperService {
     const vpHeight = document.documentElement.clientHeight;
 
     onlyFormContainer.style.marginTop = ((vpHeight - onlyFormContainer.clientHeight)/2 - 60 > 10 ? (vpHeight - onlyFormContainer.clientHeight)/2 - 60 : 10) + 'px';
-    onlyFormContainer.style.marginBottom = (vpHeight - onlyFormContainer.clientHeight - ((vpHeight - onlyFormContainer.clientHeight)/2) > 0 ? vpHeight - onlyFormContainer.clientHeight - ((vpHeight - onlyFormContainer.clientHeight)/2) : 10) + 'px';
+    onlyFormContainer.style.marginBottom = (vpHeight - onlyFormContainer.clientHeight - ((vpHeight - onlyFormContainer.clientHeight)/2) > 10 ? vpHeight - onlyFormContainer.clientHeight - ((vpHeight - onlyFormContainer.clientHeight)/2) : 10) + 'px';
   }
 
   //#endregion Style
