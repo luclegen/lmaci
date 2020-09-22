@@ -1,6 +1,6 @@
 <app-header></app-header>
 <section class="top-center">
-  <div class="center form-container">
+  <div id="only-form-container" class="center form-container">
     <h2>Find Your Username</h2>
     <form #findUsernameForm="ngForm" (ngSubmit)="findUsernameForm.valid && onSubmit(findUsernameForm)">
       <input #email="ngModel" [(ngModel)]="emailFind" [ngClass]="{ 'invalid-input': findUsernameForm.submitted && !email.valid }" type="email" name="email" [pattern]="emailRegex" placeholder="Email: example@email.com" required>
