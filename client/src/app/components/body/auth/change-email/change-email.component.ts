@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
@@ -24,6 +24,11 @@ export class ChangeEmailComponent implements OnInit {
               private router: Router) {
     this.titleService.setTitle('Change Email | Lmaci');
     this.emailRegex = this.helperService.emailRegex;
+  }
+
+  @HostListener('window:resize')
+  onResize() {
+    this.helperService.setPositionOnlyForm();
   }
 
   ngOnInit(): void {
