@@ -6,6 +6,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, timer } from 'rxjs';
 import { take, map } from 'rxjs/operators';
 import { AuthService } from 'src/app/services/auth.service';
+import { HelperService } from 'src/app/services/helper.service';
 
 @Component({
   selector: 'app-reset-password',
@@ -31,6 +32,7 @@ export class ResetPasswordComponent implements OnInit {
   constructor(private titleService: Title,
               private route: ActivatedRoute,
               private authService: AuthService,
+              private helperService: HelperService,
               private router: Router) {
     this.titleService.setTitle('Reset Password | Lmaci');
 
@@ -41,6 +43,7 @@ export class ResetPasswordComponent implements OnInit {
 
   ngOnInit(): void {
     this.authService.resendVerifyResetPassword(this.username).subscribe();
+    this.helperService.setPositionOnlyForm();
   }
 
   checkStrengthPassword() {
