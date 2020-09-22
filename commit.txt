@@ -54,6 +54,7 @@ Login Component: constructor
 Login Component: ngOnInit
 User Service: getProfile
 Login Component: onSubmit
+Helper Service: setPositionOnlyForm
 Register Component: ngOnInit
 Authentication
 Module: Authentication, Services
