@@ -30,6 +30,11 @@ export class LoginComponent implements OnInit {
     this.usernameRegex = this.helperService.usernameRegex;
   }
 
+  @HostListener('window:resize')
+  onResize() {
+    this.helperService.setPositionOnlyForm();
+  }
+
   ngOnInit(): void {
     if (this.authService.getToken()) this.authService.removeToken();
     this.helperService.setPositionOnlyForm();
