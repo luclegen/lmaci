@@ -1,6 +1,6 @@
 <app-header></app-header>
 <section class="top-center">
-  <div class="center form-container">
+  <div id="only-form-container" class="center form-container">
     <h2>Change your email</h2>
     <form #chageEmailForm="ngForm" (ngSubmit)="chageEmailForm.valid && onSubmit(chageEmailForm)">
       <input #email="ngModel" [(ngModel)]="emailChange" [ngClass]="{ 'invalid-input': chageEmailForm.submitted && !email.valid }" type="email" name="email" [pattern]="emailRegex" placeholder="example@email.com" required>
