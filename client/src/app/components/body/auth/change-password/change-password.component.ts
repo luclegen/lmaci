@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 
 import { AuthService } from 'src/app/services/auth.service';
+import { HelperService } from 'src/app/services/helper.service';
 
 @Component({
   selector: 'app-change-password',
@@ -21,12 +22,16 @@ export class ChangePasswordComponent implements OnInit {
   serverErrorMessages: string;
   successMessages: string;
 
-  constructor(private titleServer: Title, private authService: AuthService, private router: Router) {
+  constructor(private titleServer: Title,
+              private authService: AuthService,
+              private helperService: HelperService,
+              private router: Router) {
     this.titleServer.setTitle('Change Password | Lmaci');
   }
   
   ngOnInit(): void {
     this.authService.getInfo().subscribe(res => { if (!res['user'].activated) this.router.navigateByUrl('active'); }, err => { if (err.status == 440 && confirm('Your session has expired and must log in again.\n\nDo you want to login again?')) window.open('/login'); });
+    this.helperService.setPositionOnlyForm();
   }
 
   checkStrengthPassword() {
