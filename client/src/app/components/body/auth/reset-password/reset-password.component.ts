@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -39,6 +39,11 @@ export class ResetPasswordComponent implements OnInit {
     this.username = this.route.snapshot.paramMap.get('username');
 
     this.counter$ = timer(0, 1000).pipe(take(this.count), map(() => --this.count));
+  }
+
+  @HostListener('window:resize')
+  onResize() {
+    this.helperService.setPositionOnlyForm();
   }
 
   ngOnInit(): void {
