@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
@@ -26,6 +26,11 @@ export class FindUsernameComponent implements OnInit {
     this.emailRegex = this.helperService.emailRegex;
   }
   
+  @HostListener('window:resize')
+  onResize() {
+    this.helperService.setPositionOnlyForm();
+  }
+
   ngOnInit(): void {
     if (this.authService.getToken()) this.router.navigateByUrl('');
     this.helperService.setPositionOnlyForm();
