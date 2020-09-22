@@ -57,6 +57,7 @@ User Service: getProfile
 Login Component: onSubmit
 Helper Service: setPositionOnlyForm
 Register Component: ngOnInit
+Register Component: onResize
 Authentication
 Module: Authentication, Services
 User Service: active
