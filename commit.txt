@@ -103,6 +103,7 @@ Change Email Component: View
 Active Component: ngOnInit, onSubmit
 Change Email Component: ngOnInit, onSubmit
 Change Email Component: ngOnInit
+Change Email Component: onResize
 Register Component: View
 Find Username Component: Initial
 Routes: FindUsernameComponent
