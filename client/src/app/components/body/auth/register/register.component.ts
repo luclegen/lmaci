@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { NgForm } from '@angular/forms';
 
@@ -39,6 +39,11 @@ export class RegisterComponent implements OnInit {
     this.emailRegex = this.helperService.emailRegex;
     this.mobileNumberRegex = this.helperService.mobileNumberRegex;
     this.usernameRegex = this.helperService.usernameRegex;
+  }
+
+  @HostListener('window:resize')
+  onResize() {
+    this.helperService.setPositionOnlyForm();
   }
 
   ngOnInit(): void {
