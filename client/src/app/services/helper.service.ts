@@ -15,6 +15,18 @@ export class HelperService {
   
   constructor() { }
 
+  //#region Style
+
+  setPositionOnlyForm() {
+    const onlyFormContainer = document.getElementById('only-form-container') as HTMLElement;
+    const vpHeight = document.documentElement.clientHeight;
+
+    onlyFormContainer.style.marginTop = ((vpHeight - onlyFormContainer.clientHeight)/2 - 60 > 10 ? (vpHeight - onlyFormContainer.clientHeight)/2 - 60 : 10) + 'px';
+    onlyFormContainer.style.marginBottom = (vpHeight - onlyFormContainer.clientHeight - ((vpHeight - onlyFormContainer.clientHeight)/2) > 0 ? vpHeight - onlyFormContainer.clientHeight - ((vpHeight - onlyFormContainer.clientHeight)/2) : 10) + 'px';
+  }
+
+  //#endregion Style
+
   //#region Converter
 
   toHTMLName(name: string) {
