@@ -540,3 +540,8 @@ Products Router: PUT getProducts
 Uploads Files
 Uploads Images
 Commit
+
+II. DATABASE
+Database: users
+
+Commit
