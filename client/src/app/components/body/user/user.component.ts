@@ -26,7 +26,9 @@ export class UserComponent implements OnInit {
     email: '',
     mobileNumber: '',
     address: ''
-  }
+  };
+
+  username;
 
   role;
   gender;
@@ -59,18 +61,18 @@ export class UserComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const username = this.route.snapshot.paramMap.get('username');
     const vpWidth = document.documentElement.clientWidth;
     const thead = document.getElementsByTagName('thead') as HTMLCollectionOf<HTMLTableSectionElement>;
-    const tbody = document.getElementsByTagName('tbody') as HTMLCollectionOf<HTMLTableSectionElement>;
   
     for (let i = 0; i < thead.length; i++) thead[i].style.fontSize = vpWidth * 0.03125 + 'px';
     this.tbodyFontSize = vpWidth * 0.025;
+
+    this.username = this.route.snapshot.paramMap.get('username');
     
     this.authService.getInfo().subscribe(
       res => {
-        if(res['user'].role === 'root' || res['user'].role === 'admin' || res['user'].username === username) {
-          this.userService.getUser(username).subscribe(
+        if(res['user'].role === 'root' || res['user'].role === 'admin' || res['user'].username === this.username) {
+          this.userService.getUser(this.username).subscribe(
             res => {
               this.userDetails = res['user'];
               this.titleService.setTitle(this.userDetails.name.first + this.title);
