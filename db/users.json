@@ -1,0 +1,79 @@
+[{
+  "_id": {
+    "$oid": "5f69d1242faebe101304eff7"
+  },
+  "name": {
+    "first": "Luc",
+    "last": "Huynh Tan"
+  },
+  "avatar": "assets/img/avatars/root.png",
+  "activated": true,
+  "role": "root",
+  "fullName": "Luc Huynh Tan",
+  "gender": "male",
+  "email": "luc.dev.root@gmail.com",
+  "mobileNumber": "0935287142",
+  "address": "Doi 5, thon Binh Bac, xa Tinh Binh - Son Tinh - Quang Ngai",
+  "username": "root",
+  "password": "$2a$10$Gv4vnvxsrZUueH2bqaYSZOatJVwK5LtNtskbCAfzJL5oRQq7jxaJy",
+  "createdAt": {
+    "$date": "2020-09-22T10:25:40.009Z"
+  },
+  "updatedAt": {
+    "$date": "2020-09-22T10:41:53.726Z"
+  },
+  "saltSecret": "$2a$10$Gv4vnvxsrZUueH2bqaYSZO",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f6dbb215f14cf1e31cebd0a"
+  },
+  "name": {
+    "first": "An",
+    "last": "Nguyen Van"
+  },
+  "avatar": "assets/img/avatars/default.png",
+  "activated": false,
+  "role": "user",
+  "fullName": "An Nguyen Van",
+  "gender": "male",
+  "email": "anv@email.com",
+  "mobileNumber": "0123456789",
+  "address": "Address 1",
+  "username": "a",
+  "password": "$2a$10$hmuwVJVBOGaXS393Z9Rh1eNTLUBPAck/h/mHiwCkcdahZDX2gTf8O",
+  "createdAt": {
+    "$date": "2020-09-25T09:40:49.847Z"
+  },
+  "updatedAt": {
+    "$date": "2020-09-25T09:40:49.847Z"
+  },
+  "saltSecret": "$2a$10$hmuwVJVBOGaXS393Z9Rh1e",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f6dbb745f14cf1e31cebd0b"
+  },
+  "name": {
+    "first": "Bang",
+    "last": "Nguyen Thi"
+  },
+  "avatar": "assets/img/avatars/default.png",
+  "activated": false,
+  "role": "user",
+  "fullName": "Bang Nguyen Thi",
+  "gender": "female",
+  "email": "bnt@email.com",
+  "mobileNumber": "0123456788",
+  "address": "Address 2",
+  "username": "b",
+  "password": "$2a$10$CoRzBb0257WWgwiauQHOb.K11iqa2fJo5luCfKUEI8cZFcwixy5Nq",
+  "createdAt": {
+    "$date": "2020-09-25T09:42:12.831Z"
+  },
+  "updatedAt": {
+    "$date": "2020-09-25T09:42:12.831Z"
+  },
+  "saltSecret": "$2a$10$CoRzBb0257WWgwiauQHOb.",
+  "__v": 0
+}]
