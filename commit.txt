@@ -39,8 +39,6 @@ Environments: userUrl
 User Service: register
 Register Component: onSubmit
 Routes: UserComponent, RegisterComponent
-User Component: View
-User Component: onResize
 Header Component: View
 Register Component: Style
 Register Component: constructor
@@ -279,6 +277,8 @@ Login Component: View
 Actice Component: View
 Change Email Component: View
 Routes: UserComponent
+User Component: View
+User Component: onResize
 User Component: constructor
 User Component: ngOnInit
 User Component: edit
