@@ -284,6 +284,8 @@ User Component: ngOnInit
 User Component: edit
 User Component: onSubmit
 User Component: onCancel
+User Component: fileChangeEvent
+User Component: imageCropped
 Carouse Images
 Product Component: prev
 Product Component: next
