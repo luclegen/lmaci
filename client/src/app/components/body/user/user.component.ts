@@ -89,5 +89,9 @@ export class UserComponent implements OnInit {
   onSubmit(form: NgForm) {
     alert('T');
   }
-  
+
+  onCancel() {
+    this.edit();
+  }
+
 }
