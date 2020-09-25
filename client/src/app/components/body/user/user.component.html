@@ -11,7 +11,7 @@
               <label for="avatar">
                 <img src="assets/img/avatars/change.png" [alt]="userDetails?.name.first.toUpperCase() + '\'S AVATAR'">
               </label>
-              <input #img="ngModel" [(ngModel)]="user.avatar" id="avatar" type="file" name="avatar" (change)="fileChangeEvent($event)" accept="image/*" required>
+              <input #img="ngModel" [(ngModel)]="user.avatar" id="avatar" type="file" name="avatar" (change)="fileChangeEvent($event)" accept="image/*">
             </span>
 
             <div *ngIf="imageChangedEvent" class="image-cropper-container">
