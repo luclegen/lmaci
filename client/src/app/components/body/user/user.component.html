@@ -9,7 +9,7 @@
 
             <span *ngIf="isEdit" class="inline-span input-span">
               <label for="avatar">
-                <img src="assets/img/avatars/change.png" [alt]="userDetails?.name.first.toUpperCase() + '\'S AVATAR'">
+                <img src="assets/img/user/change.png" [alt]="userDetails?.name.first.toUpperCase() + '\'S AVATAR'">
               </label>
               <input #img="ngModel" [(ngModel)]="user.avatar" id="avatar" type="file" name="avatar" (change)="fileChangeEvent($event)" accept="image/*">
             </span>
