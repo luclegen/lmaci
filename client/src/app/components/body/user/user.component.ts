@@ -1,9 +1,11 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
 import { UserService } from 'src/app/services/user.service';
 import { AuthService } from 'src/app/services/auth.service';
+import { HelperService } from 'src/app/services/helper.service';
 
 @Component({
   selector: 'app-user',
@@ -13,6 +15,23 @@ import { AuthService } from 'src/app/services/auth.service';
 export class UserComponent implements OnInit {
   userDetails;
   title = '\'s Profile';
+  isEdit = false;
+  user = {
+    firstName: '',
+    lastName: '',
+    gender: '',
+    email: '',
+    mobileNumber: '',
+    address: ''
+  }
+
+  role;
+  gender;
+
+  emailRegex;
+  mobileNumberRegex;
+
+  tbodyFontSize = 0;
 
   @HostListener('window:resize')
   onResize() {
@@ -23,7 +42,11 @@ export class UserComponent implements OnInit {
               private route: ActivatedRoute, 
               private authService: AuthService, 
               private userService: UserService,
-              private router: Router) { }
+              private helperService: HelperService,
+              private router: Router) {
+    this.emailRegex = this.helperService.emailRegex;
+    this.mobileNumberRegex = this.helperService.mobileNumberRegex;
+  }
 
   ngOnInit(): void {
     const username = this.route.snapshot.paramMap.get('username');
@@ -32,7 +55,7 @@ export class UserComponent implements OnInit {
     const tbody = document.getElementsByTagName('tbody') as HTMLCollectionOf<HTMLTableSectionElement>;
   
     for (let i = 0; i < thead.length; i++) thead[i].style.fontSize = vpWidth * 0.03125 + 'px';
-    for (let i = 0; i < tbody.length; i++) tbody[i].style.fontSize = vpWidth * 0.025 + 'px';
+    this.tbodyFontSize = vpWidth * 0.025;
     
     this.authService.getInfo().subscribe(
       res => {
@@ -41,8 +64,8 @@ export class UserComponent implements OnInit {
             res => {
               this.userDetails = res['user'];
               this.titleService.setTitle(this.userDetails.name.first + this.title);
-              this.userDetails.role = this.userDetails.role.split('')[0].toUpperCase() + this.userDetails.role.split('').slice(1).join('');
-              this.userDetails.gender = this.userDetails.gender.split('')[0].toUpperCase() + this.userDetails.gender.split('').slice(1).join('');
+              this.role = this.userDetails.role.split('')[0].toUpperCase() + this.userDetails.role.split('').slice(1).join('');
+              this.gender = this.userDetails.gender.split('')[0].toUpperCase() + this.userDetails.gender.split('').slice(1).join('');
             },
             err => alert(err.error.msg)
           );
@@ -51,5 +74,5 @@ export class UserComponent implements OnInit {
       err => this.router.navigateByUrl('')
     );
   }
-  
+
 }
