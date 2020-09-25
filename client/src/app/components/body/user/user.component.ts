@@ -91,6 +91,10 @@ export class UserComponent implements OnInit {
     this.imageChangedEvent = event;
   }
 
+  imageCropped(event: ImageCroppedEvent) {
+    this.croppedImage = event.base64;
+  }
+
   //#endregion Img Cropper
 
   edit() {
