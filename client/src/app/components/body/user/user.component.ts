@@ -86,4 +86,8 @@ export class UserComponent implements OnInit {
     this.user.address = this.userDetails.address;
   }
 
+  onSubmit(form: NgForm) {
+    alert('T');
+  }
+  
 }
