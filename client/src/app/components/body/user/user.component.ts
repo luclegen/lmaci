@@ -115,6 +115,8 @@ export class UserComponent implements OnInit {
   }
 
   onCancel() {
+    this.imageChangedEvent = '';
+    this.croppedImage = '';
     this.edit();
   }
 
