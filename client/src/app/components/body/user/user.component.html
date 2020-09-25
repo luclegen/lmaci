@@ -6,6 +6,28 @@
         <tr>
           <th colspan="2">
             <img [src]="userDetails?.avatar" [alt]="userDetails?.name.first.toUpperCase() + '\'S AVATAR'">
+
+            <span *ngIf="isEdit" class="inline-span input-span">
+              <label for="avatar">
+                <img src="assets/img/avatars/change.png" [alt]="userDetails?.name.first.toUpperCase() + '\'S AVATAR'">
+              </label>
+              <input #img="ngModel" [(ngModel)]="user.avatar" id="avatar" type="file" name="avatar" (change)="fileChangeEvent($event)" accept="image/*" required>
+            </span>
+
+            <div *ngIf="imageChangedEvent" class="image-cropper-container">
+              <image-cropper
+                [imageChangedEvent]="imageChangedEvent" 
+                [maintainAspectRatio]="true" 
+                [aspectRatio]="1 / 1"
+                [resizeToWidth]="512"
+                [cropperMinWidth]="128"
+                format="png" 
+                (imageCropped)="imageCropped($event)" 
+                [onlyScaleDown]="true"
+                [roundCropper]="true">
+              </image-cropper>
+            </div>
+        
           </th>
         </tr>
         <tr>
