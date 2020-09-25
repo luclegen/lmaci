@@ -281,6 +281,9 @@ Change Email Component: View
 Routes: UserComponent
 User Component: constructor
 User Component: ngOnInit
+User Component: edit
+User Component: onSubmit
+User Component: onCancel
 Carouse Images
 Product Component: prev
 Product Component: next
