@@ -3,6 +3,8 @@ import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 
+import { ImageCroppedEvent } from 'ngx-image-cropper';
+
 import { UserService } from 'src/app/services/user.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { HelperService } from 'src/app/services/helper.service';
@@ -17,6 +19,7 @@ export class UserComponent implements OnInit {
   title = '\'s Profile';
   isEdit = false;
   user = {
+    avatar: '',
     firstName: '',
     lastName: '',
     gender: '',
@@ -32,6 +35,13 @@ export class UserComponent implements OnInit {
   mobileNumberRegex;
 
   tbodyFontSize = 0;
+
+  //#region Img
+
+  imageChangedEvent: any = '';
+  croppedImage: any = '';
+
+  //#endregion Img
 
   @HostListener('window:resize')
   onResize() {
@@ -74,6 +84,14 @@ export class UserComponent implements OnInit {
       err => this.router.navigateByUrl('')
     );
   }
+
+  //#region Img Cropper
+
+  fileChangeEvent(event: any): void {
+    this.imageChangedEvent = event;
+  }
+
+  //#endregion Img Cropper
 
   edit() {
     this.isEdit = !this.isEdit;
