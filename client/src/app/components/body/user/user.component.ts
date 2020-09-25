@@ -75,4 +75,15 @@ export class UserComponent implements OnInit {
     );
   }
 
+  edit() {
+    this.isEdit = !this.isEdit;
+
+    this.user.firstName = this.userDetails.name.first;
+    this.user.lastName = this.userDetails.name.last;
+    this.user.gender = this.userDetails.gender;
+    this.user.email = this.userDetails.email;
+    this.user.mobileNumber = this.userDetails.mobileNumber;
+    this.user.address = this.userDetails.address;
+  }
+
 }
