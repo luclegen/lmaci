@@ -143,7 +143,7 @@ module.exports.updateProduct = async (req, res) => {
     const productEdited1 = await Product.findByIdAndUpdate(req.params.id, { $set: { sliders: newSliders } }, { new: true });
 
     return productEdited1 ? res.status(200).json({ _id: productEdited1.id, msg: 'Product is updated.' })
-                            : res.status(404).json({ msg: 'Product not found.' });
+                          : res.status(404).json({ msg: 'Product not found.' });
   } else return res.status(404).json({ msg: 'Product not found.' });
 }
 
