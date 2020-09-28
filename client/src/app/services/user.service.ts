@@ -19,6 +19,10 @@ export class UserService {
     return this.http.get(environment.userUrl + '/' + username);
   }
 
+  updateUser(username: string, form: Object) {
+    return this.http.put(environment.userUrl + '/' + username, form);
+  } 
+
   //#endregion Http Methods
 
   //#region Helper Methods
