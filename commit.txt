@@ -65,6 +65,8 @@ Routes: ActiveComponent
 Actice Component: Style
 Routes: ActiveComponent
 User Service: resendActive
+User Service: updateUser
+User Service: uploadAvatar
 Profile Component: Initial
 Counter Directive: Initial
 Counter Directive: constructor, ngOnChanges, ngOnDestroy
@@ -542,6 +544,10 @@ Product Router: PUT deleteAnswer
 Server App: Products Router
 Products Controller: getProducts
 Products Router: PUT getProducts
+User Controller: updateUser
+User Router: PUT updateUser
+User Controller: uploadAvatar
+User Router: PUT uploadAvatar
 
 Uploads Files
 Uploads Images
