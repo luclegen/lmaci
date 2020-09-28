@@ -187,7 +187,6 @@ module.exports.changePassword = async (req, res) => {
   const user = await User.findById(req.params.id);
 
   if (user) {
-    if (!user.activated) return res.status(422).json({ msg: 'Email isn\'t verified.' });
     if (user.verifyPassword(req.body.password)) {
       user.password = req.body.newPassword;
       
