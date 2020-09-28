@@ -25,3 +25,10 @@ module.exports.updateUser = async (req, res) => {
   return userEdited ? res.status(200).json({ username: userEdited.username })
                     : res.status(404).json({ msg: 'User not found.' });
 }
+
+module.exports.uploadAvatar = async (req, res) => {
+  const user = await User.findOneAndUpdate({ username: req.params.username }, { $set: { avatar: process.env.SERVER_URL + '/image/?image=avatar/' + req.file.filename } }, { new: true });
+
+  return user ? res.status(200).json()
+              : res.status(404).json({ msg: 'Upload your avatar failed.' });
+}
