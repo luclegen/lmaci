@@ -23,6 +23,10 @@ export class UserService {
     return this.http.put(environment.userUrl + '/' + username, form);
   } 
 
+  uploadAvatar(username: string, form: Object) {
+    return this.http.put(environment.userUrl + '/upload-avatar/' + username, form);
+  } 
+
   //#endregion Http Methods
 
   //#region Helper Methods
