@@ -14,7 +14,7 @@ module.exports.upload = (root, dir = '', parentdir = '') => {
     destination: (req, file, callBack) => {
       const path = [];
 
-      path.push(root + '/' + req.params.id);
+      path.push(root + '/' + (req.params.id ? req.params.id : ''));
       if (dir) path.push(path[0] + '/' + (parentdir ? parentdir : dir));
 
       switch (dir) {
