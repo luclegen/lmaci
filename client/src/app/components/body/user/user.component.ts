@@ -29,6 +29,7 @@ export class UserComponent implements OnInit {
   };
 
   username;
+  isUser = false;
 
   role;
   gender;
@@ -72,6 +73,7 @@ export class UserComponent implements OnInit {
     this.authService.getInfo().subscribe(
       res => {
         if(res['user'].role === 'root' || res['user'].role === 'admin' || res['user'].username === this.username) {
+          this.isUser = res['user'].username === this.username;
           this.userService.getUser(this.username).subscribe(
             res => {
               this.userDetails = res['user'];
