@@ -90,14 +90,15 @@
         <tr>
           <th>Email</th>
           <td>
-            <input #email="ngModel" [(ngModel)]="user.email" type="email" [ngClass]="{ 'invalid-input': editProfileForm.submitted && !email.valid }" name="email" placeholder="example@email.com" [pattern]="emailRegex" required><br>
+            <input #email="ngModel" [(ngModel)]="user.email" type="email" [ngClass]="{ 'invalid-input': editProfileForm.submitted && !email.valid }" name="email" placeholder="example@email.com" [pattern]="emailRegex" required> <br>
             <label *ngIf="editProfileForm.submitted && email.errors?.pattern" class="err">Invalid email.</label>
           </td>
         </tr>
         <tr>
           <th>Mobile Number</th>
           <td>
-            <input #mobileNumber="ngModel" [(ngModel)]="user.mobileNumber" [ngClass]="{ 'invalid-input': editProfileForm.submitted && !mobileNumber.valid }" type="text" name="mobileNumber" [pattern]="mobileNumberRegex" placeholder="0123456789" required>
+            <input #mobileNumber="ngModel" [(ngModel)]="user.mobileNumber" [ngClass]="{ 'invalid-input': editProfileForm.submitted && !mobileNumber.valid }" type="text" name="mobileNumber" [pattern]="mobileNumberRegex" placeholder="0123456789" required> <br>
+            <label *ngIf="editProfileForm.submitted && mobileNumber.errors?.pattern" class="err">Invalid mobile phone.</label>
           </td>
         </tr>
         <tr>
