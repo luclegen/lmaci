@@ -93,7 +93,7 @@ export class ProductListComponent implements OnInit {
           this.items.push(product);
         });
 
-        const itemCount = 10;
+        const itemCount = 12;
         const fraction = this.items.length/ itemCount;
         const bias = fraction - Math.floor(fraction);
         const pageCount = bias == 0 ? fraction : Math.floor(fraction) + 1;
