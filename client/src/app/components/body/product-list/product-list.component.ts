@@ -15,6 +15,8 @@ export class ProductListComponent implements OnInit {
   type;
   name;
   items = [];
+  index = 0;
+  page = [];
   
   constructor(private route: ActivatedRoute,
               private titleService: Title,
@@ -62,10 +64,10 @@ export class ProductListComponent implements OnInit {
     this.productsService.getProducts(this.type, this.name).subscribe(
       res => {
         const products = res[ 'products' ];
-        console.log(products);
         
         products.forEach(p => {
           const product = {
+            id: p._id,
             path: p.img.path,
             name: p.name,
             price: this.helperService.USDcurrency(p.price),
@@ -91,7 +93,12 @@ export class ProductListComponent implements OnInit {
           this.items.push(product);
         });
 
-        console.log(this.items);
+        const itemCount = 10;
+        const fraction = this.items.length/ itemCount;
+        const bias = fraction - Math.floor(fraction);
+        const pageCount = bias == 0 ? fraction : Math.floor(fraction) + 1;
+        
+        for (let i = 0; i < pageCount; i++) this.page.push(this.items.slice(itemCount * i, itemCount * i + itemCount));
       },
       err => console.warn(err.error.msg)
     );
