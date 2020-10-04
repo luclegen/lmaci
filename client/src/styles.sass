@@ -812,6 +812,16 @@ button
     svg#eye
       display: none
 
+  &.page
+    margin: 0 2px
+    border-radius: 5px
+    border: 2px solid gray
+
+  &.seleted
+    color: white
+    background: blue
+    border: 2px solid black
+
 details
 
   summary
@@ -844,6 +854,11 @@ nav
 
       strong
         margin-right: 3px
+
+  &.page
+    display: flex
+    margin: 10px 0
+    justify-content: center
 
 ul
   padding: 0
@@ -916,6 +931,24 @@ ul
 
     li
       padding: 5px
+
+  &.grid-ul
+    display: grid
+    list-style: none
+    width: 100%
+    margin-top: 10px
+    grid-gap: 10px
+    grid-template-columns: 25% 25% 25% 25%
+
+    img
+      width: 100%
+    
+  &.page
+    display: flex
+    list-style: none
+    
+    button
+      font-size: 1.5vw
 
 p
   &.separator
