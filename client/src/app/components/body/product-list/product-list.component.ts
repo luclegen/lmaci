@@ -107,4 +107,8 @@ export class ProductListComponent implements OnInit {
     if (this.index > 0) this.index--;
   }
 
+  select(index) {
+    this.index = index;
+  }
+
 }
