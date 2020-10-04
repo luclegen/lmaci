@@ -103,4 +103,8 @@ export class ProductListComponent implements OnInit {
     );
   }
 
+  prev() {
+    if (this.index > 0) this.index--;
+  }
+
 }
