@@ -14,6 +14,7 @@ export class ProductListComponent implements OnInit {
 
   type;
   name;
+  title = 'No title';
   items = [];
   index = 0;
   page = [];
@@ -25,39 +26,37 @@ export class ProductListComponent implements OnInit {
     const path = this.route.snapshot.paramMap.get('path').split('-');
     [ this.type, this.name ] = [ path[0], path.slice(1).join(' ') ];
 
-    let title = 'No title';
-
     switch (this.name) {
       case 'macbook':
-        title = 'Macbook';
+        this.title = 'Macbook';
         break;
         
       case 'ipad':
-        title = 'iPad';
+        this.title = 'iPad';
         break;
 
       case 'iphone':
-        title = 'iPhone';
+        this.title = 'iPhone';
         break;
         
       case 'apple watch':
-        title = this.helperService.toName(this.name);
+        this.title = this.helperService.toName(this.name);
         break;
         
       case 'hp':
-        title = 'HP ' + this.helperService.toName(this.type);
+        this.title = 'HP ' + this.helperService.toName(this.type);
         break;
         
       case 'oppo':
-        title = 'OPPO ' + this.helperService.toName(this.type);
+        this.title = 'OPPO ' + this.helperService.toName(this.type);
         break;
     
       default:
-        title = this.helperService.toName(this.name + ' ' + this.type);
+        this.title = this.helperService.toName(this.name + ' ' + this.type);
         break;
     }
 
-    this.titleService.setTitle(title + ' | Lmaci ');
+    this.titleService.setTitle(this.title + ' | Lmaci ');
   }
 
   ngOnInit(): void {
