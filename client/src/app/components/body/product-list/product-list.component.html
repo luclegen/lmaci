@@ -31,7 +31,7 @@
           </button>
         </li>
         <li *ngFor="let p of page">
-          <button class="page" type="button" [title]="'Page ' + (page.indexOf(p) + 1)" [ngClass]="{ 'seleted': index == page.indexOf(p) }" (click)="change(page.indexOf(p))">
+          <button class="page" type="button" [title]="'Page ' + (page.indexOf(p) + 1)" [ngClass]="{ 'seleted': index == page.indexOf(p) }" (click)="select(page.indexOf(p))">
             {{ page.indexOf(p) + 1 }}
           </button>
         </li>
