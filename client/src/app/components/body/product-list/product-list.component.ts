@@ -111,4 +111,8 @@ export class ProductListComponent implements OnInit {
     this.index = index;
   }
 
+  next() {
+    if (this.index < this.page.length - 1) this.index++;
+  }
+  
 }
