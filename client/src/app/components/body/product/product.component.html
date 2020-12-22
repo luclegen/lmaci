@@ -264,7 +264,7 @@
     <ul class="reviews-ls">
       <li *ngFor="let r of reviews">
         <span class="inline user">
-          <a *ngIf="userDetails && (userDetails.role == 'root' || userDetails.role == 'admin' || userDetails.username == r.user.username)" [href]="r.user.username">
+          <a *ngIf="userDetails && (userDetails.role == 'root' || userDetails.role == 'admin' || userDetails.username == r.user.username)" [href]="'user/' + r.user.username">
             <img [src]="r.user.avatar" [alt]="r.user.name?.first + '\'s avatar'">
             {{ r.user.fullName }}
           </a>
@@ -301,7 +301,7 @@
     <ul class="cmts-ls">
       <li *ngFor="let c of comments">
         <span class="inline user">
-          <a *ngIf="userDetails && (userDetails.role == 'root' || userDetails.role == 'admin' || userDetails.username == c.user.username)" [href]="c.user.username">
+          <a *ngIf="userDetails && (userDetails.role == 'root' || userDetails.role == 'admin' || userDetails.username == c.user.username)" [href]="'user/' + c.user.username">
             <img [src]="c.user.avatar" [alt]="c.user.name?.first + '\'s avatar'">
             {{ c.user.fullName }}
           </a>
