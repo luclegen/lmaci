@@ -430,6 +430,7 @@ Product List Component: View
 Product List Component: constructor
 Product List Component: ngOnInit
 User Images
+Background Images
 
 Global Styles
 Commit
