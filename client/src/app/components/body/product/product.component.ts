@@ -646,7 +646,7 @@ export class ProductComponent implements OnInit {
         if ((res['user'].role == 'root' || res['user'].role === 'admin') && this.isSaveImgs()) {
           const formData = new FormData();
 
-          let index = this.product.sliders.length && this.product.sliders.filter(s => s.color == this.order.color.value).length && this.product.sliders.filter(s => s.color == this.order.color.value)[0].imgs.length ? this.product.sliders.filter(s => s.color == this.order.color.value)[0].imgs[this.product.sliders.filter(s => s.color == this.order.color.value)[0].imgs.length - 1].index + 1 : 0;
+          let index = this.product.sliders.length && this.product.sliders.filter(s => s.color == this.order.color.value).length && this.product.sliders.filter(s => s.color == this.order.color.value)[0].imgs.length ? Math.max(...this.product.sliders.filter(s => s.color == this.order.color.value)[0].imgs.map(i => i.index)) + 1 : 0;
           const indexs = [], paths = [];
 
           formData.append('color', this.order.color.value);
