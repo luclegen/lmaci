@@ -574,8 +574,9 @@ export class ProductsComponent implements OnInit {
     this.ngOnInit();
   }
 
-  viewDetails(product: Product) {
-    this.router.navigateByUrl(product.type + '/' + product._id);
+  viewDetails(event: any, product: Product) {
+    if (event.ctrlKey) window.open(product.type + '/' + product._id);
+    else this.router.navigateByUrl(product.type + '/' + product._id);
   }
 
   //#endregion Products
