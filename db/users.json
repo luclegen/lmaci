@@ -1,79 +1,365 @@
 [{
   "_id": {
-    "$oid": "5f69d1242faebe101304eff7"
-  },
-  "name": {
-    "first": "Luc",
-    "last": "Huynh Tan"
-  },
-  "avatar": "assets/img/avatars/root.png",
-  "activated": true,
-  "role": "root",
-  "fullName": "Luc Huynh Tan",
-  "gender": "male",
-  "email": "luc.dev.root@gmail.com",
-  "mobileNumber": "0935287142",
-  "address": "Doi 5, thon Binh Bac, xa Tinh Binh - Son Tinh - Quang Ngai",
-  "username": "root",
-  "password": "$2a$10$Gv4vnvxsrZUueH2bqaYSZOatJVwK5LtNtskbCAfzJL5oRQq7jxaJy",
-  "createdAt": {
-    "$date": "2020-09-22T10:25:40.009Z"
-  },
-  "updatedAt": {
-    "$date": "2020-09-22T10:41:53.726Z"
-  },
-  "saltSecret": "$2a$10$Gv4vnvxsrZUueH2bqaYSZO",
-  "__v": 0
-},{
-  "_id": {
     "$oid": "5f6dbb215f14cf1e31cebd0a"
   },
   "name": {
-    "first": "An",
-    "last": "Nguyen Van"
+    "first": "Anh",
+    "last": "Bao"
   },
-  "avatar": "assets/img/avatars/default.png",
-  "activated": false,
-  "role": "user",
-  "fullName": "An Nguyen Van",
-  "gender": "male",
-  "email": "anv@email.com",
+  "avatar": "http://localhost:3000/image/?image=avatar/a.png",
+  "activated": true,
+  "role": "admin",
+  "fullName": "Anh Bao",
+  "gender": "female",
+  "email": "ba@email.com",
   "mobileNumber": "0123456789",
   "address": "Address 1",
   "username": "a",
-  "password": "$2a$10$hmuwVJVBOGaXS393Z9Rh1eNTLUBPAck/h/mHiwCkcdahZDX2gTf8O",
+  "password": "$2a$10$Xrh1NpTQ1Shq04erhnlh3.wydOfSsJ8q10fLFQm51CDViJoEqOW7a",
   "createdAt": {
     "$date": "2020-09-25T09:40:49.847Z"
   },
   "updatedAt": {
-    "$date": "2020-09-25T09:40:49.847Z"
+    "$date": "2020-10-07T08:06:33.636Z"
   },
-  "saltSecret": "$2a$10$hmuwVJVBOGaXS393Z9Rh1e",
+  "saltSecret": "$2a$10$Xrh1NpTQ1Shq04erhnlh3.",
   "__v": 0
 },{
   "_id": {
     "$oid": "5f6dbb745f14cf1e31cebd0b"
   },
   "name": {
-    "first": "Bang",
-    "last": "Nguyen Thi"
+    "first": "Binh",
+    "last": "Trinh Thanh"
   },
-  "avatar": "assets/img/avatars/default.png",
-  "activated": false,
+  "avatar": "http://localhost:3000/image/?image=avatar/b.png",
+  "activated": true,
   "role": "user",
-  "fullName": "Bang Nguyen Thi",
+  "fullName": "Binh Trinh Thanh",
   "gender": "female",
-  "email": "bnt@email.com",
+  "email": "ttb@email.com",
   "mobileNumber": "0123456788",
   "address": "Address 2",
   "username": "b",
-  "password": "$2a$10$CoRzBb0257WWgwiauQHOb.K11iqa2fJo5luCfKUEI8cZFcwixy5Nq",
+  "password": "$2a$10$9cUiR869wyB9zPMNG2FdRu9gi3yrSnyYbEHpfRfqbYWdJXZUeembW",
   "createdAt": {
     "$date": "2020-09-25T09:42:12.831Z"
   },
   "updatedAt": {
-    "$date": "2020-09-25T09:42:12.831Z"
+    "$date": "2020-10-07T07:49:40.236Z"
   },
-  "saltSecret": "$2a$10$CoRzBb0257WWgwiauQHOb.",
+  "saltSecret": "$2a$10$9cUiR869wyB9zPMNG2FdRu",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f7dc8d3b0dc351ae51127ee"
+  },
+  "name": {
+    "first": "Chi",
+    "last": "Truong Ba"
+  },
+  "avatar": "http://localhost:3000/image/?image=avatar/c.png",
+  "activated": true,
+  "role": "user",
+  "fullName": "Chi Truong Ba",
+  "gender": "female",
+  "email": "tbc@email.com",
+  "mobileNumber": "0123456787",
+  "address": "Address 3",
+  "username": "c",
+  "password": "$2a$10$JwyfZskfpWXV2EEYE3krkOyodlIpeeCsS1farborGfrGTcHM/ILNm",
+  "createdAt": {
+    "$date": "2020-10-07T13:55:31.868Z"
+  },
+  "updatedAt": {
+    "$date": "2020-10-07T07:40:04.404Z"
+  },
+  "saltSecret": "$2a$10$JwyfZskfpWXV2EEYE3krkO",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f7dc920b0dc351ae51127ef"
+  },
+  "name": {
+    "first": "Dan",
+    "last": "Chan Tu"
+  },
+  "avatar": "http://localhost:3000/image/?image=avatar/d.png",
+  "activated": true,
+  "role": "user",
+  "fullName": "Dan Chan Tu",
+  "gender": "male",
+  "email": "ctd@email.com",
+  "mobileNumber": "0123456786",
+  "address": "Address 4",
+  "username": "d",
+  "password": "$2a$10$S/Kk/AtdtVEf8DyL1S1T0eAET15hg5TopYCEmHZPGkzilzHQ53iCG",
+  "createdAt": {
+    "$date": "2020-10-07T13:56:48.981Z"
+  },
+  "updatedAt": {
+    "$date": "2020-10-07T07:42:16.168Z"
+  },
+  "saltSecret": "$2a$10$S/Kk/AtdtVEf8DyL1S1T0e",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f7dc95ab0dc351ae51127f0"
+  },
+  "name": {
+    "first": "Em",
+    "last": "Nam"
+  },
+  "avatar": "http://localhost:3000/image/?image=avatar/e.png",
+  "activated": true,
+  "role": "user",
+  "fullName": "Em Nam",
+  "gender": "female",
+  "email": "ne@email.com",
+  "mobileNumber": "0123456785",
+  "address": "Address 5",
+  "username": "e",
+  "password": "$2a$10$.93vmgVzyWDRyhMV1agnQOddAoWL.fV/fKQ42zs0Ox/NxjTyqXGI6",
+  "createdAt": {
+    "$date": "2020-10-07T13:57:46.966Z"
+  },
+  "updatedAt": {
+    "$date": "2020-10-07T07:43:53.194Z"
+  },
+  "saltSecret": "$2a$10$.93vmgVzyWDRyhMV1agnQO",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f7d6baeb0dc351ae51127f2"
+  },
+  "name": {
+    "first": "Frank",
+    "last": "Walker"
+  },
+  "avatar": "assets/img/avatars/default.png",
+  "activated": false,
+  "role": "user",
+  "fullName": "Frank Walker",
+  "gender": "male",
+  "email": "fw@email.com",
+  "mobileNumber": "0123456784",
+  "address": "Address 6",
+  "username": "f",
+  "password": "$2a$10$9bPgiCLD.OyAq00LvPs3HeRTPQpYzPisWNEw0.eSYS1J1xz3RKyHy",
+  "createdAt": {
+    "$date": "2020-10-07T07:18:06.790Z"
+  },
+  "updatedAt": {
+    "$date": "2020-10-07T07:18:06.790Z"
+  },
+  "saltSecret": "$2a$10$9bPgiCLD.OyAq00LvPs3He",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f7d6c51b0dc351ae51127f3"
+  },
+  "name": {
+    "first": "Giang",
+    "last": "Le"
+  },
+  "avatar": "http://localhost:3000/image/?image=avatar/g.png",
+  "activated": true,
+  "role": "user",
+  "fullName": "Giang Le",
+  "gender": "female",
+  "email": "lg@email.com",
+  "mobileNumber": "0123456783",
+  "address": "Address 7",
+  "username": "g",
+  "password": "$2a$10$EUX.npaU/Y615iErHTmJeO4gXdFcwJi8zQQiy9Q7OajtvJzsQUVWm",
+  "createdAt": {
+    "$date": "2020-10-07T07:20:49.998Z"
+  },
+  "updatedAt": {
+    "$date": "2020-10-07T07:46:04.630Z"
+  },
+  "saltSecret": "$2a$10$EUX.npaU/Y615iErHTmJeO",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f7d6cc3b0dc351ae51127f4"
+  },
+  "name": {
+    "first": "Ha",
+    "last": "Quang"
+  },
+  "avatar": "http://localhost:3000/image/?image=avatar/h.png",
+  "activated": true,
+  "role": "user",
+  "fullName": "Ha Quang",
+  "gender": "male",
+  "email": "qh@email.com",
+  "mobileNumber": "0123456782",
+  "address": "Address 8",
+  "username": "h",
+  "password": "$2a$10$Olgu47IyFzBp84EDPDEPv.6f849gnAstFl1f8/6kGfuM0mXJkKBY2",
+  "createdAt": {
+    "$date": "2020-10-07T07:22:43.667Z"
+  },
+  "updatedAt": {
+    "$date": "2020-10-07T07:47:31.724Z"
+  },
+  "saltSecret": "$2a$10$Olgu47IyFzBp84EDPDEPv.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f7d6ea2b0dc351ae51127f5"
+  },
+  "name": {
+    "first": "Idina",
+    "last": "Menzel"
+  },
+  "avatar": "assets/img/avatars/default.png",
+  "activated": false,
+  "role": "user",
+  "fullName": "Idina Menzel",
+  "gender": "female",
+  "email": "im@email.com",
+  "mobileNumber": "0123456781",
+  "address": "Address 9",
+  "username": "i",
+  "password": "$2a$10$Be/7pM9aFxcMrvkw/B7wi.OSwtjdsRfvCSpSaUeMi5PyktkuK8Wra",
+  "createdAt": {
+    "$date": "2020-10-07T07:30:42.109Z"
+  },
+  "updatedAt": {
+    "$date": "2020-10-07T07:30:42.109Z"
+  },
+  "saltSecret": "$2a$10$Be/7pM9aFxcMrvkw/B7wi.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f7d6ef9b0dc351ae51127f6"
+  },
+  "name": {
+    "first": "Justin",
+    "last": "Bieber"
+  },
+  "avatar": "assets/img/avatars/default.png",
+  "activated": false,
+  "role": "user",
+  "fullName": "Justin Bieber",
+  "gender": "male",
+  "email": "jb@email.com",
+  "mobileNumber": "0123456780",
+  "address": "Address 10",
+  "username": "j",
+  "password": "$2a$10$2xQY5JCDpkvzUpIMC5yI6enRO6zw6XpPqBlE0ECyrI81f9usz4I/i",
+  "createdAt": {
+    "$date": "2020-10-07T07:32:09.734Z"
+  },
+  "updatedAt": {
+    "$date": "2020-10-07T07:32:09.734Z"
+  },
+  "saltSecret": "$2a$10$2xQY5JCDpkvzUpIMC5yI6e",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f7d6f7ab0dc351ae51127f7"
+  },
+  "name": {
+    "first": "Khoi",
+    "last": "Dang"
+  },
+  "avatar": "http://localhost:3000/image/?image=avatar/k.png",
+  "activated": true,
+  "role": "user",
+  "fullName": "Khoi Dang",
+  "gender": "male",
+  "email": "dk@email.com",
+  "mobileNumber": "0123456798",
+  "address": "Address 11",
+  "username": "k",
+  "password": "$2a$10$G0ySWvqOiqSBpIn4y2DLbOKvM7.U.sk/V3RXJmMl/NTr4HLL1DrsW",
+  "createdAt": {
+    "$date": "2020-10-07T07:34:18.053Z"
+  },
+  "updatedAt": {
+    "$date": "2020-10-07T07:49:09.028Z"
+  },
+  "saltSecret": "$2a$10$G0ySWvqOiqSBpIn4y2DLbO",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f7d73cfb0dc351ae5112800"
+  },
+  "name": {
+    "first": "Linh",
+    "last": "Hoang Thuy"
+  },
+  "avatar": "http://localhost:3000/image/?image=avatar/l.png",
+  "activated": true,
+  "role": "user",
+  "fullName": "Linh Hoang Thuy",
+  "gender": "female",
+  "email": "htl@email.com",
+  "mobileNumber": "0123456799",
+  "address": "Address 12",
+  "username": "l",
+  "password": "$2a$10$5v6pfppKVZo1YbR8ICn7XezAEXW6Tqpt9YZJ0Bexp5b2Ser4AguvK",
+  "createdAt": {
+    "$date": "2020-10-07T07:52:47.513Z"
+  },
+  "updatedAt": {
+    "$date": "2020-10-07T07:59:55.748Z"
+  },
+  "saltSecret": "$2a$10$5v6pfppKVZo1YbR8ICn7Xe",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f7d7426b0dc351ae5112801"
+  },
+  "name": {
+    "first": "My",
+    "last": "Khoi"
+  },
+  "avatar": "http://localhost:3000/image/?image=avatar/m.png",
+  "activated": true,
+  "role": "user",
+  "fullName": "My Khoi",
+  "gender": "female",
+  "email": "km@email.com",
+  "mobileNumber": "0123456797",
+  "address": "Address 13",
+  "username": "m",
+  "password": "$2a$10$Z/tRARpzBn9ucZNHKRk.AOm1phi6N7DQGU.6qAJlY5LPWSeFqBn.u",
+  "createdAt": {
+    "$date": "2020-10-07T07:54:14.811Z"
+  },
+  "updatedAt": {
+    "$date": "2020-10-07T08:01:39.674Z"
+  },
+  "saltSecret": "$2a$10$Z/tRARpzBn9ucZNHKRk.AO",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f7d74b1b0dc351ae5112802"
+  },
+  "name": {
+    "first": "Nhung",
+    "last": "Phi"
+  },
+  "avatar": "http://localhost:3000/image/?image=avatar/n.png",
+  "activated": true,
+  "role": "user",
+  "fullName": "Nhung Phi",
+  "gender": "female",
+  "email": "pn@email.com",
+  "mobileNumber": "0123456796",
+  "address": "Address 14",
+  "username": "n",
+  "password": "$2a$10$S6NlMa9YwDW.GbOjZLwfk.VY1XDKeOd1MK/nnCZidXnEpllbJx7Um",
+  "createdAt": {
+    "$date": "2020-10-07T07:56:33.962Z"
+  },
+  "updatedAt": {
+    "$date": "2020-10-07T08:02:58.986Z"
+  },
+  "saltSecret": "$2a$10$S6NlMa9YwDW.GbOjZLwfk.",
   "__v": 0
 }]
