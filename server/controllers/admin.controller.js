@@ -100,7 +100,7 @@ module.exports.uploadProductImg = async (req, res) => {
 }
 
 module.exports.getProducts = async (req, res) => {
-  const products = await Product.find();
+  const products = await Product.find().sort('-updatedAt').exec();
 
   return products ? res.status(200).json({ products: products })
                   : res.status(404).json({ msg: 'Products not found.' });
