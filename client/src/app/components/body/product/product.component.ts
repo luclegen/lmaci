@@ -296,14 +296,7 @@ export class ProductComponent implements OnInit {
         this.showStar();
         this.showSlider();
 
-        if (this.authService.getToken()){
-          this.authService.getInfo().subscribe(
-            res => this.userDetails = res['user'],
-            err => {
-              if (err.status == 440 && confirm('Your session has expired and must log in again.\n\nDo you want to login again?')) window.open('/login');
-            }
-          );
-        }
+        if (this.authService.getToken()) this.authService.getInfo().subscribe(res => this.userDetails = res['user'], err => { if (err.status == 440 && confirm('Your session has expired and must log in again.\n\nDo you want to login again?')) window.open('/login'); });
       },
       err => {
         alert(err.error.msg);
