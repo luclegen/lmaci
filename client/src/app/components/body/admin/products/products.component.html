@@ -204,7 +204,7 @@
               <input class="triple" #newValue="ngModel" [(ngModel)]="option.value" type="text" name="value" placeholder="Value" required>
             </td>
             <td *ngIf="!property.options[0]">
-              <input class="triple" #newPrice="ngModel" [(ngModel)]="option.price" type="number" name="propertyPrice" placeholder="Price" [pattern]="NotNegativeNumberRegex" min="0" required>
+              <input class="triple" #newPrice="ngModel" [(ngModel)]="option.price" type="number" name="propertyPrice" placeholder="+Price" [pattern]="NotNegativeNumberRegex" min="0" required>
             </td>
             <td *ngIf="!property.options[0] && !optionSelected.value" class="one-btn">
               <button class="func-btn circle-btn yellow-btn" title="Add this option" type="button" [disabled]="!option.value || option.price < 0 || option.price == null" (click)="onSubmitOption()">
