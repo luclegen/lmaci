@@ -287,14 +287,14 @@ export class ProductComponent implements OnInit {
 
         this.setPaths();
 
-        this.initPost();
         this.initStars();
+        this.initPost();
         this.initReviews();
         this.initComments();
 
-        this.loadPost();
         this.showStar();
-        this.showSlider();
+        setTimeout(() => this.showSlider(), 0);
+        this.loadPost();
 
         if (this.authService.getToken()) this.authService.getInfo().subscribe(res => this.userDetails = res['user'], err => { if (err.status == 440 && confirm('Your session has expired and must log in again.\n\nDo you want to login again?')) window.open('/login'); });
       },
