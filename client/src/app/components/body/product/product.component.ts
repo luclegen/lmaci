@@ -431,7 +431,9 @@ export class ProductComponent implements OnInit {
     const body = document.querySelector('body');
     const leftContainer = document.querySelector('.left-container') as HTMLElement;
     const container = document.querySelector('.carousel-container') as HTMLElement;
+    const track = document.querySelector('.carousel_track') as HTMLElement;
     const slide = document.querySelector('.carousel_slide') as HTMLElement;
+    const slides = document.querySelectorAll('.carousel_slide') as NodeListOf<Element>;
     // const carouselImages = document.querySelectorAll('.carousel-slide img') as NodeListOf<HTMLElement>;
     const nav = document.querySelector('.gallery-carousel-nav') as HTMLElement;
     const frame = document.querySelector('.gallery-frame') as HTMLElement;
@@ -448,15 +450,16 @@ export class ProductComponent implements OnInit {
 
     leftContainer.style.position = 'fixed';
     leftContainer.style.zIndex = '103';
-    leftContainer.style.top = leftContainer.style.padding = '0';
-    leftContainer.style.margin = '0';
+    leftContainer.style.top = leftContainer.style.left = leftContainer.style.margin = leftContainer.style.padding = '0';
     leftContainer.style.background = 'black';
-    leftContainer.style.left = '0';
     leftContainer.style.width = '100vw';
     leftContainer.style.height = '100vh';
 
     container.style.height = '90%';
-    container.style.width = container.clientHeight * 4/3 + 'px';
+
+    this.size = Math.round(container.clientHeight * 4/3);
+
+    container.style.width = this.size + 'px';
 
     // this.size = Math.round(vpHeight * 1.2);
 
@@ -478,14 +481,14 @@ export class ProductComponent implements OnInit {
     prevBtn.style.left = ((vpWidth - container.clientWidth) * 0.5 + container.clientWidth * 0.03) + 'px';
     nextBtn.style.left = ((vpWidth - container.clientWidth) * 0.5 + container.clientWidth * (1 - 0.03) - btnWidth) + 'px';
 
-    this.size = container.clientWidth;
+    // alert(Object.values(slides).map(s => s.clientWidth).join());
 
-    // carouselSlide.style.transition = 'none';
-    // carouselSlide.style.transform = 'translateX(' + (-this.size * 0) + 'px)';
+    track.style.transition = 'none';
+    // track.style.transform = 'translateX(' + (-this.size * 0) + 'px)';
 
     // carouselContainer.style.width = this.size + 'px';
-    // carouselSlide.style.transform = 'translateX(' + (-this.size * this.counter) + 'px)';
-    // carouselSlide.style.cursor = 'auto';
+    track.style.transform = 'translateX(' + (-this.size * this.counter) + 'px)';
+    slide.style.cursor = 'auto';
 
     // galleryCarouselNav.style.position = 'absolute';
     // galleryCarouselNav.style.display = 'flex';
