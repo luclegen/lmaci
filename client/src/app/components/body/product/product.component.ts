@@ -389,7 +389,7 @@ export class ProductComponent implements OnInit {
 
   next() {
     const track = document.querySelector('.carousel_track') as HTMLElement;
-    const slides = document.querySelectorAll('.carousel_slide') as NodeListOf<HTMLElement>;
+    const slides = document.querySelectorAll('.carousel_slide') as NodeListOf<Element>;
     const frame = document.querySelector('.gallery-frame') as HTMLElement;
 
     if (this.counter >= slides.length - 1) return;
