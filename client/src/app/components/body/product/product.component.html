@@ -25,13 +25,24 @@
       <button id="close-btn" (click)="closeGallery()">
         <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times-circle" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-times-circle fa-w-16 fa-3x"><path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm121.6 313.1c4.7 4.7 4.7 12.3 0 17L338 377.6c-4.7 4.7-12.3 4.7-17 0L256 312l-65.1 65.6c-4.7 4.7-12.3 4.7-17 0L134.4 338c-4.7-4.7-4.7-12.3 0-17l65.6-65-65.6-65.1c-4.7-4.7-4.7-12.3 0-17l39.6-39.6c4.7-4.7 12.3-4.7 17 0l65 65.7 65.1-65.6c4.7-4.7 12.3-4.7 17 0l39.6 39.6c4.7 4.7 4.7 12.3 0 17L312 256l65.6 65.1z" class=""></path></svg>
       </button>
-      <div class="carousel-slide" (click)="showGallery()" (mouseenter)="showArrow()" (mouseleave)="hideArrow()" (transitionend)="moved()">
-        <img *ngFor="let i of paths" [src]="i" [alt]="'Image ' + (paths.indexOf(i) + 1)">
-        <img *ngIf="!paths.length" src="assets/img/carousel/A.png" alt="A">
-        <img *ngIf="!paths.length" src="assets/img/carousel/B.png" alt="B">
-        <img *ngIf="!paths.length" src="assets/img/carousel/C.png" alt="C">
+
+      <div class="carousel_track-container" (click)="showGallery()" (mouseenter)="showArrow()" (mouseleave)="hideArrow()" (transitionend)="moved()">
+        <ul class="carousel_track">
+          <li *ngFor="let i of paths" class="carousel_slide">
+            <img [src]="i" [alt]="'Image ' + (paths.indexOf(i) + 1)">
+          </li>
+          <li *ngIf="!paths.length" class="carousel_slide">
+            <img src="assets/img/carousel/A.png" alt="A">
+          </li>
+          <li *ngIf="!paths.length" class="carousel_slide">
+            <img src="assets/img/carousel/B.png" alt="B">
+          </li>
+          <li *ngIf="!paths.length" class="carousel_slide">
+            <img src="assets/img/carousel/C.png" alt="C">
+          </li>
+        </ul>
       </div>
-    
+
       <button id="prev-btn" (mouseenter)="showArrow()" (mouseleave)="hideArrow()" (click)="prev()">
         <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
           viewBox="0 0 492 492" style="enable-background:new 0 0 492 492;" xml:space="preserve">
