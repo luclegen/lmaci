@@ -430,40 +430,43 @@ export class ProductComponent implements OnInit {
   showGallery() {
     const body = document.querySelector('body');
     const leftContainer = document.querySelector('.left-container') as HTMLElement;
-    const carouselContainer = document.querySelector('.carousel-container') as HTMLElement;
-    const carouselSlide = document.querySelector('.carousel-slide') as HTMLElement;
-    const carouselImages = document.querySelectorAll('.carousel-slide img') as NodeListOf<HTMLElement>;
-    const galleryCarouselNav = document.querySelector('.gallery-carousel-nav') as HTMLElement;
-    const galleryFrame = document.querySelector('.gallery-frame') as HTMLElement;
-    const galleryCarouselImages = document.querySelectorAll('.gallery-carousel-nav img') as NodeListOf<HTMLElement>;
+    const container = document.querySelector('.carousel-container') as HTMLElement;
+    const slide = document.querySelector('.carousel_slide') as HTMLElement;
+    // const carouselImages = document.querySelectorAll('.carousel-slide img') as NodeListOf<HTMLElement>;
+    const nav = document.querySelector('.gallery-carousel-nav') as HTMLElement;
+    const frame = document.querySelector('.gallery-frame') as HTMLElement;
+    // const galleryCarouselImages = document.querySelectorAll('.gallery-carousel-nav img') as NodeListOf<HTMLElement>;
     const closeBtn = document.getElementById('close-btn');
     const prevBtn = document.getElementById('prev-btn');
     const nextBtn = document.getElementById('next-btn');
     const vpWidth = document.documentElement.clientWidth;
     const vpHeight = document.documentElement.clientHeight;
-    const carouselButtonWidth = vpWidth * 0.05;
-    const carouselButtonHeight = vpWidth * 0.05 * 1.04;
+    const btnWidth = vpWidth * 0.05;
+    const btnHeight = vpWidth * 0.05 * 1.04;
 
     body.style.overflowY = 'hidden';
 
     leftContainer.style.position = 'fixed';
     leftContainer.style.zIndex = '103';
     leftContainer.style.top = leftContainer.style.padding = '0';
-    leftContainer.style.margin = '0 10%';
+    leftContainer.style.margin = '0';
     leftContainer.style.background = 'black';
-    leftContainer.style.left = '-10%';
+    leftContainer.style.left = '0';
     leftContainer.style.width = '100vw';
     leftContainer.style.height = '100vh';
 
-    this.size = Math.round(vpHeight * 1.2);
+    container.style.height = '90%';
+    container.style.width = container.clientHeight * 4/3 + 'px';
 
-    for (let i = 0; i < carouselImages.length; i++) {
-      carouselImages[i].style.height = this.size * 3/4 + 'px';
-      carouselImages[i].style.width = this.size + 'px';
-    }
+    // this.size = Math.round(vpHeight * 1.2);
 
-    carouselContainer.style.height = carouselImages[0].clientHeight + 'px';
-    carouselContainer.style.width = carouselImages[0].clientWidth + 'px';
+    // for (let i = 0; i < carouselImages.length; i++) {
+    //   carouselImages[i].style.height = this.size * 3/4 + 'px';
+    //   carouselImages[i].style.width = this.size + 'px';
+    // }
+
+    // carouselContainer.style.height = carouselImages[0].clientHeight + 'px';
+    // carouselContainer.style.width = carouselImages[0].clientWidth + 'px';
 
     closeBtn.style.display = 'inline';
     closeBtn.style.padding = '5px 5px 2px 5px';
@@ -471,44 +474,46 @@ export class ProductComponent implements OnInit {
     closeBtn.style.top = closeBtn.style.right = '10px';
     closeBtn.style.background = 'red';
     closeBtn.style.cursor = 'zoom-out';
-    prevBtn.style.top = nextBtn.style.top = (carouselContainer.clientHeight - carouselButtonHeight) * 0.5 + 'px';
-    prevBtn.style.left = ((vpWidth - carouselContainer.clientWidth) * 0.5 + carouselContainer.clientWidth * 0.03) + 'px';
-    nextBtn.style.left = ((vpWidth - carouselContainer.clientWidth) * 0.5 + carouselContainer.clientWidth * (1 - 0.03) - carouselButtonWidth) + 'px';
+    prevBtn.style.top = nextBtn.style.top = (container.clientHeight - btnWidth) * 0.5 + 'px';
+    prevBtn.style.left = ((vpWidth - container.clientWidth) * 0.5 + container.clientWidth * 0.03) + 'px';
+    nextBtn.style.left = ((vpWidth - container.clientWidth) * 0.5 + container.clientWidth * (1 - 0.03) - btnWidth) + 'px';
 
-    carouselSlide.style.transition = 'none';
-    carouselSlide.style.transform = 'translateX(' + (-this.size * 0) + 'px)';
+    this.size = container.clientWidth;
 
-    carouselContainer.style.width = this.size + 'px';
-    carouselSlide.style.transform = 'translateX(' + (-this.size * this.counter) + 'px)';
-    carouselSlide.style.cursor = 'auto';
+    // carouselSlide.style.transition = 'none';
+    // carouselSlide.style.transform = 'translateX(' + (-this.size * 0) + 'px)';
 
-    galleryCarouselNav.style.position = 'absolute';
-    galleryCarouselNav.style.display = 'flex';
-    galleryCarouselNav.style.bottom = '0';
+    // carouselContainer.style.width = this.size + 'px';
+    // carouselSlide.style.transform = 'translateX(' + (-this.size * this.counter) + 'px)';
+    // carouselSlide.style.cursor = 'auto';
 
-    this.sizeFrame = Math.round((vpHeight - carouselContainer.clientHeight - 10) * 4/3);
+    // galleryCarouselNav.style.position = 'absolute';
+    // galleryCarouselNav.style.display = 'flex';
+    // galleryCarouselNav.style.bottom = '0';
 
-    for (let i = 0; i < galleryCarouselImages.length; i++) {
-      galleryCarouselImages[i].style.width = this.sizeFrame + 'px';
-      if (i > 0 && i < galleryCarouselImages.length - 1) galleryCarouselImages[i].style.marginRight = '1px';
-    }
+    // this.sizeFrame = Math.round((vpHeight - carouselContainer.clientHeight - 10) * 4/3);
 
-    if (galleryCarouselImages.length * galleryCarouselImages[0].clientWidth > vpWidth) {
-      galleryCarouselNav.style.width = vpWidth + 'px';
-      galleryCarouselNav.style.left = '0';
-      galleryCarouselNav.style.overflowX = 'auto';
-      galleryCarouselNav.style.overflowY = 'hidden';
-    } else galleryCarouselNav.style.width = (galleryCarouselImages.length - 1) * (galleryCarouselImages[0].clientWidth + 1) + 'px';
+    // for (let i = 0; i < galleryCarouselImages.length; i++) {
+    //   galleryCarouselImages[i].style.width = this.sizeFrame + 'px';
+    //   if (i > 0 && i < galleryCarouselImages.length - 1) galleryCarouselImages[i].style.marginRight = '1px';
+    // }
 
-    for (let i = 0; i < galleryCarouselImages.length; i++) {
-      galleryCarouselImages[i].style.bottom = '0';
-      galleryCarouselImages[i].style.transition = 'none';
-      if (i > 0) galleryCarouselImages[i].style.transform = 'translate(' + (-(this.sizeFrame + 1)) + 'px, 2px)';
-    }
+    // if (galleryCarouselImages.length * galleryCarouselImages[0].clientWidth > vpWidth) {
+    //   galleryCarouselNav.style.width = vpWidth + 'px';
+    //   galleryCarouselNav.style.left = '0';
+    //   galleryCarouselNav.style.overflowX = 'auto';
+    //   galleryCarouselNav.style.overflowY = 'hidden';
+    // } else galleryCarouselNav.style.width = (galleryCarouselImages.length - 1) * (galleryCarouselImages[0].clientWidth + 1) + 'px';
 
-    galleryFrame.style.transition = 'none';
-    galleryFrame.style.zIndex = '1';
-    galleryFrame.style.transform = 'translateX(' + (this.counter == 0 ? 1 : (this.sizeFrame + 1) * this.counter + 1) + 'px)';
+    // for (let i = 0; i < galleryCarouselImages.length; i++) {
+    //   galleryCarouselImages[i].style.bottom = '0';
+    //   galleryCarouselImages[i].style.transition = 'none';
+    //   if (i > 0) galleryCarouselImages[i].style.transform = 'translate(' + (-(this.sizeFrame + 1)) + 'px, 2px)';
+    // }
+
+    // galleryFrame.style.transition = 'none';
+    // galleryFrame.style.zIndex = '1';
+    // galleryFrame.style.transform = 'translateX(' + (this.counter == 0 ? 1 : (this.sizeFrame + 1) * this.counter + 1) + 'px)';
 
     this.scrollFrame();
   }
