@@ -349,23 +349,28 @@ export class ProductComponent implements OnInit {
   }
 
   showSlider() {
-    const carouselSlide = document.querySelector('.carousel-slide') as HTMLElement;
+    const container = document.querySelector('.carousel_track-container') as HTMLElement;
+    const slide = document.querySelector('.carousel_slide') as HTMLElement;
+    const slides = document.querySelectorAll('.carousel_slide') as NodeListOf<HTMLElement>;
     const prevBtn = document.getElementById('prev-btn');
     const nextBtn = document.getElementById('next-btn');
     const vpWidth = document.documentElement.clientWidth;
-    const carouselContainerWidth = vpWidth * 0.395;
-    const carouselContainerHeight = carouselContainerWidth * 0.75;
-    const carouselButtonWidth = vpWidth * 0.05;
-    const carouselButtonHeight = carouselButtonWidth * 1.04;
+    const containerWidth = vpWidth * 0.395;
+    const containerHeight = containerWidth * 0.75;
+    const btnWidth = vpWidth * 0.05;
+    const btnHeight = btnWidth * 1.04;
 
-    prevBtn.style.top = nextBtn.style.top = ((carouselContainerHeight - carouselButtonHeight) * 0.5 + 140) + 'px';
-    prevBtn.style.left = (vpWidth * 0.1 + carouselContainerWidth * 0.03) + 'px';
-    nextBtn.style.left = (vpWidth * 0.1 + carouselContainerWidth - carouselButtonWidth - carouselContainerWidth * 0.03) + 'px';
+    prevBtn.style.top = nextBtn.style.top = ((containerHeight - btnHeight) * 0.5 + 140) + 'px';
+    prevBtn.style.left = (vpWidth * 0.1 + containerWidth * 0.03) + 'px';
+    nextBtn.style.left = (vpWidth * 0.1 + containerWidth - btnWidth - containerWidth * 0.03) + 'px';
 
-    this.size = carouselSlide.offsetWidth;
+    this.size = containerWidth;
+    console.log(this.size, containerWidth);
 
-    carouselSlide.style.transform = 'translateX(' + (-this.size * this.counter) + 'px)';
-    carouselSlide.style.cursor = 'zoom-in';
+    console.log(slides.length);
+    container.style.width = slides.length * 100 + '%';
+    
+    slide.style.cursor = 'zoom-in';
   }
 
   prev() {
