@@ -403,12 +403,12 @@ export class ProductComponent implements OnInit {
   }
 
   showArrow() {
-    const carouselImages = document.querySelectorAll('.carousel-slide img') as NodeListOf<Element>;
+    const slides = document.querySelectorAll('.carousel_slide') as NodeListOf<Element>;
     const prevBtn = document.getElementById('prev-btn');
     const nextBtn = document.getElementById('next-btn');
 
     if (this.counter > 0) prevBtn.style.display = 'inline';
-    if (this.counter < carouselImages.length - 1) nextBtn.style.display = 'inline';
+    if (this.counter < slides.length - 1) nextBtn.style.display = 'inline';
   }
 
   hideArrow() {
