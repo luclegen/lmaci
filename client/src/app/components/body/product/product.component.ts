@@ -434,7 +434,7 @@ export class ProductComponent implements OnInit {
     const track = document.querySelector('.carousel_track') as HTMLElement;
     const slide = document.querySelector('.carousel_slide') as HTMLElement;
     const slides = document.querySelectorAll('.carousel_slide') as NodeListOf<Element>;
-    const nav = document.querySelector('.gallery-nav') as HTMLElement;
+    const gallery = document.querySelector('.gallery') as HTMLElement;
     const frame = document.querySelector('.gallery-frame') as HTMLElement;
     const img = document.querySelector('.gallery-img') as HTMLElement;
     const imgs = document.querySelectorAll('.gallery-img') as NodeListOf<HTMLElement>;
@@ -490,14 +490,14 @@ export class ProductComponent implements OnInit {
     // carouselContainer.style.width = this.size + 'px';
     slide.style.cursor = 'auto';
 
-    nav.style.position = 'absolute';
-    nav.style.display = 'flex';
-    nav.style.bottom = '0';
-    nav.style.height = (vpHeight - container.clientHeight - 6) + 'px';
+    gallery.style.position = 'absolute';
+    gallery.style.display = 'flex';
+    gallery.style.bottom = '0';
+    gallery.style.height = (vpHeight - container.clientHeight - 6) + 'px';
 
-    this.sizeFrame = Math.round(nav.clientHeight * 4/3);
+    this.sizeFrame = Math.round(gallery.clientHeight * 4/3);
 
-    nav.style.transform = 'translateX(' + (-this.sizeFrame * 0.5) + 'px)';
+    gallery.style.transform = 'translateX(' + (-this.sizeFrame * 0.5) + 'px)';
 
     // img.style.width = this.sizeFrame + 'px';
     for (let i = 0; i < imgs.length; i++) {
