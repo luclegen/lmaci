@@ -471,8 +471,8 @@ export class ProductComponent implements OnInit {
 
     gallery.style.position = 'absolute';
     gallery.style.display = 'flex';
-    gallery.style.bottom = '5px';
-    gallery.style.height = (vpHeight - container.clientHeight - 6) + 'px';
+    gallery.style.bottom = '2px';
+    gallery.style.height = (vpHeight - container.clientHeight - 10) + 'px';
 
     this.sizeFrame = Math.round(gallery.clientHeight * 4/3);
 
