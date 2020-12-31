@@ -349,7 +349,7 @@ export class ProductComponent implements OnInit {
   }
 
   justifyCarousel(count = 3) {
-    const container = document.querySelector('.carousel_track-container') as HTMLElement;
+    const container = document.querySelector('.carousel-container') as HTMLElement;
     container.style.width = count * 100 + '%';
   }
 
