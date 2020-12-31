@@ -457,16 +457,6 @@ export class ProductComponent implements OnInit {
 
     container.style.width = this.size + 'px';
 
-    // this.size = Math.round(vpHeight * 1.2);
-
-    // for (let i = 0; i < carouselImages.length; i++) {
-    //   carouselImages[i].style.height = this.size * 3/4 + 'px';
-    //   carouselImages[i].style.width = this.size + 'px';
-    // }
-
-    // carouselContainer.style.height = carouselImages[0].clientHeight + 'px';
-    // carouselContainer.style.width = carouselImages[0].clientWidth + 'px';
-
     closeBtn.style.display = 'inline';
     closeBtn.style.padding = '5px 5px 2px 5px';
     closeBtn.style.borderRadius = '50%';
@@ -477,32 +467,23 @@ export class ProductComponent implements OnInit {
     prevBtn.style.left = ((vpWidth - container.clientWidth) * 0.5 + container.clientWidth * 0.03) + 'px';
     nextBtn.style.left = ((vpWidth - container.clientWidth) * 0.5 + container.clientWidth * (1 - 0.03) - btnWidth) + 'px';
 
-    // alert(Object.values(slides).map(s => s.clientWidth).join());
-
-    track.style.transition = 'none';
-    track.style.transform = 'translateX(' + (-this.size * this.counter) + 'px)';
-    // track.style.transform = 'translateX(' + (-this.size * 0) + 'px)';
-
-    // carouselContainer.style.width = this.size + 'px';
     slide.style.cursor = 'auto';
 
     gallery.style.position = 'absolute';
     gallery.style.display = 'flex';
-    gallery.style.bottom = '0';
+    gallery.style.bottom = '5px';
     gallery.style.height = (vpHeight - container.clientHeight - 6) + 'px';
 
     this.sizeFrame = Math.round(gallery.clientHeight * 4/3);
 
     gallery.style.transform = 'translateX(' + (-this.sizeFrame * 0.5) + 'px)';
 
-    // img.style.width = this.sizeFrame + 'px';
     for (let i = 0; i < imgs.length; i++) {
       imgs[i].style.width = this.sizeFrame + 'px';
       if (i > 0 && i < imgs.length - 1) imgs[i].style.marginRight = '1px';
     }
 
-    frame.style.transition = 'none';
-    frame.style.transform = 'translateX(' + ((this.sizeFrame + 1) * (this.counter + 1) + 1) + 'px)';
+    this.move('none');
 
     // if (galleryCarouselImages.length * galleryCarouselImages[0].clientWidth > vpWidth) {
     //   galleryCarouselNav.style.width = vpWidth + 'px';
