@@ -455,18 +455,14 @@ export class ProductComponent implements OnInit {
     leftContainer.style.width = '100vw';
     leftContainer.style.height = '100vh';
 
+    closeBtn.style.display = 'inline';
+
     carousel.style.height = '90%';
 
     this.size = Math.round(carousel.clientHeight * 4/3);
 
     carousel.style.width = this.size + 'px';
 
-    closeBtn.style.display = 'inline';
-    closeBtn.style.padding = '5px 5px 2px 5px';
-    closeBtn.style.borderRadius = '50%';
-    closeBtn.style.top = closeBtn.style.right = '10px';
-    closeBtn.style.background = 'red';
-    closeBtn.style.cursor = 'zoom-out';
     prevBtn.style.top = nextBtn.style.top = (carousel.clientHeight - btnWidth) * 0.5 + 'px';
     prevBtn.style.left = ((wWidth - carousel.clientWidth) * 0.5 + carousel.clientWidth * 0.03) + 'px';
     nextBtn.style.left = ((wWidth - carousel.clientWidth) * 0.5 + carousel.clientWidth * (1 - 0.03) - btnWidth) + 'px';
