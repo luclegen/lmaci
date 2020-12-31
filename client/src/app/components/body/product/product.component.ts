@@ -541,7 +541,7 @@ export class ProductComponent implements OnInit {
   closeGallery() {
     const body = document.querySelector('body');
     const leftContainer = document.querySelector('.left-container') as HTMLElement;
-    const carouselContainer = document.querySelector('.carousel-container') as HTMLElement;
+    const carouselContainer = document.querySelector('.carousel') as HTMLElement;
     const carouselImages = document.querySelectorAll('.carousel-slide img') as NodeListOf<HTMLElement>;
     const galleryCarouselNav = document.querySelector('.gallery-carousel-nav') as HTMLElement;
     const carouselSlide = document.querySelector('.carousel-slide') as HTMLElement;
