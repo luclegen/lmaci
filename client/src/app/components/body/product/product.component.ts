@@ -388,18 +388,11 @@ export class ProductComponent implements OnInit {
   }
 
   next() {
-    const track = document.querySelector('.carousel_track') as HTMLElement;
     const slides = document.querySelectorAll('.carousel_slide') as NodeListOf<Element>;
-    const frame = document.querySelector('.gallery-frame') as HTMLElement;
 
     if (this.counter >= slides.length - 1) return;
-
     this.counter++;
-    
-    track.style.transition = frame.style.transition = 'transform 0.4s ease-in-out';
-    track.style.transform = 'translateX(' + (-this.size * this.counter) + 'px)';
-    frame.style.transform = 'translateX(' + ((this.sizeFrame + 1) * (this.counter + 1) + 1) + 'px)';
-
+    this.move();
     this.scrollFrame();
   }
 
