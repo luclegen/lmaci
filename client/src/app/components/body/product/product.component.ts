@@ -674,7 +674,17 @@ export class ProductComponent implements OnInit {
   }
 
   cancelSaveSlider() {
-    this.authService.getInfo().subscribe(res => { if (res['user'].role == 'root' || res['user'].role === 'admin') this.onCheckColor(this.order.color); }, err => { if (err.status == 440 && confirm('Your session has expired and must log in again.\n\nDo you want to login again?')) window.open('/login'); });
+    this.authService.getInfo().subscribe(
+      res => {
+        if (res['user'].role == 'root' || res['user'].role === 'admin') {
+          if (confirm('Do you want to cancel?')) {
+            this.onCheckColor(this.order.color);
+            this.justifyCarousel();
+          }
+        }
+      },
+      err => {
+        if (err.status == 440 && confirm('Your session has expired and must log in again.\n\nDo you want to login again?')) window.open('/login'); });
   }
 
   //#endregion Slider Editor
