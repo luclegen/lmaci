@@ -445,10 +445,10 @@ export class ProductComponent implements OnInit {
     const closeBtn = document.getElementById('close-btn');
     const prevBtn = document.getElementById('prev-btn');
     const nextBtn = document.getElementById('next-btn');
-    const vpWidth = document.documentElement.clientWidth;
-    const vpHeight = document.documentElement.clientHeight;
-    const btnWidth = vpWidth * 0.05;
-    const btnHeight = vpWidth * 0.05 * 1.04;
+    const wWidth = window.innerWidth;
+    const wHeight = window.innerHeight;
+    const btnWidth = wWidth * 0.05;
+    const btnHeight = wWidth * 0.05 * 1.04;
 
     body.style.overflowY = 'hidden';
 
@@ -472,15 +472,15 @@ export class ProductComponent implements OnInit {
     closeBtn.style.background = 'red';
     closeBtn.style.cursor = 'zoom-out';
     prevBtn.style.top = nextBtn.style.top = (carousel.clientHeight - btnWidth) * 0.5 + 'px';
-    prevBtn.style.left = ((vpWidth - carousel.clientWidth) * 0.5 + carousel.clientWidth * 0.03) + 'px';
-    nextBtn.style.left = ((vpWidth - carousel.clientWidth) * 0.5 + carousel.clientWidth * (1 - 0.03) - btnWidth) + 'px';
+    prevBtn.style.left = ((wWidth - carousel.clientWidth) * 0.5 + carousel.clientWidth * 0.03) + 'px';
+    nextBtn.style.left = ((wWidth - carousel.clientWidth) * 0.5 + carousel.clientWidth * (1 - 0.03) - btnWidth) + 'px';
 
     slide.style.cursor = 'auto';
 
     gallery.style.position = 'absolute';
     gallery.style.display = 'flex';
     gallery.style.bottom = '2px';
-    gallery.style.height = (vpHeight - carousel.clientHeight - 10) + 'px';
+    gallery.style.height = (wHeight - carousel.clientHeight - 10) + 'px';
 
     this.sizeFrame = Math.round(gallery.clientHeight * 4/3);
 
@@ -493,6 +493,13 @@ export class ProductComponent implements OnInit {
 
     this.move('none');
 
+    if (gallery.clientWidth > wWidth) {
+      gallery.style.transform = 'translateX(' + (-this.sizeFrame) + 'px)';
+      gallery.style.left = '0';
+      gallery.style.overflowX = 'auto';
+      // gallery.style.overflowY = 'hidden';
+    }
+    
     // if (galleryCarouselImages.length * galleryCarouselImages[0].clientWidth > vpWidth) {
     //   galleryCarouselNav.style.width = vpWidth + 'px';
     //   galleryCarouselNav.style.left = '0';
