@@ -534,15 +534,14 @@ export class ProductComponent implements OnInit {
   }
 
   scrollFrame() {
-    const carouselImages = document.querySelectorAll('.carousel-slide img') as NodeListOf<Element>;
-    const galleryCarouselNav = document.querySelector('.gallery-carousel-nav') as HTMLElement;
-    const vpWidth = document.documentElement.clientWidth;
+    const imgs = document.querySelectorAll('.gallery-img') as NodeListOf<Element>;
+    const gallery = document.querySelector('.gallery') as HTMLElement;
+    const wWidth = window.innerWidth;
 
-    const framCount = carouselImages.length;
-    const visibleFramCount = Math.round(vpWidth / (this.sizeFrame + 1));
+    const visibleImgCount = Math.round(wWidth / (this.sizeFrame + 1));
 
-    galleryCarouselNav.scrollBy(-(this.sizeFrame + 1) * (framCount - visibleFramCount), 0);
-    galleryCarouselNav.scrollBy((this.sizeFrame + 1) * (this.counter - Math.round(visibleFramCount / 2) + 1), 0);
+    gallery.scrollBy(-(this.sizeFrame + 1) * (imgs.length - visibleImgCount), 0);
+    gallery.scrollBy((this.sizeFrame + 1) * (this.counter - Math.round(visibleImgCount / 2) + 1), 0);
   }
 
   closeGallery() {
