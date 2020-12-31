@@ -434,7 +434,6 @@ export class ProductComponent implements OnInit {
     const track = document.querySelector('.carousel_track') as HTMLElement;
     const slide = document.querySelector('.carousel_slide') as HTMLElement;
     const slides = document.querySelectorAll('.carousel_slide') as NodeListOf<Element>;
-    // const carouselImages = document.querySelectorAll('.carousel-slide img') as NodeListOf<HTMLElement>;
     const nav = document.querySelector('.gallery-nav') as HTMLElement;
     const frame = document.querySelector('.gallery-frame') as HTMLElement;
     const img = document.querySelector('.gallery-img') as HTMLElement;
@@ -500,11 +499,13 @@ export class ProductComponent implements OnInit {
 
     nav.style.transform = 'translateX(' + (-this.sizeFrame * 0.5) + 'px)';
 
+    // img.style.width = this.sizeFrame + 'px';
     for (let i = 0; i < imgs.length; i++) {
       imgs[i].style.width = this.sizeFrame + 'px';
       if (i > 0 && i < imgs.length - 1) imgs[i].style.marginRight = '1px';
     }
-    
+
+    frame.style.transition = 'none';
     frame.style.transform = 'translateX(' + ((this.sizeFrame + 1) * (this.counter + 1) + 1) + 'px)';
 
     // if (galleryCarouselImages.length * galleryCarouselImages[0].clientWidth > vpWidth) {
