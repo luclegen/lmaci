@@ -430,7 +430,7 @@ export class ProductComponent implements OnInit {
   showGallery() {
     const body = document.querySelector('body');
     const leftContainer = document.querySelector('.left-container') as HTMLElement;
-    const container = document.querySelector('.carousel-container') as HTMLElement;
+    const container = document.querySelector('.carousel') as HTMLElement;
     const track = document.querySelector('.carousel_track') as HTMLElement;
     const slide = document.querySelector('.carousel_slide') as HTMLElement;
     const slides = document.querySelectorAll('.carousel_slide') as NodeListOf<Element>;
