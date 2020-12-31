@@ -43,18 +43,24 @@ div
       button
         display: inline
 
-  &.gallery-carousel-nav
+  &.gallery-nav
     display: none
-    width: 100%
-    
-    .gallery-frame
-      cursor: default
 
-      img
-        cursor: default
+    ul.gallery_track-container
+      display: flex
 
-    img
-      cursor: pointer
+      li
+
+        &.gallery-img
+          height: 100%
+          cursor: pointer
+          
+          img
+            height: 100%
+
+        &.gallery-frame
+          border: 2px solid yellow
+          cursor: auto
 
   &.image-cropper-container
     
