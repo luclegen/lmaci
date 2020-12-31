@@ -224,19 +224,19 @@ export class ProductComponent implements OnInit {
 
   @HostListener('window:resize')
   onResize() {
-    const leftContainer = document.querySelector('.left-container') as HTMLElement;
-    const carouselSlide = document.querySelector('.carousel-slide') as HTMLElement;
-    const closeBtn = document.getElementById('close-btn');
+    // const leftContainer = document.querySelector('.left-container') as HTMLElement;
+    // const carouselSlide = document.querySelector('.carousel-slide') as HTMLElement;
+    // const closeBtn = document.getElementById('close-btn');
 
-    carouselSlide.style.transition = 'none';
+    // carouselSlide.style.transition = 'none';
 
-    this.resize = true;
+    // this.resize = true;
 
-    this.showSlider();
-    if (leftContainer.style.getPropertyValue('position') == 'fixed') this.showGallery();
-    else if (closeBtn.style.getPropertyValue('display') == 'none') this.closeGallery();
+    // this.showSlider();
+    // if (leftContainer.style.getPropertyValue('position') == 'fixed') this.showGallery();
+    // else if (closeBtn.style.getPropertyValue('display') == 'none') this.closeGallery();
 
-    if (this.isShowAsideGallery) this.showAsideGallery(this.asideEvent, this.asideGallery);
+    // if (this.isShowAsideGallery) this.showAsideGallery(this.asideEvent, this.asideGallery);
   }
 
   constructor(private viewportRuler: ViewportRuler,
