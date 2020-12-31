@@ -527,24 +527,17 @@ export class ProductComponent implements OnInit {
   }
 
   selectImg(event: any) {
-    const track = document.querySelector('.carousel_track') as HTMLElement;
-    const galleryTrack = document.querySelector('.gallery_track-container') as HTMLElement;
-    const frame = document.querySelector('.gallery-frame') as HTMLElement;
-    const imgs = Array.from(galleryTrack.children);
+    const track = document.querySelector('.gallery_track-container') as HTMLElement;
+    const imgs = Array.from(track.children);
     const targetImg = event.target.closest('li');
 
     if (!targetImg) return;
 
     const targetIndex = imgs.findIndex(img => img == targetImg);
 
-    if (targetIndex < 0) return;
-
+    if (targetIndex < 1) return;
     this.counter = targetIndex - 1;
-
-    track.style.transition = frame.style.transition = 'transform 0.4s ease-in-out';
-    track.style.transform = 'translateX(' + (-this.size * this.counter) + 'px)';
-    frame.style.transform = 'translateX(' + ((this.sizeFrame + 1) * (this.counter + 1) + 1) + 'px)';
-    
+    this.move();
     this.scrollFrame();
   }
 
