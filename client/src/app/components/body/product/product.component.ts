@@ -348,6 +348,11 @@ export class ProductComponent implements OnInit {
     if (this.product.sliders.length && this.product.sliders.filter(s => s.color == this.order.color.value).length && this.product.sliders.filter(s => s.color == this.order.color.value)[0].imgs.length) this.paths = this.product.sliders.filter(s => s.color == this.order.color.value)[0].imgs.map(img => img.path);
   }
 
+  justifyCarousel(count = 3) {
+    const container = document.querySelector('.carousel_track-container') as HTMLElement;
+    container.style.width = count * 100 + '%';
+  }
+
   showSlider() {
     const container = document.querySelector('.carousel_track-container') as HTMLElement;
     const slide = document.querySelector('.carousel_slide') as HTMLElement;
