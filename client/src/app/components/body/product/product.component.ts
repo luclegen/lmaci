@@ -354,8 +354,8 @@ export class ProductComponent implements OnInit {
   }
 
   showSlider() {
-    const slide = document.querySelector('.carousel_slide') as HTMLElement;
-    const slides = document.querySelectorAll('.carousel_slide') as NodeListOf<Element>;
+    const slide = document.querySelector('.carousel-slide') as HTMLElement;
+    const slides = document.querySelectorAll('.carousel-slide') as NodeListOf<Element>;
     const prevBtn = document.getElementById('prev-btn');
     const nextBtn = document.getElementById('next-btn');
     const vpWidth = document.documentElement.clientWidth;
