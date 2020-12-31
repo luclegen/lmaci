@@ -430,7 +430,7 @@ export class ProductComponent implements OnInit {
   showGallery() {
     const body = document.querySelector('body');
     const leftContainer = document.querySelector('.left-container') as HTMLElement;
-    const container = document.querySelector('.carousel') as HTMLElement;
+    const carousel = document.querySelector('.carousel') as HTMLElement;
     const track = document.querySelector('.carousel_track') as HTMLElement;
     const slide = document.querySelector('.carousel_slide') as HTMLElement;
     const slides = document.querySelectorAll('.carousel_slide') as NodeListOf<Element>;
@@ -455,11 +455,11 @@ export class ProductComponent implements OnInit {
     leftContainer.style.width = '100vw';
     leftContainer.style.height = '100vh';
 
-    container.style.height = '90%';
+    carousel.style.height = '90%';
 
-    this.size = Math.round(container.clientHeight * 4/3);
+    this.size = Math.round(carousel.clientHeight * 4/3);
 
-    container.style.width = this.size + 'px';
+    carousel.style.width = this.size + 'px';
 
     closeBtn.style.display = 'inline';
     closeBtn.style.padding = '5px 5px 2px 5px';
@@ -467,16 +467,16 @@ export class ProductComponent implements OnInit {
     closeBtn.style.top = closeBtn.style.right = '10px';
     closeBtn.style.background = 'red';
     closeBtn.style.cursor = 'zoom-out';
-    prevBtn.style.top = nextBtn.style.top = (container.clientHeight - btnWidth) * 0.5 + 'px';
-    prevBtn.style.left = ((vpWidth - container.clientWidth) * 0.5 + container.clientWidth * 0.03) + 'px';
-    nextBtn.style.left = ((vpWidth - container.clientWidth) * 0.5 + container.clientWidth * (1 - 0.03) - btnWidth) + 'px';
+    prevBtn.style.top = nextBtn.style.top = (carousel.clientHeight - btnWidth) * 0.5 + 'px';
+    prevBtn.style.left = ((vpWidth - carousel.clientWidth) * 0.5 + carousel.clientWidth * 0.03) + 'px';
+    nextBtn.style.left = ((vpWidth - carousel.clientWidth) * 0.5 + carousel.clientWidth * (1 - 0.03) - btnWidth) + 'px';
 
     slide.style.cursor = 'auto';
 
     gallery.style.position = 'absolute';
     gallery.style.display = 'flex';
     gallery.style.bottom = '2px';
-    gallery.style.height = (vpHeight - container.clientHeight - 10) + 'px';
+    gallery.style.height = (vpHeight - carousel.clientHeight - 10) + 'px';
 
     this.sizeFrame = Math.round(gallery.clientHeight * 4/3);
 
