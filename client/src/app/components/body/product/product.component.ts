@@ -571,7 +571,7 @@ export class ProductComponent implements OnInit {
   //#region Order
 
   reloadSlider() {
-    const slide = document.querySelector('.carousel_slide') as HTMLElement;
+    const slide = document.querySelector('.carousel-slide') as HTMLElement;
 
     if (this.product.sliders.length && this.product.sliders.filter(s => s.color == this.preview.color.value).length && this.product.sliders.filter(s => s.color == this.preview.color.value)[0].imgs) this.paths = this.product.sliders.filter(s => s.color == this.preview.color.value)[0].imgs.map(i => i.path);
 
