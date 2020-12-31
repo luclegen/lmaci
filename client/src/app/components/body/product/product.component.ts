@@ -435,9 +435,10 @@ export class ProductComponent implements OnInit {
     const slide = document.querySelector('.carousel_slide') as HTMLElement;
     const slides = document.querySelectorAll('.carousel_slide') as NodeListOf<Element>;
     // const carouselImages = document.querySelectorAll('.carousel-slide img') as NodeListOf<HTMLElement>;
-    const nav = document.querySelector('.gallery-carousel-nav') as HTMLElement;
+    const nav = document.querySelector('.gallery-nav') as HTMLElement;
     const frame = document.querySelector('.gallery-frame') as HTMLElement;
-    // const galleryCarouselImages = document.querySelectorAll('.gallery-carousel-nav img') as NodeListOf<HTMLElement>;
+    const img = document.querySelector('.gallery-img') as HTMLElement;
+    const imgs = document.querySelectorAll('.gallery-img') as NodeListOf<HTMLElement>;
     const closeBtn = document.getElementById('close-btn');
     const prevBtn = document.getElementById('prev-btn');
     const nextBtn = document.getElementById('next-btn');
@@ -484,22 +485,27 @@ export class ProductComponent implements OnInit {
     // alert(Object.values(slides).map(s => s.clientWidth).join());
 
     track.style.transition = 'none';
+    track.style.transform = 'translateX(' + (-this.size * this.counter) + 'px)';
     // track.style.transform = 'translateX(' + (-this.size * 0) + 'px)';
 
     // carouselContainer.style.width = this.size + 'px';
-    track.style.transform = 'translateX(' + (-this.size * this.counter) + 'px)';
     slide.style.cursor = 'auto';
 
-    // galleryCarouselNav.style.position = 'absolute';
-    // galleryCarouselNav.style.display = 'flex';
-    // galleryCarouselNav.style.bottom = '0';
+    nav.style.position = 'absolute';
+    nav.style.display = 'flex';
+    nav.style.bottom = '0';
+    nav.style.height = (vpHeight - container.clientHeight - 6) + 'px';
 
-    // this.sizeFrame = Math.round((vpHeight - carouselContainer.clientHeight - 10) * 4/3);
+    this.sizeFrame = Math.round(nav.clientHeight * 4/3);
 
-    // for (let i = 0; i < galleryCarouselImages.length; i++) {
-    //   galleryCarouselImages[i].style.width = this.sizeFrame + 'px';
-    //   if (i > 0 && i < galleryCarouselImages.length - 1) galleryCarouselImages[i].style.marginRight = '1px';
-    // }
+    nav.style.transform = 'translateX(' + (-this.sizeFrame * 0.5) + 'px)';
+
+    for (let i = 0; i < imgs.length; i++) {
+      imgs[i].style.width = this.sizeFrame + 'px';
+      if (i > 0 && i < imgs.length - 1) imgs[i].style.marginRight = '1px';
+    }
+    
+    frame.style.transform = 'translateX(' + ((this.sizeFrame + 1) * (this.counter + 1) + 1) + 'px)';
 
     // if (galleryCarouselImages.length * galleryCarouselImages[0].clientWidth > vpWidth) {
     //   galleryCarouselNav.style.width = vpWidth + 'px';
@@ -514,11 +520,13 @@ export class ProductComponent implements OnInit {
     //   if (i > 0) galleryCarouselImages[i].style.transform = 'translate(' + (-(this.sizeFrame + 1)) + 'px, 2px)';
     // }
 
-    // galleryFrame.style.transition = 'none';
-    // galleryFrame.style.zIndex = '1';
-    // galleryFrame.style.transform = 'translateX(' + (this.counter == 0 ? 1 : (this.sizeFrame + 1) * this.counter + 1) + 'px)';
+    // alert(nav.clientWidth + '|' + (Object.values(imgs).map(i => i.clientWidth + 'x' + i.clientHeight).join()));
 
-    this.scrollFrame();
+    // frame.style.transition = 'none';
+    // galleryFrame.style.zIndex = '1';
+    // frame.style.transform = 'translateX(' + (this.counter == 0 ? 1 : (this.sizeFrame + 1) * this.counter + 1) + 'px)';
+
+    // this.scrollFrame();
   }
 
   selectImg(event: any) {
