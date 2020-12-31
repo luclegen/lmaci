@@ -413,6 +413,7 @@ Product Service: sendAnswer
 Models: answer
 Product Component: deleteAnswer
 Product Service: deleteAnswer
+Product Component: move
 Product Component: onResize
 Product Component: ngOnInit
 Product Component: View
