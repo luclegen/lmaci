@@ -371,7 +371,7 @@ export class ProductComponent implements OnInit {
 
     this.size = containerWidth;
 
-    this.justifyCarousel(slides.length);
+    this.justifyCarousel();
     
     slide.style.cursor = 'zoom-in';
   }
