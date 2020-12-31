@@ -417,7 +417,7 @@ export class ProductComponent implements OnInit {
   }
 
   moved() {
-    const slides = document.querySelectorAll('.carousel_slide') as NodeListOf<Element>;
+    const slides = document.querySelectorAll('.carousel-slide') as NodeListOf<Element>;
     const prevBtn = document.getElementById('prev-btn');
     const nextBtn = document.getElementById('next-btn');
 
