@@ -27,17 +27,17 @@
       </button>
 
       <div class="carousel-container" (click)="showGallery()" (mouseenter)="showArrow()" (mouseleave)="hideArrow()" (transitionend)="moved()">
-        <ul class="carousel_track">
-          <li *ngFor="let i of paths" class="carousel_slide">
+        <ul class="carousel-track">2
+          <li *ngFor="let i of paths" class="carousel-slide">
             <img [src]="i" [alt]="'Image ' + (paths.indexOf(i) + 1)">
           </li>
-          <li *ngIf="!paths.length" class="carousel_slide">
+          <li *ngIf="!paths.length" class="carousel-slide">
             <img src="assets/img/carousel/A.png" alt="A">
           </li>
-          <li *ngIf="!paths.length" class="carousel_slide">
+          <li *ngIf="!paths.length" class="carousel-slide">
             <img src="assets/img/carousel/B.png" alt="B">
           </li>
-          <li *ngIf="!paths.length" class="carousel_slide">
+          <li *ngIf="!paths.length" class="carousel-slide">
             <img src="assets/img/carousel/C.png" alt="C">
           </li>
         </ul>
