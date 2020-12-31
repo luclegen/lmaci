@@ -99,7 +99,7 @@ div
   &.grid-container
     display: grid
 
-  &.carousel-container
+  &.carousel
     overflow: hidden
     width: 100%
 
@@ -121,22 +121,41 @@ div
       svg
         width: 100%
 
-  &.carousel_track-container
+  &.carousel-container
     height: 100%
 
-    ul.carousel_track
+    ul.carousel-track
       display: flex
       width: 100%
       height: 100%
       list-style: none
 
-      li.carousel_slide
+      li.carousel-slide
         width: 100%
         height: 100%
 
         img
           width: 100%
           height: 100%
+
+  &.gallery
+    display: none
+
+    ul.gallery_track-container
+      display: flex
+
+      li
+
+        &.gallery-img
+          height: 100%
+          cursor: pointer
+          
+          img
+            height: 100%
+
+        &.gallery-frame
+          border: 2px solid yellow
+          cursor: auto
 
   &.cropped-image-container
 
