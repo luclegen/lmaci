@@ -376,7 +376,7 @@ export class ProductComponent implements OnInit {
   }
 
   move(transition = 'transform 0.4s ease-in-out') {
-    const track = document.querySelector('.carousel_track') as HTMLElement;
+    const track = document.querySelector('.carousel-track') as HTMLElement;
     const frame = document.querySelector('.gallery-frame') as HTMLElement;
 
     track.style.transition = frame.style.transition = transition;
