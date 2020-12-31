@@ -443,10 +443,8 @@ export class ProductComponent implements OnInit {
     const prevBtn = document.getElementById('prev-btn');
     const nextBtn = document.getElementById('next-btn');
     const wWidth = window.innerWidth;
-    const wHeight = window.innerHeight;
     const vpHeight = document.documentElement.clientHeight;
     const btnWidth = wWidth * 0.05;
-    const btnHeight = wWidth * 0.05 * 1.04;
 
     body.style.overflowY = 'hidden';
 
@@ -478,44 +476,21 @@ export class ProductComponent implements OnInit {
     gallery.style.display = 'flex';
     gallery.style.height = (vpHeight - carousel.clientHeight - 5) + 'px';
 
-    track.style.height = (gallery.clientHeight - 4) + 'px';
+    track.style.height = (vpHeight - carousel.clientHeight - 15) + 'px';
 
     this.sizeFrame = Math.round(track.clientHeight * 4/3);
-
-    alert(this.sizeFrame);
 
     for (let i = 0; i < imgs.length; i++) {
       imgs[i].style.width = this.sizeFrame + 'px';
       if (i > 0 && i < imgs.length - 1) imgs[i].style.marginRight = '1px';
     }
 
-    if (track.clientWidth < wWidth) {
-      gallery.style.justifyContent = 'center';
-      track.style.transform = 'translateX(' + (-this.sizeFrame * 0.5) + 'px)';
-    } else track.style.transform = 'translateX(' + (-this.sizeFrame) + 'px)';
+    if (track.clientWidth < wWidth) gallery.style.justifyContent = 'center';
+    track.style.transform = 'translateX(' + (-this.sizeFrame * (track.clientWidth < wWidth ? 0.5 : 1)) + 'px)';
 
     this.move('none');
 
     this.scrollFrame();
-
-    // if (galleryCarouselImages.length * galleryCarouselImages[0].clientWidth > vpWidth) {
-    //   galleryCarouselNav.style.width = vpWidth + 'px';
-    //   galleryCarouselNav.style.left = '0';
-    //   galleryCarouselNav.style.overflowX = 'auto';
-    //   galleryCarouselNav.style.overflowY = 'hidden';
-    // } else galleryCarouselNav.style.width = (galleryCarouselImages.length - 1) * (galleryCarouselImages[0].clientWidth + 1) + 'px';
-
-    // for (let i = 0; i < galleryCarouselImages.length; i++) {
-    //   galleryCarouselImages[i].style.bottom = '0';
-    //   galleryCarouselImages[i].style.transition = 'none';
-    //   if (i > 0) galleryCarouselImages[i].style.transform = 'translate(' + (-(this.sizeFrame + 1)) + 'px, 2px)';
-    // }
-
-    // alert(nav.clientWidth + '|' + (Object.values(imgs).map(i => i.clientWidth + 'x' + i.clientHeight).join()));
-
-    // frame.style.transition = 'none';
-    // galleryFrame.style.zIndex = '1';
-    // frame.style.transform = 'translateX(' + (this.counter == 0 ? 1 : (this.sizeFrame + 1) * this.counter + 1) + 'px)';
   }
 
   selectImg(event: any) {
