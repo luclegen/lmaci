@@ -696,7 +696,6 @@ export class ProductComponent implements OnInit {
   }
 
   delete(event: any) {
-    const carouselSlide = document.querySelector('.carousel-slide') as HTMLElement;
     const targetBtn = event.target.closest('button');
     const gridBoxBtn = document.querySelectorAll('.grid-box button') as NodeListOf<HTMLElement>;
     const btns = Array.from(gridBoxBtn);
@@ -709,8 +708,8 @@ export class ProductComponent implements OnInit {
       this.paths.splice(targetIndex, 1);
       
       this.counter = 0;
-      carouselSlide.style.transition = 'none';
-      carouselSlide.style.transform = 'translateX(' + (-this.size * this.counter) + 'px)';
+      this.move('none');
+      this.justifyCarousel();
     }
   }
 
