@@ -377,7 +377,7 @@ export class ProductComponent implements OnInit {
 
     track.style.transition = frame.style.transition = transition;
     track.style.transform = 'translateX(' + (-this.size * this.counter) + 'px)';
-    frame.style.transform = 'translateX(' + ((this.sizeFrame + 1) * (this.counter + 1) + 1) + 'px)';
+    frame.style.transform = 'translate(' + ((this.sizeFrame + 1) * (this.counter + 1) + 1) + 'px, -2px)';
   }
 
   prev() {
