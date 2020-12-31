@@ -531,11 +531,11 @@ export class ProductComponent implements OnInit {
   }
 
   selectImg(event: any) {
-    const carouselSlide = document.querySelector('.carousel-slide') as HTMLElement;
-    const galleryCarouselNav = document.querySelector('.gallery-carousel-nav') as HTMLElement;
-    const galleryFrame = document.querySelector('.gallery-frame') as HTMLElement;
-    const imgs = Array.from(galleryCarouselNav.children);
-    const targetImg = event.target.closest('img');
+    const track = document.querySelector('.carousel_track') as HTMLElement;
+    const galleryTrack = document.querySelector('.gallery_track-container') as HTMLElement;
+    const frame = document.querySelector('.gallery-frame') as HTMLElement;
+    const imgs = Array.from(galleryTrack.children);
+    const targetImg = event.target.closest('li');
 
     if (!targetImg) return;
 
@@ -543,12 +543,11 @@ export class ProductComponent implements OnInit {
 
     if (targetIndex < 0) return;
 
-    carouselSlide.style.transition = galleryFrame.style.transition = 'transform 0.4s ease-in-out';
-
     this.counter = targetIndex - 1;
 
-    carouselSlide.style.transform = 'translateX(' + (-this.size * this.counter) + 'px)';
-    galleryFrame.style.transform = 'translateX(' + ((this.sizeFrame + 1) * this.counter + 1) + 'px)';
+    track.style.transition = frame.style.transition = 'transform 0.4s ease-in-out';
+    track.style.transform = 'translateX(' + (-this.size * this.counter) + 'px)';
+    frame.style.transform = 'translateX(' + ((this.sizeFrame + 1) * (this.counter + 1) + 1) + 'px)';
     
     this.scrollFrame();
   }
