@@ -523,7 +523,7 @@ export class ProductComponent implements OnInit {
   }
 
   selectImg(event: any) {
-    const track = document.querySelector('.gallery_track-container') as HTMLElement;
+    const track = document.querySelector('.gallery-track') as HTMLElement;
     const imgs = Array.from(track.children);
     const targetImg = event.target.closest('li');
 
