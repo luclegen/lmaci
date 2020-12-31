@@ -354,7 +354,6 @@ export class ProductComponent implements OnInit {
   }
 
   showSlider() {
-    const container = document.querySelector('.carousel_track-container') as HTMLElement;
     const slide = document.querySelector('.carousel_slide') as HTMLElement;
     const slides = document.querySelectorAll('.carousel_slide') as NodeListOf<Element>;
     const prevBtn = document.getElementById('prev-btn');
@@ -371,7 +370,7 @@ export class ProductComponent implements OnInit {
 
     this.size = containerWidth;
 
-    container.style.width = slides.length * 100 + '%';
+    this.justifyCarousel(slides.length);
     
     slide.style.cursor = 'zoom-in';
   }
