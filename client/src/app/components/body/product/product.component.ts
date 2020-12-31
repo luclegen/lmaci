@@ -371,11 +371,11 @@ export class ProductComponent implements OnInit {
     slide.style.cursor = 'zoom-in';
   }
 
-  move() {
+  move(transition = 'transform 0.4s ease-in-out') {
     const track = document.querySelector('.carousel_track') as HTMLElement;
     const frame = document.querySelector('.gallery-frame') as HTMLElement;
 
-    track.style.transition = frame.style.transition = 'transform 0.4s ease-in-out';
+    track.style.transition = frame.style.transition = transition;
     track.style.transform = 'translateX(' + (-this.size * this.counter) + 'px)';
     frame.style.transform = 'translateX(' + ((this.sizeFrame + 1) * (this.counter + 1) + 1) + 'px)';
   }
