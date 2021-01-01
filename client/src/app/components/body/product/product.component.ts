@@ -838,12 +838,10 @@ export class ProductComponent implements OnInit {
   selectReviewFileInput(files) {
     if (files.length) {
       this.review.files.push(...files);
-
       for (const f of files) {
-        let reader = new FileReader();
+        const reader = new FileReader();
 
         reader.onload = event => this.review.imgs.push(event.target.result);
-
         reader.readAsDataURL(f);
       }
     }
