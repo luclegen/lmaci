@@ -348,7 +348,7 @@ export class ProductComponent implements OnInit {
     if (this.product.sliders.length && this.product.sliders.filter(s => s.color == this.order.color.value).length && this.product.sliders.filter(s => s.color == this.order.color.value)[0].imgs.length) this.paths = this.product.sliders.filter(s => s.color == this.order.color.value)[0].imgs.map(img => img.path);
   }
 
-  justifyCarousel() {
+  setCarousel() {
     setTimeout(() => {
       const slides = document.querySelectorAll('.carousel-slide') as NodeListOf<Element>;
       const container = document.querySelector('.carousel-container') as HTMLElement;
