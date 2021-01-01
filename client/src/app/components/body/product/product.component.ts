@@ -958,7 +958,7 @@ export class ProductComponent implements OnInit {
 
   //#region Reviews
 
-  initReviews() {
+  setReviews() {
     this.product.reviews.forEach(r => {
       this.userService.getUser(r.user.username).subscribe(
         res => {
