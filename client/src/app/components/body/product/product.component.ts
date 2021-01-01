@@ -495,7 +495,7 @@ export class ProductComponent implements OnInit {
     const visibleImgCount = Math.round(wWidth / (this.sizeFrame + 1));
 
     gallery.scrollBy(-(this.sizeFrame + 1) * (imgs.length - visibleImgCount), 0);
-    gallery.scrollBy((this.sizeFrame + 1) * (this.counter - Math.round(visibleImgCount / 2) + 1), 0);
+    gallery.scrollBy((this.sizeFrame + 1) * (this.index - Math.round(visibleImgCount / 2) + 1), 0);
   }
 
   closeGallery() {
