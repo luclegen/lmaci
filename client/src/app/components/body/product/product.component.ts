@@ -435,6 +435,7 @@ export class ProductComponent implements OnInit {
     leftContainer.style.width = '100vw';
     leftContainer.style.height = '100vh';
     closeBtn.style.display = 'inline';
+    closeBtn.style.height = closeBtn.clientWidth + 'px';
     carousel.style.height = '90%';
 
     this.size = Math.round(carousel.clientHeight * 4/3);
