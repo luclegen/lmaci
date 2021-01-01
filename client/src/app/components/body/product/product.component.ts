@@ -694,23 +694,19 @@ export class ProductComponent implements OnInit {
   }
 
   dropListDropped() {
-    if (!this.target)
-      return;
+    if (!this.target) return;
 
     let phElement = this.placeholder.element.nativeElement;
     let parent = phElement.parentElement;
 
     phElement.style.display = 'none';
-
     parent.removeChild(phElement);
     parent.appendChild(phElement);
     parent.insertBefore(this.source.element.nativeElement, parent.children[this.sourceIndex]);
 
-    this.target = null;
-    this.source = null;
+    this.target = this.source = null;
 
-    if (this.sourceIndex != this.targetIndex)
-      moveItemInArray(this.paths, this.sourceIndex, this.targetIndex);
+    if (this.sourceIndex != this.targetIndex) moveItemInArray(this.paths, this.sourceIndex, this.targetIndex);
   }
 
   dropListEnterPredicate = (drag: CdkDrag, drop: CdkDropList) => {
