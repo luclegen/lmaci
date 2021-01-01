@@ -477,9 +477,9 @@ export class ProductComponent implements OnInit {
   scrollFrame() {
     const imgs = document.querySelectorAll('.gallery-img') as NodeListOf<Element>;
     const gallery = document.querySelector('.gallery') as HTMLElement;
-    const wWidth = window.innerWidth;
+    const ww = window.innerWidth;
 
-    const visibleImgCount = Math.round(wWidth / (this.sizeFrame + 1));
+    const visibleImgCount = Math.round(ww / (this.sizeFrame + 1));
 
     gallery.scrollBy(-(this.sizeFrame + 1) * (imgs.length - visibleImgCount), 0);
     gallery.scrollBy((this.sizeFrame + 1) * (this.index - Math.round(visibleImgCount / 2) + 1), 0);
