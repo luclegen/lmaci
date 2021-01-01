@@ -416,6 +416,7 @@ Product Service: deleteAnswer
 Product Component: move
 Product Component: justifyCarousel
 Product Component: setSlider
+Product Component: setCarousel
 Product Component: onResize
 Product Component: ngOnInit
 Product Component: View
