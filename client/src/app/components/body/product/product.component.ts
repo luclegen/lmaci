@@ -640,7 +640,7 @@ export class ProductComponent implements OnInit {
         if (res['user'].role == 'root' || res['user'].role === 'admin') {
           if (confirm('Do you want to cancel?')) {
             this.onCheckColor(this.order.color);
-            this.justifyCarousel();
+            this.setCarousel();
           }
         }
       },
