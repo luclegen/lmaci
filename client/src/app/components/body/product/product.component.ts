@@ -431,7 +431,7 @@ export class ProductComponent implements OnInit {
     if (this.counter == slides.length - 1) nextBtn.style.display = 'none';
   }
 
-  showGallery() {
+  openGallery() {
     const body = document.querySelector('body');
     const leftContainer = document.querySelector('.left-container') as HTMLElement;
     const carousel = document.querySelector('.carousel') as HTMLElement;
