@@ -392,8 +392,8 @@ export class ProductComponent implements OnInit {
     const prevBtn = document.getElementById('prev-btn');
     const nextBtn = document.getElementById('next-btn');
 
-    if (this.counter > 0) prevBtn.style.display = 'inline';
-    if (this.counter < slides.length - 1) nextBtn.style.display = 'inline';
+    if (this.index > 0) prevBtn.style.display = 'inline';
+    if (this.index < slides.length - 1) nextBtn.style.display = 'inline';
   }
 
   hideArrow() {
