@@ -495,7 +495,6 @@ export class ProductComponent implements OnInit {
     this.setSlider();
 
     body.style.overflowY = 'visible';
-
     leftContainer.style.position = 'static';
     leftContainer.style.zIndex = '0';
     leftContainer.style.width = this.size + 'px';
