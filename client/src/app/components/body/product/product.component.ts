@@ -372,8 +372,8 @@ export class ProductComponent implements OnInit {
   }
 
   prev() {
-    if (this.counter <= 0) return;
-    this.counter--;
+    if (this.index <= 0) return;
+    this.index--;
     this.move();
     this.scrollFrame();
   }
