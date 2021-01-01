@@ -820,7 +820,7 @@ export class ProductComponent implements OnInit {
   }
 
   cancelSavePost() {
-    this.authService.getInfo().subscribe(res => { if (res['user'].role == 'root' || res['user'].role === 'admin') this.initPost(); }, err => { if (err.status == 440 && confirm('Your session has expired and must log in again.\n\nDo you want to login again?')) window.open('/login'); });
+    this.authService.getInfo().subscribe(res => { if (res['user'].role == 'root' || res['user'].role === 'admin') if (confirm('Do you want to cancel?')) this.setPost(); }, err => { if (err.status == 440 && confirm('Your session has expired and must log in again.\n\nDo you want to login again?')) window.open('/login'); });
   }
 
   //#endregion Post Editor
