@@ -410,8 +410,8 @@ export class ProductComponent implements OnInit {
 
     this.showArrow();
 
-    if (this.counter == 0) prevBtn.style.display = 'none';
-    if (this.counter == slides.length - 1) nextBtn.style.display = 'none';
+    if (this.index == 0) prevBtn.style.display = 'none';
+    if (this.index == slides.length - 1) nextBtn.style.display = 'none';
   }
 
   openGallery() {
