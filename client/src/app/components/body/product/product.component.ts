@@ -424,7 +424,7 @@ export class ProductComponent implements OnInit {
     const prevBtn = document.getElementById('prev-btn');
     const nextBtn = document.getElementById('next-btn');
     const ww = window.innerWidth;
-    const vpHeight = document.documentElement.clientHeight;
+    const wh = window.innerHeight;
     const btnWidth = ww * 0.05;
 
     body.style.overflowY = 'hidden';
@@ -446,8 +446,8 @@ export class ProductComponent implements OnInit {
     nextBtn.style.left = ((ww - carousel.clientWidth) * 0.5 + carousel.clientWidth * (1 - 0.03) - btnWidth) + 'px';
     slide.style.cursor = 'auto';
     gallery.style.display = 'flex';
-    gallery.style.height = (vpHeight - carousel.clientHeight - 5) + 'px';
-    track.style.height = (vpHeight - carousel.clientHeight - 15) + 'px';
+    gallery.style.height = (wh - carousel.clientHeight - 5) + 'px';
+    track.style.height = (wh - carousel.clientHeight - 15) + 'px';
     this.sizeFrame = Math.round(track.clientHeight * 4/3);
     for (let i = 0; i < imgs.length; i++) {
       imgs[i].style.width = this.sizeFrame + 'px';
