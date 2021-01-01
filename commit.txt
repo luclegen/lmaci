@@ -420,6 +420,7 @@ Product Component: setCarousel
 Product Component: setStars
 Product Component: setPost
 Product Component: setReviews
+Product Component: setComments
 Product Component: onResize
 Product Component: ngOnInit
 Product Component: View
