@@ -290,7 +290,7 @@ export class ProductComponent implements OnInit {
         this.setStars();
         this.setSlider();
         this.setPost();
-        this.initReviews();
+        this.setReviews();
         this.initComments();
 
         this.showStar();
