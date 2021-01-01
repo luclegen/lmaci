@@ -225,12 +225,6 @@ export class ProductComponent implements OnInit {
 
   @HostListener('window:resize')
   onResize() {
-    // const leftContainer = document.querySelector('.left-container') as HTMLElement;
-    // const carouselSlide = document.querySelector('.carousel-slide') as HTMLElement;
-    // const closeBtn = document.getElementById('close-btn');
-
-    // carouselSlide.style.transition = 'none';
-
     if (this.isOpenGallery) this.openGallery();
     if (!this.isOpenGallery) this.closeGallery();
     // this.resize = true;
