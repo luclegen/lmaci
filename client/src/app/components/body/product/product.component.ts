@@ -1093,7 +1093,7 @@ export class ProductComponent implements OnInit {
 
   //#region Comments
 
-  initComments() {
+  setComments() {
     this.product.comments.forEach(c => {
       this.userService.getUser(c.user.username).subscribe(res => c.user = res['user'], err => console.warn(err.error.msg));
       if (c.answers) c.answers.forEach(a => this.userService.getUser(a.user.username).subscribe(res => a.user = res['user'], err => console.warn(err.error.msg)));
