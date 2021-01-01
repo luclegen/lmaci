@@ -428,45 +428,34 @@ export class ProductComponent implements OnInit {
     const btnWidth = wWidth * 0.05;
 
     body.style.overflowY = 'hidden';
-
     leftContainer.style.position = 'fixed';
     leftContainer.style.zIndex = '103';
     leftContainer.style.top = leftContainer.style.left = leftContainer.style.margin = leftContainer.style.padding = '0';
     leftContainer.style.background = 'black';
     leftContainer.style.width = '100vw';
     leftContainer.style.height = '100vh';
-
     closeBtn.style.display = 'inline';
-
     carousel.style.height = '90%';
 
     this.size = Math.round(carousel.clientHeight * 4/3);
 
     carousel.style.width = this.size + 'px';
-
     prevBtn.style.top = nextBtn.style.top = (carousel.clientHeight - btnWidth) * 0.5 + 'px';
     prevBtn.style.left = ((wWidth - carousel.clientWidth) * 0.5 + carousel.clientWidth * 0.03) + 'px';
     nextBtn.style.left = ((wWidth - carousel.clientWidth) * 0.5 + carousel.clientWidth * (1 - 0.03) - btnWidth) + 'px';
-
     slide.style.cursor = 'auto';
-
     gallery.style.display = 'flex';
     gallery.style.height = (vpHeight - carousel.clientHeight - 5) + 'px';
-
     track.style.height = (vpHeight - carousel.clientHeight - 15) + 'px';
-
     this.sizeFrame = Math.round(track.clientHeight * 4/3);
-
     for (let i = 0; i < imgs.length; i++) {
       imgs[i].style.width = this.sizeFrame + 'px';
       if (i > 0 && i < imgs.length - 1) imgs[i].style.marginRight = '1px';
     }
-
     if (track.clientWidth < wWidth) gallery.style.justifyContent = 'center';
     track.style.transform = 'translateX(' + (-this.sizeFrame * (track.clientWidth < wWidth ? 0.5 : 1)) + 'px)';
 
     this.move('none');
-
     this.scrollFrame();
   }
 
