@@ -26,6 +26,7 @@ export class ProductComponent implements OnInit {
   index = 0;
   size = 0;
   sizeFrame = 0;
+  isOpenGallery = false;
 
   //#endregion Slider
 
@@ -432,6 +433,8 @@ export class ProductComponent implements OnInit {
     const ww = window.innerWidth;
     const wh = window.innerHeight;
     const btnWidth = ww * 0.05;
+
+    this.isOpenGallery = true;
 
     body.style.overflowY = 'hidden';
     leftContainer.style.position = 'fixed';
