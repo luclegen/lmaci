@@ -710,16 +710,12 @@ export class ProductComponent implements OnInit {
   }
 
   dropListEnterPredicate = (drag: CdkDrag, drop: CdkDropList) => {
-    if (drop == this.placeholder)
-      return true;
-
-    if (drop != this.activeContainer)
-      return false;
+    if (drop == this.placeholder) return true;
+    if (drop != this.activeContainer) return false;
 
     let phElement = this.placeholder.element.nativeElement;
     let sourceElement = drag.dropContainer.element.nativeElement;
     let dropElement = drop.element.nativeElement;
-
     let dragIndex = __indexOf(dropElement.parentElement.children, (this.source ? phElement : sourceElement));
     let dropIndex = __indexOf(dropElement.parentElement.children, dropElement);
 
@@ -728,7 +724,6 @@ export class ProductComponent implements OnInit {
       this.source = drag.dropContainer;
 
       phElement.style.width = phElement.style.height = '100%';
-      
       sourceElement.parentElement.removeChild(sourceElement);
     }
 
@@ -736,8 +731,7 @@ export class ProductComponent implements OnInit {
     this.target = drop;
 
     phElement.style.display = '';
-    dropElement.parentElement.insertBefore(phElement, (dropIndex > dragIndex 
-      ? dropElement.nextSibling : dropElement));
+    dropElement.parentElement.insertBefore(phElement, (dropIndex > dragIndex ? dropElement.nextSibling : dropElement));
 
     this.placeholder.enter(drag, drag.element.nativeElement.offsetLeft, drag.element.nativeElement.offsetTop);
     return false;
