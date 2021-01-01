@@ -662,7 +662,7 @@ export class ProductComponent implements OnInit {
   add() {
     this.paths.push(this.croppedImage);
     this.cancel();
-    this.justifyCarousel();
+    this.setCarousel();
   }
 
   delete(event: any) {
