@@ -423,9 +423,9 @@ export class ProductComponent implements OnInit {
     const closeBtn = document.getElementById('close-btn');
     const prevBtn = document.getElementById('prev-btn');
     const nextBtn = document.getElementById('next-btn');
-    const wWidth = window.innerWidth;
+    const ww = window.innerWidth;
     const vpHeight = document.documentElement.clientHeight;
-    const btnWidth = wWidth * 0.05;
+    const btnWidth = ww * 0.05;
 
     body.style.overflowY = 'hidden';
     leftContainer.style.position = 'fixed';
@@ -441,8 +441,8 @@ export class ProductComponent implements OnInit {
 
     carousel.style.width = this.size + 'px';
     prevBtn.style.top = nextBtn.style.top = (carousel.clientHeight - btnWidth) * 0.5 + 'px';
-    prevBtn.style.left = ((wWidth - carousel.clientWidth) * 0.5 + carousel.clientWidth * 0.03) + 'px';
-    nextBtn.style.left = ((wWidth - carousel.clientWidth) * 0.5 + carousel.clientWidth * (1 - 0.03) - btnWidth) + 'px';
+    prevBtn.style.left = ((ww - carousel.clientWidth) * 0.5 + carousel.clientWidth * 0.03) + 'px';
+    nextBtn.style.left = ((ww - carousel.clientWidth) * 0.5 + carousel.clientWidth * (1 - 0.03) - btnWidth) + 'px';
     slide.style.cursor = 'auto';
     gallery.style.display = 'flex';
     gallery.style.height = (vpHeight - carousel.clientHeight - 5) + 'px';
@@ -452,8 +452,8 @@ export class ProductComponent implements OnInit {
       imgs[i].style.width = this.sizeFrame + 'px';
       if (i > 0 && i < imgs.length - 1) imgs[i].style.marginRight = '1px';
     }
-    if (track.clientWidth < wWidth) gallery.style.justifyContent = 'center';
-    track.style.transform = 'translateX(' + (-this.sizeFrame * (track.clientWidth < wWidth ? 0.5 : 1)) + 'px)';
+    if (track.clientWidth < ww) gallery.style.justifyContent = 'center';
+    track.style.transform = 'translateX(' + (-this.sizeFrame * (track.clientWidth < ww ? 0.5 : 1)) + 'px)';
 
     this.move('none');
     this.scrollFrame();
