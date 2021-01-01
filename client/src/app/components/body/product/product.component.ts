@@ -280,13 +280,10 @@ export class ProductComponent implements OnInit {
         });
 
         this.priceFormatted = this.helperService.USDcurrency(this.product.price);
-
         this.reviews = this.product.reviews;
-
         this.comments = this.product.comments;
 
         this.setPaths();
-
         this.setStar();
         this.setSlider();
         this.setPost();
