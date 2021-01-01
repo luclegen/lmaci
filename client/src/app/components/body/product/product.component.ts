@@ -361,22 +361,20 @@ export class ProductComponent implements OnInit {
       const slide = document.querySelector('.carousel-slide') as HTMLElement;
       const prevBtn = document.getElementById('prev-btn');
       const nextBtn = document.getElementById('next-btn');
-      const vpWidth = document.documentElement.clientWidth;
-      const containerWidth = vpWidth * 0.395;
+      const ww = window.innerWidth;
+      const containerWidth = this.size = Math.round((ww - 5) * 0.395);
       const containerHeight = containerWidth * 0.75;
-      const btnWidth = vpWidth * 0.05;
+      const btnWidth = ww * 0.05;
       const btnHeight = btnWidth * 1.04;
 
       prevBtn.style.top = nextBtn.style.top = ((containerHeight - btnHeight) * 0.5 + 140) + 'px';
-      prevBtn.style.left = (vpWidth * 0.1 + containerWidth * 0.03) + 'px';
-      nextBtn.style.left = (vpWidth * 0.1 + containerWidth - btnWidth - containerWidth * 0.03) + 'px';
-
-      this.size = containerWidth;
+      prevBtn.style.left = (ww * 0.1 + containerWidth * 0.03) + 'px';
+      nextBtn.style.left = (ww * 0.1 + containerWidth - btnWidth - containerWidth * 0.03) + 'px';
 
       this.justifyCarousel();
       
       slide.style.cursor = 'zoom-in';
-    }, 500);
+    }, 0);
   }
 
   move(transition = 'transform 0.4s ease-in-out') {
