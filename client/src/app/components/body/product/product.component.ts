@@ -357,8 +357,6 @@ export class ProductComponent implements OnInit {
     prevBtn.style.top = nextBtn.style.top = ((containerHeight - btnHeight) * 0.5 + 140) + 'px';
     prevBtn.style.left = (ww * 0.1 + containerWidth * 0.03) + 'px';
     nextBtn.style.left = (ww * 0.1 + containerWidth - btnWidth - containerWidth * 0.03) + 'px';
-
-    this.setCarousel();
   }
 
   move(transition = 'transform 0.4s ease-in-out') {
