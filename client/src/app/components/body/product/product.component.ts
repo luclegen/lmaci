@@ -370,7 +370,7 @@ export class ProductComponent implements OnInit {
     prevBtn.style.left = (ww * 0.1 + containerWidth * 0.03) + 'px';
     nextBtn.style.left = (ww * 0.1 + containerWidth - btnWidth - containerWidth * 0.03) + 'px';
 
-    this.justifyCarousel();
+    this.setCarousel();
     
     slide.style.cursor = 'zoom-in';
   }
