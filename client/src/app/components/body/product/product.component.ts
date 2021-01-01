@@ -518,17 +518,15 @@ export class ProductComponent implements OnInit {
     const gallery = document.querySelector('.gallery') as HTMLElement;
     const closeBtn = document.getElementById('close-btn');
 
-    body.style.overflowY = 'visible';
+    this.setSlider();
 
-    this.showSlider();
+    body.style.overflowY = 'visible';
 
     leftContainer.style.position = 'static';
     leftContainer.style.zIndex = '0';
-    leftContainer.style.height = 'auto';
     leftContainer.style.width = this.size + 'px';
     leftContainer.style.margin = '10px 0.5% 0 10%';
-
-    carousel.style.height = 'auto';
+    leftContainer.style.height = carousel.style.height = 'auto';
 
     this.move(closeBtn.style.display = gallery.style.display = 'none');
   }
