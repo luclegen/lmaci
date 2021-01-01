@@ -482,7 +482,7 @@ export class ProductComponent implements OnInit {
     const targetIndex = imgs.findIndex(img => img == targetImg);
 
     if (targetIndex < 1) return;
-    this.counter = targetIndex - 1;
+    this.index = targetIndex - 1;
     this.move();
     this.scrollFrame();
   }
