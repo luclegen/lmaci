@@ -300,6 +300,12 @@ export class ProductComponent implements OnInit {
     );
   }
 
+  //#region Admin
+  isAdmin() {
+    return this.userDetails && (this.userDetails.role == 'root' || this.userDetails.role == 'admin');
+  }
+  //#endregion Admin
+
   //#region Star
 
   setStar() {
