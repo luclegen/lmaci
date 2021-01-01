@@ -1344,8 +1344,8 @@ const __indexOf = (collection, node) => Array.prototype.indexOf.call(collection,
 
 const __isTouchEvent = (event: MouseEvent | TouchEvent): event is TouchEvent =>  event.type.startsWith('touch');
 
-function __isInsideDropListClientRect(dropList: CdkDropList, x: number, y: number) {
-  const {top, bottom, left, right} = dropList.element.nativeElement.getBoundingClientRect();
+const __isInsideDropListClientRect = (dropList: CdkDropList, x: number, y: number) => {
+  const { top, bottom, left, right } = dropList.element.nativeElement.getBoundingClientRect();
   return y >= top && y <= bottom && x >= left && x <= right; 
 }
 
