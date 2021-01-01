@@ -779,7 +779,10 @@ export class ProductComponent implements OnInit {
   //#region Post Editor
 
   setPost() {
+    const postContainer = document.getElementById('post-container') as HTMLElement;
+
     this.post.content = this.product.post ? this.product.post.content : '<p style=\"text-align: center;\"><strong><span style=\"font-size: 36pt; color: red;\">' + this.product.name + '</span></strong></p><p style=\"text-align: center;\"><span style=\"font-size: 18pt;\">Content</span></p><p style=\"text-align: center;\"><span style=\"font-size: 18pt;\"><img src=\"' + this.product.img.path + '\" class=\"e-rte-image e-imginline e-resize\" alt=\"' + this.product.name + '\" width=\"auto\" height=\"auto\" style=\"min-width: 0px; min-height: 0px;\"> </span></p><p style=\"text-align: center;\"><span style=\"font-size: 18pt;\"></span></p>';
+    if (this.product.post && this.product.post.content) postContainer.innerHTML = this.product.post.content;
   }
 
   isSavePost() {
@@ -816,16 +819,6 @@ export class ProductComponent implements OnInit {
   }
 
   //#endregion Post Editor
-
-  //#region Post
-
-  showPost() {
-    const postContainer = document.getElementById('post-container') as HTMLElement;
-
-    if (this.product.post && this.product.post.content) postContainer.innerHTML = this.product.post.content;
-  }
-
-  //#endregion Post
 
   //#region Review
 
