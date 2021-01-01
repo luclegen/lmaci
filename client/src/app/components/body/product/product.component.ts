@@ -741,10 +741,7 @@ export class ProductComponent implements OnInit {
     const point = __isTouchEvent(event) ? (event.touches[0] || event.changedTouches[0]) : event;
     const scrollPosition = this.viewportRuler.getViewportScrollPosition();
 
-    return {
-        x: point.pageX - scrollPosition.left,
-        y: point.pageY - scrollPosition.top
-    };
+    return { x: point.pageX - scrollPosition.left, y: point.pageY - scrollPosition.top };
   }
 
   //#endregion Drag and drop
@@ -809,6 +806,7 @@ export class ProductComponent implements OnInit {
   previewStar(s) {
     const rating = [ 'Poor', 'Fair', 'Good', 'Very Good', 'Excellent' ];
     const ratingMsg = document.getElementById('rating-msg') as HTMLElement;
+
     ratingMsg.innerHTML = rating[s - 1];
     ratingMsg.style.display = 'inline';
 
