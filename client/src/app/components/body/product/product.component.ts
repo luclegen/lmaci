@@ -518,10 +518,8 @@ export class ProductComponent implements OnInit {
   closeGallery() {
     const body = document.querySelector('body');
     const leftContainer = document.querySelector('.left-container') as HTMLElement;
-    const carouselContainer = document.querySelector('.carousel') as HTMLElement;
-    const carouselImages = document.querySelectorAll('.carousel-slide img') as NodeListOf<HTMLElement>;
-    const galleryCarouselNav = document.querySelector('.gallery-carousel-nav') as HTMLElement;
-    const carouselSlide = document.querySelector('.carousel-slide') as HTMLElement;
+    const carousel = document.querySelector('.carousel') as HTMLElement;
+    const gallery = document.querySelector('.gallery') as HTMLElement;
     const vpWidth = document.documentElement.clientWidth;
     const closeBtn = document.getElementById('close-btn');
 
@@ -529,18 +527,18 @@ export class ProductComponent implements OnInit {
 
     leftContainer.style.position = 'static';
     leftContainer.style.zIndex = '0';
-    leftContainer.style.width = vpWidth * 0.395 + 'px';
-    leftContainer.style.margin = '10px 0.5% 0 10%';
-    leftContainer.style.height = leftContainer.clientWidth * 0.75 + 'px';
-    leftContainer.style.marginLeft = '10%';
+    leftContainer.style.height = 'auto';
 
-    closeBtn.style.display = carouselSlide.style.transition = galleryCarouselNav.style.display = 'none';
+    this.size = Math.round((vpWidth - 5) * 0.395);
+
+    leftContainer.style.width = this.size + 'px';
+    leftContainer.style.margin = '10px 0.5% 0 10%';
+
+    carousel.style.height = 'auto';
 
     this.showSlider();
 
-    for (let i = 0; i < carouselImages.length; i++) carouselImages[i].style.width = carouselImages[i].style.height = '100%';
-
-    carouselContainer.style.height = carouselSlide.clientHeight + 'px';
+    this.move(closeBtn.style.display = gallery.style.display = 'none');
   }
 
   //#endregion Slider
