@@ -418,6 +418,7 @@ Product Component: justifyCarousel
 Product Component: setSlider
 Product Component: setCarousel
 Product Component: setStars
+Product Component: setPost
 Product Component: onResize
 Product Component: ngOnInit
 Product Component: View
