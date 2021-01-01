@@ -501,6 +501,7 @@ export class ProductComponent implements OnInit {
     const gallery = document.querySelector('.gallery') as HTMLElement;
     const closeBtn = document.getElementById('close-btn');
 
+    this.isOpenGallery = true;
     this.setSlider();
 
     body.style.overflowY = 'visible';
