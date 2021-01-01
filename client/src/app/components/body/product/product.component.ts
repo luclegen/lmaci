@@ -307,7 +307,7 @@ export class ProductComponent implements OnInit {
 
   //#region Star
 
-  setStars() {
+  setStar() {
     this.stars.total = this.product.reviews.length;
 
     this.stars.star = [];
@@ -320,23 +320,16 @@ export class ProductComponent implements OnInit {
       this.stars.star.push(star);
     }
     
-    this.stars.average = this.helperService.round(this.helperService.average(this.product.reviews.map(r => parseInt(r.star))), 1);
-  }
-
-  showStar() {
-    const number = this.stars.average;
+    const number = this.stars.average = this.helperService.round(this.helperService.average(this.product.reviews.map(r => parseInt(r.star))), 1);
     const numberFloored = Math.floor(number);
     const numberRounded = Math.round(number);
     const bias = this.helperService.round(number - numberFloored, 1)
 
     this.starCount = [];
-    this.starHalf = false;
+    this.starHalf = bias == 0.5;
     this.noneStarCount = [];
 
-    if (bias == 0.5) {
-      for (let i = 0; i < numberFloored; i++) this.starCount.push('*');
-      this.starHalf = true;
-    } else for (let i = 0; i < numberRounded; i++) this.starCount.push('*');
+    for (let i = 0; i < (bias == 0.5 ? numberRounded : numberRounded); i++) this.starCount.push('*');
     for (let i = 0; i < 5 - numberRounded; i++) this.noneStarCount.push('-');
   }
 
