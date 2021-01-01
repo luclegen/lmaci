@@ -518,23 +518,19 @@ export class ProductComponent implements OnInit {
     const leftContainer = document.querySelector('.left-container') as HTMLElement;
     const carousel = document.querySelector('.carousel') as HTMLElement;
     const gallery = document.querySelector('.gallery') as HTMLElement;
-    const vpWidth = document.documentElement.clientWidth;
     const closeBtn = document.getElementById('close-btn');
 
     body.style.overflowY = 'visible';
 
+    this.showSlider();
+
     leftContainer.style.position = 'static';
     leftContainer.style.zIndex = '0';
     leftContainer.style.height = 'auto';
-
-    this.size = Math.round((vpWidth - 5) * 0.395);
-
     leftContainer.style.width = this.size + 'px';
     leftContainer.style.margin = '10px 0.5% 0 10%';
 
     carousel.style.height = 'auto';
-
-    this.showSlider();
 
     this.move(closeBtn.style.display = gallery.style.display = 'none');
   }
