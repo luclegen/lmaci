@@ -232,9 +232,9 @@ export class ProductComponent implements OnInit {
     // carouselSlide.style.transition = 'none';
 
     if (this.isOpenGallery) this.openGallery();
+    if (!this.isOpenGallery) this.closeGallery();
     // this.resize = true;
 
-    // this.showSlider();
     // if (leftContainer.style.getPropertyValue('position') == 'fixed') this.showGallery();
     // else if (closeBtn.style.getPropertyValue('display') == 'none') this.closeGallery();
 
