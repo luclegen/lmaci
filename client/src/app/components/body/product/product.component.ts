@@ -1342,10 +1342,7 @@ export class ProductComponent implements OnInit {
 
 const __indexOf = (collection, node) => Array.prototype.indexOf.call(collection, node);
 
-/** Determines whether an event is a touch event. */
-function __isTouchEvent(event: MouseEvent | TouchEvent): event is TouchEvent {
-  return event.type.startsWith('touch');
-}
+const __isTouchEvent = (event: MouseEvent | TouchEvent): event is TouchEvent =>  event.type.startsWith('touch');
 
 function __isInsideDropListClientRect(dropList: CdkDropList, x: number, y: number) {
   const {top, bottom, left, right} = dropList.element.nativeElement.getBoundingClientRect();
