@@ -420,6 +420,7 @@ Product Component: setStar
 Product Component: setPost
 Product Component: setReviews
 Product Component: setComments
+Product Component: isAdmin
 Product Component: onResize
 Product Component: ngOnInit
 Product Component: View
