@@ -747,9 +747,7 @@ export class ProductComponent implements OnInit {
     return false;
   }
   
-  /** Determines the point of the page that was touched by the user. */
   getPointerPositionOnPage(event: MouseEvent | TouchEvent) {
-    // `touches` will be empty for start/end events so we have to fall back to `changedTouches`.
     const point = __isTouchEvent(event) ? (event.touches[0] || event.changedTouches[0]) : event;
     const scrollPosition = this.viewportRuler.getViewportScrollPosition();
 
