@@ -23,7 +23,7 @@ export class ProductComponent implements OnInit {
 
   //#region Slider
 
-  counter = 0;
+  index = 0;
   size = 0;
   sizeFrame = 0;
 
@@ -367,8 +367,8 @@ export class ProductComponent implements OnInit {
     const frame = document.querySelector('.gallery-frame') as HTMLElement;
 
     track.style.transition = frame.style.transition = transition;
-    track.style.transform = 'translateX(' + (-this.size * this.counter) + 'px)';
-    frame.style.transform = 'translate(' + ((this.sizeFrame + 1) * (this.counter + 1) + 1) + 'px, -2px)';
+    track.style.transform = 'translateX(' + (-this.size * this.index) + 'px)';
+    frame.style.transform = 'translate(' + ((this.sizeFrame + 1) * (this.index + 1) + 1) + 'px, -2px)';
   }
 
   prev() {
