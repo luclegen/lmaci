@@ -528,7 +528,7 @@ export class ProductComponent implements OnInit {
     if (this.product.sliders.length && this.product.sliders.filter(s => s.color == this.preview.color.value).length && this.product.sliders.filter(s => s.color == this.preview.color.value)[0].imgs) this.paths = this.product.sliders.filter(s => s.color == this.preview.color.value)[0].imgs.map(i => i.path);
 
     slide.style.transition = 'none';
-    slide.style.transform = 'translateX(' + (-this.size * this.counter) + 'px)';
+    slide.style.transform = 'translateX(' + (-this.size * this.index) + 'px)';
   }
 
   onCheckColor(color) {
