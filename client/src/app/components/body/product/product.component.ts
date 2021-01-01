@@ -353,13 +353,11 @@ export class ProductComponent implements OnInit {
     const btnWidth = ww * 0.05;
     const btnHeight = btnWidth * 1.04;
 
+    slide.style.cursor = 'zoom-in';
     prevBtn.style.top = nextBtn.style.top = ((containerHeight - btnHeight) * 0.5 + 140) + 'px';
     prevBtn.style.left = (ww * 0.1 + containerWidth * 0.03) + 'px';
     nextBtn.style.left = (ww * 0.1 + containerWidth - btnWidth - containerWidth * 0.03) + 'px';
-
     this.setCarousel();
-    
-    slide.style.cursor = 'zoom-in';
   }
 
   move(transition = 'transform 0.4s ease-in-out') {
