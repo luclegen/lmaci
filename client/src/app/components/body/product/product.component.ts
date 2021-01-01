@@ -231,6 +231,7 @@ export class ProductComponent implements OnInit {
 
     // carouselSlide.style.transition = 'none';
 
+    if (this.isOpenGallery) this.openGallery();
     // this.resize = true;
 
     // this.showSlider();
