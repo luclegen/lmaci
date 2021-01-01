@@ -356,25 +356,23 @@ export class ProductComponent implements OnInit {
     }, 0);
   }
 
-  showSlider() {
-    setTimeout(() => {
-      const slide = document.querySelector('.carousel-slide') as HTMLElement;
-      const prevBtn = document.getElementById('prev-btn');
-      const nextBtn = document.getElementById('next-btn');
-      const ww = window.innerWidth;
-      const containerWidth = this.size = Math.round((ww - 5) * 0.395);
-      const containerHeight = containerWidth * 0.75;
-      const btnWidth = ww * 0.05;
-      const btnHeight = btnWidth * 1.04;
+  setSlider() {
+    const slide = document.querySelector('.carousel-slide') as HTMLElement;
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+    const ww = window.innerWidth;
+    const containerWidth = this.size = Math.round((ww - 5) * 0.395);
+    const containerHeight = containerWidth * 0.75;
+    const btnWidth = ww * 0.05;
+    const btnHeight = btnWidth * 1.04;
 
-      prevBtn.style.top = nextBtn.style.top = ((containerHeight - btnHeight) * 0.5 + 140) + 'px';
-      prevBtn.style.left = (ww * 0.1 + containerWidth * 0.03) + 'px';
-      nextBtn.style.left = (ww * 0.1 + containerWidth - btnWidth - containerWidth * 0.03) + 'px';
+    prevBtn.style.top = nextBtn.style.top = ((containerHeight - btnHeight) * 0.5 + 140) + 'px';
+    prevBtn.style.left = (ww * 0.1 + containerWidth * 0.03) + 'px';
+    nextBtn.style.left = (ww * 0.1 + containerWidth - btnWidth - containerWidth * 0.03) + 'px';
 
-      this.justifyCarousel();
-      
-      slide.style.cursor = 'zoom-in';
-    }, 0);
+    this.justifyCarousel();
+    
+    slide.style.cursor = 'zoom-in';
   }
 
   move(transition = 'transform 0.4s ease-in-out') {
