@@ -678,7 +678,7 @@ export class ProductComponent implements OnInit {
         phElement.style.display = 'none';
         phElement.parentElement.removeChild(phElement);
       }
-    }, 1000);
+    }, 250);
   }
 
   dragMoved(e: CdkDragMove) {
