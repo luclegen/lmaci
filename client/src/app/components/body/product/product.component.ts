@@ -679,7 +679,7 @@ export class ProductComponent implements OnInit {
       
       this.counter = 0;
       this.move('none');
-      this.justifyCarousel();
+      this.setCarousel();
     }
   }
 
