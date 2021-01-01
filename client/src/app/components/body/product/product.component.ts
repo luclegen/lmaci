@@ -666,16 +666,14 @@ export class ProductComponent implements OnInit {
   //#region Drag and drop
 
   ngAfterViewInit() {
-    setTimeout(() => this.setChanged(), 500);
-  }
-
-  setChanged() {
-    if (this.placeholder) {
-      let phElement = this.placeholder.element.nativeElement;
-
-      phElement.style.display = 'none';
-      phElement.parentElement.removeChild(phElement);
-    }
+    setTimeout(() => {
+      if (this.placeholder) {
+        let phElement = this.placeholder.element.nativeElement;
+  
+        phElement.style.display = 'none';
+        phElement.parentElement.removeChild(phElement);
+      }
+    }, 1000);
   }
 
   dragMoved(e: CdkDragMove) {
