@@ -1009,12 +1009,10 @@ export class ProductComponent implements OnInit {
   selectCommentFileInput(files) {
     if (files.length) {
       this.comment.files.push(...files);
-
       for (const f of files) {
-        let reader = new FileReader();
+        const reader = new FileReader();
 
         reader.onload = event => this.comment.imgs.push(event.target.result);
-
         reader.readAsDataURL(f);
       }
     }
