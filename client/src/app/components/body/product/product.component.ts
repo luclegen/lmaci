@@ -286,6 +286,7 @@ export class ProductComponent implements OnInit {
         this.setPaths();
         this.setStar();
         this.setSlider();
+        this.setCarousel();
         this.setPost();
         this.setReviews();
         this.setComments();
