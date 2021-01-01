@@ -307,7 +307,7 @@ export class ProductComponent implements OnInit {
 
   //#region Star
 
-  initStars() {
+  setStars() {
     this.stars.total = this.product.reviews.length;
 
     this.stars.star = [];
