@@ -294,7 +294,7 @@ Product Component: next
 Product Component: moved
 Product Component: showArrow
 Product Component: hideArrow
-Product Component: showGallery
+Product Component: openGallery
 Product Component: onResize
 Product Component: selectImg
 Product Component: closeGallery
