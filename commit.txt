@@ -423,6 +423,7 @@ Product Component: setComments
 Product Component: isAdmin
 Product Component: onResize
 Product Component: ngOnInit
+Product Component: Comments
 Product Component: View
 Product List Component: Initial
 Module: ProductListComponent
