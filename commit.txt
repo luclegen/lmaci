@@ -325,7 +325,7 @@ Product Service: uploadImgs
 Product Component: isSaveImgs
 Product Component: cancelSaveSlider
 Product Component: cancel
-Product Component: reloadSlider
+Product Component: reloadSlideshow
 Product Service: toHTMLName
 Product Component: onCheckOption
 Product Component: updatePrice
