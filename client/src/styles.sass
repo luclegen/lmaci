@@ -100,31 +100,6 @@ div
     overflow: hidden
     width: 100%
 
-    button
-      position: absolute
-      display: none
-      width: 5%
-      border: none
-      outline: none
-      cursor: pointer
-      background: black
-      border-radius: 50%
-      padding: 10px
-      fill: white
-
-      &:hover
-        background: gray
-
-      svg
-        width: 100%
-
-      &#close-btn
-        top: 10px
-        right: 10px
-        padding: 5px
-        background: red
-        cursor: zoom-out
-
   &.carousel-container
     height: 100%
 
@@ -869,6 +844,34 @@ button
     color: white
     background: blue
     border: 2px solid black
+
+  &.slide-btn
+    position: absolute
+    display: none
+    width: 5%
+    border: none
+    outline: none
+    cursor: pointer
+    border-radius: 50%
+    padding: 10px
+    background: black
+    fill: white
+
+    &:hover
+      background: gray
+
+    svg
+      width: 100%
+
+  &.close-btn
+    top: 10px
+    right: 10px
+    background: red
+    padding: 5px
+    cursor: zoom-out
+
+    &:hover
+      background: red
 
 details
 
