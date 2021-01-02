@@ -582,7 +582,7 @@ export class ProductComponent implements OnInit {
               formData.append('files', file, index + '.jpeg');
               
               indexs.push(index);
-              p = environment.imageUrl + '/?image=product/' + this.id + '/slideshow/' + this.order.color.value.replace(/#/, '') + '/' + index++ + '.jpeg';
+              p = environment.imageUrl + '/?image=product/' + this.id + '/slideshow/' + (this.order.color.value ? this.order.color.value.replace(/#/, '') + '/' : '') + index++ + '.jpeg';
             }
             paths.push(p);
           });
