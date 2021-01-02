@@ -1157,6 +1157,7 @@ export class ProductComponent implements OnInit {
   //#region Aside Gallery
 
   showAsideGallery(event: any, msg: Object) {
+    const slideshow = document.querySelector('.aside-slideshow') as HTMLElement;
     const asideGalleryContainer = document.getElementById('aside-gallery-container') as HTMLElement;
     const asideCarouselSlide = document.getElementsByClassName('aside-carousel-slide') as HTMLCollectionOf<HTMLElement>;
     const asideCloseBtn = document.getElementById('aside-close-btn') as HTMLElement;
@@ -1173,7 +1174,7 @@ export class ProductComponent implements OnInit {
     this.asideGallery.content = Object(msg).content;
     this.asideGallery.imgs = Object(msg).imgs;
 
-    asideGalleryContainer.style.display = 'flex';
+    slideshow.style.display = 'flex';
 
     asideCloseBtn.style.display = 'inline';
 
