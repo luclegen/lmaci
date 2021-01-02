@@ -498,7 +498,7 @@ export class ProductComponent implements OnInit {
     const closeBtn = document.getElementById('close-btn');
 
     this.isOpenGallery = false;
-    this.setSlider();
+    this.setSlideshow();
 
     body.style.overflowY = 'visible';
     leftContainer.style.position = 'static';
