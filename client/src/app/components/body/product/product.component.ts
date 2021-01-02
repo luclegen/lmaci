@@ -21,22 +21,22 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class ProductComponent implements OnInit {
 
-  //#region Slider
+  //#region Slideshow
 
   index = 0;
   size = 0;
   sizeFrame = 0;
   isOpenGallery = false;
 
-  //#endregion Slider
+  //#endregion Slideshow
 
-  //#region Aside Slider
+  //#region Aside Slideshow
 
   asideCounter = 0;
   asideSize = 0;
   asideSizeFrame = 0;
 
-  //#endregion Aside Slider
+  //#endregion Aside Slideshow
 
   //#region Star
 
@@ -332,7 +332,7 @@ export class ProductComponent implements OnInit {
 
   //#endregion Star
 
-  //#region Slider
+  //#region Slideshow
 
   setPaths() {
     if (this.product.sliders.length && this.product.sliders.filter(s => s.color == this.order.color.value).length && this.product.sliders.filter(s => s.color == this.order.color.value)[0].imgs.length) this.paths = this.product.sliders.filter(s => s.color == this.order.color.value)[0].imgs.map(img => img.path);
@@ -511,7 +511,7 @@ export class ProductComponent implements OnInit {
     this.move(closeBtn.style.display = gallery.style.display = 'none');
   }
 
-  //#endregion Slider
+  //#endregion Slideshow
 
   //#region Order
 
@@ -563,7 +563,7 @@ export class ProductComponent implements OnInit {
 
   //#endregion Order
 
-  //#region Slider Editor
+  //#region Slideshow Editor
 
   isSaveImgs() {
     return this.product.sliders.length && this.product.sliders.filter(s => s.color == this.preview.color.value).length && this.product.sliders.filter(s => s.color == this.preview.color.value)[0].imgs ? JSON.stringify(this.product.sliders.filter(s => s.color == this.preview.color.value)[0].imgs.map(i => i.path)) != JSON.stringify(this.paths) : this.paths.length;
@@ -627,7 +627,7 @@ export class ProductComponent implements OnInit {
       err => { if (err.status == 440 && confirm('Your session has expired and must log in again.\n\nDo you want to login again?')) window.open('/login'); });
   }
 
-  //#endregion Slider Editor
+  //#endregion Slideshow Editor
 
   //#region Image Cropper
 
