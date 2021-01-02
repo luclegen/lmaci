@@ -19,7 +19,7 @@ module.exports.upload = (root, dir = '', parentdir = '') => {
 
       switch (dir) {
         case 'slideshow':
-          path.push(path[1] + '/' + req.body.color.replace(/#/, ''));
+          if (req.body.color) path.push(path[1] + '/' + req.body.color.replace(/#/, ''));
           break;
 
         case 'review':
