@@ -40,7 +40,7 @@ let productSchema = new mongoose.Schema({
     content: String,
     dateModified: Date
   },
-  sliders: Array,
+  slideshows: Array,
   reviews: Array,
   comments: Array
 }, {
