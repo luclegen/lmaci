@@ -75,7 +75,7 @@ export class ProductComponent implements OnInit {
       content: '',
       dateModified: ''
     },
-    sliders: []
+    slideshows: []
   };
 
   preview = {
@@ -335,7 +335,7 @@ export class ProductComponent implements OnInit {
   //#region Slideshow
 
   setPaths() {
-    if (this.product.sliders.length && this.product.sliders.filter(s => s.color == this.order.color.value).length && this.product.sliders.filter(s => s.color == this.order.color.value)[0].imgs.length) this.paths = this.product.sliders.filter(s => s.color == this.order.color.value)[0].imgs.map(img => img.path);
+    if (this.product.slideshows.length && this.product.slideshows.filter(s => s.color == this.order.color.value).length && this.product.slideshows.filter(s => s.color == this.order.color.value)[0].imgs.length) this.paths = this.product.slideshows.filter(s => s.color == this.order.color.value)[0].imgs.map(img => img.path);
   }
 
   setCarousel() {
