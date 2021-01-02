@@ -319,7 +319,7 @@ Product Component: __isTouchEvent
 Product Component: __isInsideDropListClientRect
 Product Component: delete
 Product Component: saveSlideshow
-Product Service: uploadImgs
+Product Service: uploadSlideshows
 Product Component: isSaveSlideshow
 Product Component: cancelSaveSlideshow
 Product Component: cancel
@@ -527,8 +527,8 @@ Admin Router: PUT searchProducts
 Server App: Product Router
 Product Controller: get
 Product Router: GET get
-Product Controller: uploadImgs
-Product Router: PUT uploadImgs
+Product Controller: uploadSlideshows
+Product Router: PUT uploadSlideshows
 Product Controller: post
 Product Router: PUT post
 Image Controller: get
