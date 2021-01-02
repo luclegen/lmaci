@@ -416,7 +416,7 @@ export class ProductComponent implements OnInit {
 
   openGallery() {
     const body = document.querySelector('body');
-    const leftContainer = document.querySelector('.left-container') as HTMLElement;
+    const slideshow = document.querySelector('.slideshow') as HTMLElement;
     const carousel = document.querySelector('.carousel') as HTMLElement;
     const slides = document.querySelectorAll('.carousel-slide') as NodeListOf<HTMLElement>;
     const gallery = document.querySelector('.gallery') as HTMLElement;
@@ -432,12 +432,12 @@ export class ProductComponent implements OnInit {
     this.isOpenGallery = true;
 
     body.style.overflowY = 'hidden';
-    leftContainer.style.position = 'fixed';
-    leftContainer.style.zIndex = '103';
-    leftContainer.style.top = leftContainer.style.left = leftContainer.style.margin = leftContainer.style.padding = '0';
-    leftContainer.style.background = 'black';
-    leftContainer.style.width = '100vw';
-    leftContainer.style.height = '100vh';
+    slideshow.style.position = 'fixed';
+    slideshow.style.zIndex = '103';
+    slideshow.style.top = slideshow.style.left = slideshow.style.margin = slideshow.style.padding = '0';
+    slideshow.style.background = 'black';
+    slideshow.style.width = '100vw';
+    slideshow.style.height = '100vh';
     closeBtn.style.display = 'inline';
     closeBtn.style.height = closeBtn.clientWidth + 'px';
     carousel.style.height = '90%';
