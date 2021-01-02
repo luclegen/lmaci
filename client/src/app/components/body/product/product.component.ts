@@ -346,7 +346,7 @@ export class ProductComponent implements OnInit {
     });
   }
 
-  setSlider() {
+  setSlideshow() {
     const slide = document.querySelector('.carousel-slide') as HTMLElement;
     const prevBtn = document.getElementById('prev-btn');
     const nextBtn = document.getElementById('next-btn');
