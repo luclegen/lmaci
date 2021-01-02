@@ -562,7 +562,7 @@ export class ProductComponent implements OnInit {
   //#region Slideshow Editor
 
   isSaveImgs() {
-    return this.product.sliders.length && this.product.sliders.filter(s => s.color == this.preview.color.value).length && this.product.sliders.filter(s => s.color == this.preview.color.value)[0].imgs ? JSON.stringify(this.product.sliders.filter(s => s.color == this.preview.color.value)[0].imgs.map(i => i.path)) != JSON.stringify(this.paths) : this.paths.length;
+    return this.product.slideshows.length && this.product.slideshows.filter(s => s.color == this.preview.color.value).length && this.product.slideshows.filter(s => s.color == this.preview.color.value)[0].imgs ? JSON.stringify(this.product.slideshows.filter(s => s.color == this.preview.color.value)[0].imgs.map(i => i.path)) != JSON.stringify(this.paths) : this.paths.length;
   }
 
   saveSlider() {
