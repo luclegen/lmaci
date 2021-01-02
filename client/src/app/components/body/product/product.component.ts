@@ -610,7 +610,7 @@ export class ProductComponent implements OnInit {
     );
   }
 
-  cancelSaveSlider() {
+  cancelSaveSlideshow() {
     this.authService.getInfo().subscribe(
       res => {
         if (res['user'].role == 'root' || res['user'].role === 'admin') {
