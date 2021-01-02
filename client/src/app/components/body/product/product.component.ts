@@ -565,13 +565,13 @@ export class ProductComponent implements OnInit {
     return this.product.slideshows.length && this.product.slideshows.filter(s => s.color == this.preview.color.value).length && this.product.slideshows.filter(s => s.color == this.preview.color.value)[0].imgs ? JSON.stringify(this.product.slideshows.filter(s => s.color == this.preview.color.value)[0].imgs.map(i => i.path)) != JSON.stringify(this.paths) : this.paths.length;
   }
 
-  saveSlider() {
+  saveSlideshow() {
     this.authService.getInfo().subscribe(
       res => {
         if ((res['user'].role == 'root' || res['user'].role === 'admin') && this.isSaveImgs()) {
           const formData = new FormData();
 
-          let index = this.product.sliders.length && this.product.sliders.filter(s => s.color == this.order.color.value).length && this.product.sliders.filter(s => s.color == this.order.color.value)[0].imgs.length ? Math.max(...this.product.sliders.filter(s => s.color == this.order.color.value)[0].imgs.map(i => i.index)) + 1 : 0;
+          let index = this.product.slideshows.length && this.product.slideshows.filter(s => s.color == this.order.color.value).length && this.product.slideshows.filter(s => s.color == this.order.color.value)[0].imgs.length ? Math.max(...this.product.slideshows.filter(s => s.color == this.order.color.value)[0].imgs.map(i => i.index)) + 1 : 0;
           const indexs = [], paths = [];
 
           formData.append('color', this.order.color.value);
