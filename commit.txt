@@ -562,5 +562,6 @@ Commit
 
 II. DATABASE
 Database: users
+Database: products
 
 Commit
