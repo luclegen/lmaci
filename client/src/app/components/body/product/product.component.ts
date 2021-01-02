@@ -418,7 +418,7 @@ export class ProductComponent implements OnInit {
     const body = document.querySelector('body');
     const leftContainer = document.querySelector('.left-container') as HTMLElement;
     const carousel = document.querySelector('.carousel') as HTMLElement;
-    const slide = document.querySelector('.carousel-slide') as HTMLElement;
+    const slides = document.querySelectorAll('.carousel-slide') as NodeListOf<HTMLElement>;
     const gallery = document.querySelector('.gallery') as HTMLElement;
     const track = document.querySelector('.gallery-track') as HTMLElement;
     const imgs = document.querySelectorAll('.gallery-img') as NodeListOf<HTMLElement>;
@@ -448,7 +448,7 @@ export class ProductComponent implements OnInit {
     prevBtn.style.top = nextBtn.style.top = (carousel.clientHeight - btnWidth) * 0.5 + 'px';
     prevBtn.style.left = ((ww - carousel.clientWidth) * 0.5 + carousel.clientWidth * 0.03) + 'px';
     nextBtn.style.left = ((ww - carousel.clientWidth) * 0.5 + carousel.clientWidth * (1 - 0.03) - btnWidth) + 'px';
-    slide.style.cursor = 'auto';
+    slides.forEach(s => s.style.cursor = 'auto');
     gallery.style.display = 'flex';
     gallery.style.height = (wh - carousel.clientHeight - 5) + 'px';
     track.style.height = (wh - carousel.clientHeight - 15) + 'px';
