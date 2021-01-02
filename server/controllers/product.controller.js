@@ -22,9 +22,9 @@ module.exports.uploadImgs = async (req, res) => {
   if (product) {
     const paths = JSON.parse(req.body.paths);
     let replace = false;
-    const sliders = product.sliders ? product.sliders : [];
-    const indexs = sliders.filter(s => s.color == req.body.color).length ? sliders.filter(s => s.color == req.body.color)[0].imgs.map(i => i.index).concat(JSON.parse(req.body.indexs)) : JSON.parse(req.body.indexs);
-    const slider = {
+    const slideshows = product.slideshows ? product.slideshows : [];
+    const indexs = slideshows.filter(s => s.color == req.body.color).length ? slideshows.filter(s => s.color == req.body.color)[0].imgs.map(i => i.index).concat(JSON.parse(req.body.indexs)) : JSON.parse(req.body.indexs);
+    const slideshow = {
       color: req.body.color,
       imgs: []
     };
@@ -35,20 +35,20 @@ module.exports.uploadImgs = async (req, res) => {
         path: path
       }
       indexs.splice(indexs.indexOf(img.index), 1)
-      slider.imgs.push(img);
+      slideshow.imgs.push(img);
     })
 
-    sliders.forEach(s => {
+    slideshows.forEach(s => {
       if (s.color == req.body.color) {
-        sliders[sliders.indexOf(s)] = slider;
+        slideshows[slideshows.indexOf(s)] = slideshow;
         replace = true;
       }
     });
-    if (!replace) sliders.push(slider);
+    if (!replace) slideshows.push(slideshow);
 
-    indexs.forEach(i => rimraf.sync('uploads/img/product/' + req.params.id + '/slider/' + req.body.color.replace(/#/, '') + '/' + i + '.jpeg'));
+    indexs.forEach(i => rimraf.sync('uploads/img/product/' + req.params.id + '/slideshow/' + req.body.color.replace(/#/, '') + '/' + i + '.jpeg'));
     
-    const product1 = await Product.findByIdAndUpdate(req.params.id, { $set: { sliders: sliders } }, { new: true });
+    const product1 = await Product.findByIdAndUpdate(req.params.id, { $set: { slideshows: slideshows } }, { new: true });
 
     return product1 ? res.status(200).json({ msg: 'Upload this images is successfully.' })
                     : res.status(404).json({ msg: 'Upload this images failed!' });
