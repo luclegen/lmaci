@@ -493,6 +493,7 @@ export class ProductComponent implements OnInit {
     const body = document.querySelector('body');
     const leftContainer = document.querySelector('.left-container') as HTMLElement;
     const carousel = document.querySelector('.carousel') as HTMLElement;
+    const slides = document.querySelectorAll('.carousel-slide') as NodeListOf<HTMLElement>;
     const gallery = document.querySelector('.gallery') as HTMLElement;
     const closeBtn = document.getElementById('close-btn');
 
@@ -505,6 +506,7 @@ export class ProductComponent implements OnInit {
     leftContainer.style.width = this.size + 'px';
     leftContainer.style.margin = '10px 0.5% 0 10%';
     leftContainer.style.height = carousel.style.height = 'auto';
+    slides.forEach(s => s.style.cursor = 'zoom-in');
 
     this.move(closeBtn.style.display = gallery.style.display = 'none');
   }
