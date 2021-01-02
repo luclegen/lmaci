@@ -1,0 +1,2212 @@
+[{
+  "_id": {
+    "$oid": "5f72b81f6abfff133b8deecd"
+  },
+  "img": {
+    "index": 1,
+    "path": "http://localhost:3000/image/?image=product/5f72b81f6abfff133b8deecd/1.png"
+  },
+  "quantity": {
+    "imported": 299
+  },
+  "colors": [
+    {
+      "option": "custom",
+      "name": "Gold",
+      "value": "#f6d1bf"
+    },
+    {
+      "option": "custom",
+      "name": "Silver",
+      "value": "#ececec"
+    },
+    {
+      "option": "custom",
+      "name": "Space Gray",
+      "value": "#a3a5a8"
+    }
+  ],
+  "properties": [
+    {
+      "name": "CPU",
+      "options": [
+        {
+          "value": "i3 - 10th",
+          "price": 0
+        },
+        {
+          "value": "i5 - 10th",
+          "price": 100
+        },
+        {
+          "value": "i7 - 10th",
+          "price": 250
+        }
+      ]
+    },
+    {
+      "name": "RAM",
+      "options": [
+        {
+          "value": "8GB",
+          "price": 0
+        },
+        {
+          "value": "16GB",
+          "price": 200
+        }
+      ]
+    },
+    {
+      "name": "Storage",
+      "options": [
+        {
+          "value": "256GB",
+          "price": 0
+        },
+        {
+          "value": " 512GB",
+          "price": 200
+        },
+        {
+          "value": "1TB",
+          "price": 400
+        },
+        {
+          "value": "2TB",
+          "price": 800
+        }
+      ]
+    }
+  ],
+  "technicalDetails": [
+    {
+      "name": "Display",
+      "value": "13.3-inch (diagonal) LED-backlit Retina display with IPS technology; 2560-by-1600 native resolution at 227 pixels per inch with support for millions of colors, 16:10 aspect ratio"
+    },
+    {
+      "name": "Processor",
+      "value": "1.1GHz quad-core Intel Core i5, Turbo Boost up to 3.5GHz, with 6MB L3 cache"
+    },
+    {
+      "name": "Graphics and Video Support",
+      "value": "Intel Iris Plus Graphics, Support for Thunderbolt 3–enabled external graphics processors (eGPUs)"
+    },
+    {
+      "name": "Charging and Expansion",
+      "value": "Two Thunderbolt 3 (USB-C) ports with support for:, Charging, DisplayPort, Thunderbolt (up to 40 Gbps), USB 3.1 Gen 2 (up to 10 Gbps)"
+    },
+    {
+      "name": "Wireless",
+      "value": "802.11ac Wi-Fi wireless networking; IEEE 802.11a/b/g/n compatible. Bluetooth 5.0 wireless technology"
+    },
+    {
+      "name": "In the Box",
+      "value": "13-inch MacBook Air, 30W USB-C Power Adapter, USB-C Charge Cable (2 m)"
+    },
+    {
+      "name": "Height",
+      "value": "0.16–0.63 inch (0.41–1.61 cm)"
+    },
+    {
+      "name": "Width",
+      "value": "11.97 inches (30.41 cm)"
+    },
+    {
+      "name": "Depth",
+      "value": "8.36 inches (21.24 cm)"
+    },
+    {
+      "name": "Weight",
+      "value": "2.8 pounds (1.25 kg)"
+    },
+    {
+      "name": "Release Date",
+      "value": "Release Date"
+    }
+  ],
+  "slideshows": [
+    {
+      "color": "#f6d1bf",
+      "imgs": [
+        {
+          "index": 0,
+          "path": "http://localhost:3000/image/?image=product/5f72b81f6abfff133b8deecd/slideshow/f6d1bf/0.jpeg"
+        },
+        {
+          "index": 1,
+          "path": "http://localhost:3000/image/?image=product/5f72b81f6abfff133b8deecd/slideshow/f6d1bf/1.jpeg"
+        },
+        {
+          "index": 2,
+          "path": "http://localhost:3000/image/?image=product/5f72b81f6abfff133b8deecd/slideshow/f6d1bf/2.jpeg"
+        },
+        {
+          "index": 3,
+          "path": "http://localhost:3000/image/?image=product/5f72b81f6abfff133b8deecd/slideshow/f6d1bf/3.jpeg"
+        },
+        {
+          "index": 4,
+          "path": "http://localhost:3000/image/?image=product/5f72b81f6abfff133b8deecd/slideshow/f6d1bf/4.jpeg"
+        }
+      ]
+    },
+    {
+      "color": "#ececec",
+      "imgs": [
+        {
+          "index": 0,
+          "path": "http://localhost:3000/image/?image=product/5f72b81f6abfff133b8deecd/slideshow/ececec/0.jpeg"
+        },
+        {
+          "index": 1,
+          "path": "http://localhost:3000/image/?image=product/5f72b81f6abfff133b8deecd/slideshow/ececec/1.jpeg"
+        },
+        {
+          "index": 2,
+          "path": "http://localhost:3000/image/?image=product/5f72b81f6abfff133b8deecd/slideshow/ececec/2.jpeg"
+        },
+        {
+          "index": 3,
+          "path": "http://localhost:3000/image/?image=product/5f72b81f6abfff133b8deecd/slideshow/ececec/3.jpeg"
+        },
+        {
+          "index": 4,
+          "path": "http://localhost:3000/image/?image=product/5f72b81f6abfff133b8deecd/slideshow/ececec/4.jpeg"
+        }
+      ]
+    },
+    {
+      "color": "#a3a5a8",
+      "imgs": [
+        {
+          "index": 0,
+          "path": "http://localhost:3000/image/?image=product/5f72b81f6abfff133b8deecd/slideshow/a3a5a8/0.jpeg"
+        },
+        {
+          "index": 1,
+          "path": "http://localhost:3000/image/?image=product/5f72b81f6abfff133b8deecd/slideshow/a3a5a8/1.jpeg"
+        },
+        {
+          "index": 2,
+          "path": "http://localhost:3000/image/?image=product/5f72b81f6abfff133b8deecd/slideshow/a3a5a8/2.jpeg"
+        },
+        {
+          "index": 3,
+          "path": "http://localhost:3000/image/?image=product/5f72b81f6abfff133b8deecd/slideshow/a3a5a8/3.jpeg"
+        },
+        {
+          "index": 4,
+          "path": "http://localhost:3000/image/?image=product/5f72b81f6abfff133b8deecd/slideshow/a3a5a8/4.jpeg"
+        }
+      ]
+    }
+  ],
+  "reviews": [
+    {
+      "index": 0,
+      "user": {
+        "name": {
+          "first": "Binh",
+          "last": "Trinh Thanh"
+        },
+        "avatar": "http://localhost:3000/image/?image=avatar/b.png",
+        "activated": true,
+        "role": "user",
+        "_id": "5f6dbb745f14cf1e31cebd0b",
+        "fullName": "Binh Trinh Thanh",
+        "gender": "female",
+        "email": "ttb@email.com",
+        "mobileNumber": "0123456788",
+        "address": "Address 2",
+        "username": "b",
+        "password": "$2a$10$9cUiR869wyB9zPMNG2FdRu9gi3yrSnyYbEHpfRfqbYWdJXZUeembW",
+        "createdAt": "2020-09-25T09:42:12.831Z",
+        "updatedAt": "2020-10-07T07:49:40.236Z",
+        "saltSecret": "$2a$10$9cUiR869wyB9zPMNG2FdRu",
+        "__v": 0
+      },
+      "star": 5,
+      "content": "Great laptop!! My first and only macbook pro was purchased in 05/06. needless to say i was due for an upgrade. i was never a fan of the macbook air so i started researching the macbook pro. i quickly learned that most people i knew who had pro’s switched to the air when it came time to buy a new laptop. they all swear by it. amazon didnt have any of the new pro’s in stock which is what finally pushed me over to the air. some reviews were iffy especially about the camera quality so i was very nervous. my laptop was delivered yesterday and i could not be happier that i chose the new macbook air! its perfect! while it does not come with the touch bar it does bring touch ID. many of the forums i read said the touch bar is great but you can live without it and after time it starts to fail. not sure how true that it as im sure itll improve over time.\n\nthe air is so light weight. i got the 13inch and it doesn't feel crammed or too small like most air laptop do in previous models. the retina display is beautiful!\n\nthe new air only has 3 ports for reference. see photos. you will need a USB adapter so that you can connect things like your harddrive or charge your mouse. i purchased the apple usb-c to usb adaptor on amazon for $17. i recommend getting one.\n\ni also purchased the magic mouse from apple for the laptop. if you are like me and you need a mouse this purchase is a must.\n\nthe charger on these new laptops is probably the best part. its no longer the bulky long ones with two cords. see photo of new charger.\n\nthe price on this laptop is also cheaper than the pro! 1300 for a pro and the air was only 979. win win\n\noverall i am very pleased with my purchase! if you need a personal laptop for the day to day this is a great buy!",
+      "imgs": [
+        "http://localhost:3000/image/?image=product/5f72b81f6abfff133b8deecd/review/0/0.jpeg",
+        "http://localhost:3000/image/?image=product/5f72b81f6abfff133b8deecd/review/0/1.jpeg",
+        "http://localhost:3000/image/?image=product/5f72b81f6abfff133b8deecd/review/0/2.jpeg",
+        "http://localhost:3000/image/?image=product/5f72b81f6abfff133b8deecd/review/0/3.jpeg"
+      ],
+      "stars": {
+        "count": [
+          "*",
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "none": []
+      }
+    },
+    {
+      "index": 1,
+      "user": {
+        "name": {
+          "first": "Chi",
+          "last": "Truong Ba"
+        },
+        "avatar": "http://localhost:3000/image/?image=avatar/c.png",
+        "activated": true,
+        "role": "user",
+        "_id": "5f7dc8d3b0dc351ae51127ee",
+        "fullName": "Chi Truong Ba",
+        "gender": "female",
+        "email": "tbc@email.com",
+        "mobileNumber": "0123456787",
+        "address": "Address 3",
+        "username": "c",
+        "password": "$2a$10$JwyfZskfpWXV2EEYE3krkOyodlIpeeCsS1farborGfrGTcHM/ILNm",
+        "createdAt": "2020-10-07T13:55:31.868Z",
+        "updatedAt": "2020-10-07T07:40:04.404Z",
+        "saltSecret": "$2a$10$JwyfZskfpWXV2EEYE3krkO",
+        "__v": 0
+      },
+      "star": 1,
+      "content": "Loud fan during FaceTime calls and poor camera.\n\nThe camera has a poor image quality (only 720p) and the fan gets very loud during FaceTime/Zoom calls. The MacBook Air 2020, like the MacBook Air 2018 and 2019, has very poor thermal design because there is no pipe to connect the fan to the CPU's heatsink.\n\nThe MacBook Air 2020 is suitable for causal use. But even a video call will push the CPU's temperature to a 100 degrees celsius. Because of the poor thermal design, the fan becomes loud and the device will thermal throttle (meaning it limits the CPU's speed in order to reduce its temperature). This was not a present problem in MacBook Air devices produced before 2018 as the CPUs in those devices were properly cooled (the fan was connected to the CPU with a pipe).\n\nWith the 2020 MacBook Air, you get a loud fan and a CPU performance that cannot be sustained for a longer time. The problem becomes even worse when you connect an external monitor to it.\n\nThe most important advantage that the MacBook Air 2020 has over other Apple laptops is that it is the only one which still has a keyboard with no Touch Bar. So many people dislike the gimmicky Touch Bar in the MacBook Pro, as the Touch Bar ends up getting in your way and slowing you down.\n\nThis would be a great laptop if it has a proper thermal cooling system and a better camera (at least a 7-megapixel sensor capable of 1080p).",
+      "imgs": [
+        "http://localhost:3000/image/?image=product/5f72b81f6abfff133b8deecd/review/1/0.jpeg",
+        "http://localhost:3000/image/?image=product/5f72b81f6abfff133b8deecd/review/1/1.jpeg",
+        "http://localhost:3000/image/?image=product/5f72b81f6abfff133b8deecd/review/1/2.jpeg"
+      ],
+      "stars": {
+        "count": [
+          "*"
+        ],
+        "none": [
+          "-",
+          "-",
+          "-",
+          "-"
+        ]
+      }
+    },
+    {
+      "index": 2,
+      "user": {
+        "name": {
+          "first": "Dan",
+          "last": "Chan Tu"
+        },
+        "avatar": "http://localhost:3000/image/?image=avatar/d.png",
+        "activated": true,
+        "role": "user",
+        "_id": "5f7dc920b0dc351ae51127ef",
+        "fullName": "Dan Chan Tu",
+        "gender": "male",
+        "email": "ctd@email.com",
+        "mobileNumber": "0123456786",
+        "address": "Address 4",
+        "username": "d",
+        "password": "$2a$10$S/Kk/AtdtVEf8DyL1S1T0eAET15hg5TopYCEmHZPGkzilzHQ53iCG",
+        "createdAt": "2020-10-07T13:56:48.981Z",
+        "updatedAt": "2020-10-07T07:42:16.168Z",
+        "saltSecret": "$2a$10$S/Kk/AtdtVEf8DyL1S1T0e",
+        "__v": 0
+      },
+      "star": 5,
+      "content": "Awesome purchase. I am in love best investment that I have made. I have been working from home and taking online classes. Makes it so convent and easy. Love the sound and feel of the keyboard. Webcam sucks but that’s not why I got it.",
+      "imgs": [
+        "http://localhost:3000/image/?image=product/5f72b81f6abfff133b8deecd/review/2/0.jpeg",
+        "http://localhost:3000/image/?image=product/5f72b81f6abfff133b8deecd/review/2/1.jpeg"
+      ],
+      "stars": {
+        "count": [
+          "*",
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "none": []
+      }
+    },
+    {
+      "index": 3,
+      "user": {
+        "name": {
+          "first": "Em",
+          "last": "Nam"
+        },
+        "avatar": "http://localhost:3000/image/?image=avatar/e.png",
+        "activated": true,
+        "role": "user",
+        "_id": "5f7dc95ab0dc351ae51127f0",
+        "fullName": "Em Nam",
+        "gender": "female",
+        "email": "ne@email.com",
+        "mobileNumber": "0123456785",
+        "address": "Address 5",
+        "username": "e",
+        "password": "$2a$10$.93vmgVzyWDRyhMV1agnQOddAoWL.fV/fKQ42zs0Ox/NxjTyqXGI6",
+        "createdAt": "2020-10-07T13:57:46.966Z",
+        "updatedAt": "2020-10-07T07:43:53.194Z",
+        "saltSecret": "$2a$10$.93vmgVzyWDRyhMV1agnQO",
+        "__v": 0
+      },
+      "star": 5,
+      "content": "Everything I have hoped for ! Everything runs and works so far after two days usage.",
+      "imgs": [
+        "http://localhost:3000/image/?image=product/5f72b81f6abfff133b8deecd/review/3/0.jpeg",
+        "http://localhost:3000/image/?image=product/5f72b81f6abfff133b8deecd/review/3/1.jpeg",
+        "http://localhost:3000/image/?image=product/5f72b81f6abfff133b8deecd/review/3/2.jpeg"
+      ],
+      "stars": {
+        "count": [
+          "*",
+          "*",
+          "*",
+          "*",
+          "*"
+        ],
+        "none": []
+      }
+    },
+    {
+      "index": 4,
+      "user": {
+        "name": {
+          "first": "Giang",
+          "last": "Le"
+        },
+        "avatar": "http://localhost:3000/image/?image=avatar/g.png",
+        "activated": true,
+        "role": "user",
+        "_id": "5f7d6c51b0dc351ae51127f3",
+        "fullName": "Giang Le",
+        "gender": "female",
+        "email": "lg@email.com",
+        "mobileNumber": "0123456783",
+        "address": "Address 7",
+        "username": "g",
+        "password": "$2a$10$EUX.npaU/Y615iErHTmJeO4gXdFcwJi8zQQiy9Q7OajtvJzsQUVWm",
+        "createdAt": "2020-10-07T07:20:49.998Z",
+        "updatedAt": "2020-10-07T07:46:04.630Z",
+        "saltSecret": "$2a$10$EUX.npaU/Y615iErHTmJeO",
+        "__v": 0
+      },
+      "star": 2,
+      "content": "Not user friendly like the old models. Apple is supposed to be easy. All I want to do is download a few CDs into iTunes. DVD drives don't work so I bought an expensive Apple drive that doesn't fit, so I bought a adapted. Now it says accessory USB needs power. On-line support is not helpful.\n\nDownloading files for my 3D printer was a pain too. I had to use 3ed party software and go through loopholes ever time.\n\nI like the look and feel of the product but everything is over complicated and requires extra parts.\n\nI loved my Macbook Pro 2010, it's sad the new models suck so bad.",
+      "imgs": [
+        "http://localhost:3000/image/?image=product/5f72b81f6abfff133b8deecd/review/4/0.jpeg"
+      ],
+      "stars": {
+        "count": [
+          "*",
+          "*"
+        ],
+        "none": [
+          "-",
+          "-",
+          "-"
+        ]
+      }
+    },
+    {
+      "index": 5,
+      "user": {
+        "username": "h"
+      },
+      "star": 4,
+      "content": "Great laptop but slightly overpriced (IMO). First, I must state that I ordered this laptop through a carrier as I am not in the U.S. So the carrier helped ship it to my country, Zambia. When I got it, it did not has MacOS pre-installed, which I thought was very weird. So I couldnt use any apps until I downloaded Catalina.\n\nI previously used a 2017 Macbook Air so I was pretty comfortable with this new model. The keyboard and display are my two favorite things about it. The keyboard buttons are smooth and easy to press. The laptop turns on and off incredibly fast and running several apps at once does not slow it down significantly. The build and weight is sublime.\n\nNow the things that I dont particularly like. The battery life compared to my previous 2017 Macbook Air is smaller. I guess because they had to reduce the size of the battery. But with the size of the display, I would say if I am using it intensively, I get about 4 hours. The display easily gets smudges and picks up dust so you are going to regularly feel the need to clean the screen. The charger cable feels short and it does not have that magnetic connector at the end to easily come out of the charging port. I feel that for the price they should have used an intel i5 and not i3 and it does make it feel slow when using several apps.\n\nIf you are getting this laptop to do none intensive tasks like editing and viewing documents, watching videos, replying to emails, you will be more than happy with this. If you are a Software Developer, I don't think I would recommend this, because you might be running several tasks and might be held back a bit by this laptop and should go for a Pro if you can afford it. I couldnt thats why I chose an Air.",
+      "imgs": [
+        "http://localhost:3000/image/?image=product/5f72b81f6abfff133b8deecd/review/5/0.jpeg",
+        "http://localhost:3000/image/?image=product/5f72b81f6abfff133b8deecd/review/5/1.jpeg",
+        "http://localhost:3000/image/?image=product/5f72b81f6abfff133b8deecd/review/5/2.jpeg",
+        "http://localhost:3000/image/?image=product/5f72b81f6abfff133b8deecd/review/5/3.jpeg",
+        "http://localhost:3000/image/?image=product/5f72b81f6abfff133b8deecd/review/5/4.jpeg"
+      ]
+    },
+    {
+      "index": 6,
+      "user": {
+        "username": "k"
+      },
+      "star": 3,
+      "content": "Very Limited Uses.\nI'm a computer technician and I'm also an author (ghost writer technically, so nothing is actually published in my name). As a computer technician I would give this computer a 1/5. It's a disposable paper bag with a horrible cooling system. If one minor thing goes wrong with it, it's toast. Soldered on SSD and RAM, very few modular components, etc. So why did I buy it?\n\nWell, as an author I need a computer with a good keyboard that's lightweight and has a long battery life. For writing and reading articles online, this computer is great. If you need to do ANYTHING else however (including watching YouTube videos - which wouldn't be taxing on any other computer), you should choose a different computer. The cooling system I mentioned? It's basically non-existent. The fan isn't connected to the heat sink at all. This means that if you use the computer for anything taxing at all (YouTube videos, games, photo editing, etc.) it's going to overheat. This will cause the computer to die in about a year or two, and when it does, the cost for repair is going to be close to $1,000 because of the way Apple designed it.\n\nIf all you're going to do is browse the internet and type documents then this is an okay computer that should last you 3-5 years. If you want to do anything else then I recommend a PC. If you absolutely have to go Mac, then get the MacBook Pro (the new one with the standard keyboard).",
+      "imgs": []
+    },
+    {
+      "index": 7,
+      "user": {
+        "username": "l"
+      },
+      "star": 4,
+      "content": "I'm a computer technician and I'm also an author (ghost writer technically, so nothing is actually published in my name). As a computer technician I would give this computer a 1/5. It's a disposable paper bag with a horrible cooling system. If one minor thing goes wrong with it, it's toast. Soldered on SSD and RAM, very few modular components, etc. So why did I buy it?\n\nWell, as an author I need a computer with a good keyboard that's lightweight and has a long battery life. For writing and reading articles online, this computer is great. If you need to do ANYTHING else however (including watching YouTube videos - which wouldn't be taxing on any other computer), you should choose a different computer. The cooling system I mentioned? It's basically non-existent. The fan isn't connected to the heat sink at all. This means that if you use the computer for anything taxing at all (YouTube videos, games, photo editing, etc.) it's going to overheat. This will cause the computer to die in about a year or two, and when it does, the cost for repair is going to be close to $1,000 because of the way Apple designed it.\n\nIf all you're going to do is browse the internet and type documents then this is an okay computer that should last you 3-5 years. If you want to do anything else then I recommend a PC. If you absolutely have to go Mac, then get the MacBook Pro (the new one with the standard keyboard).",
+      "imgs": []
+    },
+    {
+      "index": 8,
+      "user": {
+        "username": "m"
+      },
+      "star": 5,
+      "content": "Perfect. In my opinion, the 2020 MacBook Air is a perfect laptop. It has physical keys that are a pleasure to type on, a beautiful screen, an optimal size, good pricing, and a quad-core processor. The only \"touch\" button is the fingerprint sensor and the touch pad. The onboard graphics are as good as discrete graphics from a few years ago according to benchmarks, which is impressive. The speakers work well. Being an educator, I purchased it on the Apple Education Store for $1200, and it couldn't have come at a better time, given the transition to Zoom in the coronavirus pandemic. Thank you, Apple, for rediscovering yourself. I had been holding onto my 2012 MacBook Pro because I was unimpressed with the offerings the past few years.\n\nYou shouldn't get this if you are looking for onboard power, but if you are, you probably didn't need me to tell you that. Otherwise, get it. It's great.\n\nUpdate: After reviewing benchmarks and reviews, I believe the upgrades you should consider, in order of priority are:\n\n1. i3 -> i5\n2. 8gb -> 16gb\n\nThe i5 -> i7 is a small boost in power per Geekbench scores, but again, this isn't supposed to be used for heavy computing due to cooling limitations, so this is a novelty in my opinion. Additionally, the storage upgrades (up to 2 TB) are hard to justify when you have EXTREMELY FAST 40 GBP/s thunderbolt 3 ports that can easily be used for an external SSD that is more or less as fast as the built-in SSD. Unlike the other upgrades, which are set in stone once you purchase the computer, the memory can be increased with external hard drives with little to no compromise. This upgrade is a novelty as well, in my opinion.\n\nUpdate 2: The computer works well in most situations. Because of some laggy moments while running a lot of programs, I will be returning the default configuration I ordered and getting a customized i5 or i7 and 16gb ram. During Zoom screen sharing (and while many other programs run), sometimes the fan will whir (it's supposed to), but I installed a CPU temperature app and it appears to regulate temperature successfully. I haven't tempered my praise for this machine, because it's not supposed to be a performance workhorse.\n",
+      "imgs": []
+    },
+    {
+      "index": 9,
+      "user": {
+        "username": "n"
+      },
+      "star": 2,
+      "content": "Camera has very bad performances. It has been widely reported that the camera on the 2020 MacBook Air is low quality, but mine was definitely in the non-acceptable range. Picture was very grainy, unfocused, and low light level. I strongly suspect the glass in front of the video chip was damaged, perhaps for a contamination during assembly, but have now way of checking directly. Cleaning the outside had no effect.\nWith heavy heart, I decided to return the unit, and buy an equivalent from the big-box store, where quality can (and will) be checked before purchasing.\n\nUpdate: refund for the item still pending, 14 working days after the returned item was delivered to Amazon. Worse than expected and worse than advertised (14 calendar days)",
+      "imgs": []
+    }
+  ],
+  "comments": [],
+  "name": "MacBook Air 2020",
+  "price": 999,
+  "type": "laptop",
+  "createdAt": {
+    "$date": "2020-09-29T04:29:19.398Z"
+  },
+  "updatedAt": {
+    "$date": "2020-12-22T04:25:12.486Z"
+  },
+  "__v": 0,
+  "post": {
+    "content": "<p><img src=\"https://m.media-amazon.com/images/G/01/appcore/laptop/macair2020/MacBook_Air_Desktop_01._CB419895711_.jpg\" class=\"e-rte-image e-imginline\" alt=\"_CB419895711_.jpg\" width=\"auto\" height=\"auto\" style=\"min-width: 0px; min-height: 0px;\"><img src=\"https://m.media-amazon.com/images/G/01/appcore/laptop/macair2020/MacBook_Air_Desktop_02._CB419895710_.jpg\" class=\"e-rte-image e-imginline\" alt=\"_CB419895710_.jpg\" width=\"auto\" height=\"auto\" style=\"min-width: 0px; min-height: 0px;\"><img src=\"https://m.media-amazon.com/images/G/01/appcore/laptop/macair2020/MacBook_Air_Desktop_03._CB419895710_.jpg\" class=\"e-rte-image e-imginline\" alt=\"_CB419895710_.jpg\" width=\"auto\" height=\"auto\" style=\"min-width: 0px; min-height: 0px;\"><img src=\"https://m.media-amazon.com/images/G/01/appcore/laptop/macair2020/MacBook_Air_Desktop_04._CB419895705_.jpg\" class=\"e-rte-image e-imginline\" alt=\"_CB419895705_.jpg\" width=\"auto\" height=\"auto\" style=\"min-width: 0px; min-height: 0px;\"><img src=\"https://m.media-amazon.com/images/G/01/appcore/laptop/macair2020/MacBook_Air_Desktop_05._CB419895705_.jpg\" class=\"e-rte-image e-imginline\" alt=\"_CB419895705_.jpg\" width=\"auto\" height=\"auto\" style=\"min-width: 0px; min-height: 0px;\"><img src=\"https://m.media-amazon.com/images/G/01/appcore/laptop/macair2020/MacBook_Air_Desktop_06._CB419895705_.jpg\" class=\"e-rte-image e-imginline\" alt=\"_CB419895705_.jpg\" width=\"auto\" height=\"auto\" style=\"min-width: 0px; min-height: 0px;\"><img src=\"https://m.media-amazon.com/images/G/01/appcore/laptop/macair2020/MacBook_Air_Desktop_07._CB419895705_.jpg\" class=\"e-rte-image e-imginline\" alt=\"_CB419895705_.jpg\" width=\"auto\" height=\"auto\" style=\"min-width: 0px; min-height: 0px;\"><img src=\"https://m.media-amazon.com/images/G/01/appcore/laptop/macair2020/MacBook_Air_Desktop_08._CB419895704_.jpg\" class=\"e-rte-image e-imginline\" alt=\"_CB419895704_.jpg\" width=\"auto\" height=\"auto\" style=\"min-width: 0px; min-height: 0px;\"><img src=\"https://m.media-amazon.com/images/G/01/appcore/laptop/macair2020/MacBook_Air_Desktop_09._CB419895707_.jpg\" class=\"e-rte-image e-imginline\" alt=\"_CB419895707_.jpg\" width=\"auto\" height=\"auto\" style=\"min-width: 0px; min-height: 0px;\">         </p>",
+    "dateModified": {
+      "$date": "2020-09-29T04:31:39.930Z"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "5f7d8cecb0dc351ae5112807"
+  },
+  "img": {
+    "index": 1,
+    "path": "http://localhost:3000/image/?image=product/5f7d8cecb0dc351ae5112807/1.png"
+  },
+  "quantity": {
+    "imported": 199
+  },
+  "colors": [
+    {
+      "option": "custom",
+      "name": "Space Gray",
+      "value": "#a3a5a8"
+    },
+    {
+      "option": "custom",
+      "name": "Silver",
+      "value": "#ececec"
+    }
+  ],
+  "properties": [
+    {
+      "name": "CPU",
+      "options": [
+        {
+          "value": "i5 - 8th",
+          "price": 0
+        },
+        {
+          "value": "i7 - 8th",
+          "price": 300
+        }
+      ]
+    },
+    {
+      "name": "RAM",
+      "options": [
+        {
+          "value": "8GB",
+          "price": 0
+        },
+        {
+          "value": "16GB",
+          "price": 200
+        }
+      ]
+    },
+    {
+      "name": "Storage",
+      "options": [
+        {
+          "value": "256GB",
+          "price": 0
+        },
+        {
+          "value": "512GB",
+          "price": 200
+        },
+        {
+          "value": "1TB",
+          "price": 400
+        },
+        {
+          "value": "2TB",
+          "price": 800
+        }
+      ]
+    }
+  ],
+  "technicalDetails": [
+    {
+      "name": "Display",
+      "value": "13.3-inch (diagonal) LED-backlit Retina display with IPS technology; 2560-by-1600 native resolution at 227 pixels per inch with support for millions of colors, 16:10 aspect ratio"
+    },
+    {
+      "name": "Processor",
+      "value": "2.0GHz quad-core 10th-generation Intel Core i5, Turbo Boost up to 3.8GHz, with 6MB shared L3 cache"
+    },
+    {
+      "name": "Graphics and Video Support",
+      "value": "Intel Iris Plus Graphics 645"
+    },
+    {
+      "name": "Charging and Expansion",
+      "value": "Four Thunderbolt 3 (USB-C) ports with support for: Charging, DisplayPort Thunderbolt (up to 40 Gbps), USB 3.1 Gen 2 (up to 10 Gbps)"
+    },
+    {
+      "name": "Wireless",
+      "value": "Wi-Fi; 802.11ac Wi-Fi wireless networking; IEEE 802.11a/b/g/n compatible, Bluetooth 5.0 wireless technology"
+    },
+    {
+      "name": "In the Box",
+      "value": "13-inch MacBook Pro, 61W USB-C Power Adapter, USB-C Charge Cable (2 m)"
+    },
+    {
+      "name": "Height",
+      "value": "0.61 inch (1.56 cm)"
+    },
+    {
+      "name": "Width",
+      "value": "11.97 inches (30.41 cm)"
+    },
+    {
+      "name": "Depth",
+      "value": "8.36 inches (21.24 cm)"
+    },
+    {
+      "name": "Weight",
+      "value": "3.1 pounds (1.4 kg)"
+    },
+    {
+      "name": "Release Date",
+      "value": "5/04/2020"
+    }
+  ],
+  "slideshows": [
+    {
+      "color": "#a3a5a8",
+      "imgs": [
+        {
+          "index": 0,
+          "path": "http://localhost:3000/image/?image=product/5f7d8cecb0dc351ae5112807/slideshow/a3a5a8/0.jpeg"
+        },
+        {
+          "index": 1,
+          "path": "http://localhost:3000/image/?image=product/5f7d8cecb0dc351ae5112807/slideshow/a3a5a8/1.jpeg"
+        },
+        {
+          "index": 2,
+          "path": "http://localhost:3000/image/?image=product/5f7d8cecb0dc351ae5112807/slideshow/a3a5a8/2.jpeg"
+        },
+        {
+          "index": 3,
+          "path": "http://localhost:3000/image/?image=product/5f7d8cecb0dc351ae5112807/slideshow/a3a5a8/3.jpeg"
+        }
+      ]
+    },
+    {
+      "color": "#ececec",
+      "imgs": [
+        {
+          "index": 0,
+          "path": "http://localhost:3000/image/?image=product/5f7d8cecb0dc351ae5112807/slideshow/ececec/0.jpeg"
+        },
+        {
+          "index": 1,
+          "path": "http://localhost:3000/image/?image=product/5f7d8cecb0dc351ae5112807/slideshow/ececec/1.jpeg"
+        },
+        {
+          "index": 2,
+          "path": "http://localhost:3000/image/?image=product/5f7d8cecb0dc351ae5112807/slideshow/ececec/2.jpeg"
+        },
+        {
+          "index": 5,
+          "path": "http://localhost:3000/image/?image=product/5f7d8cecb0dc351ae5112807/slideshow/ececec/5.jpeg"
+        }
+      ]
+    }
+  ],
+  "reviews": [],
+  "comments": [],
+  "name": "MacBook Pro 13‑inch 2020",
+  "price": 1299,
+  "type": "laptop",
+  "createdAt": {
+    "$date": "2020-10-07T09:39:56.845Z"
+  },
+  "updatedAt": {
+    "$date": "2020-12-23T04:06:23.260Z"
+  },
+  "__v": 0,
+  "post": {
+    "content": "<p><img src=\"https://m.media-amazon.com/images/G/01/appcore/laptop/macbpro/5.4-launch/MacBook_Pro_13in_Desktop_01._CB432205776_.jpg\" class=\"e-rte-image e-imginline\" alt=\"_CB432205776_.jpg\" width=\"auto\" height=\"auto\" style=\"min-width: 0px; min-height: 0px;\"><img src=\"https://m.media-amazon.com/images/G/01/appcore/laptop/macbpro/5.4-launch/MacBook_Pro_13in_Desktop_02._CB432205777_.jpg\" class=\"e-rte-image e-imginline e-resize\" alt=\"_CB432205777_.jpg\" width=\"auto\" height=\"auto\" style=\"min-width: 0px; min-height: 0px;\"><img src=\"https://m.media-amazon.com/images/G/01/appcore/laptop/macbpro/5.4-launch/MacBook_Pro_13in_Desktop_03._CB432205776_.jpg\" class=\"e-rte-image e-imginline\" alt=\"_CB432205776_.jpg\" width=\"auto\" height=\"auto\" style=\"min-width: 0px; min-height: 0px;\"><img src=\"https://m.media-amazon.com/images/G/01/appcore/laptop/macbpro/5.4-launch/MacBook_Pro_13in_Desktop_04._CB432205776_.jpg\" class=\"e-rte-image e-imginline\" alt=\"_CB432205776_.jpg\" width=\"auto\" height=\"auto\" style=\"min-width: 0px; min-height: 0px;\"><img src=\"https://m.media-amazon.com/images/G/01/appcore/laptop/macbpro/5.4-launch/MacBook_Pro_13in_Desktop_05._CB432205779_.jpg\" class=\"e-rte-image e-imginline\" alt=\"_CB432205779_.jpg\" width=\"auto\" height=\"auto\" style=\"min-width: 0px; min-height: 0px;\"><img src=\"https://m.media-amazon.com/images/G/01/appcore/laptop/macbpro/5.4-launch/MacBook_Pro_13in_Desktop_06._CB432205776_.jpg\" class=\"e-rte-image e-imginline\" alt=\"_CB432205776_.jpg\" width=\"auto\" height=\"auto\" style=\"min-width: 0px; min-height: 0px;\"><img src=\"https://m.media-amazon.com/images/G/01/appcore/laptop/macbpro/5.4-launch/MacBook_Pro_13in_Desktop_07._CB432205741_.jpg\" class=\"e-rte-image e-imginline\" alt=\"_CB432205741_.jpg\" width=\"auto\" height=\"auto\" style=\"min-width: 0px; min-height: 0px;\"><img src=\"https://m.media-amazon.com/images/G/01/appcore/laptop/macbpro/5.4-launch/MacBook_Pro_13in_Desktop_08._CB432205779_.jpg\" class=\"e-rte-image e-imginline\" alt=\"_CB432205779_.jpg\" width=\"auto\" height=\"auto\" style=\"min-width: 0px; min-height: 0px;\"><img src=\"https://m.media-amazon.com/images/G/01/appcore/laptop/macbpro/5.4-launch/MacBook_Pro_13in_Desktop_09._CB432205741_.jpg\" class=\"e-rte-image e-imginline\" alt=\"_CB432205741_.jpg\" width=\"auto\" height=\"auto\" style=\"min-width: 0px; min-height: 0px;\">       &nbsp;&nbsp;</p>",
+    "dateModified": {
+      "$date": "2020-10-07T09:52:00.645Z"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "5f7e94e1e8e71b140a8113ce"
+  },
+  "img": {
+    "index": 1,
+    "path": "http://localhost:3000/image/?image=product/5f7e94e1e8e71b140a8113ce/1.png"
+  },
+  "quantity": {
+    "imported": 99
+  },
+  "colors": [
+    {
+      "option": "custom",
+      "name": "Space Gray",
+      "value": "#a3a5a8"
+    },
+    {
+      "option": "custom",
+      "name": "Silver",
+      "value": "#ececec"
+    }
+  ],
+  "properties": [
+    {
+      "name": "CPU",
+      "options": [
+        {
+          "value": "i7 - 9th",
+          "price": 0
+        },
+        {
+          "value": "i9 - 9th",
+          "price": 300
+        }
+      ]
+    },
+    {
+      "name": "RAM",
+      "options": [
+        {
+          "value": "16GB",
+          "price": 0
+        },
+        {
+          "value": "32GB",
+          "price": 400
+        },
+        {
+          "value": "64GB",
+          "price": 800
+        }
+      ]
+    },
+    {
+      "name": "Graphics",
+      "options": [
+        {
+          "value": "AMD Radeon Pro 5300M with 4GB GDDR6",
+          "price": 0
+        },
+        {
+          "value": "AMD Radeon Pro 5500M with 4GB GDDR6",
+          "price": 100
+        },
+        {
+          "value": " AMD Radeon Pro 5500M with 8GB GDDR6",
+          "price": 200
+        },
+        {
+          "value": "AMD Radeon Pro 5600M with 8GB HBM2",
+          "price": 800
+        }
+      ]
+    },
+    {
+      "name": "Storage",
+      "options": [
+        {
+          "value": "512GB",
+          "price": 0
+        },
+        {
+          "value": "1TB",
+          "price": 200
+        },
+        {
+          "value": "2TB",
+          "price": 600
+        },
+        {
+          "value": "4TB",
+          "price": 1200
+        },
+        {
+          "value": "8TB",
+          "price": 2400
+        }
+      ]
+    }
+  ],
+  "technicalDetails": [
+    {
+      "name": "Display",
+      "value": "16.0-inch (diagonal) LED-backlit display with IPS technology; 3072x1920 native resolution at 226 pixels per inch with support for millions of colors"
+    },
+    {
+      "name": "Processor",
+      "value": "2.3GHz 8-core Intel Core i9, Turbo Boost up to 4.8GHz, with 16MB shared L3 cache"
+    },
+    {
+      "name": "Graphics and Video Support",
+      "value": "AMD Radeon Pro 5500M with 4GB of GDDR6 memory and automatic graphics switching, Intel UHD Graphics 630"
+    },
+    {
+      "name": "Charging and Expansion",
+      "value": "Four Thunderbolt 3 (USB-C) ports with support for: Charging, DisplayPort, Thunderbolt (up to 40 Gbps), USB 3.1 Gen 2 (up to 10 Gbps)"
+    },
+    {
+      "name": "Wireless",
+      "value": "Wi-Fi, 802.11ac Wi-Fi wireless networking; IEEE 802.11a/b/g/n compatible, Bluetooth 5.0 wireless technology"
+    },
+    {
+      "name": "In the Box",
+      "value": "16-inch MacBook Pro, 96W USB-C Power Adapter, USB-C Charge Cable (2 m)"
+    },
+    {
+      "name": "Height",
+      "value": "0.64 inch (1.62 cm)"
+    },
+    {
+      "name": "Width",
+      "value": "14.09 inches (35.79 cm)"
+    },
+    {
+      "name": "Depth",
+      "value": "9.68 inches (24.59 cm)"
+    },
+    {
+      "name": "Weight",
+      "value": "4.3 pounds (2.0 kg)"
+    },
+    {
+      "name": "Release Date",
+      "value": "11/13/2019"
+    }
+  ],
+  "slideshows": [
+    {
+      "color": "#a3a5a8",
+      "imgs": [
+        {
+          "index": 0,
+          "path": "http://localhost:3000/image/?image=product/5f7e94e1e8e71b140a8113ce/slideshow/a3a5a8/0.jpeg"
+        },
+        {
+          "index": 1,
+          "path": "http://localhost:3000/image/?image=product/5f7e94e1e8e71b140a8113ce/slideshow/a3a5a8/1.jpeg"
+        },
+        {
+          "index": 2,
+          "path": "http://localhost:3000/image/?image=product/5f7e94e1e8e71b140a8113ce/slideshow/a3a5a8/2.jpeg"
+        },
+        {
+          "index": 3,
+          "path": "http://localhost:3000/image/?image=product/5f7e94e1e8e71b140a8113ce/slideshow/a3a5a8/3.jpeg"
+        },
+        {
+          "index": 4,
+          "path": "http://localhost:3000/image/?image=product/5f7e94e1e8e71b140a8113ce/slideshow/a3a5a8/4.jpeg"
+        },
+        {
+          "index": 5,
+          "path": "http://localhost:3000/image/?image=product/5f7e94e1e8e71b140a8113ce/slideshow/a3a5a8/5.jpeg"
+        }
+      ]
+    },
+    {
+      "color": "#ececec",
+      "imgs": [
+        {
+          "index": 0,
+          "path": "http://localhost:3000/image/?image=product/5f7e94e1e8e71b140a8113ce/slideshow/ececec/0.jpeg"
+        },
+        {
+          "index": 1,
+          "path": "http://localhost:3000/image/?image=product/5f7e94e1e8e71b140a8113ce/slideshow/ececec/1.jpeg"
+        },
+        {
+          "index": 2,
+          "path": "http://localhost:3000/image/?image=product/5f7e94e1e8e71b140a8113ce/slideshow/ececec/2.jpeg"
+        },
+        {
+          "index": 3,
+          "path": "http://localhost:3000/image/?image=product/5f7e94e1e8e71b140a8113ce/slideshow/ececec/3.jpeg"
+        },
+        {
+          "index": 4,
+          "path": "http://localhost:3000/image/?image=product/5f7e94e1e8e71b140a8113ce/slideshow/ececec/4.jpeg"
+        },
+        {
+          "index": 5,
+          "path": "http://localhost:3000/image/?image=product/5f7e94e1e8e71b140a8113ce/slideshow/ececec/5.jpeg"
+        }
+      ]
+    }
+  ],
+  "reviews": [],
+  "comments": [],
+  "name": "MacBook Pro 16‑inch 2020",
+  "price": 2399,
+  "type": "laptop",
+  "createdAt": {
+    "$date": "2020-10-08T04:26:09.503Z"
+  },
+  "updatedAt": {
+    "$date": "2020-12-24T04:01:07.238Z"
+  },
+  "__v": 0,
+  "post": {
+    "content": "<p> </p><p><img src=\"https://m.media-amazon.com/images/G/01/appcore/laptop/macpro16/US_MacBook_Pro_16_Desktop_01._CB410696352_.jpg\" class=\"e-rte-image e-imginline\" alt=\"_CB410696352_.jpg\" width=\"auto\" height=\"auto\" style=\"min-width: 0px; min-height: 0px;\"><img src=\"https://m.media-amazon.com/images/G/01/appcore/laptop/macpro16/US_MacBook_Pro_16_Desktop_02._CB410696383_.jpg\" class=\"e-rte-image e-imginline\" alt=\"_CB410696383_.jpg\" width=\"auto\" height=\"auto\" style=\"min-width: 0px; min-height: 0px;\"><img src=\"https://m.media-amazon.com/images/G/01/appcore/laptop/macpro16/US_MacBook_Pro_16_Desktop_03._CB410696381_.jpg\" class=\"e-rte-image e-imginline\" alt=\"_CB410696381_.jpg\" width=\"auto\" height=\"auto\" style=\"min-width: 0px; min-height: 0px;\"><img src=\"https://m.media-amazon.com/images/G/01/appcore/laptop/macpro16/US_MacBook_Pro_16_Desktop_04._CB410696383_.jpg\" class=\"e-rte-image e-imginline\" alt=\"_CB410696383_.jpg\" width=\"auto\" height=\"auto\" style=\"min-width: 0px; min-height: 0px;\"><img src=\"https://m.media-amazon.com/images/G/01/appcore/laptop/macpro16/US_MacBook_Pro_16_Desktop_05._CB410696381_.jpg\" class=\"e-rte-image e-imginline\" alt=\"_CB410696381_.jpg\" width=\"auto\" height=\"auto\" style=\"min-width: 0px; min-height: 0px;\"><img src=\"https://m.media-amazon.com/images/G/01/appcore/laptop/macpro16/US_MacBook_Pro_16_Desktop_06._CB410696383_.jpg\" class=\"e-rte-image e-imginline e-resize\" alt=\"_CB410696383_.jpg\" width=\"auto\" height=\"auto\" style=\"min-width: 0px; min-height: 0px;\"> <img src=\"https://m.media-amazon.com/images/G/01/appcore/laptop/macpro16/US_MacBook_Pro_16_Desktop_07._CB410696383_.jpg\" class=\"e-rte-image e-imginline\" alt=\"_CB410696383_.jpg\" width=\"auto\" height=\"auto\" style=\"min-width: 0px; min-height: 0px;\"> <img src=\"https://m.media-amazon.com/images/G/01/appcore/laptop/macpro16/US_MacBook_Pro_16_Desktop_08._CB410696382_.jpg\" class=\"e-rte-image e-imginline e-resize\" alt=\"_CB410696382_.jpg\" width=\"auto\" height=\"auto\" style=\"min-width: 0px; min-height: 0px;\"><img src=\"https://m.media-amazon.com/images/G/01/appcore/laptop/macpro16/US_MacBook_Pro_16_Desktop_09._CB410696376_.jpg\" class=\"e-rte-image e-imginline\" alt=\"_CB410696376_.jpg\" width=\"auto\" height=\"auto\" style=\"min-width: 0px; min-height: 0px;\">     </p>",
+    "dateModified": {
+      "$date": "2020-12-24T04:01:07.231Z"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "5fe41716fcf934652440be43"
+  },
+  "img": {
+    "index": 0,
+    "path": "http://localhost:3000/image/?image=product/5fe41716fcf934652440be43/0.png"
+  },
+  "quantity": {
+    "imported": 299
+  },
+  "colors": [
+    {
+      "option": "custom",
+      "name": "Gold",
+      "value": "#f6d1bf"
+    },
+    {
+      "option": "custom",
+      "name": "Silver",
+      "value": "#ececec"
+    },
+    {
+      "option": "custom",
+      "name": "Space Gray",
+      "value": "#a3a5a8"
+    }
+  ],
+  "properties": [
+    {
+      "name": "Case Size",
+      "options": [
+        {
+          "value": "40mm",
+          "price": 0
+        },
+        {
+          "value": "44mm",
+          "price": 30
+        }
+      ]
+    },
+    {
+      "name": "Connectivity",
+      "options": [
+        {
+          "value": "GPS",
+          "price": 0
+        },
+        {
+          "value": " GPS + Cellular",
+          "price": 50
+        }
+      ]
+    }
+  ],
+  "technicalDetails": [
+    {
+      "name": "Case Size",
+      "value": "40mm, 44mm"
+    },
+    {
+      "name": "Features",
+      "value": "Built-in GPS, GLONASS, Galileo, and QZSS, S5 with 64-bit dual-core processor, W3 Apple wireless chip, Barometric altimeter, Capacity 32GB, Optical heart sensor, Electrical heart sensor, Improved accelerometer up to 32 g‑forces, Improved gyroscope, Ambient light sensor, LTPO OLED Always-On Retina display with Force Touch (1000 nits), Digital Crown with haptic feedback, Louder speaker, Ion-X strengthened glass, Sapphire crystal and ceramic back, Wi-Fi 802.11b/g/n 2.4GHz, Bluetooth 5.0, Built-in rechargeable lithium-ion battery, Up to 18 hours of battery life, Water resistant 50 meters, watchOS 5"
+    },
+    {
+      "name": " Whats in the box",
+      "value": "Case, Band, 1m Magnetic Charging Cable"
+    },
+    {
+      "name": "Connectivity",
+      "value": "Wi-Fi 802.11b/g/n 2.4GHz, Bluetooth 5.0"
+    },
+    {
+      "name": "Power",
+      "value": "Up to 18 hours of battery life"
+    },
+    {
+      "name": "Width",
+      "value": "34mm"
+    },
+    {
+      "name": "Depth",
+      "value": "10.7mm"
+    },
+    {
+      "name": "Case Weight",
+      "value": "30.1g"
+    },
+    {
+      "name": "Release date",
+      "value": "9/15/2020"
+    }
+  ],
+  "slideshows": [
+    {
+      "color": "#f6d1bf",
+      "imgs": [
+        {
+          "index": 0,
+          "path": "http://localhost:3000/image/?image=product/5fe41716fcf934652440be43/slideshow/f6d1bf/0.jpeg"
+        },
+        {
+          "index": 1,
+          "path": "http://localhost:3000/image/?image=product/5fe41716fcf934652440be43/slideshow/f6d1bf/1.jpeg"
+        },
+        {
+          "index": 2,
+          "path": "http://localhost:3000/image/?image=product/5fe41716fcf934652440be43/slideshow/f6d1bf/2.jpeg"
+        },
+        {
+          "index": 3,
+          "path": "http://localhost:3000/image/?image=product/5fe41716fcf934652440be43/slideshow/f6d1bf/3.jpeg"
+        },
+        {
+          "index": 4,
+          "path": "http://localhost:3000/image/?image=product/5fe41716fcf934652440be43/slideshow/f6d1bf/4.jpeg"
+        }
+      ]
+    },
+    {
+      "color": "#ececec",
+      "imgs": [
+        {
+          "index": 0,
+          "path": "http://localhost:3000/image/?image=product/5fe41716fcf934652440be43/slideshow/ececec/0.jpeg"
+        },
+        {
+          "index": 1,
+          "path": "http://localhost:3000/image/?image=product/5fe41716fcf934652440be43/slideshow/ececec/1.jpeg"
+        },
+        {
+          "index": 2,
+          "path": "http://localhost:3000/image/?image=product/5fe41716fcf934652440be43/slideshow/ececec/2.jpeg"
+        },
+        {
+          "index": 3,
+          "path": "http://localhost:3000/image/?image=product/5fe41716fcf934652440be43/slideshow/ececec/3.jpeg"
+        },
+        {
+          "index": 4,
+          "path": "http://localhost:3000/image/?image=product/5fe41716fcf934652440be43/slideshow/ececec/4.jpeg"
+        }
+      ]
+    },
+    {
+      "color": "#a3a5a8",
+      "imgs": [
+        {
+          "index": 0,
+          "path": "http://localhost:3000/image/?image=product/5fe41716fcf934652440be43/slideshow/a3a5a8/0.jpeg"
+        },
+        {
+          "index": 1,
+          "path": "http://localhost:3000/image/?image=product/5fe41716fcf934652440be43/slideshow/a3a5a8/1.jpeg"
+        },
+        {
+          "index": 2,
+          "path": "http://localhost:3000/image/?image=product/5fe41716fcf934652440be43/slideshow/a3a5a8/2.jpeg"
+        },
+        {
+          "index": 3,
+          "path": "http://localhost:3000/image/?image=product/5fe41716fcf934652440be43/slideshow/a3a5a8/3.jpeg"
+        },
+        {
+          "index": 4,
+          "path": "http://localhost:3000/image/?image=product/5fe41716fcf934652440be43/slideshow/a3a5a8/4.jpeg"
+        }
+      ]
+    }
+  ],
+  "reviews": [],
+  "comments": [],
+  "name": "Apple Watch SE",
+  "price": 279,
+  "type": "watch",
+  "createdAt": {
+    "$date": "2020-12-24T04:20:38.361Z"
+  },
+  "updatedAt": {
+    "$date": "2020-12-24T04:27:03.171Z"
+  },
+  "__v": 0,
+  "post": {
+    "content": "<p><img src=\"https://m.media-amazon.com/images/G/01/appcore/watch/S6-SE-launch/Apple_Watch_SE_GPS_Product_Page_L__en-US_01._CB413776815_.jpg\" class=\"e-rte-image e-imginline\" alt=\"_CB413776815_.jpg\" width=\"auto\" height=\"auto\" style=\"min-width: 0px; min-height: 0px;\"><img src=\"https://m.media-amazon.com/images/G/01/appcore/watch/S6-SE-launch/Apple_Watch_SE_GPS_Product_Page_L__en-US_02._CB413776815_.jpg\" class=\"e-rte-image e-imginline\" alt=\"_CB413776815_.jpg\" width=\"auto\" height=\"auto\" style=\"min-width: 0px; min-height: 0px;\"><img src=\"https://m.media-amazon.com/images/G/01/appcore/watch/S6-SE-launch/Apple_Watch_SE_GPS_Product_Page_L__en-US_03._CB413776815_.jpg\" class=\"e-rte-image e-imginline\" alt=\"_CB413776815_.jpg\" width=\"auto\" height=\"auto\" style=\"min-width: 0px; min-height: 0px;\"><img src=\"https://m.media-amazon.com/images/G/01/appcore/watch/S6-SE-launch/Apple_Watch_SE_GPS_Product_Page_L__en-US_04._CB413776815_.jpg\" class=\"e-rte-image e-imginline\" alt=\"_CB413776815_.jpg\" width=\"auto\" height=\"auto\" style=\"min-width: 0px; min-height: 0px;\"><img src=\"https://m.media-amazon.com/images/G/01/appcore/watch/S6-SE-launch/Apple_Watch_SE_GPS_Product_Page_L__en-US_05._CB413776815_.jpg\" class=\"e-rte-image e-imginline\" alt=\"_CB413776815_.jpg\" width=\"auto\" height=\"auto\" style=\"min-width: 0px; min-height: 0px;\"><img src=\"https://m.media-amazon.com/images/G/01/appcore/watch/S6-SE-launch/Apple_Watch_SE_GPS_Product_Page_L__en-US_06._CB413776815_.jpg\" class=\"e-rte-image e-imginline\" alt=\"_CB413776815_.jpg\" width=\"auto\" height=\"auto\" style=\"min-width: 0px; min-height: 0px;\"><img src=\"https://m.media-amazon.com/images/G/01/appcore/watch/S6-SE-launch/Apple_Watch_SE_GPS_Product_Page_L__en-US_07._CB413776815_.jpg\" class=\"e-rte-image e-imginline\" alt=\"_CB413776815_.jpg\" width=\"auto\" height=\"auto\" style=\"min-width: 0px; min-height: 0px;\"><img src=\"https://m.media-amazon.com/images/G/01/appcore/watch/S6-SE-launch/Apple_Watch_SE_GPS_Product_Page_L__en-US_08._CB413776815_.jpg\" class=\"e-rte-image e-imginline\" alt=\"_CB413776815_.jpg\" width=\"auto\" height=\"auto\" style=\"min-width: 0px; min-height: 0px;\"><img src=\"https://m.media-amazon.com/images/G/01/appcore/watch/S6-SE-launch/Apple_Watch_SE_GPS_Product_Page_L__en-US_09._CB413776815_.jpg\" class=\"e-rte-image e-imginline\" alt=\"_CB413776815_.jpg\" width=\"auto\" height=\"auto\" style=\"min-width: 0px; min-height: 0px;\">         </p>",
+    "dateModified": {
+      "$date": "2020-12-24T04:27:03.166Z"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "5fe41cd5fcf934652440be44"
+  },
+  "img": {
+    "index": 0,
+    "path": "http://localhost:3000/image/?image=product/5fe41cd5fcf934652440be44/0.png"
+  },
+  "quantity": {
+    "imported": 199
+  },
+  "colors": [
+    {
+      "option": "custom",
+      "name": "Blue",
+      "value": "#000080"
+    },
+    {
+      "option": "custom",
+      "name": "Gold",
+      "value": "#f6d1bf"
+    },
+    {
+      "option": "custom",
+      "name": "PRODUCT(RED)",
+      "value": "#d83e48"
+    },
+    {
+      "option": "custom",
+      "name": "Silver",
+      "value": "#ececec"
+    },
+    {
+      "option": "custom",
+      "name": "Space Gray",
+      "value": "#a3a5a8"
+    }
+  ],
+  "properties": [
+    {
+      "name": "Case Size",
+      "options": [
+        {
+          "value": "40mm",
+          "price": 0
+        },
+        {
+          "value": "44mm",
+          "price": 30
+        }
+      ]
+    },
+    {
+      "name": "Connectivity",
+      "options": [
+        {
+          "value": "GPS",
+          "price": 0
+        },
+        {
+          "value": "GPS + Cellular",
+          "price": 100
+        }
+      ]
+    }
+  ],
+  "technicalDetails": [
+    {
+      "name": "Case Size",
+      "value": "40mm, 44mm"
+    },
+    {
+      "name": "Features",
+      "value": "Built-in GPS, GLONASS, Galileo, and QZSS, S6 with 64-bit dual-core processor, W3 Apple wireless chip, U1 Ultra Wideband chip, Barometric altimeter, Capacity 32GB, Blood oxygen sensor, Optical heart sensor, Electrical heart sensor, Improved accelerometer up to 32 g‑forces, Improved gyroscope, Ambient light sensor, LTPO OLED Always-On Retina display with Force Touch (1000 nits), Digital Crown with haptic feedback, Louder speaker, Ion-X strengthened glass, Sapphire crystal and ceramic back, Wi-Fi 802.11b/g/n 2.4GHz, Bluetooth 5.0, Built-in rechargeable lithium-ion battery, Up to 18 hours of battery life, Water resistant 50 meters, watchOS 5"
+    },
+    {
+      "name": "Whats in the box",
+      "value": "Case, Band, 1m Magnetic Charging Cable"
+    },
+    {
+      "name": "Connectivity",
+      "value": "Wi-Fi 802.11b/g/n 2.4GHz, Bluetooth 5.0"
+    },
+    {
+      "name": "Power",
+      "value": "Up to 18 hours of battery life"
+    },
+    {
+      "name": "Width",
+      "value": "34mm, 38mm"
+    },
+    {
+      "name": "Depth",
+      "value": "10.4mm"
+    },
+    {
+      "name": "Case Weight",
+      "value": "30.5g, 36.5g"
+    },
+    {
+      "name": "Release date",
+      "value": "9/15/2020"
+    }
+  ],
+  "slideshows": [
+    {
+      "color": "#000080",
+      "imgs": [
+        {
+          "index": 0,
+          "path": "http://localhost:3000/image/?image=product/5fe41cd5fcf934652440be44/slideshow/000080/0.jpeg"
+        },
+        {
+          "index": 1,
+          "path": "http://localhost:3000/image/?image=product/5fe41cd5fcf934652440be44/slideshow/000080/1.jpeg"
+        },
+        {
+          "index": 2,
+          "path": "http://localhost:3000/image/?image=product/5fe41cd5fcf934652440be44/slideshow/000080/2.jpeg"
+        },
+        {
+          "index": 3,
+          "path": "http://localhost:3000/image/?image=product/5fe41cd5fcf934652440be44/slideshow/000080/3.jpeg"
+        },
+        {
+          "index": 4,
+          "path": "http://localhost:3000/image/?image=product/5fe41cd5fcf934652440be44/slideshow/000080/4.jpeg"
+        },
+        {
+          "index": 5,
+          "path": "http://localhost:3000/image/?image=product/5fe41cd5fcf934652440be44/slideshow/000080/5.jpeg"
+        }
+      ]
+    },
+    {
+      "color": "#f6d1bf",
+      "imgs": [
+        {
+          "index": 0,
+          "path": "http://localhost:3000/image/?image=product/5fe41cd5fcf934652440be44/slideshow/f6d1bf/0.jpeg"
+        },
+        {
+          "index": 1,
+          "path": "http://localhost:3000/image/?image=product/5fe41cd5fcf934652440be44/slideshow/f6d1bf/1.jpeg"
+        },
+        {
+          "index": 2,
+          "path": "http://localhost:3000/image/?image=product/5fe41cd5fcf934652440be44/slideshow/f6d1bf/2.jpeg"
+        },
+        {
+          "index": 3,
+          "path": "http://localhost:3000/image/?image=product/5fe41cd5fcf934652440be44/slideshow/f6d1bf/3.jpeg"
+        },
+        {
+          "index": 4,
+          "path": "http://localhost:3000/image/?image=product/5fe41cd5fcf934652440be44/slideshow/f6d1bf/4.jpeg"
+        },
+        {
+          "index": 5,
+          "path": "http://localhost:3000/image/?image=product/5fe41cd5fcf934652440be44/slideshow/f6d1bf/5.jpeg"
+        }
+      ]
+    },
+    {
+      "color": "#d83e48",
+      "imgs": [
+        {
+          "index": 0,
+          "path": "http://localhost:3000/image/?image=product/5fe41cd5fcf934652440be44/slideshow/d83e48/0.jpeg"
+        },
+        {
+          "index": 1,
+          "path": "http://localhost:3000/image/?image=product/5fe41cd5fcf934652440be44/slideshow/d83e48/1.jpeg"
+        },
+        {
+          "index": 2,
+          "path": "http://localhost:3000/image/?image=product/5fe41cd5fcf934652440be44/slideshow/d83e48/2.jpeg"
+        },
+        {
+          "index": 3,
+          "path": "http://localhost:3000/image/?image=product/5fe41cd5fcf934652440be44/slideshow/d83e48/3.jpeg"
+        },
+        {
+          "index": 4,
+          "path": "http://localhost:3000/image/?image=product/5fe41cd5fcf934652440be44/slideshow/d83e48/4.jpeg"
+        },
+        {
+          "index": 5,
+          "path": "http://localhost:3000/image/?image=product/5fe41cd5fcf934652440be44/slideshow/d83e48/5.jpeg"
+        }
+      ]
+    },
+    {
+      "color": "#ececec",
+      "imgs": [
+        {
+          "index": 0,
+          "path": "http://localhost:3000/image/?image=product/5fe41cd5fcf934652440be44/slideshow/ececec/0.jpeg"
+        },
+        {
+          "index": 1,
+          "path": "http://localhost:3000/image/?image=product/5fe41cd5fcf934652440be44/slideshow/ececec/1.jpeg"
+        },
+        {
+          "index": 2,
+          "path": "http://localhost:3000/image/?image=product/5fe41cd5fcf934652440be44/slideshow/ececec/2.jpeg"
+        },
+        {
+          "index": 3,
+          "path": "http://localhost:3000/image/?image=product/5fe41cd5fcf934652440be44/slideshow/ececec/3.jpeg"
+        },
+        {
+          "index": 4,
+          "path": "http://localhost:3000/image/?image=product/5fe41cd5fcf934652440be44/slideshow/ececec/4.jpeg"
+        },
+        {
+          "index": 5,
+          "path": "http://localhost:3000/image/?image=product/5fe41cd5fcf934652440be44/slideshow/ececec/5.jpeg"
+        }
+      ]
+    },
+    {
+      "color": "#a3a5a8",
+      "imgs": [
+        {
+          "index": 0,
+          "path": "http://localhost:3000/image/?image=product/5fe41cd5fcf934652440be44/slideshow/a3a5a8/0.jpeg"
+        },
+        {
+          "index": 1,
+          "path": "http://localhost:3000/image/?image=product/5fe41cd5fcf934652440be44/slideshow/a3a5a8/1.jpeg"
+        },
+        {
+          "index": 2,
+          "path": "http://localhost:3000/image/?image=product/5fe41cd5fcf934652440be44/slideshow/a3a5a8/2.jpeg"
+        },
+        {
+          "index": 3,
+          "path": "http://localhost:3000/image/?image=product/5fe41cd5fcf934652440be44/slideshow/a3a5a8/3.jpeg"
+        },
+        {
+          "index": 4,
+          "path": "http://localhost:3000/image/?image=product/5fe41cd5fcf934652440be44/slideshow/a3a5a8/4.jpeg"
+        },
+        {
+          "index": 5,
+          "path": "http://localhost:3000/image/?image=product/5fe41cd5fcf934652440be44/slideshow/a3a5a8/5.jpeg"
+        }
+      ]
+    }
+  ],
+  "reviews": [],
+  "comments": [],
+  "name": "Apple Watch Series 6",
+  "price": 449,
+  "type": "watch",
+  "createdAt": {
+    "$date": "2020-12-24T04:45:09.071Z"
+  },
+  "updatedAt": {
+    "$date": "2020-12-24T05:03:43.624Z"
+  },
+  "__v": 0,
+  "post": {
+    "content": "<p><img src=\"https://m.media-amazon.com/images/G/01/appcore/watch/S6-SE-launch/Apple_Watch_S6_GPS_Product_Page_L__en-US_01._CB413774429_.jpg\" class=\"e-rte-image e-imginline\" alt=\"_CB413774429_.jpg\" width=\"auto\" height=\"auto\" style=\"min-width: 0px; min-height: 0px;\"><img src=\"https://m.media-amazon.com/images/G/01/appcore/watch/S6-SE-launch/Apple_Watch_S6_GPS_Product_Page_L__en-US_02._CB413774429_.jpg\" class=\"e-rte-image e-imginline\" alt=\"_CB413774429_.jpg\" width=\"auto\" height=\"auto\" style=\"min-width: 0px; min-height: 0px;\"><img src=\"https://m.media-amazon.com/images/G/01/appcore/watch/S6-SE-launch/Apple_Watch_S6_GPS_Product_Page_L__en-US_03._CB413774429_.jpg\" class=\"e-rte-image e-imginline\" alt=\"_CB413774429_.jpg\" width=\"auto\" height=\"auto\" style=\"min-width: 0px; min-height: 0px;\"><img src=\"https://m.media-amazon.com/images/G/01/appcore/watch/S6-SE-launch/Apple_Watch_S6_GPS_Product_Page_L__en-US_04._CB413774429_.jpg\" class=\"e-rte-image e-imginline\" alt=\"_CB413774429_.jpg\" width=\"auto\" height=\"auto\" style=\"min-width: 0px; min-height: 0px;\"><img src=\"https://m.media-amazon.com/images/G/01/appcore/watch/S6-SE-launch/Apple_Watch_S6_GPS_Product_Page_L__en-US_05._CB413774429_.jpg\" class=\"e-rte-image e-imginline\" alt=\"_CB413774429_.jpg\" width=\"auto\" height=\"auto\" style=\"min-width: 0px; min-height: 0px;\"><img src=\"https://m.media-amazon.com/images/G/01/appcore/watch/S6-SE-launch/Apple_Watch_S6_GPS_Product_Page_L__en-US_06._CB413774429_.jpg\" class=\"e-rte-image e-imginline\" alt=\"_CB413774429_.jpg\" width=\"auto\" height=\"auto\" style=\"min-width: 0px; min-height: 0px;\"><img src=\"https://m.media-amazon.com/images/G/01/appcore/watch/S6-SE-launch/Apple_Watch_S6_GPS_Product_Page_L__en-US_07._CB413774429_.jpg\" class=\"e-rte-image e-imginline\" alt=\"_CB413774429_.jpg\" width=\"auto\" height=\"auto\" style=\"min-width: 0px; min-height: 0px;\"><img src=\"https://m.media-amazon.com/images/G/01/appcore/watch/S6-SE-launch/Apple_Watch_S6_GPS_Product_Page_L__en-US_08._CB413774429_.jpg\" class=\"e-rte-image e-imginline\" alt=\"_CB413774429_.jpg\" width=\"auto\" height=\"auto\" style=\"min-width: 0px; min-height: 0px;\"><img src=\"https://m.media-amazon.com/images/G/01/appcore/watch/S6-SE-launch/Apple_Watch_S6_GPS_Product_Page_L__en-US_09._CB413774429_.jpg\" class=\"e-rte-image e-imginline\" alt=\"_CB413774429_.jpg\" width=\"auto\" height=\"auto\" style=\"min-width: 0px; min-height: 0px;\">         </p>",
+    "dateModified": {
+      "$date": "2020-12-24T05:03:43.618Z"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "5fe42088fcf934652440be45"
+  },
+  "img": {
+    "index": 0,
+    "path": "http://localhost:3000/image/?image=product/5fe42088fcf934652440be45/0.png"
+  },
+  "quantity": {
+    "imported": 299
+  },
+  "colors": [
+    {
+      "option": "custom",
+      "name": "Gold",
+      "value": "#f6d1bf"
+    },
+    {
+      "option": "custom",
+      "name": "Silver",
+      "value": "#ececec"
+    },
+    {
+      "option": "custom",
+      "name": "Space Gray",
+      "value": "#a3a5a8"
+    }
+  ],
+  "properties": [
+    {
+      "name": "Storage",
+      "options": [
+        {
+          "value": "32GB",
+          "price": 0
+        },
+        {
+          "value": "128GB",
+          "price": 100
+        }
+      ]
+    },
+    {
+      "name": "Connectivity",
+      "options": [
+        {
+          "value": "Wi-Fi",
+          "price": 0
+        },
+        {
+          "value": "Wi-Fi + Cellular",
+          "price": 130
+        }
+      ]
+    }
+  ],
+  "technicalDetails": [
+    {
+      "name": "Display",
+      "value": "10.2‑inch Retina display"
+    },
+    {
+      "name": "Capacity",
+      "value": "32GB, 128GB"
+    },
+    {
+      "name": "Chip",
+      "value": "A12 Bionic chip with 64-bit architecture Neural Engine"
+    },
+    {
+      "name": "Camera and Video",
+      "value": "\t 8MP camera with HDR and 1080p HD video"
+    },
+    {
+      "name": "Front Camera",
+      "value": "1.2MP FaceTime HD front camera with HDR"
+    },
+    {
+      "name": "Battery Life",
+      "value": "\t Up to 10 hours of surﬁng the web on Wi‑Fi, watching video, or listening to music.; Up to 9 hours of surﬁng the web using cellular data network"
+    },
+    {
+      "name": "Connector",
+      "value": "Lightning"
+    },
+    {
+      "name": "In the Box",
+      "value": "iPad, Lightning to USB-C Cable, USB-C Power Adapter"
+    },
+    {
+      "name": "Height",
+      "value": "9.8 inches (250.6 mm)"
+    },
+    {
+      "name": " Width",
+      "value": "6.8 inches (174.1 mm)"
+    },
+    {
+      "name": "Depth",
+      "value": "0.29 inch (7.5 mm)"
+    },
+    {
+      "name": "Weight",
+      "value": "1.08 pounds (490 grams) Wi-Fi model; 1.09 pounds (495 grams) Wi-Fi + Cellular model"
+    },
+    {
+      "name": "Release Date",
+      "value": "\t 9/15/2020"
+    }
+  ],
+  "slideshows": [
+    {
+      "color": "#f6d1bf",
+      "imgs": [
+        {
+          "index": 0,
+          "path": "http://localhost:3000/image/?image=product/5fe42088fcf934652440be45/slideshow/f6d1bf/0.jpeg"
+        },
+        {
+          "index": 1,
+          "path": "http://localhost:3000/image/?image=product/5fe42088fcf934652440be45/slideshow/f6d1bf/1.jpeg"
+        },
+        {
+          "index": 2,
+          "path": "http://localhost:3000/image/?image=product/5fe42088fcf934652440be45/slideshow/f6d1bf/2.jpeg"
+        },
+        {
+          "index": 3,
+          "path": "http://localhost:3000/image/?image=product/5fe42088fcf934652440be45/slideshow/f6d1bf/3.jpeg"
+        },
+        {
+          "index": 4,
+          "path": "http://localhost:3000/image/?image=product/5fe42088fcf934652440be45/slideshow/f6d1bf/4.jpeg"
+        },
+        {
+          "index": 5,
+          "path": "http://localhost:3000/image/?image=product/5fe42088fcf934652440be45/slideshow/f6d1bf/5.jpeg"
+        }
+      ]
+    },
+    {
+      "color": "#ececec",
+      "imgs": [
+        {
+          "index": 0,
+          "path": "http://localhost:3000/image/?image=product/5fe42088fcf934652440be45/slideshow/ececec/0.jpeg"
+        },
+        {
+          "index": 1,
+          "path": "http://localhost:3000/image/?image=product/5fe42088fcf934652440be45/slideshow/ececec/1.jpeg"
+        },
+        {
+          "index": 2,
+          "path": "http://localhost:3000/image/?image=product/5fe42088fcf934652440be45/slideshow/ececec/2.jpeg"
+        },
+        {
+          "index": 3,
+          "path": "http://localhost:3000/image/?image=product/5fe42088fcf934652440be45/slideshow/ececec/3.jpeg"
+        },
+        {
+          "index": 4,
+          "path": "http://localhost:3000/image/?image=product/5fe42088fcf934652440be45/slideshow/ececec/4.jpeg"
+        },
+        {
+          "index": 5,
+          "path": "http://localhost:3000/image/?image=product/5fe42088fcf934652440be45/slideshow/ececec/5.jpeg"
+        }
+      ]
+    },
+    {
+      "color": "#a3a5a8",
+      "imgs": [
+        {
+          "index": 0,
+          "path": "http://localhost:3000/image/?image=product/5fe42088fcf934652440be45/slideshow/a3a5a8/0.jpeg"
+        },
+        {
+          "index": 1,
+          "path": "http://localhost:3000/image/?image=product/5fe42088fcf934652440be45/slideshow/a3a5a8/1.jpeg"
+        },
+        {
+          "index": 2,
+          "path": "http://localhost:3000/image/?image=product/5fe42088fcf934652440be45/slideshow/a3a5a8/2.jpeg"
+        },
+        {
+          "index": 3,
+          "path": "http://localhost:3000/image/?image=product/5fe42088fcf934652440be45/slideshow/a3a5a8/3.jpeg"
+        },
+        {
+          "index": 4,
+          "path": "http://localhost:3000/image/?image=product/5fe42088fcf934652440be45/slideshow/a3a5a8/4.jpeg"
+        },
+        {
+          "index": 5,
+          "path": "http://localhost:3000/image/?image=product/5fe42088fcf934652440be45/slideshow/a3a5a8/5.jpeg"
+        }
+      ]
+    }
+  ],
+  "reviews": [],
+  "comments": [],
+  "name": "iPad",
+  "price": 329,
+  "type": "tablet",
+  "createdAt": {
+    "$date": "2020-12-24T05:00:56.629Z"
+  },
+  "updatedAt": {
+    "$date": "2020-12-24T05:14:07.838Z"
+  },
+  "__v": 0,
+  "post": {
+    "content": "<p><img src=\"https://m.media-amazon.com/images/G/01/appcore/tablet/8gen-ipadair/iPad_Product_Page_L__en-US_slices_01._CB403963265_.jpg\" class=\"e-rte-image e-imginline\" alt=\"_CB403963265_.jpg\" width=\"auto\" height=\"auto\" style=\"min-width: 0px; min-height: 0px;\"><img src=\"https://m.media-amazon.com/images/G/01/appcore/tablet/8gen-ipadair/iPad_Product_Page_L__en-US_slices_02._CB403963265_.jpg\" class=\"e-rte-image e-imginline\" alt=\"_CB403963265_.jpg\" width=\"auto\" height=\"auto\" style=\"min-width: 0px; min-height: 0px;\"><img src=\"https://m.media-amazon.com/images/G/01/appcore/tablet/8gen-ipadair/iPad_Product_Page_L__en-US_slices_03._CB403963265_.jpg\" class=\"e-rte-image e-imginline\" alt=\"_CB403963265_.jpg\" width=\"auto\" height=\"auto\" style=\"min-width: 0px; min-height: 0px;\"><img src=\"https://m.media-amazon.com/images/G/01/appcore/tablet/8gen-ipadair/iPad_Product_Page_L__en-US_slices_04._CB403963265_.jpg\" class=\"e-rte-image e-imginline\" alt=\"_CB403963265_.jpg\" width=\"auto\" height=\"auto\" style=\"min-width: 0px; min-height: 0px;\"><img src=\"https://m.media-amazon.com/images/G/01/appcore/tablet/8gen-ipadair/iPad_Product_Page_L__en-US_slices_05._CB403963265_.jpg\" class=\"e-rte-image e-imginline\" alt=\"_CB403963265_.jpg\" width=\"auto\" height=\"auto\" style=\"min-width: 0px; min-height: 0px;\"><img src=\"https://m.media-amazon.com/images/G/01/appcore/tablet/8gen-ipadair/iPad_Product_Page_L__en-US_slices_06._CB403963265_.jpg\" class=\"e-rte-image e-imginline\" alt=\"_CB403963265_.jpg\" width=\"auto\" height=\"auto\" style=\"min-width: 0px; min-height: 0px;\">      <img src=\"https://m.media-amazon.com/images/G/01/appcore/tablet/8gen-ipadair/iPad_Product_Page_L__en-US_slices_07._CB403963265_.jpg\" class=\"e-rte-image e-imginline\" alt=\"_CB403963265_.jpg\" width=\"auto\" height=\"auto\" style=\"min-width: 0px; min-height: 0px;\"><img src=\"https://m.media-amazon.com/images/G/01/appcore/tablet/8gen-ipadair/iPad_Product_Page_L__en-US_slices_08._CB403963265_.jpg\" class=\"e-rte-image e-imginline\" alt=\"_CB403963265_.jpg\" width=\"auto\" height=\"auto\" style=\"min-width: 0px; min-height: 0px;\"> <img src=\"https://m.media-amazon.com/images/G/01/appcore/tablet/8gen-ipadair/iPad_Product_Page_L__en-US_slices_09._CB403963265_.jpg\" class=\"e-rte-image e-imginline\" alt=\"_CB403963265_.jpg\" width=\"auto\" height=\"auto\" style=\"min-width: 0px; min-height: 0px;\">  </p>",
+    "dateModified": {
+      "$date": "2020-12-24T05:14:07.834Z"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "5fe976d0e5afd71547dc7fbf"
+  },
+  "img": {
+    "index": 0,
+    "path": "http://localhost:3000/image/?image=product/5fe976d0e5afd71547dc7fbf/0.png"
+  },
+  "quantity": {
+    "imported": 199
+  },
+  "colors": [
+    {
+      "option": "custom",
+      "name": "Green",
+      "value": "#ccdcca"
+    },
+    {
+      "option": "custom",
+      "name": "Rose Gold",
+      "value": "#eac8c3"
+    },
+    {
+      "option": "custom",
+      "name": "Silver",
+      "value": "#ececec"
+    },
+    {
+      "option": "custom",
+      "name": "Sky Blue",
+      "value": "#cad9e3"
+    },
+    {
+      "option": "custom",
+      "name": "Space Gray",
+      "value": "#a3a5a8"
+    }
+  ],
+  "properties": [
+    {
+      "name": "Storage",
+      "options": [
+        {
+          "value": "64GB",
+          "price": 0
+        },
+        {
+          "value": "256GB",
+          "price": 150
+        }
+      ]
+    },
+    {
+      "name": "Connectivity",
+      "options": [
+        {
+          "value": "Wi-Fi",
+          "price": 0
+        },
+        {
+          "value": "Wi-Fi + Cellular",
+          "price": 130
+        }
+      ]
+    }
+  ],
+  "technicalDetails": [
+    {
+      "name": "Display",
+      "value": "10.9‑inch Liquid Retina display"
+    },
+    {
+      "name": "Capacity",
+      "value": "64GB, 256GB"
+    },
+    {
+      "name": "Chip",
+      "value": "A14 Bionic chip with 64-bit architecture Neural Engine"
+    },
+    {
+      "name": "Camera and Video",
+      "value": "12MP Wide camera with Smart HDR and 4K video at 24 fps, 30 fps, or 60 fps"
+    },
+    {
+      "name": "Front Camera",
+      "value": "7MP TrueDepth front camera with Smart HDR"
+    },
+    {
+      "name": "Battery Life",
+      "value": "Up to 10 hours of surﬁng the web on Wi‑Fi or watching video.; Up to 9 hours of surﬁng the web using cellular data network"
+    },
+    {
+      "name": "Connector",
+      "value": "USB-C"
+    },
+    {
+      "name": "In the Box",
+      "value": "iPad Air, USB-C Charge Cable (1 meter), 20W USB-C Power Adapter"
+    },
+    {
+      "name": "Height",
+      "value": "9.74 inches (247.6 mm)"
+    },
+    {
+      "name": "Width",
+      "value": "7 inches (178.5 mm)"
+    },
+    {
+      "name": "Depth",
+      "value": "0.24 inch (6.1 mm)"
+    },
+    {
+      "name": "Weight",
+      "value": "1.0 pound (458 grams) Wi-Fi model; 1.01 pounds (460 grams) Wi-Fi + Cellular model"
+    },
+    {
+      "name": "Release Date",
+      "value": "9/15/2020"
+    }
+  ],
+  "slideshows": [
+    {
+      "color": "#ccdcca",
+      "imgs": [
+        {
+          "index": 0,
+          "path": "http://localhost:3000/image/?image=product/5fe976d0e5afd71547dc7fbf/slideshow/ccdcca/0.jpeg"
+        },
+        {
+          "index": 1,
+          "path": "http://localhost:3000/image/?image=product/5fe976d0e5afd71547dc7fbf/slideshow/ccdcca/1.jpeg"
+        },
+        {
+          "index": 2,
+          "path": "http://localhost:3000/image/?image=product/5fe976d0e5afd71547dc7fbf/slideshow/ccdcca/2.jpeg"
+        },
+        {
+          "index": 3,
+          "path": "http://localhost:3000/image/?image=product/5fe976d0e5afd71547dc7fbf/slideshow/ccdcca/3.jpeg"
+        },
+        {
+          "index": 4,
+          "path": "http://localhost:3000/image/?image=product/5fe976d0e5afd71547dc7fbf/slideshow/ccdcca/4.jpeg"
+        },
+        {
+          "index": 5,
+          "path": "http://localhost:3000/image/?image=product/5fe976d0e5afd71547dc7fbf/slideshow/ccdcca/5.jpeg"
+        },
+        {
+          "index": 6,
+          "path": "http://localhost:3000/image/?image=product/5fe976d0e5afd71547dc7fbf/slideshow/ccdcca/6.jpeg"
+        }
+      ]
+    },
+    {
+      "color": "#eac8c3",
+      "imgs": [
+        {
+          "index": 0,
+          "path": "http://localhost:3000/image/?image=product/5fe976d0e5afd71547dc7fbf/slideshow/eac8c3/0.jpeg"
+        },
+        {
+          "index": 1,
+          "path": "http://localhost:3000/image/?image=product/5fe976d0e5afd71547dc7fbf/slideshow/eac8c3/1.jpeg"
+        },
+        {
+          "index": 2,
+          "path": "http://localhost:3000/image/?image=product/5fe976d0e5afd71547dc7fbf/slideshow/eac8c3/2.jpeg"
+        },
+        {
+          "index": 3,
+          "path": "http://localhost:3000/image/?image=product/5fe976d0e5afd71547dc7fbf/slideshow/eac8c3/3.jpeg"
+        },
+        {
+          "index": 4,
+          "path": "http://localhost:3000/image/?image=product/5fe976d0e5afd71547dc7fbf/slideshow/eac8c3/4.jpeg"
+        },
+        {
+          "index": 5,
+          "path": "http://localhost:3000/image/?image=product/5fe976d0e5afd71547dc7fbf/slideshow/eac8c3/5.jpeg"
+        },
+        {
+          "index": 6,
+          "path": "http://localhost:3000/image/?image=product/5fe976d0e5afd71547dc7fbf/slideshow/eac8c3/6.jpeg"
+        }
+      ]
+    },
+    {
+      "color": "#ececec",
+      "imgs": [
+        {
+          "index": 0,
+          "path": "http://localhost:3000/image/?image=product/5fe976d0e5afd71547dc7fbf/slideshow/ececec/0.jpeg"
+        },
+        {
+          "index": 1,
+          "path": "http://localhost:3000/image/?image=product/5fe976d0e5afd71547dc7fbf/slideshow/ececec/1.jpeg"
+        },
+        {
+          "index": 2,
+          "path": "http://localhost:3000/image/?image=product/5fe976d0e5afd71547dc7fbf/slideshow/ececec/2.jpeg"
+        },
+        {
+          "index": 3,
+          "path": "http://localhost:3000/image/?image=product/5fe976d0e5afd71547dc7fbf/slideshow/ececec/3.jpeg"
+        },
+        {
+          "index": 4,
+          "path": "http://localhost:3000/image/?image=product/5fe976d0e5afd71547dc7fbf/slideshow/ececec/4.jpeg"
+        },
+        {
+          "index": 5,
+          "path": "http://localhost:3000/image/?image=product/5fe976d0e5afd71547dc7fbf/slideshow/ececec/5.jpeg"
+        },
+        {
+          "index": 6,
+          "path": "http://localhost:3000/image/?image=product/5fe976d0e5afd71547dc7fbf/slideshow/ececec/6.jpeg"
+        }
+      ]
+    },
+    {
+      "color": "#cad9e3",
+      "imgs": [
+        {
+          "index": 0,
+          "path": "http://localhost:3000/image/?image=product/5fe976d0e5afd71547dc7fbf/slideshow/cad9e3/0.jpeg"
+        },
+        {
+          "index": 1,
+          "path": "http://localhost:3000/image/?image=product/5fe976d0e5afd71547dc7fbf/slideshow/cad9e3/1.jpeg"
+        },
+        {
+          "index": 2,
+          "path": "http://localhost:3000/image/?image=product/5fe976d0e5afd71547dc7fbf/slideshow/cad9e3/2.jpeg"
+        },
+        {
+          "index": 3,
+          "path": "http://localhost:3000/image/?image=product/5fe976d0e5afd71547dc7fbf/slideshow/cad9e3/3.jpeg"
+        },
+        {
+          "index": 4,
+          "path": "http://localhost:3000/image/?image=product/5fe976d0e5afd71547dc7fbf/slideshow/cad9e3/4.jpeg"
+        },
+        {
+          "index": 5,
+          "path": "http://localhost:3000/image/?image=product/5fe976d0e5afd71547dc7fbf/slideshow/cad9e3/5.jpeg"
+        },
+        {
+          "index": 6,
+          "path": "http://localhost:3000/image/?image=product/5fe976d0e5afd71547dc7fbf/slideshow/cad9e3/6.jpeg"
+        }
+      ]
+    },
+    {
+      "color": "#a3a5a8",
+      "imgs": [
+        {
+          "index": 0,
+          "path": "http://localhost:3000/image/?image=product/5fe976d0e5afd71547dc7fbf/slideshow/a3a5a8/0.jpeg"
+        },
+        {
+          "index": 1,
+          "path": "http://localhost:3000/image/?image=product/5fe976d0e5afd71547dc7fbf/slideshow/a3a5a8/1.jpeg"
+        },
+        {
+          "index": 2,
+          "path": "http://localhost:3000/image/?image=product/5fe976d0e5afd71547dc7fbf/slideshow/a3a5a8/2.jpeg"
+        },
+        {
+          "index": 3,
+          "path": "http://localhost:3000/image/?image=product/5fe976d0e5afd71547dc7fbf/slideshow/a3a5a8/3.jpeg"
+        },
+        {
+          "index": 4,
+          "path": "http://localhost:3000/image/?image=product/5fe976d0e5afd71547dc7fbf/slideshow/a3a5a8/4.jpeg"
+        },
+        {
+          "index": 5,
+          "path": "http://localhost:3000/image/?image=product/5fe976d0e5afd71547dc7fbf/slideshow/a3a5a8/5.jpeg"
+        },
+        {
+          "index": 6,
+          "path": "http://localhost:3000/image/?image=product/5fe976d0e5afd71547dc7fbf/slideshow/a3a5a8/6.jpeg"
+        }
+      ]
+    }
+  ],
+  "reviews": [],
+  "comments": [],
+  "name": "iPad Air",
+  "price": 599,
+  "type": "tablet",
+  "createdAt": {
+    "$date": "2020-12-28T06:10:24.074Z"
+  },
+  "updatedAt": {
+    "$date": "2020-12-28T06:19:46.141Z"
+  },
+  "__v": 0,
+  "post": {
+    "content": "<p><img src=\"https://m.media-amazon.com/images/G/01/appcore/tablet/8gen-ipadair/iPad_Air_Product_Page_L__en-US_01._CB404452359_.jpg\" class=\"e-rte-image e-imginline\" alt=\"_CB404452359_.jpg\" width=\"auto\" height=\"auto\" style=\"min-width: 0px; min-height: 0px;\"><img src=\"https://m.media-amazon.com/images/G/01/appcore/tablet/8gen-ipadair/iPad_Air_Product_Page_L__en-US_02._CB404452359_.jpg\" class=\"e-rte-image e-imginline\" alt=\"_CB404452359_.jpg\" width=\"auto\" height=\"auto\" style=\"min-width: 0px; min-height: 0px;\"><img src=\"https://m.media-amazon.com/images/G/01/appcore/tablet/8gen-ipadair/iPad_Air_Product_Page_L__en-US_03._CB404452359_.jpg\" class=\"e-rte-image e-imginline\" alt=\"_CB404452359_.jpg\" width=\"auto\" height=\"auto\" style=\"min-width: 0px; min-height: 0px;\"><img src=\"https://m.media-amazon.com/images/G/01/appcore/tablet/8gen-ipadair/iPad_Air_Product_Page_L__en-US_04._CB404452359_.jpg\" class=\"e-rte-image e-imginline\" alt=\"_CB404452359_.jpg\" width=\"auto\" height=\"auto\" style=\"min-width: 0px; min-height: 0px;\"><img src=\"https://m.media-amazon.com/images/G/01/appcore/tablet/8gen-ipadair/iPad_Air_Product_Page_L__en-US_05._CB404452359_.jpg\" class=\"e-rte-image e-imginline\" alt=\"_CB404452359_.jpg\" width=\"auto\" height=\"auto\" style=\"min-width: 0px; min-height: 0px;\"><img src=\"https://m.media-amazon.com/images/G/01/appcore/tablet/8gen-ipadair/iPad_Air_Product_Page_L__en-US_06._CB404452359_.jpg\" class=\"e-rte-image e-imginline\" alt=\"_CB404452359_.jpg\" width=\"auto\" height=\"auto\" style=\"min-width: 0px; min-height: 0px;\"><img src=\"https://m.media-amazon.com/images/G/01/appcore/tablet/8gen-ipadair/iPad_Air_Product_Page_L__en-US_07._CB404452359_.jpg\" class=\"e-rte-image e-imginline\" alt=\"_CB404452359_.jpg\" width=\"auto\" height=\"auto\" style=\"min-width: 0px; min-height: 0px;\"><img src=\"https://m.media-amazon.com/images/G/01/appcore/tablet/8gen-ipadair/iPad_Air_Product_Page_L__en-US_08._CB404452359_.jpg\" class=\"e-rte-image e-imginline\" alt=\"_CB404452359_.jpg\" width=\"auto\" height=\"auto\" style=\"min-width: 0px; min-height: 0px;\"><img src=\"https://m.media-amazon.com/images/G/01/appcore/tablet/8gen-ipadair/iPad_Air_Product_Page_L__en-US_09._CB404452359_.jpg\" class=\"e-rte-image e-imginline\" alt=\"_CB404452359_.jpg\" width=\"auto\" height=\"auto\" style=\"min-width: 0px; min-height: 0px;\">         </p>",
+    "dateModified": {
+      "$date": "2020-12-28T06:19:46.135Z"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "5feaa255f11c2d3bc059de3b"
+  },
+  "img": {
+    "index": 0,
+    "path": "http://localhost:3000/image/?image=product/5feaa255f11c2d3bc059de3b/0.png"
+  },
+  "quantity": {
+    "imported": 299
+  },
+  "colors": [
+    {
+      "option": "custom",
+      "name": "Gold",
+      "value": "#ecd0c2"
+    },
+    {
+      "option": "custom",
+      "name": "Silver",
+      "value": "#ececec"
+    },
+    {
+      "option": "custom",
+      "name": "Space Gray",
+      "value": "#a3a5a8"
+    }
+  ],
+  "properties": [
+    {
+      "name": "Storage",
+      "options": [
+        {
+          "value": "64GB",
+          "price": 0
+        },
+        {
+          "value": "256GB",
+          "price": 150
+        }
+      ]
+    },
+    {
+      "name": "Connectivity",
+      "options": [
+        {
+          "value": "Wi-Fi",
+          "price": 0
+        },
+        {
+          "value": "Wi-Fi + Cellular",
+          "price": 130
+        }
+      ]
+    }
+  ],
+  "technicalDetails": [
+    {
+      "name": "Display",
+      "value": "7.9‑inch Retina display with True Tone"
+    },
+    {
+      "name": "Capacity",
+      "value": "64GB, 256GB"
+    },
+    {
+      "name": "Chip",
+      "value": "A12 Bionic chip with 64‑bit architecture, Neural Engine, Embedded M12 coprocessor"
+    },
+    {
+      "name": "Camera and Video",
+      "value": "8MP camera with HDR and 1080p HD video"
+    },
+    {
+      "name": "Front Camera",
+      "value": "7MP FaceTime HD front camera with Auto HDR"
+    },
+    {
+      "name": "Battery Life",
+      "value": "Up to 10 hours of surﬁng the web on Wi‑Fi, watching video, or listening to music. Up to 9 hours of surﬁng the web using cellular data network"
+    },
+    {
+      "name": "Connector",
+      "value": "Lightning"
+    },
+    {
+      "name": "In the Box",
+      "value": "iPad mini, Lightning to USB Cable, USB Power Adapter"
+    },
+    {
+      "name": "Height",
+      "value": "8 inches (203.2 mm)"
+    },
+    {
+      "name": "Width",
+      "value": "5.3 inches (134.8 mm)"
+    },
+    {
+      "name": "Depth",
+      "value": "0.24 inch (6.1 mm)"
+    },
+    {
+      "name": "Weight",
+      "value": "0.66 pound (300.5 grams) Wi-Fi model"
+    },
+    {
+      "name": "Release Date",
+      "value": "3/18/2019"
+    }
+  ],
+  "slideshows": [
+    {
+      "color": "#ecd0c2",
+      "imgs": [
+        {
+          "index": 0,
+          "path": "http://localhost:3000/image/?image=product/5feaa255f11c2d3bc059de3b/slideshow/ecd0c2/0.jpeg"
+        },
+        {
+          "index": 1,
+          "path": "http://localhost:3000/image/?image=product/5feaa255f11c2d3bc059de3b/slideshow/ecd0c2/1.jpeg"
+        },
+        {
+          "index": 2,
+          "path": "http://localhost:3000/image/?image=product/5feaa255f11c2d3bc059de3b/slideshow/ecd0c2/2.jpeg"
+        },
+        {
+          "index": 3,
+          "path": "http://localhost:3000/image/?image=product/5feaa255f11c2d3bc059de3b/slideshow/ecd0c2/3.jpeg"
+        }
+      ]
+    },
+    {
+      "color": "#ececec",
+      "imgs": [
+        {
+          "index": 0,
+          "path": "http://localhost:3000/image/?image=product/5feaa255f11c2d3bc059de3b/slideshow/ececec/0.jpeg"
+        },
+        {
+          "index": 1,
+          "path": "http://localhost:3000/image/?image=product/5feaa255f11c2d3bc059de3b/slideshow/ececec/1.jpeg"
+        },
+        {
+          "index": 2,
+          "path": "http://localhost:3000/image/?image=product/5feaa255f11c2d3bc059de3b/slideshow/ececec/2.jpeg"
+        },
+        {
+          "index": 3,
+          "path": "http://localhost:3000/image/?image=product/5feaa255f11c2d3bc059de3b/slideshow/ececec/3.jpeg"
+        }
+      ]
+    },
+    {
+      "color": "#a3a5a8",
+      "imgs": [
+        {
+          "index": 0,
+          "path": "http://localhost:3000/image/?image=product/5feaa255f11c2d3bc059de3b/slideshow/a3a5a8/0.jpeg"
+        },
+        {
+          "index": 1,
+          "path": "http://localhost:3000/image/?image=product/5feaa255f11c2d3bc059de3b/slideshow/a3a5a8/1.jpeg"
+        },
+        {
+          "index": 2,
+          "path": "http://localhost:3000/image/?image=product/5feaa255f11c2d3bc059de3b/slideshow/a3a5a8/2.jpeg"
+        },
+        {
+          "index": 3,
+          "path": "http://localhost:3000/image/?image=product/5feaa255f11c2d3bc059de3b/slideshow/a3a5a8/3.jpeg"
+        }
+      ]
+    }
+  ],
+  "reviews": [],
+  "comments": [],
+  "name": "iPad Mini",
+  "price": 399,
+  "type": "tablet",
+  "createdAt": {
+    "$date": "2020-12-29T03:28:21.309Z"
+  },
+  "updatedAt": {
+    "$date": "2020-12-29T03:39:27.851Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5fec3b181622540f853e4eca"
+  },
+  "img": {
+    "index": 0,
+    "path": "http://localhost:3000/image/?image=product/5fec3b181622540f853e4eca/0.png"
+  },
+  "quantity": {
+    "imported": 1
+  },
+  "colors": [],
+  "properties": [],
+  "technicalDetails": [],
+  "slideshows": [
+    {
+      "color": "",
+      "imgs": [
+        {
+          "index": 0,
+          "path": "http://localhost:3000/image/?image=product/5fec3b181622540f853e4eca/slideshow//0.jpeg"
+        },
+        {
+          "index": 1,
+          "path": "http://localhost:3000/image/?image=product/5fec3b181622540f853e4eca/slideshow//1.jpeg"
+        },
+        {
+          "index": 2,
+          "path": "http://localhost:3000/image/?image=product/5fec3b181622540f853e4eca/slideshow//2.jpeg"
+        },
+        {
+          "index": 3,
+          "path": "http://localhost:3000/image/?image=product/5fec3b181622540f853e4eca/slideshow//3.jpeg"
+        },
+        {
+          "index": 4,
+          "path": "http://localhost:3000/image/?image=product/5fec3b181622540f853e4eca/slideshow//4.jpeg"
+        },
+        {
+          "index": 5,
+          "path": "http://localhost:3000/image/?image=product/5fec3b181622540f853e4eca/slideshow//5.jpeg"
+        },
+        {
+          "index": 6,
+          "path": "http://localhost:3000/image/?image=product/5fec3b181622540f853e4eca/slideshow//6.jpeg"
+        },
+        {
+          "index": 7,
+          "path": "http://localhost:3000/image/?image=product/5fec3b181622540f853e4eca/slideshow//7.jpeg"
+        },
+        {
+          "index": 8,
+          "path": "http://localhost:3000/image/?image=product/5fec3b181622540f853e4eca/slideshow//8.jpeg"
+        },
+        {
+          "index": 9,
+          "path": "http://localhost:3000/image/?image=product/5fec3b181622540f853e4eca/slideshow//9.jpeg"
+        },
+        {
+          "index": 10,
+          "path": "http://localhost:3000/image/?image=product/5fec3b181622540f853e4eca/slideshow//10.jpeg"
+        },
+        {
+          "index": 11,
+          "path": "http://localhost:3000/image/?image=product/5fec3b181622540f853e4eca/slideshow//11.jpeg"
+        },
+        {
+          "index": 12,
+          "path": "http://localhost:3000/image/?image=product/5fec3b181622540f853e4eca/slideshow//12.jpeg"
+        },
+        {
+          "index": 13,
+          "path": "http://localhost:3000/image/?image=product/5fec3b181622540f853e4eca/slideshow//13.jpeg"
+        },
+        {
+          "index": 14,
+          "path": "http://localhost:3000/image/?image=product/5fec3b181622540f853e4eca/slideshow//14.jpeg"
+        },
+        {
+          "index": 15,
+          "path": "http://localhost:3000/image/?image=product/5fec3b181622540f853e4eca/slideshow//15.jpeg"
+        },
+        {
+          "index": 16,
+          "path": "http://localhost:3000/image/?image=product/5fec3b181622540f853e4eca/slideshow//16.jpeg"
+        },
+        {
+          "index": 17,
+          "path": "http://localhost:3000/image/?image=product/5fec3b181622540f853e4eca/slideshow//17.jpeg"
+        },
+        {
+          "index": 18,
+          "path": "http://localhost:3000/image/?image=product/5fec3b181622540f853e4eca/slideshow//18.jpeg"
+        },
+        {
+          "index": 19,
+          "path": "http://localhost:3000/image/?image=product/5fec3b181622540f853e4eca/slideshow//19.jpeg"
+        },
+        {
+          "index": 20,
+          "path": "http://localhost:3000/image/?image=product/5fec3b181622540f853e4eca/slideshow//20.jpeg"
+        }
+      ]
+    }
+  ],
+  "reviews": [
+    {
+      "index": 0,
+      "user": {
+        "username": "b"
+      },
+      "star": 5,
+      "content": "Test",
+      "imgs": [
+        "http://localhost:3000/image/?image=product/5fec3b181622540f853e4eca/review/0/0.png",
+        "http://localhost:3000/image/?image=product/5fec3b181622540f853e4eca/review/0/1.png",
+        "http://localhost:3000/image/?image=product/5fec3b181622540f853e4eca/review/0/2.png"
+      ]
+    },
+    {
+      "index": 1,
+      "user": {
+        "username": "b"
+      },
+      "star": 4,
+      "content": "Test 1",
+      "imgs": [
+        "http://localhost:3000/image/?image=product/5fec3b181622540f853e4eca/review/1/0.jpeg",
+        "http://localhost:3000/image/?image=product/5fec3b181622540f853e4eca/review/1/1.jpeg",
+        "http://localhost:3000/image/?image=product/5fec3b181622540f853e4eca/review/1/2.png",
+        "http://localhost:3000/image/?image=product/5fec3b181622540f853e4eca/review/1/3.png",
+        "http://localhost:3000/image/?image=product/5fec3b181622540f853e4eca/review/1/4.png"
+      ]
+    }
+  ],
+  "comments": [
+    {
+      "index": 0,
+      "user": {
+        "username": "b"
+      },
+      "content": "Test 2",
+      "imgs": [
+        "http://localhost:3000/image/?image=product/5fec3b181622540f853e4eca/comment/0/0.jpeg",
+        "http://localhost:3000/image/?image=product/5fec3b181622540f853e4eca/comment/0/1.jpeg",
+        "http://localhost:3000/image/?image=product/5fec3b181622540f853e4eca/comment/0/2.jpeg",
+        "http://localhost:3000/image/?image=product/5fec3b181622540f853e4eca/comment/0/3.jpeg"
+      ]
+    }
+  ],
+  "name": "Test",
+  "price": 0,
+  "type": "accessories",
+  "createdAt": {
+    "$date": "2020-12-30T08:32:24.308Z"
+  },
+  "updatedAt": {
+    "$date": "2021-01-02T04:02:29.501Z"
+  },
+  "__v": 0
+}]
