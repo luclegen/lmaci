@@ -326,7 +326,7 @@ export class ProductComponent implements OnInit {
     this.starHalf = bias == 0.5;
     this.noneStarCount = [];
 
-    for (let i = 0; i < (bias == 0.5 ? numberRounded : numberRounded); i++) this.starCount.push('*');
+    for (let i = 0; i < (bias == 0.5 ? numberFloored : numberRounded); i++) this.starCount.push('*');
     for (let i = 0; i < 5 - numberRounded; i++) this.noneStarCount.push('-');
   }
 
