@@ -568,7 +568,7 @@ export class ProductComponent implements OnInit {
   saveSlideshow() {
     this.authService.getInfo().subscribe(
       res => {
-        if ((res['user'].role == 'root' || res['user'].role === 'admin') && this.isSaveImgs()) {
+        if ((res['user'].role == 'root' || res['user'].role === 'admin') && this.isSaveSlideshow()) {
           const formData = new FormData();
 
           let index = this.product.slideshows.length && this.product.slideshows.filter(s => s.color == this.order.color.value).length && this.product.slideshows.filter(s => s.color == this.order.color.value)[0].imgs.length ? Math.max(...this.product.slideshows.filter(s => s.color == this.order.color.value)[0].imgs.map(i => i.index)) + 1 : 0;
