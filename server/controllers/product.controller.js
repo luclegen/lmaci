@@ -31,7 +31,7 @@ module.exports.uploadSlideshows = async (req, res) => {
     
     paths.forEach(path => {
       const img = {
-        index: indexs.filter(index => (new RegExp(req.body.color.replace(/#/, '') + '/' + index + '.jpeg')).test(path))[0],
+        index: indexs.filter(index => (new RegExp((req.body.color ? req.body.color.replace(/#/, '') + '/' : '') + index + '.jpeg')).test(path))[0],
         path: path
       }
       indexs.splice(indexs.indexOf(img.index), 1)
@@ -46,7 +46,7 @@ module.exports.uploadSlideshows = async (req, res) => {
     });
     if (!replace) slideshows.push(slideshow);
 
-    indexs.forEach(i => rimraf.sync('uploads/img/product/' + req.params.id + '/slideshow/' + req.body.color.replace(/#/, '') + '/' + i + '.jpeg'));
+    indexs.forEach(i => rimraf.sync('uploads/img/product/' + req.params.id + '/slideshow/' + (req.body.color ? req.body.color.replace(/#/, '') + '/' : '') + i + '.jpeg'));
     
     const product1 = await Product.findByIdAndUpdate(req.params.id, { $set: { slideshows: slideshows } }, { new: true });
 
