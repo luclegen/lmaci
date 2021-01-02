@@ -333,7 +333,6 @@ Product Component: previewColor
 Product Component: onCheckColor
 Product Component: resetColor
 Product Component: isSavePost
-Product Component: initPost
 Product Component: cancelSavePost
 Product Service: post
 Product Component: savePost
@@ -365,8 +364,6 @@ Product Component: setChanged
 Product Component: ngAfterViewInit
 Product Component: setPaths
 Product Component: loadPost
-Product Component: initStars
-Product Component: initReviews
 Product Component: showReviewGallery
 Product Component: closeReviewGallery
 Product Component: reviewPrev
@@ -388,7 +385,6 @@ Product Component: deleteCommentImg
 Product Component: sendComment
 Models: comment
 Product Service: sendComment
-Product Component: initComments
 Product Component: showAsideGallery
 Product Component: closeAsideGallery
 Product Component: asidePrev
