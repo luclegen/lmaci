@@ -322,7 +322,7 @@ Product Component: __isInsideDropListClientRect
 Product Component: delete
 Product Component: saveSlideshow
 Product Service: uploadImgs
-Product Component: isSaveImgs
+Product Component: isSaveSlideshow
 Product Component: cancelSaveSlideshow
 Product Component: cancel
 Product Component: reloadSlideshow
