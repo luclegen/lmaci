@@ -31,13 +31,13 @@
             <img [src]="i" [alt]="'Image ' + (paths.indexOf(i) + 1)">
           </li>
           <li *ngIf="!paths.length" class="carousel-slide">
-            <img src="assets/img/carousel/A.png" alt="A">
+            <img src="assets/img/carousel/a.png" alt="A">
           </li>
           <li *ngIf="!paths.length" class="carousel-slide">
-            <img src="assets/img/carousel/B.png" alt="B">
+            <img src="assets/img/carousel/b.png" alt="B">
           </li>
           <li *ngIf="!paths.length" class="carousel-slide">
-            <img src="assets/img/carousel/C.png" alt="C">
+            <img src="assets/img/carousel/c.png" alt="C">
           </li>
         </ul>
       </div>
@@ -71,19 +71,19 @@
     <div class="gallery" (click)="selectImg($event)">
       <ul class="gallery-track">
         <li class="gallery-img gallery-frame">
-          <img src="assets/img/carousel/Transparent.png" alt="Frame">
+          <img src="assets/img/carousel/transparent.png" alt="Frame">
         </li>
         <li class="gallery-img" *ngFor="let i of paths">
           <img [src]="i" [alt]="'Image ' + (paths.indexOf(i) + 1)">
         </li>
         <li class="gallery-img" *ngIf="!paths.length">
-          <img src="assets/img/carousel/A.png" alt="A">
+          <img src="assets/img/carousel/a.png" alt="A">
         </li>
         <li class="gallery-img" *ngIf="!paths.length">
-          <img src="assets/img/carousel/B.png" alt="B">
+          <img src="assets/img/carousel/b.png" alt="B">
         </li>
         <li class="gallery-img" *ngIf="!paths.length">
-          <img src="assets/img/carousel/C.png" alt="C">
+          <img src="assets/img/carousel/c.png" alt="C">
         </li>
       </ul>
     </div>
@@ -477,7 +477,7 @@
       </button>
       <div class="aside-gallery-carousel-nav" (click)="selectAsideImg($event)">
         <span class="aside-gallery-frame">
-          <img src="assets/img/carousel/Transparent.png" alt="Frame">
+          <img src="assets/img/carousel/transparent.png" alt="Frame">
         </span>
         <img *ngFor="let i of asideGallery.imgs" [src]="i" [alt]="'Image ' + (asideGallery.imgs.indexOf(i) + 1)">
       </div>
