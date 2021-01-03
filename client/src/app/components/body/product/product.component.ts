@@ -418,14 +418,14 @@ export class ProductComponent implements OnInit {
   openGallery() {
     const body = document.querySelector('body');
     const slideshow = document.querySelector('.slideshow') as HTMLElement;
-    const carousel = document.querySelector('.carousel') as HTMLElement;
-    const slides = document.querySelectorAll('.carousel-slide') as NodeListOf<HTMLElement>;
-    const gallery = document.querySelector('.gallery') as HTMLElement;
-    const track = document.querySelector('.gallery-track') as HTMLElement;
-    const imgs = document.querySelectorAll('.gallery-img') as NodeListOf<HTMLElement>;
-    const closeBtn = document.getElementById('close-btn');
-    const prevBtn = document.getElementById('prev-btn');
-    const nextBtn = document.getElementById('next-btn');
+    const carousel = document.querySelector('.slideshow .carousel') as HTMLElement;
+    const slides = document.querySelectorAll('.slideshow .slide') as NodeListOf<HTMLElement>;
+    const gallery = document.querySelector('.slideshow .gallery') as HTMLElement;
+    const track = document.querySelector('.slideshow .gallery .track') as HTMLElement;
+    const imgs = document.querySelectorAll('.slideshow .img') as NodeListOf<HTMLElement>;
+    const closeBtn = document.querySelector('.slideshow .close-btn') as HTMLElement;
+    const prevBtn = document.querySelector('.slideshow .prev-btn') as HTMLElement;
+    const nextBtn = document.querySelector('.slideshow .next-btn') as HTMLElement;
     const ww = window.innerWidth;
     const wh = window.innerHeight;
     const btnWidth = ww * 0.05;
