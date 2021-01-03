@@ -485,8 +485,8 @@ export class ProductComponent implements OnInit {
     this.scrollFrame(type);
   }
 
-  selectImg(event: any) {
-    const track = document.querySelector('.gallery-track') as HTMLElement;
+  selectImg(event: any, type = '.slideshow') {
+    const track = document.querySelector(type + ' .gallery .track') as HTMLElement;
     const imgs = Array.from(track.children);
     const targetImg = event.target.closest('li');
 
@@ -495,9 +495,9 @@ export class ProductComponent implements OnInit {
     const targetIndex = imgs.findIndex(img => img == targetImg);
 
     if (targetIndex < 1) return;
-    this.index = targetIndex - 1;
-    this.move();
-    this.scrollFrame();
+    this.getSlideshow(type).index = targetIndex - 1;
+    this.move(type);
+    this.scrollFrame(type);
   }
 
   closeGallery() {
