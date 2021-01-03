@@ -416,6 +416,7 @@ Product Component: setReviews
 Product Component: setComments
 Product Component: isAdmin
 Product Component: onResize
+Product Component: getSlideshow
 Product Component: ngOnInit
 Product Component: Comments
 Product Component: View
