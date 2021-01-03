@@ -452,6 +452,7 @@ export class ProductComponent implements OnInit {
     const wh = window.innerHeight;
     const btnWidth = ww * 0.05;
 
+    this.getSlideshow(type).isOpened = true;
     this.getSlideshow(type).isOpenGallery = true;
 
     body.style.overflowY = 'hidden';
