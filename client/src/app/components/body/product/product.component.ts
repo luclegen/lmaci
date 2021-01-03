@@ -398,8 +398,8 @@ export class ProductComponent implements OnInit {
   }
 
   hideArrow() {
-    const prevBtn = document.getElementById('prev-btn');
-    const nextBtn = document.getElementById('next-btn');
+    const prevBtn = document.querySelector('.slideshow .prev-btn') as HTMLElement;
+    const nextBtn = document.querySelector('.slideshow .next-btn') as HTMLElement;
 
     prevBtn.style.display = nextBtn.style.display = 'none';
   }
