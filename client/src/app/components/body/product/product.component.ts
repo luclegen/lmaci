@@ -435,22 +435,22 @@ export class ProductComponent implements OnInit {
     if (this.getSlideshow(type).index == slides.length - 1) nextBtn.style.display = 'none';
   }
 
-  openGallery() {
+  openGallery(type = '.slideshow', event: any = null, msg: Object = null) {
     const body = document.querySelector('body');
-    const slideshow = document.querySelector('.slideshow') as HTMLElement;
-    const carousel = document.querySelector('.slideshow .carousel') as HTMLElement;
-    const slides = document.querySelectorAll('.slideshow .slide') as NodeListOf<HTMLElement>;
-    const gallery = document.querySelector('.slideshow .gallery') as HTMLElement;
-    const track = document.querySelector('.slideshow .gallery .track') as HTMLElement;
-    const imgs = document.querySelectorAll('.slideshow .img') as NodeListOf<HTMLElement>;
-    const closeBtn = document.querySelector('.slideshow .close-btn') as HTMLElement;
-    const prevBtn = document.querySelector('.slideshow .prev-btn') as HTMLElement;
-    const nextBtn = document.querySelector('.slideshow .next-btn') as HTMLElement;
+    const slideshow = document.querySelector(type) as HTMLElement;
+    const carousel = document.querySelector(type + ' .carousel') as HTMLElement;
+    const slides = document.querySelectorAll(type + ' .slide') as NodeListOf<HTMLElement>;
+    const gallery = document.querySelector(type + ' .gallery') as HTMLElement;
+    const track = document.querySelector(type + ' .gallery .track') as HTMLElement;
+    const imgs = document.querySelectorAll(type + ' .img') as NodeListOf<HTMLElement>;
+    const closeBtn = document.querySelector(type + ' .close-btn') as HTMLElement;
+    const prevBtn = document.querySelector(type + ' .prev-btn') as HTMLElement;
+    const nextBtn = document.querySelector(type + ' .next-btn') as HTMLElement;
     const ww = window.innerWidth;
     const wh = window.innerHeight;
     const btnWidth = ww * 0.05;
 
-    this.isOpenGallery = true;
+    this.getSlideshow(type).isOpenGallery = true;
 
     body.style.overflowY = 'hidden';
     slideshow.style.position = 'fixed';
@@ -463,9 +463,9 @@ export class ProductComponent implements OnInit {
     closeBtn.style.height = closeBtn.clientWidth + 'px';
     carousel.style.height = '90%';
 
-    this.size = Math.round(carousel.clientHeight * 4/3);
+    this.getSlideshow(type).size = Math.round(carousel.clientHeight * 4/3);
 
-    carousel.style.width = this.size + 'px';
+    carousel.style.width = this.getSlideshow(type).size + 'px';
     prevBtn.style.top = nextBtn.style.top = (carousel.clientHeight - btnWidth) * 0.5 + 'px';
     prevBtn.style.left = ((ww - carousel.clientWidth) * 0.5 + carousel.clientWidth * 0.03) + 'px';
     nextBtn.style.left = ((ww - carousel.clientWidth) * 0.5 + carousel.clientWidth * (1 - 0.03) - btnWidth) + 'px';
@@ -473,16 +473,16 @@ export class ProductComponent implements OnInit {
     gallery.style.display = 'flex';
     gallery.style.height = (wh - carousel.clientHeight - 5) + 'px';
     track.style.height = (wh - carousel.clientHeight - 15) + 'px';
-    this.sizeFrame = Math.round(track.clientHeight * 4/3);
+    this.getSlideshow(type).frameSize = Math.round(track.clientHeight * 4/3);
     for (let i = 0; i < imgs.length; i++) {
-      imgs[i].style.width = this.sizeFrame + 'px';
+      imgs[i].style.width = this.getSlideshow(type).frameSize + 'px';
       if (i > 0 && i < imgs.length - 1) imgs[i].style.marginRight = '1px';
     }
     if (track.clientWidth < ww) gallery.style.justifyContent = 'center';
-    track.style.transform = 'translateX(' + (-this.sizeFrame * (track.clientWidth < ww ? 0.5 : 1)) + 'px)';
+    track.style.transform = 'translateX(' + (-this.getSlideshow(type).frameSize * (track.clientWidth < ww ? 0.5 : 1)) + 'px)';
 
-    this.move('none');
-    this.scrollFrame();
+    this.move(type, 'none');
+    this.scrollFrame(type);
   }
 
   selectImg(event: any) {
