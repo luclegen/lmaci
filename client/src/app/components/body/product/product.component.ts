@@ -361,7 +361,7 @@ export class ProductComponent implements OnInit {
     const prevBtn = document.querySelector('.slideshow .prev-btn') as HTMLElement;
     const nextBtn = document.querySelector('.slideshow .next-btn') as HTMLElement;
     const ww = window.innerWidth;
-    const containerWidth = this.getSlideshow().size = Math.round((ww - 5) * 0.395);
+    const containerWidth = this.slideshow.size = Math.round((ww - 5) * 0.395);
     const containerHeight = containerWidth * 0.75;
     const btnWidth = ww * 0.05;
     const btnHeight = btnWidth * 1.04;
