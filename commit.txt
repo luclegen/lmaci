@@ -8,6 +8,7 @@ Git Ignore
 Command
 Detail
 JSON Package
+Draft
 
 I. ANGULAR CLIENT
 Initial Client
