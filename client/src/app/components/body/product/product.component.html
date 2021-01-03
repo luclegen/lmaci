@@ -310,7 +310,7 @@
         {{ r.content }}
         <span *ngIf="r.imgs.length" class="imgs-bar">
           <span *ngFor="let i of r.imgs">
-            <img [src]="i" [alt]="'Image ' + (r.imgs.indexOf(i) + 1)" (click)="openGallery('aside-slideshow', $event, r)">
+            <img [src]="i" [alt]="'Image ' + (r.imgs.indexOf(i) + 1)" (click)="openGallery('.aside-slideshow', $event, r)">
           </span>
         </span>
       </li>
@@ -339,7 +339,7 @@
         <p>{{ c.content }}</p>
         <span *ngIf="c.imgs.length" class="imgs-bar">
           <span *ngFor="let i of c.imgs">
-            <img [src]="i" [alt]="'Image ' + (c.imgs.indexOf(i) + 1)" (click)="openGallery('aside-slideshow', $event, c)">
+            <img [src]="i" [alt]="'Image ' + (c.imgs.indexOf(i) + 1)" (click)="openGallery('.aside-slideshow', $event, c)">
           </span>
         </span>
         <span class="interact">
@@ -366,7 +366,7 @@
             <p>{{ a.content }}</p>
             <span *ngIf="a.imgs.length" class="imgs-bar">
               <span *ngFor="let i of a.imgs">
-                <img [src]="i" [alt]="'Image ' + (a.imgs.indexOf(i) + 1)" (click)="openGallery('aside-slideshow', $event, a)">
+                <img [src]="i" [alt]="'Image ' + (a.imgs.indexOf(i) + 1)" (click)="openGallery('.aside-slideshow', $event, a)">
               </span>
             </span>
             <span class="interact">
@@ -439,7 +439,7 @@
 </section>
 <section>
   <div class="aside-slideshow">
-    <div class="left-aside-slideshow"></div>
-    <div class="right-aside-slideshow"></div>
+    <div class="left"></div>
+    <div class="right"></div>
   </div>
 </section>
