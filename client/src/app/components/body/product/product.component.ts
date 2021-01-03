@@ -399,13 +399,13 @@ export class ProductComponent implements OnInit {
     this.scrollFrame(type);
   }
 
-  next() {
-    const slides = document.querySelectorAll('.slideshow .slide') as NodeListOf<Element>;
+  next(type = '.slideshow') {
+    const slides = document.querySelectorAll(type + ' .slide') as NodeListOf<Element>;
 
-    if (this.index >= slides.length - 1) return;
-    this.index++;
-    this.move();
-    this.scrollFrame();
+    if (this.getSlideshow(type).index >= slides.length - 1) return;
+    this.getSlideshow(type).index++;
+    this.move(type);
+    this.scrollFrame(type);
   }
 
   showArrow() {
