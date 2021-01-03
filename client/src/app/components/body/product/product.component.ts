@@ -368,6 +368,10 @@ export class ProductComponent implements OnInit {
     prevBtn.style.left = (ww * 0.1 + containerWidth * 0.03) + 'px';
     nextBtn.style.left = (ww * 0.1 + containerWidth - btnWidth - containerWidth * 0.03) + 'px';
   }
+  
+  getSlideshow(type = '.slideshow') {
+    return type == '.slideshow' ? this.slideshow : this.asideSlideshow;
+  }
 
   move(type = '.slideshow', transition = 'transform 0.4s ease-in-out') {
     switch (type) {
