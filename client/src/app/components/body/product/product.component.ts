@@ -374,16 +374,13 @@ export class ProductComponent implements OnInit {
   }
 
   move(type = '.slideshow', transition = 'transform 0.4s ease-in-out') {
-    switch (type) {
-      case 'a':
-        type = '.aside-slideshow';
-        break;
-      case 'slideshow':
-        break;
-      default:
-        alert('Type of Slideshow is invalid.');
-        break;
-    }
+    const track = document.querySelector(type + ' .carousel .track') as HTMLElement;
+    const frame = document.querySelector(type + ' .frame') as HTMLElement;
+
+    track.style.transition = frame.style.transition = transition;
+    track.style.transform = 'translateX(' + (-this.getSlideshow(type).size * this.getSlideshow(type).index) + 'px)';
+    frame.style.transform = 'translate(' + ((this.getSlideshow(type).frameSize + 1) * (this.getSlideshow(type).index + 1) + 1) + 'px, -2px)';
+  }
 
     const track = document.querySelector(type + ' .carousel .track') as HTMLElement;
     const frame = document.querySelector(type + ' .frame') as HTMLElement;
