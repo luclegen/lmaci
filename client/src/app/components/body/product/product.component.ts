@@ -424,15 +424,15 @@ export class ProductComponent implements OnInit {
     prevBtn.style.display = nextBtn.style.display = 'none';
   }
 
-  moved() {
-    const slides = document.querySelectorAll('.slideshow .slide') as NodeListOf<Element>;
-    const prevBtn = document.querySelector('.slideshow .prev-btn') as HTMLElement;
-    const nextBtn = document.querySelector('.slideshow .next-btn') as HTMLElement;
+  moved(type = '.slideshow') {
+    const slides = document.querySelectorAll(type + ' .slide') as NodeListOf<Element>;
+    const prevBtn = document.querySelector(type + ' .prev-btn') as HTMLElement;
+    const nextBtn = document.querySelector(type + ' .next-btn') as HTMLElement;
 
     this.showArrow();
 
-    if (this.index == 0) prevBtn.style.display = 'none';
-    if (this.index == slides.length - 1) nextBtn.style.display = 'none';
+    if (this.getSlideshow(type).index == 0) prevBtn.style.display = 'none';
+    if (this.getSlideshow(type).index == slides.length - 1) nextBtn.style.display = 'none';
   }
 
   openGallery() {
