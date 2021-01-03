@@ -100,23 +100,23 @@ div
     overflow: hidden
     width: 100%
 
-  &.carousel-container
-    height: 100%
-
-    ul.carousel-track
-      display: flex
-      width: 100%
+    div.container
       height: 100%
-      list-style: none
 
-      li.carousel-slide
+      ul.track
+        display: flex
         width: 100%
         height: 100%
-        cursor: zoom-in
+        list-style: none
 
-        img
+        li.slide
           width: 100%
           height: 100%
+          cursor: zoom-in
+
+          img
+            width: 100%
+            height: 100%
 
   &.gallery
     display: none
@@ -126,20 +126,20 @@ div
     width: 100%
     overflow: auto
 
-    ul.gallery-track
+    ul.track
       display: flex
       margin-top: 2px
 
       li
 
-        &.gallery-img
+        &.img
           height: 100%
           cursor: pointer
           
           img
             height: 100%
 
-        &.gallery-frame
+        &.frame
           border: 2px solid yellow
           cursor: auto
 
@@ -845,33 +845,31 @@ button
     background: blue
     border: 2px solid black
 
-  &.slide-btn
+  &.prev-btn, &.next-btn, &.close-btn
     position: absolute
     display: none
     width: 5%
     border: none
     outline: none
-    cursor: pointer
     border-radius: 50%
-    padding: 10px
-    background: black
     fill: white
-
-    &:hover
-      background: gray
 
     svg
       width: 100%
 
+  &.prev-btn, &.next-btn
+    background: black
+    padding: 10px
+
+    &:hover
+      background: gray
+
   &.close-btn
     top: 10px
     right: 10px
-    background: red
     padding: 5px
+    background: red
     cursor: zoom-out
-
-    &:hover
-      background: red
 
 details
 
