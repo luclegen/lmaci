@@ -500,26 +500,26 @@ export class ProductComponent implements OnInit {
     this.scrollFrame(type);
   }
 
-  closeGallery() {
+  closeGallery(type = '.slideshow') {
     const body = document.querySelector('body');
-    const slideshow = document.querySelector('.slideshow') as HTMLElement;
-    const carousel = document.querySelector('.carousel') as HTMLElement;
-    const slides = document.querySelectorAll('.carousel-slide') as NodeListOf<HTMLElement>;
-    const gallery = document.querySelector('.gallery') as HTMLElement;
-    const closeBtn = document.getElementById('close-btn');
+    const slideshow = document.querySelector(type) as HTMLElement;
+    const carousel = document.querySelector(type + ' .carousel') as HTMLElement;
+    const slides = document.querySelectorAll(type + ' .slide') as NodeListOf<HTMLElement>;
+    const gallery = document.querySelector(type + ' .gallery') as HTMLElement;
+    const closeBtn = document.querySelector(type + ' .close-btn') as HTMLElement;
 
-    this.isOpenGallery = false;
+    this.getSlideshow(type).isOpenGallery = false;
     this.setSlideshow();
 
     body.style.overflowY = 'visible';
     slideshow.style.position = 'static';
     slideshow.style.zIndex = '0';
-    slideshow.style.width = this.size + 'px';
+    slideshow.style.width = this.getSlideshow(type).size + 'px';
     slideshow.style.margin = '10px 0.5% 0 10%';
     slideshow.style.height = carousel.style.height = 'auto';
     slides.forEach(s => s.style.cursor = 'zoom-in');
 
-    this.move(closeBtn.style.display = gallery.style.display = 'none');
+    this.move(type, closeBtn.style.display = gallery.style.display = 'none');
   }
 
   //#endregion Slideshow
