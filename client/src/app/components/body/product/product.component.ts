@@ -392,11 +392,11 @@ export class ProductComponent implements OnInit {
     gallery.scrollBy((this.getSlideshow(type).frameSize + 1) * (this.getSlideshow(type).index - Math.round(visibleImgCount / 2) + 1), 0);
   }
 
-  prev() {
-    if (this.index <= 0) return;
-    this.index--;
-    this.move();
-    this.scrollFrame();
+  prev(type = '.slideshow') {
+    if (this.getSlideshow(type).index <= 0) return;
+    this.getSlideshow(type).index--;
+    this.move(type);
+    this.scrollFrame(type);
   }
 
   next() {
