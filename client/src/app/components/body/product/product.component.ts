@@ -368,7 +368,7 @@ export class ProductComponent implements OnInit {
   }
   
   getSlideshow(type = '.slideshow') {
-    return type == '.slideshow' ? this.slideshow : this.asideSlideshow;
+    return type == '.slideshow' ? this.slideshow : type == '.aside-slideshow' ? this.asideSlideshow : null;
   }
 
   move(type = '.slideshow', transition = 'transform 0.4s ease-in-out') {
