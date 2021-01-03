@@ -417,9 +417,9 @@ export class ProductComponent implements OnInit {
     if (this.getSlideshow(type).index < slides.length - 1) nextBtn.style.display = 'inline';
   }
 
-  hideArrow() {
-    const prevBtn = document.querySelector('.slideshow .prev-btn') as HTMLElement;
-    const nextBtn = document.querySelector('.slideshow .next-btn') as HTMLElement;
+  hideArrow(type = '.slideshow') {
+    const prevBtn = document.querySelector(type + ' .prev-btn') as HTMLElement;
+    const nextBtn = document.querySelector(type + ' .next-btn') as HTMLElement;
 
     prevBtn.style.display = nextBtn.style.display = 'none';
   }
