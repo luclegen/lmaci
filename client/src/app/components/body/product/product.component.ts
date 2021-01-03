@@ -389,9 +389,9 @@ export class ProductComponent implements OnInit {
   }
 
   showArrow() {
-    const slides = document.querySelectorAll('.carousel-slide') as NodeListOf<Element>;
-    const prevBtn = document.getElementById('prev-btn');
-    const nextBtn = document.getElementById('next-btn');
+    const slides = document.querySelectorAll('.slideshow .slide') as NodeListOf<Element>;
+    const prevBtn = document.querySelector('.slideshow .prev-btn') as HTMLElement;
+    const nextBtn = document.querySelector('.slideshow .next-btn') as HTMLElement;
 
     if (this.index > 0) prevBtn.style.display = 'inline';
     if (this.index < slides.length - 1) nextBtn.style.display = 'inline';
