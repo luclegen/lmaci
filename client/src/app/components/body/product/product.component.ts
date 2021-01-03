@@ -348,9 +348,9 @@ export class ProductComponent implements OnInit {
   }
 
   setSlideshow() {
-    const slide = document.querySelector('.carousel-slide') as HTMLElement;
-    const prevBtn = document.getElementById('prev-btn');
-    const nextBtn = document.getElementById('next-btn');
+    const slide = document.querySelector('.slideshow .carousel-slide') as HTMLElement;
+    const prevBtn = document.querySelector('.slideshow .prev-btn') as HTMLElement;
+    const nextBtn = document.querySelector('.slideshow .next-btn') as HTMLElement;
     const ww = window.innerWidth;
     const containerWidth = this.size = Math.round((ww - 5) * 0.395);
     const containerHeight = containerWidth * 0.75;
