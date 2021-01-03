@@ -664,9 +664,9 @@ export class ProductComponent implements OnInit {
 
     if (confirm('Are you sure delete: Image ' + (targetIndex + 1) + '?')) {
       this.paths.splice(targetIndex, 1);
-      
-      this.index = 0;
-      this.move('none');
+
+      this.getSlideshow().index = 0;
+      this.move(undefined, 'none');
       this.setCarousel();
     }
   }
