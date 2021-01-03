@@ -367,13 +367,22 @@ export class ProductComponent implements OnInit {
     prevBtn.style.left = (ww * 0.1 + containerWidth * 0.03) + 'px';
     nextBtn.style.left = (ww * 0.1 + containerWidth - btnWidth - containerWidth * 0.03) + 'px';
   }
-  
+
   move(type = '.slideshow', transition = 'transform 0.4s ease-in-out') {
-    if (type == 'a') type = '.aside-slideshow';
+    switch (type) {
+      case 'a':
+        type = '.aside-slideshow';
+        break;
+      case 'slideshow':
+        break;
+      default:
+        alert('Type of Slideshow is invalid.');
+        break;
+    }
 
     const track = document.querySelector(type + ' .carousel .track') as HTMLElement;
     const frame = document.querySelector(type + ' .frame') as HTMLElement;
-    const slideshow = type == '.slideshow' ? this.slideshow : this.asideSlideshow;
+    const slideshow = JSON.parse(JSON.stringify(type == '.slideshow' ? this.slideshow : this.asideSlideshow));
 
     track.style.transition = frame.style.transition = transition;
     track.style.transform = 'translateX(' + (-slideshow.size * slideshow.index) + 'px)';
