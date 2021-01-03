@@ -382,6 +382,16 @@ export class ProductComponent implements OnInit {
     frame.style.transform = 'translate(' + ((this.getSlideshow(type).frameSize + 1) * (this.getSlideshow(type).index + 1) + 1) + 'px, -2px)';
   }
 
+  scrollFrame(type) {
+    const imgs = document.querySelectorAll(type + ' .img') as NodeListOf<Element>;
+    const gallery = document.querySelector(type + ' .gallery') as HTMLElement;
+    const ww = window.innerWidth;
+    const visibleImgCount = Math.round(ww / (this.getSlideshow(type).frameSize + 1));
+
+    gallery.scrollBy(-(this.getSlideshow(type).frameSize + 1) * (imgs.length - visibleImgCount), 0);
+    gallery.scrollBy((this.getSlideshow(type).frameSize + 1) * (this.getSlideshow(type).index - Math.round(visibleImgCount / 2) + 1), 0);
+  }
+
   prev() {
     if (this.index <= 0) return;
     this.index--;
@@ -488,16 +498,6 @@ export class ProductComponent implements OnInit {
     this.index = targetIndex - 1;
     this.move();
     this.scrollFrame();
-  }
-
-  scrollFrame() {
-    const imgs = document.querySelectorAll('.gallery-img') as NodeListOf<Element>;
-    const gallery = document.querySelector('.gallery') as HTMLElement;
-    const ww = window.innerWidth;
-    const visibleImgCount = Math.round(ww / (this.sizeFrame + 1));
-
-    gallery.scrollBy(-(this.sizeFrame + 1) * (imgs.length - visibleImgCount), 0);
-    gallery.scrollBy((this.sizeFrame + 1) * (this.index - Math.round(visibleImgCount / 2) + 1), 0);
   }
 
   closeGallery() {
