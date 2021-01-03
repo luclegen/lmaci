@@ -380,7 +380,7 @@ export class ProductComponent implements OnInit {
   }
 
   next() {
-    const slides = document.querySelectorAll('.carousel-slide') as NodeListOf<Element>;
+    const slides = document.querySelectorAll('.slideshow .slide') as NodeListOf<Element>;
 
     if (this.index >= slides.length - 1) return;
     this.index++;
