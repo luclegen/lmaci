@@ -469,7 +469,10 @@ export class ProductComponent implements OnInit {
     prevBtn.style.left = ((ww - carousel.clientWidth) * 0.5 + carousel.clientWidth * 0.03) + 'px';
     nextBtn.style.left = ((ww - carousel.clientWidth) * 0.5 + carousel.clientWidth * (1 - 0.03) - btnWidth) + 'px';
     slides.forEach(s => s.style.cursor = 'auto');
+    gallery.style.position = 'absolute';
     gallery.style.display = 'flex';
+    gallery.style.bottom = '0';
+    gallery.style.left = '0';
     gallery.style.height = (wh - carousel.clientHeight - 5) + 'px';
     track.style.height = (wh - carousel.clientHeight - 15) + 'px';
     this.getSlideshow(type).frameSize = Math.round(track.clientHeight * 4/3);
