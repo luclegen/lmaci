@@ -237,10 +237,6 @@ export class ProductComponent implements OnInit {
 
     if (this.slideshow.isOpenGallery) this.openGallery();
     else if (this.slideshow.isOpened) this.closeGallery();
-    // this.resize = true;
-
-    // if (leftContainer.style.getPropertyValue('position') == 'fixed') this.showGallery();
-    // else if (closeBtn.style.getPropertyValue('display') == 'none') this.closeGallery();
 
     // if (this.isShowAsideGallery) this.showAsideGallery(this.asideEvent, this.asideGallery);
   }
