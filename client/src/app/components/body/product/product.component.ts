@@ -27,7 +27,8 @@ export class ProductComponent implements OnInit {
     index: 0,
     size: 0,
     frameSize: 0,
-    isOpenGallery: false
+    isOpenGallery: false,
+    isOpened: false
   }
 
   //#endregion Slideshow
@@ -39,6 +40,7 @@ export class ProductComponent implements OnInit {
     size: 0,
     frameSize: 0,
     isOpenGallery: false,
+    isOpened: false,
     event: null
   }
 
@@ -231,8 +233,10 @@ export class ProductComponent implements OnInit {
 
   @HostListener('window:resize')
   onResize() {
+    this.setSlideshow();
+
     if (this.slideshow.isOpenGallery) this.openGallery();
-    if (!this.slideshow.isOpenGallery) this.closeGallery();
+    else if (this.slideshow.isOpened) this.closeGallery();
     // this.resize = true;
 
     // if (leftContainer.style.getPropertyValue('position') == 'fixed') this.showGallery();
