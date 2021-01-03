@@ -340,8 +340,9 @@ export class ProductComponent implements OnInit {
 
   setCarousel() {
     setTimeout(() => {
-      const slides = document.querySelectorAll('.carousel-slide') as NodeListOf<Element>;
-      const container = document.querySelector('.carousel-container') as HTMLElement;
+      const slides = document.querySelectorAll('.slideshow .carousel-slide') as NodeListOf<Element>;
+      const container = document.querySelector('.slideshow .carousel-container') as HTMLElement;
+
       container.style.width = slides.length * 100 + '%';
     });
   }
