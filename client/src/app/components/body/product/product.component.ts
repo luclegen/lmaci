@@ -382,15 +382,6 @@ export class ProductComponent implements OnInit {
     frame.style.transform = 'translate(' + ((this.getSlideshow(type).frameSize + 1) * (this.getSlideshow(type).index + 1) + 1) + 'px, -2px)';
   }
 
-    const track = document.querySelector(type + ' .carousel .track') as HTMLElement;
-    const frame = document.querySelector(type + ' .frame') as HTMLElement;
-    const slideshow = JSON.parse(JSON.stringify(type == '.slideshow' ? this.slideshow : this.asideSlideshow));
-
-    track.style.transition = frame.style.transition = transition;
-    track.style.transform = 'translateX(' + (-slideshow.size * slideshow.index) + 'px)';
-    frame.style.transform = 'translate(' + ((slideshow.sizeFrame + 1) * (slideshow.index + 1) + 1) + 'px, -2px)';
-  }
-
   prev() {
     if (this.index <= 0) return;
     this.index--;
