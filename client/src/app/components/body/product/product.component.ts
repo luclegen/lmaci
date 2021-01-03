@@ -23,18 +23,23 @@ export class ProductComponent implements OnInit {
 
   //#region Slideshow
 
-  index = 0;
-  size = 0;
-  sizeFrame = 0;
-  isOpenGallery = false;
-
+  slideshow = {
+    index: 0,
+    size: 0,
+    sizeFrame: 0,
+    isOpenGallery: false
+  }
+  
   //#endregion Slideshow
 
   //#region Aside Slideshow
 
-  asideCounter = 0;
-  asideSize = 0;
-  asideSizeFrame = 0;
+  asideSlideshow = {
+    index: 0,
+    size: 0,
+    sizeFrame: 0,
+    isOpenGallery: false
+  }
 
   //#endregion Aside Slideshow
 
@@ -363,13 +368,16 @@ export class ProductComponent implements OnInit {
     nextBtn.style.left = (ww * 0.1 + containerWidth - btnWidth - containerWidth * 0.03) + 'px';
   }
   
-  move(transition = 'transform 0.4s ease-in-out') {
-    const track = document.querySelector('.slideshow .carousel .track') as HTMLElement;
-    const frame = document.querySelector('.slideshow .frame') as HTMLElement;
+  move(type = '.slideshow', transition = 'transform 0.4s ease-in-out') {
+    if (type == 'a') type = '.aside-slideshow';
+
+    const track = document.querySelector(type + ' .carousel .track') as HTMLElement;
+    const frame = document.querySelector(type + ' .frame') as HTMLElement;
+    const slideshow = type == '.slideshow' ? this.slideshow : this.asideSlideshow;
 
     track.style.transition = frame.style.transition = transition;
-    track.style.transform = 'translateX(' + (-this.size * this.index) + 'px)';
-    frame.style.transform = 'translate(' + ((this.sizeFrame + 1) * (this.index + 1) + 1) + 'px, -2px)';
+    track.style.transform = 'translateX(' + (-slideshow.size * slideshow.index) + 'px)';
+    frame.style.transform = 'translate(' + ((slideshow.sizeFrame + 1) * (slideshow.index + 1) + 1) + 'px, -2px)';
   }
 
   prev() {
