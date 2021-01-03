@@ -348,7 +348,7 @@ export class ProductComponent implements OnInit {
   }
 
   setSlideshow() {
-    const slide = document.querySelector('.slideshow .carousel-slide') as HTMLElement;
+    const slide = document.querySelector('.slideshow .slide') as HTMLElement;
     const prevBtn = document.querySelector('.slideshow .prev-btn') as HTMLElement;
     const nextBtn = document.querySelector('.slideshow .next-btn') as HTMLElement;
     const ww = window.innerWidth;
@@ -362,7 +362,7 @@ export class ProductComponent implements OnInit {
     prevBtn.style.left = (ww * 0.1 + containerWidth * 0.03) + 'px';
     nextBtn.style.left = (ww * 0.1 + containerWidth - btnWidth - containerWidth * 0.03) + 'px';
   }
-
+  
   move(transition = 'transform 0.4s ease-in-out') {
     const track = document.querySelector('.carousel-track') as HTMLElement;
     const frame = document.querySelector('.gallery-frame') as HTMLElement;
