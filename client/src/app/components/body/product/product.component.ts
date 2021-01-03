@@ -354,7 +354,6 @@ export class ProductComponent implements OnInit {
   }
 
   setSlideshow() {
-    const slide = document.querySelector('.slideshow .slide') as HTMLElement;
     const prevBtn = document.querySelector('.slideshow .prev-btn') as HTMLElement;
     const nextBtn = document.querySelector('.slideshow .next-btn') as HTMLElement;
     const ww = window.innerWidth;
@@ -363,7 +362,6 @@ export class ProductComponent implements OnInit {
     const btnWidth = ww * 0.05;
     const btnHeight = btnWidth * 1.04;
 
-    slide.style.cursor = 'zoom-in';
     prevBtn.style.top = nextBtn.style.top = ((containerHeight - btnHeight) * 0.5 + 140) + 'px';
     prevBtn.style.left = (ww * 0.1 + containerWidth * 0.03) + 'px';
     nextBtn.style.left = (ww * 0.1 + containerWidth - btnWidth - containerWidth * 0.03) + 'px';
