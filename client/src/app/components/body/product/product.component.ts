@@ -421,57 +421,79 @@ export class ProductComponent implements OnInit {
   }
 
   openGallery(type = '.slideshow', event: any = null, msg: Object = null) {
-    const body = document.querySelector('body');
-    const slideshow = document.querySelector(type) as HTMLElement;
-    const carousel = document.querySelector(type + ' .carousel') as HTMLElement;
-    const slides = document.querySelectorAll(type + ' .slide') as NodeListOf<HTMLElement>;
-    const gallery = document.querySelector(type + ' .gallery') as HTMLElement;
-    const track = document.querySelector(type + ' .gallery .track') as HTMLElement;
-    const imgs = document.querySelectorAll(type + ' .img') as NodeListOf<HTMLElement>;
-    const closeBtn = document.querySelector(type + ' .close-btn') as HTMLElement;
-    const prevBtn = document.querySelector(type + ' .prev-btn') as HTMLElement;
-    const nextBtn = document.querySelector(type + ' .next-btn') as HTMLElement;
-    const ww = window.innerWidth;
-    const wh = window.innerHeight;
-    const btnWidth = ww * 0.05;
+    if (type == '.slideshow') this.slideshow.isOpened = true;
+    else if (!this.asideSlideshow.isOpenGallery) {
+      this.asideSlideshow.event = event;
 
-    this.getSlideshow(type).isOpened = true;
+      const imgsBar = event.target.closest('span.imgs-bar');
+      const boxs = Array.from(imgsBar.children);
+      const targetBox = event.target.closest('span');
+
+      if (!targetBox) return;
+      const targetIndex = boxs.findIndex(box => box == targetBox);
+      if (targetIndex < 0) return;
+      
+      this.asideSlideshow.index = targetIndex;
+      this.asideSlideshow.stars = Object(msg).stars;
+      this.asideSlideshow.content = Object(msg).content;
+      this.asideSlideshow.imgs = Object(msg).imgs;
+
+      this.setCarousel(type);
+    }
     this.getSlideshow(type).isOpenGallery = true;
 
-    body.style.overflowY = 'hidden';
-    slideshow.style.position = 'fixed';
-    slideshow.style.zIndex = '103';
-    slideshow.style.top = slideshow.style.left = slideshow.style.margin = slideshow.style.padding = '0';
-    slideshow.style.background = 'black';
-    slideshow.style.width = '100vw';
-    slideshow.style.height = '100vh';
-    closeBtn.style.display = 'inline';
-    closeBtn.style.height = closeBtn.clientWidth + 'px';
-    carousel.style.height = '90%';
+    setTimeout(() => {
+      const body = document.querySelector('body');
+      const slideshow = document.querySelector(type) as HTMLElement;
+      const carousel = document.querySelector(type + ' .carousel') as HTMLElement;
+      const slides = document.querySelectorAll(type + ' .slide') as NodeListOf<HTMLElement>;
+      const slideshowImgs = document.querySelectorAll(type + ' img') as NodeListOf<HTMLElement>;
+      const gallery = document.querySelector(type + ' .gallery') as HTMLElement;
+      const track = document.querySelector(type + ' .gallery .track') as HTMLElement;
+      const imgs = document.querySelectorAll(type + ' .img') as NodeListOf<HTMLElement>;
+      const closeBtn = document.querySelector(type + ' .close-btn') as HTMLElement;
+      const prevBtn = document.querySelector(type + ' .prev-btn') as HTMLElement;
+      const nextBtn = document.querySelector(type + ' .next-btn') as HTMLElement;
+      const ww = window.innerWidth;
+      const wh = window.innerHeight;
+      const btnWidth = ww * 0.05;
 
-    this.getSlideshow(type).size = Math.round(carousel.clientHeight * 4/3);
+      body.style.overflowY = 'hidden';
+      slideshow.style.position = 'fixed';
+      slideshow.style.display = 'flex';
+      slideshow.style.zIndex = '103';
+      slideshow.style.top = slideshow.style.left = slideshow.style.margin = slideshow.style.padding = '0';
+      slideshow.style.background = 'black';
+      slideshow.style.width = '100vw';
+      slideshow.style.height = '100vh';
+      closeBtn.style.display = 'inline';
+      closeBtn.style.height = closeBtn.clientWidth + 'px';
+      carousel.style.height = '90%';
 
-    carousel.style.width = this.getSlideshow(type).size + 'px';
-    prevBtn.style.top = nextBtn.style.top = (carousel.clientHeight - btnWidth) * 0.5 + 'px';
-    prevBtn.style.left = ((ww - carousel.clientWidth) * 0.5 + carousel.clientWidth * 0.03) + 'px';
-    nextBtn.style.left = ((ww - carousel.clientWidth) * 0.5 + carousel.clientWidth * (1 - 0.03) - btnWidth) + 'px';
-    slides.forEach(s => s.style.cursor = 'auto');
-    gallery.style.position = 'absolute';
-    gallery.style.display = 'flex';
-    gallery.style.bottom = '0';
-    gallery.style.left = '0';
-    gallery.style.height = (wh - carousel.clientHeight - 5) + 'px';
-    track.style.height = (wh - carousel.clientHeight - 15) + 'px';
-    this.getSlideshow(type).frameSize = Math.round(track.clientHeight * 4/3);
-    for (let i = 0; i < imgs.length; i++) {
-      imgs[i].style.width = this.getSlideshow(type).frameSize + 'px';
-      if (i > 0 && i < imgs.length - 1) imgs[i].style.marginRight = '1px';
-    }
-    if (track.clientWidth < ww) gallery.style.justifyContent = 'center';
-    track.style.transform = 'translateX(' + (-this.getSlideshow(type).frameSize * (track.clientWidth < ww ? 0.5 : 1)) + 'px)';
+      this.getSlideshow(type).size = type == '.slideshow' ? Math.round(carousel.clientHeight * 4/3) : ww * 0.6;
 
-    this.move(type, 'none');
-    this.scrollFrame(type);
+      carousel.style.width = this.getSlideshow(type).size + 'px';
+      
+      prevBtn.style.top = nextBtn.style.top = (carousel.clientHeight - btnWidth) * 0.5 + 'px';
+      prevBtn.style.left = (ww * (1 - (type == '.slideshow' ? 0 : 0.2)) * 0.5 - carousel.clientWidth * 0.47) + 'px';
+      nextBtn.style.left = (ww * (1 - (type == '.slideshow' ? 0 : 0.2)) * 0.5 + carousel.clientWidth * 0.47 - btnWidth) + 'px';
+      slides.forEach(s => s.style.cursor = 'auto');
+      gallery.style.position = 'absolute';
+      gallery.style.display = 'flex';
+      gallery.style.bottom = '0';
+      gallery.style.left = (type == '.slideshow' ? 0 : ww * 0.1) + 'px';
+      gallery.style.width = (type == '.slideshow' ? 100 : 60) + 'vw';
+      gallery.style.height = (wh - carousel.clientHeight - 5) + 'px';
+      track.style.height = (wh - carousel.clientHeight - 15) + 'px';
+      this.getSlideshow(type).frameSize = Math.round(track.clientHeight * 4/3);
+      for (let i = 0; i < imgs.length; i++) { imgs[i].style.width = this.getSlideshow(type).frameSize + 'px'; if (i > 0 && i < imgs.length - 1) imgs[i].style.marginRight = '1px'; }
+      gallery.style.justifyContent = track.clientWidth < ww * (type == '.slideshow' ? 1 : 0.6) ? 'center' : 'left';
+      track.style.transform = 'translateX(' + (-this.getSlideshow(type).frameSize * (track.clientWidth < ww * (type == '.slideshow' ? 1 : 0.6) ? 0.5 : 1)) + 'px)';
+      if (type != '.slideshow') slideshowImgs.forEach(i => { if (i.clientWidth > i.clientHeight) i.style.width = '100%'; else i.style.height = '100%'; });
+
+      this.move(type, 'none');
+      this.scrollFrame(type);
+    });
   }
 
   selectImg(event: any, type = '.slideshow') {
