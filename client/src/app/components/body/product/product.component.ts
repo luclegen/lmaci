@@ -520,15 +520,19 @@ export class ProductComponent implements OnInit {
     const closeBtn = document.querySelector(type + ' .close-btn') as HTMLElement;
 
     this.getSlideshow(type).isOpenGallery = false;
-    this.setSlideshow();
 
     body.style.overflowY = 'visible';
-    slideshow.style.position = 'static';
-    slideshow.style.zIndex = '0';
-    slideshow.style.width = this.getSlideshow(type).size + 'px';
-    slideshow.style.margin = '10px 0.5% 0 10%';
-    slideshow.style.height = carousel.style.height = 'auto';
-    slides.forEach(s => s.style.cursor = 'zoom-in');
+
+    if (type == '.slideshow') {
+      this.setSlideshow();
+
+      slideshow.style.position = 'static';
+      slideshow.style.zIndex = '0';
+      slideshow.style.width = this.getSlideshow(type).size + 'px';
+      slideshow.style.margin = '10px 0.5% 0 10%';
+      slideshow.style.height = carousel.style.height = 'auto';
+      slides.forEach(s => s.style.cursor = 'zoom-in');
+    } else slideshow.style.display = 'none';
 
     this.move(type, closeBtn.style.display = gallery.style.display = 'none');
   }
