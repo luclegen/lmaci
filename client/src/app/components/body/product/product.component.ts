@@ -544,6 +544,7 @@ export class ProductComponent implements OnInit {
   reloadSlideshow() {
     this.paths = [];
     if (this.product.slideshows.length && this.product.slideshows.filter(s => s.color == this.preview.color.value).length && this.product.slideshows.filter(s => s.color == this.preview.color.value)[0].imgs) this.paths = this.product.slideshows.filter(s => s.color == this.preview.color.value)[0].imgs.map(i => i.path);
+    this.setCarousel();
     this.move(undefined, 'none');
   }
 
