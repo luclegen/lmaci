@@ -40,8 +40,13 @@ export class ProductComponent implements OnInit {
     size: 0,
     frameSize: 0,
     isOpenGallery: false,
-    isOpened: false,
-    event: null
+    event: null,
+    stars: {
+      count: [],
+      none: []
+    },
+    content: '',
+    imgs: []
   }
 
   //#endregion Aside Slideshow
@@ -223,14 +228,6 @@ export class ProductComponent implements OnInit {
 
   //#endregion Comments
 
-  //#region Resize
-
-  resize = false;
-  asideEvent;
-  isShowAsideGallery = false;
-
-  //#endregion Resize
-
   @HostListener('window:resize')
   onResize() {
     this.setSlideshow();
@@ -344,15 +341,16 @@ export class ProductComponent implements OnInit {
     if (this.product.slideshows.length && this.product.slideshows.filter(s => s.color == this.order.color.value).length && this.product.slideshows.filter(s => s.color == this.order.color.value)[0].imgs.length) this.paths = this.product.slideshows.filter(s => s.color == this.order.color.value)[0].imgs.map(img => img.path);
   }
 
-  setCarousel() {
+  setCarousel(type = '.slideshow') {
     setTimeout(() => {
-      const slides = document.querySelectorAll('.slideshow .slide') as NodeListOf<Element>;
-      const container = document.querySelector('.slideshow .container') as HTMLElement;
+      const slides = document.querySelectorAll(type + ' .slide') as NodeListOf<Element>;
+      const container = document.querySelector(type + ' .container') as HTMLElement;
+      const imgs = document.querySelectorAll(type + ' img') as NodeListOf<HTMLElement>;
 
       container.style.width = slides.length * 100 + '%';
+      imgs.forEach(i => i.style.width = i.style.height = type == '.slideshow' ? '100%' : 'auto');
     });
   }
-
   setSlideshow() {
     const prevBtn = document.querySelector('.slideshow .prev-btn') as HTMLElement;
     const nextBtn = document.querySelector('.slideshow .next-btn') as HTMLElement;
