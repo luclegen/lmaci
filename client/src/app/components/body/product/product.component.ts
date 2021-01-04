@@ -627,6 +627,7 @@ export class ProductComponent implements OnInit {
                   this.product = res['product'];
 
                   this.setPaths();
+                  this.setCarousel();
                 },
                 err => alert(err.error.msg)
               );
