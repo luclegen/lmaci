@@ -474,7 +474,7 @@ export class ProductComponent implements OnInit {
       this.getSlideshow(type).size = type == '.slideshow' ? Math.round(carousel.clientHeight * 4/3) : ww * 0.6;
 
       carousel.style.width = this.getSlideshow(type).size + 'px';
-      
+
       prevBtn.style.top = nextBtn.style.top = (carousel.clientHeight - btnWidth) * 0.5 + 'px';
       prevBtn.style.left = (ww * (1 - (type == '.slideshow' ? 0 : 0.2)) * 0.5 - carousel.clientWidth * 0.47) + 'px';
       nextBtn.style.left = (ww * (1 - (type == '.slideshow' ? 0 : 0.2)) * 0.5 + carousel.clientWidth * 0.47 - btnWidth) + 'px';
