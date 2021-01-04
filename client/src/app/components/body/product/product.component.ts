@@ -382,7 +382,7 @@ export class ProductComponent implements OnInit {
     const imgs = document.querySelectorAll(type + ' .img') as NodeListOf<Element>;
     const gallery = document.querySelector(type + ' .gallery') as HTMLElement;
     const ww = window.innerWidth;
-    const visibleImgCount = Math.round(ww / (this.getSlideshow(type).frameSize + 1));
+    const visibleImgCount = Math.round(ww * (type == '.slideshow' ? 1 : 0.6) / (this.getSlideshow(type).frameSize + 1));
 
     gallery.scrollBy(-(this.getSlideshow(type).frameSize + 1) * (imgs.length - visibleImgCount), 0);
     gallery.scrollBy((this.getSlideshow(type).frameSize + 1) * (this.getSlideshow(type).index - Math.round(visibleImgCount / 2) + 1), 0);
