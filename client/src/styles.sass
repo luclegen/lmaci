@@ -110,20 +110,17 @@ div
         list-style: none
 
         li.slide
+          display: flex
+          justify-content: center
+          align-items: center
           width: 100%
           height: 100%
           cursor: zoom-in
 
-          img
-            width: 100%
-            height: 100%
-
   &.gallery
-    display: none
     position: absolute
-    left: 0
+    display: none
     bottom: 0
-    width: 100%
     overflow: auto
 
     ul.track
@@ -133,11 +130,11 @@ div
       li
 
         &.img
+          display: flex
+          justify-content: center
+          align-items: center
           height: 100%
           cursor: pointer
-          
-          img
-            height: 100%
 
         &.frame
           border: 2px solid yellow
@@ -252,86 +249,19 @@ div
       margin-right: 5px
 
   &.aside-slideshow
-    position: fixed
-    top: 0
-    left: 0
     display: none
-    width: 100vw
-    height: 100vh
-    background: #000000e6
-    z-index: 2
 
-    div
-      
-      &.aside-carousel-container
-        overflow: hidden
-        display: flex
-        width: 60vw
-        height: 90vh
-        margin-left: 10%
-        fill: white
+    div.left
+      width: 60vw
+      height: 100%
+      margin-left: 10vw
 
-        button
-          position: absolute
-          display: none
-          padding: 0
-          width: 5%
-          background: none
-          border: none
-          outline: none
-          cursor: pointer
-
-          svg
-            width: 100%
-
-      &.aside-container
-        width: 20vw
-        height: 100vh
-        margin-right: 10%
-        padding: 5px
-        background: aqua
-        overflow-y: auto
-
-      &.aside-carousel-slide
-        display: flex
-        width: 100%
-        height: 100%
-
-      &.aside-carousel-img-box
-        display: flex
-        justify-content: center
-        align-items: center
-        width: 60vw
-        height: 90vh
-        background: black
-
-    button
-
-      &#aside-prev-btn, &#aside-next-btn, &#aside-close-btn
-        display: none
-        border-radius: 50%
-
-      &#aside-prev-btn, &#aside-next-btn
-        top: 40%
-        background: black
-        padding: 5px
-
-        &:hover
-          background: gray
-
-      &#aside-close-btn
-        top: 10px
-        right: 10px
-        padding: 5px 5px 2px 5px
-        background: red
-        cursor: zoom-out
-
-      &#aside-prev-btn
-        left: 11%
-
-      &#aside-next-btn
-        right: 31%
-
+    div.right
+      background: aqua
+      width: 20vw
+      height: 100%
+      margin-right: 10vw
+  
 a
   text-decoration: none
   color: blue
@@ -849,6 +779,7 @@ button
     position: absolute
     display: none
     width: 5%
+    height: auto
     border: none
     outline: none
     border-radius: 50%
