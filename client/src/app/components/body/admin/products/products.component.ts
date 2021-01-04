@@ -472,22 +472,24 @@ export class ProductsComponent implements OnInit {
   }
 
   onCancelProduct() {
-    this.product = {
-      _id: '',
-      img: { index: -1, path: ''},
-      name: '',
-      price: 0,
-      quantity: { imported: 1 },
-      type: '',
-      colors: [],
-      capacitys: [],
-      properties: [],
-      technicalDetails: [],
-    };
-
-    this.imageChangedEvent = '';
-    this.croppedImage = '';
-    this.ngOnInit();
+    if (confirm('Do you want to Cancel?')) {
+      this.product = {
+        _id: '',
+        img: { index: -1, path: ''},
+        name: '',
+        price: 0,
+        quantity: { imported: 1 },
+        type: '',
+        colors: [],
+        capacitys: [],
+        properties: [],
+        technicalDetails: [],
+      };
+  
+      this.imageChangedEvent = '';
+      this.croppedImage = '';
+      this.ngOnInit();
+    }
   }
 
   //#endregion Cancel
