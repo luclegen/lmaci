@@ -331,12 +331,14 @@ export class ProductComponent implements OnInit {
   }
 
   setCarousel(type = '.slideshow') {
-    const slides = document.querySelectorAll(type + ' .slide') as NodeListOf<Element>;
-    const container = document.querySelector(type + ' .container') as HTMLElement;
-    const imgs = document.querySelectorAll(type + ' img') as NodeListOf<HTMLElement>;
+    setTimeout(() => {
+      const slides = document.querySelectorAll(type + ' .slide') as NodeListOf<Element>;
+      const container = document.querySelector(type + ' .container') as HTMLElement;
+      const imgs = document.querySelectorAll(type + ' img') as NodeListOf<HTMLElement>;
 
-    container.style.width = slides.length * 100 + '%';
-    imgs.forEach(i => i.style.width = i.style.height = type == '.slideshow' ? '100%' : 'auto');
+      container.style.width = slides.length * 100 + '%';
+      imgs.forEach(i => i.style.width = i.style.height = type == '.slideshow' ? '100%' : 'auto');
+    });
   }
 
   setSlideshow() {
