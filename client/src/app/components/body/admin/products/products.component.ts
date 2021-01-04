@@ -214,7 +214,6 @@ export class ProductsComponent implements OnInit {
                     res => {
                       alert('Update this product is successfully!');
         
-                      this.ngOnInit();
                       this.product = {
                         _id: '',
                         img: { index: -1, path: ''},
@@ -227,9 +226,10 @@ export class ProductsComponent implements OnInit {
                         properties: [],
                         technicalDetails: [],
                       };
-                  
+
                       this.imageChangedEvent = '';
                       this.croppedImage = '';
+                      this.ngOnInit();
                     },  
                     err => alert(err.error.msg)
                   );
@@ -241,7 +241,6 @@ export class ProductsComponent implements OnInit {
                 res => {
                   alert('Update this product is successfully!');
     
-                  this.ngOnInit();
                   this.product = {
                     _id: '',
                     img: { index: -1, path: ''},
@@ -254,9 +253,10 @@ export class ProductsComponent implements OnInit {
                     properties: [],
                     technicalDetails: [],
                   };
-              
+
                   this.imageChangedEvent = '';
                   this.croppedImage = '';
+                  this.ngOnInit();
                 },
                 err => alert(err.error.msg)
               );
@@ -276,7 +276,6 @@ export class ProductsComponent implements OnInit {
                   res => {
                     alert('Create this product is successfully!');
       
-                    this.ngOnInit();
                     this.product = {
                       _id: '',
                       img: { index: -1, path: ''},
@@ -289,9 +288,10 @@ export class ProductsComponent implements OnInit {
                       properties: [],
                       technicalDetails: [],
                     };
-                
+
                     this.imageChangedEvent = '';
                     this.croppedImage = '';
+                    this.ngOnInit();
                   },  
                   err => alert(err.error.msg)
                 );
