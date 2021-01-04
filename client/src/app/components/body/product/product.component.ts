@@ -133,15 +133,6 @@ export class ProductComponent implements OnInit {
     average: 0,
   }
 
-  asideGallery = {
-    stars: {
-      count: [],
-      none: []
-    },
-    content: '',
-    imgs: []
-  }
-
   comment = {
     index: 0,
     user: {
@@ -231,11 +222,9 @@ export class ProductComponent implements OnInit {
   @HostListener('window:resize')
   onResize() {
     this.setSlideshow();
-
     if (this.slideshow.isOpenGallery) this.openGallery();
     else if (this.slideshow.isOpened) this.closeGallery();
-
-    // if (this.isShowAsideGallery) this.showAsideGallery(this.asideEvent, this.asideGallery);
+    if (this.asideSlideshow.isOpenGallery) this.openGallery('.aside-slideshow', this.asideSlideshow.event, this.asideSlideshow.content);
   }
 
   constructor(private viewportRuler: ViewportRuler,
