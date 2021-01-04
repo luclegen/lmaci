@@ -215,7 +215,21 @@ export class ProductsComponent implements OnInit {
                       alert('Update this product is successfully!');
         
                       this.ngOnInit();
-                      this.onCancelProduct();
+                      this.product = {
+                        _id: '',
+                        img: { index: -1, path: ''},
+                        name: '',
+                        price: 0,
+                        quantity: { imported: 1 },
+                        type: '',
+                        colors: [],
+                        capacitys: [],
+                        properties: [],
+                        technicalDetails: [],
+                      };
+                  
+                      this.imageChangedEvent = '';
+                      this.croppedImage = '';
                     },  
                     err => alert(err.error.msg)
                   );
@@ -228,7 +242,21 @@ export class ProductsComponent implements OnInit {
                   alert('Update this product is successfully!');
     
                   this.ngOnInit();
-                  this.onCancelProduct();
+                  this.product = {
+                    _id: '',
+                    img: { index: -1, path: ''},
+                    name: '',
+                    price: 0,
+                    quantity: { imported: 1 },
+                    type: '',
+                    colors: [],
+                    capacitys: [],
+                    properties: [],
+                    technicalDetails: [],
+                  };
+              
+                  this.imageChangedEvent = '';
+                  this.croppedImage = '';
                 },
                 err => alert(err.error.msg)
               );
@@ -249,7 +277,21 @@ export class ProductsComponent implements OnInit {
                     alert('Create this product is successfully!');
       
                     this.ngOnInit();
-                    this.onCancelProduct();
+                    this.product = {
+                      _id: '',
+                      img: { index: -1, path: ''},
+                      name: '',
+                      price: 0,
+                      quantity: { imported: 1 },
+                      type: '',
+                      colors: [],
+                      capacitys: [],
+                      properties: [],
+                      technicalDetails: [],
+                    };
+                
+                    this.imageChangedEvent = '';
+                    this.croppedImage = '';
                   },  
                   err => alert(err.error.msg)
                 );
