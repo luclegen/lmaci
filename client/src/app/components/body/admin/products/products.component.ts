@@ -527,7 +527,7 @@ export class ProductsComponent implements OnInit {
         properties: [],
         technicalDetails: [],
       };
-  
+
       this.imageChangedEvent = '';
       this.croppedImage = '';
       this.ngOnInit();
