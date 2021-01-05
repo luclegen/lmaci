@@ -29,6 +29,11 @@ export class ChangePasswordComponent implements OnInit {
     this.titleServer.setTitle('Change Password | Lmaci');
   }
 
+  @HostListener('window:beforeunload')
+  beforeunloadHandler() {
+    return !(this.user.password || this.user.newPassword || this.user.confirmPassword);
+  }
+
   @HostListener('window:resize')
   onResize() {
     this.helperService.setPositionOnlyForm();
