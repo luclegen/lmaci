@@ -515,7 +515,7 @@ export class ProductsComponent implements OnInit {
   }
 
   onCancelProduct() {
-    if (confirm('Do you want to Cancel?')) {
+    if (confirm('Are you sure to cancel?')) {
       this.product = {
         _id: '',
         img: { index: -1, path: ''},
