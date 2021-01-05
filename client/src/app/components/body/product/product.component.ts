@@ -1030,7 +1030,7 @@ export class ProductComponent implements OnInit {
             );
           } else alert('Only users can comment this product.');
         },
-        err => { if (err.status == 440 && confirm('Your session has expired and must log in again.\n\nDo you want to login again?')) window.open('/login'); }
+        err => { if (err.status == 440 && confirm('Login again?\nYour session has expired and must log in again.')) window.open('/login'); }
       );
     } else if (confirm('Do you want to login?')) window.open('login');
   }
@@ -1133,7 +1133,7 @@ export class ProductComponent implements OnInit {
             err => alert(err.error.msg)
           );
         },
-        err => { if (err.status == 440 && confirm('Your session has expired and must log in again.\n\nDo you want to login again?')) window.open('/login'); }
+        err => { if (err.status == 440 && confirm('Login again?\nYour session has expired and must log in again.')) window.open('/login'); }
       );
     } else if (confirm('Do you want to login?')) window.open('login');
   }
