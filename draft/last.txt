@@ -290,7 +290,7 @@ export class ProductComponent implements OnInit {
         this.setReviews();
         this.setComments();
 
-        if (this.authService.getToken()) this.authService.getInfo().subscribe(res => this.userDetails = res['user'], err => { if (err.status == 440 && confirm('Your session has expired and must log in again.\n\nDo you want to login again?')) window.open('/login'); });
+        if (this.authService.getToken()) this.authService.getInfo().subscribe(res => this.userDetails = res['user'], err => { if (err.status == 440 && confirm('Login again?\nYour session has expired and must log in again.')) window.open('/login'); });
       },
       err => {
         alert(err.error.msg);
@@ -649,7 +649,7 @@ export class ProductComponent implements OnInit {
           );
         }
       },
-      err => { if (err.status == 440 && confirm('Your session has expired and must log in again.\n\nDo you want to login again?')) window.open('/login'); }
+      err => { if (err.status == 440 && confirm('Login again?\nYour session has expired and must log in again.')) window.open('/login'); }
     );
   }
 
@@ -664,7 +664,7 @@ export class ProductComponent implements OnInit {
           }
         }
       },
-      err => { if (err.status == 440 && confirm('Your session has expired and must log in again.\n\nDo you want to login again?')) window.open('/login'); });
+      err => { if (err.status == 440 && confirm('Login again?\nYour session has expired and must log in again.')) window.open('/login'); });
   }
 
   //#endregion Slideshow Editor
@@ -821,12 +821,12 @@ export class ProductComponent implements OnInit {
           );
         }
       },
-      err => { if (err.status == 440 && confirm('Your session has expired and must log in again.\n\nDo you want to login again?')) window.open('/login'); }
+      err => { if (err.status == 440 && confirm('Login again?\nYour session has expired and must log in again.')) window.open('/login'); }
     );
   }
 
   cancelSavePost() {
-    this.authService.getInfo().subscribe(res => { if (res['user'].role == 'root' || res['user'].role === 'admin') if (confirm('Are you sure to cancel?')) this.setPost(); }, err => { if (err.status == 440 && confirm('Your session has expired and must log in again.\n\nDo you want to login again?')) window.open('/login'); });
+    this.authService.getInfo().subscribe(res => { if (res['user'].role == 'root' || res['user'].role === 'admin') if (confirm('Are you sure to cancel?')) this.setPost(); }, err => { if (err.status == 440 && confirm('Login again?\nYour session has expired and must log in again.')) window.open('/login'); });
   }
 
   //#endregion Post Editor
@@ -930,7 +930,7 @@ export class ProductComponent implements OnInit {
             );
           } else alert('Only users can review this product.');
         },
-        err => { if (err.status == 440 && confirm('Your session has expired and must log in again.\n\nDo you want to login again?')) window.open('/login'); }
+        err => { if (err.status == 440 && confirm('Login again?\nYour session has expired and must log in again.')) window.open('/login'); }
       );
     } else if (confirm('Do you want to login?')) window.open('login');
   }
@@ -1030,7 +1030,7 @@ export class ProductComponent implements OnInit {
             );
           } else alert('Only users can comment this product.');
         },
-        err => { if (err.status == 440 && confirm('Your session has expired and must log in again.\n\nDo you want to login again?')) window.open('/login'); }
+        err => { if (err.status == 440 && confirm('Login again?\nYour session has expired and must log in again.')) window.open('/login'); }
       );
     } else if (confirm('Do you want to login?')) window.open('login');
   }
@@ -1133,7 +1133,7 @@ export class ProductComponent implements OnInit {
             err => alert(err.error.msg)
           );
         },
-        err => { if (err.status == 440 && confirm('Your session has expired and must log in again.\n\nDo you want to login again?')) window.open('/login'); }
+        err => { if (err.status == 440 && confirm('Login again?\nYour session has expired and must log in again.')) window.open('/login'); }
       );
     } else if (confirm('Do you want to login?')) window.open('login');
   }
