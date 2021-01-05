@@ -35,6 +35,11 @@ export class LoginComponent implements OnInit {
     this.helperService.setPositionOnlyForm();
   }
 
+  @HostListener('window:beforeunload')
+  beforeunloadHandler() {
+    return !(this.user.username || this.user.password);
+  }
+
   ngOnInit(): void {
     if (this.authService.getToken()) this.authService.removeToken();
     this.helperService.setPositionOnlyForm();
