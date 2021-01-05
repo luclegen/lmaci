@@ -252,7 +252,6 @@ export class ProductsComponent implements OnInit {
                     quantity: { imported: 1 },
                     type: '',
                     colors: [],
-                    capacitys: [],
                     properties: [],
                     technicalDetails: [],
                   };
