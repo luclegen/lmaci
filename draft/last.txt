@@ -564,20 +564,19 @@ export class ProductComponent implements OnInit {
 
   onCheckColor(color) {
     if (this.isChangeColor) this.preview.color = this.order.color = JSON.parse(JSON.stringify(color));
-
     this.reloadSlideshow();
   }
 
   previewColor(color) {
-    if (this.isAdmin() && this.isSaveSlideshow()) this.isChangeColor = confirm('Changes you made may not be saved.\n\nAre you sure to change this color?');
+    this.isChangeColor = color.value != this.order.color.value;
+    if (this.isAdmin() && this.isSaveSlideshow() && this.isChangeColor) this.isChangeColor = confirm('Change color?\nChanges you made may not be saved.');
     if (this.isChangeColor) this.preview.color = JSON.parse(JSON.stringify(color));
-
     this.reloadSlideshow();
   }
 
   resetColor() {
+    this.isChangeColor = this.preview.color.value != this.order.color.value;
     if (this.isChangeColor) this.preview.color = this.order.color;
-    
     this.reloadSlideshow();
   }
 
