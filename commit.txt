@@ -115,6 +115,7 @@ Auth Service: findUsername
 Find Username Component: constructor, ngOnInit, onSubmit
 Find Username Component: ngOnInit
 Find Username Component: onResize
+Find Username Component: beforeunloadHandler
 Reset Password Component: Initial
 Routes: ResetPasswordComponent
 Reset Password Component: View
