@@ -227,6 +227,11 @@ export class ProductComponent implements OnInit {
     if (this.asideSlideshow.isOpenGallery) this.openGallery('.aside-slideshow', this.asideSlideshow.event, this.asideSlideshow.content);
   }
 
+  @HostListener('window:beforeunload')
+  beforeunloadHandler() {
+    return !(this.isAdmin() && (this.isSaveSlideshow() || this.isSavePost()) || !this.isAdmin() && (this.review.star || this.comment.content || this.comment.files.length || this.answer.content || this.answer.files.length));
+  }
+
   constructor(private viewportRuler: ViewportRuler,
               private route: ActivatedRoute,
               private titleService: Title,
