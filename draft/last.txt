@@ -163,13 +163,18 @@ export class ProductComponent implements OnInit {
 
   //#endregion Formater
 
+  //#region Checker
+
+  isChangeColor = true;
+
+  //#endregion Checker
+
   //#region Image Cropper
 
   path: any = '';
   paths = [];
   imageChangedEvent: any = '';
   croppedImage: any = '';
-  isChangeColor = true;
 
   //#endregion Image Cropper
 
