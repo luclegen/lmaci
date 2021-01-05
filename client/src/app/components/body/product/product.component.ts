@@ -568,8 +568,8 @@ export class ProductComponent implements OnInit {
   }
 
   previewColor(color) {
-    this.preview.color = JSON.parse(JSON.stringify(color));
-
+    if (this.isAdmin() && this.isSaveSlideshow()) this.isChangeColor = confirm('Change color?\nChanges you made may not be saved.');
+    if (this.isChangeColor) this.preview.color = JSON.parse(JSON.stringify(color));
     this.reloadSlideshow();
   }
 
