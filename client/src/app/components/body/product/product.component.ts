@@ -649,7 +649,7 @@ export class ProductComponent implements OnInit {
     this.authService.getInfo().subscribe(
       res => {
         if (res['user'].role == 'root' || res['user'].role === 'admin') {
-          if (confirm('Do you want to cancel?')) {
+          if (confirm('Are you sure to cancel?')) {
             this.onCheckColor(this.order.color);
             this.setCarousel();
           }
