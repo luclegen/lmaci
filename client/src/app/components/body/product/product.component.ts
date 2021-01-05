@@ -229,7 +229,7 @@ export class ProductComponent implements OnInit {
 
   @HostListener('window:beforeunload')
   beforeunloadHandler() {
-    return !(this.isAdmin() && (this.isSaveSlideshow() || this.isSavePost()) || !this.isAdmin() && (this.review.star || this.comment.content || this.comment.files.length || this.answer.content || this.answer.files.length));
+    return !((this.isSaveSlideshow() || this.isSavePost()) || !this.isAdmin() && (this.review.star || this.comment.content || this.comment.files.length || this.answer.content || this.answer.files.length));
   }
 
   constructor(private viewportRuler: ViewportRuler,
