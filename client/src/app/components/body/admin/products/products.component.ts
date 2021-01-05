@@ -302,7 +302,7 @@ export class ProductsComponent implements OnInit {
           }
         }
       },
-      err => { if (err.status == 440 && confirm('Your session has expired and must log in again.\n\nDo you want to login again?')) window.open('/login'); }
+      err => { if (err.status == 440 && confirm('Login again?\nYour session has expired and must log in again.')) window.open('/login'); }
     );
   }
 
