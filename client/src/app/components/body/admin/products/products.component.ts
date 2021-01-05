@@ -29,7 +29,6 @@ export class ProductsComponent implements OnInit {
     quantity: { imported: 0 },
     type: '',
     colors: [],
-    capacitys: [],
     properties: [],
     technicalDetails: [],
   };
@@ -227,7 +226,6 @@ export class ProductsComponent implements OnInit {
                         quantity: { imported: 1 },
                         type: '',
                         colors: [],
-                        capacitys: [],
                         properties: [],
                         technicalDetails: [],
                       };
