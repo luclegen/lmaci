@@ -139,6 +139,7 @@ Auth Service: getId
 Change Password Component: onSubmit
 Active Component: onSubmit
 Active Component: constructor
+Change Password Component: beforeunloadHandler
 Change Password Component: ngOnInit
 Find Username Component: onSubmit
 Admin Images: People
