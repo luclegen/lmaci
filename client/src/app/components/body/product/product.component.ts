@@ -574,8 +574,7 @@ export class ProductComponent implements OnInit {
   }
 
   resetColor() {
-    this.preview.color = this.order.color;
-    
+    if (this.isChangeColor) this.preview.color = this.order.color;
     this.reloadSlideshow();
   }
 
