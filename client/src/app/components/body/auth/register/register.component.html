@@ -14,7 +14,8 @@
       <span id="gender-span">
         <label>Gender: </label>
         <select #gender="ngModel" [(ngModel)]="user.gender" name="gender" id="gender">
-          <option value="male" selected>Male</option>
+          <option value="" selected>Choose your gender</option>
+          <option value="male" >Male</option>
           <option value="female">Female</option>
           <option value="other">Other</option>
         </select>
