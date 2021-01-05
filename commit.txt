@@ -131,6 +131,7 @@ Auth Service: resetPassword
 Reset Password Component: onSubmit
 Reset Password Component: resendEmail
 Reset Password Component: onResize
+Reset Password Component: beforeunloadHandler
 Change PasswordresendEmail Component: Initial
 Change Password Component: View
 Routes: ChangePasswordComponent
