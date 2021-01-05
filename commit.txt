@@ -106,6 +106,7 @@ Active Component: ngOnInit, onSubmit
 Change Email Component: ngOnInit, onSubmit
 Change Email Component: ngOnInit
 Change Email Component: onResize
+Change Email Component: beforeunloadHandler
 Register Component: View
 Find Username Component: Initial
 Routes: FindUsernameComponent
