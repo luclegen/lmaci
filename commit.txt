@@ -56,8 +56,9 @@ Login Component: beforeunloadHandler
 User Service: getProfile
 Login Component: onSubmit
 Helper Service: setPositionOnlyForm
-Register Component: ngOnInit
 Register Component: onResize
+Register Component: beforeunloadHandler
+Register Component: ngOnInit
 Authentication
 Module: Authentication, Services
 User Service: active
