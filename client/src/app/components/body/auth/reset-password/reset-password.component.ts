@@ -46,6 +46,11 @@ export class ResetPasswordComponent implements OnInit {
     this.helperService.setPositionOnlyForm();
   }
 
+  @HostListener('window:beforeunload')
+  beforeunloadHandler() {
+    return !(this.user.verificationCode || this.user.password || this.user.confirmPassword);
+  }
+
   ngOnInit(): void {
     this.authService.resendVerifyResetPassword(this.username).subscribe();
     this.helperService.setPositionOnlyForm();
