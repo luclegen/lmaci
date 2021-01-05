@@ -156,6 +156,7 @@ Products Component: Initial
 Products Component: ngOnInit
 Products Component: onResize
 Products Component: viewDetails
+Products Component: beforeunloadHandler
 Routes: UsersComponent
 Routes: ProductsComponent
 Users Component: View
