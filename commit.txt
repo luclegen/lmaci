@@ -89,6 +89,7 @@ Auth Service: getInfo
 Top Navbar Component: ngOnInit
 Active Component: ngOnInit
 Active Component: onResize
+Active Component: beforeunloadHandler
 Active Component: View
 User Service: getUser
 JSON Angular
