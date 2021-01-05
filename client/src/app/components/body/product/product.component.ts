@@ -163,6 +163,12 @@ export class ProductComponent implements OnInit {
 
   //#endregion Formater
 
+  //#region Checker
+
+  isChangeColor = true;
+
+  //#endregion Checker
+
   //#region Image Cropper
 
   path: any = '';
@@ -548,10 +554,12 @@ export class ProductComponent implements OnInit {
   //#region Order
 
   reloadSlideshow() {
-    this.paths = [];
-    if (this.product.slideshows.length && this.product.slideshows.filter(s => s.color == this.preview.color.value).length && this.product.slideshows.filter(s => s.color == this.preview.color.value)[0].imgs) this.paths = this.product.slideshows.filter(s => s.color == this.preview.color.value)[0].imgs.map(i => i.path);
-    this.setCarousel();
-    this.move(undefined, 'none');
+    if (this.isChangeColor) {
+      this.paths = [];
+      if (this.product.slideshows.length && this.product.slideshows.filter(s => s.color == this.preview.color.value).length && this.product.slideshows.filter(s => s.color == this.preview.color.value)[0].imgs) this.paths = this.product.slideshows.filter(s => s.color == this.preview.color.value)[0].imgs.map(i => i.path);
+      this.setCarousel();
+      this.move(undefined, 'none');
+    }
   }
 
   onCheckColor(color) {
