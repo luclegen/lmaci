@@ -656,6 +656,7 @@ export class ProductComponent implements OnInit {
       res => {
         if (res['user'].role == 'root' || res['user'].role === 'admin') {
           if (confirm('Are you sure to cancel?')) {
+            this.isChangeColor = true;
             this.onCheckColor(this.order.color);
             this.setCarousel();
           }
