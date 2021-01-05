@@ -33,7 +33,7 @@ export class UsersComponent implements OnInit {
   }
 
   makeAdmin(username: string) {
-    this.authService.getInfo().subscribe(res => { if ((res['user'].role == 'root' || res['user'].role === 'admin') && confirm('Are you sure to make admin: ' + username + '?')) this.adminService.makeAdmin(username).subscribe(res => { alert(res['msg']); this.ngOnInit(); }, err => alert(err.error.msg)); }, err => { if (err.status == 440 && confirm('Your session has expired and must log in again.\n\nDo you want to login again?')) window.open('/login'); });
+    this.authService.getInfo().subscribe(res => { if ((res['user'].role == 'root' || res['user'].role === 'admin') && confirm('Are you sure to make admin: ' + username + '?')) this.adminService.makeAdmin(username).subscribe(res => { alert(res['msg']); this.ngOnInit(); }, err => alert(err.error.msg)); }, err => { if (err.status == 440 && confirm('Login again?\nYour session has expired and must log in again.')) window.open('/login'); });
   }
 
   onSubmit(form: NgForm) {
