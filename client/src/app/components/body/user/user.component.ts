@@ -153,9 +153,11 @@ export class UserComponent implements OnInit {
   }
 
   onCancel() {
-    this.imageChangedEvent = '';
-    this.croppedImage = '';
-    this.edit();
+    if (confirm('Are you sure to cancel?')) {
+      this.imageChangedEvent = '';
+      this.croppedImage = '';
+      this.edit();
+    }
   }
 
 }
