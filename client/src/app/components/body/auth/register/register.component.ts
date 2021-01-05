@@ -15,7 +15,7 @@ export class RegisterComponent implements OnInit {
   user = {
     firstName: '',
     lastName: '',
-    gender: 'male',
+    gender: '',
     email: '',
     mobileNumber: '',
     address: '',
@@ -44,6 +44,11 @@ export class RegisterComponent implements OnInit {
   @HostListener('window:resize')
   onResize() {
     this.helperService.setPositionOnlyForm();
+  }
+
+  @HostListener('window:beforeunload')
+  beforeunloadHandler() {
+    return !(this.user.firstName || this.user.lastName || this.user.gender || this.user.email || this.user.mobileNumber || this.user.address || this.user.username || this.user.password || this.user.confirmPassword);
   }
 
   ngOnInit(): void {
