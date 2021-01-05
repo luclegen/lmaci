@@ -31,6 +31,11 @@ export class FindUsernameComponent implements OnInit {
     this.helperService.setPositionOnlyForm();
   }
 
+  @HostListener('window:beforeunload')
+  beforeunloadHandler() {
+    return !this.emailFind;
+  }
+
   ngOnInit(): void {
     if (this.authService.getToken()) this.router.navigateByUrl('');
     this.helperService.setPositionOnlyForm();
