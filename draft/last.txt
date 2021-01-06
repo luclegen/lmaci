@@ -1,38 +1,29 @@
 import { Component, HostListener, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
-import { Observable, timer } from 'rxjs';
-import { take, map } from 'rxjs/operators';
-
-import { AuthService } from 'src/app/services/auth.service';
 import { HelperService } from 'src/app/services/helper.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
-  selector: 'app-active',
-  templateUrl: './active.component.html',
-  styleUrls: ['./active.component.sass']
+  selector: 'app-change-email',
+  templateUrl: './change-email.component.html',
+  styleUrls: ['./change-email.component.sass']
 })
-export class ActiveComponent implements OnInit {
-  counter$: Observable<number>;
-  count = 60;
-  
-  verificationCode: '';
+export class ChangeEmailComponent implements OnInit {
 
-  codeRegex;
-
+  emailChange: string;
   serverErrorMessages: string;
+
+  emailRegex;
 
   constructor(private titleService: Title,
               private helperService: HelperService,
               private authService: AuthService,
               private router: Router) {
-    this.titleService.setTitle('Verify Email | Lmaci');
-    
-    this.codeRegex = this.helperService.codeRegex;
-    
-    this.counter$ = timer(0, 1000).pipe(take(this.count), map(() => --this.count));
+    this.titleService.setTitle('Change Email | Lmaci');
+    this.emailRegex = this.helperService.emailRegex;
   }
 
   @HostListener('window:resize')
@@ -42,35 +33,29 @@ export class ActiveComponent implements OnInit {
 
   @HostListener('window:beforeunload')
   beforeunloadHandler() {
-    return !this.verificationCode;
+    return !this.emailChange;
   }
 
   ngOnInit(): void {
-    this.authService.getInfo().subscribe(res => { if (res['user'].activated) this.router.navigateByUrl(''); else this.authService.resendActive(this.authService.getId()).subscribe(); }, err => { if (err.status == 440 && confirm('Login again?\nYour session has expired and must log in again.')) window.open('/login'); });
+    this.authService.getInfo().subscribe(res => { if (res['user'].activated) this.router.navigateByUrl(''); }, err => { if (err.status == 440 && confirm('Login again?\nYour session has expired and must log in again.')) window.open('/login'); });
     this.helperService.setPositionOnlyForm();
   }
 
   onSubmit(form: NgForm) {
     this.serverErrorMessages = null;
-    this.authService.active(this.authService.getId(), form.value).subscribe(
+    this.authService.getInfo().subscribe(
       res => {
-        alert(res['msg']);
-        this.authService.getInfo().subscribe(res => this.router.navigateByUrl('user/' + res['user'].username), err => { if (err.status == 440 && confirm('Login again?\nYour session has expired and must log in again.')) window.open('/login'); });
+        if (!res['user'].activated) {
+          this.authService.changeEmail(this.authService.getId(), form.value).subscribe(
+            res => {
+              alert(res['msg']);
+              this.router.navigateByUrl('active');
+            },
+            err => this.serverErrorMessages = err.error.message
+          );
+        }
       },
-      err => this.serverErrorMessages = err.error.msg
-    );
-  }
-
-  resendEmail() {
-    this.serverErrorMessages = null;
-    this.authService.resendActive(this.authService.getId()).subscribe(
-      res => {
-        alert(res['msg']);
-        
-        this.count = 60;
-        this.counter$ = timer(0, 1000).pipe(take(this.count), map(() => --this.count));
-      },
-      err => this.serverErrorMessages = err.error.msg
+      err => { if (err.status == 440 && confirm('Login again?\nYour session has expired and must log in again.')) window.open('/login'); }
     );
   }
 }
