@@ -104,6 +104,7 @@ Change Email Component: constructor, ngOnInit, onSubmit
 Auth Service: changeEmail
 Change Email Component: onSubmit
 Change Email Component: View
+Active Component: ngOnInit
 Active Component: ngOnInit, onSubmit
 Change Email Component: ngOnInit, onSubmit
 Change Email Component: ngOnInit
