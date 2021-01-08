@@ -201,34 +201,34 @@ export class ProductsComponent implements OnInit {
         if (res['user'].role == 'root' || res['user'].role === 'admin') {
           if (form.value._id) {
             form.value.img = '';
-
+  
             if (this.croppedImage) {
               this.adminService.updateProduct(form.value._id, form.value).subscribe(
                 res => {
                   const formData = new FormData();
-
+  
                   this.product.img.index++;
                   const file = new File([ this.helperService.base64ToBlob(this.croppedImage, 'png') ], 'img.png', { type: 'image/png' });
                   
                   formData.append('index', this.product.img.index.toString());
                   formData.append('file', file, this.product.img.index.toString() + '.png');
-
+  
                   this.adminService.uploadProductImg(res['_id'], formData).subscribe(
                     res => {
                       alert('Update this product is successfully!');
-        
+  
                       this.product = {
                         _id: '',
                         img: { index: -1, path: ''},
                         name: '',
                         price: 0,
-                        quantity: { imported: 1 },
+                        quantity: { imported: 0 },
                         type: '',
                         colors: [],
                         properties: [],
                         technicalDetails: [],
                       };
-
+  
                       this.imageChangedEvent = '';
                       this.croppedImage = '';
                       this.ngOnInit();
@@ -248,13 +248,13 @@ export class ProductsComponent implements OnInit {
                     img: { index: -1, path: ''},
                     name: '',
                     price: 0,
-                    quantity: { imported: 1 },
+                    quantity: { imported: 0 },
                     type: '',
                     colors: [],
                     properties: [],
                     technicalDetails: [],
                   };
-
+  
                   this.imageChangedEvent = '';
                   this.croppedImage = '';
                   this.ngOnInit();
@@ -266,13 +266,13 @@ export class ProductsComponent implements OnInit {
             this.adminService.createProduct(form.value).subscribe(
               res => {
                 const formData = new FormData();
-
+  
                 this.product.img.index++;
                 const file = new File([ this.helperService.base64ToBlob(this.croppedImage, 'png') ], 'img.png', { type: 'image/png' });
-
+  
                 formData.append('index', this.product.img.index.toString());
                 formData.append('file', file, this.product.img.index.toString() + '.png');
-
+  
                 this.adminService.uploadProductImg(res['_id'], formData).subscribe(
                   res => {
                     alert('Create this product is successfully!');
@@ -282,13 +282,13 @@ export class ProductsComponent implements OnInit {
                       img: { index: -1, path: ''},
                       name: '',
                       price: 0,
-                      quantity: { imported: 1 },
+                      quantity: { imported: 0 },
                       type: '',
                       colors: [],
                       properties: [],
                       technicalDetails: [],
                     };
-
+  
                     this.imageChangedEvent = '';
                     this.croppedImage = '';
                     this.ngOnInit();
@@ -304,7 +304,7 @@ export class ProductsComponent implements OnInit {
       err => { if (err.status == 440 && confirm('Login again?\nYour session has expired and must log in again.')) window.open('/login'); }
     );
   }
-
+  
   onSubmitColor(form: NgForm) {
     const colors = {
       '#ffffff': 'White',
