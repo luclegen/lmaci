@@ -125,7 +125,6 @@ export class ProductsComponent implements OnInit {
 
   //#endregion Technical detail
 
-  positiveNumberRegex;
   NotNegativeNumberRegex;
 
   @HostListener('window:resize')
