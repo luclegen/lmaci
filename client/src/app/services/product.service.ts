@@ -18,8 +18,13 @@ export class ProductService {
     return this.http.get(environment.productUrl + '/' + id);
   }
 
-  uploadImgs(id: string, imgs: FormData) {
-    return this.http.put(environment.productUrl + '/upload-imgs/' + id, imgs);
+  uploadSlideshow(id: string, slideshow: Object, files) {
+    const formData = new FormData();
+
+    formData.append('slideshow', JSON.stringify(slideshow));
+    files.forEach(file => formData.append('files', file, file.fileName));
+
+    return this.http.put(environment.productUrl + '/upload-slideshow/' + id, formData);
   }
 
   post(id: string, post: Object) {
