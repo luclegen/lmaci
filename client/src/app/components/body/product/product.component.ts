@@ -104,8 +104,8 @@ export class ProductComponent implements OnInit {
     name: '',
     price: 0,
     color: {
-      name: '',
-      value: '',
+      name: 'Default',
+      value: 'default',
     },
     properties: []
   }
@@ -612,34 +612,29 @@ export class ProductComponent implements OnInit {
     this.authService.getInfo().subscribe(
       res => {
         if ((res['user'].role == 'root' || res['user'].role === 'admin') && this.isSaveSlideshow()) {
-          const formData = new FormData();
+          const slideshowIndex = this.product.slideshows.findIndex(s => s.color == this.order.color.value);
+          const slideshow = { color: this.order.color.value, imgs: [] }, files = [];
+          let index = slideshowIndex > -1 ? this.product.slideshows[slideshowIndex].imgs.length ? Math.max(...this.product.slideshows[slideshowIndex].imgs.map(i => i.index)) + 1 : 0 : 0;
 
-          let index = this.product.slideshows.length && this.product.slideshows.filter(s => s.color == this.order.color.value).length && this.product.slideshows.filter(s => s.color == this.order.color.value)[0].imgs.length ? Math.max(...this.product.slideshows.filter(s => s.color == this.order.color.value)[0].imgs.map(i => i.index)) + 1 : 0;
-          const indexs = [], paths = [];
-
-          formData.append('color', this.order.color.value);
-
-          this.paths.forEach(p => {
-            if (this.helperService.isBase64(p, 'jpeg')) {
-              const file = new File([ this.helperService.base64ToBlob(p, 'jpeg') ], 'img.jpeg', { type: 'image/jpeg' });
-              formData.append('files', file, index + '.jpeg');
-              
-              indexs.push(index);
-              p = environment.imageUrl + '/?image=product/' + this.id + '/slideshow/' + (this.order.color.value ? this.order.color.value.replace(/#/, '') + '/' : '') + index++ + '.jpeg';
+          this.paths.forEach(path => {
+            const isBase64 = this.helperService.isBase64(path, 'jpeg');
+            const img = {
+              index: isBase64 ? index : this.product.slideshows[slideshowIndex].imgs.filter(i => i.path == path)[0].index,
+              path: isBase64 ? environment.imageUrl + '/?image=product/' + this.id + '/slideshow/' + slideshow.color.replace(/#/, '') + '/' + index++ + '.jpeg' : path
             }
-            paths.push(p);
-          });
-          
-          formData.append('indexs', JSON.stringify(indexs));
-          formData.append('paths', JSON.stringify(paths));
 
-          this.productService.uploadImgs(this.id, formData).subscribe(
+            slideshow.imgs.push(img);
+            if (isBase64) files.push(new File([ this.helperService.base64ToBlob(path, 'jpeg') ], img.index + '.jpeg', { type: 'image/jpeg' }));
+          });
+
+          this.productService.uploadSlideshow(this.id, slideshow, files).subscribe(
             res => {
               alert(res['msg']);
               this.productService.getProduct(this.id).subscribe(
                 res => {
                   this.product = res['product'];
 
+                  this.onCheckColor(this.order.color);
                   this.setPaths();
                   this.setCarousel();
                 },
