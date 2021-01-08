@@ -91,10 +91,10 @@
   <div class="right-container">
     <form class="left">
       <label class="attr"><strong>Price:</strong><label class="price"> {{ priceFormatted }}</label></label>
-      <label *ngIf="preview.color.name" class="attr">
+      <label *ngIf="preview.color.name && !(preview.color.value == 'default' && product.colors.length == 1)" class="attr">
         <strong>Color:</strong> {{ preview.color.name }}
       </label>
-      <div class="left">
+      <div *ngIf="!(preview.color.value == 'default' && product.colors.length == 1)" class="left">
         <div *ngFor="let c of product.colors" class="center vertical color-radio-container">
           <input #color="ngModel" [(ngModel)]="order.color.name" [value]="c.name" (ngModelChange)="onCheckColor(c)" (mouseenter)="previewColor(c)" (mouseleave)="resetColor()" type="radio" name="color">
           <span class="checkmark" [ngStyle]="{ 'background': c.value }"></span> 
