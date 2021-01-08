@@ -5,7 +5,7 @@ const productCtrl = require('../controllers/product.controller');
 const transfer = require('../helpers/transfer');
 
 router.get('/:id', productCtrl.get);
-router.put('/upload-imgs/:id', transfer.upload('uploads/img/product', 'slideshow').array('files'), productCtrl.uploadSlideshows);
+router.put('/upload-slideshow/:id', transfer.upload('uploads/img/product', 'slideshow').array('files'), productCtrl.uploadSlideshow);
 router.put('/post/:id', productCtrl.post);
 router.put('/review/:id', transfer.upload('uploads/img/product', 'review').array('files'), productCtrl.review);
 router.put('/delete-review/:id', productCtrl.deleteReview);
