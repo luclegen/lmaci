@@ -37,7 +37,7 @@
 
     <span>
       <label id="quantity-imported">Quantity Imported: </label>
-      <input id="quantity-imported-in" class="number" #quantityImported="ngModel" [(ngModel)]="product.quantity.imported" type="number" name="quantityImported" min="0" [pattern]="positiveNumberRegex" required>
+      <input id="quantity-imported-in" class="number" #quantityImported="ngModel" [(ngModel)]="product.quantity.imported" type="number" name="quantityImported" min="0" [pattern]="NotNegativeNumberRegex" required>
     </span>
     
     <span id="type-span">
