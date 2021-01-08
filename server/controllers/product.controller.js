@@ -13,46 +13,31 @@ module.exports.get = async (req, res) => {
                  : res.status(404).json({ msg: 'Product not found.' });
 }
 
-module.exports.uploadSlideshows = async (req, res) => {
+module.exports.uploadSlideshow = async (req, res) => {
   if (!ObjectId.isValid(req.params.id))
     return res.status(400).json({ msg: `No record with given id: ${req.params.id}` });
 
   const product = await Product.findById(req.params.id);
 
   if (product) {
-    const paths = JSON.parse(req.body.paths);
-    let replace = false;
-    const slideshows = product.slideshows ? product.slideshows : [];
-    const indexs = slideshows.filter(s => s.color == req.body.color).length ? slideshows.filter(s => s.color == req.body.color)[0].imgs.map(i => i.index).concat(JSON.parse(req.body.indexs)) : JSON.parse(req.body.indexs);
-    const slideshow = {
-      color: req.body.color,
-      imgs: []
-    };
-    
-    paths.forEach(path => {
-      const img = {
-        index: indexs.filter(index => (new RegExp((req.body.color ? req.body.color.replace(/#/, '') + '/' : '') + index + '.jpeg')).test(path))[0],
-        path: path
-      }
-      indexs.splice(indexs.indexOf(img.index), 1)
-      slideshow.imgs.push(img);
-    })
+    const colors = product.colors.length ? product.colors : [ { option: 'custom', name: 'Default', value: 'default' } ];
+    const slideshows = product.slideshows.length ? JSON.parse(JSON.stringify(product.slideshows)) : [];
+    const slideshow = JSON.parse(req.body.slideshow);
+    const index = slideshows.findIndex(s => s.color == slideshow.color);
 
-    slideshows.forEach(s => {
-      if (s.color == req.body.color) {
-        slideshows[slideshows.indexOf(s)] = slideshow;
-        replace = true;
-      }
-    });
-    if (!replace) slideshows.push(slideshow);
+    if (index > -1) {
+      const oldIndexs = slideshows[index].imgs.map(i => i.index);
+      const newIndexs = slideshow.imgs.map(i => i.index);
+      const rmIndexs = oldIndexs.filter(i => !newIndexs.includes(i));
 
-    indexs.forEach(i => rimraf.sync('uploads/img/product/' + req.params.id + '/slideshow/' + (req.body.color ? req.body.color.replace(/#/, '') + '/' : '') + i + '.jpeg'));
-    
-    const product1 = await Product.findByIdAndUpdate(req.params.id, { $set: { slideshows: slideshows } }, { new: true });
+      rmIndexs.forEach(r => rimraf.sync('uploads/img/product/' + req.params.id + '/slideshow/' + slideshow.color.replace(/#/, '') + '/' + r + '.jpeg'));
+      slideshows[index] = slideshow;
+    } else slideshows.push(slideshow);
 
-    return product1 ? res.status(200).json({ msg: 'Upload this images is successfully.' })
-                    : res.status(404).json({ msg: 'Upload this images failed!' });
+    const newProduct = await Product.findByIdAndUpdate(req.params.id, { $set: { colors: colors, slideshows: slideshows } }, { new: true });
 
+    return newProduct ? res.status(200).json({ msg: 'Upload sideshow is successfully.' })
+                      : res.status(404).json({ msg: 'Upload sideshow failed!' });;
   } else res.status(404).json({ msg: 'Product not found.' });
 }
 
