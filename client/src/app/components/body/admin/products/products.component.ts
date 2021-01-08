@@ -520,19 +520,19 @@ export class ProductsComponent implements OnInit {
         img: { index: -1, path: ''},
         name: '',
         price: 0,
-        quantity: { imported: 1 },
+        quantity: { imported: 0 },
         type: '',
         colors: [],
         properties: [],
         technicalDetails: [],
       };
-
+  
       this.imageChangedEvent = '';
       this.croppedImage = '';
       this.ngOnInit();
     }
   }
-
+  
   //#endregion Cancel
 
   //#region Edit
