@@ -144,7 +144,6 @@ export class ProductsComponent implements OnInit {
               private authService: AuthService,
               private router: Router) {
     this.titleService.setTitle('Products Management | Lmaci');
-    this.positiveNumberRegex = this.helperService.positiveNumberRegex;
     this.NotNegativeNumberRegex = this.helperService.NotNegativeNumberRegex;
   }
 
