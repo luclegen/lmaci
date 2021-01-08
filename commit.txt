@@ -329,7 +329,7 @@ Product Component: __isTouchEvent
 Product Component: __isInsideDropListClientRect
 Product Component: delete
 Product Component: saveSlideshow
-Product Service: uploadSlideshows
+Product Service: uploadSlideshow
 Product Component: isSaveSlideshow
 Product Component: cancelSaveSlideshow
 Product Component: cancel
