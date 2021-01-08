@@ -5,7 +5,6 @@ import { Injectable } from '@angular/core';
 })
 export class HelperService {
 
-  positiveNumberRegex = /^\d*[1-9]\d*$/;
   NotNegativeNumberRegex = /^\d*[0-9]\d*$/;
   
   usernameRegex = /^(?=[a-zA-Z0-9._]{1,20}$)/;
