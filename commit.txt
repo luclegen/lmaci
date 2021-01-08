@@ -539,8 +539,8 @@ Admin Router: PUT searchProducts
 Server App: Product Router
 Product Controller: get
 Product Router: GET get
-Product Controller: uploadSlideshows
-Product Router: PUT uploadSlideshows
+Product Controller: uploadSlideshow
+Product Router: PUT uploadSlideshow
 Product Controller: post
 Product Router: PUT post
 Image Controller: get
