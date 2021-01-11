@@ -247,10 +247,14 @@ div
         fill: orange
 
   &.jump-to-box
+    display: flex
     margin-top: 15px
 
-    strong
-      margin-right: 5px
+    a
+      padding: 0 5px
+
+      &.separator
+        border-right: 2px solid black
 
   &.aside-slideshow
     display: none
@@ -938,7 +942,3 @@ ul
     
     button
       font-size: 1.5vw
-
-p
-  &.separator
-    margin: 0 5px
