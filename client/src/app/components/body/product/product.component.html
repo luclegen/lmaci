@@ -113,10 +113,10 @@
       </div>
     </form>
     <div class="jump-to-box left">
-      <strong>Jump to: </strong>
-      <a *ngIf="product.technicalDetails.length" [href]="type + '/' + id + '#technical-details'">Technical Details</a><p class="separator" *ngIf="product.technicalDetails.length">|</p>
-      <a [href]="type + '/' + id + '#review'">Send Review</a><p class="separator">|</p>
-      <a [href]="type + '/' + id + '#comment'">Send Comment</a><p class="separator">|</p>
+      <strong>Jump to:</strong>
+      <a *ngIf="product.technicalDetails.length" class="separator" [href]="type + '/' + id + '#technical-details'">Technical Details</a>
+      <a class="separator" [href]="type + '/' + id + '#review'">Send Review</a>
+      <a class="separator" [href]="type + '/' + id + '#comment'">Send Comment</a>
       <a [href]="type + '/' + id + '#comments'">Comments</a>
     </div>
   </div>
