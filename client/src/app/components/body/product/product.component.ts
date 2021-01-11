@@ -361,9 +361,9 @@ export class ProductComponent implements OnInit {
     const btnWidth = ww * 0.05;
     const btnHeight = btnWidth * 1.04;
 
-    prevBtn.style.top = nextBtn.style.top = ((containerHeight - btnHeight) * 0.5 + 140) + 'px';
+    setTimeout(() => prevBtn.style.top = nextBtn.style.top = ((containerHeight - btnHeight) * 0.5 + (document.querySelector('.top-container') as HTMLElement).clientHeight + 80) + 'px');
     prevBtn.style.left = (ww * 0.1 + containerWidth * 0.03) + 'px';
-    nextBtn.style.left = (ww * 0.1 + containerWidth - btnWidth - containerWidth * 0.03) + 'px';
+    nextBtn.style.left = (ww * 0.1 + containerWidth - btnWidth - containerWidth * 0.03) + 'px';   
   }
   
   getSlideshow(type = '.slideshow') {
