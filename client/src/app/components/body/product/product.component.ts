@@ -539,10 +539,11 @@ export class ProductComponent implements OnInit {
       this.setSlideshow();
 
       slideshow.style.position = 'static';
+      slideshow.style.background = 'none';
       slideshow.style.zIndex = '0';
       slideshow.style.width = this.getSlideshow(type).size + 'px';
       slideshow.style.margin = '10px 0.5% 0 10%';
-      slideshow.style.height = carousel.style.height = 'auto';
+      slideshow.style.height = carousel.style.height = '100%';
       slides.forEach(s => s.style.cursor = 'zoom-in');
     } else slideshow.style.display = 'none';
 
