@@ -44,5 +44,6 @@ export class UsersComponent implements OnInit {
 
   showAll() {
     this.ngOnInit();
+    this.helperService.setNavbar();
   }
 }
