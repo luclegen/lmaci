@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 
@@ -58,6 +58,11 @@ export class ProductListComponent implements OnInit {
     }
 
     this.titleService.setTitle(this.title + ' | Lmaci ');
+  }
+
+  @HostListener('window:resize')
+  onResize() {
+    this.setContainer();
   }
 
   ngOnInit(): void {
