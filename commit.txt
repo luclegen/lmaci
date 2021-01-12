@@ -445,6 +445,8 @@ Helper Service: setNavbar
 Environments: productsUrl
 Product List Component: prev
 Product List Component: select
+Product List Component: setContainer
+
 Product List Component: View
 Product List Component: constructor
 Product List Component: ngOnInit
