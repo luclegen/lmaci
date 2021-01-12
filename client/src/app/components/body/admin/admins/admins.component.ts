@@ -13,7 +13,7 @@ import { Title } from '@angular/platform-browser';
 export class AdminsComponent implements OnInit {
 
   root;
-  admins;
+  admins = [];
 
   req = {
     type: 'username',
