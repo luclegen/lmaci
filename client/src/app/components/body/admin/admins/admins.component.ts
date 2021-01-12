@@ -74,6 +74,7 @@ export class AdminsComponent implements OnInit {
             this.adminService.searchAdmins(form.value).subscribe(res => {
               this.root = null;
               this.admins = res['admins'];
+              this.setNavbar();
             });
           }
         },
@@ -84,6 +85,15 @@ export class AdminsComponent implements OnInit {
 
   showAll() {
     this.ngOnInit();
+    this.setNavbar();
+  }
+
+  setNavbar() {
+    const vh = document.documentElement.clientHeight;
+    const section = document.querySelector('section') as HTMLElement;
+    section.style.height = 'auto';
+
+    setTimeout(() => { if (section.clientHeight < vh - 60) section.style.height = vh - 60 + 'px'; }, 100);
   }
 
 }

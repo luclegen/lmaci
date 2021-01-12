@@ -32,7 +32,7 @@ export class AdminComponent implements OnInit {
     const section = document.querySelector('section') as HTMLElement;
     section.style.height = 'auto';
 
-    setTimeout(() => { if (section.clientHeight < vh - 60) section.style.height = vh - 60 + 'px'; }, 100);
+    setTimeout(() => { if (section.clientHeight < vh - 60) section.style.height = vh - 60 + 'px'; }, 50);
   }
 
 }
