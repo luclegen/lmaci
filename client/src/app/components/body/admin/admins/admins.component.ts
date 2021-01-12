@@ -5,7 +5,6 @@ import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { AdminService } from 'src/app/services/admin.service';
 import { Title } from '@angular/platform-browser';
-import { HelperService } from 'src/app/services/helper.service';
 @Component({
   selector: 'app-admins',
   templateUrl: './admins.component.html',
