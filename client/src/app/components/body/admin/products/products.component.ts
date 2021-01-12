@@ -33,7 +33,7 @@ export class ProductsComponent implements OnInit {
     technicalDetails: [],
   };
 
-  products;
+  products = [];
 
   //#endregion Product
 
