@@ -187,6 +187,7 @@ Admin Service: searchAdmins
 Admin Service: searchUsers
 Admins Component: onSubmit
 Admins Component: showAll
+Admins Component: constructor
 Search Images: Search
 Search Images: List
 Users Component: onSubmit
