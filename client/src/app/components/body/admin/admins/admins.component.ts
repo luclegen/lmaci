@@ -21,7 +21,7 @@ export class AdminsComponent implements OnInit {
     keyword: ''
   }
 
-  constructor(private titleService: Title, private authService: AuthService, private adminService: AdminService, private router: Router, public helperService: HelperService) {
+  constructor(private titleService: Title, private authService: AuthService, private adminService: AdminService, private router: Router, private helperService: HelperService) {
     this.titleService.setTitle('Admins Management | Lmaci');
   }
 
