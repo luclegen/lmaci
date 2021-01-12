@@ -5,6 +5,7 @@ import { Title } from '@angular/platform-browser';
 
 import { AuthService } from 'src/app/services/auth.service';
 import { AdminService } from 'src/app/services/admin.service';
+import { HelperService } from 'src/app/services/helper.service';
 
 @Component({
   selector: 'app-users',
@@ -20,7 +21,7 @@ export class UsersComponent implements OnInit {
     keyword: ''
   }
 
-  constructor(private titleService: Title, private authService: AuthService, private adminService: AdminService, private router: Router) {
+  constructor(private titleService: Title, private authService: AuthService, private adminService: AdminService, private helperService: HelperService, private router: Router) {
     this.titleService.setTitle('Users Management | Lmaci');
   }
 
