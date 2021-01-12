@@ -438,10 +438,10 @@ Routes: ProductListComponent
 Helper Service: toName
 Products Service: initial
 Helper Service: getProducts
+Helper Service: setNavbar
 Environments: productsUrl
 Product List Component: prev
 Product List Component: select
-
 Product List Component: View
 Product List Component: constructor
 Product List Component: ngOnInit
