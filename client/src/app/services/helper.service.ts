@@ -24,6 +24,14 @@ export class HelperService {
     onlyFormContainer.style.marginBottom = (vpHeight - onlyFormContainer.clientHeight - ((vpHeight - onlyFormContainer.clientHeight)/2) > 10 ? vpHeight - onlyFormContainer.clientHeight - ((vpHeight - onlyFormContainer.clientHeight)/2) : 10) + 'px';
   }
 
+  setNavbar() {
+    const vh = document.documentElement.clientHeight;
+    const section = document.querySelector('section') as HTMLElement;
+    section.style.height = 'auto';
+
+    setTimeout(() => { if (section.clientHeight < vh - 60) section.style.height = vh - 60 + 'px'; }, 50);
+  }
+
   //#endregion Style
 
   //#region Converter
