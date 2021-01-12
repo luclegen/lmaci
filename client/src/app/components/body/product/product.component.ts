@@ -319,7 +319,7 @@ export class ProductComponent implements OnInit {
       star.count = this.product.reviews.filter(r => r.star == i).length;
       this.stars.star.push(star);
     }
-    
+
     const number = this.stars.average = this.helperService.round(this.helperService.average(this.product.reviews.map(r => parseInt(r.star))), 1);
     const numberFloored = Math.floor(number);
     const numberRounded = Math.round(number);
