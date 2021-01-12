@@ -68,9 +68,9 @@ export class ProductListComponent implements OnInit {
   ngOnInit(): void {
     this.productsService.getProducts(this.type, this.name).subscribe(
       res => {
-        const products = res[ 'products' ];
+        this.products = res[ 'products' ];
         
-        products.forEach(p => {
+        this.products.forEach(p => {
           const product = {
             id: p._id,
             path: p.img.path,
@@ -103,6 +103,8 @@ export class ProductListComponent implements OnInit {
         const pageCount = bias == 0 ? fraction : Math.floor(fraction) + 1;
         
         for (let i = 0; i < pageCount; i++) this.page.push(this.items.slice(itemCount * i, itemCount * (i + 1)));
+
+        this.setContainer();
       },
       err => console.warn(err.error.msg)
     );
