@@ -83,10 +83,9 @@ export class ProductListComponent implements OnInit {
           const numberRounded = Math.round(number);
           const bias = this.helperService.round(number - numberFloored, 1)
 
-          if (bias == 0.5) {
-            for (let i = 0; i < numberFloored; i++) product.star.starCount.push('*');
-            product.star.starHalf = true;
-          } else for (let i = 0; i < numberRounded; i++) product.star.starCount.push('*');
+          product.star.starHalf = bias == 0.5;
+
+          for (let i = 0; i < (product.star.starHalf ? numberFloored : numberRounded); i++) product.star.starCount.push('*');
           for (let i = 0; i < 5 - numberRounded; i++) product.star.noneStarCount.push('-');
 
           this.items.push(product);
