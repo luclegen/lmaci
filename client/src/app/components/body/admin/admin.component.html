@@ -1,13 +1,13 @@
 <app-header></app-header>
 <section>
   <nav>
-    <a routerLinkActive="active" routerLink="admins">
+    <a routerLinkActive="active" routerLink="admins" (click)="setNavbar()">
       <p>Admins</p>
     </a>
-    <a routerLinkActive="active" routerLink="users">
+    <a routerLinkActive="active" routerLink="users" (click)="setNavbar()">
       <p>Users</p>
     </a>
-    <a routerLinkActive="active" routerLink="products">
+    <a routerLinkActive="active" routerLink="products" (click)="setNavbar()">
       <p>Products</p>
     </a>
   </nav>
