@@ -192,6 +192,7 @@ Search Images: Search
 Search Images: List
 Users Component: onSubmit
 Users Component: showAll
+Users Component: constructor
 Index: Loading...
 Models: product
 Type Enum
