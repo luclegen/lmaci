@@ -56,7 +56,6 @@ export class AdminsComponent implements OnInit {
               res => {
                 alert(res['msg']);
                 this.ngOnInit();
-                this.helperService.setNavbar();
                 if (adminUsername == username) this.router.navigateByUrl('');
               },
               err => alert(err.error.msg)
