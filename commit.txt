@@ -173,6 +173,7 @@ Admin Service: removeAsAdmin
 Admin Service: getUsers
 Users Component: ngOnInit
 Users Component: viewProfile
+Admin Component: setNavbar
 Admin Component: ngOnInit
 Admins Component: viewProfile, removeAsAdmin
 Admin Service: makeAdmin
