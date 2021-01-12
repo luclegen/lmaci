@@ -12,7 +12,7 @@ import { AdminService } from 'src/app/services/admin.service';
 })
 export class UsersComponent implements OnInit {
 
-  users;
+  users = [];
 
   req = {
     type: 'username',
