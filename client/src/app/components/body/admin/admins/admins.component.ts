@@ -75,7 +75,7 @@ export class AdminsComponent implements OnInit {
             this.adminService.searchAdmins(form.value).subscribe(res => {
               this.root = null;
               this.admins = res['admins'];
-              this.setNavbar();
+              this.helperService.setNavbar();
             });
           }
         },
