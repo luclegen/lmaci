@@ -18,10 +18,10 @@ export class AdminComponent implements OnInit {
   constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
-    const vpWith = document.documentElement.clientWidth;
-    const section = document.querySelector('section');
+    const vw = document.documentElement.clientWidth;
+    const section = document.querySelector('section') as HTMLElement;
 
-    section.style.fontSize = vpWith * 0.01625 + 'px';
+    section.style.fontSize = vw * 0.01625 + 'px';
 
     this.authService.getInfo().subscribe(res => { if (!res['user'].activated || res['user'].role == 'user') this.router.navigateByUrl(''); }, err => { if (err.status == 440 && confirm('Login again?\nYour session has expired and must log in again.')) window.open('/login'); });
   }
