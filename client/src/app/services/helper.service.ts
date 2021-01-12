@@ -24,10 +24,6 @@ export class HelperService {
     onlyFormContainer.style.marginBottom = (vpHeight - onlyFormContainer.clientHeight - ((vpHeight - onlyFormContainer.clientHeight)/2) > 10 ? vpHeight - onlyFormContainer.clientHeight - ((vpHeight - onlyFormContainer.clientHeight)/2) : 10) + 'px';
   }
 
-  setNavbar() {
-    alert('t');
-  }
-
   //#endregion Style
 
   //#region Converter
