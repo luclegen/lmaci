@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { AdminService } from 'src/app/services/admin.service';
 import { Title } from '@angular/platform-browser';
+import { HelperService } from 'src/app/services/helper.service';
 @Component({
   selector: 'app-admins',
   templateUrl: './admins.component.html',
@@ -20,7 +21,7 @@ export class AdminsComponent implements OnInit {
     keyword: ''
   }
 
-  constructor(private titleService: Title, private authService: AuthService, private adminService: AdminService, private router: Router) {
+  constructor(private titleService: Title, private authService: AuthService, private adminService: AdminService, private router: Router, public helperService: HelperService) {
     this.titleService.setTitle('Admins Management | Lmaci');
   }
 
