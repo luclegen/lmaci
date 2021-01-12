@@ -18,7 +18,8 @@ export class ProductListComponent implements OnInit {
   items = [];
   index = 0;
   page = [];
-  
+  products = [];
+
   constructor(private route: ActivatedRoute,
               private titleService: Title,
               private productsService: ProductsService,
@@ -100,6 +101,13 @@ export class ProductListComponent implements OnInit {
       },
       err => console.warn(err.error.msg)
     );
+  }
+
+  setContainer() {
+    const vh = document.documentElement.clientHeight;
+    const container = document.querySelector('.center-container') as HTMLElement;
+
+    container.style.minHeight = (vh - 60) + 'px';
   }
 
   prev() {
