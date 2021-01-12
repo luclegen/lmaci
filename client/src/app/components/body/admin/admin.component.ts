@@ -2,6 +2,7 @@ import { Component, OnInit, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AuthService } from 'src/app/services/auth.service';
+import { HelperService } from 'src/app/services/helper.service';
 
 @Component({
   selector: 'app-admin',
@@ -15,7 +16,7 @@ export class AdminComponent implements OnInit {
     this.ngOnInit();
   }
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private helperService: HelperService, private router: Router) { }
 
   ngOnInit(): void {
     const vw = document.documentElement.clientWidth;
