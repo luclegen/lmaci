@@ -25,11 +25,7 @@ export class HelperService {
   }
 
   setNavbar() {
-    const vh = document.documentElement.clientHeight;
-    const section = document.querySelector('section') as HTMLElement;
-    section.style.height = 'auto';
-
-    setTimeout(() => { if (section.clientHeight < vh - 60) section.style.height = vh - 60 + 'px'; }, 50);
+    alert('t');
   }
 
   //#endregion Style
