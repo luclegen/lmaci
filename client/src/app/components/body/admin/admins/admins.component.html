@@ -32,7 +32,7 @@
     <table id="ls-table" class="ls-table only-table">
       <thead>
         <tr>
-          <th colspan="7">{{ admins.length + 1 }} ADMIN{{ admins.length + 1 == 1 ? '' : 'S' }} </th>
+          <th colspan="7">{{ admins.length + (root ? 1 : 0) }} ADMIN{{ admins.length + (root ? 1 : 0) == 1 ? '' : 'S' }} </th>
         </tr>
         <tr>
           <th>No.</th>
