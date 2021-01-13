@@ -62,6 +62,10 @@ export class HelperService {
     return Math.round(num * 10 ** digit) / 10 ** digit;
   }
 
+  sort(arr = [], prop = '-property') {
+    return arr.sort((a, b) => ((isNaN(a[prop.slice(/-/.test(prop) ? 1 : 0)] && b[prop.slice(/-/.test(prop) ? 1 : 0)]) ? a[prop.slice(/-/.test(prop) ? 1 : 0)].toLowerCase() < b[prop.slice(/-/.test(prop) ? 1 : 0)].toLowerCase() : a[prop.slice(/-/.test(prop) ? 1 : 0)] < b[prop.slice(/-/.test(prop) ? 1 : 0)]) ? -1 : 1) * (/-/.test(prop) ? -1 : 1));
+  }
+
   //#endregion Math
 
   //#region Formatter
