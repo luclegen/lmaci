@@ -37,8 +37,6 @@ export class UserComponent implements OnInit {
   emailRegex;
   mobileNumberRegex;
 
-  tbodyFontSize = 0;
-
   //#region Img
 
   imageChangedEvent: any = '';
@@ -92,6 +90,20 @@ export class UserComponent implements OnInit {
       },
       err => this.router.navigateByUrl('')
     );
+  }
+
+  setTable() {
+    setTimeout(() => {
+      const vw = document.documentElement.clientWidth;
+      const vh = document.documentElement.clientHeight;
+      const section = document.querySelectorAll('section') as NodeListOf<HTMLElement>;
+      const thead = document.querySelectorAll('thead') as NodeListOf<HTMLTableSectionElement>;
+      const tbody = document.querySelectorAll('tbody') as NodeListOf<HTMLTableSectionElement>;
+
+      thead.forEach(i => i.style.fontSize = vw * 0.03125 + 'px');
+      tbody.forEach(i => i.style.fontSize = vw * 0.025 + 'px');
+      section[1].style.minHeight = (vh - 60 - section[0].clientHeight) + 'px';
+    });
   }
 
   //#region Img Cropper
