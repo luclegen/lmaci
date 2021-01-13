@@ -123,6 +123,8 @@ export class UserComponent implements OnInit {
     this.user.email = this.userDetails.email;
     this.user.mobileNumber = this.userDetails.mobileNumber;
     this.user.address = this.userDetails.address;
+
+    this.setTable();
   }
 
   onSubmit(form: NgForm) {
