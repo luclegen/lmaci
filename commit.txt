@@ -374,6 +374,7 @@ Helper Service: isBase64
 Helper Service: sum
 Helper Service: average
 Helper Service: round
+Helper Service: sort
 Environments: imageUrl
 Product Component: setChanged
 Product Component: ngAfterViewInit
