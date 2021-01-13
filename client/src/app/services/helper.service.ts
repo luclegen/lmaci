@@ -59,7 +59,7 @@ export class HelperService {
   }
 
   round(num, digit = 0) {
-    return Math.round(num * Math.pow(10, digit)) / Math.pow(10, digit);
+    return Math.round(num * 10 ** digit) / 10 ** digit;
   }
 
   //#endregion Math
