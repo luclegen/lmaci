@@ -19,11 +19,12 @@ export class ProductListComponent implements OnInit {
   index = 0;
   page = [];
   products = [];
+  prop = 'name';
 
   constructor(private route: ActivatedRoute,
               private titleService: Title,
               private productsService: ProductsService,
-              private helperService: HelperService) {
+              public helperService: HelperService) {
     const path = this.route.snapshot.paramMap.get('path').split('-');
     [ this.type, this.name ] = [ path[0], path.slice(1).join(' ') ];
 
