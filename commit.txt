@@ -303,6 +303,7 @@ User Component: onSubmit
 User Component: onCancel
 User Component: fileChangeEvent
 User Component: imageCropped
+User Component: setTable
 Carouse Images
 Product Component: prev
 Product Component: next
