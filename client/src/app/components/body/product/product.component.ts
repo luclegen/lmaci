@@ -606,7 +606,8 @@ export class ProductComponent implements OnInit {
   //#region Slideshow Editor
 
   isSaveSlideshow() {
-    return this.product.slideshows.length && this.product.slideshows.filter(s => s.color == this.preview.color.value).length && this.product.slideshows.filter(s => s.color == this.preview.color.value)[0].imgs ? JSON.stringify(this.product.slideshows.filter(s => s.color == this.preview.color.value)[0].imgs.map(i => i.path)) != JSON.stringify(this.paths) : this.paths.length;
+    const slideshow = this.product.slideshows.find(s => s.color == this.preview.color.value);
+    return slideshow ? JSON.stringify(slideshow.imgs.map(i => i.path)) != JSON.stringify(this.paths) : this.paths.length;
   }
 
   saveSlideshow() {
