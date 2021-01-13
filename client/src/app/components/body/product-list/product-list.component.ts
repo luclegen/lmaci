@@ -70,47 +70,42 @@ export class ProductListComponent implements OnInit {
     this.productsService.getProducts(this.type, this.name).subscribe(
       res => {
         this.products = res[ 'products' ];
-        
+  
         this.products.forEach(p => {
           const product = {
             id: p._id,
             path: p.img.path,
             name: p.name,
-            price: this.helperService.USDcurrency(p.price),
+            price: p.price,
             star: {
               average: p.reviews.length ? this.helperService.round(this.helperService.average(p.reviews.map(r => r.star)), 1) : 0,
               starCount: [],
               starHalf: false,
               noneStarCount: []
-            }
+            },
+            createdAt: new Date(p.createdAt).getTime()
           };
-
+  
           const number = product.star.average;
           const numberFloored = Math.floor(number);
           const numberRounded = Math.round(number);
           const bias = this.helperService.round(number - numberFloored, 1)
-
+  
           product.star.starHalf = bias == 0.5;
-
+  
           for (let i = 0; i < (product.star.starHalf ? numberFloored : numberRounded); i++) product.star.starCount.push('*');
           for (let i = 0; i < 5 - numberRounded; i++) product.star.noneStarCount.push('-');
-
+  
           this.items.push(product);
         });
-
-        const itemCount = 12;
-        const fraction = this.items.length/ itemCount;
-        const bias = fraction - Math.floor(fraction);
-        const pageCount = bias == 0 ? fraction : Math.floor(fraction) + 1;
-        
-        for (let i = 0; i < pageCount; i++) this.page.push(this.items.slice(itemCount * i, itemCount * (i + 1)));
-
+  
+        this.sort();
         this.setContainer();
       },
       err => console.warn(err.error.msg)
     );
   }
-
+  
   setContainer() {
     const vh = document.documentElement.clientHeight;
     const container = document.querySelector('.center-container') as HTMLElement;
