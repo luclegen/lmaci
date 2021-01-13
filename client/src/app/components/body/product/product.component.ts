@@ -614,14 +614,14 @@ export class ProductComponent implements OnInit {
     this.authService.getInfo().subscribe(
       res => {
         if ((res['user'].role == 'root' || res['user'].role === 'admin') && this.isSaveSlideshow()) {
-          const slideshowIndex = this.product.slideshows.findIndex(s => s.color == this.order.color.value);
+          const oldSlideshow = this.product.slideshows.find(s => s.color == this.order.color.value);
           const slideshow = { color: this.order.color.value, imgs: [] }, files = [];
-          let index = slideshowIndex > -1 ? this.product.slideshows[slideshowIndex].imgs.length ? Math.max(...this.product.slideshows[slideshowIndex].imgs.map(i => i.index)) + 1 : 0 : 0;
+          let index = oldSlideshow ? oldSlideshow.imgs.length ? Math.max(...oldSlideshow.imgs.map(i => i.index)) + 1 : 0 : 0;
 
           this.paths.forEach(path => {
             const isBase64 = this.helperService.isBase64(path, 'jpeg');
             const img = {
-              index: isBase64 ? index : this.product.slideshows[slideshowIndex].imgs.find(i => i.path == path).index,
+              index: isBase64 ? index : oldSlideshow.imgs.find(i => i.path == path).index,
               path: isBase64 ? environment.imageUrl + '/?image=product/' + this.id + '/slideshow/' + slideshow.color.replace(/#/, '') + '/' + index++ + '.jpeg' : path
             }
 
