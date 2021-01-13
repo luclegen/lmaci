@@ -338,8 +338,8 @@ export class ProductComponent implements OnInit {
   //#region Slideshow
 
   setPaths() {
-    const slideshow = this.product.slideshows.find(s => s.color == this.order.color.value);
-    if (slideshow) this.paths = slideshow.imgs.map(img => img.path);
+    const slideshow = this.product.slideshows.find(s => s.color == this.preview.color.value);
+    this.paths = slideshow ? slideshow.imgs.map(img => img.path) : [];
   }
 
   setCarousel(type = '.slideshow') {
