@@ -129,5 +129,18 @@ export class ProductListComponent implements OnInit {
   next() {
     if (this.index < this.page.length - 1) this.index++;
   }
+
+  sort() {
+    this.helperService.sort(this.items, this.prop);
+  
+    this.page = [];
+  
+    const itemCount = 12;
+    const fraction = this.items.length/ itemCount;
+    const bias = fraction - Math.floor(fraction);
+    const pageCount = bias == 0 ? fraction : Math.floor(fraction) + 1;
+  
+    for (let i = 0; i < pageCount; i++) this.page.push(this.items.slice(itemCount * i, itemCount * (i + 1)));
+  }
   
 }
