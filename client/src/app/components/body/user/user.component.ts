@@ -46,7 +46,7 @@ export class UserComponent implements OnInit {
 
   @HostListener('window:resize')
   onResize() {
-    this.ngOnInit();
+    this.setTable();
   }
 
   @HostListener('window:beforeunload')
