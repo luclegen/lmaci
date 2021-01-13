@@ -621,7 +621,7 @@ export class ProductComponent implements OnInit {
           this.paths.forEach(path => {
             const isBase64 = this.helperService.isBase64(path, 'jpeg');
             const img = {
-              index: isBase64 ? index : this.product.slideshows[slideshowIndex].imgs.filter(i => i.path == path)[0].index,
+              index: isBase64 ? index : this.product.slideshows[slideshowIndex].imgs.find(i => i.path == path).index,
               path: isBase64 ? environment.imageUrl + '/?image=product/' + this.id + '/slideshow/' + slideshow.color.replace(/#/, '') + '/' + index++ + '.jpeg' : path
             }
 
