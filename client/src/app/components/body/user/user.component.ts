@@ -65,12 +65,6 @@ export class UserComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const vpWidth = document.documentElement.clientWidth;
-    const thead = document.getElementsByTagName('thead') as HTMLCollectionOf<HTMLTableSectionElement>;
-  
-    for (let i = 0; i < thead.length; i++) thead[i].style.fontSize = vpWidth * 0.03125 + 'px';
-    this.tbodyFontSize = vpWidth * 0.025;
-
     this.username = this.route.snapshot.paramMap.get('username');
     
     this.authService.getInfo().subscribe(
@@ -83,6 +77,8 @@ export class UserComponent implements OnInit {
               this.titleService.setTitle(this.userDetails.name.first + this.title);
               this.role = this.userDetails.role.split('')[0].toUpperCase() + this.userDetails.role.split('').slice(1).join('');
               this.gender = this.userDetails.gender.split('')[0].toUpperCase() + this.userDetails.gender.split('').slice(1).join('');
+
+              this.setTable();
             },
             err => alert(err.error.msg)
           );
