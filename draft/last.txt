@@ -70,7 +70,7 @@ export class ProductListComponent implements OnInit {
     this.productsService.getProducts(this.type, this.name).subscribe(
       res => {
         this.products = res[ 'products' ];
-        
+
         this.products.forEach(p => {
           const product = {
             id: p._id,
@@ -83,7 +83,7 @@ export class ProductListComponent implements OnInit {
               starHalf: false,
               noneStarCount: []
             },
-            createdAt: p.createdAt
+            createdAt: new Date(p.createdAt).getTime()
           };
 
           const number = product.star.average;
@@ -98,7 +98,7 @@ export class ProductListComponent implements OnInit {
 
           this.items.push(product);
         });
-        
+
         this.sort();
         this.setContainer();
       },
