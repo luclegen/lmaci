@@ -34,7 +34,7 @@
           <th colspan="2">{{ userDetails?.name.first.toUpperCase() }}'S PROFILE</th>
         </tr>
       </thead>
-      <tbody *ngIf="!isEdit" [style]="'font-size: ' + tbodyFontSize + 'px;'">
+      <tbody *ngIf="!isEdit">
         <tr>
           <th>Full Name</th>
           <td>{{ userDetails?.fullName }}</td>
@@ -64,7 +64,7 @@
           <td>{{ userDetails?.address }}</td>
         </tr>
       </tbody>
-      <tbody *ngIf="isEdit" [style]="'font-size: ' + tbodyFontSize + 'px;'">
+      <tbody *ngIf="isEdit">
         <tr>
           <th>First Name</th>
           <td>
