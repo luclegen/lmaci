@@ -157,12 +157,6 @@ export class ProductComponent implements OnInit {
 
   //#endregion Models
 
-  //#region Formater
-
-  priceFormatted;
-
-  //#endregion Formater
-
   //#region Checker
 
   isChangeColor = true;
@@ -278,7 +272,6 @@ export class ProductComponent implements OnInit {
           this.order.properties.push(JSON.parse(JSON.stringify(property)));
         });
 
-        this.priceFormatted = this.helperService.USDcurrency(this.product.price);
         this.reviews = this.product.reviews;
         this.comments = this.product.comments;
 
