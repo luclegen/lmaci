@@ -144,7 +144,7 @@ export class ProductsComponent implements OnInit {
 
   @HostListener('window:beforeunload')
   beforeunloadHandler() {
-    return !(this.imageChangedEvent || this.product.name || this.product.price || this.product.quantity.imported || this.product.type || this.product.colors.length || this.product.properties.length || this.product.technicalDetails.length || this.color.option || this.color.name || this.color.value || this.property.name || this.property.options.length || this.option.value || this.option.price || this.technicalDetail.name || this.technicalDetail.value);
+    return !this.isInput;
   }
 
   constructor(private titleService: Title,
