@@ -131,7 +131,11 @@ export class ProductsComponent implements OnInit {
 
   //#endregion Regex
 
+  //#region Save Change
+
   isInput = false;
+
+  //#endregion Save Change
 
   @HostListener('window:resize')
   onResize() {
