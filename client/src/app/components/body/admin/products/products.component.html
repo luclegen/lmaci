@@ -1,5 +1,5 @@
 <section>
-  <form class="center" #productForm="ngForm" (ngSubmit)="onSubmit(productForm)">
+  <form class="center" #productForm="ngForm" (change)="setInput()" (ngSubmit)="onSubmit(productForm)">
     <h1 *ngIf="!product._id">Create a product</h1>
     <h1 *ngIf="product._id">Edit a product</h1>
 
