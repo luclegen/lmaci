@@ -94,10 +94,10 @@
       <label *ngIf="preview.color.name && !(preview.color.value == 'default' && product.colors.length == 1)" class="attr">
         <strong>Color:</strong> {{ preview.color.name }}
       </label>
-      <div *ngIf="!(preview.color.value == 'default' && product.colors.length == 1)" class="left">
+      <div *ngIf="!(preview.color.value == 'default' && product.colors.length == 1)" class="left color-radio-grid">
         <div *ngFor="let c of product.colors" class="center vertical color-radio-container">
-          <input #color="ngModel" [(ngModel)]="order.color.name" [value]="c.name" (ngModelChange)="onCheckColor(c)" (mouseenter)="previewColor(c)" (mouseleave)="resetColor()" type="radio" name="color">
-          <span class="checkmark" [ngStyle]="{ 'background': c.value }"></span> 
+          <input #color="ngModel" [(ngModel)]="order.color.name" [value]="c.name" type="radio" name="color">
+          <span class="checkmark" [ngStyle]="{ 'background': c.value }" (click)="onCheckColor(c)" (mouseenter)="previewColor(c)" (mouseleave)="resetColor()" ></span> 
         </div>
       </div>
       <div class="property-container" *ngFor="let p of product.properties">

@@ -18,12 +18,6 @@ div
   &.right-container
     margin: 10px 10% 0 0.5%
 
-  &.grid-container
-    width: 100%
-    margin-top: 10px
-    grid-gap: 10px
-    grid-template-columns: 33% 33% 33%
-
   &.grid-box
     display: flex
     cursor: move
@@ -55,6 +49,18 @@ div
       
       &.img-preview
         border: 5px solid black
+
+  &.grid-container, &.color-radio-grid
+    grid-gap: 10px
+
+  &.grid-container
+    width: 100%
+    margin-top: 10px
+    grid-template-columns: 33% 33% 33%
+
+  &.color-radio-grid
+    display: grid
+    grid-template-columns: auto auto auto auto
 
 span
 
