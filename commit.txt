@@ -278,6 +278,7 @@ Admin Service: updateProduct
 Admin Service: searchProducts
 Products Component: onSearch
 Products Component: showAll
+Products Component: setInput
 Products Component: View
 Product Component: Initial
 Routes: ProductComponent
@@ -451,10 +452,10 @@ Product List Component: select
 Product List Component: setContainer
 Product List Component: sort
 Product List Component: onResize
-
 Product List Component: View
 Product List Component: constructor
 Product List Component: ngOnInit
+Deactivate Guard
 User Images
 Background Images
 
