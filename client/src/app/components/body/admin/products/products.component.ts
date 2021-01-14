@@ -125,7 +125,17 @@ export class ProductsComponent implements OnInit {
 
   //#endregion Technical detail
 
+  //#region Regex
+
   NotNegativeNumberRegex;
+
+  //#endregion Regex
+
+  //#region Save Change
+
+  isInput = false;
+
+  //#endregion Save Change
 
   @HostListener('window:resize')
   onResize() {
@@ -179,6 +189,14 @@ export class ProductsComponent implements OnInit {
 
     this.authService.getInfo().subscribe(res => { if (res['user'].role == 'root' || res['user'].role === 'admin') this.adminService.getProducts().subscribe(res => this.products = res['products'], err => alert(err.error.msg)); }, err => { if (err.status == 440 && confirm('Login again?\nYour session has expired and must log in again.')) window.open('/login'); });
   }
+
+  //#region Save Change
+
+  setInput() {
+    this.isInput = Boolean(this.imageChangedEvent || this.product.name || this.product.price || this.product.quantity.imported || this.product.type || this.product.colors.length || this.product.properties.length || this.product.technicalDetails.length || this.color.option || this.color.name || this.color.value || this.property.name || this.property.options.length || this.option.value || this.option.price || this.technicalDetail.name || this.technicalDetail.value);
+  }
+
+  //#endregion Save Change
 
   //#region Img Cropper
 
