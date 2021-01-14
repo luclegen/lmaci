@@ -19,7 +19,6 @@
         <a [href]="'product/' + i.id">
           <img [src]="i.path" [alt]="'Image ' + items.indexOf(i)">
           <h1>{{ i.name }}</h1>
-          <h1>{{ i.createdAt }}</h1>
           <h2 class="price">{{ this.helperService.USDcurrency(i.price) }}</h2>
           <span *ngIf="i.star.average" class="star-bar">
             <span class="full-star">
