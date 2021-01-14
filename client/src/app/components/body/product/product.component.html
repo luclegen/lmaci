@@ -90,7 +90,7 @@
   </div>
   <div class="right-container">
     <form class="left">
-      <label class="attr"><strong>Price:</strong><label class="price"> {{ priceFormatted }}</label></label>
+      <label class="attr"><strong>Price:</strong><label class="price"> {{ helperService.USDcurrency(order.price) }}</label></label>
       <label *ngIf="preview.color.name && !(preview.color.value == 'default' && product.colors.length == 1)" class="attr">
         <strong>Color:</strong> {{ preview.color.name }}
       </label>
