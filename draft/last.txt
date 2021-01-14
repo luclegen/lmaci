@@ -157,12 +157,6 @@ export class ProductComponent implements OnInit {
 
   //#endregion Models
 
-  //#region Formater
-
-  priceFormatted;
-
-  //#endregion Formater
-
   //#region Checker
 
   isChangeColor = true;
@@ -241,11 +235,11 @@ export class ProductComponent implements OnInit {
   constructor(private viewportRuler: ViewportRuler,
               private route: ActivatedRoute,
               private titleService: Title,
-              public helperService: HelperService,
               private authService: AuthService,
               private productService: ProductService,
               private userService: UserService,
-              private router: Router) {
+              private router: Router,
+              public helperService: HelperService) {
     this.target = null;
     this.source = null;
   }
@@ -278,14 +272,14 @@ export class ProductComponent implements OnInit {
           this.order.properties.push(JSON.parse(JSON.stringify(property)));
         });
 
-        this.priceFormatted = this.helperService.USDcurrency(this.product.price);
         this.reviews = this.product.reviews;
         this.comments = this.product.comments;
 
-        this.setPaths();
         this.setStar();
+        this.setPaths();
         this.setSlideshow();
         this.setCarousel();
+        this.setColorGrid();
         this.setPost();
         this.setReviews();
         this.setComments();
@@ -555,6 +549,15 @@ export class ProductComponent implements OnInit {
 
   //#region Order
 
+  setColorGrid() {
+    const grid = document.querySelector('.color-radio-grid') as HTMLElement;
+    const num = Math.floor(grid.clientWidth / 60);
+    let val = '';
+
+    for (let i = 0; i < num; i++) val += 'auto' + (i < num - 1 ? ' ' : '');
+    grid.style.gridTemplateColumns = val;
+  }
+
   reloadSlideshow() {
     if (this.isChangeColor) {
       this.setPaths();
@@ -584,7 +587,6 @@ export class ProductComponent implements OnInit {
 
   updatePrice() {
     this.order.price = this.helperService.sum(this.order.properties.map(p => p.option.price), this.product.price);
-    this.priceFormatted = this.helperService.USDcurrency(this.order.price);
   }
 
   onCheckOption(i, option) {
