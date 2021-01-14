@@ -106,8 +106,8 @@
         </label>
         <div class="left">
           <div *ngFor="let o of p.options" class="property-radio-container">
-            <input #propertyValue="ngModel" [(ngModel)]="order.properties[product.properties.indexOf(p)].option.value" [value]="o.value" (ngModelChange)="onCheckOption(product.properties.indexOf(p), o)" (mouseenter)="previewOption(product.properties.indexOf(p), o)" (mouseleave)="resetOption()" type="radio" [name]="helperService.toHTMLName(p.name)">
-            <span class="option-checkmark">{{ o.value }}</span>
+            <input #propertyValue="ngModel" [(ngModel)]="order.properties[product.properties.indexOf(p)].option.value" [value]="o.value" type="radio" [name]="helperService.toHTMLName(p.name)">
+            <span class="option-checkmark" (click)="onCheckOption(product.properties.indexOf(p), o)" (mouseenter)="previewOption(product.properties.indexOf(p), o)" (mouseleave)="resetOption()">{{ o.value }}</span>
           </div>
         </div>
       </div>
