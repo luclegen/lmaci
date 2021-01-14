@@ -282,10 +282,11 @@ export class ProductComponent implements OnInit {
         this.reviews = this.product.reviews;
         this.comments = this.product.comments;
 
-        this.setPaths();
         this.setStar();
+        this.setPaths();
         this.setSlideshow();
         this.setCarousel();
+        this.setColorGrid();
         this.setPost();
         this.setReviews();
         this.setComments();
