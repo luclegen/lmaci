@@ -194,6 +194,7 @@ export class ProductsComponent implements OnInit {
 
   fileChangeEvent(event: any): void {
     this.imageChangedEvent = event;
+    this.setInput();
   }
 
   imageCropped(event: ImageCroppedEvent) {
