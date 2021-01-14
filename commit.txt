@@ -434,6 +434,7 @@ Product Component: isAdmin
 Product Component: onResize
 Product Component: beforeunloadHandle
 Product Component: getSlideshow
+Product Component: setColorGrid
 Product Component: ngOnInit
 Product Component: Comments
 Product Component: View
