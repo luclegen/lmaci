@@ -551,11 +551,15 @@ export class ProductComponent implements OnInit {
 
   setColorGrid() {
     const grid = document.querySelector('.color-radio-grid') as HTMLElement;
-    const num = Math.floor(grid.clientWidth / 60);
-    let val = '';
 
-    for (let i = 0; i < num; i++) val += 'auto' + (i < num - 1 ? ' ' : '');
-    grid.style.gridTemplateColumns = val;
+    if (grid) {
+      const num = Math.floor(grid.clientWidth / 60);
+      
+      let val = '';
+
+      for (let i = 0; i < num; i++) val += 'auto' + (i < num - 1 ? ' ' : '');
+      grid.style.gridTemplateColumns = val;
+    }
   }
 
   reloadSlideshow() {
