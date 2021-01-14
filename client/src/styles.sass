@@ -156,20 +156,15 @@ div
     flex-direction: column
 
   &.color-radio-container
+    position: relative
     width: 50px
     height: 50px
-    position: relative
-    margin-right: 10px
     cursor: pointer
     user-select: none
     border-radius: 50%
 
     input
-      position: absolute
-      opacity: 0
-      cursor: pointer
-      width: 50px
-      z-index: 1
+      display: none
 
       &:checked ~ .checkmark
         border: 2px solid black
@@ -179,7 +174,7 @@ div
       input
 
         & ~ .checkmark
-          border: 2px solid gray
+          border: 2px solid lime
 
         &:checked ~ .checkmark
           border: 2px solid black
@@ -206,7 +201,7 @@ div
 
       &:checked ~ .option-checkmark
         border: 2px solid black
-        background: navy !important
+        background: lime !important
         color: white
 
     &:hover
@@ -215,12 +210,12 @@ div
 
         & ~ .option-checkmark
           border: 2px solid gray
-          background: blue
+          background: green
           color: white
 
         &:checked ~ .option-checkmark
           border: 2px solid black
-          background: navy
+          background: lime !important
           color: white
 
   &.horizontal
@@ -292,7 +287,6 @@ a
 
 form
   display: flex
-  height: auto
   flex-direction: column
   justify-content: center
   text-align: center
@@ -485,11 +479,11 @@ span
     width: 50px
     height: 50px
     border-radius: 50%
-    border: 2px solid white
+    border: 2px solid gray
 
   &.option-checkmark
     background: #eee
-    border: 2px solid white
+    border: 2px solid gray
     padding: 5px
     border-radius: 5px
 
@@ -574,7 +568,6 @@ svg
 meter
   margin-top: 5px
 
-  // Webkit based browsers
   &[value="1"]::-webkit-meter-optimum-value
     background: red
   &[value="2"]::-webkit-meter-optimum-value 
@@ -584,7 +577,6 @@ meter
   &[value="4"]::-webkit-meter-optimum-value 
     background: green
 
-  // Gecko based browsers
   &[value="1"]::-moz-meter-bar 
     background: red
   &[value="2"]::-moz-meter-bar 
@@ -661,19 +653,16 @@ table
 
         th
           top: -2px
-          // top: 57px
 
       &:nth-child(2)
 
         th
           top: 40px
-          // top: 100px
 
       &:nth-child(3)
 
         th
           top: 80px
-          // top: 140px
 
   &.only-table
     margin: 20px 0
