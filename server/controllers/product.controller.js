@@ -36,8 +36,8 @@ module.exports.uploadSlideshow = async (req, res) => {
 
     const newProduct = await Product.findByIdAndUpdate(req.params.id, { $set: { colors: colors, slideshows: slideshows } }, { new: true });
 
-    return newProduct ? res.status(200).json({ msg: 'Upload sideshow is successfully.' })
-                      : res.status(404).json({ msg: 'Upload sideshow failed!' });;
+    return newProduct ? res.status(200).json({ msg: 'Upload the sideshow is successfully.' })
+                      : res.status(404).json({ msg: 'Upload the sideshow failed!' });;
   } else res.status(404).json({ msg: 'Product not found.' });
 }
 
