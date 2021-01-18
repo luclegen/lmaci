@@ -1,96 +1,158 @@
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Component, OnInit, HostListener } from '@angular/core';
+import { Title } from '@angular/platform-browser';
+import { ActivatedRoute, Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
-import { environment } from 'src/environments/environment';
+import { ImageCroppedEvent } from 'ngx-image-cropper';
 
-import { User } from '../models/user.model';
+import { UserService } from 'src/app/services/user.service';
+import { AuthService } from 'src/app/services/auth.service';
+import { HelperService } from 'src/app/services/helper.service';
 
-@Injectable({
-  providedIn: 'root'
+@Component({
+  selector: 'app-user',
+  templateUrl: './user.component.html',
+  styleUrls: ['./user.component.sass']
 })
-export class AuthService {
+export class UserComponent implements OnInit {
+  userDetails;
+  title = '\'s Profile';
+  isEdit = false;
+  user = {
+    avatar: '',
+    firstName: '',
+    lastName: '',
+    gender: '',
+    email: '',
+    mobileNumber: '',
+    address: ''
+  };
 
-  noAuthHeader = { headers: new HttpHeaders({ 'noAuth': 'True' }) };
-  
-  constructor(private http: HttpClient) { }
+  username;
 
-  //#region Http Methods
-  
-  register(user: User) {
-    return this.http.post(environment.authUrl + '/register', user, this.noAuthHeader);
+  role;
+  gender;
+
+  emailRegex;
+  mobileNumberRegex;
+
+  //#region Img
+
+  imageChangedEvent: any = '';
+  croppedImage: any = '';
+
+  //#endregion Img
+
+  @HostListener('window:resize')
+  onResize() {
+    this.setTable();
   }
 
-  login(authCredentials) {
-    return this.http.post(environment.authUrl + '/authenticate', authCredentials, this.noAuthHeader);
+  @HostListener('window:beforeunload')
+  beforeunloadHandler() {
+    return !this.isEdit || !(this.imageChangedEvent || this.user.firstName != this.userDetails.name.first || this.user.lastName != this.userDetails.name.last || this.user.gender != this.userDetails.gender || this.user.email != this.userDetails.email || this.user.mobileNumber != this.userDetails.mobileNumber || this.user.address != this.userDetails.address);
   }
 
-  active(id: string, code: string) {
-    return this.http.post(environment.authUrl + '/active/' + id, code);
+  constructor(private titleService: Title,
+              private route: ActivatedRoute, 
+              private userService: UserService,
+              private helperService: HelperService,
+              public authService: AuthService) {
+    this.emailRegex = this.helperService.emailRegex;
+    this.mobileNumberRegex = this.helperService.mobileNumberRegex;
   }
 
-  resendActive(id: string) {
-    return this.http.get(environment.authUrl + '/resend-active/' + id);
+  ngOnInit(): void {
+    this.username = this.route.snapshot.paramMap.get('username');
+
+    this.userService.getUser(this.username).subscribe(
+      res => {
+        this.userDetails = res['user'];
+        this.titleService.setTitle(this.userDetails.name.first + this.title);
+        this.role = this.userDetails.role.split('')[0].toUpperCase() + this.userDetails.role.split('').slice(1).join('');
+        this.gender = this.userDetails.gender.split('')[0].toUpperCase() + this.userDetails.gender.split('').slice(1).join('');
+
+        this.setTable();
+      },
+      err => alert(err.error.msg)
+    );
   }
 
-  getInfo() {
-    return this.http.get(environment.authUrl + '/info');
+  setTable() {
+    setTimeout(() => {
+      const vw = document.documentElement.clientWidth;
+      const vh = document.documentElement.clientHeight;
+      const section = document.querySelectorAll('section') as NodeListOf<HTMLElement>;
+      const thead = document.querySelectorAll('thead') as NodeListOf<HTMLTableSectionElement>;
+      const tbody = document.querySelectorAll('tbody') as NodeListOf<HTMLTableSectionElement>;
+
+      thead.forEach(i => i.style.fontSize = vw * 0.03125 + 'px');
+      tbody.forEach(i => i.style.fontSize = vw * 0.025 + 'px');
+      section[1].style.minHeight = (vh - 60 - section[0].clientHeight) + 'px';
+    });
   }
 
-  changeEmail(id: string, email: string) {
-    return this.http.put(environment.authUrl + '/change-email/' + id, email);
+  //#region Img Cropper
+
+  fileChangeEvent(event: any): void {
+    this.imageChangedEvent = event;
   }
 
-  findUsername(email: string) {
-    return this.http.post(environment.authUrl + '/find-username', email);
+  imageCropped(event: ImageCroppedEvent) {
+    this.croppedImage = event.base64;
   }
 
-  resendVerifyResetPassword(username: string) {
-    return this.http.get(environment.authUrl + '/resend-verify-reset-password/' + username);
+  //#endregion Img Cropper
+
+  edit() {
+    this.isEdit = !this.isEdit;
+
+    this.user.firstName = this.userDetails.name.first;
+    this.user.lastName = this.userDetails.name.last;
+    this.user.gender = this.userDetails.gender;
+    this.user.email = this.userDetails.email;
+    this.user.mobileNumber = this.userDetails.mobileNumber;
+    this.user.address = this.userDetails.address;
+
+    this.setTable();
   }
 
-  resetPassword(username: string, user: Object) {
-    return this.http.put(environment.authUrl + '/reset-password/' + username, user);
+  onSubmit(form: NgForm) {
+    if (this.authService.getUsername() == this.username) {
+      this.userService.updateUser(this.username, form.value).subscribe(
+        res => {
+          if (this.croppedImage) {
+            const formData = new FormData();
+
+            const file = new File([ this.helperService.base64ToBlob(this.croppedImage, 'png') ], 'img.png', { type: 'image/png' });
+            
+            formData.append('file', file, this.username + '.png');
+
+            this.userService.uploadAvatar(this.username, formData).subscribe(
+              res => {
+                alert('Update your profile is successfully.');
+                this.imageChangedEvent = '';
+                this.croppedImage = '';
+                location.reload();
+              },
+              err => alert(err.error.msg)
+            );
+          } else alert('Update your profile is successfully.');
+          
+          this.isEdit = !this.isEdit;
+          this.ngOnInit();
+        },
+        err => alert(err.error.msg)
+      );
+    }
   }
 
-  changePassword(id: string, user: User) {
-    return this.http.put(environment.authUrl + '/change-password/' + id, user);
+  onCancel() {
+    if (confirm('Are you sure to cancel?')) {
+      this.imageChangedEvent = '';
+      this.croppedImage = '';
+      this.edit();
+    }
   }
-  //#endregion Http Methods
-
-  //#region Helper Methods
-
-  setToken(token: string) {
-    localStorage.setItem('token', token);
-  }
-
-  getToken() {
-    return localStorage.getItem('token');
-  }
-
-  removeToken() {
-    localStorage.removeItem('token');
-  }
-
-  getPayload() {
-    return this.getToken() ? JSON.parse(atob(this.getToken().split('.')[1])) : null;
-  }
-
-  getId() {
-    return this.getPayload()._id;
-  }
-
-  isAdmin() {
-    return this.getPayload().admin;
-  }
-
-  activated() {
-    return this.getPayload().activated;
-  }
-
-  isLoggedIn() {
-    return this.getPayload().exp ? this.getPayload().exp * 1000 > Date.now() : Boolean(this.getId());
-  }
-
-  //#endregion Helper Methods
 
 }
