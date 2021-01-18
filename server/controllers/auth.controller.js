@@ -65,10 +65,8 @@ module.exports.active = async (req, res) => {
             const result1 = await User.findByIdAndUpdate(user._id, { $set: userActivated }, { new: true });
 
             if (result1) {
-              const result2 = await Code.deleteOne({ _userId: user._id });
-
-              return result2 ? res.status(200).json({ msg: 'Active your account is successfully.' })
-                             : res.status(400).json({ msg: 'Clean your code is failed.' });
+              return generator.deleteCode(user._id) ? res.status(200).json({ msg: 'Active your account is successfully.' })
+                                                    : res.status(400).json({ msg: 'Clean your code is failed.' });
             } else return res.status(404).json({ msg: 'User Verified isn\'t found.' });
           }
         }
