@@ -61,31 +61,23 @@ export class UserComponent implements OnInit {
     this.emailRegex = this.helperService.emailRegex;
     this.mobileNumberRegex = this.helperService.mobileNumberRegex;
   }
-  
+
   ngOnInit(): void {
     this.username = this.route.snapshot.paramMap.get('username');
-    
-    this.authService.getInfo().subscribe(
+  
+    this.userService.getUser(this.username).subscribe(
       res => {
-        if(res['user'].role === 'root' || res['user'].role === 'admin' || res['user'].username === this.username) {
-          this.isUser = res['user'].username === this.username;
-          this.userService.getUser(this.username).subscribe(
-            res => {
-              this.userDetails = res['user'];
-              this.titleService.setTitle(this.userDetails.name.first + this.title);
-              this.role = this.userDetails.role.split('')[0].toUpperCase() + this.userDetails.role.split('').slice(1).join('');
-              this.gender = this.userDetails.gender.split('')[0].toUpperCase() + this.userDetails.gender.split('').slice(1).join('');
-
-              this.setTable();
-            },
-            err => alert(err.error.msg)
-          );
-        }
+        this.userDetails = res['user'];
+        this.titleService.setTitle(this.userDetails.name.first + this.title);
+        this.role = this.userDetails.role.split('')[0].toUpperCase() + this.userDetails.role.split('').slice(1).join('');
+        this.gender = this.userDetails.gender.split('')[0].toUpperCase() + this.userDetails.gender.split('').slice(1).join('');
+  
+        this.setTable();
       },
-      err => this.router.navigateByUrl('')
+      err => alert(err.error.msg)
     );
   }
-
+  
   setTable() {
     setTimeout(() => {
       const vw = document.documentElement.clientWidth;
