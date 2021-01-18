@@ -56,14 +56,13 @@ export class UserComponent implements OnInit {
 
   constructor(private titleService: Title,
               private route: ActivatedRoute, 
-              private authService: AuthService, 
               private userService: UserService,
               private helperService: HelperService,
-              private router: Router) {
+              public authService: AuthService) {
     this.emailRegex = this.helperService.emailRegex;
     this.mobileNumberRegex = this.helperService.mobileNumberRegex;
   }
-
+  
   ngOnInit(): void {
     this.username = this.route.snapshot.paramMap.get('username');
     
