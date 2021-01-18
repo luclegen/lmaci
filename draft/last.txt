@@ -1,632 +1,96 @@
-import { Component, OnInit, HostListener } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { Title } from '@angular/platform-browser';
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-import { ImageCroppedEvent } from 'ngx-image-cropper';
+import { environment } from 'src/environments/environment';
 
-import { Product } from 'src/app/models/product.model';
+import { User } from '../models/user.model';
 
-import { HelperService } from 'src/app/services/helper.service';
-import { AdminService } from 'src/app/services/admin.service';
-import { AuthService } from 'src/app/services/auth.service';
-
-import { Router } from '@angular/router';
-
-@Component({
-  selector: 'app-products',
-  templateUrl: './products.component.html',
-  styleUrls: ['./products.component.sass']
+@Injectable({
+  providedIn: 'root'
 })
-export class ProductsComponent implements OnInit {
+export class AuthService {
 
-  //#region Product
-
-  product = {
-    _id: '',
-    img: { index: -1, path: ''},
-    name: '',
-    price: 0,
-    quantity: { imported: 0 },
-    type: '',
-    colors: [],
-    properties: [],
-    technicalDetails: [],
-  };
-
-  products = [];
-
-  //#endregion Product
-
-  keyword;
-
-  //#region Img
-
-  imageChangedEvent: any = '';
-  croppedImage: any = '';
-
-  //#endregion Img
-
-  //#region Color
-
-  color = {
-    option: '',
-    name: '',
-    value: ''
-  };
-
-  colorSeleted = {
-    option: '',
-    name: '',
-    value: ''
-  };
-
-  colorTmp = {
-    option: '',
-    name: '',
-    value: ''
-  };
-
-  //#endregion Color
-
-  //#region Property
-
-  property = {
-    name: '',
-    options: []
-  };
-
-  propertySelected = {
-    name: '',
-    options: []
-  };
-
-  propertyTmp = {
-    name: '',
-    options: []
-  };
-
-  //#endregion Property
-
-  //#region Option
-
-  option = {
-    value: '',
-    price: 0
-  }
-
-  optionSelected = {
-    value: '',
-    price: 0
-  }
-
-  optionTmp = {
-    value: '',
-    price: 0
-  }
-
-  //#endregion Option
-
-  //#region Technical detail
-
-  technicalDetail = {
-    name: '',
-    value: ''
-  };
-
-  technicalDetailSelected = {
-    name: '',
-    value: ''
-  };
-
-  technicalDetailTmp = {
-    name: '',
-    value: ''
-  };
-
-  //#endregion Technical detail
-
-  //#region Regex
-
-  NotNegativeNumberRegex;
-
-  //#endregion Regex
-
-  //#region Save Change
-
-  isInput = false;
-
-  //#endregion Save Change
-
-  @HostListener('window:resize')
-  onResize() {
-    this.ngOnInit();
-  }
-
-  @HostListener('window:beforeunload')
-  beforeunloadHandler() {
-    return !this.isInput;
-  }
-
-  constructor(private titleService: Title,
-              private helperService: HelperService,
-              private adminService: AdminService,
-              private authService: AuthService,
-              private router: Router) {
-    this.titleService.setTitle('Products Management | Lmaci');
-    this.NotNegativeNumberRegex = this.helperService.NotNegativeNumberRegex;
-  }
-
-  ngOnInit(): void {
-    const vpWidth = document.documentElement.clientWidth;
-    const tableWidth = vpWidth * (0.45 * 0.94);
-    const colorTable = document.querySelector('.color-table') as HTMLElement;
-    const tripleIn = document.getElementsByClassName('triple') as HTMLCollectionOf<HTMLElement>;
-    const doubleIn = document.getElementsByClassName('double') as HTMLCollectionOf<HTMLElement>;
-    const functions = document.getElementsByClassName('functions') as HTMLCollectionOf<HTMLElement>;
-    const input = document.getElementsByTagName('input') as HTMLCollectionOf<HTMLInputElement>;
-    const label = document.getElementsByTagName('label') as HTMLCollectionOf<HTMLLabelElement>;
-    const select = document.getElementsByTagName('select') as HTMLCollectionOf<HTMLSelectElement>;
-    const price = document.getElementById('price') as HTMLElement;
-    const priceIn = document.getElementById('price-in') as HTMLElement;
-    const quantityImported = document.getElementById('quantity-imported') as HTMLElement;
-    const quantityImportedIn = document.getElementById('quantity-imported-in') as HTMLElement;
-    const type = document.getElementById('type') as HTMLElement;
-    const typeSelect = document.getElementById('type-select') as HTMLElement;
-
-    colorTable.style.width = tableWidth + 'px';
-
-    tripleIn[0].style.width = (tableWidth - (functions[0].clientWidth + 3) - 256) + 'px';
-
-    for (let i = 0; i < doubleIn.length; i++) doubleIn[i].style.width = ((tableWidth - (functions[1].clientWidth + 3)) * 0.5 - 20) + 'px';
-
-    for (let i = 0; i < input.length; i++) input[i].style.fontSize = vpWidth * 0.015 + 'px';
-    for (let i = 0; i < label.length; i++) label[i].style.fontSize = vpWidth * 0.015 + 'px';
-    for (let i = 0; i < select.length; i++) select[i].style.fontSize = vpWidth * 0.015 + 'px';
-
-    price.style.marginLeft = (priceIn.offsetWidth - price.offsetWidth) + 'px';
-    quantityImported.style.marginLeft = (quantityImportedIn.offsetWidth - quantityImported.offsetWidth) + 'px';
-    type.style.marginLeft = (typeSelect.offsetWidth - type.offsetWidth) + 'px';
-
-    this.authService.getInfo().subscribe(res => { if (res['user'].role == 'root' || res['user'].role === 'admin') this.adminService.getProducts().subscribe(res => this.products = res['products'], err => alert(err.error.msg)); }, err => { if (err.status == 440 && confirm('Login again?\nYour session has expired and must log in again.')) window.open('/login'); });
-  }
-
-  setInput() {
-    this.isInput = Boolean(this.imageChangedEvent || this.product.name || this.product.price || this.product.quantity.imported || this.product.type || this.product.colors.length || this.product.properties.length || this.product.technicalDetails.length || this.color.option || this.color.name || this.color.value || this.property.name || this.property.options.length || this.option.value || this.option.price || this.technicalDetail.name || this.technicalDetail.value);
-  }
-
-  //#region Img Cropper
-
-  fileChangeEvent(event: any): void {
-    this.imageChangedEvent = event;
-  }
-
-  imageCropped(event: ImageCroppedEvent) {
-    this.croppedImage = event.base64;
-  }
-
-  //#endregion Img Cropper
-
-  //#region Submit
-
-  onSubmit(form: NgForm) {
-    this.authService.getInfo().subscribe(
-      res => {
-        if (res['user'].role == 'root' || res['user'].role === 'admin') {
-          if (form.value._id) {
-            form.value.img = '';
+  noAuthHeader = { headers: new HttpHeaders({ 'noAuth': 'True' }) };
   
-            if (this.croppedImage) {
-              this.adminService.updateProduct(form.value._id, form.value).subscribe(
-                res => {
-                  const formData = new FormData();
+  constructor(private http: HttpClient) { }
+
+  //#region Http Methods
   
-                  this.product.img.index++;
-                  const file = new File([ this.helperService.base64ToBlob(this.croppedImage, 'png') ], 'img.png', { type: 'image/png' });
-                  
-                  formData.append('index', this.product.img.index.toString());
-                  formData.append('file', file, this.product.img.index.toString() + '.png');
-  
-                  this.adminService.uploadProductImg(res['_id'], formData).subscribe(
-                    res => {
-                      alert('Update this product is successfully!');
-  
-                      this.product = {
-                        _id: '',
-                        img: { index: -1, path: ''},
-                        name: '',
-                        price: 0,
-                        quantity: { imported: 0 },
-                        type: '',
-                        colors: [],
-                        properties: [],
-                        technicalDetails: [],
-                      };
-  
-                      this.imageChangedEvent = '';
-                      this.croppedImage = '';
-                      this.ngOnInit();
-                    },  
-                    err => alert(err.error.msg)
-                  );
-                },
-                err => alert(err.error.msg)
-              );
-            } else {
-              this.adminService.updateProduct(form.value._id, form.value).subscribe(
-                res => {
-                  alert('Update this product is successfully!');
-    
-                  this.product = {
-                    _id: '',
-                    img: { index: -1, path: ''},
-                    name: '',
-                    price: 0,
-                    quantity: { imported: 0 },
-                    type: '',
-                    colors: [],
-                    properties: [],
-                    technicalDetails: [],
-                  };
-  
-                  this.imageChangedEvent = '';
-                  this.croppedImage = '';
-                  this.ngOnInit();
-                },
-                err => alert(err.error.msg)
-              );
-            }
-          } else {
-            this.adminService.createProduct(form.value).subscribe(
-              res => {
-                const formData = new FormData();
-  
-                this.product.img.index++;
-                const file = new File([ this.helperService.base64ToBlob(this.croppedImage, 'png') ], 'img.png', { type: 'image/png' });
-  
-                formData.append('index', this.product.img.index.toString());
-                formData.append('file', file, this.product.img.index.toString() + '.png');
-  
-                this.adminService.uploadProductImg(res['_id'], formData).subscribe(
-                  res => {
-                    alert('Create this product is successfully!');
-      
-                    this.product = {
-                      _id: '',
-                      img: { index: -1, path: ''},
-                      name: '',
-                      price: 0,
-                      quantity: { imported: 0 },
-                      type: '',
-                      colors: [],
-                      properties: [],
-                      technicalDetails: [],
-                    };
-  
-                    this.imageChangedEvent = '';
-                    this.croppedImage = '';
-                    this.ngOnInit();
-                  },  
-                  err => alert(err.error.msg)
-                );
-              },
-              err => alert(JSON.stringify(err.error))
-            );
-          }
-        }
-      },
-      err => { if (err.status == 440 && confirm('Login again?\nYour session has expired and must log in again.')) window.open('/login'); }
-    );
-  }
-  
-  onSubmitColor(form: NgForm) {
-    const colors = {
-      '#ffffff': 'White',
-      '#c0c0c0': 'Silver',
-      '#808080': 'Gray',
-      '#000000': 'Black',
-      '#ff0000': 'Red',
-      '#800000': 'Maroon',
-      '#ffff00': 'Yellow',
-      '#ffd700': 'Gold',
-      '#808000': 'Olive',
-      '#00ff00': 'Lime',
-      '#008000': 'Green',
-      '#00ffff': 'Aqua',
-      '#008080': 'Teal',
-      '#0000ff': 'Blue',
-      '#000080': 'Navy',
-      '#ff00ff': 'Fuchsia',
-      '#800080': 'Purple'
-    }
-
-    if (form.value.option != 'custom') {
-      form.value.name = colors[ form.value.option ];
-      form.value.value = form.value.option;
-    }
-
-    if (this.colorSeleted.option && this.colorSeleted.name && this.colorSeleted.value) {
-      this.product.colors[this.product.colors.indexOf(this.colorSeleted)] = form.value;
-      this.colorSeleted = {
-        option: '',
-        name: '',
-        value: ''
-      };
-    } else this.product.colors.push(form.value);
-      
-    this.color = {
-      option: '',
-      name: '',
-      value: ''
-    };
-
+  register(user: User) {
+    return this.http.post(environment.authUrl + '/register', user, this.noAuthHeader);
   }
 
-  onSubmitProperty(form: NgForm) {
-    delete form.value.optionValue;
-    delete form.value.optionPrice;
-
-    if (this.propertySelected.name && this.propertySelected.options.length) {
-      this.product.properties[this.product.properties.indexOf(this.propertySelected)] = form.value;
-
-      this.propertySelected = {
-        name: '',
-        options: []
-      };
-    } else this.product.properties.push(form.value);
-    
-    this.property = {
-      name: '',
-      options: []
-    };
-
-    this.option = {
-      value: '',
-      price: 0
-    }
-
-    this.optionSelected = {
-      value: '',
-      price: 0
-    }
+  login(authCredentials) {
+    return this.http.post(environment.authUrl + '/authenticate', authCredentials, this.noAuthHeader);
   }
 
-  onSubmitOption() {
-    if (this.optionSelected.value && this.optionSelected.price >= 0 ) {
-      this.property.options[this.property.options.indexOf(this.optionSelected)] = this.option;
-
-      this.optionSelected = {
-        value: '',
-        price: 0
-      }
-
-      this.optionTmp = {
-        value: '',
-        price: 0
-      }
-    } else this.property.options.push(this.option);
-
-    this.option = {
-      value: '',
-      price: 0
-    }
+  active(id: string, code: string) {
+    return this.http.post(environment.authUrl + '/active/' + id, code);
   }
 
-  onSubmitTechnicalDetails(form: NgForm) {
-    if (this.technicalDetailSelected.name && this.technicalDetailSelected.value) {
-      this.product.technicalDetails[this.product.technicalDetails.indexOf(this.technicalDetailSelected)] = form.value;
-      this.technicalDetailSelected = {
-        name: '',
-        value: ''
-      };
-    } else this.product.technicalDetails.push(form.value);
-    form.resetForm();
+  resendActive(id: string) {
+    return this.http.get(environment.authUrl + '/resend-active/' + id);
   }
 
-  //#endregion Submit
-
-  //#region Cancel
-
-  onCancelColor() {
-    this.color.option = this.colorTmp.option;
-    this.color.name = this.colorTmp.name;
-    this.color.value = this.colorTmp.value;
-
-    this.color = {
-      option: '',
-      name: '',
-      value: ''
-    };
-
-    this.colorSeleted = {
-      option: '',
-      name: '',
-      value: ''
-    };
-
-    this.colorTmp = {
-      option: '',
-      name: '',
-      value: ''
-    };
-
+  getInfo() {
+    return this.http.get(environment.authUrl + '/info');
   }
 
-  onCancelProperty() {
-    this.property.name = this.propertyTmp.name;
-    this.property.options = this.propertyTmp.options;
-
-    this.property = {
-      name: '',
-      options: []
-    };
-  
-    this.propertySelected = {
-      name: '',
-      options: []
-    };
-  
-    this.propertyTmp = {
-      name: '',
-      options: []
-    };
-
-    this.option = {
-      value: '',
-      price: 0
-    }
-  
-    this.optionSelected = {
-      value: '',
-      price: 0
-    }
-  
-    this.optionTmp = {
-      value: '',
-      price: 0
-    }
+  changeEmail(id: string, email: string) {
+    return this.http.put(environment.authUrl + '/change-email/' + id, email);
   }
 
-  onCancelOption() {
-    this.option.value = this.optionTmp.value;
-    this.option.price = this.optionTmp.price;
- 
-    this.option = {
-      value: '',
-      price: 0
-    }
-  
-    this.optionSelected = {
-      value: '',
-      price: 0
-    }
-  
-    this.optionTmp = {
-      value: '',
-      price: 0
-    }
+  findUsername(email: string) {
+    return this.http.post(environment.authUrl + '/find-username', email);
   }
 
-  onCancelTechnicalDetail() {
-    this.technicalDetail.name = this.technicalDetailTmp.name;
-    this.technicalDetail.value = this.technicalDetailTmp.value;
-    
-    this.technicalDetail = {
-      name: '',
-      value: ''
-    };
-
-    this.technicalDetailSelected = {
-      name: '',
-      value: ''
-    };
-
-    this.technicalDetailTmp = {
-      name: '',
-      value: ''
-    };
+  resendVerifyResetPassword(username: string) {
+    return this.http.get(environment.authUrl + '/resend-verify-reset-password/' + username);
   }
 
-  onCancelProduct() {
-    if (confirm('Are you sure to cancel?')) {
-      this.product = {
-        _id: '',
-        img: { index: -1, path: ''},
-        name: '',
-        price: 0,
-        quantity: { imported: 0 },
-        type: '',
-        colors: [],
-        properties: [],
-        technicalDetails: [],
-      };
-  
-      this.imageChangedEvent = '';
-      this.croppedImage = '';
-      this.ngOnInit();
-    }
-  }
-  
-  //#endregion Cancel
-
-  //#region Edit
-
-  onEditColor(c: Object) {
-    this.color = this.colorSeleted = Object(c);
-    this.colorTmp = JSON.parse(JSON.stringify(c));
+  resetPassword(username: string, user: Object) {
+    return this.http.put(environment.authUrl + '/reset-password/' + username, user);
   }
 
-  onEditProperty(p: Object) {
-    this.property = this.propertySelected = Object(p);
-    this.propertyTmp = JSON.parse(JSON.stringify(p));
+  changePassword(id: string, user: User) {
+    return this.http.put(environment.authUrl + '/change-password/' + id, user);
+  }
+  //#endregion Http Methods
+
+  //#region Helper Methods
+
+  setToken(token: string) {
+    localStorage.setItem('token', token);
   }
 
-  onEditOption(o: Object) {
-    this.option = this.optionSelected = Object(o);
-    this.optionTmp = JSON.parse(JSON.stringify(o));
+  getToken() {
+    return localStorage.getItem('token');
   }
 
-  onEditTechnicalDetail(t: Object) {
-    this.technicalDetail = this.technicalDetailSelected = Object(t);
-    this.technicalDetailTmp = JSON.parse(JSON.stringify(t));
+  removeToken() {
+    localStorage.removeItem('token');
   }
 
-  onEditProduct(p: Object) {
-    this.imageChangedEvent = this.croppedImage = '';
-
-    this.product = JSON.parse(JSON.stringify(p));
+  getPayload() {
+    return this.getToken() ? JSON.parse(atob(this.getToken().split('.')[1])) : null;
   }
 
-  //#endregion Edit
-
-  //#region Delete
-
-  onDeleteColor(c: String) {
-    if (confirm('Are you sure delete: ' + JSON.stringify(c) + '?')) this.product.colors.splice(this.product.colors.indexOf(Object(c)), 1);
+  getId() {
+    return this.getPayload()._id;
   }
 
-  onDeleteProperty(p: Object) {
-    if (confirm('Are you sure delete: ' + JSON.stringify(p) + '?')) this.product.properties.splice(this.product.properties.indexOf(Object(p)), 1);
+  isAdmin() {
+    return this.getPayload().admin;
   }
 
-  onDeleteOption(o: Object) {
-    if (confirm('Are you sure delete: ' + JSON.stringify(o) + '?')) this.property.options.splice(this.property.options.indexOf(Object(o)), 1);
+  activated() {
+    return this.getPayload().activated;
   }
 
-  onDeleteTechnicalDetail(t: Object) {
-    if (confirm('Are you sure delete: ' + JSON.stringify(t) + '?')) this.product.technicalDetails.splice(this.product.technicalDetails.indexOf(Object(t)), 1);
+  isLoggedIn() {
+    return this.getPayload().exp ? this.getPayload().exp * 1000 > Date.now() : Boolean(this.getId());
   }
 
-  onDeleteProduct(p: Product) {
-    if (confirm('Are you sure delete: ' + JSON.stringify(p) + '?')) {
-      this.adminService.deleteProduct(p._id).subscribe(res => alert(res['msg']), err => alert(err.error.msg));
-      this.ngOnInit();
-    }
-  }
+  //#endregion Helper Methods
 
-  //#endregion Delete
-
-  //#region Check
-
-  isNotSubmitProperty() {
-    return this.property.options.some(o => !o.value || o.price == null || o.price < 0);
-  }
-
-  //#endregion Check
-
-  //#region Products
-
-  onSearch(form: NgForm) {
-    this.authService.getInfo().subscribe(res => { if (res['user'].role == 'root' || res['user'].role === 'admin') this.adminService.searchProducts(form.value).subscribe(res => this.products = res['products'], err => alert(err.error.msg)); }, err => { if (err.status == 440 && confirm('Login again?\nYour session has expired and must log in again.')) window.open('/login'); });
-  }
-
-  showAll() {
-    this.ngOnInit();
-  }
-
-  viewDetails(event: any, product: Product) {
-    if (event.ctrlKey) window.open(product.type + '/' + product._id);
-    else this.router.navigateByUrl(product.type + '/' + product._id);
-  }
-
-  //#endregion Products
 }
