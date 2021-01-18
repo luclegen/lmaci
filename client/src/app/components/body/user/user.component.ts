@@ -118,40 +118,35 @@ export class UserComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    this.authService.getInfo().subscribe(
-      res => {
-        if (res['user'].username == this.username) {
-          this.userService.updateUser(this.username, form.value).subscribe(
-            res => {
-              if (this.croppedImage) {
-                const formData = new FormData();
-
-                const file = new File([ this.helperService.base64ToBlob(this.croppedImage, 'png') ], 'img.png', { type: 'image/png' });
-                
-                formData.append('file', file, this.username + '.png');
-
-                this.userService.uploadAvatar(this.username, formData).subscribe(
-                  res => {
-                    alert('Update your profile is successfully.');
-                    this.imageChangedEvent = '';
-                    this.croppedImage = '';
-                    location.reload();
-                  },
-                  err => alert(err.error.msg)
-                );
-              } else alert('Update your profile is successfully.');
-              
-              this.isEdit = !this.isEdit;
-              this.ngOnInit();
-            },
-            err => alert(err.error.msg)
-          );
-        }
-      },
-      err => { if (err.status == 440 && confirm('Login again?\nYour session has expired and must log in again.')) window.open('/login'); }
-    );
+    if (this.authService.getUsername() == this.username) {
+      this.userService.updateUser(this.username, form.value).subscribe(
+        res => {
+          if (this.croppedImage) {
+            const formData = new FormData();
+  
+            const file = new File([ this.helperService.base64ToBlob(this.croppedImage, 'png') ], 'img.png', { type: 'image/png' });
+            
+            formData.append('file', file, this.username + '.png');
+  
+            this.userService.uploadAvatar(this.username, formData).subscribe(
+              res => {
+                alert('Update your profile is successfully.');
+                this.imageChangedEvent = '';
+                this.croppedImage = '';
+                location.reload();
+              },
+              err => alert(err.error.msg)
+            );
+          } else alert('Update your profile is successfully.');
+          
+          this.isEdit = !this.isEdit;
+          this.ngOnInit();
+        },
+        err => alert(err.error.msg)
+      );
+    }
   }
-
+  
   onCancel() {
     if (confirm('Are you sure to cancel?')) {
       this.imageChangedEvent = '';
