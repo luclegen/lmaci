@@ -1,7 +1,8 @@
 import { Routes } from '@angular/router';
 
 import { AuthGuard } from './guards/auth/auth.guard';
-import { DataGuard } from './guards/data/data.guard';
+import { AdminGuard } from './guards/admin/admin.guard';
+import { UserGuard } from './guards/user/user.guard';
 
 import { HomeComponent } from './components/body/home/home.component';
 import { UserComponent } from './components/body/user/user.component';
@@ -28,11 +29,11 @@ export const routes: Routes = [
   { path: 'find-username', component: FindUsernameComponent },
   { path: 'reset-password/:username', component: ResetPasswordComponent },
   { path: 'change-password', component: ChangePasswordComponent, canActivate: [AuthGuard] },
-  { path: 'admin', component: AdminComponent, canActivate: [AuthGuard],
+  { path: 'admin', component: AdminComponent, canActivate: [AdminGuard],
     children: [ { path: 'admins', component: AdminsComponent },
                 { path: 'users', component: UsersComponent },
-                { path: 'products', component: ProductsComponent, canDeactivate: [DataGuard] } ] },
-  { path: 'user/:username', component: UserComponent },
+                { path: 'products', component: ProductsComponent, canDeactivate: [AdminGuard] } ] },
+  { path: 'user/:username', component: UserComponent, canActivate: [UserGuard] },
   { path: ':path', component: ProductListComponent },
   { path: ':type/:id', component: ProductComponent }
 ]
