@@ -26,7 +26,7 @@ export const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'active', component: ActiveComponent, canActivate: [ActiveGuard] },
-  { path: 'change-email', component: ChangeEmailComponent, canActivate: [AuthGuard] },
+  { path: 'change-email', component: ChangeEmailComponent, canActivate: [ActiveGuard] },
   { path: 'find-username', component: FindUsernameComponent },
   { path: 'reset-password/:username', component: ResetPasswordComponent },
   { path: 'change-password', component: ChangePasswordComponent, canActivate: [AuthGuard] },
