@@ -29,7 +29,6 @@ export class UserComponent implements OnInit {
   };
 
   username;
-  isUser = false;
 
   role;
   gender;
