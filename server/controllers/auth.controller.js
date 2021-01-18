@@ -86,16 +86,14 @@ module.exports.resendActive = async (req, res) => {
     if (user.activated) return res.status(422).json({ msg: 'Email is verified.' });
     else {
       try {
-        Code.deleteOne({ _userId: user._id }, err => {
-          if (err) console.log('ERROR: Clear codes: ' + JSON.stringify(err, undefined, 2))
-        });
-
         const newCode = new Code();
 
+        generator.deleteCode(user._id);
         newCode._userId = user._id;
         newCode.code = generator.generateCode(6);
 
         try {
+          setTimeout(() => generator.deleteCode(user._id), 60000);
           mailer.sendVerifyEmail(user.email, 'Verify Email', (await newCode.save()).code);
           return res.status(200).json({ msg: 'Resent Verification Code.' });
         } catch (err) {
