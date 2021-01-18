@@ -162,12 +162,8 @@ module.exports.resetPassword = async (req, res) => {
 
         user.save(err => {
           if (err) return res.status(400).json({ msg: 'Update is error.' });
-          else {
-            Code.deleteOne({ _userId: user._id }, err => {
-              return err ? res.status(400).json(err)
-                         : res.status(200).json({ msg: 'Reset Password is successfully.' });
-            });
-          }
+          else return generator.deleteCode(user._id) ? res.status(200).json({ msg: 'Reset Password is successfully.' })
+                                                     : res.status(400).json({ msg: 'Clean your code is failed.' });
         });
       } else return res.status(403).json({ msg: 'Verification Code is wrong.' });
     } else return res.status(404).json({ msg: 'Code isn\'t found.' });
