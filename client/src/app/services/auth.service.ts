@@ -80,7 +80,7 @@ export class AuthService {
   }
 
   isLoggedIn() {
-    return this.getPayload().exp ? this.getPayload().exp * 1000 > Date.now() : true;
+    return this.getPayload().exp ? this.getPayload().exp * 1000 > Date.now() : Boolean(this.getId());
   }
 
   //#endregion Helper Methods
