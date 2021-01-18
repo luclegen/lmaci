@@ -7,6 +7,7 @@ module.exports.verifyJwtToken = async (req, res, next) => {
     if (token) {
       try {
         const decoded = await jwt.verify(token, process.env.JWT_SECRET);
+
         if (decoded) {
           req._id = decoded._id;
           next();
