@@ -79,6 +79,10 @@ export class AuthService {
     return this.getPayload()._id;
   }
 
+  activated() {
+    return this.getPayload().activated;
+  }
+
   isAdmin() {
     return this.getPayload().admin;
   }
