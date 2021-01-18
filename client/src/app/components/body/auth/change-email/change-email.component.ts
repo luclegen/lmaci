@@ -37,7 +37,6 @@ export class ChangeEmailComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.authService.getInfo().subscribe(res => { if (res['user'].activated) this.router.navigateByUrl(''); }, err => { if (err.status == 440 && confirm('Login again?\nYour session has expired and must log in again.')) window.open('/login'); });
     this.helperService.setPositionOnlyForm();
   }
 
