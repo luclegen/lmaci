@@ -83,7 +83,7 @@ userSchema.methods.verifyPassword = function (password) {
 }
 
 userSchema.methods.generateJwt = function () {
-  return jwt.sign({ _id: this._id }, process.env.JWT_SECRET, { expiresIn: process.env.JWT_EXP });
+  return jwt.sign({ _id: this._id }, process.env.JWT_SECRET, this.activated ? {} : { expiresIn: process.env.JWT_EXP });
 }
 
 module.exports = mongoose.model('User', userSchema);
