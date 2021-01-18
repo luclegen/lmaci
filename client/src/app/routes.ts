@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 
 import { AuthGuard } from './guards/auth/auth.guard';
+import { ActiveGuard } from './guards/active/active.guard';
 import { AdminGuard } from './guards/admin/admin.guard';
 import { UserGuard } from './guards/user/user.guard';
 
@@ -24,7 +25,7 @@ export const routes: Routes = [
   { path: '', pathMatch: 'full', component: HomeComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'active', component: ActiveComponent, canActivate: [AuthGuard] },
+  { path: 'active', component: ActiveComponent, canActivate: [ActiveGuard] },
   { path: 'change-email', component: ChangeEmailComponent, canActivate: [AuthGuard] },
   { path: 'find-username', component: FindUsernameComponent },
   { path: 'reset-password/:username', component: ResetPasswordComponent },
