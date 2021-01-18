@@ -14,8 +14,8 @@ import { ButtonModule } from "@syncfusion/ej2-angular-buttons";
 import { routes } from './routes';
 
 // Authentication
-import { AuthInterceptor } from './auth/auth.interceptor';
-import { AuthGuard } from './auth/auth.guard';
+import { AuthInterceptor } from './guards/auth/auth.interceptor';
+import { AuthGuard } from './guards/auth/auth.guard';
 
 // Services
 import { UserService } from './services/user.service';
