@@ -50,10 +50,8 @@ export class LoginComponent implements OnInit {
     this.authService.login(form.value).subscribe(
       res => {
         this.authService.setToken(res['token']);
-        this.authService.getInfo().subscribe(res => {
-          if (!res['user'].activated) alert('Your session exists for 5 minutes.');
-          this.router.navigateByUrl(res['user'].activated ? '/' : 'active')
-        });
+        if (!this.authService.activated()) alert('Your session exists for 5 minutes.');
+        this.router.navigateByUrl(this.authService.activated() ? '/' : 'active')
       },
       err => this.serverErrorMessages = err.error.msg
     );
