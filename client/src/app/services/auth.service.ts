@@ -79,6 +79,10 @@ export class AuthService {
     return this.getPayload()._id;
   }
 
+  isAdmin() {
+    return this.getPayload().admin;
+  }
+
   isLoggedIn() {
     return this.getPayload().exp ? this.getPayload().exp * 1000 > Date.now() : Boolean(this.getId());
   }
