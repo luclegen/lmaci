@@ -141,6 +141,7 @@ Change Password Component: matchPassword
 Change Password Component: togglePassword
 Auth Service: changePassword
 Auth Service: getId
+Auth Service: isLoggedIn
 Change Password Component: onSubmit
 Active Component: onSubmit
 Active Component: constructor
