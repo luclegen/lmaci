@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 
-import { AuthGuard } from './auth/auth.guard';
-import { DeactivateGuard } from './guard/deactivate.guard';
+import { AuthGuard } from './guards/auth/auth.guard';
+import { DataGuard } from './guards/data/data.guard';
 
 import { HomeComponent } from './components/body/home/home.component';
 import { UserComponent } from './components/body/user/user.component';
@@ -31,7 +31,7 @@ export const routes: Routes = [
   { path: 'admin', component: AdminComponent, canActivate: [AuthGuard],
     children: [ { path: 'admins', component: AdminsComponent },
                 { path: 'users', component: UsersComponent },
-                { path: 'products', component: ProductsComponent, canDeactivate: [DeactivateGuard] } ] },
+                { path: 'products', component: ProductsComponent, canDeactivate: [DataGuard] } ] },
   { path: 'user/:username', component: UserComponent },
   { path: ':path', component: ProductListComponent },
   { path: ':type/:id', component: ProductComponent }
