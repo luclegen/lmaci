@@ -135,16 +135,14 @@ module.exports.resendVerifyResetPassword = async (req, res) => {
   const user = await User.findOne({ username: req.params.username, activated: true });
 
   if (user) {
-    Code.deleteOne({ _userId: user._id }, err => {
-      if (err) console.log('ERROR: Clear codes: ' + JSON.stringify(err, undefined, 2))
-    });
-
     const code = new Code();
 
     code._userId = user._id;
     code.code = generator.generateCode(6);
+    generator.deleteCode(user._id);
 
     try {
+      setTimeout(() => generator.deleteCode(user._id), 90000);
       mailer.sendVerifyEmail(user.email, 'Verify Reset Password', (await code.save()).code);
       return res.status(200).json({ msg: 'Resent Verification Code.' });
     } catch (err) {
