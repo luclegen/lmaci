@@ -141,6 +141,7 @@ Change Password Component: matchPassword
 Change Password Component: togglePassword
 Auth Service: changePassword
 Auth Service: getId
+Auth Service: getUsername
 Auth Service: activated
 Auth Service: isAdmin
 Auth Service: isLoggedIn
@@ -461,6 +462,8 @@ Product List Component: ngOnInit
 Auth Interceptor
 Data Guard
 Auth Guard
+Admin Guard
+User Guard
 User Images
 Background Images
 
