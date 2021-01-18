@@ -1,158 +1,196 @@
-import { Component, OnInit, HostListener } from '@angular/core';
-import { Title } from '@angular/platform-browser';
-import { ActivatedRoute, Router } from '@angular/router';
-import { NgForm } from '@angular/forms';
+const passport = require('passport');
+const _ = require('lodash');
+const ObjectId = require('mongoose').Types.ObjectId;
 
-import { ImageCroppedEvent } from 'ngx-image-cropper';
+const converter = require('../helpers/converter');
+const mailer = require('../helpers/mailer');
+const generator = require('../helpers/generator');
 
-import { UserService } from 'src/app/services/user.service';
-import { AuthService } from 'src/app/services/auth.service';
-import { HelperService } from 'src/app/services/helper.service';
+const User = require('../models/user.model');
+const Code = require('../models/code.model');
 
-@Component({
-  selector: 'app-user',
-  templateUrl: './user.component.html',
-  styleUrls: ['./user.component.sass']
-})
-export class UserComponent implements OnInit {
-  userDetails;
-  title = '\'s Profile';
-  isEdit = false;
-  user = {
-    avatar: '',
-    firstName: '',
-    lastName: '',
-    gender: '',
-    email: '',
-    mobileNumber: '',
-    address: ''
-  };
+module.exports.register = async (req, res, next) => {
+  const user = new User();
 
-  username;
+  user.name.first = converter.toName(req.body.firstName);
+  user.name.last = converter.toName(req.body.lastName);
+  user.fullName = user.name.first + ' ' + user.name.last;
 
-  role;
-  gender;
+  user.gender = req.body.gender;
+  user.email = req.body.email;
+  user.mobileNumber = req.body.mobileNumber;
+  user.address = req.body.address;
 
-  emailRegex;
-  mobileNumberRegex;
+  user.username = req.body.username;
+  user.password = req.body.password;
 
-  //#region Img
-
-  imageChangedEvent: any = '';
-  croppedImage: any = '';
-
-  //#endregion Img
-
-  @HostListener('window:resize')
-  onResize() {
-    this.setTable();
+  if (user.username == 'root') {
+    user.avatar = process.env.AVATARS + 'root.png';
+    user.role = 'root';
   }
-
-  @HostListener('window:beforeunload')
-  beforeunloadHandler() {
-    return !this.isEdit || !(this.imageChangedEvent || this.user.firstName != this.userDetails.name.first || this.user.lastName != this.userDetails.name.last || this.user.gender != this.userDetails.gender || this.user.email != this.userDetails.email || this.user.mobileNumber != this.userDetails.mobileNumber || this.user.address != this.userDetails.address);
+  
+  try {
+    return res.send(await user.save());
+  } catch (err) {
+    return err.code === 11000 ? res.status(422).send([ 'Username is duplicate. Please try again!' ])
+                              : next(err);
   }
+}
 
-  constructor(private titleService: Title,
-              private route: ActivatedRoute, 
-              private userService: UserService,
-              private helperService: HelperService,
-              public authService: AuthService) {
-    this.emailRegex = this.helperService.emailRegex;
-    this.mobileNumberRegex = this.helperService.mobileNumberRegex;
-  }
+module.exports.active = async (req, res) => {
+  if (!ObjectId.isValid(req.params.id))
+    return res.status(400).json({ msg: `No record with given id: ${req.params.id}` });
 
-  ngOnInit(): void {
-    this.username = this.route.snapshot.paramMap.get('username');
+  const user = await User.findById(req.params.id);
 
-    this.userService.getUser(this.username).subscribe(
-      res => {
-        this.userDetails = res['user'];
-        this.titleService.setTitle(this.userDetails.name.first + this.title);
-        this.role = this.userDetails.role.split('')[0].toUpperCase() + this.userDetails.role.split('').slice(1).join('');
-        this.gender = this.userDetails.gender.split('')[0].toUpperCase() + this.userDetails.gender.split('').slice(1).join('');
+  if (user) {
+    const userActivated = {
+      email: user.email,
+      activated: true
+    }, userEmailRemoved = {
+      email: '',
+      activated: false
+    };
 
-        this.setTable();
-      },
-      err => alert(err.error.msg)
-    );
-  }
+    if (user.activated) return res.status(422).json({ msg: 'Your account is activated.' });
+    else {
+      const code = await Code.findOne({ _userId: req.params.id });
 
-  setTable() {
-    setTimeout(() => {
-      const vw = document.documentElement.clientWidth;
-      const vh = document.documentElement.clientHeight;
-      const section = document.querySelectorAll('section') as NodeListOf<HTMLElement>;
-      const thead = document.querySelectorAll('thead') as NodeListOf<HTMLTableSectionElement>;
-      const tbody = document.querySelectorAll('tbody') as NodeListOf<HTMLTableSectionElement>;
+      if (code) {
+        if (Date.now() > Date.parse(code.createdAt) + 60000) return res.status(400).json({ msg: 'Code is expired. Please click to resend email!' });
+        else if (req.body.code === code.code) {
+          const result = await User.updateMany({ email: userActivated.email }, { $set: userEmailRemoved }, { multi: true });
 
-      thead.forEach(i => i.style.fontSize = vw * 0.03125 + 'px');
-      tbody.forEach(i => i.style.fontSize = vw * 0.025 + 'px');
-      section[1].style.minHeight = (vh - 60 - section[0].clientHeight) + 'px';
-    });
-  }
+          if (result.n) {
+            const result1 = await User.findByIdAndUpdate(user._id, { $set: userActivated }, { new: true });
 
-  //#region Img Cropper
-
-  fileChangeEvent(event: any): void {
-    this.imageChangedEvent = event;
-  }
-
-  imageCropped(event: ImageCroppedEvent) {
-    this.croppedImage = event.base64;
-  }
-
-  //#endregion Img Cropper
-
-  edit() {
-    this.isEdit = !this.isEdit;
-
-    this.user.firstName = this.userDetails.name.first;
-    this.user.lastName = this.userDetails.name.last;
-    this.user.gender = this.userDetails.gender;
-    this.user.email = this.userDetails.email;
-    this.user.mobileNumber = this.userDetails.mobileNumber;
-    this.user.address = this.userDetails.address;
-
-    this.setTable();
-  }
-
-  onSubmit(form: NgForm) {
-    if (this.authService.getUsername() == this.username) {
-      this.userService.updateUser(this.username, form.value).subscribe(
-        res => {
-          if (this.croppedImage) {
-            const formData = new FormData();
-
-            const file = new File([ this.helperService.base64ToBlob(this.croppedImage, 'png') ], 'img.png', { type: 'image/png' });
-            
-            formData.append('file', file, this.username + '.png');
-
-            this.userService.uploadAvatar(this.username, formData).subscribe(
-              res => {
-                alert('Update your profile is successfully.');
-                this.imageChangedEvent = '';
-                this.croppedImage = '';
-                location.reload();
-              },
-              err => alert(err.error.msg)
-            );
-          } else alert('Update your profile is successfully.');
-          
-          this.isEdit = !this.isEdit;
-          this.ngOnInit();
-        },
-        err => alert(err.error.msg)
-      );
+            if (result1) {
+              return generator.deleteCode(user._id) ? res.status(200).json({ msg: 'Active your account is successfully.' })
+                                                    : res.status(400).json({ msg: 'Clean your code is failed.' });
+            } else return res.status(404).json({ msg: 'User Verified isn\'t found.' });
+          }
+        }
+        else return res.status(403).json({ msg: 'Verification Code is wrong.' });
+      }
     }
-  }
+  } else return res.status(404).json({ msg: 'User specified isn\'t found.' });
+}
 
-  onCancel() {
-    if (confirm('Are you sure to cancel?')) {
-      this.imageChangedEvent = '';
-      this.croppedImage = '';
-      this.edit();
+module.exports.resendActive = async (req, res) => {
+  if (!ObjectId.isValid(req.params.id))
+    return res.status(400).json({ msg: `No record with given id: ${req.params.id}` });
+
+  const user = await User.findById(req.params.id);
+
+  if (user) {
+    if (user.activated) return res.status(422).json({ msg: 'Email is verified.' });
+    else {
+      try {
+        const newCode = new Code();
+
+        generator.deleteCode(user._id);
+        newCode._userId = user._id;
+        newCode.code = generator.generateCode(6);
+
+        try {
+          setTimeout(() => generator.deleteCode(user._id), 60000);
+          mailer.sendVerifyEmail(user.email, 'Verify Email', (await newCode.save()).code);
+          return res.status(200).json({ msg: 'Resent Verification Code.' });
+        } catch (err) {
+          return res.status(400).json(err);
+        }
+      } catch (err) {
+        return res.status(400).json(err);
+      }
     }
-  }
+  } else return res.status(404).json({ msg: 'User not found.' });
+}
 
+module.exports.changeEmail = async (req, res) => {
+  if (!ObjectId.isValid(req.params.id))
+    return res.status(400).json({ msg: `No record with given id: ${req.params.id}` });
+
+  const user = await User.findByIdAndUpdate(req.params.id, { $set: { email: req.body.email, activated: false } }, { new: true });
+
+  return user ? res.status(200).json({ msg: 'Change email is successfully.' })
+              : res.status(404).json({ msg: 'User not found.' });
+}
+
+module.exports.authenticate = (req, res) => {
+  passport.authenticate('local', (err, user, info) => {
+    return err ? res.status(400).json(err)
+               : user ? res.status(200).json({ "token": user.generateJwt() })
+                      : res.status(404).json(info);
+  })(req, res);
+}
+
+module.exports.findUsername = async (req, res) => {
+  const user = await User.findOne({ email: req.body.email, activated: true });
+
+  return user ? res.status(200).json({ username: user.username, msg: 'Your username is: ' + user.username })
+              : res.status(404).json({ msg: 'User is not found.' });
+}
+
+module.exports.resendVerifyResetPassword = async (req, res) => {
+  const user = await User.findOne({ username: req.params.username, activated: true });
+
+  if (user) {
+    const code = new Code();
+
+    code._userId = user._id;
+    code.code = generator.generateCode(6);
+    generator.deleteCode(user._id);
+
+    try {
+      setTimeout(() => generator.deleteCode(user._id), 90000);
+      mailer.sendVerifyEmail(user.email, 'Verify Reset Password', (await code.save()).code);
+      return res.status(200).json({ msg: 'Resent Verification Code.' });
+    } catch (err) {
+      console.log('ERROR: User code: ' + JSON.stringify(err, undefined, 2));
+    }
+  } else return res.status(404).json({ msg: 'User not found.' });
+}
+
+module.exports.resetPassword = async (req, res) => {
+  const user = await User.findOne({ username: req.params.username, activated: true });
+  if (user) {
+    const code = await Code.findOne({ _userId: user._id });
+    if (code) {
+      if (Date.now() > Date.parse(code.createdAt) + 90000) return res.status(400).json({ msg: 'Code is expired. Please click to resend email!' });
+      else if (req.body.code === code.code) {
+        user.password = req.body.password;
+
+        user.save(err => {
+          if (err) return res.status(400).json({ msg: 'Update is error.' });
+          else return generator.deleteCode(user._id) ? res.status(200).json({ msg: 'Reset Password is successfully.' })
+                                                     : res.status(400).json({ msg: 'Clean your code is failed.' });
+        });
+      } else return res.status(403).json({ msg: 'Verification Code is wrong.' });
+    } else return res.status(404).json({ msg: 'Code isn\'t found.' });
+  } else return res.status(404).json({ msg: 'User isn\'t found.' });
+}
+
+module.exports.changePassword = async (req, res) => {
+  if (!ObjectId.isValid(req.params.id))
+    return res.status(400).json({ msg: `No record with given id: ${req.params.id}` });
+  
+  const user = await User.findById(req.params.id);
+
+  if (user) {
+    if (user.verifyPassword(req.body.password)) {
+      user.password = req.body.newPassword;
+      
+      user.save(err => {
+        return err ? res.status(400).json({ msg: 'Change Password is failded.' })
+                   : res.status(200).json({ msg: 'Change Password is successfully.' });
+      });
+    } else return res.status(403).json({ msg: 'Wrong password.' });
+  } else return res.status(404).json({ msg: 'User not found.' });
+}
+
+module.exports.info = async (req, res) => {
+  const user = await User.findById(req._id);
+
+  return user ? res.status(200).json({ status: true, user: _.pick(user, [ 'avatar', 'name.first', 'activated', 'username', 'role']) })
+              : res.status(404).json({ status: false, msg: 'User not found.' });
 }
