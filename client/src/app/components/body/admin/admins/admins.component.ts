@@ -33,24 +33,17 @@ export class AdminsComponent implements OnInit {
   }
 
   removeAsAdmin(username: string) {
-    this.authService.getInfo().subscribe(
-      res => {
-        let adminUsername = res['user'].username;
-        if (res['user'].role == 'root' || res['user'].role === 'admin') {
-          if (confirm('Are you sure to remove as admin: ' + username + '?')) {
-            this.adminService.removeAsAdmin(username).subscribe(
-              res => {
-                alert(res['msg']);
-                this.ngOnInit();
-                if (adminUsername == username) this.router.navigateByUrl('');
-              },
-              err => alert(err.error.msg)
-            );
-          }
-        }
-      },
-      err => { if (err.status == 440 && confirm('Login again?\nYour session has expired and must log in again.')) window.open('/login'); }
-    );
+    if (confirm('Are you sure to remove as admin: ' + username + '?')) {
+      this.adminService.removeAsAdmin(username).subscribe(
+        res => {
+          alert(res['msg']);
+          this.ngOnInit();
+          this.authService.setToken(res['token']);
+          if (this.authService.getUsername() == username) this.router.navigateByUrl('');
+        },
+        err => alert(err.error.msg)
+      );
+    }
   }
 
   onSubmit(form: NgForm) {
