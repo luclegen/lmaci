@@ -29,7 +29,7 @@ export class AdminsComponent implements OnInit {
   }
 
   viewProfile(event: any, username: string) {
-    this.authService.getInfo().subscribe(res => { if (res['user'].role == 'root' || res['user'].role === 'admin') if (event.ctrlKey) window.open('user/' + username); else this.router.navigateByUrl('user/' + username); }, err => { if (err.status == 440 && confirm('Login again?\nYour session has expired and must log in again.')) window.open('/login'); });
+    if (event.ctrlKey) window.open('user/' + username); else this.router.navigateByUrl('user/' + username);
   }
 
   removeAsAdmin(username: string) {
