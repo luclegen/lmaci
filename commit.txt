@@ -493,8 +493,8 @@ User Controller: resendVerifyEmail
 User Router: GET resendVerifyEmail
 Auth Controller: changeEmail
 Auth Router: PUT changeEmail
-User Controller: authenticate
-User Router: POST authenticate
+Auth Controller: authenticate
+Auth Router: POST authenticate
 Auth Controller: findUsername
 Auth Router: POST findUsername
 Auth Controller: resendVerifyResetPassword
