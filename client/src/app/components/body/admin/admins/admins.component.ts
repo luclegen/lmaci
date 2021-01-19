@@ -25,7 +25,7 @@ export class AdminsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.adminService.getAdmins().subscribe(res => { this.root = res['root'][0]; this.admins = res['admins']; } , err => alert(err.error.msg));
+    this.adminService.getAdmins().subscribe(res => { this.root = res['root']; this.admins = res['admins']; } , err => alert(err.error.msg));
   }
 
   viewProfile(event: any, username: string) {
