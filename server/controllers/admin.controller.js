@@ -10,7 +10,7 @@ const converter = require('../helpers/converter');
 //#region Admins
 
 module.exports.getAdmins = async (req, res) => {
-  const root = await User.find({ role: 'root' });
+  const root = await User.findOne({ role: 'root' });
   const admins = await User.find({ role: 'admin' }).sort('name.first').exec();
 
   return root ? admins ? res.status(200).json({ root, admins })
