@@ -187,7 +187,7 @@ export class ProductsComponent implements OnInit {
     quantityImported.style.marginLeft = (quantityImportedIn.offsetWidth - quantityImported.offsetWidth) + 'px';
     type.style.marginLeft = (typeSelect.offsetWidth - type.offsetWidth) + 'px';
 
-    this.authService.getInfo().subscribe(res => { if (res['user'].role == 'root' || res['user'].role === 'admin') this.adminService.getProducts().subscribe(res => this.products = res['products'], err => alert(err.error.msg)); }, err => { if (err.status == 440 && confirm('Login again?\nYour session has expired and must log in again.')) window.open('/login'); });
+    this.adminService.getProducts().subscribe(res => this.products = res['products'], err => alert(err.error.msg));
   }
 
   //#region Save Change
