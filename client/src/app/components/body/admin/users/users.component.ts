@@ -24,7 +24,7 @@ export class UsersComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.authService.getInfo().subscribe(res => { if (res['user'].role == 'root' || res['user'].role === 'admin') this.adminService.getUsers().subscribe( res => this.users = res['users'], err => alert(err.error.msg)); }, err => { if (err.status == 440 && confirm('Login again?\nYour session has expired and must log in again.')) window.open('/login'); });
+    this.adminService.getUsers().subscribe( res => this.users = res['users'], err => alert(err.error.msg));
   }
 
   viewProfile(event: any, username: string) {
