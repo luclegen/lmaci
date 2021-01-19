@@ -17,7 +17,7 @@ module.exports.get = (req, res) => {
       if (err) {
         res.writeHead(400, {'Content-type':'text/html'})
         console.log(err);
-        res.end("No such image");    
+        res.end('No such image');    
       } else {
         res.writeHead(200,{'Content-type':'image'});
         res.end(content);
