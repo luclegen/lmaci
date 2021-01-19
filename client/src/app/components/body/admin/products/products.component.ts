@@ -150,7 +150,6 @@ export class ProductsComponent implements OnInit {
   constructor(private titleService: Title,
               private helperService: HelperService,
               private adminService: AdminService,
-              private authService: AuthService,
               private router: Router) {
     this.titleService.setTitle('Products Management | Lmaci');
     this.NotNegativeNumberRegex = this.helperService.NotNegativeNumberRegex;
