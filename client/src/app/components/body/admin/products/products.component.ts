@@ -575,15 +575,13 @@ export class ProductsComponent implements OnInit {
   }
 
   onEditProduct(p: Object) {
-    this.authService.getInfo().subscribe(res => { if (res['user'].role == 'root' || res['user'].role === 'admin') this.adminService.getProducts().subscribe(
-      res => {
-        const index = this.products.indexOf(p);
+    this.adminService.getProducts().subscribe(res => {
+      const index = this.products.indexOf(p);
 
-        this.products = res['products'];
-        this.product = this.products[index];
-        this.imageChangedEvent = this.croppedImage = '';
-      }, err => alert(err.error.msg)); }, err => { if (err.status == 440 && confirm('Login again?\nYour session has expired and must log in again.')) window.open('/login'); 
-    });
+      this.products = res['products'];
+      this.product = this.products[index];
+      this.imageChangedEvent = this.croppedImage = '';
+    }, err => alert(err.error.msg));
   }
 
   //#endregion Edit
