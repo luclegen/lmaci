@@ -24,7 +24,7 @@ export class UsersComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.adminService.getUsers().subscribe( res => this.users = res['users'], err => alert(err.error.msg));
+    this.adminService.getUsers().subscribe(res => this.users = res['users'], err => alert(err.error.msg));
   }
 
   viewProfile(event: any, username: string) {
