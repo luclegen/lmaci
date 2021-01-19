@@ -38,8 +38,10 @@ export class AdminsComponent implements OnInit {
         res => {
           alert(res['msg']);
           this.ngOnInit();
-          this.authService.setToken(res['token']);
-          if (this.authService.getUsername() == username) this.router.navigateByUrl('');
+          if (this.authService.getUsername() == username) {
+            this.router.navigateByUrl('');
+            this.authService.setToken(res['token']);
+          }
         },
         err => alert(err.error.msg)
       );
