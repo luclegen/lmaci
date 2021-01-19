@@ -1,4 +1,4 @@
-const rimraf = require("rimraf");
+const rimraf = require('rimraf');
 
 const User = require('../models/user.model');
 const Product = require('../models/product.model');
@@ -21,7 +21,7 @@ module.exports.getAdmins = async (req, res) => {
 module.exports.removeAsAdmin = async (req, res) => {
   const user = await User.findOneAndUpdate({ username: req.params.username }, { $set: { role: 'user' } }, { new: true });
 
-  return user ? res.status(200).json({ msg: 'Remove as admin is successfully.' })
+  return user ? res.status(200).json({ token: user.generateJwt(), msg: 'Remove as admin is successfully.' })
               : res.status(417).json({ msg: 'Remove as admin is fail.' });
 }
 
