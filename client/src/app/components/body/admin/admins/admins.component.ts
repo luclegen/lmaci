@@ -39,8 +39,8 @@ export class AdminsComponent implements OnInit {
           alert(res['msg']);
           this.ngOnInit();
           if (this.authService.getUsername() == username) {
-            this.router.navigateByUrl('');
             this.authService.setToken(res['token']);
+            this.router.navigateByUrl('');
           }
         },
         err => alert(err.error.msg)
