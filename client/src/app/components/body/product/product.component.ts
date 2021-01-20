@@ -906,11 +906,9 @@ export class ProductComponent implements OnInit {
                 this.reloadStar(0);
                 ratingMsg.style.display = 'none';
                 this.ngOnInit();
-              },
-              err => alert(err.error.msg)
+              }, err => alert(err.error.msg)
             );
-          },
-          err => alert(err.error.msg)
+          }, err => alert(err.error.msg)
         );
       } else alert('Only users can review this product.');
     } else if (confirm('Do you want to login?')) window.open('login');
