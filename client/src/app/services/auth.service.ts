@@ -91,8 +91,8 @@ export class AuthService {
     return this.getPayload().admin;
   }
 
-  isLoggedIn() {
-    return this.getPayload().exp ? this.getPayload().exp * 1000 > Date.now() : Boolean(this.getId());
+  isExpired() {
+    return this.getToken() ? this.getPayload().exp ? this.getPayload().exp * 1000 < Date.now() : false : true;
   }
 
   //#endregion Helper Methods
