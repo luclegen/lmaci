@@ -63,16 +63,17 @@ export class ActiveComponent implements OnInit {
   }
 
   resendEmail() {
-    this.serverErrorMessages = null;
-    this.authService.resendActive(this.authService.getId()).subscribe(
-      res => {
-        alert(res['msg']);
-        
-        this.count = 60;
-        this.counter$ = timer(0, 1000).pipe(take(this.count), map(() => --this.count));
-      },
-      err => this.serverErrorMessages = err.error.msg
-    );
+    this.authService.getInfo().subscribe(res => {
+      this.serverErrorMessages = null;
+      this.authService.resendActive(this.authService.getId()).subscribe(
+        res => {
+          alert(res['msg']);
+          
+          this.count = 60;
+          this.counter$ = timer(0, 1000).pipe(take(this.count), map(() => --this.count));
+        }, err => this.serverErrorMessages = err.error.msg
+      );
+    }, err => { if (err.status == 440 && confirm('Login again?\nYour session has expired and must log in again.')) window.open('/login'); });
   }
 
 }
