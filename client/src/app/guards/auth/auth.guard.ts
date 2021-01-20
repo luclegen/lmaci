@@ -11,7 +11,7 @@ export class AuthGuard implements CanActivate {
   constructor(private authService: AuthService) { }
 
   canActivate(): boolean {
-    return this.authService.isLoggedIn();
+    return this.authService.loggedIn();
   }
   
 }
