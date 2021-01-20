@@ -876,48 +876,43 @@ export class ProductComponent implements OnInit {
 
   sendReview() {
     if (this.authService.getToken()) {
-      this.authService.getInfo().subscribe(
-        res => {
-          this.review.user.username = res['user'].username;
+      this.review.user.username = this.authService.getUsername();
 
-          if (res['user'].role == 'user') {
-            this.productService.getProduct(this.id).subscribe(
+      if (!this.authService.isAdmin()) {
+        this.productService.getProduct(this.id).subscribe(
+          res => {
+            this.product = res['product'];
+            
+            this.review.index = this.product.reviews.length ? this.product.reviews[this.product.reviews.length - 1].index + 1 : 0;
+
+            this.productService.sendReview(this.id, this.review, this.review.files).subscribe(
               res => {
-                this.product = res['product'];
-                
-                this.review.index = this.product.reviews.length ? this.product.reviews[this.product.reviews.length - 1].index + 1 : 0;
+                const ratingMsg = document.getElementById('rating-msg') as HTMLElement;
 
-                this.productService.sendReview(this.id, this.review, this.review.files).subscribe(
-                  res => {
-                    const ratingMsg = document.getElementById('rating-msg') as HTMLElement;
+                alert(res['msg']);
 
-                    alert(res['msg']);
-
-                    this.review = {
-                      index: 0,
-                      user: {
-                        username: ''
-                      },
-                      star: 0,
-                      content: '',
-                      img: [],
-                      imgs: [],
-                      files: []
-                    }
-
-                    this.reloadStar(0);
-                    ratingMsg.style.display = 'none';
-                    this.ngOnInit();
+                this.review = {
+                  index: 0,
+                  user: {
+                    username: ''
                   },
-                  err => alert(err.error.msg)
-                );
+                  star: 0,
+                  content: '',
+                  img: [],
+                  imgs: [],
+                  files: []
+                }
+
+                this.reloadStar(0);
+                ratingMsg.style.display = 'none';
+                this.ngOnInit();
               },
               err => alert(err.error.msg)
             );
-          } else alert('Only users can review this product.');
-        },
-        err => { if (err.status == 440 && confirm('Login again?\nYour session has expired and must log in again.')) window.open('/login'); }
-      );
+          },
+          err => alert(err.error.msg)
+        );
+      } else alert('Only users can review this product.');
     } else if (confirm('Do you want to login?')) window.open('login');
   }
 
