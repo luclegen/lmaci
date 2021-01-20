@@ -80,7 +80,7 @@ export class AuthService {
   }
 
   getId() {
-    return this.getPayload()._id;
+    return this.loggedIn() ? this.getPayload()._id : null;
   }
 
   getUsername() {
