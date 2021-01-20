@@ -1074,40 +1074,35 @@ export class ProductComponent implements OnInit {
 
   sendAnswer(comment: Object) {
     if (this.authService.getToken()) {
-      this.authService.getInfo().subscribe(
+      this.answer.user.username = this.authService.getUsername();
+
+      this.productService.getProduct(this.id).subscribe(
         res => {
-          this.answer.user.username = res['user'].username;
+          this.product = res['product'];
+          
+          this.answer.index = this.comments.length && this.comments[this.comments.indexOf(comment)].answers && this.comments[this.comments.indexOf(comment)].answers.length ? this.comments[this.comments.indexOf(comment)].answers[this.comments[this.comments.indexOf(comment)].answers.length - 1].index + 1 : 0;
 
-          this.productService.getProduct(this.id).subscribe(
+          this.productService.sendAnswer(this.id, comment, this.answer, this.answer.files).subscribe(
             res => {
-              this.product = res['product'];
-              
-              this.answer.index = this.comments.length && this.comments[this.comments.indexOf(comment)].answers && this.comments[this.comments.indexOf(comment)].answers.length ? this.comments[this.comments.indexOf(comment)].answers[this.comments[this.comments.indexOf(comment)].answers.length - 1].index + 1 : 0;
+              alert(res['msg']);
 
-              this.productService.sendAnswer(this.id, comment, this.answer, this.answer.files).subscribe(
-                res => {
-                  alert(res['msg']);
-
-                  this.answer = {
-                    index: 0,
-                    user: {
-                      username: ''
-                    },
-                    content: '',
-                    img: [],
-                    imgs: [],
-                    files: []
-                  }
-
-                  this.ngOnInit();
+              this.answer = {
+                index: 0,
+                user: {
+                  username: ''
                 },
-                err => alert(err.error.msg)
-              );
+                content: '',
+                img: [],
+                imgs: [],
+                files: []
+              }
+
+              this.ngOnInit();
             },
             err => alert(err.error.msg)
           );
         },
-        err => { if (err.status == 440 && confirm('Login again?\nYour session has expired and must log in again.')) window.open('/login'); }
+        err => alert(err.error.msg)
       );
     } else if (confirm('Do you want to login?')) window.open('login');
   }
