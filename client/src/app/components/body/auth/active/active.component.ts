@@ -65,7 +65,7 @@ export class ActiveComponent implements OnInit {
 
   resendEmail() {
     if (this.authService.isExpired()) if (confirm('Login again?\nYour session has expired and must log in again.')) window.open('/login');
-    else if (!this.authService.isExpired()) {
+    if (!this.authService.isExpired()) {
       this.serverErrorMessages = null;
       this.authService.resendActive(this.authService.getId()).subscribe(
         res => {
