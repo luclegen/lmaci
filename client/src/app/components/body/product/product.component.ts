@@ -159,7 +159,7 @@ export class ProductComponent implements OnInit {
 
   //#region Checker
 
-  isChangeColor = true;
+  canChangeColor = true;
 
   //#endregion Checker
 
@@ -563,7 +563,7 @@ export class ProductComponent implements OnInit {
   }
 
   reloadSlideshow() {
-    if (this.isChangeColor) {
+    if (this.canChangeColor) {
       this.setPaths();
       if (this.slideshow.index > (this.paths.length ? this.paths.length : 3) - 1) this.slideshow.index = 0;
       this.setCarousel();
