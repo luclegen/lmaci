@@ -116,6 +116,8 @@ Find Username Component: Initial
 Routes: FindUsernameComponent
 Find Username Component: View
 Auth Service: findUsername
+Auth Service: isExpired
+Auth Service: loggedIn
 Find Username Component: constructor, ngOnInit, onSubmit
 Find Username Component: ngOnInit
 Find Username Component: onResize

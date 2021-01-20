@@ -71,6 +71,10 @@ export class AuthService {
     localStorage.removeItem('token');
   }
 
+  loggedIn() {
+    return Boolean(this.getToken());
+  }
+
   getPayload() {
     return this.getToken() ? JSON.parse(atob(this.getToken().split('.')[1])) : null;
   }
