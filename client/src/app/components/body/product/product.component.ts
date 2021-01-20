@@ -572,7 +572,7 @@ export class ProductComponent implements OnInit {
   }
 
   onCheckColor(color) {
-    if (this.isChangeColor) this.preview.color = this.order.color = JSON.parse(JSON.stringify(color));
+    if (this.canChangeColor) this.preview.color = this.order.color = JSON.parse(JSON.stringify(color));
     this.reloadSlideshow();
   }
 
