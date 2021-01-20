@@ -96,7 +96,7 @@ export class AuthService {
   }
 
   isExpired() {
-    return this.getToken() ? this.getPayload().exp ? this.getPayload().exp * 1000 < Date.now() : false : true;
+    return this.loggedIn() ? this.getPayload().exp ? this.getPayload().exp * 1000 < Date.now() : false : true;
   }
 
   //#endregion Helper Methods
