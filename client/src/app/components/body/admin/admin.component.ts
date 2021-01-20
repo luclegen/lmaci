@@ -15,7 +15,7 @@ export class AdminComponent implements OnInit {
     this.ngOnInit();
   }
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor() { }
 
   ngOnInit(): void {
     const vw = document.documentElement.clientWidth;
