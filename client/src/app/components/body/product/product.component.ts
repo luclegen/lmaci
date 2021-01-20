@@ -235,10 +235,10 @@ export class ProductComponent implements OnInit {
   constructor(private viewportRuler: ViewportRuler,
               private route: ActivatedRoute,
               private titleService: Title,
-              private authService: AuthService,
               private productService: ProductService,
               private userService: UserService,
               private router: Router,
+              public authService: AuthService,
               public helperService: HelperService) {
     this.target = null;
     this.source = null;
