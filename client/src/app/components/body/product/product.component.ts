@@ -794,28 +794,21 @@ export class ProductComponent implements OnInit {
   }
 
   savePost() {
-    this.authService.getInfo().subscribe(
-      res => {
-        if (res['user'].role == 'root' || res['user'].role === 'admin') {
-          this.post.dateModified = Date.now();
-          this.productService.post(this.id, this.post).subscribe(
+    if (this.authService.isAdmin()) {
+      this.post.dateModified = Date.now();
+      this.productService.post(this.id, this.post).subscribe(
+        res => {
+          alert(res['msg']);
+          this.productService.getProduct(this.id).subscribe(
             res => {
-              alert(res['msg']);
-              this.productService.getProduct(this.id).subscribe(
-                res => {
-                  this.product = res['product'];
-          
-                  this.ngOnInit();
-                },
-                err => alert(err.error.msg)
-              );
-            },
-            err => alert(err.error.msg)
+              this.product = res['product'];
+      
+              this.ngOnInit();
+            }, err => alert(err.error.msg)
           );
-        }
-      },
-      err => { if (err.status == 440 && confirm('Login again?\nYour session has expired and must log in again.')) window.open('/login'); }
-    );
+        }, err => alert(err.error.msg)
+      );
+    }
   }
 
   cancelSavePost() {
