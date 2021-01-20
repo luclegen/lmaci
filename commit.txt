@@ -80,6 +80,7 @@ Actice Component: constructor
 Profile Component: View
 Profile Component: ngOnInit
 Profile Component: Style
+Top Navbar Component: constructor
 Top Navbar Component: View
 Environments: auth
 Auth Service: Initial
