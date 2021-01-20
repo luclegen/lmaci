@@ -437,7 +437,7 @@ Product Component: setReviews
 Product Component: setComments
 Product Component: isAdmin
 Product Component: onResize
-Product Component: beforeunloadHandle
+Product Component: beforeunloadHandler
 Product Component: getSlideshow
 Product Component: setColorGrid
 Product Component: ngOnInit
