@@ -283,8 +283,6 @@ export class ProductComponent implements OnInit {
         this.setPost();
         this.setReviews();
         this.setComments();
-
-        if (this.authService.getToken()) this.authService.getInfo().subscribe(res => this.userDetails = res['user']);
       },
       err => {
         alert(err.error.msg);
