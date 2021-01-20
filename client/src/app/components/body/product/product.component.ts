@@ -867,7 +867,7 @@ export class ProductComponent implements OnInit {
   }
 
   sendReview() {
-    if (this.authService.getToken()) {
+    if (this.authService.loggedIn()) {
       this.review.user.username = this.authService.getUsername();
 
       if (!this.authService.isAdmin()) {
