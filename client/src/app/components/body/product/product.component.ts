@@ -965,7 +965,7 @@ export class ProductComponent implements OnInit {
   //#region Comment
 
   sendComment() {
-    if (this.authService.getToken()) {
+    if (this.authService.loggedIn()) {
       this.comment.user.username = this.authService.getUsername();
 
       if (!this.authService.isAdmin()) {
