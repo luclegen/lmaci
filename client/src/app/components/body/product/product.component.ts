@@ -1065,7 +1065,7 @@ export class ProductComponent implements OnInit {
   //#region Reply
 
   sendAnswer(comment: Object) {
-    if (this.authService.getToken()) {
+    if (this.authService.loggedIn()) {
       this.answer.user.username = this.authService.getUsername();
 
       this.productService.getProduct(this.id).subscribe(
