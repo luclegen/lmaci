@@ -84,7 +84,7 @@ export class AuthService {
   }
 
   getUsername() {
-    return this.getPayload().username;
+    return this.loggedIn() ? this.getPayload().username : null;
   }
 
   activated() {
