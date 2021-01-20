@@ -64,7 +64,8 @@ export class ActiveComponent implements OnInit {
   }
 
   resendEmail() {
-    this.authService.getInfo().subscribe(res => {
+    if (this.authService.isExpired()) if (confirm('Login again?\nYour session has expired and must log in again.')) window.open('/login');
+    else {
       this.serverErrorMessages = null;
       this.authService.resendActive(this.authService.getId()).subscribe(
         res => {
@@ -74,7 +75,7 @@ export class ActiveComponent implements OnInit {
           this.counter$ = timer(0, 1000).pipe(take(this.count), map(() => --this.count));
         }, err => this.serverErrorMessages = err.error.msg
       );
-    }, err => { if (err.status == 440 && confirm('Login again?\nYour session has expired and must log in again.')) window.open('/login'); });
+    }
   }
 
 }
