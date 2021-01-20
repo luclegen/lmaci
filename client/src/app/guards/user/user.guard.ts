@@ -11,7 +11,7 @@ export class UserGuard implements CanActivate {
   constructor(private authService: AuthService) { }
 
   canActivate(route: ActivatedRouteSnapshot): boolean {
-    return this.authService.isLoggedIn() && this.authService.activated() && this.authService.isAdmin() || this.authService.isLoggedIn() && this.authService.getUsername() == route.paramMap.get('username');
+    return this.authService.loggedIn() && this.authService.activated() && this.authService.isAdmin() || this.authService.loggedIn() && this.authService.getUsername() == route.paramMap.get('username');
   }
 
 }
