@@ -52,10 +52,9 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if (this.authService.getToken()) this.authService.removeToken();
     this.helperService.setPositionOnlyForm();
   }
-  
+
   checkStrengthPassword() {
     let count = 0
     const strength = {
