@@ -617,44 +617,39 @@ export class ProductComponent implements OnInit {
   }
 
   saveSlideshow() {
-    this.authService.getInfo().subscribe(
-      res => {
-        if ((res['user'].role == 'root' || res['user'].role === 'admin') && this.isSaveSlideshow()) {
-          const oldSlideshow = this.product.slideshows.find(s => s.color == this.order.color.value);
-          const slideshow = { color: this.order.color.value, imgs: [] }, files = [];
-          let index = oldSlideshow ? oldSlideshow.imgs.length ? Math.max(...oldSlideshow.imgs.map(i => i.index)) + 1 : 0 : 0;
+    if (this.authService.isAdmin() && this.canSaveSlideshow()) {
+      const oldSlideshow = this.product.slideshows.find(s => s.color == this.order.color.value);
+      const slideshow = { color: this.order.color.value, imgs: [] }, files = [];
+      let index = oldSlideshow ? oldSlideshow.imgs.length ? Math.max(...oldSlideshow.imgs.map(i => i.index)) + 1 : 0 : 0;
 
-          this.paths.forEach(path => {
-            const isBase64 = this.helperService.isBase64(path, 'jpeg');
-            const img = {
-              index: isBase64 ? index : oldSlideshow.imgs.find(i => i.path == path).index,
-              path: isBase64 ? environment.imageUrl + '/?image=product/' + this.id + '/slideshow/' + slideshow.color.replace(/#/, '') + '/' + index++ + '.jpeg' : path
-            }
+      this.paths.forEach(path => {
+        const isBase64 = this.helperService.isBase64(path, 'jpeg');
+        const img = {
+          index: isBase64 ? index : oldSlideshow.imgs.find(i => i.path == path).index,
+          path: isBase64 ? environment.imageUrl + '/?image=product/' + this.id + '/slideshow/' + slideshow.color.replace(/#/, '') + '/' + index++ + '.jpeg' : path
+        }
 
-            slideshow.imgs.push(img);
-            if (isBase64) files.push(new File([ this.helperService.base64ToBlob(path, 'jpeg') ], img.index + '.jpeg', { type: 'image/jpeg' }));
-          });
+        slideshow.imgs.push(img);
+        if (isBase64) files.push(new File([ this.helperService.base64ToBlob(path, 'jpeg') ], img.index + '.jpeg', { type: 'image/jpeg' }));
+      });
 
-          this.productService.uploadSlideshow(this.id, slideshow, files).subscribe(
+      this.productService.uploadSlideshow(this.id, slideshow, files).subscribe(
+        res => {
+          alert(res['msg']);
+          this.productService.getProduct(this.id).subscribe(
             res => {
-              alert(res['msg']);
-              this.productService.getProduct(this.id).subscribe(
-                res => {
-                  this.product = res['product'];
+              this.product = res['product'];
 
-                  this.onCheckColor(this.order.color);
-                  this.setPaths();
-                  this.setCarousel();
-                },
-                err => alert(err.error.msg)
-              );
+              this.onCheckColor(this.order.color);
+              this.setPaths();
+              this.setCarousel();
             },
             err => alert(err.error.msg)
           );
-        }
-      },
-      err => { if (err.status == 440 && confirm('Login again?\nYour session has expired and must log in again.')) window.open('/login'); }
-    );
+        },
+        err => alert(err.error.msg)
+      );
+    }
   }
 
   cancelSaveSlideshow() {
