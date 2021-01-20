@@ -117,6 +117,7 @@ Routes: FindUsernameComponent
 Find Username Component: View
 Auth Service: findUsername
 Auth Service: isExpired
+Auth Service: getPayload
 Auth Service: loggedIn
 Find Username Component: constructor, ngOnInit, onSubmit
 Find Username Component: ngOnInit
