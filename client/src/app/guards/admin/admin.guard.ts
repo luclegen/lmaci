@@ -13,7 +13,7 @@ export class AdminGuard implements CanActivate, CanDeactivate<ProductsComponent>
   constructor(private authService: AuthService) { }
 
   canActivate(): boolean {
-    return this.authService.isLoggedIn() && this.authService.activated() && this.authService.isAdmin();
+    return this.authService.loggedIn() && this.authService.activated() && this.authService.isAdmin();
   }
 
   canDeactivate(productsComponent: ProductsComponent) {
