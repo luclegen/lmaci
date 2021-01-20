@@ -51,14 +51,15 @@ export class ActiveComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    this.serverErrorMessages = null;
-    this.authService.active(this.authService.getId(), form.value).subscribe(
-      res => {
-        alert(res['msg']);
-        this.authService.getInfo().subscribe(res => this.router.navigateByUrl('user/' + res['user'].username), err => { if (err.status == 440 && confirm('Login again?\nYour session has expired and must log in again.')) window.open('/login'); });
-      },
-      err => this.serverErrorMessages = err.error.msg
-    );
+    this.authService.getInfo().subscribe(res => {
+      this.serverErrorMessages = null;
+      this.authService.active(this.authService.getId(), form.value).subscribe(
+        res => {
+          alert(res['msg']);
+          this.router.navigateByUrl('user/' + this.authService.getUsername());
+        }, err => this.serverErrorMessages = err.error.msg
+      );
+    }, err => { if (err.status == 440 && confirm('Login again?\nYour session has expired and must log in again.')) window.open('/login'); });
   }
 
   resendEmail() {
@@ -73,4 +74,5 @@ export class ActiveComponent implements OnInit {
       err => this.serverErrorMessages = err.error.msg
     );
   }
+
 }
