@@ -974,43 +974,38 @@ export class ProductComponent implements OnInit {
 
   sendComment() {
     if (this.authService.getToken()) {
-      this.authService.getInfo().subscribe(
-        res => {
-          this.comment.user.username = res['user'].username;
+      this.comment.user.username = this.authService.getUsername();
 
-          if (res['user'].role == 'user') {
-            this.productService.getProduct(this.id).subscribe(
+      if (!this.authService.isAdmin()) {
+        this.productService.getProduct(this.id).subscribe(
+          res => {
+            this.product = res['product'];
+            
+            this.comment.index = this.product.comments.length ? this.product.comments[this.product.comments.length - 1].index + 1 : 0;
+
+            this.productService.sendComment(this.id, this.comment, this.comment.files).subscribe(
               res => {
-                this.product = res['product'];
-                
-                this.comment.index = this.product.comments.length ? this.product.comments[this.product.comments.length - 1].index + 1 : 0;
+                alert(res['msg']);
 
-                this.productService.sendComment(this.id, this.comment, this.comment.files).subscribe(
-                  res => {
-                    alert(res['msg']);
-
-                    this.comment = {
-                      index: 0,
-                      user: {
-                        username: ''
-                      },
-                      content: '',
-                      img: [],
-                      imgs: [],
-                      files: []
-                    }
-
-                    this.ngOnInit();
+                this.comment = {
+                  index: 0,
+                  user: {
+                    username: ''
                   },
-                  err => alert(err.error.msg)
-                );
+                  content: '',
+                  img: [],
+                  imgs: [],
+                  files: []
+                }
+
+                this.ngOnInit();
               },
               err => alert(err.error.msg)
             );
-          } else alert('Only users can comment this product.');
-        },
-        err => { if (err.status == 440 && confirm('Login again?\nYour session has expired and must log in again.')) window.open('/login'); }
-      );
+          },
+          err => alert(err.error.msg)
+        );
+      } else alert('Only users can comment this product.');
     } else if (confirm('Do you want to login?')) window.open('login');
   }
 
