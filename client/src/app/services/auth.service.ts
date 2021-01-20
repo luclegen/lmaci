@@ -88,7 +88,7 @@ export class AuthService {
   }
 
   activated() {
-    return this.getPayload().activated;
+    return this.loggedIn() ? this.getPayload().activated : false;
   }
 
   isAdmin() {
