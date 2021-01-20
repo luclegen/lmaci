@@ -92,7 +92,7 @@ export class AuthService {
   }
 
   isAdmin() {
-    return this.getPayload().admin;
+    return this.loggedIn() ? this.getPayload().admin : false;
   }
 
   isExpired() {
