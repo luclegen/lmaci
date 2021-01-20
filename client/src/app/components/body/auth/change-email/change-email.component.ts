@@ -42,15 +42,13 @@ export class ChangeEmailComponent implements OnInit {
 
   onSubmit(form: NgForm) {
     this.serverErrorMessages = null;
-    if (!this.authService.activated()) {
-      this.authService.changeEmail(this.authService.getId(), form.value).subscribe(
-        res => {
-          alert(res['msg']);
-          this.router.navigateByUrl('active');
-        },
-        err => this.serverErrorMessages = err.error.message
-      );
-    }
+    this.authService.changeEmail(this.authService.getId(), form.value).subscribe(
+      res => {
+        alert(res['msg']);
+        this.router.navigateByUrl('active');
+      },
+      err => this.serverErrorMessages = err.error.message
+    );
   }
 
 }
