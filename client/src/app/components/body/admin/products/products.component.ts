@@ -138,7 +138,7 @@ export class ProductsComponent implements OnInit {
 
   @HostListener('window:beforeunload')
   beforeunloadHandler() {
-    return this.canDeactive();
+    return this.canDeactivate();
   }
 
   constructor(private titleService: Title,
