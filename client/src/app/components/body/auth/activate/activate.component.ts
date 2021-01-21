@@ -50,7 +50,7 @@ export class ActivateComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    if (this.authService.isExpired()) if (confirm('Login again?\nYour session has expired and must log in again.')) window.open('/login');
+    if (this.authService.isExpired()) if (confirm('Login again?\nYour session has expired and must log in again.')) this.router.navigateByUrl('login');
     if (!this.authService.isExpired()) {
       this.serverErrorMessages = null;
       this.authService.activate(this.authService.getId(), form.value).subscribe(
@@ -63,7 +63,7 @@ export class ActivateComponent implements OnInit {
   }
 
   resendEmail() {
-    if (this.authService.isExpired()) if (confirm('Login again?\nYour session has expired and must log in again.')) window.open('/login');
+    if (this.authService.isExpired()) if (confirm('Login again?\nYour session has expired and must log in again.')) this.router.navigateByUrl('login');
     if (!this.authService.isExpired()) {
       this.serverErrorMessages = null;
       this.authService.resendActivate(this.authService.getId()).subscribe(
