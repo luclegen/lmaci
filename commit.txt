@@ -521,7 +521,7 @@ Middlewares: Passport
 Auth Controller
 Auth Router
 Server App: Auth Router
-Auth Controller: resendActive
+Auth Controller: resendActivate
 Auth Controller: info
 Auth Router: GET info
 User Router: GET get
@@ -594,6 +594,7 @@ User Controller: updateUser
 User Router: PUT updateUser
 User Controller: uploadAvatar
 User Router: PUT uploadAvatar
+Auth Router: GET resendActivate
 
 Uploads Files
 Uploads Images
