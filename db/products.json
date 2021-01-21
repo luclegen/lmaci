@@ -10151,7 +10151,7 @@
     "path": "http://localhost:3000/image/?image=product/600435f07c25990c4a651d3f/0.png"
   },
   "quantity": {
-    "imported": 100
+    "imported": 500
   },
   "colors": [
     {
@@ -10231,13 +10231,289 @@
     "$date": "2021-01-17T13:04:48.250Z"
   },
   "updatedAt": {
-    "$date": "2021-01-17T13:11:10.373Z"
+    "$date": "2021-01-21T10:01:08.619Z"
   },
   "__v": 0,
   "post": {
     "content": "<h2 class=\"default\" style=\" padding: 0px 0px 4px; margin: 0px 0px 0.25em; font-weight: 700; font-size: medium; line-height: 32px; color: rgb(204, 102, 0); font-family: &quot;Amazon Ember&quot;, Arial, sans-serif; font-style: normal; text-align: start; text-indent: 0px; white-space: normal; background-color: rgb(255, 255, 255);\">Product description</h2><div id=\"productDescription\" class=\"a-section a-spacing-small\" style=\" margin: 0.5em 0px 0em 25px; color: rgb(51, 51, 51); font-size: small; line-height: initial; font-family: &quot;Amazon Ember&quot;, Arial, sans-serif; font-style: normal; font-weight: 400; text-align: start; text-indent: 0px; white-space: normal; background-color: rgb(255, 255, 255);\"><p style=\" padding: 0px; margin: 0em 0px 1em 1em;\"><b style=\" font-weight: 700;\">Dell - Inspiron 13.3\" 7000 2-in-1 4K Ultra HD Touch-Screen Laptop - Intel Core i7 - 16GB Memory - 512GB SSD + 32GB Optane - Black</b><br><br><b style=\" font-weight: 700;\">Features:</b><br><br><b style=\" font-weight: 700;\">Windows 10 operating system</b><br>Windows 10 brings back the Start Menu from Windows 7 and introduces new features,<br>like the Edge Web browser that lets you markup Web pages on your screen<br><br><b style=\" font-weight: 700;\">13.3\" touch screen</b><br>3840 x 2160 native resolution. Natural finger-touch navigation makes the most of Windows 10<br><br><b style=\" font-weight: 700;\">10th Gen Intel Core i7-10510U mobile processor</b><br>Ultra-low-voltage platform. Quad-core, eight-way processing provides maximum high-efficiency power to go.<br><br><b style=\" font-weight: 700;\">16GB system memory for intense multitasking and gaming</b><br>Reams of high-bandwidth DDR4 RAM<br><br><b style=\" font-weight: 700;\">Solid State Drive (PCI-e)</b><br>Save files fast and store more data<br><br><b style=\" font-weight: 700;\">Intel UHD Graphics</b><br>On-processor graphics with shared video memory provide everyday image quality for Internet use,<br>basic photo editing and casual gaming<br><br><b style=\" font-weight: 700;\">Weighs 3.2 lbs. and measures 0.6\" thin</b><br>4-cell lithium-ion battery<br><br><b style=\" font-weight: 700;\">512GB Solid State Drive accelerated by 32GB Intel Optane</b><br>Intel Optane H10 with SSD offers speedy storage and accelerates opening your frequent programs<br><br><b style=\" font-weight: 700;\">360° flip-and-fold design</b><br><b style=\" font-weight: 700;\">HDMI output expands your viewing options</b><br><b style=\" font-weight: 700;\">Thunderbolt port for connecting advanced monitors and external drives</b><br><b style=\" font-weight: 700;\">Built-in media reader for simple photo transfer</b><br><b style=\" font-weight: 700;\">Next-Gen Intel Wireless-AC connectivity</b><br><b style=\" font-weight: 700;\">Built-in HD webcam with array microphone</b><br><b style=\" font-weight: 700;\">RGB backlit keyboard</b><br><b style=\" font-weight: 700;\">Built-in fingerprint reader</b><br><b style=\" font-weight: 700;\">Intuitive pen use</b><br><b style=\" font-weight: 700;\">Built-in active pen storage</b><br><b style=\" font-weight: 700;\">Immersive Dell Cinema</b><br><b style=\" font-weight: 700;\">Seamless Dell Mobile Connect</b><br><b style=\" font-weight: 700;\">Smart style</b><br><br><b style=\" font-weight: 700;\">Basic software package included</b><br>30-days trial of Microsoft Office<br><br><b style=\" font-weight: 700;\">Additional port</b><br>Headphone/microphone combo jack<br></p></div>",
     "dateModified": {
       "$date": "2021-01-17T13:11:10.354Z"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "600913d38f1c7d1757a182f1"
+  },
+  "img": {
+    "index": 0,
+    "path": "http://localhost:3000/image/?image=product/600913d38f1c7d1757a182f1/0.png"
+  },
+  "quantity": {
+    "imported": 500
+  },
+  "colors": [
+    {
+      "option": "custom",
+      "name": "Default",
+      "value": "default"
+    }
+  ],
+  "properties": [],
+  "technicalDetails": [
+    {
+      "name": "Standing screen display size",
+      "value": "15.6 Inches"
+    },
+    {
+      "name": "Max Screen Resolution",
+      "value": "1920 x 1080 Pixels"
+    },
+    {
+      "name": "Memory Speed",
+      "value": "1.8 GHz"
+    },
+    {
+      "name": "Graphics Coprocessor",
+      "value": "Intel HD Graphics 610"
+    },
+    {
+      "name": "Card Description",
+      "value": "Dedicated"
+    },
+    {
+      "name": "Wireless Type",
+      "value": "Bluetooth"
+    },
+    {
+      "name": "Operating System",
+      "value": "Windows 10 S"
+    },
+    {
+      "name": "Item Weight",
+      "value": "4.48 pounds"
+    },
+    {
+      "name": "Product Dimensions",
+      "value": "14.96 x 10.16 x 0.89 inches"
+    },
+    {
+      "name": "Color",
+      "value": "Black"
+    },
+    {
+      "name": "Processor Count",
+      "value": "2"
+    },
+    {
+      "name": "Computer Memory Type",
+      "value": "DDR SDRAM"
+    },
+    {
+      "name": "Flash Memory Size",
+      "value": "128 GB"
+    },
+    {
+      "name": "Hard Drive Interface",
+      "value": "Solid State"
+    },
+    {
+      "name": "Batteries",
+      "value": "1 Lithium ion batteries required. (included)"
+    },
+    {
+      "name": "Date First Available",
+      "value": "September 15, 2020"
+    }
+  ],
+  "slideshows": [
+    {
+      "color": "default",
+      "imgs": [
+        {
+          "index": 0,
+          "path": "http://localhost:3000/image/?image=product/600913d38f1c7d1757a182f1/slideshow/default/0.jpeg"
+        },
+        {
+          "index": 1,
+          "path": "http://localhost:3000/image/?image=product/600913d38f1c7d1757a182f1/slideshow/default/1.jpeg"
+        },
+        {
+          "index": 2,
+          "path": "http://localhost:3000/image/?image=product/600913d38f1c7d1757a182f1/slideshow/default/2.jpeg"
+        },
+        {
+          "index": 3,
+          "path": "http://localhost:3000/image/?image=product/600913d38f1c7d1757a182f1/slideshow/default/3.jpeg"
+        },
+        {
+          "index": 4,
+          "path": "http://localhost:3000/image/?image=product/600913d38f1c7d1757a182f1/slideshow/default/4.jpeg"
+        },
+        {
+          "index": 5,
+          "path": "http://localhost:3000/image/?image=product/600913d38f1c7d1757a182f1/slideshow/default/5.jpeg"
+        },
+        {
+          "index": 6,
+          "path": "http://localhost:3000/image/?image=product/600913d38f1c7d1757a182f1/slideshow/default/6.jpeg"
+        },
+        {
+          "index": 7,
+          "path": "http://localhost:3000/image/?image=product/600913d38f1c7d1757a182f1/slideshow/default/7.jpeg"
+        }
+      ]
+    }
+  ],
+  "reviews": [],
+  "comments": [],
+  "name": "Dell Inspiron 15",
+  "price": 399,
+  "type": "laptop",
+  "createdAt": {
+    "$date": "2021-01-21T05:40:35.235Z"
+  },
+  "updatedAt": {
+    "$date": "2021-01-21T10:01:14.545Z"
+  },
+  "__v": 0,
+  "post": {
+    "content": "<ul class=\"a-unordered-list a-vertical a-spacing-mini\" style=\"margin: 0px 0px 0px 18px; font-family: &quot;Amazon Ember&quot;, Arial, sans-serif; list-style-type: none; padding: 0px; font-size: 14px; font-style: normal; font-weight: 400; text-align: start; text-indent: 0px; white-space: normal; color: rgb(17, 17, 17); background-color: rgb(255, 255, 255);\"><li style=\"margin: 0px; font-family: sans-serif, Arial; list-style: disc;\"><span class=\"a-list-item\" style=\"margin: 0px; font-family: sans-serif, Arial; color: rgb(17, 17, 17);\">Intel Celeron Processor 4205U (2MB Cache, 1.8 GHz)</span></li><li style=\"margin: 0px; font-family: sans-serif, Arial; list-style: disc;\"><span class=\"a-list-item\" style=\"margin: 0px; font-family: sans-serif, Arial; color: rgb(17, 17, 17);\">15.6-inch HD (1366 x 768) Anti-Glare LED-Backlit Non-touch Display | Intel UHD Graphics 610</span></li><li style=\"margin: 0px; font-family: sans-serif, Arial; list-style: disc;\"><span class=\"a-list-item\" style=\"margin: 0px; font-family: sans-serif, Arial; color: rgb(17, 17, 17);\">4 GB, 1 x 4 GB, DDR4, 2666 MHz Memory, 128GB M.2 PCIe NVMe Solid State Drive + 32GB USB Flash Drive</span></li><li style=\"margin: 0px; font-family: sans-serif, Arial; list-style: disc;\"><span class=\"a-list-item\" style=\"margin: 0px; font-family: sans-serif, Arial; color: rgb(17, 17, 17);\">1 x SD Card Reader, 1 x USB 2.0, 1 x USB Type C (available with discrete graphics only), 1 x HDMI 1.4b, Qualcomm DW1810, 1 x 1, 802.11ac with Wi-Fi, Wireless LAN, Bluetooth 4.1</span></li><li style=\"margin: 0px; font-family: sans-serif, Arial; list-style: disc;\"><span class=\"a-list-item\" style=\"margin: 0px; font-family: sans-serif, Arial; color: rgb(17, 17, 17);\">Windows 10 Home in S mode 64-bit, English</span></li></ul><h2 class=\"default\" style=\" padding: 0px 0px 4px; margin: 0px 0px 0.25em; font-weight: 700; font-size: medium; line-height: 32px; color: rgb(204, 102, 0); font-family: &quot;Amazon Ember&quot;, Arial, sans-serif; font-style: normal; text-align: start; text-indent: 0px; white-space: normal; background-color: rgb(255, 255, 255);\">Product description</h2><p>How to switch s mode to windows 10 1. On your PC running Windows 10 in S mode, open Settings &gt; Update &amp; Security &gt; Activation. 2. In the Switch to Windows 10 Home or Switch to Windows 10 Pro section, select Go to the Store. (If you also see an \"Upgrade your edition of Windows\" section, be careful not to click the \"Go to the Store\" link that appears there.) 3. On the Switch out of S mode (or similar) page that appears in the Microsoft Store, select the Get button. After you see a confirmation message on the page, you'll be able to install apps from outside of the Microsoft Store.</p>",
+    "dateModified": {
+      "$date": "2021-01-21T08:58:07.953Z"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "600949518f1c7d1757a182f2"
+  },
+  "img": {
+    "index": 0,
+    "path": "http://localhost:3000/image/?image=product/600949518f1c7d1757a182f2/0.png"
+  },
+  "quantity": {
+    "imported": 500
+  },
+  "colors": [
+    {
+      "option": "custom",
+      "name": "Default",
+      "value": "default"
+    }
+  ],
+  "properties": [],
+  "technicalDetails": [
+    {
+      "name": "Standing screen display size",
+      "value": "17.3 Inches"
+    },
+    {
+      "name": "Max Screen Resolution",
+      "value": "1920x1080"
+    },
+    {
+      "name": "Memory Speed",
+      "value": "2666 MHz"
+    },
+    {
+      "name": "Card Description",
+      "value": "Integrated"
+    },
+    {
+      "name": "Wireless Type",
+      "value": "802.11ac"
+    },
+    {
+      "name": "Number of USB 2.0 Ports",
+      "value": "1"
+    },
+    {
+      "name": "Operating System",
+      "value": "Windows 10"
+    },
+    {
+      "name": "Item Weight",
+      "value": "7.68 pounds"
+    },
+    {
+      "name": "Package Dimensions",
+      "value": "22.1 x 13.9 x 3 inches"
+    },
+    {
+      "name": "Color",
+      "value": "Black"
+    },
+    {
+      "name": "Processor Brand",
+      "value": "Intel"
+    },
+    {
+      "name": "Processor Count",
+      "value": "2"
+    },
+    {
+      "name": "Computer Memory Type",
+      "value": "DDR4 SDRAM"
+    },
+    {
+      "name": "Hard Drive Interface",
+      "value": "Serial ATA"
+    },
+    {
+      "name": "Hard Drive Rotational Speed",
+      "value": "5400.00"
+    },
+    {
+      "name": "Batteries",
+      "value": "1 Lithium ion batteries required. (included)"
+    },
+    {
+      "name": "Date First Available",
+      "value": "April 24, 2019"
+    }
+  ],
+  "slideshows": [
+    {
+      "color": "default",
+      "imgs": [
+        {
+          "index": 0,
+          "path": "http://localhost:3000/image/?image=product/600949518f1c7d1757a182f2/slideshow/default/0.jpeg"
+        },
+        {
+          "index": 1,
+          "path": "http://localhost:3000/image/?image=product/600949518f1c7d1757a182f2/slideshow/default/1.jpeg"
+        },
+        {
+          "index": 2,
+          "path": "http://localhost:3000/image/?image=product/600949518f1c7d1757a182f2/slideshow/default/2.jpeg"
+        },
+        {
+          "index": 3,
+          "path": "http://localhost:3000/image/?image=product/600949518f1c7d1757a182f2/slideshow/default/3.jpeg"
+        },
+        {
+          "index": 4,
+          "path": "http://localhost:3000/image/?image=product/600949518f1c7d1757a182f2/slideshow/default/4.jpeg"
+        }
+      ]
+    }
+  ],
+  "reviews": [],
+  "comments": [],
+  "name": "Dell Inspiron 17",
+  "price": 619,
+  "type": "laptop",
+  "createdAt": {
+    "$date": "2021-01-21T09:28:49.064Z"
+  },
+  "updatedAt": {
+    "$date": "2021-01-21T09:59:46.537Z"
+  },
+  "__v": 0,
+  "post": {
+    "content": "<ul class=\"a-unordered-list a-vertical a-spacing-mini\" style=\" margin: 0px 0px 0px 18px; color: rgb(17, 17, 17); padding: 0px; font-family: &quot;Amazon Ember&quot;, Arial, sans-serif; font-size: 14px; font-style: normal; font-weight: 400; text-align: start; text-indent: 0px; white-space: normal; background-color: rgb(255, 255, 255);\"><li style=\" list-style: disc; margin: 0px;\"><span class=\"a-list-item\" style=\" color: rgb(17, 17, 17);\">7th Gen Intel Dual Core i3-7020u(3M cache, 2.30GHz), Intel HD Graphics 620 with shared graphics memory.</span></li><li style=\" list-style: disc; margin: 0px;\"><span class=\"a-list-item\" style=\" color: rgb(17, 17, 17);\">17.3-inch FHD(1980x1080) Anti-Glare LED-Backlit Non-touch IPS Display, Integrated widescreen HD(720P) Webcam</span></li><li style=\" list-style: disc; margin: 0px;\"><span class=\"a-list-item\" style=\" color: rgb(17, 17, 17);\">8GB DDR4 2666MHz Ram for fast processing, 1 TB SATA HDD for system and storage, Tray load DVD Drive(Reads and Writes to DVD/CD)</span></li><li style=\" list-style: disc; margin: 0px;\"><span class=\"a-list-item\" style=\" color: rgb(17, 17, 17);\">Ports: 2 x USB 3.1 Gen1, 1 x USB 2.0, 1 x SD Card Reader, 1 x HDMI, 1 x RJ45, 1 x Headphone &amp; Microphone Audio Jack</span></li><li style=\" list-style: disc; margin: 0px;\"><span class=\"a-list-item\" style=\" color: rgb(17, 17, 17);\">Windows 10 home 64 bits. 802.11ac Wifi and Bluetooth, Standard full size Non-backlit keyboard, 2 Tuned spearker with MaxxAudio Pro.</span></li></ul><div id=\"productDescription\" class=\"a-section a-spacing-small\" style=\" margin: 0.5em 0px 0em 25px; color: rgb(51, 51, 51); font-size: small; line-height: initial; font-family: &quot;Amazon Ember&quot;, Arial, sans-serif; font-style: normal; font-weight: 400; text-align: start; text-indent: 0px; white-space: normal; background-color: rgb(255, 255, 255);\"><h2 class=\"default\" style=\" padding: 0px 0px 4px; margin: 0px 0px 0.25em; font-weight: 700; font-size: medium; line-height: 32px; color: rgb(204, 102, 0); font-family: &quot;Amazon Ember&quot;, Arial, sans-serif; font-style: normal; text-align: start; text-indent: 0px; white-space: normal; background-color: rgb(255, 255, 255);\">Product description</h2><div id=\"productDescription\" class=\"a-section a-spacing-small\" style=\" margin: 0.5em 0px 0em 25px; color: rgb(51, 51, 51); font-size: small; line-height: initial; font-family: &quot;Amazon Ember&quot;, Arial, sans-serif; font-style: normal; font-weight: 400; text-align: start; text-indent: 0px; white-space: normal; background-color: rgb(255, 255, 255);\"><div class=\"disclaim\" style=\" font-size: 10px; color: rgb(136, 136, 136); margin: 0px 0px 1em; font-family: verdana, arial, helvetica, sans-serif;\">Capacity:<strong style=\" font-weight: 700;\">17-30.99 inches</strong></div><p style=\" padding: 0px; margin: 0em 0px 1em 1em;\"><strong style=\" font-weight: 700;\">Tech specs</strong></p><p style=\" padding: 0px; margin: 0em 0px 1em 1em;\"><strong style=\" font-weight: 700;\">Display</strong>: 17.3-inch FHD (1920 x 1080) Anti-Glare LED-Backlit Non-touch IPS Display</p><p style=\" padding: 0px; margin: 0em 0px 1em 1em;\"><strong style=\" font-weight: 700;\">Processor</strong>: 7th Gen Intel? Core? i3-7020U (3MB Cache, 2.30 GHz)</p><p style=\" padding: 0px; margin: 0em 0px 1em 1em;\"><strong style=\" font-weight: 700;\">Memory</strong>: 8GB DDR4 Ram</p><p style=\" padding: 0px; margin: 0em 0px 1em 1em;\"><strong style=\" font-weight: 700;\">Hard drive Size</strong>: 1TB 5400 rpm 2.5\" SATA Hard Drive</p><p style=\" padding: 0px; margin: 0em 0px 1em 1em;\"><strong style=\" font-weight: 700;\">Optical drive</strong>: Tray load DVD Drive (Reads and Writes to DVD/CD)</p><p style=\" padding: 0px; margin: 0em 0px 1em 1em;\"><strong style=\" font-weight: 700;\">Operating system</strong>: Windows 10 Home</p><p style=\" padding: 0px; margin: 0em 0px 1em 1em;\"><strong style=\" font-weight: 700;\">Media drive</strong>: 5-in-1 Multi-Card reader</p><p style=\" padding: 0px; margin: 0em 0px 1em 1em;\"><strong style=\" font-weight: 700;\">Audio</strong>: Waves MaxxAudio? Pro</p><p style=\" padding: 0px; margin: 0em 0px 1em 1em;\"><strong style=\" font-weight: 700;\">Video</strong>: Intel UHD Graphics 620</p><p style=\" padding: 0px; margin: 0em 0px 1em 1em;\"><strong style=\" font-weight: 700;\">Ports</strong>: 2 x USB 3.1 Gen1, 1 x USB 2.0, 1 x SD Card Reader, 1 x HDMI, 1 x RJ45, 1 x Headphone &amp; Microphone Audio Jack</p><p style=\" padding: 0px; margin: 0em 0px 1em 1em;\"><strong style=\" font-weight: 700;\">Wireless</strong>: 802.11AC+ Bluetooth</p><p style=\" padding: 0px; margin: 0em 0px 1em 1em;\"><strong style=\" font-weight: 700;\">Primary Battery</strong>: 3-Cell 42WHr Battery(Integrated)</p></div></div>",
+    "dateModified": {
+      "$date": "2021-01-21T09:59:46.525Z"
     }
   }
 }]
