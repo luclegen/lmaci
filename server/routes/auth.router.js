@@ -6,7 +6,7 @@ const jwt = require('../middlewares/jwt');
 
 router.post('/register', authCtrl.register);
 router.post('/activate/:id', authCtrl.activate);
-router.get('/resend-active/:id', authCtrl.resendActivate);
+router.get('/resend-activate/:id', authCtrl.resendActivate);
 router.put('/change-email/:id', authCtrl.changeEmail);
 router.post('/authenticate', authCtrl.authenticate);
 router.post('/find-username', authCtrl.findUsername);
