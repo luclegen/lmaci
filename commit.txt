@@ -286,7 +286,7 @@ Admin Service: updateProduct
 Admin Service: searchProducts
 Products Component: onSearch
 Products Component: showAll
-Products Component: canDeactive
+Products Component: canDeactivate
 Products Component: View
 Product Component: Initial
 Routes: ProductComponent
