@@ -37,7 +37,7 @@ module.exports.register = async (req, res, next) => {
   }
 }
 
-module.exports.active = async (req, res) => {
+module.exports.activate = async (req, res) => {
   if (!ObjectId.isValid(req.params.id))
     return res.status(400).json({ msg: `No record with given id: ${req.params.id}` });
 
@@ -65,7 +65,7 @@ module.exports.active = async (req, res) => {
             const result1 = await User.findByIdAndUpdate(user._id, { $set: userActivated }, { new: true });
 
             if (result1) {
-              return generator.deleteCode(user._id) ? res.status(200).json({ msg: 'Active your account is successfully.' })
+              return generator.deleteCode(user._id) ? res.status(200).json({ msg: 'Activate your account is successfully.' })
                                                     : res.status(400).json({ msg: 'Clean your code is failed.' });
             } else return res.status(404).json({ msg: 'User Verified isn\'t found.' });
           }
