@@ -131,12 +131,6 @@ export class ProductsComponent implements OnInit {
 
   //#endregion Regex
 
-  //#region Save Change
-
-  isInput = false;
-
-  //#endregion Save Change
-
   @HostListener('window:resize')
   onResize() {
     this.ngOnInit();
@@ -189,13 +183,13 @@ export class ProductsComponent implements OnInit {
     this.adminService.getProducts().subscribe(res => this.products = res['products'], err => alert(err.error.msg));
   }
 
-  //#region Save Change
+  //#region Can Deactive
 
-  setInput() {
-    this.isInput = Boolean(this.imageChangedEvent || this.product.name || this.product.price || this.product.quantity.imported || this.product.type || this.product.colors.length || this.product.properties.length || this.product.technicalDetails.length || this.color.option || this.color.name || this.color.value || this.property.name || this.property.options.length || this.option.value || this.option.price || this.technicalDetail.name || this.technicalDetail.value);
+  canDeactive() {
+    return !(this.imageChangedEvent || this.product.name || this.product.price || this.product.quantity.imported || this.product.type || this.product.colors.length || this.product.properties.length || this.product.technicalDetails.length || this.color.option || this.color.name || this.color.value || this.property.name || this.property.options.length || this.option.value || this.option.price || this.technicalDetail.name || this.technicalDetail.value);
   }
 
-  //#endregion Save Change
+  //#endregion Can Deactive
 
   //#region Img Cropper
 
