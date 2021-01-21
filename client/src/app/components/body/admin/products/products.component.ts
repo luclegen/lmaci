@@ -527,12 +527,11 @@ export class ProductsComponent implements OnInit {
         technicalDetails: [],
       };
   
-      this.imageChangedEvent = '';
-      this.croppedImage = '';
+      this.imageChangedEvent = this.croppedImage = '';
       this.ngOnInit();
     }
   }
-  
+
   //#endregion Cancel
 
   //#region Edit
