@@ -76,7 +76,7 @@ module.exports.activate = async (req, res) => {
   } else return res.status(404).json({ msg: 'User specified isn\'t found.' });
 }
 
-module.exports.resendActive = async (req, res) => {
+module.exports.resendActivate = async (req, res) => {
   if (!ObjectId.isValid(req.params.id))
     return res.status(400).json({ msg: `No record with given id: ${req.params.id}` });
 
@@ -93,7 +93,7 @@ module.exports.resendActive = async (req, res) => {
         newCode.code = generator.generateCode(6);
 
         try {
-          setTimeout(() => generator.deleteCode(user._id), 60000);
+          setTimeout(() => generator.deleteCode(user._id), 5 * 60000);
           mailer.sendVerifyEmail(user.email, 'Verify Email', (await newCode.save()).code);
           return res.status(200).json({ msg: 'Resent Verification Code.' });
         } catch (err) {
