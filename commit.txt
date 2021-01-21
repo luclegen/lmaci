@@ -529,7 +529,8 @@ Auth Controller: resetPassword
 Admin Controller: getUsers
 Admin Router: GET getUsers
 Server App: Admin Router
-Auth Controller: active
+Auth Controller: activate
+Auth Router: POST activate
 Admin Controller: getAdmins
 Admin Router: GET getAdmins
 Admin Controller: removeAsAdmin
