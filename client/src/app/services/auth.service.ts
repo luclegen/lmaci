@@ -24,8 +24,8 @@ export class AuthService {
     return this.http.post(environment.authUrl + '/authenticate', authCredentials, this.noAuthHeader);
   }
 
-  active(id: string, code: string) {
-    return this.http.post(environment.authUrl + '/active/' + id, code);
+  activate(id: string, code: string) {
+    return this.http.post(environment.authUrl + '/activate/' + id, code);
   }
 
   resendActive(id: string) {
