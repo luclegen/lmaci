@@ -45,7 +45,7 @@ export class ActivateComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.authService.resendActive(this.authService.getId()).subscribe();
+    this.authService.resendActivate(this.authService.getId()).subscribe();
     this.helperService.setPositionOnlyForm();
   }
 
@@ -53,7 +53,7 @@ export class ActivateComponent implements OnInit {
     if (this.authService.isExpired()) if (confirm('Login again?\nYour session has expired and must log in again.')) window.open('/login');
     if (!this.authService.isExpired()) {
       this.serverErrorMessages = null;
-      this.authService.active(this.authService.getId(), form.value).subscribe(
+      this.authService.activate(this.authService.getId(), form.value).subscribe(
         res => {
           alert(res['msg']);
           this.router.navigateByUrl('user/' + this.authService.getUsername());
@@ -66,7 +66,7 @@ export class ActivateComponent implements OnInit {
     if (this.authService.isExpired()) if (confirm('Login again?\nYour session has expired and must log in again.')) window.open('/login');
     if (!this.authService.isExpired()) {
       this.serverErrorMessages = null;
-      this.authService.resendActive(this.authService.getId()).subscribe(
+      this.authService.resendActivate(this.authService.getId()).subscribe(
         res => {
           alert(res['msg']);
           
