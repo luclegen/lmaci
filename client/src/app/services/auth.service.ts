@@ -28,8 +28,8 @@ export class AuthService {
     return this.http.post(environment.authUrl + '/activate/' + id, code);
   }
 
-  resendActive(id: string) {
-    return this.http.get(environment.authUrl + '/resend-active/' + id);
+  resendActivate(id: string) {
+    return this.http.get(environment.authUrl + '/resend-activate/' + id);
   }
 
   getInfo() {
