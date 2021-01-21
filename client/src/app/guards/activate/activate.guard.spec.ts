@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ActiveGuard } from './active.guard';
+import { ActivateGuard } from './activate.guard';
 
-describe('ActiveGuard', () => {
-  let guard: ActiveGuard;
+describe('ActivateGuard', () => {
+  let guard: ActivateGuard;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    guard = TestBed.inject(ActiveGuard);
+    guard = TestBed.inject(ActivateGuard);
   });
 
   it('should be created', () => {
