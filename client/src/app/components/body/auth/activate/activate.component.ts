@@ -2,19 +2,18 @@ import { Component, HostListener, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
-
 import { Observable, timer } from 'rxjs';
-import { take, map } from 'rxjs/operators';
+import { map, take } from 'rxjs/operators';
 
 import { AuthService } from 'src/app/services/auth.service';
 import { HelperService } from 'src/app/services/helper.service';
 
 @Component({
-  selector: 'app-active',
-  templateUrl: './active.component.html',
-  styleUrls: ['./active.component.sass']
+  selector: 'app-activate',
+  templateUrl: './activate.component.html',
+  styleUrls: ['./activate.component.sass']
 })
-export class ActiveComponent implements OnInit {
+export class ActivateComponent implements OnInit {
   counter$: Observable<number>;
   count = 60;
   
