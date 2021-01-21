@@ -17,7 +17,7 @@ export class AdminGuard implements CanActivate, CanDeactivate<ProductsComponent>
   }
 
   canDeactivate(productsComponent: ProductsComponent) {
-    return productsComponent.isInput ? confirm('Leave site?\nChanges you made may not be saved.') : true;
+    return productsComponent.canDeactive() ? true : confirm('Leave site?\nChanges you made may not be saved.');
   }
 
 }
