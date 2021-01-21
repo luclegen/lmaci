@@ -61,13 +61,13 @@ Register Component: beforeunloadHandler
 Register Component: ngOnInit
 Authentication
 Module: Authentication, Services
-User Service: active
+Auth Service: activate
 Actice Component: Initial
 Actice Component: Form
 Routes: ActiveComponent
 Actice Component: Style
 Routes: ActiveComponent
-User Service: resendActive
+Auth Service: resendActivate
 User Service: updateUser
 User Service: uploadAvatar
 Profile Component: Initial
