@@ -47,7 +47,7 @@ export class ChangeEmailComponent implements OnInit {
       this.authService.changeEmail(this.authService.getId(), form.value).subscribe(
         res => {
           alert(res['msg']);
-          this.router.navigateByUrl('active');
+          this.router.navigateByUrl('activate');
         },
         err => this.serverErrorMessages = err.error.message
       );
