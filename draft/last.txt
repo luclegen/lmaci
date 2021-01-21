@@ -1,196 +1,622 @@
-const passport = require('passport');
-const _ = require('lodash');
-const ObjectId = require('mongoose').Types.ObjectId;
+import { Component, OnInit, HostListener } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { Title } from '@angular/platform-browser';
 
-const converter = require('../helpers/converter');
-const mailer = require('../helpers/mailer');
-const generator = require('../helpers/generator');
+import { ImageCroppedEvent } from 'ngx-image-cropper';
 
-const User = require('../models/user.model');
-const Code = require('../models/code.model');
+import { Product } from 'src/app/models/product.model';
 
-module.exports.register = async (req, res, next) => {
-  const user = new User();
+import { HelperService } from 'src/app/services/helper.service';
+import { AdminService } from 'src/app/services/admin.service';
+import { AuthService } from 'src/app/services/auth.service';
 
-  user.name.first = converter.toName(req.body.firstName);
-  user.name.last = converter.toName(req.body.lastName);
-  user.fullName = user.name.first + ' ' + user.name.last;
+import { Router } from '@angular/router';
 
-  user.gender = req.body.gender;
-  user.email = req.body.email;
-  user.mobileNumber = req.body.mobileNumber;
-  user.address = req.body.address;
+@Component({
+  selector: 'app-products',
+  templateUrl: './products.component.html',
+  styleUrls: ['./products.component.sass']
+})
+export class ProductsComponent implements OnInit {
 
-  user.username = req.body.username;
-  user.password = req.body.password;
+  //#region Product
 
-  if (user.username == 'root') {
-    user.avatar = process.env.AVATARS + 'root.png';
-    user.role = 'root';
+  product = {
+    _id: '',
+    img: { index: -1, path: ''},
+    name: '',
+    price: 0,
+    quantity: { imported: 0 },
+    type: '',
+    colors: [],
+    properties: [],
+    technicalDetails: [],
+  };
+
+  products = [];
+
+  //#endregion Product
+
+  keyword;
+
+  //#region Img
+
+  imageChangedEvent: any = '';
+  croppedImage: any = '';
+
+  //#endregion Img
+
+  //#region Color
+
+  color = {
+    option: '',
+    name: '',
+    value: ''
+  };
+
+  colorSeleted = {
+    option: '',
+    name: '',
+    value: ''
+  };
+
+  colorTmp = {
+    option: '',
+    name: '',
+    value: ''
+  };
+
+  //#endregion Color
+
+  //#region Property
+
+  property = {
+    name: '',
+    options: []
+  };
+
+  propertySelected = {
+    name: '',
+    options: []
+  };
+
+  propertyTmp = {
+    name: '',
+    options: []
+  };
+
+  //#endregion Property
+
+  //#region Option
+
+  option = {
+    value: '',
+    price: 0
+  }
+
+  optionSelected = {
+    value: '',
+    price: 0
+  }
+
+  optionTmp = {
+    value: '',
+    price: 0
+  }
+
+  //#endregion Option
+
+  //#region Technical detail
+
+  technicalDetail = {
+    name: '',
+    value: ''
+  };
+
+  technicalDetailSelected = {
+    name: '',
+    value: ''
+  };
+
+  technicalDetailTmp = {
+    name: '',
+    value: ''
+  };
+
+  //#endregion Technical detail
+
+  //#region Regex
+
+  NotNegativeNumberRegex;
+
+  //#endregion Regex
+
+  @HostListener('window:resize')
+  onResize() {
+    this.ngOnInit();
+  }
+
+  @HostListener('window:beforeunload')
+  beforeunloadHandler() {
+    return this.canDeactive();
+  }
+
+  constructor(private titleService: Title,
+              private helperService: HelperService,
+              private adminService: AdminService,
+              private router: Router) {
+    this.titleService.setTitle('Products Management | Lmaci');
+    this.NotNegativeNumberRegex = this.helperService.NotNegativeNumberRegex;
+  }
+
+  ngOnInit(): void {
+    const vpWidth = document.documentElement.clientWidth;
+    const tableWidth = vpWidth * (0.45 * 0.94);
+    const colorTable = document.querySelector('.color-table') as HTMLElement;
+    const tripleIn = document.getElementsByClassName('triple') as HTMLCollectionOf<HTMLElement>;
+    const doubleIn = document.getElementsByClassName('double') as HTMLCollectionOf<HTMLElement>;
+    const functions = document.getElementsByClassName('functions') as HTMLCollectionOf<HTMLElement>;
+    const input = document.getElementsByTagName('input') as HTMLCollectionOf<HTMLInputElement>;
+    const label = document.getElementsByTagName('label') as HTMLCollectionOf<HTMLLabelElement>;
+    const select = document.getElementsByTagName('select') as HTMLCollectionOf<HTMLSelectElement>;
+    const price = document.getElementById('price') as HTMLElement;
+    const priceIn = document.getElementById('price-in') as HTMLElement;
+    const quantityImported = document.getElementById('quantity-imported') as HTMLElement;
+    const quantityImportedIn = document.getElementById('quantity-imported-in') as HTMLElement;
+    const type = document.getElementById('type') as HTMLElement;
+    const typeSelect = document.getElementById('type-select') as HTMLElement;
+
+    colorTable.style.width = tableWidth + 'px';
+
+    tripleIn[0].style.width = (tableWidth - (functions[0].clientWidth + 3) - 256) + 'px';
+
+    for (let i = 0; i < doubleIn.length; i++) doubleIn[i].style.width = ((tableWidth - (functions[1].clientWidth + 3)) * 0.5 - 20) + 'px';
+
+    for (let i = 0; i < input.length; i++) input[i].style.fontSize = vpWidth * 0.015 + 'px';
+    for (let i = 0; i < label.length; i++) label[i].style.fontSize = vpWidth * 0.015 + 'px';
+    for (let i = 0; i < select.length; i++) select[i].style.fontSize = vpWidth * 0.015 + 'px';
+
+    price.style.marginLeft = (priceIn.offsetWidth - price.offsetWidth) + 'px';
+    quantityImported.style.marginLeft = (quantityImportedIn.offsetWidth - quantityImported.offsetWidth) + 'px';
+    type.style.marginLeft = (typeSelect.offsetWidth - type.offsetWidth) + 'px';
+
+    this.adminService.getProducts().subscribe(res => this.products = res['products'], err => alert(err.error.msg));
+  }
+
+  //#region Save Change
+
+  canDeactive() {
+    return !(this.imageChangedEvent || this.product.name || this.product.price || this.product.quantity.imported || this.product.type || this.product.colors.length || this.product.properties.length || this.product.technicalDetails.length || this.color.option || this.color.name || this.color.value || this.property.name || this.property.options.length || this.option.value || this.option.price || this.technicalDetail.name || this.technicalDetail.value);
+  }
+
+  //#endregion Save Change
+
+  //#region Img Cropper
+
+  fileChangeEvent(event: any): void {
+    this.imageChangedEvent = event;
+  }
+
+  imageCropped(event: ImageCroppedEvent) {
+    this.croppedImage = event.base64;
+  }
+
+  //#endregion Img Cropper
+
+  //#region Submit
+
+  onSubmit(form: NgForm) {
+    if (form.value._id) {
+      form.value.img = '';
+
+      if (this.croppedImage) {
+        this.adminService.updateProduct(form.value._id, form.value).subscribe(
+          res => {
+            const formData = new FormData();
+
+            this.product.img.index++;
+            const file = new File([ this.helperService.base64ToBlob(this.croppedImage, 'png') ], 'img.png', { type: 'image/png' });
+            
+            formData.append('index', this.product.img.index.toString());
+            formData.append('file', file, this.product.img.index.toString() + '.png');
+
+            this.adminService.uploadProductImg(res['_id'], formData).subscribe(
+              res => {
+                alert('Update this product is successfully!');
+
+                this.product = {
+                  _id: '',
+                  img: { index: -1, path: ''},
+                  name: '',
+                  price: 0,
+                  quantity: { imported: 0 },
+                  type: '',
+                  colors: [],
+                  properties: [],
+                  technicalDetails: [],
+                };
+
+                this.imageChangedEvent = this.croppedImage = '';
+                this.ngOnInit();
+              },  
+              err => alert(err.error.msg)
+            );
+          },
+          err => alert(err.error.msg)
+        );
+      } else {
+        this.adminService.updateProduct(form.value._id, form.value).subscribe(
+          res => {
+            alert('Update this product is successfully!');
+
+            this.product = {
+              _id: '',
+              img: { index: -1, path: ''},
+              name: '',
+              price: 0,
+              quantity: { imported: 0 },
+              type: '',
+              colors: [],
+              properties: [],
+              technicalDetails: [],
+            };
+
+            this.imageChangedEvent = this.croppedImage = '';
+            this.ngOnInit();
+          },
+          err => alert(err.error.msg)
+        );
+      }
+    } else {
+      this.adminService.createProduct(form.value).subscribe(
+        res => {
+          const formData = new FormData();
+
+          this.product.img.index++;
+          const file = new File([ this.helperService.base64ToBlob(this.croppedImage, 'png') ], 'img.png', { type: 'image/png' });
+
+          formData.append('index', this.product.img.index.toString());
+          formData.append('file', file, this.product.img.index.toString() + '.png');
+
+          this.adminService.uploadProductImg(res['_id'], formData).subscribe(
+            res => {
+              alert('Create this product is successfully!');
+
+              this.product = {
+                _id: '',
+                img: { index: -1, path: ''},
+                name: '',
+                price: 0,
+                quantity: { imported: 0 },
+                type: '',
+                colors: [],
+                properties: [],
+                technicalDetails: [],
+              };
+
+              this.imageChangedEvent = this.croppedImage = '';
+              this.ngOnInit();
+            },  
+            err => alert(err.error.msg)
+          );
+        },
+        err => alert(JSON.stringify(err.error))
+      );
+    }
   }
   
-  try {
-    return res.send(await user.save());
-  } catch (err) {
-    return err.code === 11000 ? res.status(422).send([ 'Username is duplicate. Please try again!' ])
-                              : next(err);
-  }
-}
+  onSubmitColor(form: NgForm) {
+    const colors = {
+      '#ffffff': 'White',
+      '#c0c0c0': 'Silver',
+      '#808080': 'Gray',
+      '#000000': 'Black',
+      '#ff0000': 'Red',
+      '#800000': 'Maroon',
+      '#ffff00': 'Yellow',
+      '#ffd700': 'Gold',
+      '#808000': 'Olive',
+      '#00ff00': 'Lime',
+      '#008000': 'Green',
+      '#00ffff': 'Aqua',
+      '#008080': 'Teal',
+      '#0000ff': 'Blue',
+      '#000080': 'Navy',
+      '#ff00ff': 'Fuchsia',
+      '#800080': 'Purple'
+    }
 
-module.exports.active = async (req, res) => {
-  if (!ObjectId.isValid(req.params.id))
-    return res.status(400).json({ msg: `No record with given id: ${req.params.id}` });
+    if (form.value.option != 'custom') {
+      form.value.name = colors[ form.value.option ];
+      form.value.value = form.value.option;
+    }
 
-  const user = await User.findById(req.params.id);
-
-  if (user) {
-    const userActivated = {
-      email: user.email,
-      activated: true
-    }, userEmailRemoved = {
-      email: '',
-      activated: false
+    if (this.colorSeleted.option && this.colorSeleted.name && this.colorSeleted.value) {
+      this.product.colors[this.product.colors.indexOf(this.colorSeleted)] = form.value;
+      this.colorSeleted = {
+        option: '',
+        name: '',
+        value: ''
+      };
+    } else this.product.colors.push(form.value);
+      
+    this.color = {
+      option: '',
+      name: '',
+      value: ''
     };
 
-    if (user.activated) return res.status(422).json({ msg: 'Your account is activated.' });
-    else {
-      const code = await Code.findOne({ _userId: req.params.id });
+  }
 
-      if (code) {
-        if (Date.now() > Date.parse(code.createdAt) + 60000) return res.status(400).json({ msg: 'Code is expired. Please click to resend email!' });
-        else if (req.body.code === code.code) {
-          const result = await User.updateMany({ email: userActivated.email }, { $set: userEmailRemoved }, { multi: true });
+  onSubmitProperty(form: NgForm) {
+    delete form.value.optionValue;
+    delete form.value.optionPrice;
 
-          if (result.n) {
-            const result1 = await User.findByIdAndUpdate(user._id, { $set: userActivated }, { new: true });
+    if (this.propertySelected.name && this.propertySelected.options.length) {
+      this.product.properties[this.product.properties.indexOf(this.propertySelected)] = form.value;
 
-            if (result1) {
-              return generator.deleteCode(user._id) ? res.status(200).json({ msg: 'Active your account is successfully.' })
-                                                    : res.status(400).json({ msg: 'Clean your code is failed.' });
-            } else return res.status(404).json({ msg: 'User Verified isn\'t found.' });
-          }
-        }
-        else return res.status(403).json({ msg: 'Verification Code is wrong.' });
+      this.propertySelected = {
+        name: '',
+        options: []
+      };
+    } else this.product.properties.push(form.value);
+    
+    this.property = {
+      name: '',
+      options: []
+    };
+
+    this.option = {
+      value: '',
+      price: 0
+    }
+
+    this.optionSelected = {
+      value: '',
+      price: 0
+    }
+  }
+
+  onSubmitOption() {
+    if (this.optionSelected.value && this.optionSelected.price >= 0 ) {
+      this.property.options[this.property.options.indexOf(this.optionSelected)] = this.option;
+
+      this.optionSelected = {
+        value: '',
+        price: 0
       }
-    }
-  } else return res.status(404).json({ msg: 'User specified isn\'t found.' });
-}
 
-module.exports.resendActive = async (req, res) => {
-  if (!ObjectId.isValid(req.params.id))
-    return res.status(400).json({ msg: `No record with given id: ${req.params.id}` });
-
-  const user = await User.findById(req.params.id);
-
-  if (user) {
-    if (user.activated) return res.status(422).json({ msg: 'Email is verified.' });
-    else {
-      try {
-        const newCode = new Code();
-
-        generator.deleteCode(user._id);
-        newCode._userId = user._id;
-        newCode.code = generator.generateCode(6);
-
-        try {
-          setTimeout(() => generator.deleteCode(user._id), 60000);
-          mailer.sendVerifyEmail(user.email, 'Verify Email', (await newCode.save()).code);
-          return res.status(200).json({ msg: 'Resent Verification Code.' });
-        } catch (err) {
-          return res.status(400).json(err);
-        }
-      } catch (err) {
-        return res.status(400).json(err);
+      this.optionTmp = {
+        value: '',
+        price: 0
       }
+    } else this.property.options.push(this.option);
+
+    this.option = {
+      value: '',
+      price: 0
     }
-  } else return res.status(404).json({ msg: 'User not found.' });
-}
+  }
 
-module.exports.changeEmail = async (req, res) => {
-  if (!ObjectId.isValid(req.params.id))
-    return res.status(400).json({ msg: `No record with given id: ${req.params.id}` });
+  onSubmitTechnicalDetails(form: NgForm) {
+    if (this.technicalDetailSelected.name && this.technicalDetailSelected.value) {
+      this.product.technicalDetails[this.product.technicalDetails.indexOf(this.technicalDetailSelected)] = form.value;
+      this.technicalDetailSelected = {
+        name: '',
+        value: ''
+      };
+    } else this.product.technicalDetails.push(form.value);
+    form.resetForm();
+  }
 
-  const user = await User.findByIdAndUpdate(req.params.id, { $set: { email: req.body.email, activated: false } }, { new: true });
+  //#endregion Submit
 
-  return user ? res.status(200).json({ msg: 'Change email is successfully.' })
-              : res.status(404).json({ msg: 'User not found.' });
-}
+  //#region Cancel
 
-module.exports.authenticate = (req, res) => {
-  passport.authenticate('local', (err, user, info) => {
-    return err ? res.status(400).json(err)
-               : user ? res.status(200).json({ "token": user.generateJwt() })
-                      : res.status(404).json(info);
-  })(req, res);
-}
+  onCancelColor() {
+    this.color.option = this.colorTmp.option;
+    this.color.name = this.colorTmp.name;
+    this.color.value = this.colorTmp.value;
 
-module.exports.findUsername = async (req, res) => {
-  const user = await User.findOne({ email: req.body.email, activated: true });
+    this.color = {
+      option: '',
+      name: '',
+      value: ''
+    };
 
-  return user ? res.status(200).json({ username: user.username, msg: 'Your username is: ' + user.username })
-              : res.status(404).json({ msg: 'User is not found.' });
-}
+    this.colorSeleted = {
+      option: '',
+      name: '',
+      value: ''
+    };
 
-module.exports.resendVerifyResetPassword = async (req, res) => {
-  const user = await User.findOne({ username: req.params.username, activated: true });
+    this.colorTmp = {
+      option: '',
+      name: '',
+      value: ''
+    };
 
-  if (user) {
-    const code = new Code();
+  }
 
-    code._userId = user._id;
-    code.code = generator.generateCode(6);
-    generator.deleteCode(user._id);
+  onCancelProperty() {
+    this.property.name = this.propertyTmp.name;
+    this.property.options = this.propertyTmp.options;
 
-    try {
-      setTimeout(() => generator.deleteCode(user._id), 90000);
-      mailer.sendVerifyEmail(user.email, 'Verify Reset Password', (await code.save()).code);
-      return res.status(200).json({ msg: 'Resent Verification Code.' });
-    } catch (err) {
-      console.log('ERROR: User code: ' + JSON.stringify(err, undefined, 2));
-    }
-  } else return res.status(404).json({ msg: 'User not found.' });
-}
-
-module.exports.resetPassword = async (req, res) => {
-  const user = await User.findOne({ username: req.params.username, activated: true });
-  if (user) {
-    const code = await Code.findOne({ _userId: user._id });
-    if (code) {
-      if (Date.now() > Date.parse(code.createdAt) + 90000) return res.status(400).json({ msg: 'Code is expired. Please click to resend email!' });
-      else if (req.body.code === code.code) {
-        user.password = req.body.password;
-
-        user.save(err => {
-          if (err) return res.status(400).json({ msg: 'Update is error.' });
-          else return generator.deleteCode(user._id) ? res.status(200).json({ msg: 'Reset Password is successfully.' })
-                                                     : res.status(400).json({ msg: 'Clean your code is failed.' });
-        });
-      } else return res.status(403).json({ msg: 'Verification Code is wrong.' });
-    } else return res.status(404).json({ msg: 'Code isn\'t found.' });
-  } else return res.status(404).json({ msg: 'User isn\'t found.' });
-}
-
-module.exports.changePassword = async (req, res) => {
-  if (!ObjectId.isValid(req.params.id))
-    return res.status(400).json({ msg: `No record with given id: ${req.params.id}` });
+    this.property = {
+      name: '',
+      options: []
+    };
   
-  const user = await User.findById(req.params.id);
+    this.propertySelected = {
+      name: '',
+      options: []
+    };
+  
+    this.propertyTmp = {
+      name: '',
+      options: []
+    };
 
-  if (user) {
-    if (user.verifyPassword(req.body.password)) {
-      user.password = req.body.newPassword;
-      
-      user.save(err => {
-        return err ? res.status(400).json({ msg: 'Change Password is failded.' })
-                   : res.status(200).json({ msg: 'Change Password is successfully.' });
-      });
-    } else return res.status(403).json({ msg: 'Wrong password.' });
-  } else return res.status(404).json({ msg: 'User not found.' });
-}
+    this.option = {
+      value: '',
+      price: 0
+    }
+  
+    this.optionSelected = {
+      value: '',
+      price: 0
+    }
+  
+    this.optionTmp = {
+      value: '',
+      price: 0
+    }
+  }
 
-module.exports.info = async (req, res) => {
-  const user = await User.findById(req._id);
+  onCancelOption() {
+    this.option.value = this.optionTmp.value;
+    this.option.price = this.optionTmp.price;
+ 
+    this.option = {
+      value: '',
+      price: 0
+    }
+  
+    this.optionSelected = {
+      value: '',
+      price: 0
+    }
+  
+    this.optionTmp = {
+      value: '',
+      price: 0
+    }
+  }
 
-  return user ? res.status(200).json({ status: true, user: _.pick(user, [ 'avatar', 'name.first', 'activated', 'username', 'role']) })
-              : res.status(404).json({ status: false, msg: 'User not found.' });
+  onCancelTechnicalDetail() {
+    this.technicalDetail.name = this.technicalDetailTmp.name;
+    this.technicalDetail.value = this.technicalDetailTmp.value;
+    
+    this.technicalDetail = {
+      name: '',
+      value: ''
+    };
+
+    this.technicalDetailSelected = {
+      name: '',
+      value: ''
+    };
+
+    this.technicalDetailTmp = {
+      name: '',
+      value: ''
+    };
+  }
+
+  onCancelProduct() {
+    if (confirm('Are you sure to cancel?')) {
+      this.product = {
+        _id: '',
+        img: { index: -1, path: ''},
+        name: '',
+        price: 0,
+        quantity: { imported: 0 },
+        type: '',
+        colors: [],
+        properties: [],
+        technicalDetails: [],
+      };
+  
+      this.imageChangedEvent = this.croppedImage = '';
+      this.ngOnInit();
+    }
+  }
+  
+  //#endregion Cancel
+
+  //#region Edit
+
+  onEditColor(c: Object) {
+    this.color = this.colorSeleted = Object(c);
+    this.colorTmp = JSON.parse(JSON.stringify(c));
+  }
+
+  onEditProperty(p: Object) {
+    this.property = this.propertySelected = Object(p);
+    this.propertyTmp = JSON.parse(JSON.stringify(p));
+  }
+
+  onEditOption(o: Object) {
+    this.option = this.optionSelected = Object(o);
+    this.optionTmp = JSON.parse(JSON.stringify(o));
+  }
+
+  onEditTechnicalDetail(t: Object) {
+    this.technicalDetail = this.technicalDetailSelected = Object(t);
+    this.technicalDetailTmp = JSON.parse(JSON.stringify(t));
+  }
+
+  onEditProduct(p: Object) {
+    this.adminService.getProducts().subscribe(res => {
+      const index = this.products.indexOf(p);
+
+      this.products = res['products'];
+      this.product = this.products[index];
+      this.imageChangedEvent = this.croppedImage = '';
+    }, err => alert(err.error.msg));
+  }
+
+  //#endregion Edit
+
+  //#region Delete
+
+  onDeleteColor(c: String) {
+    if (confirm('Are you sure delete: ' + JSON.stringify(c) + '?')) this.product.colors.splice(this.product.colors.indexOf(Object(c)), 1);
+  }
+
+  onDeleteProperty(p: Object) {
+    if (confirm('Are you sure delete: ' + JSON.stringify(p) + '?')) this.product.properties.splice(this.product.properties.indexOf(Object(p)), 1);
+  }
+
+  onDeleteOption(o: Object) {
+    if (confirm('Are you sure delete: ' + JSON.stringify(o) + '?')) this.property.options.splice(this.property.options.indexOf(Object(o)), 1);
+  }
+
+  onDeleteTechnicalDetail(t: Object) {
+    if (confirm('Are you sure delete: ' + JSON.stringify(t) + '?')) this.product.technicalDetails.splice(this.product.technicalDetails.indexOf(Object(t)), 1);
+  }
+
+  onDeleteProduct(p: Product) {
+    if (confirm('Are you sure delete: ' + JSON.stringify(p) + '?')) {
+      this.adminService.deleteProduct(p._id).subscribe(res => alert(res['msg']), err => alert(err.error.msg));
+      this.ngOnInit();
+    }
+  }
+
+  //#endregion Delete
+
+  //#region Check
+
+  isNotSubmitProperty() {
+    return this.property.options.some(o => !o.value || o.price == null || o.price < 0);
+  }
+
+  //#endregion Check
+
+  //#region Products
+
+  onSearch(form: NgForm) {
+    this.adminService.searchProducts(form.value).subscribe(res => this.products = res['products'], err => alert(err.error.msg));
+  }
+
+  showAll() {
+    this.ngOnInit();
+  }
+
+  viewDetails(event: any, product: Product) {
+    if (event.ctrlKey) window.open(product.type + '/' + product._id);
+    else this.router.navigateByUrl(product.type + '/' + product._id);
+  }
+
+  //#endregion Products
 }
