@@ -463,12 +463,13 @@ Product List Component: onResize
 Product List Component: View
 Product List Component: constructor
 Product List Component: ngOnInit
+Activate Component
 Auth Interceptor
 Data Guard
 Auth Guard
 Admin Guard
 User Guard
-Active Guard
+Activate Guard
 User Images
 Background Images
 
