@@ -34,7 +34,7 @@ import { HomeComponent } from './components/body/home/home.component';
 import { UserComponent } from './components/body/user/user.component';
 import { RegisterComponent } from './components/body/auth/register/register.component';
 import { LoginComponent } from './components/body/auth/login/login.component';
-import { ActiveComponent } from './components/body/auth/active/active.component';
+import { ActivateComponent } from './components/body/auth/activate/activate.component';
 import { ChangeEmailComponent } from './components/body/auth/change-email/change-email.component';
 import { FindUsernameComponent } from './components/body/auth/find-username/find-username.component';
 import { ResetPasswordComponent } from './components/body/auth/reset-password/reset-password.component';
@@ -56,7 +56,7 @@ import { ProductListComponent } from './components/body/product-list/product-lis
     UserComponent,
     RegisterComponent,
     LoginComponent,
-    ActiveComponent,
+    ActivateComponent,
     ChangeEmailComponent,
     FindUsernameComponent,
     ResetPasswordComponent,
