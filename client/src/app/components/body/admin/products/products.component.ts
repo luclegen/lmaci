@@ -236,8 +236,7 @@ export class ProductsComponent implements OnInit {
                   technicalDetails: [],
                 };
 
-                this.imageChangedEvent = '';
-                this.croppedImage = '';
+                this.imageChangedEvent = this.croppedImage = '';
                 this.ngOnInit();
               },  
               err => alert(err.error.msg)
@@ -262,8 +261,7 @@ export class ProductsComponent implements OnInit {
               technicalDetails: [],
             };
 
-            this.imageChangedEvent = '';
-            this.croppedImage = '';
+            this.imageChangedEvent = this.croppedImage = '';
             this.ngOnInit();
           },
           err => alert(err.error.msg)
@@ -296,8 +294,7 @@ export class ProductsComponent implements OnInit {
                 technicalDetails: [],
               };
 
-              this.imageChangedEvent = '';
-              this.croppedImage = '';
+              this.imageChangedEvent = this.croppedImage = '';
               this.ngOnInit();
             },  
             err => alert(err.error.msg)
@@ -307,7 +304,7 @@ export class ProductsComponent implements OnInit {
       );
     }
   }
-  
+
   onSubmitColor(form: NgForm) {
     const colors = {
       '#ffffff': 'White',
