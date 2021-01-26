@@ -8,7 +8,6 @@ import { Product } from 'src/app/models/product.model';
 
 import { HelperService } from 'src/app/services/helper.service';
 import { AdminService } from 'src/app/services/admin.service';
-import { AuthService } from 'src/app/services/auth.service';
 
 import { Router } from '@angular/router';
 
