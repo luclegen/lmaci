@@ -58,6 +58,10 @@ export class AdminService {
     return this.http.get(environment.adminUrl + '/products');
   }
 
+  editProduct(id: string, body: Object) {
+    return this.http.put(environment.adminUrl + '/edit-product/' + id, body);
+  }
+
   updateProduct(id: string, product: Product) {
     return this.http.put(environment.adminUrl + '/update-product/' + id, product);
   }
@@ -74,4 +78,15 @@ export class AdminService {
 
   //#endregion Http Methods
 
+  //#region Helper
+
+  startEdit(product: Object) {
+    this.editProduct(Object(product)._id, { canEdit: false }).subscribe();
+  }
+
+  finishEdit(product: Object) {
+    this.editProduct(Object(product)._id, { index: Object(product).session.index, canEdit: true }).subscribe();
+  }
+
+  //#endregion Helper
 }
