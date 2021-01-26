@@ -31,6 +31,7 @@ export class ProductsComponent implements OnInit {
     colors: [],
     properties: [],
     technicalDetails: [],
+    session: { index: 0, canEdit: false }
   };
 
   products = [];
@@ -223,6 +224,7 @@ export class ProductsComponent implements OnInit {
             this.adminService.uploadProductImg(res['_id'], formData).subscribe(
               res => {
                 alert('Update this product is successfully!');
+                this.adminService.finishEdit(this.product);
 
                 this.product = {
                   _id: '',
@@ -234,8 +236,8 @@ export class ProductsComponent implements OnInit {
                   colors: [],
                   properties: [],
                   technicalDetails: [],
+                  session: { index: 0, canEdit: false }
                 };
-
                 this.imageChangedEvent = this.croppedImage = '';
                 this.ngOnInit();
               },  
@@ -248,6 +250,7 @@ export class ProductsComponent implements OnInit {
         this.adminService.updateProduct(form.value._id, form.value).subscribe(
           res => {
             alert('Update this product is successfully!');
+            this.adminService.finishEdit(this.product);
 
             this.product = {
               _id: '',
@@ -259,8 +262,8 @@ export class ProductsComponent implements OnInit {
               colors: [],
               properties: [],
               technicalDetails: [],
+              session: { index: 0, canEdit: false }
             };
-
             this.imageChangedEvent = this.croppedImage = '';
             this.ngOnInit();
           },
@@ -292,8 +295,9 @@ export class ProductsComponent implements OnInit {
                 colors: [],
                 properties: [],
                 technicalDetails: [],
+                session: { index: 0, canEdit: false }
               };
-
+            
               this.imageChangedEvent = this.croppedImage = '';
               this.ngOnInit();
             },  
