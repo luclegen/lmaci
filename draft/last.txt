@@ -8,7 +8,6 @@ import { Product } from 'src/app/models/product.model';
 
 import { HelperService } from 'src/app/services/helper.service';
 import { AdminService } from 'src/app/services/admin.service';
-import { AuthService } from 'src/app/services/auth.service';
 
 import { Router } from '@angular/router';
 
@@ -31,6 +30,7 @@ export class ProductsComponent implements OnInit {
     colors: [],
     properties: [],
     technicalDetails: [],
+    session: { index: 0, canEdit: false }
   };
 
   products = [];
@@ -138,7 +138,17 @@ export class ProductsComponent implements OnInit {
 
   @HostListener('window:beforeunload')
   beforeunloadHandler() {
-    return this.canDeactive();
+    return this.canDeactivate();
+  }
+
+  @HostListener('window:unload')
+  unloadHandler() {
+    this.adminService.finishEdit(this.product);
+  }
+
+  @HostListener('window:reload')
+  reloadHandler() {
+    this.adminService.finishEdit(this.product);
   }
 
   constructor(private titleService: Title,
@@ -183,13 +193,13 @@ export class ProductsComponent implements OnInit {
     this.adminService.getProducts().subscribe(res => this.products = res['products'], err => alert(err.error.msg));
   }
 
-  //#region Save Change
+  //#region Can Deactive
 
-  canDeactive() {
+  canDeactivate() {
     return !(this.imageChangedEvent || this.product.name || this.product.price || this.product.quantity.imported || this.product.type || this.product.colors.length || this.product.properties.length || this.product.technicalDetails.length || this.color.option || this.color.name || this.color.value || this.property.name || this.property.options.length || this.option.value || this.option.price || this.technicalDetail.name || this.technicalDetail.value);
   }
 
-  //#endregion Save Change
+  //#endregion Can Deactive
 
   //#region Img Cropper
 
@@ -223,6 +233,7 @@ export class ProductsComponent implements OnInit {
             this.adminService.uploadProductImg(res['_id'], formData).subscribe(
               res => {
                 alert('Update this product is successfully!');
+                this.adminService.finishEdit(this.product);
 
                 this.product = {
                   _id: '',
@@ -234,8 +245,8 @@ export class ProductsComponent implements OnInit {
                   colors: [],
                   properties: [],
                   technicalDetails: [],
+                  session: { index: 0, canEdit: false }
                 };
-
                 this.imageChangedEvent = this.croppedImage = '';
                 this.ngOnInit();
               },  
@@ -248,6 +259,7 @@ export class ProductsComponent implements OnInit {
         this.adminService.updateProduct(form.value._id, form.value).subscribe(
           res => {
             alert('Update this product is successfully!');
+            this.adminService.finishEdit(this.product);
 
             this.product = {
               _id: '',
@@ -259,8 +271,8 @@ export class ProductsComponent implements OnInit {
               colors: [],
               properties: [],
               technicalDetails: [],
+              session: { index: 0, canEdit: false }
             };
-
             this.imageChangedEvent = this.croppedImage = '';
             this.ngOnInit();
           },
@@ -292,8 +304,9 @@ export class ProductsComponent implements OnInit {
                 colors: [],
                 properties: [],
                 technicalDetails: [],
+                session: { index: 0, canEdit: false }
               };
-
+            
               this.imageChangedEvent = this.croppedImage = '';
               this.ngOnInit();
             },  
@@ -304,7 +317,7 @@ export class ProductsComponent implements OnInit {
       );
     }
   }
-  
+
   onSubmitColor(form: NgForm) {
     const colors = {
       '#ffffff': 'White',
@@ -515,6 +528,8 @@ export class ProductsComponent implements OnInit {
 
   onCancelProduct() {
     if (confirm('Are you sure to cancel?')) {
+      this.adminService.finishEdit(this.product);
+
       this.product = {
         _id: '',
         img: { index: -1, path: ''},
@@ -525,13 +540,14 @@ export class ProductsComponent implements OnInit {
         colors: [],
         properties: [],
         technicalDetails: [],
+        session: { index: 0, canEdit: false }
       };
-  
+    
       this.imageChangedEvent = this.croppedImage = '';
       this.ngOnInit();
     }
   }
-  
+
   //#endregion Cancel
 
   //#region Edit
@@ -561,8 +577,12 @@ export class ProductsComponent implements OnInit {
       const index = this.products.indexOf(p);
 
       this.products = res['products'];
-      this.product = this.products[index];
-      this.imageChangedEvent = this.croppedImage = '';
+      if (this.products[index].session.canEdit) {
+        this.adminService.startEdit(this.products[index]);
+        this.product = this.products[index];
+        this.product.session.index++;
+        this.imageChangedEvent = this.croppedImage = '';
+      } else alert('This product is in the editing process. Please wait a moment!');
     }, err => alert(err.error.msg));
   }
 
