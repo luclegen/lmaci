@@ -147,6 +147,11 @@ export class ProductsComponent implements OnInit {
     this.adminService.finishEdit(this.product);
   }
 
+  @HostListener('window:reload')
+  reloadHandler() {
+    this.adminService.finishEdit(this.product);
+  }
+
   constructor(private titleService: Title,
               private helperService: HelperService,
               private adminService: AdminService,
