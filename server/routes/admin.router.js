@@ -20,6 +20,7 @@ router.put('/search-users', adminCtrl.searchUsers);
 router.post('/create-product', adminCtrl.createProduct);
 router.put('/upload-product-img/:id', transfer.upload('uploads/img/product').single('file'), adminCtrl.uploadProductImg);
 router.get('/products', adminCtrl.getProducts);
+router.put('/edit-product/:id', adminCtrl.editProduct);
 router.put('/update-product/:id', adminCtrl.updateProduct);
 router.delete('/delete-product/:id', adminCtrl.deleteProduct);
 router.put('/search-products', adminCtrl.searchProducts);
