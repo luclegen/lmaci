@@ -284,9 +284,12 @@ Products Component: onDeleteColor, onDeleteProperty, onDeleteOption, onDeleteTec
 Products Component: onDeleteProduct
 Admin Service: updateProduct
 Admin Service: searchProducts
+Admin Service: editProduct
 Products Component: onSearch
 Products Component: showAll
 Products Component: canDeactivate
+Products Component: unloadHandler
+Products Component: reloadHandler
 Products Component: View
 Product Component: Initial
 Routes: ProductComponent
@@ -446,6 +449,8 @@ Product Component: getSlideshow
 Product Component: setColorGrid
 Product Component: ngOnInit
 Product Component: Comments
+Product Component: unloadHandler
+Product Component: popstateHandler
 Product Component: View
 Product List Component: Initial
 Module: ProductListComponent
