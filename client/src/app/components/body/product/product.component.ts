@@ -252,6 +252,11 @@ export class ProductComponent implements OnInit {
       res => {
         this.product = res['product'];
 
+        if (this.authService.isAdmin() && this.product.session.canEdit) {
+          this.adminService.startEdit(this.product);
+          this.product.session.index++;
+        } else alert('This product is in the editing process. Please wait a moment!');
+
         this.titleService.setTitle(this.product.name + ' | Lmaci');
 
         this.order.name = this.product.name;
