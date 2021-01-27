@@ -106,20 +106,6 @@ module.exports.getProducts = async (req, res) => {
                   : res.status(404).json({ msg: 'Products not found.' });
 }
 
-module.exports.editProduct = async (req, res) => {
-  if (!ObjectId.isValid(req.params.id))
-    return res.status(400).send(`No record with given id: ${req.params.id}`);
-
-  const product = await Product.findById(req.params.id);
-
-  if (!product) return res.status(404).json({ msg: 'Product not found.' });
-
-  const product1 = await Product.findByIdAndUpdate(req.params.id, { $set: { session: { index: req.body.index == product.session.index + 1 ? req.body.index : product.session.index, canEdit: req.body.canEdit ? (req.body.index == product.session.index + 1 ? req.body.canEdit : product.session.canEdit) : req.body.canEdit} } }, { new: true });
-
-  return product1 ? res.status(200).json()
-                 : res.status(404).json({ msg: 'Product not found.' });
-}
-
 module.exports.updateProduct = async (req, res) => {
   if (!ObjectId.isValid(req.params.id))
     return res.status(400).send(`No record with given id: ${req.params.id}`);
