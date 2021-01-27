@@ -231,11 +231,6 @@ export class ProductComponent implements OnInit {
     return !((this.canSaveSlideshow() || this.canSavePost()) || !this.authService.isAdmin() && (this.review.star || this.comment.content || this.comment.files.length || this.answer.content || this.answer.files.length));
   }
 
-  @HostListener('window:unload')
-  unloadHandler() {
-    if (this.authService.isAdmin()) this.adminService.finishEdit(this.product);
-  }
-
   constructor(private viewportRuler: ViewportRuler,
               private route: ActivatedRoute,
               private titleService: Title,
