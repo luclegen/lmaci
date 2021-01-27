@@ -236,11 +236,6 @@ export class ProductComponent implements OnInit {
     if (this.authService.isAdmin()) this.adminService.finishEdit(this.product);
   }
 
-  @HostListener('window:popstate')
-  popstateHandler() {
-    if (this.authService.isAdmin()) this.adminService.finishEdit(this.product);
-  }
-
   constructor(private viewportRuler: ViewportRuler,
               private route: ActivatedRoute,
               private titleService: Title,
