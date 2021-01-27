@@ -42,17 +42,7 @@ let productSchema = new mongoose.Schema({
   },
   slideshows: Array,
   reviews: Array,
-  comments: Array,
-  session: {
-    index: {
-      type: Number,
-      default: 0
-    },
-    canEdit: {
-      type: Boolean,
-      default: true
-    }
-  }
+  comments: Array
 }, {
   timestamps: {
     createdAt: 'createdAt',
