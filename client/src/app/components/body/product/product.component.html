@@ -121,7 +121,7 @@
     </div>
   </div>
 </section>
-<section *ngIf="authService.isAdmin()">
+<section *ngIf="product.session.canEdit && authService.isAdmin()">
   <div class="center-container">
     <details open>
       <summary>
@@ -147,7 +147,7 @@
     </details>
   </div>
 </section>
-<section *ngIf="authService.isAdmin()">
+<section *ngIf="product.session.canEdit && authService.isAdmin()">
   <div class="left-container image-cropper-container">
     <span class="input-span inline-span">
       <label for="img">Choose an image file</label>
@@ -174,7 +174,7 @@
     <img [src]="croppedImage" [ngClass]="{ 'img-preview': croppedImage }" />
   </div>
 </section>
-<section *ngIf="authService.isAdmin()">
+<section *ngIf="product.session.canEdit && authService.isAdmin()">
   <div class="center-container">
     <details open>
       <summary>
