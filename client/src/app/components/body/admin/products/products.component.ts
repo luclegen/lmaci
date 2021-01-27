@@ -142,11 +142,6 @@ export class ProductsComponent implements OnInit {
     return this.canDeactivate();
   }
 
-  @HostListener('window:unload')
-  unloadHandler() {
-    this.adminService.finishEdit(this.product);
-  }
-
   constructor(private titleService: Title,
               private helperService: HelperService,
               private adminService: AdminService,
