@@ -519,8 +519,6 @@ export class ProductsComponent implements OnInit {
 
   onCancelProduct() {
     if (confirm('Are you sure to cancel?')) {
-      this.adminService.finishEdit(this.product);
-
       this.product = {
         _id: '',
         img: { index: -1, path: ''},
@@ -531,9 +529,8 @@ export class ProductsComponent implements OnInit {
         colors: [],
         properties: [],
         technicalDetails: [],
-        session: { index: 0, canEdit: false }
       };
-    
+  
       this.imageChangedEvent = this.croppedImage = '';
       this.ngOnInit();
     }
