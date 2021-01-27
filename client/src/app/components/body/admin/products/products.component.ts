@@ -565,12 +565,8 @@ export class ProductsComponent implements OnInit {
       const index = this.products.indexOf(p);
 
       this.products = res['products'];
-      if (this.products[index].session.canEdit) {
-        this.adminService.startEdit(this.products[index]);
-        this.product = this.products[index];
-        this.product.session.index++;
-        this.imageChangedEvent = this.croppedImage = '';
-      } else alert('This product is in the editing process. Please wait a moment!');
+      this.product = this.products[index];
+      this.imageChangedEvent = this.croppedImage = '';
     }, err => alert(err.error.msg));
   }
 
