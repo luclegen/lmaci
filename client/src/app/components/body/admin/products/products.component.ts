@@ -573,17 +573,24 @@ export class ProductsComponent implements OnInit {
   }
 
   onEditProduct(p: Object) {
-    this.adminService.getProducts().subscribe(res => {
-      const index = this.products.indexOf(p);
+    if (this.product._id) this.adminService.finishEdit(this.product);
 
-      this.products = res['products'];
-      if (this.products[index].session.canEdit) {
-        this.adminService.startEdit(this.products[index]);
-        this.product = this.products[index];
-        this.product.session.index++;
-        this.imageChangedEvent = this.croppedImage = '';
-      } else alert('This product is in the editing process. Please wait a moment!');
-    }, err => alert(err.error.msg));
+    let index = this.products.indexOf(p);
+
+    if (this.products[index].session.canEdit) {
+      this.adminService.editProduct(this.products[index]._id, { canEdit: false }).subscribe(
+        res => {
+          this.adminService.getProducts().subscribe(res => {
+            index = 0;
+            this.products = res['products'];
+            this.product = this.products[index];
+            this.product.session.index++;
+            this.imageChangedEvent = this.croppedImage = '';
+          }, err => alert(err.error.msg));
+        },
+        err => alert(err.error.msg)
+      );
+    } else alert('This product is in the editing process. Please wait a moment!');
   }
 
   //#endregion Edit
