@@ -13,7 +13,6 @@ import { ProductService } from 'src/app/services/product.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { HelperService } from 'src/app/services/helper.service';
 import { UserService } from 'src/app/services/user.service';
-import { AdminService } from 'src/app/services/admin.service';
 
 @Component({
   selector: 'app-product',
@@ -85,9 +84,11 @@ export class ProductComponent implements OnInit {
     properties: [],
     technicalDetails: [],
     description: '',
-    post: { content: '', dateModified: '' },
-    slideshows: [],
-    session: { index: 0, canEdit: false }
+    post: {
+      content: '',
+      dateModified: ''
+    },
+    slideshows: []
   };
 
   preview = {
@@ -235,7 +236,6 @@ export class ProductComponent implements OnInit {
               private route: ActivatedRoute,
               private titleService: Title,
               private productService: ProductService,
-              private adminService: AdminService,
               private userService: UserService,
               private router: Router,
               public authService: AuthService,
