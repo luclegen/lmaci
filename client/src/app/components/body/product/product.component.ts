@@ -620,7 +620,7 @@ export class ProductComponent implements OnInit {
 
   canSaveSlideshow() {
     const slideshow = this.product.slideshows.find(s => s.color == this.preview.color.value);
-    return slideshow ? JSON.stringify(slideshow.imgs.map(i => i.path)) != JSON.stringify(this.paths) : this.paths.length;
+    return this.product.session.canEdit && (slideshow ? JSON.stringify(slideshow.imgs.map(i => i.path)) != JSON.stringify(this.paths) : this.paths.length);
   }
 
   saveSlideshow() {
