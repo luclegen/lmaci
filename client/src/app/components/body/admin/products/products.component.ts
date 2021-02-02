@@ -378,6 +378,8 @@ export class ProductsComponent implements OnInit {
       value: '',
       price: 0
     }
+
+    setTimeout(() => this.scroll((document.querySelectorAll('.in-row') as NodeListOf<HTMLElement>)[1], 3/5));
   }
 
   onSubmitOption() {
