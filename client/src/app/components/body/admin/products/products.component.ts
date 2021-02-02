@@ -348,6 +348,7 @@ export class ProductsComponent implements OnInit {
       value: ''
     };
 
+    setTimeout(() => this.scroll((document.querySelectorAll('.in-row') as NodeListOf<HTMLElement>)[0], 1/3));
   }
 
   onSubmitProperty(form: NgForm) {
