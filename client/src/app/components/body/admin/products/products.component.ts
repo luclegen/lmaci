@@ -401,6 +401,8 @@ export class ProductsComponent implements OnInit {
       value: '',
       price: 0
     }
+
+    setTimeout(() => this.scroll((document.querySelector('#option-in-row') as HTMLElement), 3/5));
   }
 
   onSubmitTechnicalDetails(form: NgForm) {
