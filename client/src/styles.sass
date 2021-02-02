@@ -606,6 +606,8 @@ table
 
       th
         color: white
+        text-align: left
+        background: green
 
     tr:nth-child(even)
       background-color: white
@@ -618,6 +620,31 @@ table
     border: 2px solid black
 
   &.ls-table
+
+    thead
+
+      th
+        position: -webkit-sticky
+        position: sticky
+        z-index: 1
+        background-color: green
+
+      tr
+        
+        &:nth-child(1)
+
+          th
+            top: -2px
+
+        &:nth-child(2)
+
+          th
+            top: 40px
+
+        &:nth-child(3)
+
+          th
+            top: 80px
 
     tbody
 
@@ -640,29 +667,6 @@ table
 
           &.address-td
             width: 20%
-        
-    th
-      position: -webkit-sticky
-      position: sticky
-      z-index: 1
-      background-color: green
-
-    tr
-      
-      &:nth-child(1)
-
-        th
-          top: -2px
-
-      &:nth-child(2)
-
-        th
-          top: 40px
-
-      &:nth-child(3)
-
-        th
-          top: 80px
 
   &.only-table
     margin: 20px 0
