@@ -138,7 +138,7 @@ export class ProductsComponent implements OnInit {
 
   @HostListener('window:beforeunload')
   beforeunloadHandler() {
-    return this.canDeactive();
+    return this.canDeactivate();
   }
 
   constructor(private titleService: Title,
@@ -150,46 +150,48 @@ export class ProductsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const vpWidth = document.documentElement.clientWidth;
-    const tableWidth = vpWidth * (0.45 * 0.94);
-    const colorTable = document.querySelector('.color-table') as HTMLElement;
-    const tripleIn = document.getElementsByClassName('triple') as HTMLCollectionOf<HTMLElement>;
-    const doubleIn = document.getElementsByClassName('double') as HTMLCollectionOf<HTMLElement>;
-    const functions = document.getElementsByClassName('functions') as HTMLCollectionOf<HTMLElement>;
-    const input = document.getElementsByTagName('input') as HTMLCollectionOf<HTMLInputElement>;
-    const label = document.getElementsByTagName('label') as HTMLCollectionOf<HTMLLabelElement>;
-    const select = document.getElementsByTagName('select') as HTMLCollectionOf<HTMLSelectElement>;
-    const price = document.getElementById('price') as HTMLElement;
-    const priceIn = document.getElementById('price-in') as HTMLElement;
-    const quantityImported = document.getElementById('quantity-imported') as HTMLElement;
-    const quantityImportedIn = document.getElementById('quantity-imported-in') as HTMLElement;
-    const type = document.getElementById('type') as HTMLElement;
-    const typeSelect = document.getElementById('type-select') as HTMLElement;
+    setTimeout(() => {
+      const vpWidth = document.documentElement.clientWidth;
+      const tableWidth = vpWidth * (0.45 * 0.94);
+      const colorTable = document.querySelector('.color-table') as HTMLElement;
+      const tripleIn = document.getElementsByClassName('triple') as HTMLCollectionOf<HTMLElement>;
+      const doubleIn = document.getElementsByClassName('double') as HTMLCollectionOf<HTMLElement>;
+      const functions = document.getElementsByClassName('functions') as HTMLCollectionOf<HTMLElement>;
+      const input = document.getElementsByTagName('input') as HTMLCollectionOf<HTMLInputElement>;
+      const label = document.getElementsByTagName('label') as HTMLCollectionOf<HTMLLabelElement>;
+      const select = document.getElementsByTagName('select') as HTMLCollectionOf<HTMLSelectElement>;
+      const price = document.getElementById('price') as HTMLElement;
+      const priceIn = document.getElementById('price-in') as HTMLElement;
+      const quantityImported = document.getElementById('quantity-imported') as HTMLElement;
+      const quantityImportedIn = document.getElementById('quantity-imported-in') as HTMLElement;
+      const type = document.getElementById('type') as HTMLElement;
+      const typeSelect = document.getElementById('type-select') as HTMLElement;
 
-    colorTable.style.width = tableWidth + 'px';
+      colorTable.style.width = tableWidth + 'px';
 
-    tripleIn[0].style.width = (tableWidth - (functions[0].clientWidth + 3) - 256) + 'px';
+      tripleIn[0].style.width = (tableWidth - (functions[0].clientWidth + 3) - 256) + 'px';
 
-    for (let i = 0; i < doubleIn.length; i++) doubleIn[i].style.width = ((tableWidth - (functions[1].clientWidth + 3)) * 0.5 - 20) + 'px';
+      for (let i = 0; i < doubleIn.length; i++) doubleIn[i].style.width = ((tableWidth - (functions[1].clientWidth + 3)) * 0.5 - 20) + 'px';
 
-    for (let i = 0; i < input.length; i++) input[i].style.fontSize = vpWidth * 0.015 + 'px';
-    for (let i = 0; i < label.length; i++) label[i].style.fontSize = vpWidth * 0.015 + 'px';
-    for (let i = 0; i < select.length; i++) select[i].style.fontSize = vpWidth * 0.015 + 'px';
+      for (let i = 0; i < input.length; i++) input[i].style.fontSize = vpWidth * 0.015 + 'px';
+      for (let i = 0; i < label.length; i++) label[i].style.fontSize = vpWidth * 0.015 + 'px';
+      for (let i = 0; i < select.length; i++) select[i].style.fontSize = vpWidth * 0.015 + 'px';
 
-    price.style.marginLeft = (priceIn.offsetWidth - price.offsetWidth) + 'px';
-    quantityImported.style.marginLeft = (quantityImportedIn.offsetWidth - quantityImported.offsetWidth) + 'px';
-    type.style.marginLeft = (typeSelect.offsetWidth - type.offsetWidth) + 'px';
+      price.style.marginLeft = (priceIn.offsetWidth - price.offsetWidth) + 'px';
+      quantityImported.style.marginLeft = (quantityImportedIn.offsetWidth - quantityImported.offsetWidth) + 'px';
+      type.style.marginLeft = (typeSelect.offsetWidth - type.offsetWidth) + 'px';
+    });
 
     this.adminService.getProducts().subscribe(res => this.products = res['products'], err => alert(err.error.msg));
   }
 
-  //#region Save Change
+  //#region Can Deactive
 
-  canDeactive() {
+  canDeactivate() {
     return !(this.imageChangedEvent || this.product.name || this.product.price || this.product.quantity.imported || this.product.type || this.product.colors.length || this.product.properties.length || this.product.technicalDetails.length || this.color.option || this.color.name || this.color.value || this.property.name || this.property.options.length || this.option.value || this.option.price || this.technicalDetail.name || this.technicalDetail.value);
   }
 
-  //#endregion Save Change
+  //#endregion Can Deactive
 
   //#region Img Cropper
 
@@ -304,7 +306,7 @@ export class ProductsComponent implements OnInit {
       );
     }
   }
-  
+
   onSubmitColor(form: NgForm) {
     const colors = {
       '#ffffff': 'White',
@@ -346,6 +348,7 @@ export class ProductsComponent implements OnInit {
       value: ''
     };
 
+    setTimeout(() => this.scroll((document.querySelectorAll('.in-row') as NodeListOf<HTMLElement>)[0], 1/3));
   }
 
   onSubmitProperty(form: NgForm) {
@@ -375,6 +378,8 @@ export class ProductsComponent implements OnInit {
       value: '',
       price: 0
     }
+
+    setTimeout(() => this.scroll((document.querySelectorAll('.in-row') as NodeListOf<HTMLElement>)[1], 3/5));
   }
 
   onSubmitOption() {
@@ -396,6 +401,8 @@ export class ProductsComponent implements OnInit {
       value: '',
       price: 0
     }
+
+    setTimeout(() => this.scroll((document.querySelector('#option-in-row') as HTMLElement), 3/5));
   }
 
   onSubmitTechnicalDetails(form: NgForm) {
@@ -407,6 +414,8 @@ export class ProductsComponent implements OnInit {
       };
     } else this.product.technicalDetails.push(form.value);
     form.resetForm();
+
+    setTimeout(() => this.scroll((document.querySelectorAll('.in-row') as NodeListOf<HTMLElement>)[2], 9/10));
   }
 
   //#endregion Submit
@@ -531,7 +540,7 @@ export class ProductsComponent implements OnInit {
       this.ngOnInit();
     }
   }
-  
+
   //#endregion Cancel
 
   //#region Edit
@@ -619,4 +628,32 @@ export class ProductsComponent implements OnInit {
   }
 
   //#endregion Products
+
+  //#region Scroll
+
+  scroll(el: HTMLElement, scale: number) {
+    const fullyVisible = el => {
+      var top = el.offsetTop;
+      var left = el.offsetLeft;
+      var width = el.offsetWidth;
+      var height = el.offsetHeight;
+
+      while(el.offsetParent) {
+        el = el.offsetParent;
+        top += el.offsetTop;
+        left += el.offsetLeft;
+      }
+      console.log(window.pageYOffset);
+
+      return top >= window.pageYOffset && top + height <= window.pageYOffset + window.innerHeight && left >= window.pageXOffset && left + width <= window.pageXOffset + window.innerWidth;
+    }
+
+    if (!fullyVisible(el)) {
+      window.scroll(0, 0);
+      window.scroll(0, el.getBoundingClientRect().bottom - document.documentElement.clientHeight * scale);
+    }
+  }
+
+  //#endregion Scroll
+
 }
