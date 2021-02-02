@@ -414,6 +414,8 @@ export class ProductsComponent implements OnInit {
       };
     } else this.product.technicalDetails.push(form.value);
     form.resetForm();
+
+    setTimeout(() => this.scroll((document.querySelectorAll('.in-row') as NodeListOf<HTMLElement>)[2], 9/10));
   }
 
   //#endregion Submit
