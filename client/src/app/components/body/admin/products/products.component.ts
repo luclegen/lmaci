@@ -621,4 +621,32 @@ export class ProductsComponent implements OnInit {
   }
 
   //#endregion Products
+
+  //#region Scroll
+
+  scroll(el: HTMLElement, scale: number) {
+    const fullyVisible = el => {
+      var top = el.offsetTop;
+      var left = el.offsetLeft;
+      var width = el.offsetWidth;
+      var height = el.offsetHeight;
+
+      while(el.offsetParent) {
+        el = el.offsetParent;
+        top += el.offsetTop;
+        left += el.offsetLeft;
+      }
+      console.log(window.pageYOffset);
+
+      return top >= window.pageYOffset && top + height <= window.pageYOffset + window.innerHeight && left >= window.pageXOffset && left + width <= window.pageXOffset + window.innerWidth;
+    }
+
+    if (!fullyVisible(el)) {
+      window.scroll(0, 0);
+      window.scroll(0, el.getBoundingClientRect().bottom - document.documentElement.clientHeight * scale);
+    }
+  }
+
+  //#endregion Scroll
+
 }
