@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
-let userSchema = new mongoose.Schema({
+const userSchema = new mongoose.Schema({
   name: {
     first: {
       type: String,
@@ -61,29 +61,34 @@ let userSchema = new mongoose.Schema({
   }
 });
 
-// Custom validation for email
-userSchema.path('email').validate(val => {
-  emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  return emailRegex.test(val);
-}, 'Invalid email.');
+//#region Validation
 
-// Events
+userSchema.path('username').validate(val => /^(?=[a-zA-Z0-9._]{1,20}$)/.test(val), 'Invalid username.');
+userSchema.path('email').validate(val => /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(val), 'Invalid email.');
+userSchema.path('mobileNumber').validate(val => /^(\+\d{1,3}[- ]?)?\d{10}$/.test(val), 'Invalid mobile number.');
+
+//#endregion Validation
+
+//#region Events
+
 userSchema.pre('save', async function (next) {
-  const salt = await bcrypt.genSalt(10);
-  const hash = await bcrypt.hash(this.password, salt);
-
-  this.password = hash;
-  this.saltSecret = salt;
+  this.saltSecret = await bcrypt.genSalt(10);
+  this.password = await bcrypt.hash(this.password, this.saltSecret);
   next();
 });
 
-// Methods
-userSchema.methods.verifyPassword = function (password) {
+//#endregion Events
+
+//#region Methods
+
+userSchema.methods.verified = function (password) {
   return bcrypt.compareSync(password, this.password);
 }
 
-userSchema.methods.generateJwt = function () {
+userSchema.methods.getToken = function () {
   return jwt.sign({ _id: this._id, username: this.username, admin: this.role == 'root' || this.role == 'admin', activated: this.activated }, process.env.JWT_SECRET, this.activated ? {} : { expiresIn: process.env.JWT_EXP });
 }
+
+//#endregion Methods
 
 module.exports = mongoose.model('User', userSchema);
