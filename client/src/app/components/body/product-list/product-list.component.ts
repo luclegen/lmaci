@@ -74,6 +74,7 @@ export class ProductListComponent implements OnInit {
         this.products.forEach(p => {
           const product = {
             id: p._id,
+            type: p.type,
             path: p.img.path,
             name: p.name,
             price: p.price,
