@@ -90,7 +90,7 @@ module.exports.resendActivate = async (req, res) => {
 
         generator.deleteCode(user._id);
         newCode._userId = user._id;
-        newCode.code = generator.generateCode(6);
+        newCode.code = generator.getCode(6);
 
         try {
           setTimeout(() => generator.deleteCode(user._id), 5 * 60000);
