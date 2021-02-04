@@ -600,7 +600,7 @@ Uploads Files
 Uploads Images
 Commit
 
-III. DATABASE
+III. DEMO
 Database: users
 Database: products
 
