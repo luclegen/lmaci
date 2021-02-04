@@ -13,6 +13,6 @@ router.post('/find-username', authCtrl.findUsername);
 router.get('/resend-verify-reset-password/:username', authCtrl.resendVerifyResetPassword);
 router.put('/reset-password/:username', authCtrl.resetPassword);
 router.put('/change-password/:id', authCtrl.changePassword);
-router.get('/info', jwt.verifyJwtToken, authCtrl.info);
+router.get('/info', jwt.verify, authCtrl.info);
 
 module.exports = router;
