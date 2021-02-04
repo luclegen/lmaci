@@ -10,7 +10,7 @@ passport.use(new LocalStrategy({
 }, async (username, password, done) => {
   const user = await User.findOne({ username: username });
 
-  return user ? user.verifyPassword(password) ? done(null, user)
-                                              : done(null, false, { msg: 'Wrong password.' })
+  return user ? user.verified(password) ? done(null, user)
+                                        : done(null, false, { msg: 'Wrong password.' })
               : done(null, false, { msg: 'Username is not registered.' });
 }));
