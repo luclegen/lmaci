@@ -3,7 +3,7 @@ const nodemailer = require('nodemailer');
 const transport = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: process.env.SERVER_GMAIL,
+    user: process.env.SERVER_EMAIL,
     pass: process.env.SERVER_PASS
   },
   tls: {
@@ -14,7 +14,7 @@ const transport = nodemailer.createTransport({
 module.exports.sendVerifyEmail = (clientEmail, title, code) => {
   let mailOptions = {
     from: {
-      "address": process.env.SERVER_GMAIL,
+      "address": process.env.SERVER_EMAIL,
       "name": process.env.SERVER_NAME
     },
     to: clientEmail,
