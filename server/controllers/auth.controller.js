@@ -177,7 +177,7 @@ module.exports.changePassword = async (req, res) => {
   const user = await User.findById(req.params.id);
 
   if (user) {
-    if (user.verifyPassword(req.body.password)) {
+    if (user.verified(req.body.password)) {
       user.password = req.body.newPassword;
       
       user.save(err => {
