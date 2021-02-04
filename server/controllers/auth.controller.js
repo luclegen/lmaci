@@ -138,7 +138,7 @@ module.exports.resendVerifyResetPassword = async (req, res) => {
     const code = new Code();
 
     code._userId = user._id;
-    code.code = generator.generateCode(6);
+    code.code = generator.getCode(6);
     generator.deleteCode(user._id);
 
     try {
