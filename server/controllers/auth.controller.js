@@ -119,7 +119,7 @@ module.exports.changeEmail = async (req, res) => {
 module.exports.authenticate = (req, res) => {
   passport.authenticate('local', (err, user, info) => {
     return err ? res.status(400).json(err)
-               : user ? res.status(200).json({ token: user.generateJwt() })
+               : user ? res.status(200).json({ token: user.getToken() })
                       : res.status(404).json(info);
   })(req, res);
 }
