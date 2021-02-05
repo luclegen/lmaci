@@ -545,6 +545,7 @@ Admin Controller: searchUsers
 Admin Router: PUT searchUsers
 Product Model
 Helpers: Generator
+Helpers: Cleaner
 Helpers: Converter
 Admin Controller: addProduct
 Admin Router: POST addProduct
