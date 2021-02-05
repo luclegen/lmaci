@@ -22,7 +22,6 @@
   "updatedAt": {
     "$date": "2020-10-07T08:06:33.636Z"
   },
-  "saltSecret": "$2a$10$Xrh1NpTQ1Shq04erhnlh3.",
   "__v": 0
 },{
   "_id": {
@@ -48,7 +47,6 @@
   "updatedAt": {
     "$date": "2020-10-07T07:49:40.236Z"
   },
-  "saltSecret": "$2a$10$9cUiR869wyB9zPMNG2FdRu",
   "__v": 0
 },{
   "_id": {
@@ -74,7 +72,6 @@
   "updatedAt": {
     "$date": "2020-10-07T07:40:04.404Z"
   },
-  "saltSecret": "$2a$10$JwyfZskfpWXV2EEYE3krkO",
   "__v": 0
 },{
   "_id": {
@@ -100,7 +97,6 @@
   "updatedAt": {
     "$date": "2020-10-07T07:42:16.168Z"
   },
-  "saltSecret": "$2a$10$S/Kk/AtdtVEf8DyL1S1T0e",
   "__v": 0
 },{
   "_id": {
@@ -126,7 +122,6 @@
   "updatedAt": {
     "$date": "2020-10-07T07:43:53.194Z"
   },
-  "saltSecret": "$2a$10$.93vmgVzyWDRyhMV1agnQO",
   "__v": 0
 },{
   "_id": {
@@ -152,7 +147,6 @@
   "updatedAt": {
     "$date": "2020-10-07T07:18:06.790Z"
   },
-  "saltSecret": "$2a$10$9bPgiCLD.OyAq00LvPs3He",
   "__v": 0
 },{
   "_id": {
@@ -178,7 +172,6 @@
   "updatedAt": {
     "$date": "2020-10-07T07:46:04.630Z"
   },
-  "saltSecret": "$2a$10$EUX.npaU/Y615iErHTmJeO",
   "__v": 0
 },{
   "_id": {
@@ -204,7 +197,6 @@
   "updatedAt": {
     "$date": "2020-10-07T07:47:31.724Z"
   },
-  "saltSecret": "$2a$10$Olgu47IyFzBp84EDPDEPv.",
   "__v": 0
 },{
   "_id": {
@@ -230,7 +222,6 @@
   "updatedAt": {
     "$date": "2020-10-07T07:30:42.109Z"
   },
-  "saltSecret": "$2a$10$Be/7pM9aFxcMrvkw/B7wi.",
   "__v": 0
 },{
   "_id": {
@@ -256,7 +247,6 @@
   "updatedAt": {
     "$date": "2020-10-07T07:32:09.734Z"
   },
-  "saltSecret": "$2a$10$2xQY5JCDpkvzUpIMC5yI6e",
   "__v": 0
 },{
   "_id": {
@@ -282,7 +272,6 @@
   "updatedAt": {
     "$date": "2020-10-07T07:49:09.028Z"
   },
-  "saltSecret": "$2a$10$G0ySWvqOiqSBpIn4y2DLbO",
   "__v": 0
 },{
   "_id": {
@@ -308,7 +297,6 @@
   "updatedAt": {
     "$date": "2020-10-07T07:59:55.748Z"
   },
-  "saltSecret": "$2a$10$5v6pfppKVZo1YbR8ICn7Xe",
   "__v": 0
 },{
   "_id": {
@@ -334,7 +322,6 @@
   "updatedAt": {
     "$date": "2020-10-07T08:01:39.674Z"
   },
-  "saltSecret": "$2a$10$Z/tRARpzBn9ucZNHKRk.AO",
   "__v": 0
 },{
   "_id": {
@@ -360,6 +347,5 @@
   "updatedAt": {
     "$date": "2020-10-07T08:02:58.986Z"
   },
-  "saltSecret": "$2a$10$S6NlMa9YwDW.GbOjZLwfk.",
   "__v": 0
 }]
