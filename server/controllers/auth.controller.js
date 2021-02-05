@@ -159,19 +159,20 @@ module.exports.resetPassword = async (req, res) => {
   const user = await User.findOne({ username: req.params.username, activated: true });
   if (user) {
     const code = await Code.findOne({ _userId: user._id });
+
     if (code) {
       if (Date.now() > Date.parse(code.createdAt) + 90000) return res.status(400).json({ msg: 'Code is expired. Please click to resend email!' });
-      else if (req.body.code === code.code) {
+      else if (code.verified(req.body.code)) {
         user.password = req.body.password;
 
         user.save(err => {
           if (err) return res.status(400).json({ msg: 'Update is error.' });
-          else return generator.deleteCode(user._id) ? res.status(200).json({ msg: 'Reset Password is successfully.' })
+          else return cleaner.deleteCode(user._id) ? res.status(200).json({ msg: 'Reset Password is successfully.' })
                                                      : res.status(400).json({ msg: 'Clean your code is failed.' });
         });
       } else return res.status(403).json({ msg: 'Verification Code is wrong.' });
-    } else return res.status(404).json({ msg: 'Code isn\'t found.' });
-  } else return res.status(404).json({ msg: 'User isn\'t found.' });
+    } else return res.status(404).json({ msg: 'Code not found.' });
+  } else return res.status(404).json({ msg: 'User not found.' });
 }
 
 module.exports.changePassword = async (req, res) => {
