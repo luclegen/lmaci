@@ -53,7 +53,6 @@ const userSchema = new mongoose.Schema({
     enum: [ 'root', 'admin', 'user' ],
     default: 'user'
   },
-  saltSecret: String
 }, {
   timestamps: {
     createdAt: 'createdAt',
@@ -72,8 +71,7 @@ userSchema.path('mobileNumber').validate(val => /^(\+\d{1,3}[- ]?)?\d{10}$/.test
 //#region Events
 
 userSchema.pre('save', async function (next) {
-  this.saltSecret = await bcrypt.genSalt(10);
-  this.password = await bcrypt.hash(this.password, this.saltSecret);
+  this.password = await bcrypt.hash(this.password, await bcrypt.genSalt(10));
   next();
 });
 
