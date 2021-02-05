@@ -5,6 +5,7 @@ const ObjectId = require('mongoose').Types.ObjectId;
 const converter = require('../helpers/converter');
 const mailer = require('../helpers/mailer');
 const generator = require('../helpers/generator');
+const cleaner = require('../helpers/cleaner');
 
 const User = require('../models/user.model');
 const Code = require('../models/code.model');
@@ -87,14 +88,16 @@ module.exports.resendActivate = async (req, res) => {
     else {
       try {
         const newCode = new Code();
+        const code = generator.getCode(6);
 
-        generator.deleteCode(user._id);
+        cleaner.deleteCode(user._id);
         newCode._userId = user._id;
-        newCode.code = generator.getCode(6);
+        newCode.code = code;
 
         try {
-          setTimeout(() => generator.deleteCode(user._id), 5 * 60000);
-          mailer.sendVerifyEmail(user.email, 'Verify Email', (await newCode.save()).code);
+          setTimeout(() => cleaner.deleteCode(user._id), 5 * 60000);
+          await newCode.save();
+          mailer.sendVerifyEmail(user.email, 'Verify Email', code);
           return res.status(200).json({ msg: 'Resent Verification Code.' });
         } catch (err) {
           return res.status(400).json(err);
