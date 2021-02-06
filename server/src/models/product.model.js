@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-let productSchema = new mongoose.Schema({
+const productSchema = new mongoose.Schema({
   img: {
     index: {
       type: Number,
