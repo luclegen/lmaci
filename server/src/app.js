@@ -5,17 +5,12 @@ require('./configs/config');
 require('./db/db');
 
 // Initialization
-const express = require('express');
-const bodyParser = require('body-parser');
-const cors = require('cors');
-const passport = require('passport');
-
-const app = express();
+const app = require('express')();
 
 // Middleware
-app.use(bodyParser.json());
-app.use(cors());
-app.use(passport.initialize());
+app.use(require('body-parser').json());
+app.use(require('cors')());
+app.use(require('passport').initialize());
 require('./middlewares/passport');
 
 // Routes
