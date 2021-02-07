@@ -1,5 +1,4 @@
 const router = require('express').Router();
-
 const productCtrl = require('../controllers/product.controller');
 const transfer = require('../helpers/transfer');
 
