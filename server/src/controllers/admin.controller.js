@@ -132,8 +132,8 @@ module.exports.updateProduct = async (req, res) => {
       const common = [...new Set(colors.concat(colorsSlideshows).filter(c => colors.includes(c) && colorsSlideshows.includes(c)))];
 
       newSlideshows = productEdited.slideshows.filter(s => common.includes(s.color));
-      colorsSlideshows.filter(cs => !common.includes(cs)).forEach(r => rimraf.sync('uploads/img/product/' + req.params.id + '/slideshow/' + r.replace(/#/, '')));
-    } else rimraf.sync('uploads/img/product/' + req.params.id + '/slideshow/');
+      colorsSlideshows.filter(cs => !common.includes(cs)).forEach(r => rimraf.sync(process.env.PRODUCT_IMG + req.params.id + '/slideshow/' + r.replace(/#/, '')));
+    } else rimraf.sync(process.env.PRODUCT_IMG + req.params.id + '/slideshow/');
 
     const productEdited1 = await Product.findByIdAndUpdate(req.params.id, { $set: { slideshows: newSlideshows } }, { new: true });
 
@@ -149,7 +149,7 @@ module.exports.deleteProduct = async (req, res) => {
   const productDeleted = await Product.findByIdAndDelete(req.params.id);
   
   if (productDeleted) {
-    rimraf.sync('uploads/img/product/' + req.params.id);
+    rimraf.sync(process.env.PRODUCT_IMG + req.params.id);
     return res.status(200).json({ msg: 'Product is deleted.' });
   } else return res.status(404).json({ msg: 'Product not found.' });
 }
