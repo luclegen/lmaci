@@ -24,5 +24,5 @@ app.use('/image', require('./routes/image.router'));
 // Error handle
 app.use((err, req, res, next) => res.status(442).send({ name: err.name, msg: Object.values(err.errors).map((e, i) => (i + 1) + '. ' + e).join(', ') + '.' }));
 
-// Start Server
+// Start server
 app.listen(process.env.PORT, () => console.log(`Server started at port: ${process.env.PORT}`));
