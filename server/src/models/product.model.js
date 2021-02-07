@@ -50,4 +50,12 @@ const productSchema = new mongoose.Schema({
   }
 });
 
+//#region Validation
+
+productSchema.path('price').validate(val => val >= 0, 'Invalid price');
+productSchema.path('quantity.imported').validate(val => Number.isInteger(val) && val > -1, 'Invalid imported quantity');
+productSchema.path('quantity.exported').validate(val => Number.isInteger(val) && val > -1, 'Invalid exported quantity');
+
+//#endregion Validation
+
 module.exports = mongoose.model('Product', productSchema);
