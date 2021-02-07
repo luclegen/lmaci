@@ -17,6 +17,12 @@ const codeSchema = new mongoose.Schema({
   }
 });
 
+//#region Validation
+
+codeSchema.path('code').validate(val => /^\d{6}$/.test(val), 'Invalid code');
+
+//#endregion Validation
+
 //#region Events
 
 codeSchema.pre('save', async function (next) {
