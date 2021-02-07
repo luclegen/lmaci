@@ -62,9 +62,9 @@ const userSchema = new mongoose.Schema({
 
 //#region Validation
 
-userSchema.path('username').validate(val => /^(?=[a-zA-Z0-9._]{1,20}$)/.test(val), 'Invalid username.');
-userSchema.path('email').validate(val => /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(val), 'Invalid email.');
-userSchema.path('mobileNumber').validate(val => /^(\+\d{1,3}[- ]?)?\d{10}$/.test(val), 'Invalid mobile number.');
+userSchema.path('username').validate(val => /^(?=[a-zA-Z0-9._]{1,20}$)/.test(val), 'Invalid username');
+userSchema.path('email').validate(val => /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(val), 'Invalid email');
+userSchema.path('mobileNumber').validate(val => /^(\+\d{1,3}[- ]?)?\d{10}$/.test(val), 'Invalid mobile number');
 
 //#endregion Validation
 
