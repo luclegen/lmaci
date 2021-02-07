@@ -30,7 +30,7 @@ module.exports.uploadSlideshow = async (req, res) => {
       const newIndexs = slideshow.imgs.map(i => i.index);
       const rmIndexs = oldIndexs.filter(i => !newIndexs.includes(i));
 
-      rmIndexs.forEach(r => rimraf.sync('uploads/img/product/' + req.params.id + '/slideshow/' + slideshow.color.replace(/#/, '') + '/' + r + '.jpeg'));
+      rmIndexs.forEach(r => rimraf.sync(process.env.PRODUCT_IMG + req.params.id + '/slideshow/' + slideshow.color.replace(/#/, '') + '/' + r + '.jpeg'));
       slideshows[index] = slideshow;
     } else slideshows.push(slideshow);
 
@@ -85,7 +85,7 @@ module.exports.deleteReview = async (req, res) => {
   if (!ObjectId.isValid(req.params.id))
     return res.status(400).json({ msg: `No record with given id: ${req.params.id}` });
 
-  rimraf.sync('uploads/img/product/' + req.params.id + '/review/' + req.body.review.index);
+  rimraf.sync(process.env.PRODUCT_IMG + req.params.id + '/review/' + req.body.review.index);
 
   const product = await Product.findByIdAndUpdate(req.params.id, { $set: { reviews: req.body.reviews } }, { new: true });
 
@@ -122,7 +122,7 @@ module.exports.deleteComment = async (req, res) => {
   if (!ObjectId.isValid(req.params.id))
     return res.status(400).json({ msg: `No record with given id: ${req.params.id}` });
 
-  rimraf.sync('uploads/img/product/' + req.params.id + '/comment/' + req.body.comment.index);
+  rimraf.sync(process.env.PRODUCT_IMG + req.params.id + '/comment/' + req.body.comment.index);
 
   const product = await Product.findByIdAndUpdate(req.params.id, { $set: { comments: req.body.comments } }, { new: true });
 
@@ -160,7 +160,7 @@ module.exports.deleteAnswer = async (req, res) => {
   if (!ObjectId.isValid(req.params.id))
     return res.status(400).json({ msg: `No record with given id: ${req.params.id}` });
 
-  rimraf.sync('uploads/img/product/' + req.params.id + '/comment/' + req.body.comment.index + '/answer/' + req.body.answer.index);
+  rimraf.sync(process.env.PRODUCT_IMG + req.params.id + '/comment/' + req.body.comment.index + '/answer/' + req.body.answer.index);
 
   const product = await Product.findByIdAndUpdate(req.params.id, { $set: { comments: req.body.comments } }, { new: true });
 
