@@ -1,7 +1,5 @@
-const express = require('express');
-const router = express.Router();
+const router = require('express').Router();
 const transfer = require('../helpers/transfer');
-
 const userCtrl = require('../controllers/user.controller');
 
 router.get('/:username', userCtrl.get);
