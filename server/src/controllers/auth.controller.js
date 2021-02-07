@@ -96,9 +96,8 @@ module.exports.resendActivate = async (req, res, next) => {
 
         try {
           setTimeout(() => cleaner.deleteCode(user._id), 5 * 60000);
-          await newCode.save();
           mailer.sendVerifyEmail(user.email, 'Verify Email', code);
-          return res.status(200).json({ msg: 'Resent Verification Code.' });
+          return await newCode.save() ? res.status(200).json({ msg: 'Resent Verification Code.' }) : res.status(404).json({ msg: 'Code not found.' });
         } catch (err) {
           next(err);
         }
