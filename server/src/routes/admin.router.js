@@ -1,5 +1,4 @@
-const express = require('express'),
-      router = express.Router();
+const router = require('express').Router();
 
 const adminCtrl = require('../controllers/admin.controller');
 const transfer = require('../helpers/transfer');
