@@ -11,7 +11,7 @@ module.exports.getImages = (imgDir, callback) => {
 
 module.exports.upload = (root, dir = '', parentdir = '') => {
   const storage = multer.diskStorage({
-    destination: (req, file, callBack) => {
+    destination: (req, file, callback) => {
       const path = [];
 
       path.push(root + '/' + (req.params.id ? req.params.id : ''));
@@ -36,10 +36,10 @@ module.exports.upload = (root, dir = '', parentdir = '') => {
 
       path.forEach(p => { if (!fs.existsSync(p)) fs.mkdirSync(p); });
       
-      callBack(null, path[path.length - 1]);
+      callback(null, path[path.length - 1]);
     },
-    filename: (req, file, callBack) => {
-      callBack(null, `${file.originalname}`);
+    filename: (req, file, callback) => {
+      callback(null, `${file.originalname}`);
     }
   });
   
