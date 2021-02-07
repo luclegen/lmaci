@@ -16,7 +16,7 @@ router.put('/search-users', adminCtrl.searchUsers);
 
 //#region Products
 router.post('/create-product', adminCtrl.createProduct);
-router.put('/upload-product-img/:id', transfer.upload('uploads/img/product').single('file'), adminCtrl.uploadProductImg);
+router.put('/upload-product-img/:id', transfer.upload(process.env.PRODUCT_IMG).single('file'), adminCtrl.uploadProductImg);
 router.get('/products', adminCtrl.getProducts);
 router.put('/update-product/:id', adminCtrl.updateProduct);
 router.delete('/delete-product/:id', adminCtrl.deleteProduct);
