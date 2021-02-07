@@ -94,7 +94,7 @@ module.exports.uploadProductImg = async (req, res) => {
   const product = await Product.findByIdAndUpdate(req.params.id, { $set: { img: img } }, { new: true });
 
   if (product) {
-    if (img.index > 0) rimraf.sync('uploads/img/product/' + req.params.id + '/' + (img.index - 1) + '.png');
+    if (img.index > 0) rimraf.sync(process.env.PRODUCT_IMG + req.params.id + '/' + (img.index - 1) + '.png');
     return res.status(200).json();
   } else return res.status(404).json({ msg: 'Upload this product image failed.' });
 }
