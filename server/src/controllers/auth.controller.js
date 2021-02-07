@@ -86,23 +86,19 @@ module.exports.resendActivate = async (req, res, next) => {
   if (user) {
     if (user.activated) return res.status(422).json({ msg: 'Email is verified.' });
     else {
+      const newCode = new Code();
+      const code = generator.getCode(6);
+
+      cleaner.deleteCode(user._id);
+      newCode._userId = user._id;
+      newCode.code = code;
+
       try {
-        const newCode = new Code();
-        const code = generator.getCode(6);
-
-        cleaner.deleteCode(user._id);
-        newCode._userId = user._id;
-        newCode.code = code;
-
-        try {
-          setTimeout(() => cleaner.deleteCode(user._id), 5 * 60000);
-          mailer.sendVerifyEmail(user.email, 'Verify Email', code);
-          return await newCode.save() ? res.status(200).json({ msg: 'Resent Verification Code.' }) : res.status(404).json({ msg: 'Code not found.' });
-        } catch (err) {
-          next(err);
-        }
+        setTimeout(() => cleaner.deleteCode(user._id), 5 * 60000);
+        mailer.sendVerifyEmail(user.email, 'Verify Email', code);
+        return await newCode.save() ? res.status(200).json({ msg: 'Resent Verification Code.' }) : res.status(404).json({ msg: 'Code not found.' });
       } catch (err) {
-        return res.status(400).json(err);
+        next(err);
       }
     }
   } else return res.status(404).json({ msg: 'User not found.' });
