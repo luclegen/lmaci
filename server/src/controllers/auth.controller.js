@@ -145,7 +145,7 @@ module.exports.resendVerifyResetPassword = async (req, res) => {
       mailer.sendVerifyEmail(user.email, 'Verify Reset Password', code);
       return await newCode.save() ? res.status(200).json({ msg: 'Resent Verification Code.' }) : res.status(404).json({ msg: 'Code not found.' });
     } catch (err) {
-      console.log('ERROR: User code: ' + JSON.stringify(err, undefined, 2));
+      next(err);
     }
   } else return res.status(404).json({ msg: 'User not found.' });
 }
