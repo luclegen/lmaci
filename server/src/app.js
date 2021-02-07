@@ -27,13 +27,7 @@ app.use('/products', require('./routes/products.router'));
 app.use('/image', require('./routes/image.router'));
 
 // Error handle
-app.use((err, req, res, next) => {
-  if (err.name === 'ValidationError') {
-    let valErrors = [];
-    Object.keys(err.errors).forEach(key => valErrors.push(err.errors[key].message));
-    res.status(442).send(valErrors);
-  }
-});
+app.use((err, req, res, next) => err.name === 'ValidationError' ? res.status(442).send(Object.keys(err.errors).map(key => err.errors[key].message)) : 'Invaild request!');
 
 // Start Server
 app.listen(process.env.PORT, () => console.log(`Server started at port: ${process.env.PORT}`));
