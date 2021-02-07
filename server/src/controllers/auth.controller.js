@@ -129,12 +129,12 @@ module.exports.findUsername = async (req, res) => {
               : res.status(404).json({ msg: 'User is not found.' });
 }
 
-module.exports.resendVerifyResetPassword = async (req, res) => {
+module.exports.resendVerifyResetPassword = async (req, res, next) => {
   const user = await User.findOne({ username: req.params.username, activated: true });
 
   if (user) {
-    const newCode = new Code();
     const code = generator.getCode(6);
+    const newCode = new Code();
 
     cleaner.deleteCode(user._id);
     newCode._userId = user._id;
