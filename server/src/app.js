@@ -1,5 +1,5 @@
-// Configuration
-require('./configs/config');
+// Environment Variables
+require('dotenv').config();
 
 // Database
 require('./db/db');
@@ -25,4 +25,4 @@ app.use('/image', require('./routes/image.router'));
 app.use((err, req, res, next) => res.status(442).send({ name: err.name, msg: Object.values(err.errors).map((e, i) => (i + 1) + '. ' + e).join(', ') + '.' }));
 
 // Start server
-app.listen(process.env.PORT, () => console.log(`Server started at port: ${process.env.PORT}`));
+app.listen(process.env.PORT || 3000, () => console.log(`Server started at port: ${process.env.PORT || 3000}`));
