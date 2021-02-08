@@ -22,7 +22,7 @@ app.use('/products', require('./routes/products.router'));
 app.use('/image', require('./routes/image.router'));
 
 // Error handle
-app.use((err, req, res, next) => res.status(442).send(err.name == 'ValidationError' ? { msg: Object.values(err.errors).map((e, i) => (i + 1) + '. ' + e).join(', ') + '!' } : { error: err }));
+app.use((err, req, res, next) => res.status(442).send(err.name == 'ValidationError' ? { msg: Object.values(err.errors).map((e, i) => (i + 1) + '. ' + e).join(', ') + '!' } : { error: err, msg: 'Unknown error!' }));
 
 // Start server
 app.listen(process.env.PORT || 3000, () => console.log(`Server started at port: ${process.env.PORT || 3000}`));
