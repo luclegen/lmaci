@@ -18,7 +18,7 @@ module.exports.get = (req, res) => {
         console.log(err);
         res.end('No such image');    
       } else {
-        res.writeHead(200,{ 'Content-type':'image' });
+        res.writeHead(200, { 'Content-type':'image' });
         res.end(content);
       }
     });
