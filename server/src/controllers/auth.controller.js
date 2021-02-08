@@ -170,7 +170,7 @@ module.exports.resetPassword = async (req, res) => {
   } else return res.status(404).json({ msg: 'User not found.' });
 }
 
-module.exports.changePassword = async (req, res) => {
+module.exports.changePassword = async (req, res, next) => {
   if (!ObjectId.isValid(req.params.id))
     return res.status(400).json({ msg: `No record with given id: ${req.params.id}` });
   
@@ -179,11 +179,12 @@ module.exports.changePassword = async (req, res) => {
   if (user) {
     if (user.verified(req.body.password)) {
       user.password = req.body.newPassword;
-      
-      user.save(err => {
-        return err ? res.status(400).json({ msg: 'Change Password is failded.' })
-                   : res.status(200).json({ msg: 'Change Password is successfully.' });
-      });
+
+      try {
+        return await user.save() ? res.status(200).json({ msg: 'Change Password is successfully.' }) : res.status(400).json({ msg: 'Change Password is failded.' });
+      } catch (err) {
+        next(err);
+      }
     } else return res.status(403).json({ msg: 'Wrong password.' });
   } else return res.status(404).json({ msg: 'User not found.' });
 }
