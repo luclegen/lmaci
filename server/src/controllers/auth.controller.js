@@ -9,6 +9,7 @@ const cleaner = require('../helpers/cleaner');
 
 const User = require('../models/user.model');
 const Code = require('../models/code.model');
+const e = require('express');
 
 module.exports.register = async (req, res, next) => {
   const user = new User();
@@ -150,7 +151,7 @@ module.exports.resendVerifyResetPassword = async (req, res, next) => {
   } else return res.status(404).json({ msg: 'User not found.' });
 }
 
-module.exports.resetPassword = async (req, res) => {
+module.exports.resetPassword = async (req, res, next) => {
   const user = await User.findOne({ username: req.params.username, activated: true });
   if (user) {
     const code = await Code.findOne({ _userId: user._id });
@@ -160,11 +161,12 @@ module.exports.resetPassword = async (req, res) => {
       else if (code.verified(req.body.code)) {
         user.password = req.body.password;
 
-        user.save(err => {
-          if (err) return res.status(400).json({ msg: 'Update is error.' });
-          else return cleaner.deleteCode(user._id) ? res.status(200).json({ msg: 'Reset Password is successfully.' })
-                                                     : res.status(400).json({ msg: 'Clean your code is failed.' });
-        });
+        try {
+          return await user.save() ? cleaner.deleteCode(user._id) ? res.status(200).json({ msg: 'Reset Password is successfully.' }) : res.status(400).json({ msg: 'Clean your code is failed.' })
+                                   : res.status(404).json({ msg: 'User not found.' });
+        } catch (err) {
+          next(err);
+        }
       } else return res.status(403).json({ msg: 'Verification Code is wrong.' });
     } else return res.status(404).json({ msg: 'Code not found.' });
   } else return res.status(404).json({ msg: 'User not found.' });
