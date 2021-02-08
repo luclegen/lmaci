@@ -111,13 +111,10 @@ export class RegisterComponent implements OnInit {
       this.authService.register(form.value).subscribe(
         res => {
           this.showSuccessMessages = true;
-          setTimeout(() => this.showSuccessMessages = false, 4000);
+          setTimeout(() => this.showSuccessMessages = false, 3000);
           form.resetForm();
         },
-        err => {
-          this.serverErrorMessages = err.status === 422 ? err.error.join('<br/>') 
-                                                        : 'Something went wrong. Please contact admin.';
-        }
+        err => this.serverErrorMessages = err.status === 422 ? err.error.msg : 'Something went wrong. Please contact admin.'
       );
     }
   }
