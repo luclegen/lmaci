@@ -34,7 +34,7 @@ module.exports.register = async (req, res, next) => {
   try {
     return res.send(await user.save());
   } catch (err) {
-    return err.code === 11000 ? res.status(422).send([ 'Username is duplicate. Please try again!' ])
+    return err.code === 11000 ? res.status(422).send({ msg: 'Username is duplicate. Please try again!' })
                               : next(err);
   }
 }
