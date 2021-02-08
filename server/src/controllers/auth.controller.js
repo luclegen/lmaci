@@ -66,10 +66,8 @@ module.exports.activate = async (req, res) => {
           if (result.n) {
             const result1 = await User.findByIdAndUpdate(user._id, { $set: userActivated }, { new: true });
 
-            if (result1) {
-              return cleaner.deleteCode(user._id) ? res.status(200).json({ msg: 'Activate your account is successfully.' })
-                                                    : res.status(400).json({ msg: 'Clean your code is failed.' });
-            } else return res.status(404).json({ msg: 'User Verified isn\'t found.' });
+            return result1 ? cleaner.deleteCode(user._id) ? res.status(200).json({ msg: 'Activate your account is successfully.' }) : res.status(400).json({ msg: 'Clean your code is failed.' })
+                           : res.status(404).json({ msg: 'User Verified isn\'t found.' });
           }
         }
         else return res.status(403).json({ msg: 'Verification Code is wrong.' });
