@@ -2,7 +2,7 @@
 require('dotenv').config();
 
 // Database
-require('./db/db');
+require('./db/mongodb');
 
 // Initialization
 const app = require('express')();
