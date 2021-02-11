@@ -159,7 +159,6 @@ div
     position: relative
     width: 50px
     height: 50px
-    cursor: pointer
     user-select: none
     border-radius: 50%
 
@@ -168,6 +167,7 @@ div
 
       &:checked ~ .checkmark
         border: 2px solid black
+        cursor: auto
 
     &:hover
       
@@ -175,9 +175,11 @@ div
 
         & ~ .checkmark
           border: 2px solid lime
+          cursor: pointer
 
         &:checked ~ .checkmark
           border: 2px solid black
+          cursor: auto
 
   &.property-container
     margin-top: 10px
