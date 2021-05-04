@@ -13,7 +13,7 @@ npm i -s dotenv ngx-image-cropper multer ngx-image-zoom @syncfusion/ej2-angular-
 # Run client:
 kill -9 $(lsof -t -i:4200); clear; ng s
 
-# II. NODEJS SERVER
+# II. EXPRESSJS SERVER
 
 mkdir server; cd server; npm init
 npm i -s express mongoose body-parser bcryptjs cors jsonwebtoken passport passport-local lodash nodemailer rimraf
