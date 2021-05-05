@@ -16,7 +16,7 @@ kill -9 $(lsof -t -i:4200); clear; ng s
 # II. EXPRESSJS SERVER
 
 mkdir server; cd server; npm init
-npm i -s express mongoose body-parser bcryptjs cors jsonwebtoken passport passport-local lodash nodemailer rimraf
+npm i -s dotenv mongoose express body-parser bcryptjs cors jsonwebtoken passport passport-local lodash nodemailer rimraf
 clear; nodemon
 
 # Optional
