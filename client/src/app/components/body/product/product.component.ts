@@ -60,7 +60,7 @@ export class ProductComponent implements OnInit {
   //#endregion Star
 
   //#region Authentication
-  
+
   userDetails;
 
   id = '';
@@ -72,7 +72,7 @@ export class ProductComponent implements OnInit {
 
   product = {
     _id: '',
-    img: { index: -1, path: ''},
+    img: { index: -1, path: '' },
     name: '',
     status: '',
     price: 0,
@@ -189,27 +189,27 @@ export class ProductComponent implements OnInit {
   //#region Post Editor
 
   public imageSettings = {
-    saveUrl : 'https://aspnetmvc.syncfusion.com/services/api/uploadbox/Save'
+    saveUrl: 'https://aspnetmvc.syncfusion.com/services/api/uploadbox/Save'
   };
 
   public tools: object = {
     type: 'MultiRow',
     items: ['Bold', 'Italic', 'Underline', 'StrikeThrough',
-    'FontName', 'FontSize', 'FontColor', 'BackgroundColor',
-    'LowerCase', 'UpperCase', '|',
-    'Formats', 'Alignments', 'OrderedList', 'UnorderedList',
-    'Outdent', 'Indent', '|',
-    'CreateLink', 'RemoveLink', 'Image', 'CreateTable', '|', 'ClearFormat', 'Print',
-    'SourceCode', 'FullScreen', '|', 'Undo', 'Redo']
+      'FontName', 'FontSize', 'FontColor', 'BackgroundColor',
+      'LowerCase', 'UpperCase', '|',
+      'Formats', 'Alignments', 'OrderedList', 'UnorderedList',
+      'Outdent', 'Indent', '|',
+      'CreateLink', 'RemoveLink', 'Image', 'CreateTable', '|', 'ClearFormat', 'Print',
+      'SourceCode', 'FullScreen', '|', 'Undo', 'Redo']
   };
 
   //#endregion Post Editor
-  
+
   //#region Reviews
 
   reviews;
   indexStar;
-  
+
   //#endregion Reviews
 
   //#region Comments
@@ -233,13 +233,13 @@ export class ProductComponent implements OnInit {
   }
 
   constructor(private viewportRuler: ViewportRuler,
-              private route: ActivatedRoute,
-              private titleService: Title,
-              private productService: ProductService,
-              private userService: UserService,
-              private router: Router,
-              public authService: AuthService,
-              public helperService: HelperService) {
+    private route: ActivatedRoute,
+    private titleService: Title,
+    private productService: ProductService,
+    private userService: UserService,
+    private router: Router,
+    public authService: AuthService,
+    public helperService: HelperService) {
     this.target = null;
     this.source = null;
   }
@@ -350,7 +350,7 @@ export class ProductComponent implements OnInit {
 
     setTimeout(() => prevBtn.style.top = nextBtn.style.top = ((containerHeight - btnHeight) * 0.5 + (document.querySelector('.top-container') as HTMLElement).clientHeight + 80) + 'px');
     prevBtn.style.left = (ww * 0.1 + containerWidth * 0.03) + 'px';
-    nextBtn.style.left = (ww * 0.1 + containerWidth - btnWidth - containerWidth * 0.03) + 'px';   
+    nextBtn.style.left = (ww * 0.1 + containerWidth - btnWidth - containerWidth * 0.03) + 'px';
   }
 
   getSlideshow(type = '.slideshow') {
@@ -425,13 +425,13 @@ export class ProductComponent implements OnInit {
       this.asideSlideshow.event = event;
 
       const imgsBar = event.target.closest('span.imgs-bar');
-      const boxs = Array.from(imgsBar.children);
+      const boxes = Array.from(imgsBar.children);
       const targetBox = event.target.closest('span');
 
       if (!targetBox) return;
-      const targetIndex = boxs.findIndex(box => box == targetBox);
+      const targetIndex = boxes.findIndex(box => box == targetBox);
       if (targetIndex < 0) return;
-      
+
       this.asideSlideshow.index = targetIndex;
       this.asideSlideshow.stars = Object(msg).stars;
       this.asideSlideshow.content = Object(msg).content;
@@ -469,7 +469,7 @@ export class ProductComponent implements OnInit {
       closeBtn.style.height = closeBtn.clientWidth + 'px';
       carousel.style.height = '90%';
 
-      this.getSlideshow(type).size = type == '.slideshow' ? Math.round(carousel.clientHeight * 4/3) : ww * 0.6;
+      this.getSlideshow(type).size = type == '.slideshow' ? Math.round(carousel.clientHeight * 4 / 3) : ww * 0.6;
 
       carousel.style.width = this.getSlideshow(type).size + 'px';
 
@@ -484,7 +484,7 @@ export class ProductComponent implements OnInit {
       gallery.style.width = (type == '.slideshow' ? 100 : 60) + 'vw';
       gallery.style.height = (wh - carousel.clientHeight - 5) + 'px';
       track.style.height = (wh - carousel.clientHeight - 15) + 'px';
-      this.getSlideshow(type).frameSize = Math.round(track.clientHeight * 4/3);
+      this.getSlideshow(type).frameSize = Math.round(track.clientHeight * 4 / 3);
       for (let i = 0; i < imgs.length; i++) { imgs[i].style.width = this.getSlideshow(type).frameSize + 'px'; if (i > 0 && i < imgs.length - 1) imgs[i].style.marginRight = '1px'; }
       gallery.style.justifyContent = track.clientWidth < ww * (type == '.slideshow' ? 1 : 0.6) ? 'center' : 'left';
       track.style.transform = 'translateX(' + (-this.getSlideshow(type).frameSize * (track.clientWidth < ww * (type == '.slideshow' ? 1 : 0.6) ? 0.5 : 1)) + 'px)';
@@ -546,7 +546,7 @@ export class ProductComponent implements OnInit {
 
     if (grid) {
       const num = Math.floor(grid.clientWidth / 60);
-      
+
       let val = '';
 
       for (let i = 0; i < num; i++) val += 'auto' + (i < num - 1 ? ' ' : '');
@@ -622,7 +622,7 @@ export class ProductComponent implements OnInit {
         }
 
         slideshow.imgs.push(img);
-        if (isBase64) files.push(new File([ this.helperService.base64ToBlob(path, 'jpeg') ], img.index + '.jpeg', { type: 'image/jpeg' }));
+        if (isBase64) files.push(new File([this.helperService.base64ToBlob(path, 'jpeg')], img.index + '.jpeg', { type: 'image/jpeg' }));
       });
 
       this.productService.uploadSlideshow(this.id, slideshow, files).subscribe(
@@ -701,7 +701,7 @@ export class ProductComponent implements OnInit {
     setTimeout(() => {
       if (this.placeholder) {
         let phElement = this.placeholder.element.nativeElement;
-  
+
         phElement.style.display = 'none';
         phElement.parentElement.removeChild(phElement);
       }
@@ -762,7 +762,7 @@ export class ProductComponent implements OnInit {
     this.placeholder.enter(drag, drag.element.nativeElement.offsetLeft, drag.element.nativeElement.offsetTop);
     return false;
   }
-  
+
   getPointerPositionOnPage(event: MouseEvent | TouchEvent) {
     const point = __isTouchEvent(event) ? (event.touches[0] || event.changedTouches[0]) : event;
     const scrollPosition = this.viewportRuler.getViewportScrollPosition();
@@ -794,7 +794,7 @@ export class ProductComponent implements OnInit {
           this.productService.getProduct(this.id).subscribe(
             res => {
               this.product = res['product'];
-      
+
               this.ngOnInit();
             }, err => alert(err.error.msg)
           );
@@ -818,12 +818,12 @@ export class ProductComponent implements OnInit {
 
   tickStar(s) {
     this.review.star = s;
-    
+
     this.reloadStar(s);
   }
 
   previewStar(s) {
-    const rating = [ 'Poor', 'Fair', 'Good', 'Very Good', 'Excellent' ];
+    const rating = ['Poor', 'Fair', 'Good', 'Very Good', 'Excellent'];
     const ratingMsg = document.getElementById('rating-msg') as HTMLElement;
 
     ratingMsg.innerHTML = rating[s - 1];
@@ -833,7 +833,7 @@ export class ProductComponent implements OnInit {
   }
 
   resetStar() {
-    const rating = [ 'Poor', 'Fair', 'Good', 'Very Good', 'Excellent' ];
+    const rating = ['Poor', 'Fair', 'Good', 'Very Good', 'Excellent'];
     const ratingMsg = document.getElementById('rating-msg') as HTMLElement;
 
     if (this.review.star) ratingMsg.innerHTML = rating[this.review.star - 1];
@@ -874,7 +874,7 @@ export class ProductComponent implements OnInit {
         this.productService.getProduct(this.id).subscribe(
           res => {
             this.product = res['product'];
-            
+
             this.review.index = this.product.reviews.length ? this.product.reviews[this.product.reviews.length - 1].index + 1 : 0;
 
             this.productService.sendReview(this.id, this.review, this.review.files).subscribe(
@@ -972,7 +972,7 @@ export class ProductComponent implements OnInit {
         this.productService.getProduct(this.id).subscribe(
           res => {
             this.product = res['product'];
-            
+
             this.comment.index = this.product.comments.length ? this.product.comments[this.product.comments.length - 1].index + 1 : 0;
 
             this.productService.sendComment(this.id, this.comment, this.comment.files).subscribe(
@@ -1024,7 +1024,7 @@ export class ProductComponent implements OnInit {
       }
     }
   }
-  
+
   deleteCommentImg(event: any) {
     const targetBtn = event.target.closest('button');
     const reviewImgsBarBtn = document.querySelectorAll('.cmt-imgs-bar button') as NodeListOf<HTMLElement>;
@@ -1044,7 +1044,7 @@ export class ProductComponent implements OnInit {
     if (confirm('Are you sure delete: ' + JSON.stringify(c) + '?')) {
       this.comments.splice(this.comments.indexOf(c), 1);
       this.productService.deleteComment(this.id, c, this.comments).subscribe(res => alert(res['msg']), err => alert(err.error.msg));
-      
+
       this.ngOnInit();
     }
   }
@@ -1071,7 +1071,7 @@ export class ProductComponent implements OnInit {
       this.productService.getProduct(this.id).subscribe(
         res => {
           this.product = res['product'];
-          
+
           this.answer.index = this.comments.length && this.comments[this.comments.indexOf(comment)].answers && this.comments[this.comments.indexOf(comment)].answers.length ? this.comments[this.comments.indexOf(comment)].answers[this.comments[this.comments.indexOf(comment)].answers.length - 1].index + 1 : 0;
 
           this.productService.sendAnswer(this.id, comment, this.answer, this.answer.files).subscribe(
@@ -1102,7 +1102,7 @@ export class ProductComponent implements OnInit {
   reply(cmt: Object) {
     this.indexAnswer = Object(cmt).index;
   }
-  
+
   enterReplyCamera() {
     const replyCamera = document.getElementById('reply-camera') as HTMLElement;
 
@@ -1135,7 +1135,7 @@ export class ProductComponent implements OnInit {
     const btns = Array.from(replyImgsBarBtn);
 
     if (!targetBtn) return;
-    
+
     const targetIndex = btns.findIndex(i => i == targetBtn);
 
     if (confirm('Are you sure delete: Image ' + (targetIndex + 1) + '?')) {
@@ -1148,7 +1148,7 @@ export class ProductComponent implements OnInit {
     if (confirm('Are you sure delete: ' + JSON.stringify(a) + '?')) {
       this.comments[this.comments.indexOf(c)].answers.splice(this.comments[this.comments.indexOf(c)].answers.indexOf(a), 1);
       this.productService.deleteAnswer(this.id, this.comments, c, a).subscribe(res => alert(res['msg']), err => alert(err.error.msg));
-      
+
       this.ngOnInit();
     }
   }
@@ -1161,11 +1161,11 @@ export class ProductComponent implements OnInit {
 
 const __indexOf = (collection, node) => Array.prototype.indexOf.call(collection, node);
 
-const __isTouchEvent = (event: MouseEvent | TouchEvent): event is TouchEvent =>  event.type.startsWith('touch');
+const __isTouchEvent = (event: MouseEvent | TouchEvent): event is TouchEvent => event.type.startsWith('touch');
 
 const __isInsideDropListClientRect = (dropList: CdkDropList, x: number, y: number) => {
   const { top, bottom, left, right } = dropList.element.nativeElement.getBoundingClientRect();
-  return y >= top && y <= bottom && x >= left && x <= right; 
+  return y >= top && y <= bottom && x >= left && x <= right;
 }
 
 //#endregion Helpers
